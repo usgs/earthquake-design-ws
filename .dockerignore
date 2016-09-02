@@ -1,0 +1,10 @@
+.dockerignore
+.editorconfig
+.eslintrc.json
+.git
+.gitattributes
+.gitignore
+Dockerfile
+test
+node_modules
+src/conf/config.json
