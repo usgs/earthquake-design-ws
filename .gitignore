@@ -1,6 +1,5 @@
 .DS_Store
 node_modules
 *.sublime-workspace
-src/conf/config.json
 coverage
 npm-debug.log
