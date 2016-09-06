@@ -1,6 +1,6 @@
 ## Docker file to build app as container
 
-FROM debian:latest
+FROM debian:jessie
 MAINTAINER "Eric Martinez" <emartinez@usgs.gov>
 LABEL dockerfile_version="v0.1.0"
 

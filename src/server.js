@@ -2,7 +2,7 @@
 
 var extend = require('extend'),
     fs = require('fs'),
-    HydraWebService = require('./WebService');
+    WebService = require('./lib/web-service');
 
 
 var config,
@@ -12,16 +12,20 @@ var config,
 
 configPath = 'src/conf/config.json';
 
-if (!fs.existsSync(configPath)) {
+if (fs.existsSync(configPath)) {
+  config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
+} else {
   process.stderr.write('Application configuration not found,' +
-      ' run "node src/lib/pre-install"\n');
-  process.exit(1);
+      ' recommend running "node configurer/configure.js"\n');
+
+  config = {
+    MOUNT_PATH: '',
+    PORT: 8000
+  };
 }
 
-config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-
-// allow environment variables to override configuration, mostly for docker
 config = extend(config, process.env);
 
-service = HydraWebService(config);
+
+service = WebService(config);
 service.start();
