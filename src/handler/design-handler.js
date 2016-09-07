@@ -84,7 +84,7 @@ var DesignHandler = function (options) {
 
     if (buf.length > 0) {
       err = new Error('Missing required parameter' +
-          (buf.length > 1 ? 's' : '') + buf.join(', '));
+          (buf.length > 1 ? 's' : '') + ': ' + buf.join(', '));
       err.status = 400;
       return Promise.reject(err);
     }
