@@ -1,8 +1,5 @@
 'use strict';
 
-var designFactory = require('design-factory');
-    express = require('express');
-
 
 /**
  * Handler for earthquake design web service validates parameters and calls
@@ -26,7 +23,7 @@ var DesignHandler = function (options) {
   _initialize = function (options) {
     options = options || {};
 
-    _this.designFactory = options.designFactory || designFactory();
+    _this.designFactory = options.designFactory;
   };
 
 
@@ -101,7 +98,7 @@ var DesignHandler = function (options) {
   _this.destroy = function () {
     if (_this === null) {
       return;
-    };
+    }
 
     _initialize = null;
     _this = null;
