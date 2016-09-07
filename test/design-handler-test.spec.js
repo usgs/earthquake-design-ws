@@ -7,15 +7,15 @@ var DesignHandler = require('../src/handler/design-handler'),
 
 
 var designFactory,
-    validParams;
+    input;
 
 designFactory = {
   getDesignData: () => {
-    return Promise.resolve(validParams);
+    return Promise.resolve(input);
   }
 };
 
-validParams = {
+input = {
   'title': 'This is a title',
   'latitude': 30,
   'longitude': 80,
@@ -52,7 +52,7 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({DesignFactory: designFactory});
+      designHandler = DesignHandler({designFactory: designFactory});
     });
 
     it('returns error if parameters are missing', (done) => {
@@ -73,7 +73,7 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({DesignFactory: designFactory});
+      designHandler = DesignHandler({designFactory: designFactory});
     });
 
     it('calls checkParams method', () => {
@@ -90,16 +90,16 @@ describe('design-handler-test', () => {
       expect(result).to.be.an.instanceof(Promise);
     });
 
-    it('returns an object with data', () => {
+    it('returns an object with data', (done) => {
       sinon.stub(designHandler, 'checkParams', () => {
         return Promise.resolve({});
       });
 
       designHandler.get({}).then((params) => {
-        expect(params).to.deep.equal(validParams);
+        expect(params).to.deep.equal(input);
       }).catch((err) => {
         return err;
-      });
+      }).then(done);
     });
   });
 });
