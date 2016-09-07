@@ -35,7 +35,7 @@ var DesignHandler = function (options) {
    *
    * @param {Promise<array, Error>}
    *    A promise resolving with an array of missing parameter(s) and error or
-   *    resolves with params if all values pass checkes.
+   *    resolves with params if all values pass checks.
    */
   _this.checkParams = function (params) {
     var buf,
