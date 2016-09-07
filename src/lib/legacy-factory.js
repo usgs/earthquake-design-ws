@@ -1,53 +1,30 @@
 'use strict';
 
 var extend = require('extend'),
-    Xhr = require('xhr');
+    http = require('http'),
+    url = require('url');
 
 var _DEFAULTS = {
   url: 'https://earthquake.usgs.gov/designmaps/beta/us/service/'
 };
 
 
-var LegacyFactory = function () {
+var LegacyFactory = function (options) {
   var _this,
-      _initialize,
-
-      _options;
+      _initialize;
 
   _this = {};
 
   _initialize = function (options) {
-    _options = extend({}, _DEFAULTS, options);
-  };
+    var params;
 
-  /**
-   * Free references.
-   */
-  _this.destroy = function () {
-    _initialize = null;
-    _this = null;
-  };
-
-  /**
-   * [getLegacyData description]
-   * @param  {[type]} inputs [description]
-   * @return {[type]}        [description]
-   */
-  _this.getLegacyData = function (inputs) {
-    var options,
-        params;
-
-    // cleanse inputs to use legacy format
-    params = _this.cleanseInputs(inputs);
+    options = extend({}, _DEFAULTS, options);
 
     // query legacy web service
-    options = extend({}, _DEFAULTS, _options, {'data': params});
-
-    // return promise with interpolated data
-    return Xhr.ajax(options).then(function (result) {
-      // perform bi-linear spatial interpolation
-      return _this.interpolate(result[0]);
-    });
+    params = url.parse(options.url);
+    _this.hostname = params.hostname;
+    _this.port = params.port;
+    _this.path = params.pathname;
   };
 
   /**
@@ -69,12 +46,47 @@ var LegacyFactory = function () {
       longitude: inputs.longitude,
       risk_category: inputs.riskCategory,
       site_class: inputs.siteClass,
-      title: inputs.title,
+      title: inputs.title
     };
 
     return params;
   };
 
+  /**
+   * Free references.
+   */
+  _this.destroy = function () {
+    _initialize = null;
+    _this = null;
+  };
+
+  /**
+   * Formats the input/metadata as well as the spatially interpolated results
+   *
+   * @param  {[type]} data [description]
+   * @return {[type]}      [description]
+   */
+  _this.formatOutput = function () {
+    // TODO
+  };
+
+  /**
+   * [getLegacyData description]
+   * @param  {[type]} inputs [description]
+   * @return {[type]}        [description]
+   */
+  _this.getLegacyData = function (inputs) {
+    var params;
+
+    // cleanse inputs to use legacy format
+    params = _this.cleanseInputs(inputs);
+
+    // return promise with interpolated data
+    return _this.makeRequest(params).then(function (result) {
+      // perform bi-linear spatial interpolation
+      return _this.formatOutput(_this.interpolate(result));
+    });
+  };
     /**
    * Checks for 1, 2, or 4 data points to interpolate any other number of points
    * will throw an error.
@@ -222,6 +234,57 @@ var LegacyFactory = function () {
       value = y0 + (((y1-y0)/(x1-x0))*(x-x0));
     }
     return value;
+  };
+
+  _this.makeRequest = function (inputs) {
+    return new Promise((resolve, reject) => {
+      var options,
+          request;
+
+      options = {
+        'hostname': _this.hostname,
+        'port': _this.port,
+        'path': _this.pathname + '?' + _this.urlEncode(inputs)
+      };
+
+      request = http.request(options, (response) => {
+        var buffer;
+
+        buffer = [];
+
+        response.on('data', (data) => {
+          buffer.push(data);
+        });
+
+        response.on('end', () => {
+          try {
+            resolve(JSON.parse(buffer.join('')));
+          } catch (e) {
+            reject(e);
+          }
+        });
+      });
+
+      request.on('error', (err) => {
+        reject(err);
+      });
+
+      request.end();
+    });
+  };
+
+  /**
+   * URL encode an object.
+   *
+   * @param obj {Object}
+   *      object to encode
+   *
+   * @return {String}
+   *      url encoded object
+   */
+  _this.urlEncode = function (obj) {
+    return obj.design_code + '/' + obj.site_class + '/' + obj.risk_category +
+        '/' + obj.longitude + '/' + obj.latitude + '/' + obj.title;
   };
 
 
