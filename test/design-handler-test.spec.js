@@ -1,28 +1,29 @@
-/* global describe, it */
+/* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var DesignHandler = require('../../src/handler/design-handler'),
+var DesignHandler = require('../src/handler/design-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
-var validParams = {
-  "title": 'This is a title',
-  "latitude": 30,
-  "longitude": 80,
-  "referenceDocument": 'Building code',
-  "siteClass": 'site class B',
-  "riskCategory": 3
+var designFactory,
+    validParams;
+
+designFactory = {
+  getDesignData: () => {
+    return Promise.resolve(validParams);
+  }
 };
 
-var invalidaParams = {
-  "title": null,
-  "latitude": null,
-  "longitude": ,
-  "referenceDocument": null,
-  "siteClass": null,
-  "riskCategory": null
+validParams = {
+  'title': 'This is a title',
+  'latitude': 30,
+  'longitude': 80,
+  'referenceDocument': 'Building code',
+  'siteClass': 'site class B',
+  'riskCategory': 3
 };
+
 
 describe('design-handler-test', () => {
   describe('constructor', () => {
@@ -39,7 +40,66 @@ describe('design-handler-test', () => {
 
       designHandler = DesignHandler();
 
-      expect(handler.destroy).to.not.throw(Error);
+      expect(designHandler.destroy).to.not.throw(Error);
     });
   });
-};
+
+  describe('checkParams', () => {
+    var designHandler;
+
+    afterEach(() => {
+      designHandler.destroy();
+    });
+
+    beforeEach(() => {
+      designHandler = DesignHandler({DesignFactory: designFactory});
+    });
+
+    it('returns error if parameters are missing', (done) => {
+      designHandler.checkParams({}).then(() => {
+        return new Error('checkParams passed');
+      }).catch((err) => {
+        expect(err).to.be.an.instanceof(Error);
+        expect(err.status).to.equal(400);
+      }).then(done);
+    });
+  });
+
+  describe('get', () => {
+    var designHandler;
+
+    afterEach(() => {
+      designHandler.destroy();
+    });
+
+    beforeEach(() => {
+      designHandler = DesignHandler({DesignFactory: designFactory});
+    });
+
+    it('calls checkParams method', () => {
+      sinon.stub(designHandler, 'checkParams', () => {
+        return Promise.resolve({});
+      });
+    });
+
+    it('returns a promise', () => {
+      var result;
+
+      result = designHandler.get({});
+
+      expect(result).to.be.an.instanceof(Promise);
+    });
+
+    it('returns an object with data', () => {
+      sinon.stub(designHandler, 'checkParams', () => {
+        return Promise.resolve({});
+      });
+
+      designHandler.get({}).then((params) => {
+        expect(params).to.deep.equal(validParams);
+      }).catch((err) => {
+        return err;
+      });
+    });
+  });
+});
