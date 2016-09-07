@@ -1,7 +1,8 @@
 'use strict';
 
 
-var express = require('express'),
+var DesignHandler = require('../handler/design-handler'),
+    express = require('express'),
     extend = require('extend');
 
 
@@ -48,11 +49,15 @@ var WebService = function (options) {
 
     // Setup handler and pass in factory
     _handlers = {
+      'design.json': _this.createDesignHandler
       // TODO :: Add each service end point handler here
       // 'example.json': _this.createExampleHandler
     };
   };
 
+  _this.createDesignHandler = function () {
+    return DesignHandler({});
+  };
 
   /**
    * Frees resources associated with service.
