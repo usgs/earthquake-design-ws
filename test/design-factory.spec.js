@@ -17,7 +17,7 @@ _DUMMY_FACTORY = {
   getRiskCoefficients: () => { return Promise.resolve({}); }
 };
 
-_EPSILON = 1E-14;
+_EPSILON = Number.EPSILON;
 
 
 describe('DesignFactory', () => {
@@ -179,7 +179,22 @@ describe('DesignFactory', () => {
     });
   });
 
-  // TODO :: computeGroundMotion
+  describe('computeGroundMotion', () => {
+    it('returns expected results', () => {
+      var factory;
+
+      factory = DesignFactory();
+
+      expect(factory.computeGroundMotion(0, 1)).to.equal(0);
+      expect(factory.computeGroundMotion(1, 2)).to.equal(1);
+      expect(factory.computeGroundMotion(2, 1)).to.equal(1);
+      expect(factory.computeGroundMotion(1, 0)).to.equal(0);
+
+      factory.destroy();
+    });
+  });
+
+
   // TODO :: computeSiteModififedValue
   // TODO :: computeUniformHazard
   // TODO :: computeUniformRisk

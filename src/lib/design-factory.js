@@ -194,6 +194,18 @@ var DesignFactory = function (options) {
     });
   };
 
+  /**
+   * Computes the site-independent (i.e. default soil condition B/C)
+   * ground motions for purposes of design.
+   *
+   * @param probabilistic {Double}
+   *     The probabilistic ground motion
+   * @param deterministic {Double}
+   *     The deterministic ground motion
+   *
+   * @return {Double}
+   *     The site-independent ground motion for purposes of design
+   */
   _this.computeGroundMotion = function (probabilistic, deterministic) {
     return Math.min(probabilistic, deterministic);
   };
