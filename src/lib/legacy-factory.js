@@ -61,16 +61,6 @@ var LegacyFactory = function (options) {
   };
 
   /**
-   * Formats the input/metadata as well as the spatially interpolated results
-   *
-   * @param  {[type]} data [description]
-   * @return {[type]}      [description]
-   */
-  _this.formatOutput = function () {
-    // TODO
-  };
-
-  /**
    * [getLegacyData description]
    * @param  {[type]} inputs [description]
    * @return {[type]}        [description]
@@ -84,7 +74,7 @@ var LegacyFactory = function (options) {
     // return promise with interpolated data
     return _this.makeRequest(params).then(function (result) {
       // perform bi-linear spatial interpolation
-      return _this.formatOutput(_this.interpolate(result));
+      return _this.interpolate(result);
     });
   };
     /**
