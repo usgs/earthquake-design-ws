@@ -54,15 +54,8 @@ var DesignFactory = function (options) {
       var basicDesign,
           deterministic,
           metadata,
-          pgad,
           probabilistic,
-          riskCoefficients,
-          s1d,
-          s1uh,
-          s1ur,
-          ssd,
-          ssuh,
-          ssur;
+          riskCoefficients;
 
       basicDesign = {
         ss: null,
@@ -77,26 +70,31 @@ var DesignFactory = function (options) {
         deterministic = data.deterministic;
 
         // Compute Ss
-        ssuh = _this.computeUniformHazard(probabilistic.ss,
+        basicDesign.ssuh = _this.computeUniformHazard(probabilistic.ss,
             metadata.ssMaxDirection);
-        ssur = _this.computeUniformRisk(ssuh, riskCoefficients.crs);
-        ssd = _this.computeDeterministic(deterministic.ss,
+        basicDesign.ssur = _this.computeUniformRisk(basicDesign.ssuh,
+            riskCoefficients.crs);
+        basicDesign.ssd = _this.computeDeterministic(deterministic.ss,
             metadata.ssPercentile, metadata.ssMaxDirection, metadata.ssdFloor);
-        basicDesign.ss = _this.computeGroundMotion(ssur, ssd);
+        basicDesign.ss = _this.computeGroundMotion(basicDesign.ssur,
+            basicDesign.ssd);
 
         // Compute S1
-        s1uh = _this.computeUniformHazard(probabilistic.s1,
+        basicDesign.s1uh = _this.computeUniformHazard(probabilistic.s1,
             metadata.s1MaxDirection);
-        s1ur = _this.computeUniformRisk(s1uh, riskCoefficients.cr1);
-        s1d = _this.computeDeterministic(deterministic.s1,
+        basicDesign.s1ur = _this.computeUniformRisk(basicDesign.s1uh,
+            riskCoefficients.cr1);
+        basicDesign.s1d = _this.computeDeterministic(deterministic.s1,
             metadata.s1Percentile, metadata.s1MaxDirection, metadata.s1dFloor);
-        basicDesign.s1 = _this.computeGroundMotion(s1ur, s1d);
+        basicDesign.s1 = _this.computeGroundMotion(basicDesign.s1ur,
+            basicDesign.s1d);
 
         // Compute PGA
         // Note :: Computations for PGA are a bit simpler than Ss/S1
-        pgad = _this.computeDeterministic(deterministic.pga,
+        basicDesign.pgad = _this.computeDeterministic(deterministic.pga,
             metadata.pgaPercentile, 1.0, metadata.pgadFloor);
-        basicDesign.pga = _this.computeGroundMotion(probabilistic.pga, pgad);
+        basicDesign.pga = _this.computeGroundMotion(probabilistic.pga,
+            basicDesign.pgad);
 
         resolve(basicDesign);
       } catch (err) {
@@ -225,10 +223,32 @@ var DesignFactory = function (options) {
     return groundMotion * amplification;
   };
 
+  /**
+   * Computes the uniform hazard.
+   *
+   * @param meanGroundMotion {Double}
+   *     The geometric mean ground motion value
+   * @param maxDirectionFactory {Double}
+   *     The factor applied in order to achieve max-direction uniform hazard
+   *
+   * @return {Double}
+   *     The uniform hazard value
+   */
   _this.computeUniformHazard = function (meanGroundMotion, maxDirectionFactor) {
     return meanGroundMotion * maxDirectionFactor;
   };
 
+  /**
+   * Computes the uniform risk.
+   *
+   * @param uniformHazard {Double}
+   *     The uniform hazard value
+   * @param maxDirectionFactory {Double}
+   *     The coefficient applied in order to achieve risk-targeted hazard
+   *
+   * @return {Double}
+   *     The uniform hazard value
+   */
   _this.computeUniformRisk = function (uniformHazard, riskCoefficient) {
     return uniformHazard * riskCoefficient;
   };
@@ -248,21 +268,33 @@ var DesignFactory = function (options) {
     _this = null;
   };
 
-  _this.formatResult = function (/*result*/) {
-    return Promise.resolve({});
+  _this.formatResult = function (result) {
+    return new Promise((resolve, reject) => {
+      try {
+        // TODO ...
+        // riskTargetBeta: DOUBLE,
+        // tl: DOUBLE,
+        // designCategory: STRING,
+        // sdSpectrum: XY_SERIES,
+        // smSpectrum: XY_SERIES
+        resolve(extend(true, {}, result.basicDesign, result.finalDesign));
+      } catch (err) {
+        reject(err);
+      }
+    });
   };
 
   _this.getDesignData = function (inputs) {
     var result;
 
     result = {
+      basicDesign: null,
+      deterministic: null,
+      finalDesign: null,
       metadata: null,
       probabilistic: null,
-      deterministic: null,
       riskCoefficients: null,
-      siteAmplification: null,
-      basicDesign: null,
-      finalDesign: null
+      siteAmplification: null
     };
 
     return Promise.all([
