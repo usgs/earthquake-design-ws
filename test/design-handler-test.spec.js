@@ -6,22 +6,23 @@ var DesignHandler = require('../src/handler/design-handler'),
     sinon = require('sinon');
 
 
-var designFactory,
-    input;
+var _DESIGN_FACTORY,
+    _INPUT;
 
-designFactory = {
-  getDesignData: () => {
-    return Promise.resolve(input);
-  }
-};
 
-input = {
+_INPUT = {
   'title': 'This is a title',
   'latitude': 30,
   'longitude': 80,
   'referenceDocument': 'Building code',
   'siteClass': 'site class B',
   'riskCategory': 3
+};
+
+_DESIGN_FACTORY = {
+  getDesignData: () => {
+    return Promise.resolve(_INPUT);
+  }
 };
 
 
@@ -52,7 +53,7 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({designFactory: designFactory});
+      designHandler = DesignHandler({designFactory: _DESIGN_FACTORY});
     });
 
     it('returns error if parameters are missing', (done) => {
@@ -73,13 +74,19 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({designFactory: designFactory});
+      designHandler = DesignHandler({designFactory: _DESIGN_FACTORY});
     });
 
     it('calls checkParams method', () => {
       sinon.stub(designHandler, 'checkParams', () => {
         return Promise.resolve({});
       });
+
+      designHandler.get();
+
+      expect(designHandler.checkParams.callCount).to.equal(1);
+
+      designHandler.checkParams.restore();
     });
 
     it('returns a promise', () => {
@@ -96,10 +103,12 @@ describe('design-handler-test', () => {
       });
 
       designHandler.get({}).then((params) => {
-        expect(params).to.deep.equal(input);
+        expect(params).to.deep.equal(_INPUT);
       }).catch((err) => {
         return err;
       }).then(done);
+
+      designHandler.checkParams.restore();
     });
   });
 });
