@@ -107,7 +107,7 @@ var DesignFactory = function (options) {
         // Compute PGA
         // Note :: Computations for PGA are a bit simpler than Ss/S1
         pgad = _this.computeDeterministic(deterministic.pga,
-            metadata.pgaPercentile, 1.0, metadata.pgaFloor);
+            metadata.pgaPercentile, 1.0, metadata.pgadFloor);
         basicDesign.pga = _this.computeDesignValue(probabilistic.pga, pgad);
 
         resolve(basicDesign);
