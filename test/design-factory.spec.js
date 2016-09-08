@@ -81,7 +81,7 @@ describe('DesignFactory', () => {
       sinon.spy(factory, 'computeUniformHazard');
       sinon.spy(factory, 'computeUniformRisk');
       sinon.spy(factory, 'computeDeterministic');
-      sinon.spy(factory, 'computeDesignValue');
+      sinon.spy(factory, 'computeGroundMotion');
 
       factory.computeBasicDesign({
         metadata: {ssMaxDirection: 0, ssPercentile: 0, ssdFloor: 0,
@@ -94,19 +94,29 @@ describe('DesignFactory', () => {
         expect(factory.computeUniformHazard.callCount).to.equal(2);
         expect(factory.computeUniformRisk.callCount).to.equal(2);
         expect(factory.computeDeterministic.callCount).to.equal(3);
-        expect(factory.computeDesignValue.callCount).to.equal(3);
+        expect(factory.computeGroundMotion.callCount).to.equal(3);
       }).catch((err) => {
         return err;
       }).then((err) => {
         factory.computeUniformHazard.restore();
         factory.computeUniformRisk.restore();
         factory.computeDeterministic.restore();
-        factory.computeDesignValue.restore();
+        factory.computeGroundMotion.restore();
 
         factory.destroy();
 
         done(err);
       });
+    });
+  });
+
+  describe('computeDesignValue', () => {
+    it('returns expected values', () => {
+      var factory;
+
+      factory = DesignFactory();
+
+      expect(factory.computeDesignValue(1.0)).to.be.closeTo(2/3, _EPSILON);
     });
   });
 
@@ -141,7 +151,38 @@ describe('DesignFactory', () => {
 
       factory.destroy();
     });
+
+    it('calls expected calculation methods', (done) => {
+      var factory;
+
+      factory = DesignFactory();
+
+      sinon.spy(factory, 'computeSiteModifiedValue');
+      sinon.spy(factory, 'computeDesignValue');
+
+      factory.computeFinalDesign({
+        basicDesign: {ss: 0, s1: 0, pga: 0},
+        siteAmplification: {fa: 0, fv: 0, fpga: 0}
+      }).then(() => {
+        expect(factory.computeSiteModifiedValue.callCount).to.equal(3);
+        expect(factory.computeDesignValue.callCount).to.equal(2);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.computeSiteModifiedValue.restore();
+        factory.computeDesignValue.restore();
+
+        factory.destroy();
+
+        done(err);
+      });
+    });
   });
+
+  // TODO :: computeGroundMotion
+  // TODO :: computeSiteModififedValue
+  // TODO :: computeUniformHazard
+  // TODO :: computeUniformRisk
 
   describe('formatResult', () => {
     it('returns a promise', () => {
@@ -153,6 +194,7 @@ describe('DesignFactory', () => {
 
       factory.destroy();
     });
+    // TODO :: More tests
   });
 
   describe('getDesignData', () => {
@@ -171,5 +213,6 @@ describe('DesignFactory', () => {
 
       factory.destroy();
     });
+    // TODO :: More tests
   });
 });

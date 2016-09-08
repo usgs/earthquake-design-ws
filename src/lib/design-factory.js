@@ -28,18 +28,6 @@ var DesignFactory = function (options) {
   };
 
 
-  _this.destroy = function () {
-    if (_this === null) {
-      return;
-    }
-
-    // TODO :: Free resources here ...
-
-    _initialize = null;
-    _this = null;
-  };
-
-
   /**
    * Computes Ss, S1 and PGA values from initial result `data` fetched from
    * the metadata-, probabilistic-, deterministic-, and risk-targeting
@@ -94,7 +82,7 @@ var DesignFactory = function (options) {
         ssur = _this.computeUniformRisk(ssuh, riskCoefficients.crs);
         ssd = _this.computeDeterministic(deterministic.ss,
             metadata.ssPercentile, metadata.ssMaxDirection, metadata.ssdFloor);
-        basicDesign.ss = _this.computeDesignValue(ssur, ssd);
+        basicDesign.ss = _this.computeGroundMotion(ssur, ssd);
 
         // Compute S1
         s1uh = _this.computeUniformHazard(probabilistic.s1,
@@ -102,19 +90,32 @@ var DesignFactory = function (options) {
         s1ur = _this.computeUniformRisk(s1uh, riskCoefficients.cr1);
         s1d = _this.computeDeterministic(deterministic.s1,
             metadata.s1Percentile, metadata.s1MaxDirection, metadata.s1dFloor);
-        basicDesign.s1 = _this.computeDesignValue(s1ur, s1d);
+        basicDesign.s1 = _this.computeGroundMotion(s1ur, s1d);
 
         // Compute PGA
         // Note :: Computations for PGA are a bit simpler than Ss/S1
         pgad = _this.computeDeterministic(deterministic.pga,
             metadata.pgaPercentile, 1.0, metadata.pgadFloor);
-        basicDesign.pga = _this.computeDesignValue(probabilistic.pga, pgad);
+        basicDesign.pga = _this.computeGroundMotion(probabilistic.pga, pgad);
 
         resolve(basicDesign);
       } catch (err) {
         reject(err);
       }
     });
+  };
+
+  /**
+   * Computes the seismic design value based on a give `siteModifiedValue`.
+   *
+   * @param siteModifiedValue {Double}
+   *     The site-modified ground motion value
+   *
+   * @return {Double}
+   *     The seismic design value
+   */
+  _this.computeDesignValue = function (siteModifiedValue) {
+    return (2/3) * siteModifiedValue;
   };
 
   /**
@@ -142,12 +143,63 @@ var DesignFactory = function (options) {
     return Math.max(deterministic, floor);
   };
 
-  _this.computeFinalDesign = function (/*data*/) {
-    return Promise.resolve({});
+  /**
+   * Computes the final ground motion values applying site amplification
+   * factors and design (2/3) weighting.
+   *
+   * @param data {Object}
+   *     An object containing `basicDesign` and `siteAmplification` information.
+   * @param data.basicDesign {Object}
+   *     An object containing `ss`, `s1` and `pga` ground motion values
+   * @param data.siteAmplification {Object}
+   *     An object containing `fa`, `fv` and `fpga` ground motion values
+   *
+   * @return {Object}
+   *    An object containing the final design ground motion data, namely:
+   *    `sms`, `sm1`, `pgam`, `sds`, `sd1`
+   */
+  _this.computeFinalDesign = function (data) {
+    return new Promise((resolve, reject) => {
+      var basicDesign,
+          finalDesign,
+          siteAmplification;
+
+      finalDesign = {
+        sms: null,
+        sm1: null,
+        pgam: null,
+        sds: null,
+        sd1: null
+        // Note :: There is no dpga, this is not an omission
+      };
+
+      try {
+        basicDesign = data.basicDesign;
+        siteAmplification = data.siteAmplification;
+
+        finalDesign.sms = _this.computeSiteModifiedValue(basicDesign.ss,
+            siteAmplification.fa);
+        finalDesign.sm1 = _this.computeSiteModifiedValue(basicDesign.s1,
+            siteAmplification.fv);
+        finalDesign.pgam = _this.computeSiteModifiedValue(basicDesign.pga,
+            siteAmplification.fpga);
+
+        finalDesign.sds = _this.computeDesignValue(finalDesign.sms);
+        finalDesign.sd1 = _this.computeDesignValue(finalDesign.sm1);
+
+        resolve(finalDesign);
+      } catch (err) {
+        reject(err);
+      }
+    });
   };
 
-  _this.computeDesignValue = function (probabilistic, deterministic) {
+  _this.computeGroundMotion = function (probabilistic, deterministic) {
     return Math.min(probabilistic, deterministic);
+  };
+
+  _this.computeSiteModifiedValue = function (groundMotion, amplification) {
+    return groundMotion * amplification;
   };
 
   _this.computeUniformHazard = function (meanGroundMotion, maxDirectionFactor) {
@@ -156,6 +208,21 @@ var DesignFactory = function (options) {
 
   _this.computeUniformRisk = function (uniformHazard, riskCoefficient) {
     return uniformHazard * riskCoefficient;
+  };
+
+  /**
+   * Frees resources associated with this factory.
+   *
+   */
+  _this.destroy = function () {
+    if (_this === null) {
+      return;
+    }
+
+    // TODO :: Free resources here ...
+
+    _initialize = null;
+    _this = null;
   };
 
   _this.formatResult = function (/*result*/) {
@@ -203,8 +270,6 @@ var DesignFactory = function (options) {
       return _this.formatResult(result);
     });
   };
-
-
 
 
   _initialize(options);
