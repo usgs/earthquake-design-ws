@@ -7,7 +7,8 @@ var DesignFactory = require('../src/lib/design-factory.js'),
     sinon = require('sinon');
 
 
-var _DUMMY_FACTORY;
+var _DUMMY_FACTORY,
+    _EPSILON;
 
 _DUMMY_FACTORY = {
   getMetadata: () => { return Promise.resolve({}); },
@@ -15,6 +16,8 @@ _DUMMY_FACTORY = {
   getDeterministicData: () => { return Promise.resolve({}); },
   getRiskCoefficients: () => { return Promise.resolve({}); }
 };
+
+_EPSILON = 1E-14;
 
 
 describe('DesignFactory', () => {
@@ -104,6 +107,27 @@ describe('DesignFactory', () => {
 
         done(err);
       });
+    });
+  });
+
+  describe('computeDeterministic', () => {
+    it('returns expected results', () => {
+      var factory;
+
+      factory = DesignFactory();
+
+      // Use floor when it is greater
+      expect(factory.computeDeterministic(
+          0, 0, 0, 1.0)).to.be.closeTo(1.0, _EPSILON);
+      expect(factory.computeDeterministic(
+          2.0, 2.0, 2.0, 10.0)).to.be.closeTo(10.0, _EPSILON);
+      // Use computed when it is greater
+      expect(factory.computeDeterministic(
+          2.0, 1.0, 1.0, 1.0)).to.be.closeTo(2.0, _EPSILON);
+      expect(factory.computeDeterministic(
+          3.0, 3.0, 3.0, 10.0)).to.be.closeTo(27.0, _EPSILON);
+
+      factory.destroy();
     });
   });
 

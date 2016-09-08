@@ -117,6 +117,22 @@ var DesignFactory = function (options) {
     });
   };
 
+  /**
+   * Computes the deterministic portion of the design ground motion.
+   *
+   * @param medianGroundMotion {Double}
+   *     The 50 percentile mean deterministic ground motion value
+   * @param percentileFactor {Double}
+   *     Amplification factor to achieve target percentile ground motion
+   * @param maxDirectionFactor {Double}
+   *     Amplification factor to achieve max direction ground motion
+   * @param floor {Double}
+   *     A lower bound for the computed deterministic porition of the design
+   *     ground motion
+   *
+   * @return {Double}
+   *     The deterministic portion of the desired design ground motion
+   */
   _this.computeDeterministic = function (medianGroundMotion, percentileFactor,
       maxDirectionFactor, floor) {
     var deterministic;
