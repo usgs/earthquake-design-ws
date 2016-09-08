@@ -194,8 +194,21 @@ describe('DesignFactory', () => {
     });
   });
 
+  describe('computeSiteModified', () => {
+    it('returns expected results', () => {
+      var factory;
 
-  // TODO :: computeSiteModififedValue
+      factory = DesignFactory();
+
+      expect(factory.computeSiteModifiedValue(0, 1)).to.equal(0);
+      expect(factory.computeSiteModifiedValue(1, 2)).to.equal(2);
+      expect(factory.computeSiteModifiedValue(2, 1)).to.equal(2);
+      expect(factory.computeSiteModifiedValue(1, 0)).to.equal(0);
+
+      factory.destroy();
+    });
+  });
+  // TODO :: computeSiteModified
   // TODO :: computeUniformHazard
   // TODO :: computeUniformRisk
 

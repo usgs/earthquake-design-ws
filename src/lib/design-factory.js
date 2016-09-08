@@ -210,6 +210,17 @@ var DesignFactory = function (options) {
     return Math.min(probabilistic, deterministic);
   };
 
+  /**
+   * Computes the site-modified ground motion for purposes of design.
+   *
+   * @param groundMotion {Double}
+   *     The site-independent (i.e. default soil condition B/C) ground motion
+   * @param amplification {Double}
+   *     The amplification factor to apply
+   *
+   * @return {Double}
+   *     The site-modified ground motion for purposes of design
+   */
   _this.computeSiteModifiedValue = function (groundMotion, amplification) {
     return groundMotion * amplification;
   };
