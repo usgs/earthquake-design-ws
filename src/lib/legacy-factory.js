@@ -115,27 +115,27 @@ var LegacyFactory = function (options) {
         resultLat1,
         resultLat3;
 
-    input = calculation.get('input');
-    output = calculation.get('output');
-    data = output.get('data').data();
-    latInput = input.get('latitude');
-    lngInput = input.get('longitude');
-    metadata = output.get('metadata');
-    log = metadata.get('interpolation_method');
+    input = calculation.input;
+    output = calculation.output;
+    data = output.data;
+    latInput = input.latitude;
+    lngInput = input.longitude;
+    metadata = output.metadata;
+    log = metadata.interpolation_method;
 
     if (data.length === 1) {
-      result = extend({}, data[0].get());
+      result = extend({}, data[0]);
 
     } else if (data.length === 2) {
-      lat1 = data[0].get('latitude');
-      lat2 = data[1].get('latitude');
-      lng1 = data[0].get('longitude');
-      lng2 = data[1].get('longitude');
+      lat1 = data[0].latitude;
+      lat2 = data[1].latitude;
+      lng1 = data[0].longitude;
+      lng2 = data[1].longitude;
 
       if (lat1 === lat2) {
         result = _this.interpolateResults(
-            data[0].get(),
-            data[1].get(),
+            data[0],
+            data[1],
             lngInput,
             lng1,
             lng2,
@@ -143,8 +143,8 @@ var LegacyFactory = function (options) {
 
       } else if (lng1 === lng2) {
         result = _this.interpolateResults(
-            data[0].get(),
-            data[1].get(),
+            data[0],
+            data[1],
             latInput,
             lat1,
             lat2,
@@ -154,25 +154,25 @@ var LegacyFactory = function (options) {
         throw new Error('Lat or Lng don\'t match and only 2 data points');
       }
     } else if (data.length === 4) {
-      lat1 = data[0].get('latitude');
-      lat3 = data[2].get('latitude');
+      lat1 = data[0].latitude;
+      lat3 = data[2].latitude;
 
-      lng1 = data[0].get('longitude');
-      lng2 = data[1].get('longitude');
-      lng3 = data[2].get('longitude');
-      lng4 = data[3].get('longitude');
+      lng1 = data[0].longitude;
+      lng2 = data[1].longitude;
+      lng3 = data[2].longitude;
+      lng4 = data[3].longitude;
 
       resultLat1 = _this.interpolateResults(
-          data[0].get(),
-          data[1].get(),
+          data[0],
+          data[1],
           lngInput,
           lng1,
           lng2,
           log);
 
       resultLat3 = _this.interpolateResults(
-          data[2].get(),
-          data[3].get(),
+          data[2],
+          data[3],
           lngInput,
           lng3,
           lng4,
