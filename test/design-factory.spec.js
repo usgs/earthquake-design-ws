@@ -208,9 +208,37 @@ describe('DesignFactory', () => {
       factory.destroy();
     });
   });
-  // TODO :: computeSiteModified
-  // TODO :: computeUniformHazard
-  // TODO :: computeUniformRisk
+
+  describe('computeUniformHazard', () => {
+    it('returns expected results', () => {
+      var factory;
+
+      factory = DesignFactory();
+
+      expect(factory.computeUniformHazard(0, 0)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformHazard(1, 0)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformHazard(0, 1)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformHazard(1, 1)).to.be.closeTo(1, _EPSILON);
+      expect(factory.computeUniformHazard(2, 3)).to.be.closeTo(6, _EPSILON);
+
+      factory.destroy();
+    });
+  });
+  describe('computeUniformRisk', () => {
+    it('returns expected results', () => {
+      var factory;
+
+      factory = DesignFactory();
+
+      expect(factory.computeUniformRisk(0, 0)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformRisk(1, 0)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformRisk(0, 1)).to.be.closeTo(0, _EPSILON);
+      expect(factory.computeUniformRisk(1, 1)).to.be.closeTo(1, _EPSILON);
+      expect(factory.computeUniformRisk(2, 3)).to.be.closeTo(6, _EPSILON);
+
+      factory.destroy();
+    });
+  });
 
   describe('formatResult', () => {
     it('returns a promise', () => {
