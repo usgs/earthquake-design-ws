@@ -72,7 +72,7 @@ var LegacyFactory = function (options) {
     params = _this.cleanseInputs(inputs);
 
     // return promise with interpolated data
-    return _this.makeRequest(params).then(function (result) {
+    return _this.makeRequest(params).then((result) => {
       // perform bi-linear spatial interpolation
       return _this.interpolate(result);
     });
@@ -228,39 +228,45 @@ var LegacyFactory = function (options) {
 
   _this.makeRequest = function (inputs) {
     return new Promise((resolve, reject) => {
-      var options,
-          request;
+      var options;
 
       options = {
         'hostname': _this.hostname,
         'port': _this.port,
-        'path': _this.pathname + '?' + _this.urlEncode(inputs)
+        'path': _this.pathname + _this.urlEncode(inputs)
       };
 
-      request = http.request(options, (response) => {
-        var buffer;
-
-        buffer = [];
-
-        response.on('data', (data) => {
-          buffer.push(data);
-        });
-
-        response.on('end', () => {
-          try {
-            resolve(JSON.parse(buffer.join('')));
-          } catch (e) {
-            reject(e);
-          }
-        });
-      });
-
-      request.on('error', (err) => {
-        reject(err);
-      });
-
-      request.end();
+      _this.httpRequest(options, resolve, reject);
     });
+  };
+
+  // Creates an HTTP ClientRequest object
+  _this.httpRequest = function (options, resolve, reject) {
+    var request;
+
+    request = http.request(options, (response) => {
+      var buffer;
+
+      buffer = [];
+
+      response.on('data', (data) => {
+        buffer.push(data);
+      });
+
+      response.on('end', () => {
+        try {
+          resolve(JSON.parse(buffer.join('')));
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+
+    request.on('error', (err) => {
+      reject(err);
+    });
+
+    request.end();
   };
 
   /**
