@@ -1,9 +1,16 @@
 'use strict';
 
 
-var DesignHandler = require('../handler/design-handler'),
+var DesignFactory = require('./design-factory'),
+    DesignHandler = require('../handler/design-handler'),
+    DeterministicHazardFactory = require('./deterministic-hazard-factory'),
     express = require('express'),
-    extend = require('extend');
+    extend = require('extend'),
+    LegacyFactory = require('./legacy-factory'),
+    MetadataFactory = require('./metadata-factory'),
+    ProbabilisticHazardFactory = require('./probabilistic-hazard-factory'),
+    RiskTargetingFactory = require('./risk-targeting-factory'),
+    SiteAmplificationFactory = require('./site-amplification-factory');
 
 
 var _DEFAULTS;
@@ -29,6 +36,7 @@ var WebService = function (options) {
 
       _docRoot,
       _handlers,
+      _legacyFactory,
       _mountPath,
       _port;
 
@@ -47,16 +55,34 @@ var WebService = function (options) {
     _mountPath = options.MOUNT_PATH;
     _port = options.PORT;
 
+    _legacyFactory = LegacyFactory({
+      url: options.legacyUrl
+    });
+
     // Setup handler and pass in factory
     _handlers = {
       'design.json': _this.createDesignHandler
-      // TODO :: Add each service end point handler here
-      // 'example.json': _this.createExampleHandler
     };
   };
 
+  _this.createDesignFactory = function () {
+    return DesignFactory({
+      deterministicHazardFactory: DeterministicHazardFactory(
+          {legacyFactory: _legacyFactory}),
+      metadataFactory: MetadataFactory(
+          {legacyFactory: _legacyFactory}),
+      probabilisticHazardFactory: ProbabilisticHazardFactory(
+          {legacyFactory: _legacyFactory}),
+      riskTargetingFactory: RiskTargetingFactory(
+          {legacyFactory: _legacyFactory}),
+      siteAmplificationFactory: SiteAmplificationFactory()
+    });
+  };
+
   _this.createDesignHandler = function () {
-    return DesignHandler({});
+    return DesignHandler({
+      designFactory: _this.createDesignFactory()
+    });
   };
 
   /**
@@ -64,8 +90,15 @@ var WebService = function (options) {
    *
    */
   _this.destroy = function () {
+    if (_this === null) {
+      return;
+    }
+
+    _legacyFactory.destroy();
+
     _docRoot = null;
     _handlers = null;
+    _legacyFactory = null;
     _mountPath = null;
     _port = null;
 
