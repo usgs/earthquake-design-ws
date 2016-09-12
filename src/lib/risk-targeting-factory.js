@@ -11,7 +11,7 @@ _DEFAULTS = {
 
 
 /**
- * A stop-gap factory for producing deterministic hazard data useful for
+ * A stop-gap factory for producing risk-targeting data useful for
  * design purposes. This stop-gap implementation conforms to the final desired
  * API, but rather than fetching data directly, it fetches data from a
  * legacy web service using a {LegacyFactory}. This factory then up-converts
@@ -20,17 +20,16 @@ _DEFAULTS = {
  * @param options {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var DeterministicHazardFactory = function (options) {
+var RiskTargetingFactory = function (options) {
   var _initialize,
       _this;
-
 
 
   _this = {};
 
   /**
    * Constructor.
-   * Instantiates a new {DeterministicHazardFactory}.
+   * Instantiates a new {RiskTargetingFactory}.
    *
    * @param options.legacyFactory {LegacyFactory}
    *     The underlying legacy factory used for fetching legacy results.
@@ -59,7 +58,7 @@ var DeterministicHazardFactory = function (options) {
 
   /**
    * Formats the result from the `legacyResult` to a simple object containing
-   * the deterministic data.
+   * the risk coefficient data.
    *
    * @param legacyResult {Object}
    *     The legacy result returned from the legacy factory.
@@ -76,24 +75,23 @@ var DeterministicHazardFactory = function (options) {
         data = legacyResult.output.data[0];
 
         return resolve({
-          ssd: data.geomean_ssd,
-          s1d: data.geomean_s1d,
-          pgad: data.geomean_pgad
+          crs: data.crs,
+          cr1: data.cr1
         });
       } catch (err) {
-        return reject(err);
+        reject(err);
       }
     });
   };
 
   /**
    * @param inputs {Object}
-   *     Request parameters necessary for fetching deterministic data.
+   *     Request parameters necessary for fetching risk coefficient data.
    *
    * @return {Promise}
-   *     A promise that resolves with the deterministic data.
+   *     A promise that resolves with the risk coefficient data.
    */
-  _this.getDeterministicData = function (inputs) {
+  _this.getRiskCoefficients = function (inputs) {
     return _this.legacyFactory.getLegacyData(inputs).then((result) => {
       return _this.formatResult(result);
     });
@@ -106,4 +104,4 @@ var DeterministicHazardFactory = function (options) {
 };
 
 
-module.exports = DeterministicHazardFactory;
+module.exports = RiskTargetingFactory;
