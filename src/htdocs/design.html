@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+  <title>Design Endpoint Documentation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+  <link rel="stylesheet" href="http://earthquake.usgs.gov/theme/site/earthquake/index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Merriweather:400,400italic,700|Source+Sans+Pro:400,300,700"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Design Endpoint Documentation</h1>
+  </header>
+
+  <h2 id="parameters">Request Parameters</h2>
+  <p>Required parameters</p>
+  <dl>
+    <dt id="latitude">latitude</dt>
+    <dd>
+      Latitude for location at which to compute composite results.
+      <br/>Example: <code>34.01</code>
+    </dd>
+
+    <dt id="longitude">longitude</dt>
+    <dd>
+      Longitude for location at which to compute composite results.
+      <br/>Example: <code>-118.01</code>
+    </dd>
+
+    <dt id="referenceDocument">referenceDocument</dt>
+    <dd>
+      Building code reference document identifier.
+      <br/>Example: <code>NEHRP2015</code>
+    </dd>
+
+    <dt id="riskCategory">riskCategory</dt>
+    <dd>
+      Risk category for structure.
+      <br/>Example: <code>2</code>
+    </dd>
+
+    <dt id="siteClass">siteClass</dt>
+    <dd>
+      NEHRP site classification.
+      <br/>Example: <code>1</code>
+    </dd>
+
+    <dt id="title">title</dt>
+    <dd>
+      Name for site/report.
+      <br/>Example: <code>Test</code>
+    </dd>
+  </dl>
+
+  <h1 id="output">Output</h1>
+  <dl>
+    <dt id="output-date">date</dt>
+    <dd>
+      Timestamp
+      <br/>Example: <code>YYYY-MM-DDThh:mm:ssZ</code>
+    </dd>
+
+    <dt id="output-status">status</dt>
+    <dd>
+      String ("success" or "error")
+      <br/>Example: <code>"success"</code>
+    </dd>
+
+    <dt id="output-url">url</dt>
+    <dd>
+      URL to reproduce this result.
+      <br/>Example: <code>{MOUNT_PATH}/design.json?latitude=34.01&amp;longitude=-118.01&amp;referenceDocument=NEHRP2015&amp;riskCategory=2&amp;siteClass=1&amp;title=test</code>
+    </dd>
+
+    <dt id="response">response</dt>
+    <dd>
+    <dl>
+      <dt id="response-metadata">Metadata</dt>
+      <dd>
+        <dl>
+          <dt id="response-metadata-pgaFloor">pgaFloor</dt>
+          <dd>
+            Minimum constraint placed on the deterministic ground motion.
+            (Peak Ground Acceleration)
+          </dd>
+
+          <dt id="response-metadata-pgaMaxDirection">pgaMaxDirection</dt>
+          <dd>
+            Factor applyed ot the geometric mean ground motion to get max
+            direction ground motion. (Peak Ground Acceleration)
+          </dd>
+
+          <dt id="response-metadata-pgaPercentile">pgaPercentile</dt>
+          <dd>
+            Factor applyed to 50% ground motion to achieve target percentile
+            ground motion. (Peak Ground Acceleration)
+          </dd>
+
+          <dt id="response-metadata-s1dFloor">s1dFloor</dt>
+          <dd>
+            Minimum constraint placed on the deterministic ground motion.
+            (1.0 sec)
+          </dd>
+
+          <dt id="response-metadata-1sMaxDirection">s1MaxDirection</dt>
+          <dd>
+            Factor applyed ot the geometric mean ground motion to get max
+            direction ground motion. (1.0 sec)
+          </dd>
+
+          <dt id="response-metadata-s1Percentile">s1Percentile</dt>
+          <dd>
+            Factor applyed to 50% ground motion to achieve target percentile
+            ground motion. (.2 sec)
+          </dd>
+
+          <dt id="response-metadata-ssdFloor">ssdFloor</dt>
+          <dd>
+            Minimum constraint placed on the deterministic ground motion. (.2 sec)
+          </dd>
+
+          <dt id="response-metadata-ssMaxDirection">ssMaxDirection</dt>
+          <dd>
+            Factor applyed ot the geometric mean ground motion to get max
+            direction ground motion. (.2 sec)
+          </dd>
+
+          <dt id="response-metadata-ssPercentile">ssPercentile</dt>
+          <dd>
+            Factor applyed to 50% ground motion to achieve target percentile
+            ground motion. (.2 sec)
+          </dd>
+      </dd>
+
+      <dt id="response-data">Data</dt>
+      <dd>
+        <dl>
+          <dt id="response-data-designCategory">designCategory</dt>
+          <dd>
+            Seismic design category.
+          </dd>
+
+          <dt id="response-data-fa">fa</dt>
+          <dd>
+            Site amplification factor at 0.2s.
+          </dd>
+
+          <dt id="response-data-fpga">fpga</dt>
+          <dd>
+            Site amplification factor at PGA.
+          </dd>
+
+          <dt id="response-data-fv">fv</dt>
+          <dd>
+            Site amplification factor at 1.0s.
+          </dd>
+
+          <dt id="response-data-pga">pga</dt>
+          <dd>
+            Peak Ground Acceleration
+          </dd>
+
+          <dt id="response-data-pgad">pgad</dt>
+          <dd>
+            Factor deterministic acceleration value. (Peak Ground Acceleration)
+          </dd>
+
+          <dt id="response-data-pgam">pgam</dt>
+          <dd>
+            Site modified peak ground acceleration.
+          </dd>
+
+          <dt id="response-data-s1">s1</dt>
+          <dd>
+            Ground motion with a 2% probability of exceedance in 50 years.
+            (for 1.0s period)
+          </dd>
+
+          <dt id="response-data-s1d">s1d</dt>
+          <dd>
+            Factor deterministic acceleration value. (1.0 sec)
+          </dd>
+
+          <dt id="response-data-s1uh">s1uh</dt>
+          <dd>
+            Mapped uniform-hazard, 5% damped, spectral acceleration.
+          </dd>
+
+          <dt id="response-data-s1ur">s1ur</dt>
+          <dd>
+            Uniform risk ground motion. (1.0 sec)
+          </dd>
+
+          <dt id="response-data-sd1">sd1</dt>
+          <dd>
+            Numeric seismic design value at 1.0 second SA.
+          </dd>
+
+          <dt id="response-data-sds">sds</dt>
+          <dd>
+            Numeric seismic design value at 0.2 second SA.
+          </dd>
+
+          <dt id="response-data-sdSpectrum">sdSpectrum</dt>
+          <dd>
+            Seismic design spectrum.
+          </dd>
+
+          <dt id="response-data-sm1">sm1</dt>
+          <dd>
+            Spectral acceleration value.
+          </dd>
+
+          <dt id="response-data-sms">sms</dt>
+          <dd>
+            Spectral acceleration value.
+          </dd>
+
+          <dt id="response-data-smSpectrum">smSpectrum</dt>
+          <dd>
+            Site modified spectrum.
+          </dd>
+
+          <dt id="response-data-ss">ss</dt>
+          <dd>
+            Ground motion with a 2% probability of exceedance in 50 years.
+            (for 0.2s period)
+          </dd>
+
+          <dt id="response-data-ssd">ssd</dt>
+          <dd>
+            Factor deterministic acceleration value. (.2 sec)
+          </dd>
+
+          <dt id="response-data-ssuh">ssuh</dt>
+          <dd>
+            Mapped uniform-hazard, 5% damped, spectral acceleration.
+          </dd>
+
+          <dt id="response-data-ssur">ssur</dt>
+          <dd>
+            Uniform risk ground motion. (.2 sec)
+          </dd>
+
+          <dt id="response-data-tl">tl</dt>
+          <dd>
+            Long-period transition period.
+          </dd>
+        </dl>
+      </dd>
+    </dl>
+  </dd>
+  <h3 id="example_response">Example Response</h3>
+  <div class="code">
+    <pre>
+      {
+        "status": "Success",
+        "date": 2016-03-13T03:25:32Z,
+        "url": {MOUNT_PATH}/design.json?latitude=34.01&amp;longitude=-118.01&amp;referenceDocument=NEHRP2015&amp;riskCategory=2&amp;siteClass=1&amp;title=test,
+        "response": {
+          "metadata": {
+            "ssMaxDirection": 1.1,
+            "s1MaxDirection": 1.3,
+            "pgaMaxDirection": 1.08,
+            "ssPercentile": 1.8,
+            "s1Percentile": 1.8,
+            "pgaPercentile": 1.8,
+            "ssdFloor": 1.5,
+            "s1dFloor": 0.6,
+            "pgaFloor": 0.5
+          },
+          "data" {
+            "ssuh": 3.08,
+            "s1uh": 1.07,
+            "ssur": 3.8,
+            "s1ur": 1.07,
+            "ssd": 2.85,
+            "s1d": 0.93,
+            "pgad": 1.7,
+            "ss": 2.83,
+            "s1": 0.93,
+            "pga": 1.08,
+            "fa": 1.0,
+            "fv": 1.5,
+            "fpga": 1.0,
+            "sms": 2.8,
+            "sm1": 1.39,
+            "pgam": 1.08,
+            "sds": 1.9,
+            "sd1": 0.9,
+            "tl": 8,
+            "designCategory": E,
+            "sdSpectrum": [
+              0.0,
+              0.761
+            ],
+            "smSpectrum": [
+              0.0,
+              1.141
+            ]
+          }
+        }
+      }
+    </pre>
+  </div>
+</main>
+<footer class="site-commonnav">
+  <a href="index.html">Seismic Design Web Service Documentation</a>
+</footer>
+</body>
+</html>
