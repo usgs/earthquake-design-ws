@@ -39,6 +39,47 @@ describe('DeterministicHazardFactory', () => {
     });
   });
 
+  describe('formatResult', () => {
+    it('rejects with an error when receiving unexpected input', (done) => {
+      var factory;
+
+      factory = DeterministicHazardFactory();
+
+      factory.formatResult().then((/*result*/) => {
+        var error;
+
+        error = new Error('Method resolved but should have rejected!');
+        error.assertionFailed = true; // Flag to distinguish this error
+
+        throw error;
+      }).catch((err) => {
+        if (err.assertionFailed) {
+          return err;
+        }
+      }).then((err) => {
+        factory.destroy();
+        done(err);
+      });
+    });
+
+    it('resolves with proper object keys', (done) => {
+      var factory;
+
+      factory = DeterministicHazardFactory();
+
+      factory.formatResult(_LEGACY_RESULT).then((result) => {
+        expect(result.hasOwnProperty('ssd')).to.equal(true);
+        expect(result.hasOwnProperty('s1d')).to.equal(true);
+        expect(result.hasOwnProperty('pgad')).to.equal(true);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.destroy();
+        done(err);
+      });
+    });
+  });
+
   describe('getDeterministicData', () => {
     it('returns a promise', () => {
       var factory,
@@ -78,47 +119,6 @@ describe('DeterministicHazardFactory', () => {
       }).then((err) => {
         factory.legacyFactory.getLegacyData.restore();
         factory.formatResult.restore();
-        factory.destroy();
-        done(err);
-      });
-    });
-  });
-
-  describe('formatResult', () => {
-    it('rejects with an error when receiving unexpected input', (done) => {
-      var factory;
-
-      factory = DeterministicHazardFactory();
-
-      factory.formatResult().then((/*result*/) => {
-        var error;
-
-        error = new Error('Method resolved but should have rejected!');
-        error.assertionFailed = true; // Flag to distinguish this error
-
-        throw error;
-      }).catch((err) => {
-        if (err.assertionFailed) {
-          return err;
-        }
-      }).then((err) => {
-        factory.destroy();
-        done(err);
-      });
-    });
-
-    it('resolves with proper object keys', (done) => {
-      var factory;
-
-      factory = DeterministicHazardFactory();
-
-      factory.formatResult(_LEGACY_RESULT).then((result) => {
-        expect(result.hasOwnProperty('ssd')).to.equal(true);
-        expect(result.hasOwnProperty('s1d')).to.equal(true);
-        expect(result.hasOwnProperty('pgad')).to.equal(true);
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
         factory.destroy();
         done(err);
       });

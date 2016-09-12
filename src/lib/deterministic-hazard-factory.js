@@ -42,6 +42,10 @@ var DeterministicHazardFactory = function (options) {
   };
 
 
+  /**
+   * Frees resources associated with this factory.
+   *
+   */
   _this.destroy = function () {
     if (_this === null) {
       return;
@@ -51,18 +55,6 @@ var DeterministicHazardFactory = function (options) {
 
     _initialize = null;
     _this = null;
-  };
-  /**
-   * @param inputs {Object}
-   *     Request parameters necessary for fetching deterministic data.
-   *
-   * @return {Promise}
-   *     A promise that resolves with the deterministic data.
-   */
-  _this.getDeterministicData = function (inputs) {
-    return _this.legacyFactory.getLegacyData(inputs).then((result) => {
-      return _this.formatResult(result);
-    });
   };
 
   /**
@@ -91,6 +83,19 @@ var DeterministicHazardFactory = function (options) {
       } catch (err) {
         return reject(err);
       }
+    });
+  };
+
+  /**
+   * @param inputs {Object}
+   *     Request parameters necessary for fetching deterministic data.
+   *
+   * @return {Promise}
+   *     A promise that resolves with the deterministic data.
+   */
+  _this.getDeterministicData = function (inputs) {
+    return _this.legacyFactory.getLegacyData(inputs).then((result) => {
+      return _this.formatResult(result);
     });
   };
 
