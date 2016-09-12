@@ -20,7 +20,7 @@ var LegacyFactory = function (options) {
 
     options = extend({}, _DEFAULTS, options);
 
-    // query legacy web service
+    // parse url to get web service details
     params = url.parse(options.url);
     _this.hostname = params.hostname;
     _this.port = params.port;
@@ -61,9 +61,12 @@ var LegacyFactory = function (options) {
   };
 
   /**
-   * [getLegacyData description]
-   * @param  {[type]} inputs [description]
-   * @return {[type]}        [description]
+   * Query the legacy web service and interpolate results
+   *
+   * @param inputs {object}
+   *        new web service inputs to be translated to legacy inputs
+   * @return {String}
+   *        legacy JSON response
    */
   _this.getLegacyData = function (inputs) {
     var params;
@@ -77,7 +80,8 @@ var LegacyFactory = function (options) {
       return _this.interpolate(result);
     });
   };
-    /**
+
+  /**
    * Checks for 1, 2, or 4 data points to interpolate any other number of points
    * will throw an error.
    *
@@ -186,6 +190,7 @@ var LegacyFactory = function (options) {
 
   /**
    * Interpolates results
+   *
    * @param variable {int, int, int, int, int}
    */
   _this.interpolateResults = function (d0, d1, x, x0, x1, log) {
@@ -206,6 +211,7 @@ var LegacyFactory = function (options) {
   /**
    * Interpolates a single value logs y values before interpolation
    * if linerlog is passed in.
+   *
    * @param variable {int, int, int, int, int, string}
    *                 interpolation values
    */
@@ -226,47 +232,67 @@ var LegacyFactory = function (options) {
     return value;
   };
 
+  /**
+   * Creates a new Promise and makes request to the legacy web service
+   *
+   * @param  {Object}
+   *         Input parameters for legacy web service
+   *
+   * @return {Promise}
+   *         Promise with legacy web service results
+   */
   _this.makeRequest = function (inputs) {
     return new Promise((resolve, reject) => {
-      var options;
+      var options,
+          request;
 
-      options = {
-        'hostname': _this.hostname,
-        'port': _this.port,
-        'path': _this.pathname + _this.urlEncode(inputs)
-      };
+      options = _this.getOptions(inputs);
 
-      _this.httpRequest(options, resolve, reject);
+      request = http.request(options, (response) => {
+        var buffer;
+
+        buffer = [];
+
+        response.on('data', (data) => {
+          buffer.push(data);
+        });
+
+        response.on('end', () => {
+          try {
+            resolve(JSON.parse(buffer.join('')));
+          } catch (e) {
+            reject(e);
+          }
+        });
+      });
+
+      request.on('error', (err) => {
+        reject(err);
+      });
+
+      request.end();
     });
   };
 
-  // Creates an HTTP ClientRequest object
-  _this.httpRequest = function (options, resolve, reject) {
-    var request;
+  /**
+   * Formats the options object for the http.request
+   *
+   * @param inputs {Object}
+   *        an object with all the required query params
+   *
+   * @return {Object}
+   *        a formatted http.request options object
+   */
+  _this.getOptions = function (inputs) {
+    var options;
 
-    request = http.request(options, (response) => {
-      var buffer;
+    options = {
+      'hostname': _this.hostname,
+      'port': _this.port,
+      'path': _this.pathname + _this.urlEncode(inputs)
+    };
 
-      buffer = [];
-
-      response.on('data', (data) => {
-        buffer.push(data);
-      });
-
-      response.on('end', () => {
-        try {
-          resolve(JSON.parse(buffer.join('')));
-        } catch (e) {
-          reject(e);
-        }
-      });
-    });
-
-    request.on('error', (err) => {
-      reject(err);
-    });
-
-    request.end();
+    return options;
   };
 
   /**

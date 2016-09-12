@@ -3,6 +3,7 @@
 
 
 var expect = require('chai').expect,
+    express = require('express'),
     LegacyFactory = require('../src/lib/legacy-factory'),
     sinon = require('sinon');
 
@@ -103,6 +104,23 @@ describe('LegacyFactory test suite', () => {
       }).catch((err) => {
         done(err);
       });
+    });
+  });
+
+  describe('getOptions', () => {
+    it('creates an options object', () => {
+      var inputs,
+          stub;
+
+      inputs = {
+        'test': 'inputs'
+      };
+
+      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return; });
+      legacyFactory.getOptions(inputs);
+
+      expect(stub.callCount).to.equal(1);
+      expect(stub.calledWith(inputs)).to.be.true;
     });
   });
 
@@ -278,53 +296,36 @@ describe('LegacyFactory test suite', () => {
 
   describe('makeRequest', function () {
     it('calls urlEncode with the correct inputs', (done) => {
-      var encodeStub,
+      var app,
           inputs,
-          result;
+          optionsStub,
+          result,
+          server;
+
+      app = express();
+      app.use('', express.static('etc'));
+      server = app.listen(7999);
 
       inputs = {'key': 'value'};
 
-      sinon.stub(legacyFactory, 'httpRequest',
-          (options, resolve) => { resolve(); });
-      encodeStub = sinon.stub(legacyFactory, 'urlEncode', () => { return ''; });
+      optionsStub = sinon.stub(legacyFactory, 'getOptions', () => {
+        return {
+          'hostname': 'localhost',
+          'port': 7999,
+          'path': '/makeRequest.json'
+        };
+      });
 
       result = legacyFactory.makeRequest(inputs);
 
-      result.then(() => {
-        expect(encodeStub.callCount).to.equal(1);
-        expect(encodeStub.calledWith(inputs)).to.be.true;
-        done();
+      result.then((data) => {
+        expect(optionsStub.callCount).to.equal(1);
+        expect(data).to.deep.equal({'test':'working'});
       }).catch((err) => {
-        done(err);
-      });
-    });
-
-    it('builds an options object for the http.request', (done) => {
-      var options,
-          requestStub,
-          result;
-
-      legacyFactory.hostname = 'hostname';
-      legacyFactory.port = 'port';
-      legacyFactory.pathname = 'pathname';
-
-      options = {
-        'hostname': legacyFactory.hostname,
-        'port': legacyFactory.port,
-        'path': legacyFactory.pathname
-      };
-
-      requestStub = sinon.stub(legacyFactory, 'httpRequest',
-          (options, resolve) => { resolve(); });
-      sinon.stub(legacyFactory, 'urlEncode', () => { return ''; });
-
-      result = legacyFactory.makeRequest();
-
-      result.then(() => {
-        expect(requestStub.callCount).to.equal(1);
-        expect(requestStub.getCall(0).args[0]).to.deep.equal(options);
-        done();
-      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        server.close();
+        optionsStub.restore();
         done(err);
       });
     });
