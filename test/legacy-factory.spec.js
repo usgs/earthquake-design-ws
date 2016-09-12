@@ -100,8 +100,9 @@ describe('LegacyFactory test suite', () => {
         expect(requestStub.callCount).to.equal(1);
         expect(interpolateStub.callCount).to.equal(1);
         expect(interpolateStub.calledWith(response)).to.be.true;
-        done();
       }).catch((err) => {
+        return err;
+      }).then((err) => {
         done(err);
       });
     });

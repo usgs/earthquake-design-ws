@@ -1,10 +1,14 @@
 'use strict';
 
+
 var extend = require('extend'),
     http = require('http'),
     url = require('url');
 
-var _DEFAULTS = {
+
+var _DEFAULTS;
+
+_DEFAULTS = {
   url: 'https://earthquake.usgs.gov/designmaps/beta/us/service/'
 };
 
@@ -12,6 +16,7 @@ var _DEFAULTS = {
 var LegacyFactory = function (options) {
   var _this,
       _initialize;
+
 
   _this = {};
 
@@ -27,15 +32,16 @@ var LegacyFactory = function (options) {
     _this.path = params.pathname;
   };
 
+
   /**
    * Translate new parameters to old inputs for legacy web service. All of the
    * required inputs have already been verified by the handler.
    *
    * @param inputs {Object}
-   *        An object containing the new inputs for the composite web service
+   *     An object containing the new inputs for the composite web service
    *
    * @return {Object}
-   *        An object containing new inputs mapped to the legacy inputs
+   *     An object containing new inputs mapped to the legacy inputs
    */
   _this.cleanseInputs = function (inputs) {
     var params;
@@ -54,8 +60,13 @@ var LegacyFactory = function (options) {
 
   /**
    * Free references.
+   *
    */
   _this.destroy = function () {
+    if (_this === null) {
+      return;
+    }
+
     _initialize = null;
     _this = null;
   };
@@ -64,9 +75,10 @@ var LegacyFactory = function (options) {
    * Query the legacy web service and interpolate results
    *
    * @param inputs {object}
-   *        new web service inputs to be translated to legacy inputs
+   *     new web service inputs to be translated to legacy inputs
+   *
    * @return {String}
-   *        legacy JSON response
+   *     legacy JSON response
    */
   _this.getLegacyData = function (inputs) {
     var params;
@@ -82,13 +94,35 @@ var LegacyFactory = function (options) {
   };
 
   /**
+   * Formats the options object for the http.request
+   *
+   * @param inputs {Object}
+   *        an object with all the required query params
+   *
+   * @return {Object}
+   *        a formatted http.request options object
+   */
+  _this.getOptions = function (inputs) {
+    var options;
+
+    options = {
+      'hostname': _this.hostname,
+      'port': _this.port,
+      'path': _this.pathname + _this.urlEncode(inputs)
+    };
+
+    return options;
+  };
+
+  /**
    * Checks for 1, 2, or 4 data points to interpolate any other number of points
    * will throw an error.
    *
-   * @param Object {calculation}
-   *                    takes a calculation
+   * @param calculation {Object}
+   *    The raw result from the legacy web service
    *
-   * returns Model results
+   * @returns {Object}
+   *     The interpolated result for the requested point
    */
   _this.interpolate = function (calculation) {
     var data,
@@ -213,7 +247,7 @@ var LegacyFactory = function (options) {
    * if linerlog is passed in.
    *
    * @param variable {int, int, int, int, int, string}
-   *                 interpolation values
+   *     interpolation values
    */
   _this.interpolateValue = function (y0, y1, x, x0, x1, log) {
     var value;
@@ -236,10 +270,10 @@ var LegacyFactory = function (options) {
    * Creates a new Promise and makes request to the legacy web service
    *
    * @param  {Object}
-   *         Input parameters for legacy web service
+   *     Input parameters for legacy web service
    *
    * @return {Promise}
-   *         Promise with legacy web service results
+   *     Promise with legacy web service results
    */
   _this.makeRequest = function (inputs) {
     return new Promise((resolve, reject) => {
@@ -272,27 +306,6 @@ var LegacyFactory = function (options) {
 
       request.end();
     });
-  };
-
-  /**
-   * Formats the options object for the http.request
-   *
-   * @param inputs {Object}
-   *        an object with all the required query params
-   *
-   * @return {Object}
-   *        a formatted http.request options object
-   */
-  _this.getOptions = function (inputs) {
-    var options;
-
-    options = {
-      'hostname': _this.hostname,
-      'port': _this.port,
-      'path': _this.pathname + _this.urlEncode(inputs)
-    };
-
-    return options;
   };
 
   /**
