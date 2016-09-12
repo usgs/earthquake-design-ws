@@ -29,7 +29,7 @@ var LegacyFactory = function (options) {
     params = url.parse(options.url);
     _this.hostname = params.hostname;
     _this.port = params.port;
-    _this.path = params.pathname;
+    _this.pathname = params.pathname;
 
     // create cache object
     _this.cache = {};
