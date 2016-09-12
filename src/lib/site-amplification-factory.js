@@ -58,7 +58,7 @@ _DEFAULTS = {
  * @param options {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var SiteAmplificiationFactory = function (options) {
+var SiteAmplificationFactory = function (options) {
   var _this,
       _initialize;
 
@@ -248,4 +248,4 @@ var SiteAmplificiationFactory = function (options) {
 };
 
 
-module.exports = SiteAmplificiationFactory;
+module.exports = SiteAmplificationFactory;
