@@ -39,6 +39,16 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
+  describe('cacheRequest', () => {
+    it('caches a request', () => {
+      legacyFactory.cache = {};
+      legacyFactory.cacheRequest('key', 'value');
+
+      expect(legacyFactory.cache).to.not.equal({});
+      expect(legacyFactory.cache).to.deep.equal({'key': 'value'});
+    });
+  });
+
   describe('cleanseInputs', () => {
     it('translates from the new inputs to the old inputs', () => {
       var newInputs,
@@ -69,17 +79,45 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
+  describe('getCachedRequest', () => {
+    it('gets the cached request', () => {
+      legacyFactory.cache = {'key': 'value'};
+
+      expect(legacyFactory.getCachedRequest('key')).to.not.equal(null);
+      expect(legacyFactory.getCachedRequest('key')).to.deep.equal('value');
+    });
+  });
+
   describe('getLegacyData', () => {
+    it('returns the cached request', () => {
+      // stub
+      sinon.stub(legacyFactory, 'cleanseInputs', () => { return {}; });
+      sinon.stub(legacyFactory, 'getCachedRequest', () => { return 'test'; });
+      legacyFactory.getLegacyData();
+
+      expect(legacyFactory.getLegacyData()).to.equal('test');
+    });
+
     it('calls all helper methods', (done) => {
       var cleanseStub,
+          getCachedRequestStub,
           interpolateStub,
           response,
           result,
-          requestStub;
+          requestStub,
+          urlEncodeStub;
 
       response = {'data': 'test'};
 
       cleanseStub = sinon.stub(legacyFactory, 'cleanseInputs', () => {
+        return {};
+      });
+
+      getCachedRequestStub = sinon.stub(legacyFactory, 'getCachedRequest', () => {
+        return null;
+      });
+
+      interpolateStub = sinon.stub(legacyFactory, 'interpolate', () => {
         return {};
       });
 
@@ -89,14 +127,16 @@ describe('LegacyFactory test suite', () => {
         });
       });
 
-      interpolateStub = sinon.stub(legacyFactory, 'interpolate', () => {
-        return {};
+      urlEncodeStub = sinon.stub(legacyFactory, 'urlEncode', () => {
+        return '';
       });
 
       result = legacyFactory.getLegacyData();
 
       result.then(() => {
         expect(cleanseStub.callCount).to.equal(1);
+        expect(getCachedRequestStub.callCount).to.equal(1);
+        expect(urlEncodeStub.callCount).to.equal(1);
         expect(requestStub.callCount).to.equal(1);
         expect(interpolateStub.callCount).to.equal(1);
         expect(interpolateStub.calledWith(response)).to.be.true;

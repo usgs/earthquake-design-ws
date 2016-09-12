@@ -30,6 +30,22 @@ var LegacyFactory = function (options) {
     _this.hostname = params.hostname;
     _this.port = params.port;
     _this.path = params.pathname;
+
+    // create cache object
+    _this.cache = {};
+  };
+
+  _this.cacheRequest = function (key, value) {
+    _this.cache[key] = value;
+  };
+
+
+  _this.getCachedRequest = function (key) {
+    if (_this.cache.hasOwnProperty(key)) {
+      return _this.cache[key];
+    }
+
+    return null;
   };
 
 
@@ -81,16 +97,31 @@ var LegacyFactory = function (options) {
    *     legacy JSON response
    */
   _this.getLegacyData = function (inputs) {
-    var params;
+    var key,
+        params,
+        result;
 
     // cleanse inputs to use legacy format
     params = _this.cleanseInputs(inputs);
 
-    // return promise with interpolated data
-    return _this.makeRequest(params).then((result) => {
+    // check cache for response
+    key = _this.urlEncode(params);
+    result = _this.getCachedRequest(key);
+
+    if (result) {
+      return result;
+    }
+
+    // make request to get legacy data
+    result = _this.makeRequest(params).then((result) => {
       // perform bi-linear spatial interpolation
       return _this.interpolate(result);
     });
+
+    // cache the result for future requests
+    _this.cacheRequest(key, result);
+
+    return result;
   };
 
   /**
