@@ -35,19 +35,17 @@ var LegacyFactory = function (options) {
     _this.cache = {};
   };
 
+  /**
+   * Caches a Promise with the legacy web service response
+   *
+   * @param key {String}
+   *        The unique query string with input parameters
+   * @param value {Promise}
+   *        The Promise to cache with the legacy web service response
+   */
   _this.cacheRequest = function (key, value) {
     _this.cache[key] = value;
   };
-
-
-  _this.getCachedRequest = function (key) {
-    if (_this.cache.hasOwnProperty(key)) {
-      return _this.cache[key];
-    }
-
-    return null;
-  };
-
 
   /**
    * Translate new parameters to old inputs for legacy web service. All of the
@@ -86,6 +84,23 @@ var LegacyFactory = function (options) {
     _initialize = null;
     _this = null;
   };
+
+  /**
+   * Returns the cached legacy factory response
+   *
+   * @param key {String}
+   *        The unique query string with input parameters
+   * @return {Promise}
+   *        Cached promise with legacy data
+   */
+  _this.getCachedRequest = function (key) {
+    if (_this.cache.hasOwnProperty(key)) {
+      return _this.cache[key];
+    }
+
+    return null;
+  };
+
 
   /**
    * Query the legacy web service and interpolate results
