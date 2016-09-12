@@ -114,29 +114,36 @@ var LegacyFactory = function (options) {
   _this.getLegacyData = function (inputs) {
     var key,
         params,
-        result;
+        promise;
 
     // cleanse inputs to use legacy format
     params = _this.cleanseInputs(inputs);
 
     // check cache for response
     key = _this.urlEncode(params);
-    result = _this.getCachedRequest(key);
+    promise = _this.getCachedRequest(key);
 
-    if (result) {
-      return result;
+    if (promise) {
+      return promise;
     }
 
     // make request to get legacy data
-    result = _this.makeRequest(params).then((result) => {
+    promise = _this.makeRequest(params).then((result) => {
+      var calculation;
+
       // perform bi-linear spatial interpolation
-      return _this.interpolate(result);
+      calculation = _this.interpolate(result);
+
+      // replace data with interpolated results
+      result.data = [calculation];
+
+      return result;
     });
 
     // cache the result for future requests
-    _this.cacheRequest(key, result);
+    _this.cacheRequest(key, promise);
 
-    return result;
+    return promise;
   };
 
   /**
