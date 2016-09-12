@@ -10,6 +10,16 @@ _DEFAULTS = {
 };
 
 
+/**
+ * Design factory computes design values. Basic inputs are forwarded along
+ * to sub-factories to compute input data that is used in the algorithms
+ * for computing design values compatible with specific building code
+ * reference documents; specifically ASCE7-16.
+ *
+ * @param options {Object}
+ *     Configuration options used to instantiate this factory. See
+ *     #_initialize for details.
+ */
 var DesignFactory = function (options) {
   var _this,
       _initialize;
@@ -17,6 +27,21 @@ var DesignFactory = function (options) {
 
   _this = {};
 
+  /**
+   * Constructor. Instantiates a new {DesignFactory} instance.
+   *
+   * @param options.metadataFactory {MetadataFactory}
+   *     A factory for fetching metadata parameters for the building code
+   *     reference document
+   * @param probabilisticHazardFactory {ProbabilisticHazardFactory}
+   *     A factory for fetching probabilistic hazard data
+   * @param deterministicHazardFactory {DeterministicHazardFactory}
+   *     A factory for fetching deterministic hazard data
+   * @param riskTargetingFactory {RiskTargetingFactory}
+   *     A factory for fetching risk coefficient data
+   * @param siteAmplificationFactory {SiteAmplificationFactory}
+   *     A factory for computing site-amplification factors
+   */
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 

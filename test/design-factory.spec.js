@@ -14,7 +14,8 @@ _DUMMY_FACTORY = {
   getMetadata: () => { return Promise.resolve({}); },
   getProbabilisticData: () => { return Promise.resolve({}); },
   getDeterministicData: () => { return Promise.resolve({}); },
-  getRiskCoefficients: () => { return Promise.resolve({}); }
+  getRiskCoefficients: () => { return Promise.resolve({}); },
+  getAmplificationData: () => { return Promise.resolve({}); }
 };
 
 _EPSILON = Number.EPSILON;
@@ -250,7 +251,55 @@ describe('DesignFactory', () => {
 
       factory.destroy();
     });
-    // TODO :: More tests
+
+    it('resolves with expected data structure', (done) => {
+      var factory;
+
+      factory = DesignFactory();
+
+      factory.formatResult({
+        'basicDesign': {
+          'ss': null,
+          's1': null,
+          'pga': null,
+          'ssuh': null,
+          'ssur': null,
+          'ssd': null,
+          's1uh': null,
+          's1ur': null,
+          's1d': null,
+          'pgad': null
+        },
+        'deterministic': {},
+        'finalDesign': {
+          'sms': null,
+          'sm1': null,
+          'pgam': null,
+          'sds': null,
+          'sd1': null
+        },
+        'metadata': {},
+        'probabilistic': {},
+        'riskCoefficients': {},
+        'siteAmplification': {}
+      }).then((formatted) => {
+        [
+          'ss', 's1', 'pga',
+          'ssuh', 's1uh',
+          'ssur', 's1ur',
+          'ssd', 's1d', 'pgad',
+          'sms', 'sm1', 'pgam',
+          'sds', 'sd1'
+        ].forEach((key) => {
+          expect(formatted.hasOwnProperty(key)).to.equal(true);
+        });
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.destroy();
+        done(err);
+      });
+    });
   });
 
   describe('getDesignData', () => {
@@ -269,6 +318,64 @@ describe('DesignFactory', () => {
 
       factory.destroy();
     });
-    // TODO :: More tests
+
+    it('calls expected sub-methods', (done) => {
+      var factory;
+
+      factory = DesignFactory({
+        metadataFactory: _DUMMY_FACTORY,
+        probabilisticHazardFactory: _DUMMY_FACTORY,
+        deterministicHazardFactory: _DUMMY_FACTORY,
+        riskTargetingFactory: _DUMMY_FACTORY,
+        siteAmplificationFactory: _DUMMY_FACTORY
+      });
+
+      sinon.spy(factory.metadataFactory, 'getMetadata');
+      sinon.spy(factory.probabilisticHazardFactory, 'getProbabilisticData');
+      sinon.spy(factory.deterministicHazardFactory, 'getDeterministicData');
+      sinon.spy(factory.riskTargetingFactory, 'getRiskCoefficients');
+
+      sinon.spy(factory, 'computeBasicDesign');
+
+      sinon.spy(factory.siteAmplificationFactory, 'getAmplificationData');
+
+      sinon.spy(factory, 'computeFinalDesign');
+      sinon.spy(factory, 'formatResult');
+
+      factory.getDesignData().then((/*result*/) => {
+        expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
+        expect(factory.probabilisticHazardFactory
+            .getProbabilisticData.callCount).to.equal(1);
+        expect(factory.deterministicHazardFactory
+            .getDeterministicData.callCount).to.equal(1);
+        expect(factory.riskTargetingFactory
+            .getRiskCoefficients.callCount).to.equal(1);
+
+        expect(factory.computeBasicDesign.callCount).to.equal(1);
+
+        expect(factory.siteAmplificationFactory
+            .getAmplificationData.callCount).to.equal(1);
+
+        expect(factory.computeFinalDesign.callCount).to.equal(1);
+        expect(factory.formatResult.callCount).to.equal(1);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.metadataFactory.getMetadata.restore();
+        factory.probabilisticHazardFactory.getProbabilisticData.restore();
+        factory.deterministicHazardFactory.getDeterministicData.restore();
+        factory.riskTargetingFactory.getRiskCoefficients.restore();
+
+        factory.computeBasicDesign.restore();
+
+        factory.siteAmplificationFactory.getAmplificationData.restore();
+
+        factory.computeFinalDesign.restore();
+        factory.formatResult.restore();
+
+        factory.destroy();
+        done(err);
+      });
+    });
   });
 });
