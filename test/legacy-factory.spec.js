@@ -90,7 +90,6 @@ describe('LegacyFactory test suite', () => {
 
   describe('getLegacyData', () => {
     it('returns the cached request', () => {
-      // stub
       sinon.stub(legacyFactory, 'cleanseInputs', () => { return {}; });
       sinon.stub(legacyFactory, 'getCachedRequest', () => { return 'test'; });
       legacyFactory.getLegacyData();
@@ -151,41 +150,31 @@ describe('LegacyFactory test suite', () => {
   describe('getOptions', () => {
     it('creates an options object', () => {
       var inputs,
+          options,
           stub;
 
       inputs = {
         'test': 'inputs'
       };
 
-      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return; });
-      legacyFactory.getOptions(inputs);
+      legacyFactory.hostname = 'hostname';
+      legacyFactory.port = 'port';
+      legacyFactory.pathname = 'pathname';
+
+      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return ''; });
+      options = legacyFactory.getOptions(inputs);
 
       expect(stub.callCount).to.equal(1);
       expect(stub.calledWith(inputs)).to.be.true;
+      expect(options).to.deep.equal({
+        'hostname': legacyFactory.hostname,
+        'port': legacyFactory.port,
+        'path': legacyFactory.pathname
+      });
     });
   });
 
-  describe('interpolates correctly', () => {
-
-    it('interpolateValue is correct when interpolation_method is not linearlog', () => {
-      expect(legacyFactory.interpolateValue(0, 2, 1/2, 0, 1)).to.equal(1);
-    });
-
-    it('interpolateValue is correct when interpolation_method is equal to linearlog', () => {
-      expect(legacyFactory.interpolateValue(3, 2, 1/2, 0, 1, 'linearlog')).to.be.closeTo(
-          2.4494897427, EPSILION);
-    });
-
-    it('interpolateValue throws error when a y value is 0', () => {
-      var throwError;
-
-      throwError = () => {
-        legacyFactory.interpolateValue(0, 2, 1/2, 0, 1, 'linearlog');
-      };
-
-      expect(throwError).to.throw(Error);
-    });
-
+  describe('interpolate', () => {
     it('interpolates one point correctly', () => {
       var data,
           interpolate;
@@ -335,8 +324,56 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
-  describe('makeRequest', function () {
-    it('calls urlEncode with the correct inputs', (done) => {
+  describe('interpolateResults', () => {
+    it ('loops through object and calls interpolateValue', () => {
+      var d0,
+          d1,
+          stub;
+
+      d0 = d1 = {
+        'one': 1,
+        'two': 2,
+        'three': 3
+      };
+
+      stub = sinon.stub(legacyFactory, 'interpolateValue', () => { return; });
+      legacyFactory.interpolateResults(d0, d1, 0, 0, 0, 0);
+
+      expect(stub.callCount).to.equal(3);
+      expect(stub.getCall(0).args).to.deep.equal([1,1,0,0,0,0]);
+      expect(stub.getCall(1).args).to.deep.equal([2,2,0,0,0,0]);
+      expect(stub.getCall(2).args).to.deep.equal([3,3,0,0,0,0]);
+    });
+  });
+
+  describe('interpolateValue', () => {
+    it('interpolateValue is correct when interpolation_method is not linearlog', () => {
+      expect(legacyFactory.interpolateValue(0, 2, 1/2, 0, 1)).to.equal(1);
+    });
+
+    it('interpolateValue is correct when interpolation_method is equal to linearlog', () => {
+      expect(legacyFactory.interpolateValue(3, 2, 1/2, 0, 1, 'linearlog')).to.be.closeTo(
+          2.4494897427, EPSILION);
+    });
+
+    it('interpolateValue throws error when a y value is 0', () => {
+      var throwError;
+
+      throwError = () => {
+        legacyFactory.interpolateValue(0, 2, 1/2, 0, 1, 'linearlog');
+      };
+
+      expect(throwError).to.throw(Error);
+    });
+  });
+
+  describe('interpolates correctly', () => {
+
+
+  });
+
+  describe('makeRequest', () => {
+    it('returns the expected response', (done) => {
       var app,
           inputs,
           optionsStub,
