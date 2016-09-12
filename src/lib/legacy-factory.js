@@ -67,14 +67,36 @@ var LegacyFactory = function (options) {
    *     An object containing new inputs mapped to the legacy inputs
    */
   _this.cleanseInputs = function (inputs) {
-    var params;
+    var params,
+        referenceDocuments,
+        riskCategories,
+        siteClasses;
+
+    referenceDocuments = {
+      '2015 NEHRP Provisions': 1
+    };
+
+    siteClasses = {
+      'A': 1,
+      'B (measured)': 2,
+      'B (unmeasured)': 3,
+      'C': 4,
+      'D (determined)': 5,
+      'D (default) ': 6,
+      'E': 7
+    };
+
+    riskCategories = {
+      'I or II or III': 1,
+      'IV e.g. (Essential Facilities)': 2
+    };
 
     params = {
-      design_code: inputs.referenceDocument,
+      design_code: referenceDocuments[inputs.referenceDocument],
       latitude: inputs.latitude,
       longitude: inputs.longitude,
-      risk_category: inputs.riskCategory,
-      site_class: inputs.siteClass,
+      risk_category: riskCategories[inputs.riskCategory],
+      site_class: siteClasses[inputs.siteClass],
       title: inputs.title
     };
 

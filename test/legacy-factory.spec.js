@@ -56,21 +56,21 @@ describe('LegacyFactory test suite', () => {
           output;
 
       oldInputs = {
-        design_code: 0,
-        latitude: 1,
-        longitude: 2,
-        risk_category: 3,
-        site_class: 4,
-        title: 5
+        design_code: 1,
+        latitude: 40,
+        longitude: -105,
+        risk_category: 1,
+        site_class: 7,
+        title: 'title'
       };
 
       newInputs = {
-        referenceDocument: 0,
-        latitude: 1,
-        longitude: 2,
-        riskCategory: 3,
-        siteClass: 4,
-        title: 5
+        referenceDocument: '2015 NEHRP Provisions',
+        latitude: 40,
+        longitude: -105,
+        riskCategory: 'I or II or III',
+        siteClass: 'E',
+        title: 'title'
       };
 
       output = legacyFactory.cleanseInputs(newInputs);
