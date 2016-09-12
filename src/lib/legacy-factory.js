@@ -28,7 +28,16 @@ var LegacyFactory = function (options) {
     // parse url to get web service details
     params = url.parse(options.url);
     _this.hostname = params.hostname;
-    _this.port = params.port;
+    if (params.port) {
+      _this.port = params.port;
+    } else {
+      // use protocol when no port is defined
+      if (params.protocol === 'https:') {
+        _this.port = 443;
+      } else {
+        _this.port = 80;
+      }
+    }
     _this.pathname = params.pathname;
 
     // create cache object
