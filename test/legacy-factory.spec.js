@@ -39,6 +39,16 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
+  describe('cacheRequest', () => {
+    it('caches a request', () => {
+      legacyFactory.cache = {};
+      legacyFactory.cacheRequest('key', 'value');
+
+      expect(legacyFactory.cache).to.not.equal({});
+      expect(legacyFactory.cache).to.deep.equal({'key': 'value'});
+    });
+  });
+
   describe('cleanseInputs', () => {
     it('translates from the new inputs to the old inputs', () => {
       var newInputs,
@@ -46,21 +56,21 @@ describe('LegacyFactory test suite', () => {
           output;
 
       oldInputs = {
-        design_code: 0,
-        latitude: 1,
-        longitude: 2,
-        risk_category: 3,
-        site_class: 4,
-        title: 5
+        design_code: 1,
+        latitude: 40,
+        longitude: -105,
+        risk_category: 1,
+        site_class: 7,
+        title: 'title'
       };
 
       newInputs = {
-        referenceDocument: 0,
-        latitude: 1,
-        longitude: 2,
-        riskCategory: 3,
-        siteClass: 4,
-        title: 5
+        referenceDocument: '2015 NEHRP Provisions',
+        latitude: 40,
+        longitude: -105,
+        riskCategory: 'I or II or III',
+        siteClass: 'E',
+        title: 'title'
       };
 
       output = legacyFactory.cleanseInputs(newInputs);
@@ -69,17 +79,44 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
+  describe('getCachedRequest', () => {
+    it('gets the cached request', () => {
+      legacyFactory.cache = {'key': 'value'};
+
+      expect(legacyFactory.getCachedRequest('key')).to.not.equal(null);
+      expect(legacyFactory.getCachedRequest('key')).to.deep.equal('value');
+    });
+  });
+
   describe('getLegacyData', () => {
+    it('returns the cached request', () => {
+      sinon.stub(legacyFactory, 'cleanseInputs', () => { return {}; });
+      sinon.stub(legacyFactory, 'getCachedRequest', () => { return 'test'; });
+      legacyFactory.getLegacyData();
+
+      expect(legacyFactory.getLegacyData()).to.equal('test');
+    });
+
     it('calls all helper methods', (done) => {
       var cleanseStub,
+          getCachedRequestStub,
           interpolateStub,
           response,
           result,
-          requestStub;
+          requestStub,
+          urlEncodeStub;
 
       response = {'data': 'test'};
 
       cleanseStub = sinon.stub(legacyFactory, 'cleanseInputs', () => {
+        return {};
+      });
+
+      getCachedRequestStub = sinon.stub(legacyFactory, 'getCachedRequest', () => {
+        return null;
+      });
+
+      interpolateStub = sinon.stub(legacyFactory, 'interpolate', () => {
         return {};
       });
 
@@ -89,14 +126,16 @@ describe('LegacyFactory test suite', () => {
         });
       });
 
-      interpolateStub = sinon.stub(legacyFactory, 'interpolate', () => {
-        return {};
+      urlEncodeStub = sinon.stub(legacyFactory, 'urlEncode', () => {
+        return '';
       });
 
       result = legacyFactory.getLegacyData();
 
       result.then(() => {
         expect(cleanseStub.callCount).to.equal(1);
+        expect(getCachedRequestStub.callCount).to.equal(1);
+        expect(urlEncodeStub.callCount).to.equal(1);
         expect(requestStub.callCount).to.equal(1);
         expect(interpolateStub.callCount).to.equal(1);
         expect(interpolateStub.calledWith(response)).to.be.true;
@@ -111,41 +150,31 @@ describe('LegacyFactory test suite', () => {
   describe('getOptions', () => {
     it('creates an options object', () => {
       var inputs,
+          options,
           stub;
 
       inputs = {
         'test': 'inputs'
       };
 
-      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return; });
-      legacyFactory.getOptions(inputs);
+      legacyFactory.hostname = 'hostname';
+      legacyFactory.port = 'port';
+      legacyFactory.pathname = 'pathname';
+
+      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return ''; });
+      options = legacyFactory.getOptions(inputs);
 
       expect(stub.callCount).to.equal(1);
       expect(stub.calledWith(inputs)).to.be.true;
+      expect(options).to.deep.equal({
+        'hostname': legacyFactory.hostname,
+        'port': legacyFactory.port,
+        'path': legacyFactory.pathname
+      });
     });
   });
 
-  describe('interpolates correctly', () => {
-
-    it('interpolateValue is correct when interpolation_method is not linearlog', () => {
-      expect(legacyFactory.interpolateValue(0, 2, 1/2, 0, 1)).to.equal(1);
-    });
-
-    it('interpolateValue is correct when interpolation_method is equal to linearlog', () => {
-      expect(legacyFactory.interpolateValue(3, 2, 1/2, 0, 1, 'linearlog')).to.be.closeTo(
-          2.4494897427, EPSILION);
-    });
-
-    it('interpolateValue throws error when a y value is 0', () => {
-      var throwError;
-
-      throwError = () => {
-        legacyFactory.interpolateValue(0, 2, 1/2, 0, 1, 'linearlog');
-      };
-
-      expect(throwError).to.throw(Error);
-    });
-
+  describe('interpolate', () => {
     it('interpolates one point correctly', () => {
       var data,
           interpolate;
@@ -295,8 +324,56 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
-  describe('makeRequest', function () {
-    it('calls urlEncode with the correct inputs', (done) => {
+  describe('interpolateResults', () => {
+    it ('loops through object and calls interpolateValue', () => {
+      var d0,
+          d1,
+          stub;
+
+      d0 = d1 = {
+        'one': 1,
+        'two': 2,
+        'three': 3
+      };
+
+      stub = sinon.stub(legacyFactory, 'interpolateValue', () => { return; });
+      legacyFactory.interpolateResults(d0, d1, 0, 0, 0, 0);
+
+      expect(stub.callCount).to.equal(3);
+      expect(stub.getCall(0).args).to.deep.equal([1,1,0,0,0,0]);
+      expect(stub.getCall(1).args).to.deep.equal([2,2,0,0,0,0]);
+      expect(stub.getCall(2).args).to.deep.equal([3,3,0,0,0,0]);
+    });
+  });
+
+  describe('interpolateValue', () => {
+    it('interpolateValue is correct when interpolation_method is not linearlog', () => {
+      expect(legacyFactory.interpolateValue(0, 2, 1/2, 0, 1)).to.equal(1);
+    });
+
+    it('interpolateValue is correct when interpolation_method is equal to linearlog', () => {
+      expect(legacyFactory.interpolateValue(3, 2, 1/2, 0, 1, 'linearlog')).to.be.closeTo(
+          2.4494897427, EPSILION);
+    });
+
+    it('interpolateValue throws error when a y value is 0', () => {
+      var throwError;
+
+      throwError = () => {
+        legacyFactory.interpolateValue(0, 2, 1/2, 0, 1, 'linearlog');
+      };
+
+      expect(throwError).to.throw(Error);
+    });
+  });
+
+  describe('interpolates correctly', () => {
+
+
+  });
+
+  describe('makeRequest', () => {
+    it('returns the expected response', (done) => {
       var app,
           inputs,
           optionsStub,

@@ -28,10 +28,33 @@ var LegacyFactory = function (options) {
     // parse url to get web service details
     params = url.parse(options.url);
     _this.hostname = params.hostname;
-    _this.port = params.port;
-    _this.path = params.pathname;
+    if (params.port) {
+      _this.port = params.port;
+    } else {
+      // use protocol when no port is defined
+      if (params.protocol === 'https:') {
+        _this.port = 443;
+      } else {
+        _this.port = 80;
+      }
+    }
+    _this.pathname = params.pathname;
+
+    // create cache object
+    _this.cache = {};
   };
 
+  /**
+   * Caches a Promise with the legacy web service response
+   *
+   * @param key {String}
+   *        The unique query string with input parameters
+   * @param value {Promise}
+   *        The Promise to cache with the legacy web service response
+   */
+  _this.cacheRequest = function (key, value) {
+    _this.cache[key] = value;
+  };
 
   /**
    * Translate new parameters to old inputs for legacy web service. All of the
@@ -44,14 +67,36 @@ var LegacyFactory = function (options) {
    *     An object containing new inputs mapped to the legacy inputs
    */
   _this.cleanseInputs = function (inputs) {
-    var params;
+    var params,
+        referenceDocuments,
+        riskCategories,
+        siteClasses;
+
+    referenceDocuments = {
+      '2015 NEHRP Provisions': 1
+    };
+
+    siteClasses = {
+      'A': 1,
+      'B (measured)': 2,
+      'B (unmeasured)': 3,
+      'C': 4,
+      'D (determined)': 5,
+      'D (default) ': 6,
+      'E': 7
+    };
+
+    riskCategories = {
+      'I or II or III': 1,
+      'IV e.g. (Essential Facilities)': 2
+    };
 
     params = {
-      design_code: inputs.referenceDocument,
+      design_code: referenceDocuments[inputs.referenceDocument],
       latitude: inputs.latitude,
       longitude: inputs.longitude,
-      risk_category: inputs.riskCategory,
-      site_class: inputs.siteClass,
+      risk_category: riskCategories[inputs.riskCategory],
+      site_class: siteClasses[inputs.siteClass],
       title: inputs.title
     };
 
@@ -72,6 +117,23 @@ var LegacyFactory = function (options) {
   };
 
   /**
+   * Returns the cached legacy factory response
+   *
+   * @param key {String}
+   *        The unique query string with input parameters
+   * @return {Promise}
+   *        Cached promise with legacy data
+   */
+  _this.getCachedRequest = function (key) {
+    if (_this.cache.hasOwnProperty(key)) {
+      return _this.cache[key];
+    }
+
+    return null;
+  };
+
+
+  /**
    * Query the legacy web service and interpolate results
    *
    * @param inputs {object}
@@ -81,16 +143,38 @@ var LegacyFactory = function (options) {
    *     legacy JSON response
    */
   _this.getLegacyData = function (inputs) {
-    var params;
+    var key,
+        params,
+        promise;
 
     // cleanse inputs to use legacy format
     params = _this.cleanseInputs(inputs);
 
-    // return promise with interpolated data
-    return _this.makeRequest(params).then((result) => {
+    // check cache for response
+    key = _this.urlEncode(params);
+    promise = _this.getCachedRequest(key);
+
+    if (promise) {
+      return promise;
+    }
+
+    // make request to get legacy data
+    promise = _this.makeRequest(params).then((result) => {
+      var calculation;
+
       // perform bi-linear spatial interpolation
-      return _this.interpolate(result);
+      calculation = _this.interpolate(result);
+
+      // replace data with interpolated results
+      result.data = [calculation];
+
+      return result;
     });
+
+    // cache the result for future requests
+    _this.cacheRequest(key, promise);
+
+    return promise;
   };
 
   /**
