@@ -56,7 +56,8 @@
     </dd>
   </dl>
 
-  <h1 id="output">Output</h1>
+  <h2 id="output">Output</h2>
+  <p>Web service response</p>
   <dl>
     <dt id="output-date">date</dt>
     <dd>
@@ -79,7 +80,7 @@
     <dt id="response">response</dt>
     <dd>
     <dl>
-      <dt id="response-metadata">Metadata</dt>
+      <dt id="response-metadata">metadata</dt>
       <dd>
         <dl>
           <dt id="response-metadata-pgaFloor">pgaFloor</dt>
@@ -103,40 +104,41 @@
           <dt id="response-metadata-s1dFloor">s1dFloor</dt>
           <dd>
             Minimum constraint placed on the deterministic ground motion.
-            (1.0 sec)
+            (1.0 second)
           </dd>
 
           <dt id="response-metadata-1sMaxDirection">s1MaxDirection</dt>
           <dd>
             Factor applyed ot the geometric mean ground motion to get max
-            direction ground motion. (1.0 sec)
+            direction ground motion. (1.0 second)
           </dd>
 
           <dt id="response-metadata-s1Percentile">s1Percentile</dt>
           <dd>
             Factor applyed to 50% ground motion to achieve target percentile
-            ground motion. (.2 sec)
+            ground motion. (0.2 second)
           </dd>
 
           <dt id="response-metadata-ssdFloor">ssdFloor</dt>
           <dd>
-            Minimum constraint placed on the deterministic ground motion. (.2 sec)
+            Minimum constraint placed on the deterministic ground motion.
+            (0.2 second)
           </dd>
 
           <dt id="response-metadata-ssMaxDirection">ssMaxDirection</dt>
           <dd>
             Factor applyed ot the geometric mean ground motion to get max
-            direction ground motion. (.2 sec)
+            direction ground motion. (0.2 second)
           </dd>
 
           <dt id="response-metadata-ssPercentile">ssPercentile</dt>
           <dd>
             Factor applyed to 50% ground motion to achieve target percentile
-            ground motion. (.2 sec)
+            ground motion. (0.2 second)
           </dd>
       </dd>
 
-      <dt id="response-data">Data</dt>
+      <dt id="response-data">data</dt>
       <dd>
         <dl>
           <dt id="response-data-designCategory">designCategory</dt>
@@ -146,7 +148,7 @@
 
           <dt id="response-data-fa">fa</dt>
           <dd>
-            Site amplification factor at 0.2s.
+            Site amplification factor at 0.2 second.
           </dd>
 
           <dt id="response-data-fpga">fpga</dt>
@@ -156,7 +158,7 @@
 
           <dt id="response-data-fv">fv</dt>
           <dd>
-            Site amplification factor at 1.0s.
+            Site amplification factor at 1.0 second.
           </dd>
 
           <dt id="response-data-pga">pga</dt>
@@ -182,7 +184,7 @@
 
           <dt id="response-data-s1d">s1d</dt>
           <dd>
-            Factor deterministic acceleration value. (1.0 sec)
+            Factor deterministic acceleration value. (1.0 second)
           </dd>
 
           <dt id="response-data-s1uh">s1uh</dt>
@@ -192,7 +194,7 @@
 
           <dt id="response-data-s1ur">s1ur</dt>
           <dd>
-            Uniform risk ground motion. (1.0 sec)
+            Uniform risk ground motion. (1.0 second)
           </dd>
 
           <dt id="response-data-sd1">sd1</dt>
@@ -228,12 +230,12 @@
           <dt id="response-data-ss">ss</dt>
           <dd>
             Ground motion with a 2% probability of exceedance in 50 years.
-            (for 0.2s period)
+            (for 0.2 second period)
           </dd>
 
           <dt id="response-data-ssd">ssd</dt>
           <dd>
-            Factor deterministic acceleration value. (.2 sec)
+            Factor deterministic acceleration value. (0.2 second)
           </dd>
 
           <dt id="response-data-ssuh">ssuh</dt>
@@ -243,7 +245,7 @@
 
           <dt id="response-data-ssur">ssur</dt>
           <dd>
-            Uniform risk ground motion. (.2 sec)
+            Uniform risk ground motion. (0.2 second)
           </dd>
 
           <dt id="response-data-tl">tl</dt>
@@ -258,7 +260,7 @@
   <div class="code">
     <pre>
       {
-        "status": "Success",
+        "status": "success",
         "date": 2016-03-13T03:25:32Z,
         "url": {MOUNT_PATH}/design.json?latitude=34.01&amp;longitude=-118.01&amp;referenceDocument=NEHRP2015&amp;riskCategory=2&amp;siteClass=1&amp;title=test,
         "response": {
