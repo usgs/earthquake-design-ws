@@ -162,10 +162,21 @@ var WebService = function (options) {
    *     An object with metadata information about the response.
    */
   _this.getResponseMetadata = function (request, isSuccess) {
+    var params;
+
+    params = request.query || {};
+
+    ['latitude', 'longitude'].forEach((key) => {
+      if (params.hasOwnProperty(key)) {
+        params[key] = parseFloat(params[key]);
+      }
+    });
+
     return {
       date: new Date().toISOString(),
       status: isSuccess ? 'success' : 'error',
-      url: request.protocol + '://' + request.hostname + request.originalUrl
+      url: request.protocol + '://' + request.hostname + request.originalUrl,
+      parameters: params
     };
   };
 
