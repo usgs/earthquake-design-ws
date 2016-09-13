@@ -99,7 +99,7 @@ var DesignFactory = function (options) {
             metadata.ssMaxDirection);
         basicDesign.ssur = _this.computeUniformRisk(basicDesign.ssuh,
             riskCoefficients.crs);
-        basicDesign.ssd = _this.computeDeterministic(deterministic.ss,
+        basicDesign.ssd = _this.computeDeterministic(deterministic.ssd,
             metadata.ssPercentile, metadata.ssMaxDirection, metadata.ssdFloor);
         basicDesign.ss = _this.computeGroundMotion(basicDesign.ssur,
             basicDesign.ssd);
@@ -109,14 +109,14 @@ var DesignFactory = function (options) {
             metadata.s1MaxDirection);
         basicDesign.s1ur = _this.computeUniformRisk(basicDesign.s1uh,
             riskCoefficients.cr1);
-        basicDesign.s1d = _this.computeDeterministic(deterministic.s1,
+        basicDesign.s1d = _this.computeDeterministic(deterministic.s1d,
             metadata.s1Percentile, metadata.s1MaxDirection, metadata.s1dFloor);
         basicDesign.s1 = _this.computeGroundMotion(basicDesign.s1ur,
             basicDesign.s1d);
 
         // Compute PGA
         // Note :: Computations for PGA are a bit simpler than Ss/S1
-        basicDesign.pgad = _this.computeDeterministic(deterministic.pga,
+        basicDesign.pgad = _this.computeDeterministic(deterministic.pgad,
             metadata.pgaPercentile, 1.0, metadata.pgadFloor);
         basicDesign.pga = _this.computeGroundMotion(probabilistic.pga,
             basicDesign.pgad);
@@ -338,7 +338,7 @@ var DesignFactory = function (options) {
     }).then((basicDesign) => {
       result.basicDesign = basicDesign;
 
-      return _this.siteAmplificationFactory.getAmplificationData(
+      return _this.siteAmplificationFactory.getSiteAmplificationData(
           extend(true, {}, inputs, basicDesign));
     }).then((siteAmplification) => {
       result.siteAmplification = siteAmplification;

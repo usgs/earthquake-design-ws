@@ -48,7 +48,6 @@ var DesignHandler = function (options) {
         title;
 
     buf = [];
-    params = {};
 
     latitude = params.latitude;
     longitude = params.longitude;

@@ -15,7 +15,7 @@ _DUMMY_FACTORY = {
   getProbabilisticData: () => { return Promise.resolve({}); },
   getDeterministicData: () => { return Promise.resolve({}); },
   getRiskCoefficients: () => { return Promise.resolve({}); },
-  getAmplificationData: () => { return Promise.resolve({}); }
+  getSiteAmplificationData: () => { return Promise.resolve({}); }
 };
 
 _EPSILON = Number.EPSILON;
@@ -337,7 +337,7 @@ describe('DesignFactory', () => {
 
       sinon.spy(factory, 'computeBasicDesign');
 
-      sinon.spy(factory.siteAmplificationFactory, 'getAmplificationData');
+      sinon.spy(factory.siteAmplificationFactory, 'getSiteAmplificationData');
 
       sinon.spy(factory, 'computeFinalDesign');
       sinon.spy(factory, 'formatResult');
@@ -354,7 +354,7 @@ describe('DesignFactory', () => {
         expect(factory.computeBasicDesign.callCount).to.equal(1);
 
         expect(factory.siteAmplificationFactory
-            .getAmplificationData.callCount).to.equal(1);
+            .getSiteAmplificationData.callCount).to.equal(1);
 
         expect(factory.computeFinalDesign.callCount).to.equal(1);
         expect(factory.formatResult.callCount).to.equal(1);
@@ -368,7 +368,7 @@ describe('DesignFactory', () => {
 
         factory.computeBasicDesign.restore();
 
-        factory.siteAmplificationFactory.getAmplificationData.restore();
+        factory.siteAmplificationFactory.getSiteAmplificationData.restore();
 
         factory.computeFinalDesign.restore();
         factory.formatResult.restore();

@@ -8,7 +8,7 @@ var _DEFAULTS;
 
 _DEFAULTS = {
   lookupTables: {
-    'ASCE7-16': {
+    '2015 NEHRP Provisions': {
       'ss': {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
         siteClasses: {
@@ -58,7 +58,7 @@ _DEFAULTS = {
  * @param options {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var SiteAmplificiationFactory = function (options) {
+var SiteAmplificationFactory = function (options) {
   var _this,
       _initialize;
 
@@ -248,4 +248,4 @@ var SiteAmplificiationFactory = function (options) {
 };
 
 
-module.exports = SiteAmplificiationFactory;
+module.exports = SiteAmplificationFactory;
