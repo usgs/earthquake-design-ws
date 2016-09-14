@@ -16,5 +16,11 @@ module.exports = [
     name: 'PORT',
     message: 'Application port',
     default: '8000'
+  },
+  {
+    type: 'input',
+    name: 'LEGACY_URL',
+    message: 'Legacy web service endpoint',
+    default: 'https://earthquake.usgs.gov/designmaps/beta/us/service'
   }
 ];

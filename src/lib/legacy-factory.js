@@ -9,7 +9,7 @@ var extend = require('extend'),
 var _DEFAULTS;
 
 _DEFAULTS = {
-  url: 'https://earthquake.usgs.gov/designmaps/beta/us/service/'
+  url: 'https://earthquake.usgs.gov/designmaps/beta/us/service'
 };
 
 
@@ -402,8 +402,9 @@ var LegacyFactory = function (options) {
    *      url encoded object
    */
   _this.urlEncode = function (obj) {
-    return obj.design_code + '/' + obj.site_class + '/' + obj.risk_category +
-        '/' + obj.longitude + '/' + obj.latitude + '/' + obj.title;
+    return '/' + obj.design_code + '/' + obj.site_class + '/' +
+        obj.risk_category + '/' + obj.longitude + '/' + obj.latitude + '/' +
+        obj.title;
   };
 
 
