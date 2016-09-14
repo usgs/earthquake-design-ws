@@ -76,15 +76,16 @@ var MetadataFactory = function (options) {
         metadata = legacyResult.output.metadata;
 
         return resolve({
-          'ssMaxDirection': metadata.max_direction_ss,
-          's1MaxDirection': metadata.max_direction_s1,
-          'pgaMaxDirection': metadata.max_direction_pga,
-          'ssPercentile': metadata.percentile_ss,
-          's1Percentile': metadata.percentile_s1,
-          'pgaPercentile': metadata.percentile_pga,
-          'ssdFloor': metadata.deterministic_floor_ss,
-          's1dFloor': metadata.deterministic_floor_s1,
+          'pgadPercentileFactor': metadata.percentile_pga,
           'pgadFloor': metadata.deterministic_floor_pga,
+
+          's1MaxDirFactor': metadata.max_direction_s1,
+          's1dPercentileFactor': metadata.percentile_s1,
+          's1dFloor': metadata.deterministic_floor_s1,
+
+          'ssMaxDirFactor': metadata.max_direction_ss,
+          'ssdPercentileFactor': metadata.percentile_ss,
+          'ssdFloor': metadata.deterministic_floor_ss
         });
       } catch (err) {
         return reject(err);
