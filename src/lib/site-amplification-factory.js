@@ -52,7 +52,7 @@ _DEFAULTS = {
 
 /**
  * Factory for computing site amplification values "Fa", "Fv", and "Fpga"
- * corresponding to a given "Ss", "S1", and "PGA" respectivelyk for a given
+ * corresponding to a given "Ss", "S1", and "PGA" respectively for a given
  * reference document.
  *
  * @param options {Object}
