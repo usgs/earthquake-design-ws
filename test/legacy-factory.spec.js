@@ -429,12 +429,13 @@ describe('LegacyFactory test suite', () => {
       url = factory.urlEncode(inputs);
       params = url.split('/');
 
-      expect(params[0]).to.equal('0');
-      expect(params[1]).to.equal('1');
-      expect(params[2]).to.equal('2');
-      expect(params[3]).to.equal('3');
-      expect(params[4]).to.equal('4');
-      expect(params[5]).to.equal('5');
+      expect(params[0]).to.equal('');
+      expect(params[1]).to.equal('0');
+      expect(params[2]).to.equal('1');
+      expect(params[3]).to.equal('2');
+      expect(params[4]).to.equal('3');
+      expect(params[5]).to.equal('4');
+      expect(params[6]).to.equal('5');
     });
   });
 
