@@ -302,7 +302,10 @@ var DesignFactory = function (options) {
         // designCategory: STRING,
         // sdSpectrum: XY_SERIES,
         // smSpectrum: XY_SERIES
-        resolve(extend(true, {}, result.basicDesign, result.finalDesign));
+        resolve({
+          data: extend(true, {}, result.basicDesign, result.finalDesign),
+          metadata: extend(true, {}, result.metadata)
+        });
       } catch (err) {
         reject(err);
       }

@@ -278,7 +278,16 @@ describe('DesignFactory', () => {
           'sds': null,
           'sd1': null
         },
-        'metadata': {},
+        'metadata': {
+          'ssMaxDirection': null,
+          's1MaxDirection': null,
+          'ssPercentile': null,
+          's1Percentile': null,
+          'pgaPercentile': null,
+          'ssdFloor': null,
+          's1dFloor': null,
+          'pgadFloor': null
+        },
         'probabilistic': {},
         'riskCoefficients': {},
         'siteAmplification': {}
@@ -291,7 +300,15 @@ describe('DesignFactory', () => {
           'sms', 'sm1', 'pgam',
           'sds', 'sd1'
         ].forEach((key) => {
-          expect(formatted.hasOwnProperty(key)).to.equal(true);
+          expect(formatted.data.hasOwnProperty(key)).to.equal(true);
+        });
+
+        [
+          's1MaxDirection', 'ssMaxDirection',
+          'pgaPercentile', 's1Percentile', 'ssPercentile',
+          'pgadFloor', 's1dFloor', 'ssdFloor'
+        ].forEach((key) => {
+          expect(formatted.metadata.hasOwnProperty(key)).to.equal(true);
         });
       }).catch((err) => {
         return err;
