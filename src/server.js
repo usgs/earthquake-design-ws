@@ -20,7 +20,8 @@ if (fs.existsSync(configPath)) {
 
   config = {
     MOUNT_PATH: '',
-    PORT: 8000
+    PORT: 8000,
+    LEGACY_URL: '/legacy/service'
   };
 }
 
