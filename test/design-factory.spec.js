@@ -319,7 +319,11 @@ describe('DesignFactory', () => {
         },
         'probabilistic': {},
         'riskCoefficients': {},
-        'siteAmplification': {}
+        'siteAmplification': {},
+        'spectra': {
+          'smSpectrum': null,
+          'sdSpectrum': null
+        }
       }).then((formatted) => {
         [
           'ss', 's1', 'pga',
@@ -327,7 +331,8 @@ describe('DesignFactory', () => {
           'ssur', 's1ur',
           'ssd', 's1d', 'pgad',
           'sms', 'sm1', 'pgam',
-          'sds', 'sd1'
+          'sds', 'sd1',
+          'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
         });
