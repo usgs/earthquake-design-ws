@@ -67,7 +67,7 @@ describe('DesignCategoryFactory', () => {
     });
 
     it('returns E when riskCategory equals "I or II or III" and s1 >= 0.75', (done) => {
-      factory.getDesignCategory('I or II or III', 1, 1, 1).then((result) => {
+      factory.getDesignCategory('I', 1, 1, 1).then((result) => {
         expect(result).to.equal('E');
       }).catch((err) => {
         return err;
@@ -101,20 +101,20 @@ describe('DesignCategoryFactory', () => {
     it('returns the correct design category', () => {
       var f = factory;
 
-      expect(f.mapDesignCategory('I or II or III', 'sds', 0.1)).to.equal('A');
-      expect(f.mapDesignCategory('I or II or III', 'sds', 0.2)).to.equal('B');
-      expect(f.mapDesignCategory('I or II or III', 'sds', 0.4)).to.equal('C');
-      expect(f.mapDesignCategory('I or II or III', 'sds', 0.6)).to.equal('D');
+      expect(f.mapDesignCategory('I', 'sds', 0.1)).to.equal('A');
+      expect(f.mapDesignCategory('I', 'sds', 0.2)).to.equal('B');
+      expect(f.mapDesignCategory('I', 'sds', 0.4)).to.equal('C');
+      expect(f.mapDesignCategory('I', 'sds', 0.6)).to.equal('D');
 
       expect(f.mapDesignCategory('IV', 'sds', 0.1)).to.equal('A');
       expect(f.mapDesignCategory('IV', 'sds', 0.2)).to.equal('C');
       expect(f.mapDesignCategory('IV', 'sds', 0.4)).to.equal('D');
       expect(f.mapDesignCategory('IV', 'sds', 0.6)).to.equal('D');
 
-      expect(f.mapDesignCategory('I or II or III', 'sd1', 0.05)).to.equal('A');
-      expect(f.mapDesignCategory('I or II or III', 'sd1', 0.10)).to.equal('B');
-      expect(f.mapDesignCategory('I or II or III', 'sd1', 0.15)).to.equal('C');
-      expect(f.mapDesignCategory('I or II or III', 'sd1', 0.25)).to.equal('D');
+      expect(f.mapDesignCategory('I', 'sd1', 0.05)).to.equal('A');
+      expect(f.mapDesignCategory('I', 'sd1', 0.10)).to.equal('B');
+      expect(f.mapDesignCategory('I', 'sd1', 0.15)).to.equal('C');
+      expect(f.mapDesignCategory('I', 'sd1', 0.25)).to.equal('D');
 
       expect(f.mapDesignCategory('IV', 'sd1', 0.05)).to.equal('A');
       expect(f.mapDesignCategory('IV', 'sd1', 0.10)).to.equal('C');

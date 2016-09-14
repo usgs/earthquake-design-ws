@@ -11,15 +11,19 @@ _DEFAULTS = {
     'sds': {
       bins: [0, 0.167, 0.33, 0.50],
       riskCategories: {
-        'I or II or III': ['A', 'B', 'C', 'D'],
-        'IV': ['A', 'C', 'D', 'D']
+        'I':   ['A', 'B', 'C', 'D'],
+        'II':  ['A', 'B', 'C', 'D'],
+        'III': ['A', 'B', 'C', 'D'],
+        'IV':  ['A', 'C', 'D', 'D']
       }
     },
     'sd1': {
       bins: [0, 0.067, 0.133, 0.20],
       riskCategories: {
-        'I or II or III': ['A', 'B', 'C', 'D'],
-        'IV': ['A', 'C', 'D', 'D']
+        'I':   ['A', 'B', 'C', 'D'],
+        'II':  ['A', 'B', 'C', 'D'],
+        'III': ['A', 'B', 'C', 'D'],
+        'IV':  ['A', 'C', 'D', 'D']
       }
     }
   }
@@ -105,7 +109,7 @@ var DesignCategoryFactory = function (options) {
 
         if (riskCategory === 'N') {
           result = 'N';
-        } else if (riskCategory === 'I or II or III' && s1 >= 0.75) {
+        } else if (['I', 'II', 'III'].indexOf(riskCategory) !== -1 && s1 >= 0.75) {
           result = 'E';
         } else if (riskCategory === 'IV' && s1 >= 0.75) {
           result = 'F';
