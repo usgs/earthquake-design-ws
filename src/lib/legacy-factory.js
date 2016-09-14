@@ -73,7 +73,7 @@ var LegacyFactory = function (options) {
         siteClasses;
 
     referenceDocuments = {
-      '2015 NEHRP Provisions': 1
+      'ASCE7-16': 1
     };
 
     siteClasses = {
@@ -87,8 +87,10 @@ var LegacyFactory = function (options) {
     };
 
     riskCategories = {
-      'I or II or III': 1,
-      'IV e.g. (Essential Facilities)': 2
+      'I': 1,
+      'II': 1,
+      'III': 1,
+      'IV': 2
     };
 
     params = {
