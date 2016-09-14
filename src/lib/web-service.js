@@ -16,8 +16,9 @@ var DesignFactory = require('./design-factory'),
 var _DEFAULTS;
 
 _DEFAULTS = {
-  MOUNT_PATH: '/',
-  PORT: 8000
+  MOUNT_PATH: '',
+  PORT: 8000,
+  LEGACY_URL: '/legacy/service'
 };
 
 
@@ -56,7 +57,7 @@ var WebService = function (options) {
     _port = options.PORT;
 
     _legacyFactory = LegacyFactory({
-      url: options.legacyUrl
+      url: options.LEGACY_URL
     });
 
     // Setup handler and pass in factory
