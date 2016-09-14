@@ -95,7 +95,9 @@
                   <br/>Example: <code>-118.01</code>
                 </dd>
 
-                <dt id="metadata-parameters-referenceDocument">referenceDocument</dt>
+                <dt id="metadata-parameters-referenceDocument">
+                  referenceDocument
+                </dt>
                 <dd>
                   Building code reference document identifier.
                   <br/>Example: <code>NEHRP2015</code>
@@ -132,12 +134,12 @@
             <dl>
               <dt id="data-data-ss">ss</dt>
               <dd>
-                MCEr ground motion. (for 0.2 second period)
+                MCE<sub>r</sub> ground motion. (for 0.2 second period)
               </dd>
 
               <dt id="data-data-s1">s1</dt>
               <dd>
-                MCEr ground motion. (for 1.0s period)
+                MCE<sub>r</sub> ground motion. (for 1.0s period)
               </dd>
 
               <dt id="data-data-pga">pga</dt>
@@ -147,12 +149,13 @@
 
               <dt id="data-data-ssuh">ssuh</dt>
               <dd>
-                Uniform-hazard (2% probability of exceedance in 50 years) spectral
-                acceleration.
+                Uniform-hazard (2% probability of exceedance in 50 years)
+                spectral acceleration.
               </dd>
 
-              <dt>ssur</dt>
+              <dt>ssrt</dt>
               <dd>
+                Probabilistic risk-targeted ground motion. (0.2 second)
               </dd>
 
               <dt id="data-data-ssd">ssd</dt>
@@ -162,12 +165,13 @@
 
               <dt id="data-data-s1uh">s1uh</dt>
               <dd>
-                Factored uniform-hazard (2% probability of exceedance in 50 years)
-                spectral acceleration.
+                Factored uniform-hazard (2% probability of exceedance in 50
+                years) spectral acceleration.
               </dd>
 
-              <dt>s1ur</dt>
+              <dt>s1rt</dt>
               <dd>
+                Probabilistic risk-targeted ground motion. (1.0 second)
               </dd>
 
               <dt id="data-data-s1d">s1d</dt>
@@ -246,6 +250,12 @@
               <dd>
                 Minimum constraint placed on the deterministic ground motion.
                 (0.2 second)
+              </dd>
+
+              <dt id="data-metadata-s1dFloor">s1dFloor</dt>
+              <dd>
+                Minimum constraint placed on the deterministic ground motion.
+                (1.0 second)
               </dd>
 
               <dt id="data-metadata-pgaFloor">pgadFloor</dt>
