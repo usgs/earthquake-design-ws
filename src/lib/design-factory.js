@@ -41,6 +41,8 @@ var DesignFactory = function (options) {
    *     A factory for fetching risk coefficient data
    * @param siteAmplificationFactory {SiteAmplificationFactory}
    *     A factory for computing site-amplification factors
+   * @param spectraFactory {SpectraFactory}
+   *     A factory for computing spectra
    */
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
@@ -50,6 +52,7 @@ var DesignFactory = function (options) {
     _this.deterministicHazardFactory = options.deterministicHazardFactory;
     _this.riskTargetingFactory = options.riskTargetingFactory;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
+    _this.spectraFactory = options.spectraFactory;
   };
 
 
@@ -249,6 +252,49 @@ var DesignFactory = function (options) {
   };
 
   /**
+   * Computes spectra for site-modified and design values using the
+   * `_this.spectraFactory`.
+   *
+   * @param params {Object}
+   *     An object containing site-modified and design ground motion values.
+   * @param params.sd1 {Double}
+   *     The 1.0 second spectral period design ground motion
+   * @param params.sds {Double}
+   *     The 0.2 second spectral period design ground motion
+   * @param params.sm1 {Double}
+   *     The 1.0 second spectral period site-modified ground motion
+   * @param params.sms {Double}
+   *     The 0.2 second spectral period site-modified ground motion
+   *
+   * @return {Promise}
+   *     A promise that resolves with an object containing `smSpectrum` and
+   *     `sdSpectrum` keys whose values are an {XY_Series} representing the
+   *     specified spectrum.
+   */
+  _this.computeSpectra = function (params) {
+    var sd1,
+        sds,
+        sm1,
+        sms;
+
+    params = params || {};
+    sms = params.sms;
+    sm1 = params.sm1;
+    sds = params.sds;
+    sd1 = params.sd1;
+
+    return Promise.all([
+      _this.spectraFactory.getSpectrum(sms, sm1),
+      _this.spectraFactory.getSpectrum(sds, sd1)
+    ]).then((spectra) => {
+      return {
+        smSpectrum: spectra[0],
+        sdSpectrum: spectra[1]
+      };
+    });
+  };
+
+  /**
    * Computes the uniform hazard.
    *
    * @param meanGroundMotion {Double}
@@ -303,7 +349,11 @@ var DesignFactory = function (options) {
         // sdSpectrum: XY_SERIES,
         // smSpectrum: XY_SERIES
         resolve({
-          data: extend(true, {}, result.basicDesign, result.finalDesign),
+          data: extend(true, {},
+            result.basicDesign,
+            result.finalDesign,
+            result.spectra
+          ),
           metadata: extend(true, {}, result.metadata)
         });
       } catch (err) {
@@ -349,6 +399,10 @@ var DesignFactory = function (options) {
       return _this.computeFinalDesign(result);
     }).then((finalDesign) => {
       result.finalDesign = finalDesign;
+
+      return _this.computeSpectra(finalDesign);
+    }).then((spectra) => {
+      result.spectra = spectra;
 
       return _this.formatResult(result);
     });

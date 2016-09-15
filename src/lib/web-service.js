@@ -10,7 +10,8 @@ var DesignFactory = require('./design-factory'),
     MetadataFactory = require('./metadata-factory'),
     ProbabilisticHazardFactory = require('./probabilistic-hazard-factory'),
     RiskTargetingFactory = require('./risk-targeting-factory'),
-    SiteAmplificationFactory = require('./site-amplification-factory');
+    SiteAmplificationFactory = require('./site-amplification-factory'),
+    SpectraFactory = require('./spectra-factory');
 
 
 var _DEFAULTS;
@@ -76,7 +77,8 @@ var WebService = function (options) {
           {legacyFactory: _legacyFactory}),
       riskTargetingFactory: RiskTargetingFactory(
           {legacyFactory: _legacyFactory}),
-      siteAmplificationFactory: SiteAmplificationFactory()
+      siteAmplificationFactory: SiteAmplificationFactory(),
+      spectraFactory: SpectraFactory()
     });
   };
 
