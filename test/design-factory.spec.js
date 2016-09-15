@@ -13,6 +13,7 @@ var _DUMMY_FACTORY,
 _DUMMY_FACTORY = {
   getMetadata: () => { return Promise.resolve({}); },
   getProbabilisticData: () => { return Promise.resolve({}); },
+  getDesignCategory: () => { return Promise.resolve({}); },
   getDeterministicData: () => { return Promise.resolve({}); },
   getRiskCoefficients: () => { return Promise.resolve({}); },
   getSiteAmplificationData: () => { return Promise.resolve({}); },
@@ -322,6 +323,11 @@ describe('DesignFactory', () => {
         'probabilistic': {},
         'riskCoefficients': {},
         'siteAmplification': {},
+        'designCategory': {
+          'sdcs': null,
+          'sdc1': null,
+          'sdc': null
+        },
         'spectra': {
           'smSpectrum': null,
           'sdSpectrum': null
@@ -333,7 +339,7 @@ describe('DesignFactory', () => {
           'ssd', 's1d', 'pgad',
           'ss', 's1', 'pga',
           'sms', 'sm1', 'pgam',
-          'sds', 'sd1',
+          'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
@@ -364,6 +370,7 @@ describe('DesignFactory', () => {
         deterministicHazardFactory: _DUMMY_FACTORY,
         riskTargetingFactory: _DUMMY_FACTORY,
         siteAmplificationFactory: _DUMMY_FACTORY,
+        designCategoryFactory: _DUMMY_FACTORY,
         spectraFactory: _DUMMY_FACTORY
       });
 
@@ -381,6 +388,7 @@ describe('DesignFactory', () => {
         deterministicHazardFactory: _DUMMY_FACTORY,
         riskTargetingFactory: _DUMMY_FACTORY,
         siteAmplificationFactory: _DUMMY_FACTORY,
+        designCategoryFactory: _DUMMY_FACTORY,
         spectraFactory: _DUMMY_FACTORY
       });
 
@@ -393,11 +401,12 @@ describe('DesignFactory', () => {
 
       sinon.spy(factory.siteAmplificationFactory, 'getSiteAmplificationData');
       sinon.spy(factory, 'computeFinalDesign');
+      sinon.spy(factory.designCategoryFactory, 'getDesignCategory');
       sinon.spy(factory, 'computeSpectra');
 
       sinon.spy(factory, 'formatResult');
 
-      factory.getDesignData().then((/*result*/) => {
+      factory.getDesignData({}).then((/*result*/) => {
         expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
         expect(factory.probabilisticHazardFactory
             .getProbabilisticData.callCount).to.equal(1);
@@ -411,6 +420,8 @@ describe('DesignFactory', () => {
         expect(factory.siteAmplificationFactory
             .getSiteAmplificationData.callCount).to.equal(1);
         expect(factory.computeFinalDesign.callCount).to.equal(1);
+        expect(factory.designCategoryFactory
+            .getDesignCategory.callCount).to.equal(1);
         expect(factory.computeSpectra.callCount).to.equal(1);
 
         expect(factory.formatResult.callCount).to.equal(1);
@@ -426,6 +437,7 @@ describe('DesignFactory', () => {
 
         factory.siteAmplificationFactory.getSiteAmplificationData.restore();
         factory.computeFinalDesign.restore();
+        factory.designCategoryFactory.getDesignCategory.restore();
         factory.computeSpectra.restore();
 
         factory.formatResult.restore();
