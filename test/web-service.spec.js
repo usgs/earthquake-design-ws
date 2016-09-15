@@ -230,4 +230,20 @@ describe('WebService test suite', () => {
       service.destroy();
     });
   });
+
+  describe('setHeaders', function () {
+    it('sets headers on the response', function () {
+      var response,
+          service;
+
+      response = {
+        set: sinon.spy()
+      };
+      service = WebService();
+      service.setHeaders(response);
+
+      expect(response.set.callCount).to.equal(1);
+      expect(typeof response.set.getCall(0).args[0]).to.equal('object');
+    });
+  });
 });
