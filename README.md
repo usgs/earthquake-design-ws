@@ -37,6 +37,9 @@ several configuration parameters based on your working environment.
   - `PORT`: The port number on which to listen for connections. This can be
             any available port on the host system.
 
+  - `LEGACY_URL`: Fetches design data in legacy format.
+                  Example: http://earthquake.usgs.gov/designmaps/beta/us/service
+
 - Start the container using the image tag.
 
   > In the command below, replace values in brackets `{VALUE}` with the
@@ -47,6 +50,8 @@ several configuration parameters based on your working environment.
       --name earthquake-design-ws \
       -p {PORT}:8000 \
       -e MOUNT_PATH={MOUNT_PATH} \
+      -e PORT={PORT} \
+      -e LEGACY_URL={LEGACY_URL} \
       usgs/earthquake-design-ws:latest
     ```
 
