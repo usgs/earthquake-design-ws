@@ -4,7 +4,7 @@ design parameters compatible with various building code reference documents.
 
 
 ==============
-[![Build Status](https://travis-ci.org/usgs/earthquake-design-ws.svg?branch=master)](https://travis-ci.org/usgs/earthquake-hazard-probabilistic-ws)
+[![Build Status](https://travis-ci.org/usgs/earthquake-design-ws.svg?branch=master)](https://travis-ci.org/usgs/earthquake-design-ws)
 
 Using the Generated Project
 ---------------------------
