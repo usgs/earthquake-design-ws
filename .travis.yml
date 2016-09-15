@@ -1,0 +1,18 @@
+sudo: false
+
+language: node_js
+
+node_js:
+  - 4.5.0
+
+env:
+  - NON_INTERACTIVE=true
+
+before_install:
+  - npm list -g
+
+install:
+  - npm install
+
+script:
+  - npm test
