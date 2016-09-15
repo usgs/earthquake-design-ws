@@ -1,7 +1,8 @@
 'use strict';
 
 
-var DesignFactory = require('./design-factory'),
+var DesignCategoryFactory = require('./design-category-factory'),
+    DesignFactory = require('./design-factory'),
     DesignHandler = require('../handler/design-handler'),
     DeterministicHazardFactory = require('./deterministic-hazard-factory'),
     express = require('express'),
@@ -78,6 +79,7 @@ var WebService = function (options) {
       riskTargetingFactory: RiskTargetingFactory(
           {legacyFactory: _legacyFactory}),
       siteAmplificationFactory: SiteAmplificationFactory(),
+      designCategoryFactory: DesignCategoryFactory(),
       spectraFactory: SpectraFactory()
     });
   };
