@@ -58,7 +58,7 @@ describe('DesignCategoryFactory', () => {
 
     it('returns N when riskCategory equals "N"', (done) => {
       factory.getDesignCategory('N', 1, 1, 1).then((result) => {
-        expect(result).to.equal('N');
+        expect(result.sdc).to.equal('N');
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -68,7 +68,7 @@ describe('DesignCategoryFactory', () => {
 
     it('returns E when riskCategory equals "I or II or III" and s1 >= 0.75', (done) => {
       factory.getDesignCategory('I', 1, 1, 1).then((result) => {
-        expect(result).to.equal('E');
+        expect(result.sdc).to.equal('E');
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -78,7 +78,7 @@ describe('DesignCategoryFactory', () => {
 
     it('returns F when riskCategory equals "IV" and s1 >= 0.75', (done) => {
       factory.getDesignCategory('IV', 1, 1, 1).then((result) => {
-        expect(result).to.equal('F');
+        expect(result.sdc).to.equal('F');
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -88,7 +88,7 @@ describe('DesignCategoryFactory', () => {
 
     it('returns the greater design category', function (done) {
       factory.getDesignCategory('IV', 0, 0.3, 0.2).then((result) => {
-        expect(result).to.equal('D');
+        expect(result.sdc).to.equal('D');
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -101,6 +101,7 @@ describe('DesignCategoryFactory', () => {
     it('returns the correct design category', () => {
       var f = factory;
 
+      expect(f.mapDesignCategory('I', 'sds', -1.0)).to.equal('A');
       expect(f.mapDesignCategory('I', 'sds', 0.1)).to.equal('A');
       expect(f.mapDesignCategory('I', 'sds', 0.2)).to.equal('B');
       expect(f.mapDesignCategory('I', 'sds', 0.4)).to.equal('C');

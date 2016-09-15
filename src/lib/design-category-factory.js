@@ -87,18 +87,18 @@ var DesignCategoryFactory = function (options) {
    *     design category.
    */
   _this.getDesignCategory = function (riskCategory, s1, sds, sd1) {
-    var result,
+    var sdCategory,
         sdsCategory,
         sd1Category;
 
     return new Promise((resolve, reject) => {
       try {
 
-        if (!sds) {
+        if (typeof sds === 'undefined' || sds === null) {
           throw new Error('"sds" is required to determine design category.');
         }
 
-        if (!sd1) {
+        if (typeof sd1 === 'undefined' || sd1 === null) {
           throw new Error('"sd1" is required to determine design category.');
         }
 
@@ -108,19 +108,37 @@ var DesignCategoryFactory = function (options) {
         }
 
         if (riskCategory === 'N') {
-          result = 'N';
-        } else if (['I', 'II', 'III'].indexOf(riskCategory) !== -1 && s1 >= 0.75) {
-          result = 'E';
+          sdsCategory = '';
+          sd1Category = '';
+
+          sdCategory = 'N';
+        } else if (['I', 'II', 'III'].indexOf(riskCategory) !== -1 &&
+            s1 >= 0.75) {
+          sdsCategory = '';
+          sd1Category = '';
+
+          sdCategory = 'E';
         } else if (riskCategory === 'IV' && s1 >= 0.75) {
-          result = 'F';
+          sdsCategory = '';
+          sd1Category = '';
+
+          sdCategory = 'F';
         } else {
           sdsCategory = _this.mapDesignCategory(riskCategory, 'sds', sds);
           sd1Category = _this.mapDesignCategory(riskCategory, 'sd1', sd1);
 
-          result = (sdsCategory > sd1Category ? sdsCategory : sd1Category);
+          sdCategory = (
+            (sdsCategory > sd1Category) ?
+              sdsCategory :
+              sd1Category
+          );
         }
 
-        resolve(result);
+        resolve({
+          sdc: sdCategory,
+          sdc1: sd1Category,
+          sdcs: sdsCategory
+        });
       } catch (err) {
         reject(err);
       }
@@ -148,9 +166,9 @@ var DesignCategoryFactory = function (options) {
 
     lookupTable = _this.lookupTables[key];
 
-    for (i = 0, len = lookupTable.bins.length; i < len; i++ ) {
+    for (i = 0, len = lookupTable.bins.length; i < len; i++) {
       if (value <= lookupTable.bins[i]) {
-        return lookupTable.riskCategories[riskCategory][i - 1];
+        return lookupTable.riskCategories[riskCategory][Math.max(i - 1, 0)];
       }
     }
 
