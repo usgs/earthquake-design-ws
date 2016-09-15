@@ -38,7 +38,6 @@ var WebService = function (options) {
       _initialize,
 
       _docRoot,
-      _handlers,
       _legacyFactory,
       _mountPath,
       _port;
@@ -63,7 +62,7 @@ var WebService = function (options) {
     });
 
     // Setup handler and pass in factory
-    _handlers = {
+    _this.handlers = {
       'design.json': _this.createDesignHandler
     };
   };
@@ -102,7 +101,6 @@ var WebService = function (options) {
     _legacyFactory.destroy();
 
     _docRoot = null;
-    _handlers = null;
     _legacyFactory = null;
     _mountPath = null;
     _port = null;
@@ -129,14 +127,14 @@ var WebService = function (options) {
         method;
 
     method = request.params.method;
-    if (!(method in _handlers)) {
+    if (!(method in _this.handlers)) {
       return next();
     }
 
     _this.setHeaders(response);
 
     try {
-      handler = _handlers[method]();
+      handler = _this.handlers[method]();
 
       handler.get(request.query)
         .then((data) => {
