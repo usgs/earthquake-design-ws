@@ -68,15 +68,16 @@ describe('MetadataFactory', () => {
       factory = MetadataFactory();
 
       factory.formatResult(_LEGACY_RESULT).then((result) => {
-        expect(result.hasOwnProperty('ssMaxDirection')).to.equal(true);
-        expect(result.hasOwnProperty('s1MaxDirection')).to.equal(true);
-        expect(result.hasOwnProperty('pgaMaxDirection')).to.equal(true);
-        expect(result.hasOwnProperty('ssPercentile')).to.equal(true);
-        expect(result.hasOwnProperty('s1Percentile')).to.equal(true);
-        expect(result.hasOwnProperty('pgaPercentile')).to.equal(true);
-        expect(result.hasOwnProperty('ssdFloor')).to.equal(true);
-        expect(result.hasOwnProperty('s1dFloor')).to.equal(true);
+        expect(result.hasOwnProperty('pgadPercentileFactor')).to.equal(true);
         expect(result.hasOwnProperty('pgadFloor')).to.equal(true);
+
+        expect(result.hasOwnProperty('s1MaxDirFactor')).to.equal(true);
+        expect(result.hasOwnProperty('s1dPercentileFactor')).to.equal(true);
+        expect(result.hasOwnProperty('s1dFloor')).to.equal(true);
+
+        expect(result.hasOwnProperty('ssMaxDirFactor')).to.equal(true);
+        expect(result.hasOwnProperty('ssdPercentileFactor')).to.equal(true);
+        expect(result.hasOwnProperty('ssdFloor')).to.equal(true);
       }).catch((err) => {
         return err;
       }).then((err) => {

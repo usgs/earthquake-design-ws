@@ -99,28 +99,31 @@ var DesignFactory = function (options) {
 
         // Compute Ss
         basicDesign.ssuh = _this.computeUniformHazard(probabilistic.ss,
-            metadata.ssMaxDirection);
-        basicDesign.ssur = _this.computeUniformRisk(basicDesign.ssuh,
+            metadata.ssMaxDirFactor);
+        basicDesign.ssrt = _this.computeUniformRisk(basicDesign.ssuh,
             riskCoefficients.crs);
         basicDesign.ssd = _this.computeDeterministic(deterministic.ssd,
-            metadata.ssPercentile, metadata.ssMaxDirection, metadata.ssdFloor);
-        basicDesign.ss = _this.computeGroundMotion(basicDesign.ssur,
+            metadata.ssdPercentileFactor, metadata.ssMaxDirFactor,
+            metadata.ssdFloor);
+        basicDesign.ss = _this.computeGroundMotion(basicDesign.ssrt,
             basicDesign.ssd);
 
         // Compute S1
         basicDesign.s1uh = _this.computeUniformHazard(probabilistic.s1,
-            metadata.s1MaxDirection);
-        basicDesign.s1ur = _this.computeUniformRisk(basicDesign.s1uh,
+            metadata.s1MaxDirFactor);
+        basicDesign.s1rt = _this.computeUniformRisk(basicDesign.s1uh,
             riskCoefficients.cr1);
         basicDesign.s1d = _this.computeDeterministic(deterministic.s1d,
-            metadata.s1Percentile, metadata.s1MaxDirection, metadata.s1dFloor);
-        basicDesign.s1 = _this.computeGroundMotion(basicDesign.s1ur,
+            metadata.s1dPercentileFactor, metadata.s1MaxDirFactor,
+            metadata.s1dFloor);
+        basicDesign.s1 = _this.computeGroundMotion(basicDesign.s1rt,
             basicDesign.s1d);
 
         // Compute PGA
         // Note :: Computations for PGA are a bit simpler than Ss/S1
+        basicDesign.pgauh = _this.computeUniformHazard(probabilistic.pga, 1.0);
         basicDesign.pgad = _this.computeDeterministic(deterministic.pgad,
-            metadata.pgaPercentile, 1.0, metadata.pgadFloor);
+            metadata.pgadPercentileFactor, 1.0, metadata.pgadFloor);
         basicDesign.pga = _this.computeGroundMotion(probabilistic.pga,
             basicDesign.pgad);
 
@@ -341,19 +344,50 @@ var DesignFactory = function (options) {
 
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
+      var basicDesign,
+          finalDesign,
+          siteAmplification,
+          spectra;
+
       try {
-        // TODO ...
-        // riskTargetBeta: DOUBLE,
-        // tl: DOUBLE,
-        // designCategory: STRING,
-        // sdSpectrum: XY_SERIES,
-        // smSpectrum: XY_SERIES
+        basicDesign = result.basicDesign;
+        finalDesign = result.finalDesign;
+        siteAmplification = result.siteAmplification;
+        spectra = result.spectra;
+
         resolve({
-          data: extend(true, {},
-            result.basicDesign,
-            result.finalDesign,
-            result.spectra
-          ),
+          data: {
+            pgauh: basicDesign.pgauh,
+            pgad: basicDesign.pgad,
+            pga: basicDesign.pga,
+            fpga: siteAmplification.fpga,
+            pgam: finalDesign.pgam,
+
+            ssrt: basicDesign.ssrt,
+            ssuh: basicDesign.ssuh,
+            ssd: basicDesign.ssd,
+            ss: basicDesign.ss,
+            fa: siteAmplification.fa,
+            sms: finalDesign.sms,
+            sds: finalDesign.sds,
+            // sdcs: designCategory.sdcs,
+
+            s1rt: basicDesign.s1rt,
+            s1uh: basicDesign.s1uh,
+            s1d: basicDesign.s1d,
+            s1: basicDesign.s1,
+            fv: siteAmplification.fv,
+            sm1: finalDesign.sm1,
+            sd1: finalDesign.sd1,
+            // sdc1: designCategory.sdc1,
+
+            // sdc: designCategory.sdc,
+            // tl: result.tl,
+
+            sdSpectrum: spectra.sdSpectrum,
+            smSpectrum: spectra.smSpectrum
+          },
+
           metadata: extend(true, {}, result.metadata)
         });
       } catch (err) {

@@ -93,7 +93,7 @@ describe('DesignFactory', () => {
         deterministic: {ss: 0, s1: 0, pga: 0},
         riskCoefficients: {crs: 0, cr1: 0}
       }).then(() => {
-        expect(factory.computeUniformHazard.callCount).to.equal(2);
+        expect(factory.computeUniformHazard.callCount).to.equal(3);
         expect(factory.computeUniformRisk.callCount).to.equal(2);
         expect(factory.computeDeterministic.callCount).to.equal(3);
         expect(factory.computeGroundMotion.callCount).to.equal(3);
@@ -292,10 +292,10 @@ describe('DesignFactory', () => {
           's1': null,
           'pga': null,
           'ssuh': null,
-          'ssur': null,
+          'ssrt': null,
           'ssd': null,
           's1uh': null,
-          's1ur': null,
+          's1rt': null,
           's1d': null,
           'pgad': null
         },
@@ -308,14 +308,16 @@ describe('DesignFactory', () => {
           'sd1': null
         },
         'metadata': {
-          'ssMaxDirection': null,
-          's1MaxDirection': null,
-          'ssPercentile': null,
-          's1Percentile': null,
-          'pgaPercentile': null,
-          'ssdFloor': null,
+          'pgadPercentileFactor': null,
+          'pgadFloor': null,
+
+          's1MaxDirFactor': null,
+          's1dPercentileFactor': null,
           's1dFloor': null,
-          'pgadFloor': null
+
+          'ssMaxDirFactor': null,
+          'ssdPercentileFactor': null,
+          'ssdFloor': null
         },
         'probabilistic': {},
         'riskCoefficients': {},
@@ -326,21 +328,20 @@ describe('DesignFactory', () => {
         }
       }).then((formatted) => {
         [
-          'ss', 's1', 'pga',
           'ssuh', 's1uh',
-          'ssur', 's1ur',
+          'ssrt', 's1rt',
           'ssd', 's1d', 'pgad',
+          'ss', 's1', 'pga',
           'sms', 'sm1', 'pgam',
           'sds', 'sd1',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
         });
-
         [
-          's1MaxDirection', 'ssMaxDirection',
-          'pgaPercentile', 's1Percentile', 'ssPercentile',
-          'pgadFloor', 's1dFloor', 'ssdFloor'
+          'pgadPercentileFactor', 'pgadFloor',
+          's1MaxDirFactor', 's1dPercentileFactor', 's1dFloor',
+          'ssMaxDirFactor', 'ssdPercentileFactor', 'ssdFloor'
         ].forEach((key) => {
           expect(formatted.metadata.hasOwnProperty(key)).to.equal(true);
         });

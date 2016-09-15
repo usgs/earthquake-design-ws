@@ -65,10 +65,10 @@ describe('LegacyFactory test suite', () => {
       };
 
       newInputs = {
-        referenceDocument: '2015 NEHRP Provisions',
+        referenceDocument: 'ASCE7-16',
         latitude: 40,
         longitude: -105,
-        riskCategory: 'I or II or III',
+        riskCategory: 'III',
         siteClass: 'E',
         title: 'title'
       };

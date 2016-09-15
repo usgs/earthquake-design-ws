@@ -8,7 +8,7 @@ var _DEFAULTS;
 
 _DEFAULTS = {
   lookupTables: {
-    '2015 NEHRP Provisions': {
+    'ASCE7-16': {
       'ss': {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
         siteClasses: {
