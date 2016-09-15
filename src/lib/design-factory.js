@@ -33,15 +33,17 @@ var DesignFactory = function (options) {
    * @param options.metadataFactory {MetadataFactory}
    *     A factory for fetching metadata parameters for the building code
    *     reference document
-   * @param probabilisticHazardFactory {ProbabilisticHazardFactory}
+   * @param options.probabilisticHazardFactory {ProbabilisticHazardFactory}
    *     A factory for fetching probabilistic hazard data
-   * @param deterministicHazardFactory {DeterministicHazardFactory}
+   * @param options.deterministicHazardFactory {DeterministicHazardFactory}
    *     A factory for fetching deterministic hazard data
-   * @param riskTargetingFactory {RiskTargetingFactory}
+   * @param options.riskTargetingFactory {RiskTargetingFactory}
    *     A factory for fetching risk coefficient data
-   * @param siteAmplificationFactory {SiteAmplificationFactory}
+   * @param options.siteAmplificationFactory {SiteAmplificationFactory}
    *     A factory for computing site-amplification factors
-   * @param spectraFactory {SpectraFactory}
+   * @param options.designCategoryFactory {DesignCategoryFactory}
+   *     A factory for computing design category values
+   * @param options.spectraFactory {SpectraFactory}
    *     A factory for computing spectra
    */
   _initialize = function (options) {
@@ -52,6 +54,7 @@ var DesignFactory = function (options) {
     _this.deterministicHazardFactory = options.deterministicHazardFactory;
     _this.riskTargetingFactory = options.riskTargetingFactory;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
+    _this.designCategoryFactory = options.designCategoryFactory;
     _this.spectraFactory = options.spectraFactory;
   };
 
@@ -345,12 +348,14 @@ var DesignFactory = function (options) {
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
       var basicDesign,
+          designCategory,
           finalDesign,
           siteAmplification,
           spectra;
 
       try {
         basicDesign = result.basicDesign;
+        designCategory = result.designCategory;
         finalDesign = result.finalDesign;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
@@ -370,7 +375,7 @@ var DesignFactory = function (options) {
             fa: siteAmplification.fa,
             sms: finalDesign.sms,
             sds: finalDesign.sds,
-            // sdcs: designCategory.sdcs,
+            sdcs: designCategory.sdcs,
 
             s1rt: basicDesign.s1rt,
             s1uh: basicDesign.s1uh,
@@ -379,9 +384,9 @@ var DesignFactory = function (options) {
             fv: siteAmplification.fv,
             sm1: finalDesign.sm1,
             sd1: finalDesign.sd1,
-            // sdc1: designCategory.sdc1,
+            sdc1: designCategory.sdc1,
 
-            // sdc: designCategory.sdc,
+            sdc: designCategory.sdc,
             // tl: result.tl,
 
             sdSpectrum: spectra.sdSpectrum,
@@ -434,9 +439,14 @@ var DesignFactory = function (options) {
     }).then((finalDesign) => {
       result.finalDesign = finalDesign;
 
-      return _this.computeSpectra(finalDesign);
-    }).then((spectra) => {
-      result.spectra = spectra;
+      return Promise.all([
+        _this.designCategoryFactory.getDesignCategory(inputs.riskCategory,
+            result.basicDesign.s1, finalDesign.sds, finalDesign.sd1),
+        _this.computeSpectra(finalDesign)
+      ]);
+    }).then((promiseResults) => {
+      result.designCategory = promiseResults[0];
+      result.spectra = promiseResults[1];
 
       return _this.formatResult(result);
     });
