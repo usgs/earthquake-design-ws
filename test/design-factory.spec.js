@@ -87,9 +87,16 @@ describe('DesignFactory', () => {
       sinon.spy(factory, 'computeGroundMotion');
 
       factory.computeBasicDesign({
-        metadata: {ssMaxDirection: 0, ssPercentile: 0, ssdFloor: 0,
-            s1MaxDirection: 0, s1Percentile: 0, s1dFloor: 0,
-            pgaPercentile: 0, pgadFloor: 0},
+        metadata: {
+          ssMaxDirection: 0,
+          ssPercentile: 0,
+          ssdFloor: 0,
+          s1MaxDirection: 0,
+          s1Percentile: 0,
+          s1dFloor: 0,
+          pgaPercentile: 0,
+          pgadFloor: 0
+        },
         probabilistic: {ss: 0, s1: 0, pga: 0},
         deterministic: {ss: 0, s1: 0, pga: 0},
         riskCoefficients: {crs: 0, cr1: 0}
