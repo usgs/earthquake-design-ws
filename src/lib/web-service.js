@@ -167,6 +167,7 @@ var WebService = function (options) {
   _this.getResponseMetadata = function (request, isSuccess) {
     var params;
 
+    request = request || {};
     params = request.query || {};
 
     ['latitude', 'longitude'].forEach((key) => {
