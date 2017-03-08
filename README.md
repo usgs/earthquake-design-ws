@@ -37,7 +37,7 @@ several configuration parameters based on your working environment.
   - `PORT`: The port number on which to listen for connections. This can be
             any available port on the host system.
   - `LEGACY_URL`: Fetches design data in legacy format.
-                  Example: http://earthquake.usgs.gov/designmaps/beta/us/service
+                  Example: https://earthquake.usgs.gov/designmaps/beta/us/service
 
 - Start the container using the image tag.
 

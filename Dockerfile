@@ -1,6 +1,6 @@
 ## Docker file to build app as container
 
-FROM usgs/hazdev-base-images:node
+FROM usgs/hazdev-base-images:latest-node
 MAINTAINER "Eric Martinez" <emartinez@usgs.gov>
 LABEL dockerfile_version="v0.1.1"
 
