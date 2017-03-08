@@ -3,6 +3,7 @@
 
 var extend = require('extend'),
     http = require('http'),
+    https = require('https'),
     url = require('url');
 
 
@@ -363,12 +364,14 @@ var LegacyFactory = function (options) {
    */
   _this.makeRequest = function (inputs) {
     return new Promise((resolve, reject) => {
-      var options,
+      var client,
+          options,
           request;
 
       options = _this.getOptions(inputs);
+      client = (options.port === 443) ? https : http;
 
-      request = http.request(options, (response) => {
+      request = client.request(options, (response) => {
         var buffer;
 
         buffer = [];
