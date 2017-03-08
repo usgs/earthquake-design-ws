@@ -1,0 +1,9 @@
+build:
+  image: usgs/earthquake-design-ws:latest
+  ports:
+    - 8000:8000
+  # volumes:
+  #   - ./src:/hazdev-project/src
+  environment:
+    - MOUNT_PATH=/ws/designmaps
+    - LEGACY_URL=https://earthquake.usgs.gov/designmaps/beta/us/service
