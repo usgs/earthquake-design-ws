@@ -1,4 +1,4 @@
-/* global afterEach, beforeEach, describe, it */
+/* global after, afterEach, before, beforeEach, describe, it */
 'use strict';
 
 
@@ -373,23 +373,33 @@ describe('LegacyFactory test suite', () => {
   });
 
   describe('makeRequest', () => {
-    it('returns the expected response', (done) => {
-      var app,
-          inputs,
-          optionsStub,
-          result,
-          server;
+    var testApp,
+        testPort,
+        testServer;
 
-      app = express();
-      app.use('', express.static('etc'));
-      server = app.listen(7999);
+    after(() => {
+      testServer.close();
+    });
+
+    before((done) => {
+      testPort = 7999;
+      testApp = express();
+      testApp.use('', express.static('etc'));
+
+      testServer = testApp.listen(testPort, () => { done(); });
+    });
+
+    it('returns the expected response', (done) => {
+      var inputs,
+          optionsStub,
+          result;
 
       inputs = {'key': 'value'};
 
       optionsStub = sinon.stub(legacyFactory, 'getOptions', () => {
         return {
           'hostname': 'localhost',
-          'port': 7999,
+          'port': testPort,
           'path': '/makeRequest.json'
         };
       });
@@ -402,7 +412,6 @@ describe('LegacyFactory test suite', () => {
       }).catch((err) => {
         return err;
       }).then((err) => {
-        server.close();
         optionsStub.restore();
         done(err);
       });
