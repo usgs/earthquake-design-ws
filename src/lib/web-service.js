@@ -165,7 +165,8 @@ var WebService = function (options) {
    *     An object with metadata information about the response.
    */
   _this.getResponseMetadata = function (request, isSuccess) {
-    var params;
+    var params,
+        protocol;
 
     request = request || {};
     params = request.query || {};
@@ -176,10 +177,18 @@ var WebService = function (options) {
       }
     });
 
+    if (typeof request.get === 'function') {
+      protocol = request.get('X-Forwarded-Proto');
+    }
+
+    if (!protocol) {
+      protocol = request.protocol;
+    }
+
     return {
       date: new Date().toISOString(),
       status: isSuccess ? 'success' : 'error',
-      url: request.protocol + '://' + request.hostname + request.originalUrl,
+      url: protocol + '://' + request.hostname + request.originalUrl,
       parameters: params
     };
   };
