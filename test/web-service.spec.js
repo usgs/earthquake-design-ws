@@ -172,9 +172,14 @@ describe('WebService test suite', () => {
   });
 
   describe('onError', function () {
-    it('calls response.status with 500 error code', function () {
-      var response,
-          service;
+    it('calls status/json callbacks with expected values', function () {
+      var message,
+          response,
+          service,
+          status;
+
+      message = 'WebService::onError Test';
+      status = 500;
 
       response = {
         json: sinon.spy(),
@@ -182,11 +187,16 @@ describe('WebService test suite', () => {
       };
       service = WebService();
 
-      service.onError(null, {
-        originalUrl: 'original url'
-      }, response);
+      service.onError({
+        status: status,
+        message: message
+      }, null, response);
+
       expect(response.status.calledOnce).to.equal(true);
-      expect(response.status.calledWith(500)).to.equal(true);
+      expect(response.status.calledWith(status)).to.equal(true);
+      expect(response.json.calledOnce).to.equal(true);
+      expect(response.json.firstCall.args[0].data).to.equal(
+          message);
 
       service.destroy();
     });

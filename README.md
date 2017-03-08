@@ -37,7 +37,7 @@ several configuration parameters based on your working environment.
   - `PORT`: The port number on which to listen for connections. This can be
             any available port on the host system.
   - `LEGACY_URL`: Fetches design data in legacy format.
-                  Example: http://earthquake.usgs.gov/designmaps/beta/us/service
+                  Example: https://earthquake.usgs.gov/designmaps/beta/us/service
 
 - Start the container using the image tag.
 
@@ -51,6 +51,13 @@ several configuration parameters based on your working environment.
       -e MOUNT_PATH={MOUNT_PATH} \
       -e LEGACY_URL={LEGACY_URL} \
       usgs/earthquake-design-ws:latest
+    ```
+
+  > Alternatively you may use `docker-compose` to start the container. Prior to
+  > starting the container you should update the relevant configuration
+  > information in the docker-compose.yml file and then run the command:
+    ```
+    dockker-compose up -d
     ```
 
 - Connect to the running container in browser.
@@ -69,4 +76,12 @@ several configuration parameters based on your working environment.
   docker stop earthquake-design-ws
   docker start earthquake-design-ws
   docker restart earthquake-design-ws
+  ```
+
+  If you created the container using the `docker-compose` method, you can
+  start and stop the container with the following commands instead:
+  ```
+  docker-compose stop
+  docker-compose start
+  docker-compose restart
   ```
