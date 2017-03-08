@@ -53,6 +53,13 @@ several configuration parameters based on your working environment.
       usgs/earthquake-design-ws:latest
     ```
 
+  > Alternatively you may use `docker-compose` to start the container. Prior to
+  > starting the container you should update the relevant configuration
+  > information in the docker-compose.yml file and then run the command:
+    ```
+    dockker-compose up -d
+    ```
+
 - Connect to the running container in browser.
 
   > In the URL below, replace values in brackets `{VALUE}` with the
@@ -69,4 +76,12 @@ several configuration parameters based on your working environment.
   docker stop earthquake-design-ws
   docker start earthquake-design-ws
   docker restart earthquake-design-ws
+  ```
+
+  If you created the container using the `docker-compose` method, you can
+  start and stop the container with the following commands instead:
+  ```
+  docker-compose stop
+  docker-compose start
+  docker-compose restart
   ```
