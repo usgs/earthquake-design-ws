@@ -35,8 +35,7 @@ fetchResult = function (city) {
     referenceDocument: 'ASCE7-16',
     riskCategory: 'III',
     siteClass: 'C',
-    // This is a hack until the service is patched to escape params
-    title: city.name.replace(/ /g, '_')
+    title: city.name
   };
 
   url = SERVICE_URL + '?' + querystring.stringify(params);
