@@ -169,7 +169,7 @@ var LegacyFactory = function (options) {
       calculation = _this.interpolate(result);
 
       // replace data with interpolated results
-      result.data = [calculation];
+      result.output.data = [calculation];
 
       return result;
     });
@@ -339,12 +339,17 @@ var LegacyFactory = function (options) {
   _this.interpolateValue = function (y0, y1, x, x0, x1, log) {
     var value;
 
+    if (x0 === y0 && x1 === y1) {
+      return x;
+    }
+
     if (log === 'linearlog') {
       if (y0 === 0 || y1 === 0) {
         throw new Error('Can not get the log of 0 Y values.');
       } else {
         y0 = Math.log(y0);
         y1 = Math.log(y1);
+
         value = Math.exp(y0 + (((y1-y0)/(x1-x0))*(x-x0)));
       }
     } else {
