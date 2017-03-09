@@ -4,6 +4,7 @@
 var extend = require('extend'),
     http = require('http'),
     https = require('https'),
+    querystring = require('querystring'),
     url = require('url');
 
 
@@ -412,9 +413,12 @@ var LegacyFactory = function (options) {
    *      url encoded object
    */
   _this.urlEncode = function (obj) {
-    return '/' + obj.design_code + '/' + obj.site_class + '/' +
-        obj.risk_category + '/' + obj.longitude + '/' + obj.latitude + '/' +
-        obj.title;
+    return '/' + querystring.escape(obj.design_code) +
+        '/' + querystring.escape(obj.site_class) +
+        '/' + querystring.escape(obj.risk_category) +
+        '/' + parseFloat(obj.longitude) +
+        '/' + parseFloat(obj.latitude) +
+        '/' + querystring.escape(obj.title);
   };
 
 
