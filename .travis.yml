@@ -16,7 +16,6 @@ install:
 
 script:
   - npm start &
-  - sleep 2
   - npm run coverage
   - npm run test
 
