@@ -106,7 +106,7 @@ describe('LegacyFactory test suite', () => {
           requestStub,
           urlEncodeStub;
 
-      response = {'data': 'test'};
+      response = {'output': {'data': 'test'}};
 
       cleanseStub = sinon.stub(legacyFactory, 'cleanseInputs', () => {
         return {};
@@ -269,8 +269,8 @@ describe('LegacyFactory test suite', () => {
 
       interpolate = legacyFactory.interpolate(calculateTwoPoints);
 
-      expect(interpolate.latitude).to.be.closeTo(34.396524915060375,
-          EPSILION);
+      expect(interpolate.latitude).to.equal(
+          calculateTwoPoints.input.latitude);
 
       expect(interpolate.mapped_ss).to.be.closeTo(13.195079107728928,
           EPSILION);
