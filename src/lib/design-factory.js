@@ -350,6 +350,7 @@ var DesignFactory = function (options) {
       var basicDesign,
           designCategory,
           finalDesign,
+          riskCoefficients,
           siteAmplification,
           spectra;
 
@@ -357,6 +358,7 @@ var DesignFactory = function (options) {
         basicDesign = result.basicDesign;
         designCategory = result.designCategory;
         finalDesign = result.finalDesign;
+        riskCoefficients = result.riskCoefficients;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
 
@@ -369,6 +371,7 @@ var DesignFactory = function (options) {
             pgam: finalDesign.pgam,
 
             ssrt: basicDesign.ssrt,
+            crs: riskCoefficients.crs,
             ssuh: basicDesign.ssuh,
             ssd: basicDesign.ssd,
             ss: basicDesign.ss,
@@ -378,6 +381,7 @@ var DesignFactory = function (options) {
             sdcs: designCategory.sdcs,
 
             s1rt: basicDesign.s1rt,
+            cr1: riskCoefficients.cr1,
             s1uh: basicDesign.s1uh,
             s1d: basicDesign.s1d,
             s1: basicDesign.s1,
