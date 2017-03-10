@@ -15,7 +15,7 @@ install:
   - npm install
 
 script:
-  - npm start &
+  - node src/server.js &
   - npm run coverage
 
 after_success:
