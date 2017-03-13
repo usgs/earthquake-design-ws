@@ -7,6 +7,7 @@ var extend = require('extend');
 var _DEFAULTS;
 
 _DEFAULTS = {
+  outputDecimals: 3 // Number of decimals to include in output
 };
 
 
@@ -48,6 +49,8 @@ var DesignFactory = function (options) {
    */
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
+
+    _this.outputDecimals = options.outputDecimals;
 
     _this.metadataFactory = options.metadataFactory;
     _this.probabilisticHazardFactory = options.probabilisticHazardFactory;
@@ -350,6 +353,7 @@ var DesignFactory = function (options) {
       var basicDesign,
           designCategory,
           finalDesign,
+          riskCoefficients,
           siteAmplification,
           spectra;
 
@@ -357,40 +361,44 @@ var DesignFactory = function (options) {
         basicDesign = result.basicDesign;
         designCategory = result.designCategory;
         finalDesign = result.finalDesign;
+        riskCoefficients = result.riskCoefficients;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
 
         resolve({
           data: {
-            pgauh: basicDesign.pgauh,
-            pgad: basicDesign.pgad,
-            pga: basicDesign.pga,
-            fpga: siteAmplification.fpga,
-            pgam: finalDesign.pgam,
+            pgauh: _this.roundOutput(basicDesign.pgauh),
+            pgad: _this.roundOutput(basicDesign.pgad),
+            pga: _this.roundOutput(basicDesign.pga),
+            fpga: _this.roundOutput(siteAmplification.fpga),
+            pgam: _this.roundOutput(finalDesign.pgam),
 
-            ssrt: basicDesign.ssrt,
-            ssuh: basicDesign.ssuh,
-            ssd: basicDesign.ssd,
-            ss: basicDesign.ss,
-            fa: siteAmplification.fa,
-            sms: finalDesign.sms,
-            sds: finalDesign.sds,
+            ssrt: _this.roundOutput(basicDesign.ssrt),
+            crs: _this.roundOutput(riskCoefficients.crs),
+            ssuh: _this.roundOutput(basicDesign.ssuh),
+            ssd: _this.roundOutput(basicDesign.ssd),
+            ss: _this.roundOutput(basicDesign.ss),
+            fa: _this.roundOutput(siteAmplification.fa),
+            sms: _this.roundOutput(finalDesign.sms),
+            sds: _this.roundOutput(finalDesign.sds),
             sdcs: designCategory.sdcs,
 
-            s1rt: basicDesign.s1rt,
-            s1uh: basicDesign.s1uh,
-            s1d: basicDesign.s1d,
-            s1: basicDesign.s1,
-            fv: siteAmplification.fv,
-            sm1: finalDesign.sm1,
-            sd1: finalDesign.sd1,
+            s1rt: _this.roundOutput(basicDesign.s1rt),
+            cr1: _this.roundOutput(riskCoefficients.cr1),
+            s1uh: _this.roundOutput(basicDesign.s1uh),
+            s1d: _this.roundOutput(basicDesign.s1d),
+            s1: _this.roundOutput(basicDesign.s1),
+            fv: _this.roundOutput(siteAmplification.fv),
+            sm1: _this.roundOutput(finalDesign.sm1),
+            sd1: _this.roundOutput(finalDesign.sd1),
             sdc1: designCategory.sdc1,
 
             sdc: designCategory.sdc,
             // tl: result.tl,
 
-            sdSpectrum: spectra.sdSpectrum,
-            smSpectrum: spectra.smSpectrum
+            // TODO
+            sdSpectrum: _this.roundSpectrum(spectra.sdSpectrum),
+            smSpectrum: _this.roundSpectrum(spectra.smSpectrum)
           },
 
           metadata: extend(true, {}, result.metadata)
@@ -449,6 +457,68 @@ var DesignFactory = function (options) {
       result.spectra = promiseResults[1];
 
       return _this.formatResult(result);
+    });
+  };
+
+  /**
+   * Rounds the given `value` to the given `precision` number of decimals.
+   *
+   * Note this uses JS rounding logic such that 0.5 values round towards
+   * +Inf rather than away from 0.
+   *
+   * Note this only considers the `precision + 1` decimal value for rounding
+   * and does not deal with any additional decimals for rounding. For example:
+   *     roundOutput(1.450, 1) --> 1.5
+   *     roundOutput(1.449, 1) --> 1.4
+   *
+   *
+   * @param value {Decimal}
+   *     The value to be rounded.
+   * @param precision {Integer}
+   *     The number of decimals to include in the rounded result.
+   *
+   * @return {Decimal}
+   *     The rounded result.
+   */
+  _this.roundOutput = function (value, precision) {
+    var factor,
+        rounded;
+
+    if (typeof precision === 'undefined') {
+      precision = _this.outputDecimals;
+    }
+
+    factor = Math.pow(10, precision);
+
+    if (precision < 1) {
+      rounded = Math.round(factor);
+    } else {
+      factor = Math.pow(10, precision);
+      rounded = Math.round(value * factor) / factor;
+    }
+
+    return rounded;
+  };
+
+  /**
+   * Rounds the given `spectrum` values to the given `precision` number of
+   * decimals.
+   *
+   * @param spectrum {Array}
+   *     An array containing [x, y] data entries defininig the spectrum.
+   * @param precision {Integer}
+   *     The number of decimals to include in the rounded result entries.
+   *
+   * @return {Array}
+   *     An array containing a spectrum where each entry value is rounded to
+   *     the given precision.
+   */
+  _this.roundSpectrum = function (spectrum, precision) {
+    return spectrum.map((entry) => {
+      return [
+        _this.roundOutput(entry[0], precision),
+        _this.roundOutput(entry[1], precision)
+      ];
     });
   };
 

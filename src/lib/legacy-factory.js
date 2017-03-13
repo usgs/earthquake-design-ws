@@ -4,6 +4,7 @@
 var extend = require('extend'),
     http = require('http'),
     https = require('https'),
+    querystring = require('querystring'),
     url = require('url');
 
 
@@ -169,7 +170,7 @@ var LegacyFactory = function (options) {
       calculation = _this.interpolate(result);
 
       // replace data with interpolated results
-      result.data = [calculation];
+      result.output.data = [calculation];
 
       return result;
     });
@@ -339,12 +340,17 @@ var LegacyFactory = function (options) {
   _this.interpolateValue = function (y0, y1, x, x0, x1, log) {
     var value;
 
+    if (x0 === y0 && x1 === y1) {
+      return x;
+    }
+
     if (log === 'linearlog') {
       if (y0 === 0 || y1 === 0) {
         throw new Error('Can not get the log of 0 Y values.');
       } else {
         y0 = Math.log(y0);
         y1 = Math.log(y1);
+
         value = Math.exp(y0 + (((y1-y0)/(x1-x0))*(x-x0)));
       }
     } else {
@@ -407,9 +413,12 @@ var LegacyFactory = function (options) {
    *      url encoded object
    */
   _this.urlEncode = function (obj) {
-    return '/' + obj.design_code + '/' + obj.site_class + '/' +
-        obj.risk_category + '/' + obj.longitude + '/' + obj.latitude + '/' +
-        obj.title;
+    return '/' + querystring.escape(obj.design_code) +
+        '/' + querystring.escape(obj.site_class) +
+        '/' + querystring.escape(obj.risk_category) +
+        '/' + parseFloat(obj.longitude) +
+        '/' + parseFloat(obj.latitude) +
+        '/' + querystring.escape(obj.title);
   };
 
 

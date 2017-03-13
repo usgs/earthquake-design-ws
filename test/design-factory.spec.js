@@ -17,7 +17,7 @@ _DUMMY_FACTORY = {
   getDeterministicData: () => { return Promise.resolve({}); },
   getRiskCoefficients: () => { return Promise.resolve({}); },
   getSiteAmplificationData: () => { return Promise.resolve({}); },
-  getSpectrum: () => { return Promise.resolve({}); }
+  getSpectrum: () => { return Promise.resolve([]); }
 };
 
 _EPSILON = Number.EPSILON;
@@ -336,8 +336,8 @@ describe('DesignFactory', () => {
           'sdc': null
         },
         'spectra': {
-          'smSpectrum': null,
-          'sdSpectrum': null
+          'smSpectrum': [],
+          'sdSpectrum': []
         }
       }).then((formatted) => {
         [
@@ -452,6 +452,62 @@ describe('DesignFactory', () => {
         factory.destroy();
         done(err);
       });
+    });
+  });
+
+  describe('roundOutput', () => {
+    it('rounds correctly', () => {
+      var factory;
+
+      factory = DesignFactory({
+        outputDecimals: 3,
+        metadataFactory: _DUMMY_FACTORY,
+        probabilisticHazardFactory: _DUMMY_FACTORY,
+        deterministicHazardFactory: _DUMMY_FACTORY,
+        riskTargetingFactory: _DUMMY_FACTORY,
+        siteAmplificationFactory: _DUMMY_FACTORY,
+        designCategoryFactory: _DUMMY_FACTORY,
+        spectraFactory: _DUMMY_FACTORY
+      });
+
+      expect(factory.roundOutput(0.0005)).to.equal(0.001);
+      expect(factory.roundOutput(0.0015)).to.equal(0.002);
+      expect(factory.roundOutput(0.00349)).to.equal(0.003);
+
+      factory.destroy();
+    });
+  });
+
+  describe('roundSpectrum', () => {
+    it('calls roundOutput the proper number of times', () => {
+      var factory,
+          spectrum;
+
+      factory = DesignFactory({
+        outputDecimals: 3,
+        metadataFactory: _DUMMY_FACTORY,
+        probabilisticHazardFactory: _DUMMY_FACTORY,
+        deterministicHazardFactory: _DUMMY_FACTORY,
+        riskTargetingFactory: _DUMMY_FACTORY,
+        siteAmplificationFactory: _DUMMY_FACTORY,
+        designCategoryFactory: _DUMMY_FACTORY,
+        spectraFactory: _DUMMY_FACTORY
+      });
+
+      spectrum = [
+        [0, 0],
+        [0, 0],
+        [0, 0],
+        [0, 0]
+      ];
+
+      sinon.spy(factory, 'roundOutput');
+
+      factory.roundSpectrum(spectrum);
+      expect(factory.roundOutput.callCount).to.equal(spectrum.length * 2);
+
+      factory.roundOutput.restore();
+      factory.destroy();
     });
   });
 });
