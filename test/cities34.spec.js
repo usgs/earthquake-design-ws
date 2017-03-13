@@ -20,9 +20,9 @@ var compareResult,
 
 
 compareResult = function (expected, actual) {
-  expect(expected.ss).to.be.closeTo(actual.data.data.ss, EPSILON);
-  expect(expected.s1).to.be.closeTo(actual.data.data.s1, EPSILON);
-  expect(expected.pga).to.be.closeTo(actual.data.data.pga, EPSILON);
+  expect(actual.data.data.ss).to.be.closeTo(expected.ss, EPSILON);
+  expect(actual.data.data.s1).to.be.closeTo(expected.s1, EPSILON);
+  expect(actual.data.data.pga).to.be.closeTo(expected.pga, EPSILON);
 };
 
 fetchResult = function (city) {
@@ -73,12 +73,12 @@ fetchResult = function (city) {
 //             Port number on which server is listening for connections
 //    - HOST : Optional {String} Default: 'localhost'
 //             Server host name to make connections against
-//    - EPSILON : Optional {Decimal} Default: 1E-3
+//    - EPSILON : Optional {Decimal} Default: 1E-4
 //                Tolerance for variance between expected and actual values
 //
 CONFIG_FILE = 'src/conf/config.json';
 CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE));
-EPSILON = CONFIG.EPSILON || 1E-3;
+EPSILON = CONFIG.EPSILON || 1E-4;
 
 
 describe('34 Fixed Cites QA', () => {
