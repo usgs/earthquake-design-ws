@@ -1,18 +1,9 @@
 'use strict';
 
 
-var DesignCategoryFactory = require('./design-category-factory'),
-    DesignFactory = require('./asce7_16-factory'),
-    DesignHandler = require('./asce7_16-handler'),
-    DeterministicHazardFactory = require('./legacy/deterministic-hazard-factory'),
+var ASCE7_16Handler = require('./asce7_16-handler'),
     express = require('express'),
-    extend = require('extend'),
-    LegacyFactory = require('./legacy/legacy-factory'),
-    MetadataFactory = require('./legacy/metadata-factory'),
-    ProbabilisticHazardFactory = require('./legacy/probabilistic-hazard-factory'),
-    RiskTargetingFactory = require('./legacy/risk-targeting-factory'),
-    SiteAmplificationFactory = require('./site-amplification-factory'),
-    SpectraFactory = require('./spectra-factory');
+    extend = require('extend');
 
 
 var _DEFAULTS;
@@ -38,7 +29,6 @@ var WebService = function (options) {
       _initialize,
 
       _docRoot,
-      _legacyFactory,
       _mountPath,
       _port;
 
@@ -51,38 +41,26 @@ var WebService = function (options) {
    * @param options {Object}
    */
   _initialize = function (options) {
+    var endpoint;
+
     options = extend(true, {}, _DEFAULTS, options);
 
     _docRoot = options.webDir;
     _mountPath = options.MOUNT_PATH;
     _port = options.PORT;
 
-    _legacyFactory = LegacyFactory({
-      url: options.LEGACY_URL
-    });
-
     // Setup handler and pass in factory
-    _this.handlers = {
-      'asce7-16.json': _this.createASCE7_16Handler
-    };
-  };
+    if (options.handlers) {
+      _this.handlers = {};
 
-  _this.createASCE7_16Handler = function () {
-    return DesignHandler({
-      factory: DesignFactory({
-        deterministicHazardFactory: DeterministicHazardFactory(
-            {legacyFactory: _legacyFactory}),
-        metadataFactory: MetadataFactory(
-            {legacyFactory: _legacyFactory}),
-        probabilisticHazardFactory: ProbabilisticHazardFactory(
-            {legacyFactory: _legacyFactory}),
-        riskTargetingFactory: RiskTargetingFactory(
-            {legacyFactory: _legacyFactory}),
-        siteAmplificationFactory: SiteAmplificationFactory(),
-        designCategoryFactory: DesignCategoryFactory(),
-        spectraFactory: SpectraFactory()
-      })
-    });
+      for (endpoint in options.handlers) {
+        _this.handlers[endpoint] = options.handlers[endpoint](options);
+      }
+    } else {
+      _this.handlers = {
+        'asce7-16.json': ASCE7_16Handler(options)
+      };
+    }
   };
 
   /**
@@ -90,14 +68,17 @@ var WebService = function (options) {
    *
    */
   _this.destroy = function () {
+    var endpoint;
+
     if (_this === null) {
       return;
     }
 
-    _legacyFactory.destroy();
+    for (endpoint in _this.handlers) {
+      _this.handlers[endpoint].destroy();
+    }
 
     _docRoot = null;
-    _legacyFactory = null;
     _mountPath = null;
     _port = null;
 
@@ -130,7 +111,7 @@ var WebService = function (options) {
     _this.setHeaders(response);
 
     try {
-      handler = _this.handlers[method]();
+      handler = _this.handlers[method];
 
       handler.get(request.query)
         .then((data) => {
@@ -140,7 +121,6 @@ var WebService = function (options) {
           _this.onError(err, request, response, next);
         })
         .then(() => {
-          handler.destroy();
           handler = null;
         });
     } catch (err) {

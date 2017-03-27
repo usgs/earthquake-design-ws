@@ -1,6 +1,17 @@
 'use strict';
 
 
+var DesignCategoryFactory = require('./design-category-factory'),
+    ASCE7_16Factory = require('./asce7_16-factory'),
+    DeterministicHazardFactory = require('./legacy/deterministic-hazard-factory'),
+    LegacyFactory = require('./legacy/legacy-factory'),
+    MetadataFactory = require('./legacy/metadata-factory'),
+    ProbabilisticHazardFactory = require('./legacy/probabilistic-hazard-factory'),
+    RiskTargetingFactory = require('./legacy/risk-targeting-factory'),
+    SiteAmplificationFactory = require('./site-amplification-factory'),
+    SpectraFactory = require('./spectra-factory');
+
+
 /**
  * Handler for ASCE7-16 web service validates parameters and calls
  * factory with params.
@@ -23,7 +34,27 @@ var ASCE7_16Handler = function (options) {
   _initialize = function (options) {
     options = options || {};
 
-    _this.factory = options.factory;
+    if (options.factory) {
+      _this.factory = options.factory;
+    } else {
+      _this.legacyFactory = LegacyFactory({
+        url: options.LEGACY_URL
+      });
+
+      _this.factory = ASCE7_16Factory({
+        deterministicHazardFactory: DeterministicHazardFactory(
+            {legacyFactory: _this.legacyFactory}),
+        metadataFactory: MetadataFactory(
+            {legacyFactory: _this.legacyFactory}),
+        probabilisticHazardFactory: ProbabilisticHazardFactory(
+            {legacyFactory: _this.legacyFactory}),
+        riskTargetingFactory: RiskTargetingFactory(
+            {legacyFactory: _this.legacyFactory}),
+        siteAmplificationFactory: SiteAmplificationFactory(),
+        designCategoryFactory: DesignCategoryFactory(),
+        spectraFactory: SpectraFactory()
+      });
+    }
   };
 
 
@@ -91,6 +122,15 @@ var ASCE7_16Handler = function (options) {
     if (_this === null) {
       return;
     }
+
+    if (_this.legacyFactory) {
+      _this.legacyFactory.destroy();
+      // Only destroy the factory if we created it
+      _this.factory.destroy();
+    }
+
+    _this.factory = null;
+    _this.legacyFactory = null;
 
     _initialize = null;
     _this = null;
