@@ -69,7 +69,7 @@ var WebService = function (options) {
 
   _this.createASCE7_16Handler = function () {
     return DesignHandler({
-      asce7_16Factory: DesignFactory({
+      factory: DesignFactory({
         deterministicHazardFactory: DeterministicHazardFactory(
             {legacyFactory: _legacyFactory}),
         metadataFactory: MetadataFactory(
@@ -162,10 +162,14 @@ var WebService = function (options) {
    */
   _this.getResponseMetadata = function (request, isSuccess) {
     var params,
-        protocol;
+        protocol,
+        referenceDocument;
 
     request = request || {};
     params = request.query || {};
+
+    referenceDocument = params.referenceDocument;
+    delete params.referenceDocument;
 
     ['latitude', 'longitude'].forEach((key) => {
       if (params.hasOwnProperty(key)) {
@@ -183,6 +187,7 @@ var WebService = function (options) {
 
     return {
       date: new Date().toISOString(),
+      referenceDocument: referenceDocument,
       status: isSuccess ? 'success' : 'error',
       url: protocol + '://' + request.hostname + request.originalUrl,
       parameters: params

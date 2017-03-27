@@ -413,6 +413,9 @@ var ASCE7_16Factory = function (options) {
   _this.getDesignData = function (inputs) {
     var result;
 
+    inputs = inputs || {};
+    inputs.referenceDocument = 'ASCE7-16';
+
     result = {
       basicDesign: null,
       deterministic: null,
