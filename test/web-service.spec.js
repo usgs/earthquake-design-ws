@@ -12,6 +12,31 @@ describe('WebService test suite', () => {
     it('is defined', () => {
       expect(typeof WebService).to.equal('function');
     });
+
+    it('creates/destroys a handler for each endpoint appropriately', () => {
+      var constructor,
+          handler,
+          handlers,
+          options;
+
+      handler = {destroy: sinon.spy()};
+      constructor = sinon.stub();
+      constructor.returns(handler);
+
+      handlers = {
+        'endpoint': constructor
+      };
+
+      options = {
+        handlers: handlers
+      };
+
+      WebService(options).destroy();
+
+      expect(constructor.callCount).to.equal(1);
+      expect(constructor.args[0][0].handlers).to.deep.equal(handlers);
+      expect(handler.destroy.callCount).to.equal(1);
+    });
   });
 
   describe('destroy', function () {
@@ -52,7 +77,7 @@ describe('WebService test suite', () => {
       expect(next.calledOnce).to.equal(true);
     });
 
-    it('creates handler and calls its get method', function () {
+    it('uses handler and calls its get method', function () {
       var handler,
           request;
 
@@ -64,11 +89,10 @@ describe('WebService test suite', () => {
           catch: function () {
             return this;
           }
-        })
+        }),
+        destroy: function () {}
       };
-      service.handlers['test handler'] = function () {
-        return handler;
-      };
+      service.handlers['test handler'] = handler;
       request = {
         params: {
           method: 'test handler'
@@ -92,9 +116,7 @@ describe('WebService test suite', () => {
         destroy: sinon.spy(),
         get: sinon.stub().returns(Promise.resolve(data))
       };
-      service.handlers['test handler'] = function () {
-        return handler;
-      };
+      service.handlers['test handler'] = handler;
       request = {
         params: {
           method: 'test handler'
@@ -124,9 +146,7 @@ describe('WebService test suite', () => {
         destroy: sinon.spy(),
         get: sinon.stub().returns(Promise.reject(err))
       };
-      service.handlers['test handler'] = function () {
-        return handler;
-      };
+      service.handlers['test handler'] = handler;
       request = {
         params: {
           method: 'test handler'

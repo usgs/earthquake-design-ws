@@ -2,7 +2,7 @@
 'use strict';
 
 
-var MetadataFactory = require('../src/lib/metadata-factory'),
+var MetadataFactory = require('../../src/lib/legacy/metadata-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 

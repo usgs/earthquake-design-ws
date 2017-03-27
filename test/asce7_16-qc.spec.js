@@ -81,7 +81,7 @@ CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE));
 EPSILON = CONFIG.EPSILON || 1E-4;
 
 
-describe('34 Fixed Cites QA', () => {
+describe('ASCE7-16 Quality Control', () => {
   before(() => {
     var host,
         path,
@@ -109,7 +109,7 @@ describe('34 Fixed Cites QA', () => {
     SERVICE_URL = `${protocol}//${host}${port}${path}`;
   });
 
-  describe(`ASCE7-16 (Tolerance: +/-${EPSILON})`, () => {
+  describe(`COUS Off-Grid (Tolerance: +/-${EPSILON})`, () => {
     var cities;
 
     cities = allcities['ASCE7-16'];

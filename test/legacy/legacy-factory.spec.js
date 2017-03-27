@@ -4,7 +4,7 @@
 
 var expect = require('chai').expect,
     express = require('express'),
-    LegacyFactory = require('../src/lib/legacy-factory'),
+    LegacyFactory = require('../../src/lib/legacy/legacy-factory'),
     sinon = require('sinon');
 
 var EPSILION = 0.00001;

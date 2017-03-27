@@ -2,7 +2,7 @@
 'use strict';
 
 
-var DeterministicHazardFactory = require('../src/lib/deterministic-hazard-factory'),
+var DeterministicHazardFactory = require('../../src/lib/legacy/deterministic-hazard-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
