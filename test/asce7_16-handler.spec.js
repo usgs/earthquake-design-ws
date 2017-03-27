@@ -1,7 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var DesignHandler = require('../src/handler/asce7_16-handler'),
+var DesignHandler = require('../src/lib/asce7_16-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 

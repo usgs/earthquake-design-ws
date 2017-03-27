@@ -3,14 +3,14 @@
 
 var DesignCategoryFactory = require('./design-category-factory'),
     DesignFactory = require('./asce7_16-factory'),
-    DesignHandler = require('../handler/asce7_16-handler'),
-    DeterministicHazardFactory = require('./deterministic-hazard-factory'),
+    DesignHandler = require('./asce7_16-handler'),
+    DeterministicHazardFactory = require('./legacy/deterministic-hazard-factory'),
     express = require('express'),
     extend = require('extend'),
-    LegacyFactory = require('./legacy-factory'),
-    MetadataFactory = require('./metadata-factory'),
-    ProbabilisticHazardFactory = require('./probabilistic-hazard-factory'),
-    RiskTargetingFactory = require('./risk-targeting-factory'),
+    LegacyFactory = require('./legacy/legacy-factory'),
+    MetadataFactory = require('./legacy/metadata-factory'),
+    ProbabilisticHazardFactory = require('./legacy/probabilistic-hazard-factory'),
+    RiskTargetingFactory = require('./legacy/risk-targeting-factory'),
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory');
 

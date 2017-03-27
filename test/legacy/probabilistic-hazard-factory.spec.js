@@ -2,7 +2,7 @@
 'use strict';
 
 
-var RiskTargetingFactory = require('../src/lib/risk-targeting-factory'),
+var ProbabilisticHazardFactory = require('../../src/lib/legacy/probabilistic-hazard-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
@@ -19,21 +19,21 @@ _LEGACY_FACTORY = {
 };
 
 
-describe('RiskTargetingFactory', () => {
+describe('ProbabilisticHazardFactory', () => {
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof RiskTargetingFactory).to.equal('function');
+      expect(typeof ProbabilisticHazardFactory).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(RiskTargetingFactory).to.not.throw(Error);
+      expect(ProbabilisticHazardFactory).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
       expect(() => {
         var factory;
 
-        factory = RiskTargetingFactory();
+        factory = ProbabilisticHazardFactory();
         factory.destroy();
       }).to.not.throw(Error);
     });
@@ -43,7 +43,7 @@ describe('RiskTargetingFactory', () => {
     it('rejects with an error when receiving unexpected input', (done) => {
       var factory;
 
-      factory = RiskTargetingFactory();
+      factory = ProbabilisticHazardFactory();
 
       factory.formatResult().then((/*result*/) => {
         var error;
@@ -65,11 +65,12 @@ describe('RiskTargetingFactory', () => {
     it('resolves with proper object keys', (done) => {
       var factory;
 
-      factory = RiskTargetingFactory();
+      factory = ProbabilisticHazardFactory();
 
       factory.formatResult(_LEGACY_RESULT).then((result) => {
-        expect(result.hasOwnProperty('crs')).to.equal(true);
-        expect(result.hasOwnProperty('cr1')).to.equal(true);
+        expect(result.hasOwnProperty('ss')).to.equal(true);
+        expect(result.hasOwnProperty('s1')).to.equal(true);
+        expect(result.hasOwnProperty('pga')).to.equal(true);
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -79,16 +80,16 @@ describe('RiskTargetingFactory', () => {
     });
   });
 
-  describe('getRiskCoefficients', () => {
+  describe('getProbabilisticData', () => {
     it('returns a promise', () => {
       var factory,
           promise;
 
-      factory = RiskTargetingFactory({
+      factory = ProbabilisticHazardFactory({
         legacyFactory: _LEGACY_FACTORY
       });
 
-      promise = factory.getRiskCoefficients();
+      promise = factory.getProbabilisticData();
 
       expect(promise).to.be.instanceof(Promise);
 
@@ -99,14 +100,14 @@ describe('RiskTargetingFactory', () => {
       var factory;
 
 
-      factory = RiskTargetingFactory({
+      factory = ProbabilisticHazardFactory({
         legacyFactory: _LEGACY_FACTORY
       });
 
       sinon.stub(factory, 'formatResult', () => {});
       sinon.spy(factory.legacyFactory, 'getLegacyData');
 
-      factory.getRiskCoefficients().then(() => {
+      factory.getProbabilisticData().then(() => {
         expect(factory.legacyFactory.getLegacyData.callCount).to.equal(1);
         expect(factory.formatResult.callCount).to.equal(1);
 
