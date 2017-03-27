@@ -2,7 +2,7 @@
 'use strict';
 
 
-var DesignFactory = require('../src/lib/design-factory.js'),
+var DesignFactory = require('../src/lib/asce7_16-factory.js'),
     expect = require('chai').expect,
     sinon = require('sinon');
 

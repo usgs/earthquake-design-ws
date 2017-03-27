@@ -2,8 +2,8 @@
 
 
 var DesignCategoryFactory = require('./design-category-factory'),
-    DesignFactory = require('./design-factory'),
-    DesignHandler = require('../handler/design-handler'),
+    DesignFactory = require('./asce7_16-factory'),
+    DesignHandler = require('../handler/asce7_16-handler'),
     DeterministicHazardFactory = require('./deterministic-hazard-factory'),
     express = require('express'),
     extend = require('extend'),
@@ -69,7 +69,7 @@ var WebService = function (options) {
 
   _this.createASCE7_16Handler = function () {
     return DesignHandler({
-      designFactory: DesignFactory({
+      asce7_16Factory: DesignFactory({
         deterministicHazardFactory: DeterministicHazardFactory(
             {legacyFactory: _legacyFactory}),
         metadataFactory: MetadataFactory(

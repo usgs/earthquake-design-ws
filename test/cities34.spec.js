@@ -81,7 +81,7 @@ CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE));
 EPSILON = CONFIG.EPSILON || 1E-4;
 
 
-describe('34 Fixed Cites QA', () => {
+describe.skip('34 Fixed Cites QA', () => {
   before(() => {
     var host,
         path,

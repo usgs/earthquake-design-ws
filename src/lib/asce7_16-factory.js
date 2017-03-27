@@ -21,7 +21,7 @@ _DEFAULTS = {
  *     Configuration options used to instantiate this factory. See
  *     #_initialize for details.
  */
-var DesignFactory = function (options) {
+var ASCE7_16Factory = function (options) {
   var _this,
       _initialize;
 
@@ -29,7 +29,8 @@ var DesignFactory = function (options) {
   _this = {};
 
   /**
-   * Constructor. Instantiates a new {DesignFactory} instance.
+   * Constructor. Instantiates a new {ASCE7_16Factory
+  } instance.
    *
    * @param options.metadataFactory {MetadataFactory}
    *     A factory for fetching metadata parameters for the building code
@@ -529,4 +530,4 @@ var DesignFactory = function (options) {
 };
 
 
-module.exports = DesignFactory;
+module.exports = ASCE7_16Factory;
