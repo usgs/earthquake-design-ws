@@ -13,7 +13,7 @@
 <body>
 <main>
   <header>
-    <h1>Design Endpoint Documentation</h1>
+    <h1>ASCE7-16 Endpoint Documentation</h1>
   </header>
 
   <h2 id="parameters">Request Parameters</h2>
@@ -29,12 +29,6 @@
     <dd>
       Longitude for location at which to compute composite results.
       <br/>Example: <code>-118.01</code>
-    </dd>
-
-    <dt id="referenceDocument">referenceDocument</dt>
-    <dd>
-      Building code reference document identifier.
-      <br/>Example: <code>ASCE7-16</code>
     </dd>
 
     <dt id="riskCategory">riskCategory</dt>
@@ -68,6 +62,12 @@
           <br/>Example: <code>YYYY-MM-DDThh:mm:ssZ</code>
         </dd>
 
+        <dt id="output-reference-document">referenceDocument</dt>
+        <dd>
+          Identifying the reference document for the returned data.
+          <br/>&ldquo;ASCE7-16&rdquo;</code>
+        </dd>
+
         <dt id="output-status">status</dt>
         <dd>
           String ("success" or "error")
@@ -77,7 +77,7 @@
         <dt id="output-url">url</dt>
         <dd>
           URL to reproduce this result.
-          <br/>Example: <code><span class="url-stub">{MOUNT_PATH}</span>/design.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16&amp;riskCategory=I%20or%20II%20or%20III&amp;siteClass=C&amp;title=Example</code>
+          <br/>Example: <code><span class="url-stub">{MOUNT_PATH}</span>/asce7-16.json?latitude=34&amp;longitude=-118&amp;riskCategory=I%20or%20II%20or%20III&amp;siteClass=C&amp;title=Example</code>
         </dd>
         <dl>
           <dt>parameters</dt>
@@ -93,14 +93,6 @@
                 <dd>
                   Longitude for location at which to compute composite results.
                   <br/>Example: <code>-118.01</code>
-                </dd>
-
-                <dt id="metadata-parameters-referenceDocument">
-                  referenceDocument
-                </dt>
-                <dd>
-                  Building code reference document identifier.
-                  <br/>Example: <code>ASCE7-16</code>
                 </dd>
 
                 <dt id="metadata-parameters-riskCategory">riskCategory</dt>
@@ -325,7 +317,7 @@
 
   <h4>Request</h4>
   <p>
-    <a href="design.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16&amp;riskCategory=III&amp;siteClass=C&amp;title=Example"><span class="url-stub">&amp;hellip;</span>/design.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16&amp;riskCategory=III&amp;siteClass=C&amp;title=Example</a>
+    <a href="asce7-16.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example"><span class="url-stub">&amp;hellip;</span>/asce7-16.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example</a>
   </p>
 
   <h4>Response</h4>
@@ -333,12 +325,12 @@
     <pre>{
   "metadata": {
     "date": "2016-09-14T23:35:50.279Z",
+    "referenceDocument": "ASCE7-16",
     "status": "success",
-    "url": "<span class="url-stub">{MOUNT_PATH}</span>/design.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16&amp;riskCategory=III&amp;siteClass=C&amp;title=Example",
+    "url": "<span class="url-stub">{MOUNT_PATH}</span>/asce7-16.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example",
     "parameters": {
       "latitude": 34,
       "longitude": -118,
-      "referenceDocument": "ASCE7-16",
       "riskCategory": "III",
       "siteClass": "C",
       "title": "Example"

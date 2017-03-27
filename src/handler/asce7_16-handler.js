@@ -2,13 +2,13 @@
 
 
 /**
- * Handler for earthquake design web service validates parameters and calls
- * designFactory with params.
+ * Handler for ASCE7-16 web service validates parameters and calls
+ * factory with params.
  *
  * @param options {Object}
  *    Configuration options
  */
-var DesignHandler = function (options) {
+var ASCE7_16Handler = function (options) {
   var _this,
       _initialize;
 
@@ -23,7 +23,7 @@ var DesignHandler = function (options) {
   _initialize = function (options) {
     options = options || {};
 
-    _this.designFactory = options.designFactory;
+    _this.factory = options.factory;
   };
 
 
@@ -42,7 +42,6 @@ var DesignHandler = function (options) {
         err,
         latitude,
         longitude,
-        referenceDocument,
         riskCategory,
         siteClass,
         title;
@@ -51,7 +50,6 @@ var DesignHandler = function (options) {
 
     latitude = params.latitude;
     longitude = params.longitude;
-    referenceDocument = params.referenceDocument;
     riskCategory = params.riskCategory;
     siteClass = params.siteClass;
     title = params.title;
@@ -62,11 +60,6 @@ var DesignHandler = function (options) {
 
     if (typeof longitude === 'undefined' || longitude === null) {
       buf.push('longitude');
-    }
-
-    if (typeof referenceDocument === 'undefined' ||
-        referenceDocument === null ) {
-      buf.push('referenceDocument');
     }
 
     if (typeof riskCategory === 'undefined' || riskCategory === null) {
@@ -110,11 +103,11 @@ var DesignHandler = function (options) {
    *    request parameters.
    * @return {Promise}
    *    A promise that resolves with and error or calls
-   *    designFactory.getDesignData with params.
+   *    factory.getDesignData with params.
    */
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.designFactory.getDesignData(params);
+      return _this.factory.getDesignData(params);
     });
   };
 
@@ -124,4 +117,4 @@ var DesignHandler = function (options) {
   return _this;
 };
 
-module.exports = DesignHandler;
+module.exports = ASCE7_16Handler;

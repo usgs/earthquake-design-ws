@@ -2,8 +2,8 @@
 
 
 var DesignCategoryFactory = require('./design-category-factory'),
-    DesignFactory = require('./design-factory'),
-    DesignHandler = require('../handler/design-handler'),
+    DesignFactory = require('./asce7_16-factory'),
+    DesignHandler = require('../handler/asce7_16-handler'),
     DeterministicHazardFactory = require('./deterministic-hazard-factory'),
     express = require('express'),
     extend = require('extend'),
@@ -63,29 +63,25 @@ var WebService = function (options) {
 
     // Setup handler and pass in factory
     _this.handlers = {
-      'design.json': _this.createDesignHandler
+      'asce7-16.json': _this.createASCE7_16Handler
     };
   };
 
-  _this.createDesignFactory = function () {
-    return DesignFactory({
-      deterministicHazardFactory: DeterministicHazardFactory(
-          {legacyFactory: _legacyFactory}),
-      metadataFactory: MetadataFactory(
-          {legacyFactory: _legacyFactory}),
-      probabilisticHazardFactory: ProbabilisticHazardFactory(
-          {legacyFactory: _legacyFactory}),
-      riskTargetingFactory: RiskTargetingFactory(
-          {legacyFactory: _legacyFactory}),
-      siteAmplificationFactory: SiteAmplificationFactory(),
-      designCategoryFactory: DesignCategoryFactory(),
-      spectraFactory: SpectraFactory()
-    });
-  };
-
-  _this.createDesignHandler = function () {
+  _this.createASCE7_16Handler = function () {
     return DesignHandler({
-      designFactory: _this.createDesignFactory()
+      factory: DesignFactory({
+        deterministicHazardFactory: DeterministicHazardFactory(
+            {legacyFactory: _legacyFactory}),
+        metadataFactory: MetadataFactory(
+            {legacyFactory: _legacyFactory}),
+        probabilisticHazardFactory: ProbabilisticHazardFactory(
+            {legacyFactory: _legacyFactory}),
+        riskTargetingFactory: RiskTargetingFactory(
+            {legacyFactory: _legacyFactory}),
+        siteAmplificationFactory: SiteAmplificationFactory(),
+        designCategoryFactory: DesignCategoryFactory(),
+        spectraFactory: SpectraFactory()
+      })
     });
   };
 
@@ -166,10 +162,14 @@ var WebService = function (options) {
    */
   _this.getResponseMetadata = function (request, isSuccess) {
     var params,
-        protocol;
+        protocol,
+        referenceDocument;
 
     request = request || {};
     params = request.query || {};
+
+    referenceDocument = params.referenceDocument;
+    delete params.referenceDocument;
 
     ['latitude', 'longitude'].forEach((key) => {
       if (params.hasOwnProperty(key)) {
@@ -187,6 +187,7 @@ var WebService = function (options) {
 
     return {
       date: new Date().toISOString(),
+      referenceDocument: referenceDocument,
       status: isSuccess ? 'success' : 'error',
       url: protocol + '://' + request.hostname + request.originalUrl,
       parameters: params

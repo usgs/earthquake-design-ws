@@ -1,7 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var DesignHandler = require('../src/handler/design-handler'),
+var DesignHandler = require('../src/handler/asce7_16-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
@@ -14,7 +14,6 @@ _INPUT = {
   'title': 'This is a title',
   'latitude': 30,
   'longitude': 80,
-  'referenceDocument': 'Building code',
   'siteClass': 'site class B',
   'riskCategory': 3
 };
@@ -26,7 +25,7 @@ _DESIGN_FACTORY = {
 };
 
 
-describe('design-handler-test', () => {
+describe('asce7-16-handler-test', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof DesignHandler).to.equal('function');
@@ -53,7 +52,7 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({designFactory: _DESIGN_FACTORY});
+      designHandler = DesignHandler({factory: _DESIGN_FACTORY});
     });
 
     it('returns error if parameters are missing', (done) => {
@@ -74,7 +73,7 @@ describe('design-handler-test', () => {
     });
 
     beforeEach(() => {
-      designHandler = DesignHandler({designFactory: _DESIGN_FACTORY});
+      designHandler = DesignHandler({factory: _DESIGN_FACTORY});
     });
 
     it('calls checkParams method', () => {

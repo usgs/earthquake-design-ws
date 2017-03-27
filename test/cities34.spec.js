@@ -88,7 +88,7 @@ describe('34 Fixed Cites QA', () => {
         protocol,
         port;
 
-    path = (CONFIG.MOUNT_PATH || '') + '/design.json';
+    path = (CONFIG.MOUNT_PATH || '') + '/asce7-16.json';
     port = CONFIG.PORT || 80;
     protocol = (port == 443) ? 'https:' : 'http:';
     host = CONFIG.HOST || 'localhost';
