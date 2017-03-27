@@ -63,29 +63,25 @@ var WebService = function (options) {
 
     // Setup handler and pass in factory
     _this.handlers = {
-      'design.json': _this.createDesignHandler
+      'asce7-16.json': _this.createASCE7_16Handler
     };
   };
 
-  _this.createDesignFactory = function () {
-    return DesignFactory({
-      deterministicHazardFactory: DeterministicHazardFactory(
-          {legacyFactory: _legacyFactory}),
-      metadataFactory: MetadataFactory(
-          {legacyFactory: _legacyFactory}),
-      probabilisticHazardFactory: ProbabilisticHazardFactory(
-          {legacyFactory: _legacyFactory}),
-      riskTargetingFactory: RiskTargetingFactory(
-          {legacyFactory: _legacyFactory}),
-      siteAmplificationFactory: SiteAmplificationFactory(),
-      designCategoryFactory: DesignCategoryFactory(),
-      spectraFactory: SpectraFactory()
-    });
-  };
-
-  _this.createDesignHandler = function () {
+  _this.createASCE7_16Handler = function () {
     return DesignHandler({
-      designFactory: _this.createDesignFactory()
+      designFactory: DesignFactory({
+        deterministicHazardFactory: DeterministicHazardFactory(
+            {legacyFactory: _legacyFactory}),
+        metadataFactory: MetadataFactory(
+            {legacyFactory: _legacyFactory}),
+        probabilisticHazardFactory: ProbabilisticHazardFactory(
+            {legacyFactory: _legacyFactory}),
+        riskTargetingFactory: RiskTargetingFactory(
+            {legacyFactory: _legacyFactory}),
+        siteAmplificationFactory: SiteAmplificationFactory(),
+        designCategoryFactory: DesignCategoryFactory(),
+        spectraFactory: SpectraFactory()
+      })
     });
   };
 
