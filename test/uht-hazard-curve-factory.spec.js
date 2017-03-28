@@ -135,6 +135,76 @@ describe('UHTHazardCurveFactory', () => {
     });
   });
 
+  describe('getHazardCurves', () => {
+    it('does stuff', (done) => {
+      var options;
+
+      // fake options for testing
+      options = {
+        gridSpacing: 'gridSpacing',
+        hazardEdition: 'hazardEdition',
+        hazardRegion: 'hazardRegion',
+        latitude: 'latitude',
+        longitude: 'longitude'
+      };
+
+      // stub methods called by getHazardCurves to verify order
+      factory.getGridPoints = function (options) {
+        // make sure requested gridSpacing and location are passed
+        expect(options.gridSpacing).to.equal('gridSpacing');
+        expect(options.latitude).to.equal('latitude');
+        expect(options.longitude).to.equal('longitude');
+        return [
+          {
+            latitude: 'lat1',
+            longitude: 'lon1'
+          },
+          {
+            latitude: 'lat2',
+            longitude: 'lon2'
+          }
+        ];
+      };
+      factory.getHazardCurveUrl = function (options) {
+        // make sure hazardEdition and hazardRegion are passed
+        expect(options.hazardEdition).to.equal('hazardEdition');
+        expect(options.hazardRegion).to.equal('hazardRegion');
+        options.urled = true;
+        return options;
+      };
+      factory.makeRequest = function (options) {
+        // make sure url was generated before being requested
+        expect(options.url.urled).to.equal(true);
+        options.url.requested = true;
+        return Promise.resolve(options.url);
+      };
+      factory.parseHazardCurves = function (options) {
+        // make sure data was requested before being parsed
+        expect(options.requested).to.equal(true);
+        options.parsed = true;
+        return options;
+      };
+
+      // call getHazardCurves
+      factory.getHazardCurves(options).then((curves) => {
+        expect(curves[0]).to.deep.equal({
+          'hazardEdition': 'hazardEdition',
+          'hazardRegion': 'hazardRegion',
+          'latitude': 'lat1',
+          'longitude': 'lon1',
+          'urled': true,
+          'requested': true,
+          'parsed': true
+        });
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+  });
+
+
   describe('getHazardCurveUrl', () => {
     var replacements;
 
@@ -146,7 +216,6 @@ describe('UHTHazardCurveFactory', () => {
       imt: 'imt',
       vs30: 'vs30'
     };
-
 
     it('replaces {edition} with options.hazardEdition', () => {
       factory.url = '{edition}';
