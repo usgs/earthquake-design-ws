@@ -1,0 +1,654 @@
+{
+  "status": "success",
+  "date": "2017-03-28T19:08:58+00:00",
+  "url": "https://earthquake.usgs.gov/hazws/staticcurve/1/E2008R2/COUS0P05/-118.0/34.0/any/760",
+  "response": [
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 1,
+          "value": "PGA",
+          "display": "Peak Ground Acceleration",
+          "displayorder": 1
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.005,
+          0.007,
+          0.0098,
+          0.0137,
+          0.0192,
+          0.0269,
+          0.0376,
+          0.0527,
+          0.0738,
+          0.103,
+          0.145,
+          0.203,
+          0.284,
+          0.397,
+          0.556,
+          0.778,
+          1.09,
+          1.52,
+          2.13
+        ]
+      },
+      "data": [
+        {
+          "id": 1822811,
+          "datasetid": 11,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.4679,
+            0.3925,
+            0.3172,
+            0.248,
+            0.188,
+            0.139,
+            0.1006,
+            0.07031,
+            0.04694,
+            0.02956,
+            0.0171,
+            0.00937,
+            0.004966,
+            0.002603,
+            0.001316,
+            0.0006023,
+            0.0002285,
+            0.00006808,
+            0.00001371
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 3,
+          "value": "SA0P1",
+          "display": "0.10 Second Spectral Acceleration",
+          "displayorder": 3
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.0025,
+          0.006,
+          0.0098,
+          0.0137,
+          0.0192,
+          0.0269,
+          0.0376,
+          0.0527,
+          0.0738,
+          0.103,
+          0.145,
+          0.203,
+          0.284,
+          0.397,
+          0.556,
+          0.778,
+          1.09,
+          1.52,
+          2.13,
+          3.3
+        ]
+      },
+      "data": [
+        {
+          "id": 2434120,
+          "datasetid": 12,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.6563,
+            0.5315,
+            0.4312,
+            0.3585,
+            0.2882,
+            0.2252,
+            0.1721,
+            0.1285,
+            0.09367,
+            0.06638,
+            0.04453,
+            0.02841,
+            0.01709,
+            0.009782,
+            0.005392,
+            0.002909,
+            0.001504,
+            0.0007219,
+            0.000296,
+            0.00006801
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 4,
+          "value": "SA0P2",
+          "display": "0.20 Second Spectral Acceleration",
+          "displayorder": 4
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.005,
+          0.0075,
+          0.0113,
+          0.0169,
+          0.0253,
+          0.038,
+          0.057,
+          0.0854,
+          0.128,
+          0.192,
+          0.288,
+          0.432,
+          0.649,
+          0.973,
+          1.46,
+          2.19,
+          3.28,
+          4.92,
+          7.38
+        ]
+      },
+      "data": [
+        {
+          "id": 3045429,
+          "datasetid": 13,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.6213,
+            0.5541,
+            0.4682,
+            0.3758,
+            0.2866,
+            0.2086,
+            0.1463,
+            0.09921,
+            0.06428,
+            0.03896,
+            0.02169,
+            0.01112,
+            0.005379,
+            0.002549,
+            0.001147,
+            0.0004485,
+            0.0001374,
+            0.00002924,
+            0.000003009
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 5,
+          "value": "SA0P3",
+          "display": "0.30 Second Spectral Acceleration",
+          "displayorder": 5
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.0025,
+          0.005,
+          0.0075,
+          0.0113,
+          0.0169,
+          0.0253,
+          0.038,
+          0.057,
+          0.0854,
+          0.128,
+          0.192,
+          0.288,
+          0.432,
+          0.649,
+          0.973,
+          1.46,
+          2.19,
+          3.28,
+          4.92,
+          7.38
+        ]
+      },
+      "data": [
+        {
+          "id": 3656738,
+          "datasetid": 14,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.6904,
+            0.6196,
+            0.5457,
+            0.4529,
+            0.3563,
+            0.2662,
+            0.19,
+            0.1305,
+            0.08619,
+            0.05391,
+            0.03122,
+            0.01653,
+            0.008103,
+            0.003809,
+            0.00176,
+            0.0007557,
+            0.000271,
+            0.00007349,
+            0.0000129,
+            8.144E-7
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 6,
+          "value": "SA0P5",
+          "display": "0.50 Second Spectral Acceleration",
+          "displayorder": 6
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.0025,
+          0.005,
+          0.0075,
+          0.0113,
+          0.0169,
+          0.0253,
+          0.038,
+          0.057,
+          0.0854,
+          0.128,
+          0.192,
+          0.288,
+          0.432,
+          0.649,
+          0.973,
+          1.46,
+          2.19,
+          3.28,
+          4.92,
+          7.38
+        ]
+      },
+      "data": [
+        {
+          "id": 4268047,
+          "datasetid": 15,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.5522,
+            0.5463,
+            0.4513,
+            0.3524,
+            0.2646,
+            0.1914,
+            0.1334,
+            0.0896,
+            0.05711,
+            0.0337,
+            0.01807,
+            0.008867,
+            0.004144,
+            0.001909,
+            0.000846,
+            0.0003239,
+            0.000096,
+            0.0000197,
+            0.000001775,
+            3.283E-8
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 8,
+          "value": "SA1P0",
+          "display": "1.00 Second Spectral Acceleration",
+          "displayorder": 8
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.0025,
+          0.00375,
+          0.00563,
+          0.00844,
+          0.0127,
+          0.019,
+          0.0285,
+          0.0427,
+          0.0641,
+          0.0961,
+          0.144,
+          0.216,
+          0.324,
+          0.487,
+          0.73,
+          1.09,
+          1.64,
+          2.46,
+          3.69,
+          5.54
+        ]
+      },
+      "data": [
+        {
+          "id": 4879356,
+          "datasetid": 16,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.5079,
+            0.4146,
+            0.3246,
+            0.2464,
+            0.1815,
+            0.1305,
+            0.09031,
+            0.05929,
+            0.036,
+            0.01987,
+            0.009912,
+            0.004562,
+            0.002019,
+            0.0008614,
+            0.000337,
+            0.0001105,
+            0.00002622,
+            0.000003592,
+            1.863E-7,
+            3.1E-19
+          ]
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "edition": {
+          "id": 3,
+          "value": "E2008R2",
+          "display": "Conterminous U.S. 2008 (v3.1.x)",
+          "displayorder": 109
+        },
+        "region": {
+          "id": 1,
+          "value": "COUS0P05",
+          "display": "Conterminous U.S. w/ 0.05 Grid",
+          "displayorder": 1,
+          "minlatitude": 24.6,
+          "maxlatitude": 50,
+          "minlongitude": -125,
+          "maxlongitude": -65,
+          "uiminlatitude": 24.6,
+          "uimaxlatitude": 50,
+          "uiminlongitude": -125,
+          "uimaxlongitude": -65,
+          "gridspacing": 0.05
+        },
+        "latitude": 34,
+        "longitude": -118,
+        "imt": {
+          "id": 9,
+          "value": "SA2P0",
+          "display": "2.00 Second Spectral Acceleration",
+          "displayorder": 9
+        },
+        "vs30": {
+          "id": 3,
+          "value": "760",
+          "display": "760 m/s - B/C Boundary",
+          "displayorder": 3
+        },
+        "xlabel": "Ground Motion (g)",
+        "ylabel": "Annual Frequency of Exceedence",
+        "xvals": [
+          0.0025,
+          0.006,
+          0.0098,
+          0.0137,
+          0.0192,
+          0.0269,
+          0.0376,
+          0.0527,
+          0.0738,
+          0.103,
+          0.145,
+          0.203,
+          0.284,
+          0.397,
+          0.556,
+          0.778,
+          1.09,
+          1.52,
+          2.13,
+          3.3
+        ]
+      },
+      "data": [
+        {
+          "id": 5490665,
+          "datasetid": 17,
+          "latitude": 34,
+          "longitude": -118,
+          "yvals": [
+            0.2687,
+            0.1502,
+            0.1036,
+            0.07764,
+            0.05577,
+            0.03802,
+            0.0244,
+            0.01453,
+            0.008047,
+            0.004196,
+            0.002037,
+            0.00096,
+            0.0004331,
+            0.0001827,
+            0.00006929,
+            0.00002226,
+            0.000005324,
+            7.594E-7,
+            6.195E-8,
+            1.615E-11
+          ]
+        }
+      ]
+    }
+  ]
+}
