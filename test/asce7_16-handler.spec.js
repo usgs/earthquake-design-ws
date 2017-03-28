@@ -25,7 +25,7 @@ _DESIGN_FACTORY = {
 };
 
 
-describe('asce7-16-handler-test', () => {
+describe('asce7-16-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof DesignHandler).to.equal('function');
