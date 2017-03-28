@@ -1,7 +1,8 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    NumberUtils = require('./util/number-utils').instance;
 
 
 var _DEFAULTS;
@@ -368,38 +369,61 @@ var ASCE7_16Factory = function (options) {
 
         resolve({
           data: {
-            pgauh: _this.roundOutput(basicDesign.pgauh),
-            pgad: _this.roundOutput(basicDesign.pgad),
-            pga: _this.roundOutput(basicDesign.pga),
-            fpga: _this.roundOutput(siteAmplification.fpga),
-            pgam: _this.roundOutput(finalDesign.pgam),
+            pgauh: NumberUtils.round(basicDesign.pgauh,
+                _this.outputDecimals),
+            pgad: NumberUtils.round(basicDesign.pgad,
+                _this.outputDecimals),
+            pga: NumberUtils.round(basicDesign.pga,
+                _this.outputDecimals),
+            fpga: NumberUtils.round(siteAmplification.fpga,
+                _this.outputDecimals),
+            pgam: NumberUtils.round(finalDesign.pgam,
+                _this.outputDecimals),
 
-            ssrt: _this.roundOutput(basicDesign.ssrt),
-            crs: _this.roundOutput(riskCoefficients.crs),
-            ssuh: _this.roundOutput(basicDesign.ssuh),
-            ssd: _this.roundOutput(basicDesign.ssd),
-            ss: _this.roundOutput(basicDesign.ss),
-            fa: _this.roundOutput(siteAmplification.fa),
-            sms: _this.roundOutput(finalDesign.sms),
-            sds: _this.roundOutput(finalDesign.sds),
+            ssrt: NumberUtils.round(basicDesign.ssrt,
+                _this.outputDecimals),
+            crs: NumberUtils.round(riskCoefficients.crs,
+                _this.outputDecimals),
+            ssuh: NumberUtils.round(basicDesign.ssuh,
+                _this.outputDecimals),
+            ssd: NumberUtils.round(basicDesign.ssd,
+                _this.outputDecimals),
+            ss: NumberUtils.round(basicDesign.ss,
+                _this.outputDecimals),
+            fa: NumberUtils.round(siteAmplification.fa,
+                _this.outputDecimals),
+            sms: NumberUtils.round(finalDesign.sms,
+                _this.outputDecimals),
+            sds: NumberUtils.round(finalDesign.sds,
+                _this.outputDecimals),
             sdcs: designCategory.sdcs,
 
-            s1rt: _this.roundOutput(basicDesign.s1rt),
-            cr1: _this.roundOutput(riskCoefficients.cr1),
-            s1uh: _this.roundOutput(basicDesign.s1uh),
-            s1d: _this.roundOutput(basicDesign.s1d),
-            s1: _this.roundOutput(basicDesign.s1),
-            fv: _this.roundOutput(siteAmplification.fv),
-            sm1: _this.roundOutput(finalDesign.sm1),
-            sd1: _this.roundOutput(finalDesign.sd1),
+            s1rt: NumberUtils.round(basicDesign.s1rt,
+                _this.outputDecimals),
+            cr1: NumberUtils.round(riskCoefficients.cr1,
+                _this.outputDecimals),
+            s1uh: NumberUtils.round(basicDesign.s1uh,
+                _this.outputDecimals),
+            s1d: NumberUtils.round(basicDesign.s1d,
+                _this.outputDecimals),
+            s1: NumberUtils.round(basicDesign.s1,
+                _this.outputDecimals),
+            fv: NumberUtils.round(siteAmplification.fv,
+                _this.outputDecimals),
+            sm1: NumberUtils.round(finalDesign.sm1,
+                _this.outputDecimals),
+            sd1: NumberUtils.round(finalDesign.sd1,
+                _this.outputDecimals),
             sdc1: designCategory.sdc1,
 
             sdc: designCategory.sdc,
             // tl: result.tl,
 
             // TODO
-            sdSpectrum: _this.roundSpectrum(spectra.sdSpectrum),
-            smSpectrum: _this.roundSpectrum(spectra.smSpectrum)
+            sdSpectrum: NumberUtils.roundSpectrum(spectra.sdSpectrum,
+                _this.outputDecimals),
+            smSpectrum: NumberUtils.roundSpectrum(spectra.smSpectrum,
+                _this.outputDecimals)
           },
 
           metadata: extend(true, {}, result.metadata)
@@ -461,68 +485,6 @@ var ASCE7_16Factory = function (options) {
       result.spectra = promiseResults[1];
 
       return _this.formatResult(result);
-    });
-  };
-
-  /**
-   * Rounds the given `value` to the given `precision` number of decimals.
-   *
-   * Note this uses JS rounding logic such that 0.5 values round towards
-   * +Inf rather than away from 0.
-   *
-   * Note this only considers the `precision + 1` decimal value for rounding
-   * and does not deal with any additional decimals for rounding. For example:
-   *     roundOutput(1.450, 1) --> 1.5
-   *     roundOutput(1.449, 1) --> 1.4
-   *
-   *
-   * @param value {Decimal}
-   *     The value to be rounded.
-   * @param precision {Integer}
-   *     The number of decimals to include in the rounded result.
-   *
-   * @return {Decimal}
-   *     The rounded result.
-   */
-  _this.roundOutput = function (value, precision) {
-    var factor,
-        rounded;
-
-    if (typeof precision === 'undefined') {
-      precision = _this.outputDecimals;
-    }
-
-    factor = Math.pow(10, precision);
-
-    if (precision < 1) {
-      rounded = Math.round(factor);
-    } else {
-      factor = Math.pow(10, precision);
-      rounded = Math.round(value * factor) / factor;
-    }
-
-    return rounded;
-  };
-
-  /**
-   * Rounds the given `spectrum` values to the given `precision` number of
-   * decimals.
-   *
-   * @param spectrum {Array}
-   *     An array containing [x, y] data entries defininig the spectrum.
-   * @param precision {Integer}
-   *     The number of decimals to include in the rounded result entries.
-   *
-   * @return {Array}
-   *     An array containing a spectrum where each entry value is rounded to
-   *     the given precision.
-   */
-  _this.roundSpectrum = function (spectrum, precision) {
-    return spectrum.map((entry) => {
-      return [
-        _this.roundOutput(entry[0], precision),
-        _this.roundOutput(entry[1], precision)
-      ];
     });
   };
 
