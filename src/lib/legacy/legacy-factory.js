@@ -163,8 +163,8 @@ var LegacyFactory = function (options) {
     }
 
     // clear any timeouts
-    for (key in _this.clearCache) {
-      clearTimeout(_this.clearCache[key]);
+    for (key in _this.cacheTimeouts) {
+      clearTimeout(_this.cacheTimeouts[key]);
     }
 
     _initialize = null;
