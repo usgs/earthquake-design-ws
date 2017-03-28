@@ -4,6 +4,7 @@
 var extend = require('extend'),
     http = require('http'),
     https = require('https'),
+    DesignHazardMetadata = require('./util/design-hazard-metadata'),
     querystring = require('querystring'),
     url = require('url');
 
@@ -11,6 +12,7 @@ var extend = require('extend'),
 var _DEFAULTS;
 
 _DEFAULTS = {
+  metadata: null,
   url: 'https://earthquake.usgs.gov/hazws/staticcurve/1/{edition}/{region}/{longitude}/{latitude}/{imt}/{vs30}'
 };
 
@@ -37,6 +39,12 @@ var UHTHazardCurveFactory = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
+    if (options.metadata) {
+      _this.metadata = options.metadata;
+    } else {
+      _this.destroyMetadata = true;
+      _this.metadata = DesignHazardMetadata();
+    }
     _this.url = options.url;
   };
 
@@ -47,6 +55,11 @@ var UHTHazardCurveFactory = function (options) {
   _this.destroy = function () {
     if (_this === null) {
       return;
+    }
+
+    if (_this.destroyMetadata) {
+      _this.metadata.destroy();
+      _this.metadata = null;
     }
 
     _initialize = null;
@@ -70,8 +83,16 @@ var UHTHazardCurveFactory = function (options) {
    * @param options.longitude {Number}
    * @return {Promise}
    */
-  _this.getDesignCurves = function (/*options*/) {
-    return Promise.reject('getDesignCurves not implemented');
+  _this.getDesignCurves = function (options) {
+    return _this.metadata.getHazardMetadata(options).then((metadata) => {
+      return _this.getHazardCurves({
+        gridSpacing: metadata.gridSpacing,
+        hazardEdition: metadata.hazardEdition,
+        hazardRegion: metadata.hazardRegion,
+        latitude: options.latitude,
+        longitude: options.longitude
+      });
+    });
   };
 
   /**

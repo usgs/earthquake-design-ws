@@ -135,6 +135,56 @@ describe('UHTHazardCurveFactory', () => {
     });
   });
 
+  describe('getDesignCurves', () => {
+    var factory,
+        metadata;
+
+    beforeEach(function () {
+      metadata = {
+        getHazardMetadata: function (/*options*/) {
+          return Promise.resolve({
+            gridSpacing: 'gridSpacing',
+            hazardEdition: 'hazardEdition',
+            hazardRegion: 'hazardRegion',
+          });
+        }
+      };
+
+      factory = UHTHazardCurveFactory({
+        metadata: metadata
+      });
+    });
+
+    afterEach(function () {
+      factory.destroy();
+      factory = null;
+      metadata = null;
+    });
+
+    it('Uses metadata to call getHazardCurves', function (done) {
+      factory.getHazardCurves = function (options) {
+        return Promise.resolve(options);
+      };
+
+      factory.getDesignCurves({
+        designEdition: 'designEdition',
+        latitude: 'latitude',
+        longitude: 'longitude'
+      }).then(function (results) {
+        expect(results.gridSpacing).to.equal('gridSpacing');
+        expect(results.hazardEdition).to.equal('hazardEdition');
+        expect(results.hazardRegion).to.equal('hazardRegion');
+        expect(results.latitude).to.equal('latitude');
+        expect(results.longitude).to.equal('longitude');
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+
+    });
+  });
+
   describe('getHazardCurves', () => {
     it('does stuff', (done) => {
       var options;
