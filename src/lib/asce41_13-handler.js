@@ -25,7 +25,7 @@ var ASCE41_13Handler = function (options) {
    * @param params {Object}
    *    Object containing required parameters.
    *
-   * @param {Promise<array, Error>}
+   * @return {Promise<array, Error>}
    *    A promise resolving with an array of missing parameter(s) and error or
    *    resolves with params if all values pass checks.
    */
