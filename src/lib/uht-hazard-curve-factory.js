@@ -98,77 +98,72 @@ var UHTHazardCurveFactory = function (options) {
    *.    1, 2, or 4 points surrounding input location.
    */
   _this.getGridPoints = function (options) {
-    var gridLatitude,
-        gridLongitude,
+    var bottom,
         gridSpacing,
         latitude,
+        left,
         longitude,
-        otherLatitude,
-        otherLongitude,
-        points;
+        points,
+        right,
+        top;
 
     gridSpacing = options.gridSpacing;
     latitude = options.latitude;
     longitude = options.longitude;
     points = [];
 
-    gridLatitude = Math.round(latitude / gridSpacing) * gridSpacing;
-    gridLongitude = Math.round(longitude / gridSpacing) * gridSpacing;
+    top = Math.ceil(latitude / gridSpacing) * gridSpacing;
+    left = Math.floor(longitude / gridSpacing) * gridSpacing;
+    bottom = top - gridSpacing;
+    right = left + gridSpacing;
+    // handle floating point precision errors
+    top = parseFloat(top.toPrecision(10));
+    left = parseFloat(left.toPrecision(10));
+    bottom = parseFloat(bottom.toPrecision(10));
+    right = parseFloat(right.toPrecision(10));
 
-    if (gridLatitude === latitude && gridLongitude === longitude) {
+    if (top === latitude && left === longitude) {
       // point is on grid
       points.push({
-        latitude: gridLatitude,
-        longitude: gridLongitude
+        latitude: top,
+        longitude: left
       });
-    } else if (gridLongitude === longitude) {
+    } else if (left === longitude) {
       // point is on vertical line between two grid points
       points.push({
-        latitude: gridLatitude,
-        longitude: gridLongitude
+        latitude: top,
+        longitude: left
       });
       points.push({
-        latitude: (gridLatitude < latitude ?
-            gridLatitude + gridSpacing :
-            gridLatitude - gridSpacing),
-        longitude: gridLongitude
+        latitude: bottom,
+        longitude: left
       });
-    } else if (gridLatitude === latitude) {
+    } else if (top === latitude) {
       // point is on horizontal line between two grid points
       points.push({
-        latitude: gridLatitude,
-        longitude: gridLongitude
+        latitude: top,
+        longitude: left
       });
       points.push({
-        latitude: gridLatitude,
-        longitude: (gridLongitude < longitude ?
-            gridLongitude + gridSpacing :
-            gridLongitude - gridSpacing)
+        latitude: top,
+        longitude: right
       });
     } else {
-      // point is between four grid points
-      otherLatitude = (gridLatitude < latitude ?
-          gridLatitude + gridSpacing :
-          gridLatitude - gridSpacing);
-      otherLongitude = (gridLongitude < longitude ?
-          gridLongitude + gridSpacing :
-          gridLongitude - gridSpacing);
-
       points.push({
-        latitude: gridLatitude,
-        longitude: gridLongitude
+        latitude: top,
+        longitude: left
       });
       points.push({
-        latitude: gridLatitude,
-        longitude: otherLongitude
+        latitude: top,
+        longitude: right
       });
       points.push({
-        latitude: otherLatitude,
-        longitude: otherLongitude
+        latitude: bottom,
+        longitude: right
       });
       points.push({
-        latitude: otherLatitude,
-        longitude: gridLongitude
+        latitude: bottom,
+        longitude: left
       });
     }
 
