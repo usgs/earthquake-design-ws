@@ -1,13 +1,17 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    http = require('http'),
+    https = require('https'),
+    querystring = require('querystring'),
+    url = require('url');
 
 
 var _DEFAULTS;
 
 _DEFAULTS = {
-  url: 'https://earthquake.usgs.gov/hazws/staticcurve/1/{EDITION}/{REGION}/{LONGITUDE}/{LATITUDE}/{IMT}/{VS30}'
+  url: 'https://earthquake.usgs.gov/hazws/staticcurve/1/{edition}/{region}/{longitude}/{latitude}/{imt}/{vs30}'
 };
 
 
@@ -70,7 +74,6 @@ var UHTHazardCurveFactory = function (options) {
     return Promise.reject('getDesignCurves not implemented');
   };
 
-
   /**
    * Fetch curves for a location based on hazard edition and region.
    *
@@ -81,10 +84,57 @@ var UHTHazardCurveFactory = function (options) {
    * @param longitude {Number}
    * @return {Promise}
    */
-  _this.getHazardCurves = function (/*options*/) {
-    return Promise.reject('getHazardCurves not implemented');
-  };
+  _this.getHazardCurves = function (options) {
+    var hazardEdition,
+        hazardRegion,
+        points,
+        requests;
 
+    hazardEdition = options.hazardEdition;
+    hazardRegion = options.hazardRegion;
+
+    // get grid points to request
+    points = _this.getGridPoints({
+      gridSpacing: options.gridSpacing,
+      latitude: options.latitude,
+      longitude: options.longitude
+    });
+
+    // build and start requests
+    requests = points.map(function (point) {
+      var url;
+
+      url = _this.getHazardCurveUrl({
+        hazardEdition: hazardEdition,
+        hazardRegion: hazardRegion,
+        latitude: point.latitude,
+        longitude: point.longitude
+      });
+
+      return _this.makeRequest({
+        url: url
+      });
+    });
+
+    return Promise.all(requests).then((uhtResponses) => {
+      return uhtResponses.map(_this.parseHazardCurves);
+    }).then((curves) => {
+      var data,
+          response;
+
+      data = [];
+      curves.forEach(function (c) {
+        data.push.apply(data, c);
+      });
+
+      response = {
+        metadata: options,
+        data: data
+      };
+
+      return response;
+    });
+  };
 
   /**
    * Given a gridSpacing, find the 1, 2, or 4 points
@@ -168,6 +218,143 @@ var UHTHazardCurveFactory = function (options) {
     }
 
     return points;
+  };
+
+  /**
+   * Get URL for a UHT hazard curve request.
+   *
+   * @param options {Object}
+   * @param options.hazardEdition {String}
+   * @param options.hazardRegion {String}
+   * @param options.latitude {Number}
+   * @param options.longitude {Number}
+   *
+   * @return {String}
+   *     URL for hazard curve request.
+   */
+  _this.getHazardCurveUrl = function (options) {
+    var hazardUrl;
+
+    hazardUrl = _this.url;
+    hazardUrl = hazardUrl.replace('{edition}',
+        querystring.escape(options.hazardEdition));
+    hazardUrl = hazardUrl.replace('{region}',
+        querystring.escape(options.hazardRegion));
+    hazardUrl = hazardUrl.replace('{latitude}',
+        querystring.escape(options.latitude));
+    hazardUrl = hazardUrl.replace('{longitude}', 
+        querystring.escape(options.longitude));
+    hazardUrl = hazardUrl.replace('{imt}', 'any');
+    hazardUrl = hazardUrl.replace('{vs30}', '760');
+
+    return hazardUrl;
+  };
+
+  /**
+   * Request a URL.
+   *
+   * @param options {Object}
+   * @param options.url {String}
+   *     url to request.
+   *
+   * @return {Promise}
+   */
+  _this.makeRequest = function (options) {
+    return new Promise((resolve, reject) => {
+      var client,
+          hostname,
+          params,
+          path,
+          port,
+          request;
+
+      // convert URL to node-friendly options
+      params = url.parse(options.url);
+      hostname = params.hostname;
+      if (params.port) {
+        port = params.port;
+      } else if (params.protocol === 'https:') {
+        port = 443;
+      } else {
+        port = 80;
+      }
+      client = (port === 443 ? https : http);
+      path = params.pathname;
+
+      options = {
+        hostname: hostname,
+        port: port,
+        path: path
+      };
+
+      request = client.request(options, (response) => {
+        var buffer;
+
+        buffer = [];
+
+        response.on('data', (data) => {
+          buffer.push(data);
+        });
+
+        response.on('end', () => {
+          try {
+            resolve(JSON.parse(buffer.join('')));
+          } catch (e) {
+            reject(e);
+          }
+        });
+      });
+
+      request.on('error', (err) => {
+        reject(err);
+      });
+
+      request.end();
+    });
+  };
+
+  /**
+   * Parse a UHT JSON response into curve objects.
+   *
+   * @param uhtResponse {Object}
+   * @return {Array<Object>}
+   *
+   * Returned objects have the following keys and values:
+   *   hazardEdition {String}
+   *   hazardRegion {String}
+   *   latitude {Number}
+   *   longitude {Number}
+   *   spectralPeriod {String}
+   *   vs30 {String}
+   *   data {Array<Array<x, y>>}
+   */
+  _this.parseHazardCurves = function (uhtResponse) {
+    var curves;
+
+    curves = uhtResponse.response.map((response) => {
+      var curve,
+          metadata,
+          yvals;
+
+      metadata = response.metadata;
+      yvals = response.data[0].yvals;
+
+      curve = {
+        hazardEdition: metadata.edition.value,
+        hazardRegion: metadata.region.value,
+        latitude: metadata.latitude,
+        longitude: metadata.longitude,
+        spectralPeriod: metadata.imt.value,
+        vs30: metadata.vs30.value,
+        data: metadata.xvals.map((x, i) => {
+          return [x, yvals[i]];
+        })
+      };
+
+      return curve;
+    });
+
+    return curves;
   };
 
 
