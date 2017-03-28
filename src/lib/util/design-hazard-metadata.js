@@ -75,6 +75,15 @@ var DesignHazardMetadata = function (options) {
     );
   };
 
+  _this.destroy = function () {
+    if (_this === null) {
+      return;
+    }
+
+    _initialize = null;
+    _this = null;
+  };
+
   /**
    * Written as a promise so use need not change if/when this metadata is
    * fetched async from some web service metadata endpoint.
@@ -98,6 +107,7 @@ var DesignHazardMetadata = function (options) {
         region,
         regions;
 
+    params = params || {};
     designEdition = params.designEdition;
     latitude = params.latitude;
     longitude = params.longitude;
