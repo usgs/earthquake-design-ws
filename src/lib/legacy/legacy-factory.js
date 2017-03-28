@@ -11,6 +11,7 @@ var extend = require('extend'),
 var _DEFAULTS;
 
 _DEFAULTS = {
+  cacheTimeout: 30000,
   url: 'https://earthquake.usgs.gov/designmaps/beta/us/service'
 };
 
@@ -44,6 +45,9 @@ var LegacyFactory = function (options) {
 
     // create cache object
     _this.cache = {};
+    _this.cacheTimeout = options.cacheTimeout;
+    // object with timers to clear cache keys
+    _this.cacheTimeouts = {};
   };
 
   /**
@@ -56,6 +60,46 @@ var LegacyFactory = function (options) {
    */
   _this.cacheRequest = function (key, value) {
     _this.cache[key] = value;
+    // prepare cache
+    _this.cacheScheduleClear(key, _this.cacheTimeout);
+  };
+
+  /**
+   * Remove promise from cache after specified delay.
+   *
+   * @param key {String}
+   *        The unique query string with input parameters.
+   * @param delay {Number}
+   *        Delay in milliseconds before key is cleared from cache.
+   */
+  _this.cacheScheduleClear = function (key, delay) {
+    if (key in _this.cacheTimeouts) {
+      // already scheduled, new cache attempt resets timeout
+      clearTimeout(_this.cacheTimeouts[key]);
+    }
+
+    // schedule cache to be cleared
+    _this.cacheTimeouts[key] = setTimeout(function () {
+      if (_this) {
+        _this.clearCache(key);
+      }
+    }, delay);
+  };
+
+  /**
+   * Remove a cached response from the cache.
+   *
+   * @param key {string}
+   *        the cache key
+   */
+  _this.clearCache = function (key) {
+    if (_this && _this.cache && key in _this.cache) {
+      delete _this.cache[key];
+    }
+    if (_this && _this.cacheTimeouts && key in _this.cacheTimeouts) {
+      clearTimeout(_this.cacheTimeouts[key]);
+      delete _this.cacheTimeouts[key];
+    }
   };
 
   /**
@@ -112,8 +156,15 @@ var LegacyFactory = function (options) {
    *
    */
   _this.destroy = function () {
+    var key;
+
     if (_this === null) {
       return;
+    }
+
+    // clear any timeouts
+    for (key in _this.clearCache) {
+      clearTimeout(_this.clearCache[key]);
     }
 
     _initialize = null;

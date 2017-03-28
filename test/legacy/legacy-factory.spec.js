@@ -49,6 +49,50 @@ describe('LegacyFactory test suite', () => {
     });
   });
 
+  describe('cacheScheduleClear', () => {
+    it('is called by cacheRequest', () => {
+      legacyFactory.cacheScheduleClear = sinon.spy();
+      legacyFactory.cacheRequest('key', 'value');
+
+      expect(legacyFactory.cacheScheduleClear.calledOnce).to.equal(true);
+      expect(legacyFactory.cacheScheduleClear.args[0]).to.deep.equal(
+          ['key', legacyFactory.cacheTimeout]);
+    });
+
+    it('cancels timeouts if already set', () => {
+      var old;
+
+      legacyFactory.cacheRequest('key', 'value');
+      old = legacyFactory.cacheTimeouts['key'];
+      legacyFactory.cacheRequest('key', 'othervalue');
+      expect(old).to.not.equal(legacyFactory.cacheTimeouts['key']);
+      legacyFactory.clearCache('key');
+    });
+
+    it('calls clearCache after timeout', (done) => {
+      legacyFactory.clearCache = sinon.spy();
+      legacyFactory.cacheScheduleClear('key', 0);
+
+      setTimeout(function () {
+        expect(legacyFactory.clearCache.calledOnce).to.equal(true);
+        expect(legacyFactory.clearCache.args[0][0]).to.equal('key');
+        done();
+      }, 1);
+    });
+  });
+
+  describe('clearCache', () => {
+    it('removes cached responses and cache clear timeouts', () => {
+      legacyFactory.cache['test'] = true;
+      legacyFactory.cacheTimeouts['test'] = 1;
+
+      legacyFactory.clearCache('test');
+
+      expect('test' in legacyFactory.cache).to.equal(false);
+      expect('test' in legacyFactory.cacheTimeouts).to.equal(false);
+    });
+  });
+
   describe('cleanseInputs', () => {
     it('translates from the new inputs to the old inputs', () => {
       var newInputs,
