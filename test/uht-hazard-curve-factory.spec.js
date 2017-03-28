@@ -40,7 +40,7 @@ describe('UHTHazardCurveFactory', () => {
 
   describe('getGridPoints', () => {
     // NOTE that the tests below also verify the correct point return order
-    // (top to bottom, right to left)
+    // (top to bottom, left to right)
 
     it('returns one point when on grid', () => {
       var points;
