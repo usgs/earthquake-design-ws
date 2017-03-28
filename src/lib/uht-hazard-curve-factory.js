@@ -75,68 +75,6 @@ var UHTHazardCurveFactory = function (options) {
   };
 
   /**
-   * Fetch curves for a location based on hazard edition and region.
-   *
-   * @param gridSpacing {Number}
-   * @param hazardEdition {String}
-   * @param hazardRegion {String}
-   * @param latitude {Number}
-   * @param longitude {Number}
-   * @return {Promise}
-   */
-  _this.getHazardCurves = function (options) {
-    var hazardEdition,
-        hazardRegion,
-        points,
-        requests;
-
-    hazardEdition = options.hazardEdition;
-    hazardRegion = options.hazardRegion;
-
-    // get grid points to request
-    points = _this.getGridPoints({
-      gridSpacing: options.gridSpacing,
-      latitude: options.latitude,
-      longitude: options.longitude
-    });
-
-    // build and start requests
-    requests = points.map(function (point) {
-      var url;
-
-      url = _this.getHazardCurveUrl({
-        hazardEdition: hazardEdition,
-        hazardRegion: hazardRegion,
-        latitude: point.latitude,
-        longitude: point.longitude
-      });
-
-      return _this.makeRequest({
-        url: url
-      });
-    });
-
-    return Promise.all(requests).then((uhtResponses) => {
-      return uhtResponses.map(_this.parseHazardCurves);
-    }).then((curves) => {
-      var data,
-          response;
-
-      data = [];
-      curves.forEach(function (c) {
-        data.push.apply(data, c);
-      });
-
-      response = {
-        metadata: options,
-        data: data
-      };
-
-      return response;
-    });
-  };
-
-  /**
    * Given a gridSpacing, find the 1, 2, or 4 points
    * on grid that surround the specified location.
    *
@@ -218,6 +156,59 @@ var UHTHazardCurveFactory = function (options) {
     }
 
     return points;
+  };
+
+  /**
+   * Fetch curves for a location based on hazard edition and region.
+   *
+   * @param gridSpacing {Number}
+   * @param hazardEdition {String}
+   * @param hazardRegion {String}
+   * @param latitude {Number}
+   * @param longitude {Number}
+   * @return {Promise}
+   */
+  _this.getHazardCurves = function (options) {
+    var hazardEdition,
+        hazardRegion,
+        points,
+        requests;
+
+    hazardEdition = options.hazardEdition;
+    hazardRegion = options.hazardRegion;
+
+    // get grid points to request
+    points = _this.getGridPoints({
+      gridSpacing: options.gridSpacing,
+      latitude: options.latitude,
+      longitude: options.longitude
+    });
+
+    // build and start requests
+    requests = points.map(function (point) {
+      var url;
+
+      url = _this.getHazardCurveUrl({
+        hazardEdition: hazardEdition,
+        hazardRegion: hazardRegion,
+        latitude: point.latitude,
+        longitude: point.longitude
+      });
+
+      return _this.makeRequest({
+        url: url
+      });
+    });
+
+    return Promise.all(requests).then((responses) => {
+      return responses.map(_this.parseHazardCurves);
+    }).then((parsed) => {
+      var curves;
+
+      // merge arrays of curves into one array
+      curves = [];
+      return curves.concat.apply(curves, parsed);
+    });
   };
 
   /**
