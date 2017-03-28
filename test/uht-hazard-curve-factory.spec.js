@@ -125,11 +125,11 @@ describe('UHTHazardCurveFactory', () => {
         },
         {
           latitude: 34.0,
-          longitude: -118.0
+          longitude: -118.1
         },
         {
           latitude: 34.0,
-          longitude: -118.1
+          longitude: -118.0
         }
       ]);
     });

@@ -119,7 +119,6 @@ var UHTHazardCurveFactory = function (options) {
     gridSpacing = options.gridSpacing;
     latitude = options.latitude;
     longitude = options.longitude;
-    points = [];
 
     top = Math.ceil(latitude / gridSpacing) * gridSpacing;
     left = Math.floor(longitude / gridSpacing) * gridSpacing;
@@ -133,47 +132,55 @@ var UHTHazardCurveFactory = function (options) {
 
     if (top === latitude && left === longitude) {
       // point is on grid
-      points.push({
-        latitude: top,
-        longitude: left
-      });
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        }
+      ];
     } else if (left === longitude) {
       // point is on vertical line between two grid points
-      points.push({
-        latitude: top,
-        longitude: left
-      });
-      points.push({
-        latitude: bottom,
-        longitude: left
-      });
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        }
+      ];
     } else if (top === latitude) {
       // point is on horizontal line between two grid points
-      points.push({
-        latitude: top,
-        longitude: left
-      });
-      points.push({
-        latitude: top,
-        longitude: right
-      });
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        }
+      ];
     } else {
-      points.push({
-        latitude: top,
-        longitude: left
-      });
-      points.push({
-        latitude: top,
-        longitude: right
-      });
-      points.push({
-        latitude: bottom,
-        longitude: right
-      });
-      points.push({
-        latitude: bottom,
-        longitude: left
-      });
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: right
+        }
+      ];
     }
 
     return points;
