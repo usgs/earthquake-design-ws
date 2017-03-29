@@ -215,7 +215,7 @@ describe('WebService test suite', () => {
       expect(response.status.calledOnce).to.equal(true);
       expect(response.status.calledWith(status)).to.equal(true);
       expect(response.json.calledOnce).to.equal(true);
-      expect(response.json.firstCall.args[0].data).to.equal(
+      expect(response.json.firstCall.args[0].response).to.equal(
           message);
 
       service.destroy();
@@ -254,7 +254,7 @@ describe('WebService test suite', () => {
       stub = sinon.stub(service, 'getResponseMetadata', () => { return ''; });
 
       service.onSuccess(data, request, response, null);
-      expect(response.json.getCall(0).args[0].data).to.equal(data);
+      expect(response.json.getCall(0).args[0].response).to.equal(data);
       expect(stub.getCall(0).args[0]).to.equal(request);
 
       service.destroy();

@@ -201,8 +201,8 @@ var WebService = function (options) {
 
     response.status((err && err.status) ? err.status : 500);
     response.json({
-      data: (err && err.message) ? err.message : 'internal server error',
-      metadata: _this.getResponseMetadata(request, false)
+      request: _this.getResponseMetadata(request, false),
+      response: (err && err.message) ? err.message : 'internal server error'
     });
   };
 
@@ -223,8 +223,8 @@ var WebService = function (options) {
     }
 
     response.json({
-      metadata: _this.getResponseMetadata(request, true),
-      data: data
+      request: _this.getResponseMetadata(request, true),
+      response: data
     });
   };
 
