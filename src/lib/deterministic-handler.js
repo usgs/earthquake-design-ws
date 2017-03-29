@@ -2,13 +2,18 @@
 
 
 var DeterministicFactory = require('./deterministic-factory'),
-    extend = require('extend');
+    extend = require('extend'),
+    pg = require('pg');
 
 
 var _DEFAULTS;
 
 _DEFAULTS = {
-
+  DB_DATABASE: 'postgres',
+  DB_HOST: 'localhost',
+  DB_PASSWORD: null,
+  DB_PORT: 5432,
+  DB_USER: null
 };
 
 
@@ -20,14 +25,14 @@ var DeterministicHandler = function (options) {
   _this = {};
 
   _initialize = function (options) {
-    options = extend({}, _DEFAULTS, options);
+    options = extend(true, {}, _DEFAULTS, options);
 
     if (options.factory) {
       _this.factory = options.factory;
     } else {
       _this.destroyFactory = true;
       _this.factory = DeterministicFactory({
-        db: options.db
+        db: _this.createDbPool(options)
       });
     }
   };
@@ -67,6 +72,16 @@ var DeterministicHandler = function (options) {
     }
 
     return Promise.resolve(params);
+  };
+
+  _this.createDbPool = function (options) {
+    _this.db = new pg.Pool({
+      database: options.DB_DATABASE,
+      host: options.DB_HOST,
+      password: options.DB_PASSWORD,
+      port: options.DB_PORT,
+      user: options.DB_USER
+    });
   };
 
   _this.destroy = function () {
