@@ -20,9 +20,9 @@ var compareResult,
 
 
 compareResult = function (expected, actual) {
-  expect(actual.data.data.ss).to.be.closeTo(expected.ss, EPSILON);
-  expect(actual.data.data.s1).to.be.closeTo(expected.s1, EPSILON);
-  expect(actual.data.data.pga).to.be.closeTo(expected.pga, EPSILON);
+  expect(actual.response.data.ss).to.be.closeTo(expected.ss, EPSILON);
+  expect(actual.response.data.s1).to.be.closeTo(expected.s1, EPSILON);
+  expect(actual.response.data.pga).to.be.closeTo(expected.pga, EPSILON);
 };
 
 fetchResult = function (city) {

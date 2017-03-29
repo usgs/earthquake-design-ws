@@ -22,5 +22,33 @@ module.exports = [
     name: 'LEGACY_URL',
     message: 'Legacy web service endpoint',
     default: 'https://earthquake.usgs.gov/designmaps/beta/us/service'
+  },
+  {
+    type: 'input',
+    name: 'DB_HOST',
+    message: 'Database hostname',
+    default: 'localhost'
+  },
+  {
+    type: 'input',
+    name: 'DB_PORT',
+    message: 'Database port number',
+    default: '5432'
+  },
+  {
+    type: 'input',
+    name: 'DB_DATABASE',
+    message: 'Database name',
+    default: 'usdesign'
+  },
+  {
+    type: 'input',
+    name: 'DB_USER',
+    message: 'Database read-only user name'
+  },
+  {
+    type: 'password',
+    name: 'DB_PASSWORD',
+    message: 'Database password'
   }
 ];

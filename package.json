@@ -28,7 +28,8 @@
     "express": "^4.14.0",
     "extend": "^3.0.0",
     "inquirer": "^3.0.6",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "pg": "^6.1.5"
   },
   "devDependencies": {
     "chai": "^3.5.0",

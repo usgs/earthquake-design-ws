@@ -3,6 +3,7 @@
 
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
+    DeterministicHandler = require('./deterministic-handler'),
     express = require('express'),
     extend = require('extend');
 
@@ -60,7 +61,9 @@ var WebService = function (options) {
     } else {
       _this.handlers = {
         'asce7-16.json': ASCE7_16Handler(options),
-        'asce41-13.json': ASCE41_13Handler(options)
+        'asce41-13.json': ASCE41_13Handler(options),
+
+        'deterministic.json': DeterministicHandler(options)
       };
     }
   };
@@ -198,8 +201,8 @@ var WebService = function (options) {
 
     response.status((err && err.status) ? err.status : 500);
     response.json({
-      data: (err && err.message) ? err.message : 'internal server error',
-      metadata: _this.getResponseMetadata(request, false)
+      request: _this.getResponseMetadata(request, false),
+      response: (err && err.message) ? err.message : 'internal server error'
     });
   };
 
@@ -220,8 +223,8 @@ var WebService = function (options) {
     }
 
     response.json({
-      metadata: _this.getResponseMetadata(request, true),
-      data: data
+      request: _this.getResponseMetadata(request, true),
+      response: data
     });
   };
 
