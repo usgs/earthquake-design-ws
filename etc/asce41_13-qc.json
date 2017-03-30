@@ -1,0 +1,7922 @@
+[
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "﻿Los Angeles",
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.402,
+          "sx1": 0.843
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.601,
+          "sx1": 0.562
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.762,
+          "sx1": 0.608
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.843,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.26,
+          "sx1": 0.438
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Century City",
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.165,
+          "sx1": 0.804
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.443,
+          "sx1": 0.536
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.596,
+          "sx1": 0.571
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.787,
+          "sx1": 0.284
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.155,
+          "sx1": 0.412
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Northridge",
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.69,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.127,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.462,
+          "sx1": 0.512
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.813,
+          "sx1": 0.291
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.127,
+          "sx1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Long Beach",
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.643,
+          "sx1": 0.617
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.095,
+          "sx1": 0.411
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.181,
+          "sx1": 0.427
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.575,
+          "sx1": 0.215
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.841,
+          "sx1": 0.306
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Irvine",
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.55,
+          "sx1": 0.571
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.034,
+          "sx1": 0.381
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.038,
+          "sx1": 0.378
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.533,
+          "sx1": 0.204
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.751,
+          "sx1": 0.281
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Riverside",
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.29,
+          "sx1": 0.508
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.785,
+          "sx1": 0.299
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.036,
+          "sx1": 0.401
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Bernardino",
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.367,
+          "sx1": 1.083
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.578,
+          "sx1": 0.722
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.367,
+          "sx1": 1.019
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.28,
+          "sx1": 0.507
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.805,
+          "sx1": 0.747
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Luis Obispo",
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.116,
+          "sx1": 0.426
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.744,
+          "sx1": 0.284
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.779,
+          "sx1": 0.301
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.389,
+          "sx1": 0.154
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.559,
+          "sx1": 0.22
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Diego",
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.254,
+          "sx1": 0.484
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.836,
+          "sx1": 0.323
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.853,
+          "sx1": 0.312
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.313,
+          "sx1": 0.134
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.513,
+          "sx1": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Barbara",
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.828,
+          "sx1": 0.993
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.886,
+          "sx1": 0.662
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.156,
+          "sx1": 0.743
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.872,
+          "sx1": 0.307
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.486,
+          "sx1": 0.506
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ventura",
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.381,
+          "sx1": 0.9
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.587,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.732,
+          "sx1": 0.643
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.821,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.231,
+          "sx1": 0.451
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Oakland",
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.861,
+          "sx1": 0.747
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.241,
+          "sx1": 0.498
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.861,
+          "sx1": 0.747
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.187,
+          "sx1": 0.431
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.662,
+          "sx1": 0.606
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Concord",
+        "latitude": 37.95,
+        "longitude": -122,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.075,
+          "sx1": 0.735
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.383,
+          "sx1": 0.49
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.062,
+          "sx1": 0.713
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.083,
+          "sx1": 0.365
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.562,
+          "sx1": 0.528
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Monterey",
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.526,
+          "sx1": 0.56
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.017,
+          "sx1": 0.373
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.105,
+          "sx1": 0.401
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.543,
+          "sx1": 0.193
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.795,
+          "sx1": 0.286
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sacramento",
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.672,
+          "sx1": 0.293
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.448,
+          "sx1": 0.195
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.451,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.269,
+          "sx1": 0.123
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.354,
+          "sx1": 0.159
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Francisco",
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.642
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.428
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.62
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.849,
+          "sx1": 0.321
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.164,
+          "sx1": 0.46
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Mateo",
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.849,
+          "sx1": 0.86
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.233,
+          "sx1": 0.574
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.713,
+          "sx1": 0.723
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.846,
+          "sx1": 0.319
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.244,
+          "sx1": 0.501
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Jose",
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.552
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.971,
+          "sx1": 0.326
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.259,
+          "sx1": 0.438
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Cruz",
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.517,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.011,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.229,
+          "sx1": 0.461
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.673,
+          "sx1": 0.236
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.936,
+          "sx1": 0.341
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Vallejo",
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.392,
+          "sx1": 0.497
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.838,
+          "sx1": 0.298
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.116,
+          "sx1": 0.396
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Rosa",
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.509,
+          "sx1": 1.036
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.673,
+          "sx1": 0.69
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.386,
+          "sx1": 0.974
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.019,
+          "sx1": 0.401
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.672,
+          "sx1": 0.669
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Seattle",
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.365,
+          "sx1": 0.528
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.91,
+          "sx1": 0.352
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.977,
+          "sx1": 0.382
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.489,
+          "sx1": 0.18
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.712,
+          "sx1": 0.271
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tacoma",
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.297,
+          "sx1": 0.506
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.864,
+          "sx1": 0.337
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.934,
+          "sx1": 0.368
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.493,
+          "sx1": 0.181
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.701,
+          "sx1": 0.267
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Everett",
+        "latitude": 48,
+        "longitude": -122.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.269,
+          "sx1": 0.482
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.846,
+          "sx1": 0.322
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.895,
+          "sx1": 0.346
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.431,
+          "sx1": 0.159
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.636,
+          "sx1": 0.242
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Portland",
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.982,
+          "sx1": 0.421
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.655,
+          "sx1": 0.28
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.715,
+          "sx1": 0.305
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.296,
+          "sx1": 0.111
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.484,
+          "sx1": 0.198
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Salt Lake City",
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.539,
+          "sx1": 0.557
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.026,
+          "sx1": 0.371
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.066,
+          "sx1": 0.359
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.292,
+          "sx1": 0.097
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.575,
+          "sx1": 0.19
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Boise",
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.309,
+          "sx1": 0.105
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.206,
+          "sx1": 0.07
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.212,
+          "sx1": 0.074
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.099,
+          "sx1": 0.036
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.147,
+          "sx1": 0.053
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Reno",
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.517
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.345
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.138,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.555,
+          "sx1": 0.18
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.824,
+          "sx1": 0.27
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Las Vegas",
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.495,
+          "sx1": 0.166
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.33,
+          "sx1": 0.111
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.326,
+          "sx1": 0.113
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.147,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.222,
+          "sx1": 0.082
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "St. Louis",
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.438,
+          "sx1": 0.168
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.292,
+          "sx1": 0.112
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.314,
+          "sx1": 0.121
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.096,
+          "sx1": 0.03
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.191,
+          "sx1": 0.067
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Memphis",
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.011,
+          "sx1": 0.351
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.674,
+          "sx1": 0.234
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.713,
+          "sx1": 0.236
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.131,
+          "sx1": 0.036
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.352,
+          "sx1": 0.105
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charleston",
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.149,
+          "sx1": 0.366
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.766,
+          "sx1": 0.244
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.707,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.102,
+          "sx1": 0.026
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.308,
+          "sx1": 0.076
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chicago",
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.135,
+          "sx1": 0.062
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.09,
+          "sx1": 0.041
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.082,
+          "sx1": 0.044
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.029,
+          "sx1": 0.014
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.051,
+          "sx1": 0.027
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "New York",
+        "latitude": 40.75,
+        "longitude": -74,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.28,
+          "sx1": 0.072
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.186,
+          "sx1": 0.048
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.157,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.042,
+          "sx1": 0.015
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.085,
+          "sx1": 0.026
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Los Angeles",
+        "latitude": 34.0531,
+        "longitude": -118.2428,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.442,
+          "sx1": 0.856
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.628,
+          "sx1": 0.571
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.796,
+          "sx1": 0.619
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.855,
+          "sx1": 0.304
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.283,
+          "sx1": 0.446
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Century City",
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.194,
+          "sx1": 0.815
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.463,
+          "sx1": 0.543
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.599,
+          "sx1": 0.572
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.778,
+          "sx1": 0.281
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.146,
+          "sx1": 0.408
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Northridge",
+        "latitude": 34.2283,
+        "longitude": -118.5361,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.123,
+          "sx1": 0.677
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.415,
+          "sx1": 0.451
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.629,
+          "sx1": 0.57
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.872,
+          "sx1": 0.311
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.23,
+          "sx1": 0.433
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Long Beach",
+        "latitude": 33.7669,
+        "longitude": -118.1883,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.606,
+          "sx1": 0.604
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.071,
+          "sx1": 0.402
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.157,
+          "sx1": 0.419
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.557,
+          "sx1": 0.209
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.819,
+          "sx1": 0.299
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Irvine",
+        "latitude": 33.6695,
+        "longitude": -117.8223,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.546,
+          "sx1": 0.569
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.031,
+          "sx1": 0.379
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.048,
+          "sx1": 0.381
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.54,
+          "sx1": 0.206
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.761,
+          "sx1": 0.284
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Riverside",
+        "latitude": 33.9533,
+        "longitude": -117.3953,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.308,
+          "sx1": 0.515
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.793,
+          "sx1": 0.302
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.049,
+          "sx1": 0.407
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Bernardino",
+        "latitude": 34.1083,
+        "longitude": -117.2889,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.137,
+          "sx1": 0.967
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.425,
+          "sx1": 0.644
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.137,
+          "sx1": 0.967
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.295,
+          "sx1": 0.513
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.82,
+          "sx1": 0.755
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Luis Obispo",
+        "latitude": 35.2828,
+        "longitude": -120.6586,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.151,
+          "sx1": 0.439
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.767,
+          "sx1": 0.292
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.792,
+          "sx1": 0.305
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.386,
+          "sx1": 0.154
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.559,
+          "sx1": 0.22
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Diego",
+        "latitude": 32.7153,
+        "longitude": -117.1564,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.224,
+          "sx1": 0.472
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.816,
+          "sx1": 0.314
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.838,
+          "sx1": 0.307
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.314,
+          "sx1": 0.134
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.511,
+          "sx1": 0.199
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Barbara",
+        "latitude": 34.4209,
+        "longitude": -119.6973,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.897,
+          "sx1": 1.015
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.931,
+          "sx1": 0.677
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.206,
+          "sx1": 0.756
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.875,
+          "sx1": 0.307
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.503,
+          "sx1": 0.51
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ventura",
+        "latitude": 34.2788,
+        "longitude": -119.2922,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.387,
+          "sx1": 0.904
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.591,
+          "sx1": 0.603
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.751,
+          "sx1": 0.651
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.823,
+          "sx1": 0.301
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.243,
+          "sx1": 0.455
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Oakland",
+        "latitude": 37.8044,
+        "longitude": -122.2698,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.709,
+          "sx1": 0.676
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.14,
+          "sx1": 0.451
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.709,
+          "sx1": 0.676
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.127,
+          "sx1": 0.407
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.556,
+          "sx1": 0.569
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Concord",
+        "latitude": 37.9779,
+        "longitude": -122.0301,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.187,
+          "sx1": 0.772
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.458,
+          "sx1": 0.515
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.939,
+          "sx1": 0.672
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.014,
+          "sx1": 0.346
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.456,
+          "sx1": 0.498
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Monterey",
+        "latitude": 36.6003,
+        "longitude": -121.8937,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.521,
+          "sx1": 0.558
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.014,
+          "sx1": 0.372
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.1,
+          "sx1": 0.399
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.543,
+          "sx1": 0.193
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.793,
+          "sx1": 0.286
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sacramento",
+        "latitude": 38.5817,
+        "longitude": -121.4934,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.675,
+          "sx1": 0.293
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.45,
+          "sx1": 0.196
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.453,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.27,
+          "sx1": 0.123
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.355,
+          "sx1": 0.159
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Francisco",
+        "latitude": 37.7752,
+        "longitude": -122.4185,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.636
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.424
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.636
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.862,
+          "sx1": 0.327
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.189,
+          "sx1": 0.473
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Mateo",
+        "latitude": 37.5631,
+        "longitude": -122.3245,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.972,
+          "sx1": 0.926
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.314,
+          "sx1": 0.617
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.842,
+          "sx1": 0.802
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.875,
+          "sx1": 0.334
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.325,
+          "sx1": 0.548
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Jose",
+        "latitude": 37.3395,
+        "longitude": -121.8939,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.551
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.965,
+          "sx1": 0.324
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.253,
+          "sx1": 0.436
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Cruz",
+        "latitude": 36.9741,
+        "longitude": -122.0297,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.256,
+          "sx1": 0.474
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.695,
+          "sx1": 0.243
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.963,
+          "sx1": 0.351
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Vallejo",
+        "latitude": 38.1041,
+        "longitude": -122.2555,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.409,
+          "sx1": 0.504
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.843,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.125,
+          "sx1": 0.4
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Rosa",
+        "latitude": 38.4406,
+        "longitude": -122.7133,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.305,
+          "sx1": 0.957
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.537,
+          "sx1": 0.638
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.162,
+          "sx1": 0.876
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.962,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.536,
+          "sx1": 0.611
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Seattle",
+        "latitude": 47.6065,
+        "longitude": -122.3307,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.364,
+          "sx1": 0.528
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.909,
+          "sx1": 0.352
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.978,
+          "sx1": 0.383
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.491,
+          "sx1": 0.181
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.714,
+          "sx1": 0.273
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tacoma",
+        "latitude": 47.253,
+        "longitude": -122.4432,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.296,
+          "sx1": 0.505
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.864,
+          "sx1": 0.337
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.933,
+          "sx1": 0.367
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.493,
+          "sx1": 0.181
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.701,
+          "sx1": 0.267
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Everett",
+        "latitude": 47.9792,
+        "longitude": -122.2009,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.308,
+          "sx1": 0.497
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.872,
+          "sx1": 0.331
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.914,
+          "sx1": 0.354
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.434,
+          "sx1": 0.16
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.643,
+          "sx1": 0.246
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Portland",
+        "latitude": 45.5236,
+        "longitude": -122.675,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.982,
+          "sx1": 0.422
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.655,
+          "sx1": 0.281
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.714,
+          "sx1": 0.306
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.297,
+          "sx1": 0.112
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.484,
+          "sx1": 0.198
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Salt Lake City",
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.466,
+          "sx1": 0.538
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.978,
+          "sx1": 0.359
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.028,
+          "sx1": 0.351
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.291,
+          "sx1": 0.097
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.568,
+          "sx1": 0.188
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Boise",
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.311,
+          "sx1": 0.106
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.208,
+          "sx1": 0.071
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.213,
+          "sx1": 0.074
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.099,
+          "sx1": 0.036
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.148,
+          "sx1": 0.053
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Reno",
+        "latitude": 39.5298,
+        "longitude": -119.8128,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.596,
+          "sx1": 0.578
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.064,
+          "sx1": 0.386
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.255,
+          "sx1": 0.418
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.572,
+          "sx1": 0.185
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.88,
+          "sx1": 0.288
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Las Vegas",
+        "latitude": 36.1751,
+        "longitude": -115.1365,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.488,
+          "sx1": 0.164
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.325,
+          "sx1": 0.109
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.325,
+          "sx1": 0.112
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.147,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.221,
+          "sx1": 0.082
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "St. Louis",
+        "latitude": 38.6274,
+        "longitude": -90.1978,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.431,
+          "sx1": 0.166
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.288,
+          "sx1": 0.11
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.309,
+          "sx1": 0.12
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.095,
+          "sx1": 0.03
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.188,
+          "sx1": 0.067
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Memphis",
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.01,
+          "sx1": 0.351
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.673,
+          "sx1": 0.234
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.712,
+          "sx1": 0.235
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.131,
+          "sx1": 0.036
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.352,
+          "sx1": 0.105
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charleston",
+        "latitude": 32.7763,
+        "longitude": -79.9307,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.097,
+          "sx1": 0.348
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.731,
+          "sx1": 0.232
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.675,
+          "sx1": 0.193
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.1,
+          "sx1": 0.026
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.299,
+          "sx1": 0.074
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chicago",
+        "latitude": 41.8504,
+        "longitude": -87.6503,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.135,
+          "sx1": 0.062
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.09,
+          "sx1": 0.041
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.082,
+          "sx1": 0.044
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.029,
+          "sx1": 0.014
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.051,
+          "sx1": 0.027
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "New York",
+        "latitude": 40.7143,
+        "longitude": -74.006,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.278,
+          "sx1": 0.072
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.185,
+          "sx1": 0.048
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.156,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.042,
+          "sx1": 0.015
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.085,
+          "sx1": 0.026
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Anchorage",
+        "latitude": 61.2,
+        "longitude": -149.9,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.7
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.3,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.785,
+          "sx1": 0.327
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.039,
+          "sx1": 0.449
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Juneau",
+        "latitude": 58.4,
+        "longitude": -134.6,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.6,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.4,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.4,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.216,
+          "sx1": 0.151
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.314,
+          "sx1": 0.21
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fairbanks",
+        "latitude": 64.8,
+        "longitude": -147.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.7,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.7,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.348,
+          "sx1": 0.136
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.512,
+          "sx1": 0.196
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sitka",
+        "latitude": 57.1,
+        "longitude": -135.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.9,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.6,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.6,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.373,
+          "sx1": 0.258
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.496,
+          "sx1": 0.345
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ketchikan",
+        "latitude": 55.3,
+        "longitude": -131.6,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.3,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.2,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.2,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.117,
+          "sx1": 0.096
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.158,
+          "sx1": 0.137
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Knik-Fairview",
+        "latitude": 61.5,
+        "longitude": -149.6,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.7
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.843,
+          "sx1": 0.347
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.105,
+          "sx1": 0.477
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kenai",
+        "latitude": 60.6,
+        "longitude": -151.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.1,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.675,
+          "sx1": 0.283
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.878,
+          "sx1": 0.382
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lakes",
+        "latitude": 61.6,
+        "longitude": -149.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.6,
+          "sx1": 0.9
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.1,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.857,
+          "sx1": 0.353
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.135,
+          "sx1": 0.49
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kodiak",
+        "latitude": 57.8,
+        "longitude": -152.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.9
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.7
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.858,
+          "sx1": 0.413
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.132,
+          "sx1": 0.569
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bethel",
+        "latitude": 60.8,
+        "longitude": -161.8,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.3,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.2,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.2,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.09,
+          "sx1": 0.041
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.136,
+          "sx1": 0.061
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Unalaska",
+        "latitude": 53.9,
+        "longitude": -166.5,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.2,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.729,
+          "sx1": 0.315
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.95,
+          "sx1": 0.421
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Nome",
+        "latitude": 64.5,
+        "longitude": -165.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.5,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.4,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.4,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.161,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.249,
+          "sx1": 0.088
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Dillingham",
+        "latitude": 59,
+        "longitude": -158.5,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.3,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.2,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.2,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.119,
+          "sx1": 0.066
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.165,
+          "sx1": 0.094
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tok",
+        "latitude": 63.3,
+        "longitude": -143,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.5,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.4,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.4,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.214,
+          "sx1": 0.128
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.294,
+          "sx1": 0.187
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Delta Junction",
+        "latitude": 64,
+        "longitude": -145.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.7,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.5,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.5,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.267,
+          "sx1": 0.139
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.373,
+          "sx1": 0.199
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Galena",
+        "latitude": 64.7,
+        "longitude": -156.9,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.4,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.3,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.3,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.129,
+          "sx1": 0.053
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.196,
+          "sx1": 0.08
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Glenallen",
+        "latitude": 62.1,
+        "longitude": -145.5,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.6,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.7,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.357,
+          "sx1": 0.164
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.509,
+          "sx1": 0.232
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Adak",
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.879,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.13,
+          "sx1": 0.567
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Gakona",
+        "latitude": 62.3,
+        "longitude": -145.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.8,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.5,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.6,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.298,
+          "sx1": 0.15
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.42,
+          "sx1": 0.211
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chitina",
+        "latitude": 61.5,
+        "longitude": -144.4,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.1,
+          "sx1": 0.5
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.8,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.8,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.448,
+          "sx1": 0.211
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.618,
+          "sx1": 0.297
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sleetmute",
+        "latitude": 61.7,
+        "longitude": -157.2,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.6,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.4,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.4,
+          "sx1": 0.2
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.191,
+          "sx1": 0.073
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.295,
+          "sx1": 0.112
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Anchorage",
+        "latitude": 61.2166,
+        "longitude": -149.8934,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.676
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.451
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.303,
+          "sx1": 0.59
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.787,
+          "sx1": 0.328
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.042,
+          "sx1": 0.449
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Juneau",
+        "latitude": 58.3624,
+        "longitude": -134.5803,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.609,
+          "sx1": 0.383
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.406,
+          "sx1": 0.256
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.433,
+          "sx1": 0.277
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.214,
+          "sx1": 0.151
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.309,
+          "sx1": 0.21
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fairbanks",
+        "latitude": 64.8413,
+        "longitude": -147.7214,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.991,
+          "sx1": 0.378
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.661,
+          "sx1": 0.252
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.713,
+          "sx1": 0.266
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.345,
+          "sx1": 0.135
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.507,
+          "sx1": 0.194
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sitka",
+        "latitude": 57.0529,
+        "longitude": -135.3358,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.928,
+          "sx1": 0.606
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.619,
+          "sx1": 0.404
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.659,
+          "sx1": 0.462
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.398,
+          "sx1": 0.272
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.529,
+          "sx1": 0.365
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ketchikan",
+        "latitude": 55.342,
+        "longitude": -131.6453,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.302,
+          "sx1": 0.247
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.202,
+          "sx1": 0.165
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.203,
+          "sx1": 0.183
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.116,
+          "sx1": 0.096
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.157,
+          "sx1": 0.137
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Knik-Fairview",
+        "latitude": 61.4975,
+        "longitude": -149.6414,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.689
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.459
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.37,
+          "sx1": 0.63
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.847,
+          "sx1": 0.349
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.109,
+          "sx1": 0.479
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kenai",
+        "latitude": 60.5589,
+        "longitude": -151.2474,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.104,
+          "sx1": 0.492
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.671,
+          "sx1": 0.282
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.873,
+          "sx1": 0.38
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lakes",
+        "latitude": 61.6152,
+        "longitude": -149.3268,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.869,
+          "sx1": 0.937
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.246,
+          "sx1": 0.625
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.485,
+          "sx1": 0.682
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.878,
+          "sx1": 0.362
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.173,
+          "sx1": 0.51
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kodiak",
+        "latitude": 57.7886,
+        "longitude": -152.4067,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.551,
+          "sx1": 0.909
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.034,
+          "sx1": 0.606
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.416,
+          "sx1": 0.74
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.861,
+          "sx1": 0.414
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.137,
+          "sx1": 0.572
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bethel",
+        "latitude": 60.7949,
+        "longitude": -161.763,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.3,
+          "sx1": 0.125
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.2,
+          "sx1": 0.083
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.199,
+          "sx1": 0.086
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.09,
+          "sx1": 0.041
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.136,
+          "sx1": 0.061
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Unalaska",
+        "latitude": 53.8736,
+        "longitude": -166.5327,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.202,
+          "sx1": 0.533
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.734,
+          "sx1": 0.318
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.956,
+          "sx1": 0.424
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Nome",
+        "latitude": 64.4988,
+        "longitude": -165.398,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.537,
+          "sx1": 0.19
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.358,
+          "sx1": 0.127
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.37,
+          "sx1": 0.13
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.16,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.249,
+          "sx1": 0.088
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Dillingham",
+        "latitude": 59.0408,
+        "longitude": -158.464,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.311,
+          "sx1": 0.178
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.207,
+          "sx1": 0.119
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.219,
+          "sx1": 0.128
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.118,
+          "sx1": 0.065
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.163,
+          "sx1": 0.094
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tok",
+        "latitude": 63.3345,
+        "longitude": -142.9886,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.509,
+          "sx1": 0.325
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.339,
+          "sx1": 0.216
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.363,
+          "sx1": 0.24
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.206,
+          "sx1": 0.124
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.282,
+          "sx1": 0.18
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Delta Junction",
+        "latitude": 64.038,
+        "longitude": -145.7328,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.728,
+          "sx1": 0.361
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.485,
+          "sx1": 0.241
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.503,
+          "sx1": 0.262
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.266,
+          "sx1": 0.138
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.371,
+          "sx1": 0.197
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Galena",
+        "latitude": 64.7452,
+        "longitude": -156.8711,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.434,
+          "sx1": 0.167
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.289,
+          "sx1": 0.111
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.294,
+          "sx1": 0.115
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.131,
+          "sx1": 0.053
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.199,
+          "sx1": 0.081
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Glenallen",
+        "latitude": 62.1086,
+        "longitude": -145.529,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.97,
+          "sx1": 0.451
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.647,
+          "sx1": 0.3
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.695,
+          "sx1": 0.318
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.357,
+          "sx1": 0.164
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.509,
+          "sx1": 0.232
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Adak",
+        "latitude": 51.8715,
+        "longitude": -176.6377,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.885,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.137,
+          "sx1": 0.578
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Gakona",
+        "latitude": 62.3018,
+        "longitude": -145.2829,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.808,
+          "sx1": 0.403
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.539,
+          "sx1": 0.269
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.568,
+          "sx1": 0.286
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.297,
+          "sx1": 0.15
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.418,
+          "sx1": 0.211
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chitina",
+        "latitude": 61.5166,
+        "longitude": -144.4397,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.133,
+          "sx1": 0.534
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.755,
+          "sx1": 0.356
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.812,
+          "sx1": 0.388
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.445,
+          "sx1": 0.209
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.616,
+          "sx1": 0.294
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sleetmute",
+        "latitude": 61.7021,
+        "longitude": -157.1711,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.618,
+          "sx1": 0.231
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.412,
+          "sx1": 0.154
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.433,
+          "sx1": 0.16
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.191,
+          "sx1": 0.073
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.294,
+          "sx1": 0.112
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Honolulu",
+        "latitude": 21.3,
+        "longitude": -157.84,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.579,
+          "sx1": 0.169
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.386,
+          "sx1": 0.113
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.414,
+          "sx1": 0.117
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.192,
+          "sx1": 0.055
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.315,
+          "sx1": 0.107
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hilo",
+        "latitude": 19.72,
+        "longitude": -155.08,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.287,
+          "sx1": 0.597
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1,
+          "sx1": 0.364
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.318,
+          "sx1": 0.605
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua",
+        "latitude": 21.4,
+        "longitude": -157.74,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.593,
+          "sx1": 0.175
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.395,
+          "sx1": 0.117
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.423,
+          "sx1": 0.121
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.204,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.333,
+          "sx1": 0.11
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaneohe",
+        "latitude": 21.42,
+        "longitude": -157.8,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.588,
+          "sx1": 0.172
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.392,
+          "sx1": 0.115
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.419,
+          "sx1": 0.119
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.198,
+          "sx1": 0.056
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.324,
+          "sx1": 0.108
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahului",
+        "latitude": 20.88,
+        "longitude": -156.46,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.992,
+          "sx1": 0.253
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.661,
+          "sx1": 0.169
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.602,
+          "sx1": 0.176
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.311,
+          "sx1": 0.091
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.472,
+          "sx1": 0.168
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kihei",
+        "latitude": 20.78,
+        "longitude": -156.46,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.991,
+          "sx1": 0.256
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.661,
+          "sx1": 0.171
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.6,
+          "sx1": 0.177
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.313,
+          "sx1": 0.093
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.471,
+          "sx1": 0.17
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Wai'anae",
+        "latitude": 21.44,
+        "longitude": -158.18,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.534,
+          "sx1": 0.146
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.356,
+          "sx1": 0.097
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.382,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.174,
+          "sx1": 0.046
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.291,
+          "sx1": 0.091
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua-Kona",
+        "latitude": 19.64,
+        "longitude": -156,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.92,
+          "sx1": 0.88
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.28,
+          "sx1": 0.587
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.862,
+          "sx1": 0.692
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.228,
+          "sx1": 0.421
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.706,
+          "sx1": 0.719
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lahaina",
+        "latitude": 20.88,
+        "longitude": -156.68,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.91,
+          "sx1": 0.229
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.607,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.571,
+          "sx1": 0.161
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.284,
+          "sx1": 0.087
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.452,
+          "sx1": 0.157
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waimea",
+        "latitude": 20.02,
+        "longitude": -155.66,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.496,
+          "sx1": 0.551
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.997,
+          "sx1": 0.367
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.122,
+          "sx1": 0.385
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.603,
+          "sx1": 0.236
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.95,
+          "sx1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lihue",
+        "latitude": 21.96,
+        "longitude": -159.36,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.226,
+          "sx1": 0.064
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.151,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.154,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.066,
+          "sx1": 0.02
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.115,
+          "sx1": 0.039
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waikoloa Village",
+        "latitude": 19.94,
+        "longitude": -155.78,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.203,
+          "sx1": 0.439
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.666,
+          "sx1": 0.276
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.138,
+          "sx1": 0.442
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lanai City",
+        "latitude": 20.82,
+        "longitude": -156.92,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.782,
+          "sx1": 0.21
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.521,
+          "sx1": 0.14
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.522,
+          "sx1": 0.142
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.265,
+          "sx1": 0.08
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.42,
+          "sx1": 0.142
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaunakakai",
+        "latitude": 21.08,
+        "longitude": -157,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.79,
+          "sx1": 0.205
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.527,
+          "sx1": 0.137
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.527,
+          "sx1": 0.142
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.263,
+          "sx1": 0.075
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.421,
+          "sx1": 0.136
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Volcano",
+        "latitude": 19.44,
+        "longitude": -155.22,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.333,
+          "sx1": 0.997
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.555,
+          "sx1": 0.665
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.333,
+          "sx1": 0.997
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.555,
+          "sx1": 0.665
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 2.783,
+          "sx1": 1.323
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hawaiian Ocean View",
+        "latitude": 19.1,
+        "longitude": -155.78,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.099,
+          "sx1": 0.876
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.4,
+          "sx1": 0.584
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.099,
+          "sx1": 0.876
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.4,
+          "sx1": 0.584
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 2.049,
+          "sx1": 1.066
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahuku",
+        "latitude": 21.68,
+        "longitude": -157.94,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.55,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.367,
+          "sx1": 0.102
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.393,
+          "sx1": 0.106
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.181,
+          "sx1": 0.05
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.3,
+          "sx1": 0.097
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Princeville",
+        "latitude": 22.22,
+        "longitude": -159.48,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.192,
+          "sx1": 0.055
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.128,
+          "sx1": 0.037
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.127,
+          "sx1": 0.038
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.054,
+          "sx1": 0.016
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.093,
+          "sx1": 0.033
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Pepeekeo",
+        "latitude": 19.84,
+        "longitude": -155.1,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.205,
+          "sx1": 0.454
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.648,
+          "sx1": 0.285
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.132,
+          "sx1": 0.473
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hana",
+        "latitude": 20.76,
+        "longitude": -155.98,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.047,
+          "sx1": 0.278
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.698,
+          "sx1": 0.186
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.616,
+          "sx1": 0.189
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.338,
+          "sx1": 0.103
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.5,
+          "sx1": 0.18
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bradshaw AFB",
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.384,
+          "sx1": 0.719
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Honolulu",
+        "latitude": 21.2905,
+        "longitude": -157.8374,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.579,
+          "sx1": 0.169
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.386,
+          "sx1": 0.113
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.413,
+          "sx1": 0.117
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.192,
+          "sx1": 0.055
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.315,
+          "sx1": 0.107
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hilo",
+        "latitude": 19.7236,
+        "longitude": -155.0878,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.284,
+          "sx1": 0.586
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.993,
+          "sx1": 0.357
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.311,
+          "sx1": 0.599
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua",
+        "latitude": 21.3923,
+        "longitude": -157.7415,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.593,
+          "sx1": 0.175
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.395,
+          "sx1": 0.117
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.423,
+          "sx1": 0.121
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.204,
+          "sx1": 0.057
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.333,
+          "sx1": 0.11
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaneohe",
+        "latitude": 21.4182,
+        "longitude": -157.8046,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.587,
+          "sx1": 0.172
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.391,
+          "sx1": 0.114
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.419,
+          "sx1": 0.119
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.198,
+          "sx1": 0.056
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.323,
+          "sx1": 0.108
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahului",
+        "latitude": 20.8852,
+        "longitude": -156.4584,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.993,
+          "sx1": 0.253
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.662,
+          "sx1": 0.169
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.602,
+          "sx1": 0.176
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.312,
+          "sx1": 0.091
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.472,
+          "sx1": 0.168
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kihei",
+        "latitude": 20.7706,
+        "longitude": -156.4573,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.992,
+          "sx1": 0.256
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.661,
+          "sx1": 0.171
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.6,
+          "sx1": 0.177
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.313,
+          "sx1": 0.093
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.471,
+          "sx1": 0.171
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Wai'anae",
+        "latitude": 21.4432,
+        "longitude": -158.1854,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.534,
+          "sx1": 0.146
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.356,
+          "sx1": 0.097
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.381,
+          "sx1": 0.1
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.174,
+          "sx1": 0.046
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.29,
+          "sx1": 0.091
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua-Kona",
+        "latitude": 19.6418,
+        "longitude": -155.9925,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.92,
+          "sx1": 0.88
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.28,
+          "sx1": 0.587
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.865,
+          "sx1": 0.693
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.23,
+          "sx1": 0.422
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.711,
+          "sx1": 0.722
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lahaina",
+        "latitude": 20.8773,
+        "longitude": -156.6792,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.91,
+          "sx1": 0.229
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.607,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.571,
+          "sx1": 0.161
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.284,
+          "sx1": 0.087
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.452,
+          "sx1": 0.157
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waimea",
+        "latitude": 20.0233,
+        "longitude": -155.664,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.492,
+          "sx1": 0.549
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.995,
+          "sx1": 0.366
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.118,
+          "sx1": 0.381
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.601,
+          "sx1": 0.233
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.939,
+          "sx1": 0.395
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lihue",
+        "latitude": 21.9695,
+        "longitude": -159.3581,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.226,
+          "sx1": 0.064
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.151,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.153,
+          "sx1": 0.043
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.066,
+          "sx1": 0.02
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.114,
+          "sx1": 0.039
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waikoloa Village",
+        "latitude": 19.94,
+        "longitude": -155.7892,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.202,
+          "sx1": 0.438
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.663,
+          "sx1": 0.275
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.136,
+          "sx1": 0.439
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lanai City",
+        "latitude": 20.8251,
+        "longitude": -156.9204,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.783,
+          "sx1": 0.21
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.522,
+          "sx1": 0.14
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.522,
+          "sx1": 0.142
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.265,
+          "sx1": 0.08
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.42,
+          "sx1": 0.142
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaunakakai",
+        "latitude": 21.0841,
+        "longitude": -157.0099,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.786,
+          "sx1": 0.204
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.524,
+          "sx1": 0.136
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.525,
+          "sx1": 0.141
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.262,
+          "sx1": 0.074
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.419,
+          "sx1": 0.135
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Volcano",
+        "latitude": 19.4317,
+        "longitude": -155.2294,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.414,
+          "sx1": 1.053
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.61,
+          "sx1": 0.702
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.414,
+          "sx1": 1.053
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.61,
+          "sx1": 0.702
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 2.861,
+          "sx1": 1.347
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hawaiian Ocean View",
+        "latitude": 19.0959,
+        "longitude": -155.7769,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.113,
+          "sx1": 0.883
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.409,
+          "sx1": 0.589
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 2.113,
+          "sx1": 0.883
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1.409,
+          "sx1": 0.589
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 2.055,
+          "sx1": 1.073
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahuku",
+        "latitude": 21.6757,
+        "longitude": -157.9476,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.549,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.366,
+          "sx1": 0.102
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.393,
+          "sx1": 0.106
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.181,
+          "sx1": 0.049
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.3,
+          "sx1": 0.097
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Princeville",
+        "latitude": 22.2211,
+        "longitude": -159.4817,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.191,
+          "sx1": 0.055
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.128,
+          "sx1": 0.037
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.127,
+          "sx1": 0.038
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.054,
+          "sx1": 0.016
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.093,
+          "sx1": 0.033
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Pepeekeo",
+        "latitude": 19.8325,
+        "longitude": -155.104,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.211,
+          "sx1": 0.457
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.675,
+          "sx1": 0.288
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.146,
+          "sx1": 0.482
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hana",
+        "latitude": 20.7563,
+        "longitude": -155.987,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.048,
+          "sx1": 0.279
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.699,
+          "sx1": 0.186
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.616,
+          "sx1": 0.189
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.339,
+          "sx1": 0.103
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.501,
+          "sx1": 0.18
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bradshaw AFB",
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 1.387,
+          "sx1": 0.726
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Juan",
+        "latitude": 18.47,
+        "longitude": -66.12,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.998,
+          "sx1": 0.399
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.665,
+          "sx1": 0.266
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.713,
+          "sx1": 0.292
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.384,
+          "sx1": 0.151
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.534,
+          "sx1": 0.216
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bayamon",
+        "latitude": 18.4,
+        "longitude": -66.16,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.984,
+          "sx1": 0.384
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.656,
+          "sx1": 0.256
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.701,
+          "sx1": 0.28
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.375,
+          "sx1": 0.147
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.525,
+          "sx1": 0.208
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ponce",
+        "latitude": 18,
+        "longitude": -66.62,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.032,
+          "sx1": 0.397
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.688,
+          "sx1": 0.265
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.716,
+          "sx1": 0.277
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.347,
+          "sx1": 0.139
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.507,
+          "sx1": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Caguas",
+        "latitude": 18.24,
+        "longitude": -66.04,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.945,
+          "sx1": 0.359
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.63,
+          "sx1": 0.24
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.666,
+          "sx1": 0.258
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.357,
+          "sx1": 0.138
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.5,
+          "sx1": 0.194
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Arecibo",
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.118,
+          "sx1": 0.433
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.745,
+          "sx1": 0.289
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.788,
+          "sx1": 0.312
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.427,
+          "sx1": 0.167
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.592,
+          "sx1": 0.234
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Mayaguez",
+        "latitude": 18.2,
+        "longitude": -67.14,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.233,
+          "sx1": 0.474
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.822,
+          "sx1": 0.316
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.857,
+          "sx1": 0.334
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.439,
+          "sx1": 0.175
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.625,
+          "sx1": 0.247
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fajardo",
+        "latitude": 18.34,
+        "longitude": -65.65,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.985,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.657,
+          "sx1": 0.251
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.695,
+          "sx1": 0.273
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.379,
+          "sx1": 0.145
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.524,
+          "sx1": 0.204
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Yabucoa",
+        "latitude": 18.05,
+        "longitude": -65.88,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.974,
+          "sx1": 0.354
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.649,
+          "sx1": 0.236
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.679,
+          "sx1": 0.25
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.356,
+          "sx1": 0.133
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.502,
+          "sx1": 0.187
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Utuado",
+        "latitude": 18.27,
+        "longitude": -66.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.073,
+          "sx1": 0.413
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.715,
+          "sx1": 0.275
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.751,
+          "sx1": 0.293
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.391,
+          "sx1": 0.154
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.553,
+          "sx1": 0.218
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Isabel II",
+        "latitude": 18.15,
+        "longitude": -65.44,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.036,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.691,
+          "sx1": 0.251
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.725,
+          "sx1": 0.268
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.389,
+          "sx1": 0.142
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.541,
+          "sx1": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Culebra Barrio",
+        "latitude": 18.3,
+        "longitude": -65.3,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.092,
+          "sx1": 0.397
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.728,
+          "sx1": 0.265
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.763,
+          "sx1": 0.285
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.421,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.577,
+          "sx1": 0.214
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charlotte Amalie",
+        "latitude": 18.34,
+        "longitude": -64.93,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.231,
+          "sx1": 0.43
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.82,
+          "sx1": 0.287
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.858,
+          "sx1": 0.305
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.482,
+          "sx1": 0.167
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.656,
+          "sx1": 0.231
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Cruz Bay",
+        "latitude": 18.33,
+        "longitude": -64.79,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.241,
+          "sx1": 0.432
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.827,
+          "sx1": 0.288
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.863,
+          "sx1": 0.306
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.485,
+          "sx1": 0.168
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.66,
+          "sx1": 0.231
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Christiansted",
+        "latitude": 17.75,
+        "longitude": -64.7,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.822,
+          "sx1": 0.307
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.548,
+          "sx1": 0.204
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.562,
+          "sx1": 0.212
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.299,
+          "sx1": 0.113
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.416,
+          "sx1": 0.158
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Juan",
+        "latitude": 18.4662,
+        "longitude": -66.1164,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.997,
+          "sx1": 0.398
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.665,
+          "sx1": 0.266
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.713,
+          "sx1": 0.292
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.383,
+          "sx1": 0.151
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.534,
+          "sx1": 0.216
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bayamon",
+        "latitude": 18.3971,
+        "longitude": -66.1559,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.983,
+          "sx1": 0.383
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.655,
+          "sx1": 0.256
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.7,
+          "sx1": 0.28
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.375,
+          "sx1": 0.147
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.524,
+          "sx1": 0.208
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ponce",
+        "latitude": 17.996,
+        "longitude": -66.6208,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.031,
+          "sx1": 0.397
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.687,
+          "sx1": 0.265
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.715,
+          "sx1": 0.277
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.346,
+          "sx1": 0.138
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.506,
+          "sx1": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Caguas",
+        "latitude": 18.2359,
+        "longitude": -66.0357,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.945,
+          "sx1": 0.359
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.63,
+          "sx1": 0.239
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.666,
+          "sx1": 0.258
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.357,
+          "sx1": 0.138
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.499,
+          "sx1": 0.194
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Arecibo",
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.119,
+          "sx1": 0.434
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.746,
+          "sx1": 0.289
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.789,
+          "sx1": 0.313
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.427,
+          "sx1": 0.167
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.592,
+          "sx1": 0.235
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Mayaguez",
+        "latitude": 18.2008,
+        "longitude": -67.1425,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.235,
+          "sx1": 0.475
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.823,
+          "sx1": 0.317
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.859,
+          "sx1": 0.335
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.44,
+          "sx1": 0.175
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.626,
+          "sx1": 0.247
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fajardo",
+        "latitude": 18.336,
+        "longitude": -65.6535,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.984,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.656,
+          "sx1": 0.251
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.694,
+          "sx1": 0.273
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.379,
+          "sx1": 0.145
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.524,
+          "sx1": 0.204
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Yabucoa",
+        "latitude": 18.0471,
+        "longitude": -65.876,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.976,
+          "sx1": 0.354
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.65,
+          "sx1": 0.236
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.681,
+          "sx1": 0.25
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.356,
+          "sx1": 0.133
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.502,
+          "sx1": 0.187
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Utuado",
+        "latitude": 18.2673,
+        "longitude": -66.7018,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.073,
+          "sx1": 0.413
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.716,
+          "sx1": 0.275
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.751,
+          "sx1": 0.293
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.391,
+          "sx1": 0.154
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.553,
+          "sx1": 0.218
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Isabel II",
+        "latitude": 18.1492,
+        "longitude": -65.4424,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.036,
+          "sx1": 0.377
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.691,
+          "sx1": 0.251
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.725,
+          "sx1": 0.268
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.389,
+          "sx1": 0.142
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.541,
+          "sx1": 0.2
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Culebra Barrio",
+        "latitude": 18.303,
+        "longitude": -65.301,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.092,
+          "sx1": 0.397
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.728,
+          "sx1": 0.265
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.764,
+          "sx1": 0.285
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.421,
+          "sx1": 0.153
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.577,
+          "sx1": 0.214
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charlotte Amalie",
+        "latitude": 18.3407,
+        "longitude": -64.934,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.231,
+          "sx1": 0.43
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.821,
+          "sx1": 0.287
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.858,
+          "sx1": 0.306
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.482,
+          "sx1": 0.167
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.656,
+          "sx1": 0.231
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Cruz Bay",
+        "latitude": 18.3311,
+        "longitude": -64.7944,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.241,
+          "sx1": 0.432
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.827,
+          "sx1": 0.288
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.863,
+          "sx1": 0.306
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.485,
+          "sx1": 0.168
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.66,
+          "sx1": 0.232
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Christiansted",
+        "latitude": 17.7461,
+        "longitude": -64.7043,
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.82,
+          "sx1": 0.306
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.547,
+          "sx1": 0.204
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.561,
+          "sx1": 0.212
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.299,
+          "sx1": 0.113
+        },
+        {
+          "hazardLevel": "Custom",
+          "customProbability": 0.1,
+          "sxs": 0.415,
+          "sx1": 0.157
+        }
+      ]
+    }
+  }
+]
