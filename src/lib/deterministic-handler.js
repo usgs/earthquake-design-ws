@@ -75,6 +75,8 @@ var DeterministicHandler = function (options) {
   };
 
   _this.createDbPool = function (options) {
+    options = options || _DEFAULTS;
+
     _this.db = new pg.Pool({
       database: options.DB_DATABASE,
       host: options.DB_HOST,
