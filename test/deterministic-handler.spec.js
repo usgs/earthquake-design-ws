@@ -59,7 +59,7 @@ _RESULT = {
 };
 
 
-describe.only('deterministic-handler', () => {
+describe('deterministic-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof DeterministicHandler).to.equal('function');
