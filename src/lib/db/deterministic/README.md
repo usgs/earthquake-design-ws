@@ -26,6 +26,17 @@
   A region may be referenced by multiple design documents.
 
 
+## Reference Data
+
+- `documents.json`
+
+  An array of document to region mappings.
+
+- `regions.json`
+
+  An array of region metadata, with `url`s to corresponding CSV data files.
+
+
 ## Loading the schema
 
 - make sure the project is configured

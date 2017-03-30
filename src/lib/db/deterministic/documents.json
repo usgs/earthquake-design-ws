@@ -1,0 +1,38 @@
+[
+  {
+    "name": "ASCE41-13",
+    "floor_pgad": 0.5,
+    "floor_s1d": 0.6,
+    "floor_ssd": 1.5,
+    "interpolation_method": "linear",
+    "max_direction_pgad": 1.0,
+    "max_direction_s1d": 1.3,
+    "max_direction_ssd": 1.1,
+    "percentile_pgad": 1.8,
+    "percentile_s1d": 1.8,
+    "percentile_ssd": 1.8,
+    "regions": [
+      "AK_2007",
+      "AMSAM_2012",
+      "COUS_2008",
+      "GNMI_2012",
+      "PRVI_2003"
+    ]
+  },
+  {
+    "name": "ASCE41-13",
+    "floor_pgad": 0.5,
+    "floor_s1d": 0.6,
+    "floor_ssd": 1.5,
+    "interpolation_method": "linear",
+    "max_direction_pgad": 1.0,
+    "max_direction_s1d": 1.0,
+    "max_direction_ssd": 1.0,
+    "percentile_pgad": 1.8,
+    "percentile_s1d": 1.8,
+    "percentile_ssd": 1.8,
+    "regions": [
+      "HI_1998"
+    ]
+  }
+]
