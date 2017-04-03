@@ -11,7 +11,7 @@ var EPSILON;
 
 EPSILON = 1E-10;
 
-describe.only('util/number-utils', () => {
+describe('util/number-utils', () => {
   var util;
 
   after(() => {
