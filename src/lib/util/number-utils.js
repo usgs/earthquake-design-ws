@@ -59,6 +59,10 @@ var NumberUtils = function (options) {
     return (Math.abs(value - target) <= epsilon);
   };
 
+  /**
+   * Frees resources associated with this instance.
+   *
+   */
   _this.destroy = function () {
     if (_this === null) {
       return;
@@ -68,6 +72,40 @@ var NumberUtils = function (options) {
     _this = null;
   };
 
+  /**
+   * Performs linear interpolation for between (x0, y0) and (x1, y1) to obtain
+   * (x, y) where y is unknown. More verbosely; if the linear (potentially in
+   * logarithmic space) function f is defined such that
+   *   f(x0) = y0
+   *   f(x1) = y1
+   * then given
+   *   x0 <= x <= x1
+   * find y such that
+   *   f(x) = y
+   *
+   *
+   * @param y0 {Number}
+   *     The y-coordinate of the first grid point to interpolate between.
+   * @param y1 {Number}
+   *     The y-coordinate of the second grid point to interpolate between.
+   * @param x {Number}
+   *     The x-coordinate of the point of interest.
+   * @param x0 {Number}
+   *     The x-coordinate of the first grid point to interpolate between.
+   * @param x1 {Number}
+   *     The x-coordinate of the second grid point to interpolate between.
+   * @param method {String}
+   *     Flag indicating interpolation method to use. Strictly speaking the
+   *     method is always linear, but may be performed in logarithmic space
+   *     if so indicated.
+   *
+   *
+   * @return {Number}
+   *     The y value such that f(x) = y
+   *
+   * @see NumberUtils.INTERPOLATE_USING_LINEAR
+   * @see NumberUtils.INTERPOLATE_USING_LOG
+   */
   _this.interpolate = function (y0, y1, x, x0, x1, method) {
     var value;
 
@@ -95,6 +133,37 @@ var NumberUtils = function (options) {
     return value;
   };
 
+  /**
+   * Loops over each key in the object and interpolates to find the target
+   * value for that key. Note that only keys common between `obj1` and `obj1`
+   * will appear in the result.
+   *
+   * @param obj0 {Object}
+   *     An object with numeric-valued properties upon which interpolation
+   *     ought be performed. These values define the `y0` values for
+   *     interpolation.
+   * @param obj1 {Object}
+   *     An object with numeric-valued properties upon which interpolation
+   *     ought be performed. These values define the `y1` values for
+   *     interpolation.
+   * @param x {Number}
+   *     The x-coordinate of the point of interest.
+   * @param x0 {Number}
+   *     The x-coordinate of the first grid point to interpolate between.
+   * @param x1 {Number}
+   *     The x-coordinate of the second grid point to interpolate between.
+   * @param method {String}
+   *     Flag indicating interpolation method to use. Strictly speaking the
+   *     method is always linear, but may be performed in logarithmic space
+   *     if so indicated.
+   *
+   * @return {Object}
+   *     An object with keys common to both `obj1` and `obj2` with corresponding
+   *     properties equal to the interpolated result between `obj1` and `obj2`.
+   *
+   * @see NumberUtils.INTERPOLATE_USING_LINEAR
+   * @see NumberUtils.INTERPOLATE_USING_LOG
+   */
   _this.interpolateObject = function (obj0, obj1, x, x0, x1, method) {
     var key,
         result;
@@ -172,6 +241,42 @@ var NumberUtils = function (options) {
   };
 
 
+  /**
+   * Performs bi-linear spatial interpolation on the "point-object"s in the given
+   * array of `points`. Each "point-object" must have at least a "latitude" and
+   * "longitude" property. Any additional properties must be numeric.
+   *
+   * Interpolation proceeds as follows:
+   * if 1-point ...
+   *   return that point
+   * if 2-points
+   *   if latitudes match
+   *     return interpolation with respect to longitude
+   *   if longitudes match
+   *     return interpolation with respect to latitude
+   * if 4-points
+   *   interpolate first-two points with respect to longitude
+   *   interpolate second-two points with respect to longitude
+   *   return interpolation of previous-two results with repect to latitude
+   *
+   * Note: Points must be ordered top-left to bottom right "typewriter" style.
+   *
+   * @param points {Array}
+   *     An _ordered_ array of point-objects.
+   * @param latitude {Number}
+   *     The latitude coordinate for the point of interest.
+   * @param longitude {Number}
+   *     The longitude coordinate for the point of interest.
+   * @param method {String}
+   *     Flag indicating interpolation method to use. Strictly speaking the
+   *     method is always linear, but may be performed in logarithmic space
+   *     if so indicated.
+   *
+   * @return {Object}
+   *     A point-object whose property values are the bi-linear interpolated
+   *     result of the given `points` array for the target `latitude` and
+   *     `longitude` coordinate.
+   */
   _this.spatialInterpolate = function (points, latitude, longitude, method) {
     var bot,
         botLat,
