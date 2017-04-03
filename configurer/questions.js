@@ -50,5 +50,11 @@ module.exports = [
     type: 'password',
     name: 'DB_PASSWORD',
     message: 'Database password'
+  },
+  {
+    type: 'input',
+    name: 'DB_SCHEMA_DETERMINISTIC',
+    message: 'Database schema for deterministic data',
+    default: 'deterministic'
   }
 ];
