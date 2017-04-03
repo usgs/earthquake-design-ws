@@ -81,7 +81,7 @@ CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE));
 EPSILON = CONFIG.EPSILON || 1E-4;
 
 
-describe('ASCE7-16 Quality Control', () => {
+describe.skip('ASCE7-16 Quality Control', () => {
   before(() => {
     var host,
         path,
