@@ -9,8 +9,8 @@ var _DEFAULTS,
     _INTERPOLATE_USING_LOG;
 
 _DEFAULTS = {
-  roundPrecision: 3,
   epsilon: 1E-10,
+  roundPrecision: 3
 };
 
 _INTERPOLATE_USING_LINEAR = 'linear';
@@ -27,6 +27,7 @@ var NumberUtils = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
+    _this.epsilon = options.epsilon;
     _this.roundPrecision = options.roundPrecision;
   };
 
@@ -84,16 +85,16 @@ var NumberUtils = function (options) {
    *   f(x) = y
    *
    *
+   * @param x0 {Number}
+   *     The x-coordinate of the first grid point to interpolate between.
    * @param y0 {Number}
    *     The y-coordinate of the first grid point to interpolate between.
+   * @param x1 {Number}
+   *     The x-coordinate of the second grid point to interpolate between.
    * @param y1 {Number}
    *     The y-coordinate of the second grid point to interpolate between.
    * @param x {Number}
    *     The x-coordinate of the point of interest.
-   * @param x0 {Number}
-   *     The x-coordinate of the first grid point to interpolate between.
-   * @param x1 {Number}
-   *     The x-coordinate of the second grid point to interpolate between.
    * @param method {String}
    *     Flag indicating interpolation method to use. Strictly speaking the
    *     method is always linear, but may be performed in logarithmic space
@@ -106,7 +107,7 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_USING_LINEAR
    * @see NumberUtils.INTERPOLATE_USING_LOG
    */
-  _this.interpolate = function (y0, y1, x, x0, x1, method) {
+  _this.interpolate = function (x0, y0, x1, y1, x, method) {
     var value;
 
     if (typeof method === 'undefined') {
@@ -138,20 +139,20 @@ var NumberUtils = function (options) {
    * value for that key. Note that only keys common between `obj1` and `obj1`
    * will appear in the result.
    *
+   * @param x0 {Number}
+   *     The x-coordinate of the first grid point to interpolate between.
    * @param obj0 {Object}
    *     An object with numeric-valued properties upon which interpolation
    *     ought be performed. These values define the `y0` values for
    *     interpolation.
+   * @param x1 {Number}
+   *     The x-coordinate of the second grid point to interpolate between.
    * @param obj1 {Object}
    *     An object with numeric-valued properties upon which interpolation
    *     ought be performed. These values define the `y1` values for
    *     interpolation.
    * @param x {Number}
    *     The x-coordinate of the point of interest.
-   * @param x0 {Number}
-   *     The x-coordinate of the first grid point to interpolate between.
-   * @param x1 {Number}
-   *     The x-coordinate of the second grid point to interpolate between.
    * @param method {String}
    *     Flag indicating interpolation method to use. Strictly speaking the
    *     method is always linear, but may be performed in logarithmic space
@@ -164,14 +165,16 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_USING_LINEAR
    * @see NumberUtils.INTERPOLATE_USING_LOG
    */
-  _this.interpolateObject = function (obj0, obj1, x, x0, x1, method) {
+  _this.interpolateObject = function (x0, obj0, x1, obj1, x, method) {
     var key,
         result;
 
+    result = {};
+
     for (key in obj0) {
       if (obj0.hasOwnProperty(key) && obj1.hasOwnProperty(key)) {
-        result[key] = _this.interpolate(obj0[key], obj1[key],
-            x, x0, x1, method);
+        result[key] = _this.interpolate(x0, obj0[key], x1, obj1[key],
+            x, method);
       }
     }
 

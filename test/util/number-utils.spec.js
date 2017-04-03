@@ -7,7 +7,11 @@ var expect = require('chai').expect,
     sinon = require('sinon');
 
 
-describe('util/number-utils', () => {
+var EPSILON;
+
+EPSILON = 1E-10;
+
+describe.only('util/number-utils', () => {
   var util;
 
   after(() => {
@@ -30,6 +34,86 @@ describe('util/number-utils', () => {
 
     it('can be destroyed', () => {
 
+    });
+  });
+
+  describe('closeTo', () => {
+    it('returns true when values are close', () => {
+      var epsilon;
+
+      // Using default epsilon
+      epsilon = util.epsilon;
+      expect(util.closeTo(0, 0)).to.be.true;
+      expect(util.closeTo(0, 0 + epsilon)).to.be.true;
+
+      // Using custom epsilon
+      epsilon = epsilon * 2;
+      expect(util.closeTo(0, 0, epsilon)).to.be.true;
+      expect(util.closeTo(0, 0 + epsilon, epsilon)).to.be.true;
+    });
+
+    it('returns false when values are not close', () => {
+      var epsilon;
+
+      // Using default epsilon
+      epsilon = util.epsilon;
+      expect(util.closeTo(Math.MAX_VALUE, Math.MIN_VALUE)).to.be.false;
+      expect(util.closeTo(0, 0 + (epsilon * 3 / 2))).to.be.false;
+
+      // Using custom epsilon
+      epsilon = epsilon / 2;
+      expect(util.closeTo(Math.MAX_VALUE, Math.MIN_VALUE, epsilon)).to.be.false;
+      expect(util.closeTo(0, 0 + (epsilon * 3 / 2), epsilon)).to.be.false;
+    });
+  });
+
+  describe('interpolate', () => {
+    it('is correct when method is linear', () => {
+      expect(util.interpolate(0, 0, 1, 1, 0.5)).to.equal(0.5);
+    });
+
+    it('is correct when method is log-space', () => {
+      expect(util.interpolate(Math.exp(0), Math.exp(0),
+          Math.exp(1), Math.exp(1), Math.exp(0.5), util.INTERPOLATE_USING_LOG))
+          .to.be.closeTo(Math.exp(0.5), EPSILON);
+    });
+
+    it('throws error for y-value = 0, using log-space interpolation', () => {
+      var throwError;
+
+      throwError = () => {
+        util.interpolateValue(0, 0, 1, 1, 0.5, util.INTERPOLATE_USING_LOG);
+      };
+
+      expect(throwError).to.throw(Error);
+    });
+  });
+
+  describe('interpolateObject', () => {
+    it('calls interpolate method proper number of times', () => {
+      var obj0,
+          obj1,
+          result;
+
+      obj0 = {
+        key1: 0,
+        key2: 0,
+        key3: 0
+      };
+
+      obj1 = {
+        key1: 1,
+        key2: 1,
+        key4: 0
+      };
+
+      sinon.spy(util, 'interpolate');
+
+      result = util.interpolateObject(0, obj0, 1, obj1, 0.5);
+      expect(util.interpolate.callCount).to.equal(2);
+      expect(result).to.deep.equal({key1: 0.5, key2: 0.5});
+
+      util.interpolate.restore();
     });
   });
 
