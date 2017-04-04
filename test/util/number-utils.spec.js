@@ -33,7 +33,16 @@ describe('util/number-utils', () => {
     });
 
     it('can be destroyed', () => {
+      var destroyTest;
 
+      destroyTest = function () {
+        var localUtil;
+
+        localUtil = NumberUtils();
+        localUtil.destroy();
+      };
+
+      expect(destroyTest).to.not.throw(Error);
     });
   });
 
@@ -142,6 +151,273 @@ describe('util/number-utils', () => {
       expect(util.round.callCount).to.equal(spectrum.length * 2);
 
       util.round.restore();
+    });
+  });
+
+  describe('spatialInterpolate', () => {
+    it('1-point no match', () => {
+      var points;
+
+      points = [];
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0.5
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('1-point match', () => {
+      var points;
+
+      points = [];
+      points.push({
+        latitude: 1,
+        longitude: 1,
+        value: 0.5
+      });
+
+      expect(util.spatialInterpolate(points, 1, 1)).to.deep.equal(points[0]);
+    });
+
+    it('2-point no match', () => {
+      var points;
+
+      points = [];
+
+      // Neither latitude/longitude match for these points so all calls
+      // should throw error regardless of target point coordinate
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 3,
+        value: 0
+      });
+
+      // Point does not match any latitude/longitude value
+      expect(() => {util.spatialInterpolate(points, 1, 2);}).to.throw(Error);
+      // Point matches latitude of first, but still an error (b/c points...)
+      expect(() => {util.spatialInterpolate(points, 0, 2);}).to.throw(Error);
+      // Point matches longitude of first, but still an error (b/c points...)
+      expect(() => {util.spatialInterpolate(points, 1, 0);}).to.throw(Error);
+    });
+
+    it('2-point match latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 0, 0.5)).to.deep.equal({
+        latitude: 0,
+        longitude: 0.5,
+        value: 0.5
+      });
+    });
+
+    it('2-point match longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 1,
+        longitude: 0,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 0.5, 0)).to.deep.equal({
+        latitude: 0.5,
+        longitude: 0,
+        value: 0.5
+      });
+    });
+
+    it('4-point no match top latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 3,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 2, 0.5);}).to.throw(Error);
+    });
+
+    it('4-point no match bottom latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 1,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 2, 0.5);}).to.throw(Error);
+    });
+
+    it('4-point no match left longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 2,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('4-point no match left longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('4-point match all', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 2,
+        value: 3
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 1, 1)).to.deep.equal({
+        latitude: 1,
+        longitude: 1,
+        value: 1
+      });
     });
   });
 });
