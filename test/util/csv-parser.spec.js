@@ -73,7 +73,7 @@ describe('util/csv-parser', () => {
       var parser;
 
       parser = CsvParser({
-        url: 'file://' + __dirname + '../../../etc/test.csv.gz'
+        url: 'file://' + __dirname + '/../../etc/test.csv.gz'
       });
       parser.parse().then((data) => {
         expect(data).to.deep.equal([
