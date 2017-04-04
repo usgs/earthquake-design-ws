@@ -12,8 +12,8 @@
     "name": "AMSAM_2012",
     "grid_spacing": 0.10,
     "max_latitude": -11.0,
-    "max_longitude": -165.0, 
-    "min_latitude": 33.0,
+    "max_longitude": -165.0,
+    "min_latitude": -33.0,
     "min_longitude": -195.0,
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/AMSAM_2012.csv.gz"
   },
