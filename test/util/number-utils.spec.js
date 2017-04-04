@@ -7,6 +7,10 @@ var expect = require('chai').expect,
     sinon = require('sinon');
 
 
+var EPSILON;
+
+EPSILON = 1E-10;
+
 describe('util/number-utils', () => {
   var util;
 
@@ -29,7 +33,96 @@ describe('util/number-utils', () => {
     });
 
     it('can be destroyed', () => {
+      var destroyTest;
 
+      destroyTest = function () {
+        var localUtil;
+
+        localUtil = NumberUtils();
+        localUtil.destroy();
+      };
+
+      expect(destroyTest).to.not.throw(Error);
+    });
+  });
+
+  describe('closeTo', () => {
+    it('returns true when values are close', () => {
+      var epsilon;
+
+      // Using default epsilon
+      epsilon = util.epsilon;
+      expect(util.closeTo(0, 0)).to.be.true;
+      expect(util.closeTo(0, 0 + epsilon)).to.be.true;
+
+      // Using custom epsilon
+      epsilon = epsilon * 2;
+      expect(util.closeTo(0, 0, epsilon)).to.be.true;
+      expect(util.closeTo(0, 0 + epsilon, epsilon)).to.be.true;
+    });
+
+    it('returns false when values are not close', () => {
+      var epsilon;
+
+      // Using default epsilon
+      epsilon = util.epsilon;
+      expect(util.closeTo(Math.MAX_VALUE, Math.MIN_VALUE)).to.be.false;
+      expect(util.closeTo(0, 0 + (epsilon * 3 / 2))).to.be.false;
+
+      // Using custom epsilon
+      epsilon = epsilon / 2;
+      expect(util.closeTo(Math.MAX_VALUE, Math.MIN_VALUE, epsilon)).to.be.false;
+      expect(util.closeTo(0, 0 + (epsilon * 3 / 2), epsilon)).to.be.false;
+    });
+  });
+
+  describe('interpolate', () => {
+    it('is correct when method is linear', () => {
+      expect(util.interpolate(0, 0, 1, 1, 0.5)).to.equal(0.5);
+    });
+
+    it('is correct when method is log-space', () => {
+      expect(util.interpolate(Math.exp(0), Math.exp(0),
+          Math.exp(1), Math.exp(1), Math.exp(0.5), util.INTERPOLATE_USING_LOG))
+          .to.be.closeTo(Math.exp(0.5), EPSILON);
+    });
+
+    it('throws error for y-value = 0, using log-space interpolation', () => {
+      var throwError;
+
+      throwError = () => {
+        util.interpolateValue(0, 0, 1, 1, 0.5, util.INTERPOLATE_USING_LOG);
+      };
+
+      expect(throwError).to.throw(Error);
+    });
+  });
+
+  describe('interpolateObject', () => {
+    it('calls interpolate method proper number of times', () => {
+      var obj0,
+          obj1,
+          result;
+
+      obj0 = {
+        key1: 0,
+        key2: 0,
+        key3: 0
+      };
+
+      obj1 = {
+        key1: 1,
+        key2: 1,
+        key4: 0
+      };
+
+      sinon.spy(util, 'interpolate');
+
+      result = util.interpolateObject(0, obj0, 1, obj1, 0.5);
+      expect(util.interpolate.callCount).to.equal(2);
+      expect(result).to.deep.equal({key1: 0.5, key2: 0.5});
+
+      util.interpolate.restore();
     });
   });
 
@@ -58,6 +151,273 @@ describe('util/number-utils', () => {
       expect(util.round.callCount).to.equal(spectrum.length * 2);
 
       util.round.restore();
+    });
+  });
+
+  describe('spatialInterpolate', () => {
+    it('1-point no match', () => {
+      var points;
+
+      points = [];
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0.5
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('1-point match', () => {
+      var points;
+
+      points = [];
+      points.push({
+        latitude: 1,
+        longitude: 1,
+        value: 0.5
+      });
+
+      expect(util.spatialInterpolate(points, 1, 1)).to.deep.equal(points[0]);
+    });
+
+    it('2-point no match', () => {
+      var points;
+
+      points = [];
+
+      // Neither latitude/longitude match for these points so all calls
+      // should throw error regardless of target point coordinate
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 3,
+        value: 0
+      });
+
+      // Point does not match any latitude/longitude value
+      expect(() => {util.spatialInterpolate(points, 1, 2);}).to.throw(Error);
+      // Point matches latitude of first, but still an error (b/c points...)
+      expect(() => {util.spatialInterpolate(points, 0, 2);}).to.throw(Error);
+      // Point matches longitude of first, but still an error (b/c points...)
+      expect(() => {util.spatialInterpolate(points, 1, 0);}).to.throw(Error);
+    });
+
+    it('2-point match latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 0, 0.5)).to.deep.equal({
+        latitude: 0,
+        longitude: 0.5,
+        value: 0.5
+      });
+    });
+
+    it('2-point match longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 1,
+        longitude: 0,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 0.5, 0)).to.deep.equal({
+        latitude: 0.5,
+        longitude: 0,
+        value: 0.5
+      });
+    });
+
+    it('4-point no match top latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 3,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 2, 0.5);}).to.throw(Error);
+    });
+
+    it('4-point no match bottom latitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 1,
+        longitude: 1,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 2, 0.5);}).to.throw(Error);
+    });
+
+    it('4-point no match left longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 2,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 1,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('4-point no match left longitude', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 1,
+        value: 1
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(() => {util.spatialInterpolate(points, 1, 1);}).to.throw(Error);
+    });
+
+    it('4-point match all', () => {
+      var points;
+
+      points = [];
+
+      points.push({
+        latitude: 2,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 2,
+        longitude: 2,
+        value: 3
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 0,
+        value: 0
+      });
+
+      points.push({
+        latitude: 0,
+        longitude: 2,
+        value: 1
+      });
+
+      expect(util.spatialInterpolate(points, 1, 1)).to.deep.equal({
+        latitude: 1,
+        longitude: 1,
+        value: 1
+      });
     });
   });
 });
