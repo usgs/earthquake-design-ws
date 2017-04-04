@@ -1,7 +1,8 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    NumberUtils = require('./util/number-utils').instance;
 
 
 var _DEFAULTS,
@@ -11,13 +12,10 @@ var _DEFAULTS,
     _QUERY_REGION;
 
 _MOCK_DB = {
-  query: (query/*, params*/) => {
-    var qlower,
-        result;
+  query: (query, params) => {
+    var result;
 
-    qlower = query.toLowerCase();
-
-    if (qlower.indexof('from region')) {
+    if (query === _QUERY_REGION) {
       result = [{
         id: 1,
         grid_spacing: 0.01,
@@ -27,17 +25,17 @@ _MOCK_DB = {
         min_longitude: -125.0,
         name: 'COUS0P01'
       }];
-    } else if (qlower.indexof('from data')) {
+    } else if (query === _QUERY_DATA) {
       result = [{
         id: 9602302,
         region_id: 1,
-        latitude: 34.0,
-        longitude: -118.0,
+        latitude: parseFloat(params[0]),
+        longitude: parseFloat(params[1]),
         mapped_pgad: 0.5666,
         mapped_s1d: 0.4291,
         mapped_ssd: 1.3788
       }];
-    } else if (qlower.indexof('from document')) {
+    } else if (query === _QUERY_DOCUMENT) {
       result = [{
         id: 1,
         region_id: 1,
@@ -51,7 +49,7 @@ _MOCK_DB = {
         percentile_pgad: 1.8,
         percentile_s1d: 1.8,
         percentile_ssd: 1.8,
-        name: 'DET_2008_ET_AL' // ?
+        name: 'ASCE41-13' // ?
       }];
     } else {
       result = [];
@@ -85,8 +83,8 @@ _QUERY_DATA = `
     region_id = $4 AND
     latitude < $1 + $3 AND
     latitude > $1 - $3 AND
-    longitude < $1 + $3 AND
-    longitude > $1 - $3
+    longitude < $2 + $3 AND
+    longitude > $2 - $3
   ORDER BY
     latitude DESC,
     longitude ASC
@@ -143,7 +141,6 @@ _QUERY_DOCUMENT = `
 `;
 
 _DEFAULTS = {
-  // This is a stubbed implementation
   db: _MOCK_DB
 };
 
@@ -176,17 +173,23 @@ var DeterministicFactory = function (options) {
         s1d,
         ssd;
 
-    pgad = data.mapped_pgad * metadata.document.percentile_pgad;
-    s1d = data.mapped_s1d * metadata.document.percentile_s1d;
-    ssd = data.mapped_ssd * metadata.document.percentile_ssd;
+    return new Promise((resolve, reject) => {
+      try {
+        pgad = data.mapped_pgad * metadata.document.percentile_pgad;
+        s1d = data.mapped_s1d * metadata.document.percentile_s1d;
+        ssd = data.mapped_ssd * metadata.document.percentile_ssd;
 
-    data.pgad = Math.max(pgad, metadata.document.floor_pgad);
-    data.s1d = Math.max(s1d, metadata.document.floor_s1d);
-    data.ssd = Math.max(ssd, metadata.document.floor_ssd);
-
-    return Promise.resolve({
-      'data': data,
-      'metadata': metadata
+        resolve({
+          'data': extend(true, {}, data, {
+            pgad:  Math.max(pgad, metadata.document.floor_pgad),
+            s1d: Math.max(s1d, metadata.document.floor_s1d),
+            ssd: Math.max(ssd, metadata.document.floor_ssd)
+          }),
+          'metadata': metadata
+        });
+      } catch (e) {
+        reject(e);
+      }
     });
   };
 
@@ -240,6 +243,9 @@ var DeterministicFactory = function (options) {
    */
   _this.getMappedData = function (metadata, inputs) {
     var parameters;
+
+    inputs = inputs || {};
+    inputs.region = inputs.region || {};
 
     parameters = [
       inputs.latitude,              // _QUERY_DATA::$1
@@ -320,8 +326,17 @@ var DeterministicFactory = function (options) {
    * @return {Object}
    *     An object containing
    */
-  _this.interpolate = function (/*rows, inputs, metadata*/) {
+  _this.interpolate = function (rows, inputs, metadata) {
+    var method;
 
+    if (metadata.document.interpolation_method === 'log') {
+      method = NumberUtils.INTERPOLATE_USING_LOG;
+    } else {
+      method = NumberUtils.INTERPOLATE_USING_LINEAR;
+    }
+
+    return NumberUtils.spatialInterpolate(rows, inputs.latitude,
+        inputs.longitude, method);
   };
 
 
@@ -329,6 +344,11 @@ var DeterministicFactory = function (options) {
   options = null;
   return _this;
 };
+
+
+DeterministicFactory.QUERY_DATA = _QUERY_DATA;
+DeterministicFactory.QUERY_DOCUMENT = _QUERY_DOCUMENT;
+DeterministicFactory.QUERY_REGION = _QUERY_REGION;
 
 
 module.exports = DeterministicFactory;
