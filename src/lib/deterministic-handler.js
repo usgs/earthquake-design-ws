@@ -6,6 +6,9 @@ var DeterministicFactory = require('./deterministic-factory'),
     pg = require('pg');
 
 
+// Register data type parsers for data returned by pg
+require('./db/data-parsers');
+
 var _DEFAULTS;
 
 _DEFAULTS = {
