@@ -14,6 +14,7 @@ var config = require('../../../conf/config.json'),
 
 // methods
 var connectDatabase,
+    createIndexes,
     createSchema,
     insertRegions,
     insertDocuments,
@@ -131,24 +132,26 @@ insertDocuments = insertRegions.then((regionIds) => {
             floor_s1d,
             floor_ssd,
             interpolation_method,
-            name,
             max_direction_pgad,
             max_direction_s1d,
             max_direction_ssd,
+            model_version,
+            name,
             percentile_pgad,
             percentile_s1d,
             percentile_ssd
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)
+          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
         `, [
           regionId,
           doc.floor_pgad,
           doc.floor_s1d,
           doc.floor_ssd,
           doc.interpolation_method,
-          doc.name,
           doc.max_direction_pgad,
           doc.max_direction_s1d,
           doc.max_direction_ssd,
+          doc.model_version,
+          doc.name,
           doc.percentile_pgad,
           doc.percentile_s1d,
           doc.percentile_ssd
@@ -254,9 +257,15 @@ insertData = insertRegions.then((regionIds) => {
   return promise;
 });
 
+createIndexes = Promise.all([insertData, insertDocuments]).then(() => {
+  return dbUtils.readSqlFile(__dirname + '/./index.sql').then((statements) => {
+    return dbUtils.exec(db, statements);
+  });
+});
 
-// wait for data to finish loading
-Promise.all([insertData, insertDocuments]).then(() => {
+
+// wait for indexes to finish loading
+createIndexes.then(() => {
   process.stderr.write('Success!\n');
   process.exit(0);
 }).catch((err) => {

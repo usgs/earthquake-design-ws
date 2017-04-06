@@ -30,10 +30,11 @@ CREATE TABLE document (
   floor_s1d NUMERIC NOT NULL,
   floor_ssd NUMERIC NOT NULL,
   interpolation_method VARCHAR(255) NOT NULL,
-  name VARCHAR(255) NOT NULL,
   max_direction_pgad NUMERIC NOT NULL,
   max_direction_s1d NUMERIC NOT NULL,
   max_direction_ssd NUMERIC NOT NULL,
+  model_version VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
   percentile_pgad NUMERIC NOT NULL,
   percentile_s1d NUMERIC NOT NULL,
   percentile_ssd NUMERIC NOT NULL
