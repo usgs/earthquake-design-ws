@@ -23,7 +23,7 @@ _MOCK_DB = {
         max_longitude: -65.0,
         min_latitude: 24.6,
         min_longitude: -125.0,
-        name: 'COUS_2008'
+        name: 'E2008R2_COUS0P01_Deterministic'
       }]};
     } else if (query === _QUERY_DATA) {
       result = {rows: [{
@@ -79,7 +79,7 @@ _QUERY_DATA = `
     mapped_s1d,
     mapped_ssd
   FROM
-    deterministic.data
+    data
   WHERE
     region_id = $1 AND
     latitude < ($2::Numeric + $4::Numeric) AND
@@ -107,7 +107,7 @@ _QUERY_REGION = `
     min_longitude,
     name
   FROM
-    deterministic.region
+    region
   WHERE
     max_latitude >= $1 AND
     max_longitude >= $2 AND
@@ -136,7 +136,7 @@ _QUERY_DOCUMENT = `
     percentile_ssd,
     name
   FROM
-    deterministic.document
+    document
   WHERE
     region_id = $1 AND
     name = $2
