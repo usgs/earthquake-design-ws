@@ -132,4 +132,38 @@ describe('GroundMotionFactory test suite', function () {
     expect(interpolate.s1).to.be.closeTo(15.2, EPSILION);
   });
 
+
+  it('Throws an error when missing an "s1" or "ss" value', () => {
+    var latitude,
+        longitude,
+        points;
+
+    // sample data, missing ss value
+    points = [
+      {
+        'latitude': 34,
+        'longitude': -118,
+        's1': 0.571707
+      }
+    ];
+    latitude = 34;
+    longitude = -118;
+
+
+    expect(() => {groundMotionFactory.getGroundMotion(points,
+        latitude, longitude);}).to.throw(Error);
+
+    // sample data, missing s1 value
+    points = [
+      {
+        'latitude': 34,
+        'longitude': -118,
+        'ss': 0.571707
+      }
+    ];
+
+    expect(() => {groundMotionFactory.getGroundMotion(points,
+        latitude, longitude);}).to.throw(Error);
+  });
+
 });

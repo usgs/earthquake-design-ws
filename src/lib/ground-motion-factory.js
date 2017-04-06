@@ -59,12 +59,12 @@ var GroundMotionFactory = function (options) {
     // loop over points and check for s1 and ss values
     for (i = 0, len = points.length; i < len; i++) {
       if (!points[i].hasOwnProperty('s1')) {
-        throw new Error('Point ' + i +
-            ' is missing an "s1" value for interpolation');
+        throw new Error('Point (' + latitude + ', ' + longitude +
+            ') is missing an "s1" value for interpolation');
       }
       if (!points[i].hasOwnProperty('ss')) {
-        throw new Error('Point ' + i +
-            ' is missing an "ss" value for interpolation');
+        throw new Error('Point (' + latitude + ', ' + longitude +
+            ') is missing an "ss" value for interpolation');
       }
     }
 
