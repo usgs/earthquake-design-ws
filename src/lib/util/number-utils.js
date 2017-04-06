@@ -379,7 +379,7 @@ var NumberUtils = function (options) {
         method
       );
     } else {
-      throw new Error('Spatial interpolation failed. Enexpected number of ' +
+      throw new Error('Spatial interpolation failed. Unexpected number of ' +
           'points.');
     }
   };
