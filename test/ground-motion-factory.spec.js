@@ -36,52 +36,54 @@ describe('GroundMotionFactory test suite', function () {
 
   describe('interpolate', () => {
     it('interpolates one point correctly', () => {
-      var data,
-          interpolate;
+      var interpolate,
+          latitude,
+          longitude,
+          points;
 
       // sample data with one point
-      data = {
-        'points': [
-          {
-            'latitude': 34,
-            'longitude': -118,
-            'ss': 1.91449,
-            's1': 0.571707,
-          }
-        ],
-        'latitude': 34,
-        'longitude': -118
-      };
+      points = [
+        {
+          'latitude': 34,
+          'longitude': -118,
+          'ss': 1.91449,
+          's1': 0.571707
+        }
+      ];
+      latitude = 34;
+      longitude = -118;
 
-      interpolate = groundMotionFactory.interpolate(data);
+      interpolate = groundMotionFactory.getGroundMotion(points,
+          latitude, longitude);
 
-      expect(interpolate).to.deep.equal(data.points[0]);
+      expect(interpolate).to.deep.equal(points[0]);
     });
 
     it('interpolates two points correctly', () => {
-      var data,
-          interpolate;
+      var interpolate,
+          latitude,
+          longitude,
+          points;
 
-      data = {
-        'points': [
-          {
-            'latitude': 34,
-            'longitude': -180,
-            'ss': 10,
-            's1': 10
-          },
-          {
-            'latitude': 35,
-            'longitude': -180,
-            'ss': 20,
-            's1': 20
-          }
-        ],
-        'latitude': 34.4,
-        'longitude': -180,
-      };
+      points = [
+        {
+          'latitude': 34,
+          'longitude': -180,
+          'ss': 10,
+          's1': 10
+        },
+        {
+          'latitude': 35,
+          'longitude': -180,
+          'ss': 20,
+          's1': 20
+        }
+      ];
+      latitude = 34.4;
+      longitude = -180;
 
-      interpolate = groundMotionFactory.interpolate(data);
+      interpolate = groundMotionFactory.getGroundMotion(points,
+          latitude, longitude);
 
       expect(interpolate.ss).to.be.closeTo(14, EPSILION);
       expect(interpolate.s1).to.be.closeTo(14, EPSILION);
@@ -89,50 +91,45 @@ describe('GroundMotionFactory test suite', function () {
   });
 
   it('interpolates four points correctly', () => {
-    var data,
-        interpolate;
+    var interpolate,
+        latitude,
+        longitude,
+        points;
 
-    data = {
-      'points': [
-        {
-          'latitude': 34,
-          'longitude': -180,
-          'ss': 10,
-          's1': 10
-        },
-        {
-          'latitude': 34,
-          'longitude': -170,
-          'ss': 20,
-          's1': 20
-        },
-        {
-          'latitude': 35,
-          'longitude': -180,
-          'ss': 20,
-          's1': 20
-        },
-        {
-          'latitude': 35,
-          'longitude': -170,
-          'ss': 10,
-          's1': 10
-        }
-      ],
-      'latitude': 34.4,
-      'longitude': -174
-    };
+    points = [
+      {
+        'latitude': 34,
+        'longitude': -180,
+        'ss': 10,
+        's1': 10
+      },
+      {
+        'latitude': 34,
+        'longitude': -170,
+        'ss': 20,
+        's1': 20
+      },
+      {
+        'latitude': 35,
+        'longitude': -180,
+        'ss': 20,
+        's1': 20
+      },
+      {
+        'latitude': 35,
+        'longitude': -170,
+        'ss': 10,
+        's1': 10
+      }
+    ];
+    latitude = 34.4;
+    longitude = -174;
 
-    interpolate = groundMotionFactory.interpolate(data);
+    interpolate = groundMotionFactory.getGroundMotion(points,
+        latitude, longitude);
 
     expect(interpolate.ss).to.be.closeTo(15.2, EPSILION);
     expect(interpolate.s1).to.be.closeTo(15.2, EPSILION);
-  });
-
-  describe('interpolateValue', () => {
-    it('interpolateValue is correct', () => {
-      expect(groundMotionFactory.interpolateValue(0, 1, 0, 2, 1/2)).to.equal(1);
-    });
   });
 
 });
