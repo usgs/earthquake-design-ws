@@ -1,7 +1,9 @@
 'use strict';
 
+
 var extend = require('extend'),
     NumberUtils = require('./util/number-utils');
+
 
 var TargetGroundMotion = function (options) {
   var _this,
@@ -15,7 +17,9 @@ var TargetGroundMotion = function (options) {
     _this.numberUtils = options.NumberUtils || NumberUtils();
   };
 
-
+  /**
+   * Destroy all the things.
+   */
   _this.destroy = function () {
     if (_this === null) {
       return;
@@ -108,7 +112,7 @@ var TargetGroundMotion = function (options) {
   _initialize(options);
   options = null;
   return _this;
-
 };
+
 
 module.exports = TargetGroundMotion;
