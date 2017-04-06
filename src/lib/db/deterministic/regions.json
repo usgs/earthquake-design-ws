@@ -1,56 +1,38 @@
 [
   {
-    "name": "AK_2007",
-    "grid_spacing": 0.05,
-    "max_latitude": 72.0,
-    "max_longitude": -125.1,
-    "min_latitude": 48.0,
-    "min_longitude": -200.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/AK_2007.csv.gz"
-  },
-  {
-    "name": "AMSAM_2012",
-    "grid_spacing": 0.10,
-    "max_latitude": -11.0,
-    "max_longitude": -165.0,
-    "min_latitude": -33.0,
-    "min_longitude": -195.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/AMSAM_2012.csv.gz"
-  },
-  {
-    "name": "COUS_2008",
-    "grid_spacing": 0.01,
-    "max_latitude": 50.0,
-    "max_longitude": -65.0,
-    "min_latitude": 24.6,
-    "min_longitude": -125.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/COUS_2008.csv.gz"
-  },
-  {
-    "name": "GNMI_2012",
-    "grid_spacing": 0.10,
-    "max_latitude": 23.0,
-    "max_longitude": 151.0,
-    "min_latitude": 9.0,
-    "min_longitude": 139.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/GNMI_2012.csv.gz"
-  },
-  {
-    "name": "HI_1998",
+    "name": "E1998R1_HI0P02_Deterministic",
     "grid_spacing": 0.02,
     "max_latitude": 23.0,
     "max_longitude": -154.0,
     "min_latitude": 18.0,
     "min_longitude": -161.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/HI_1998.csv.gz"
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E1998R1_HI0P02_Deterministic.csv.gz"
   },
   {
-    "name": "PRVI_2003",
+    "name": "E2003R1_PRVI0P01_Deterministic",
     "grid_spacing": 0.01,
     "max_latitude": 19.0,
     "max_longitude": -64.5,
     "min_latitude": 17.5,
     "min_longitude": -67.5,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/2008/deterministic/PRVI_2003.csv.gz"
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2003R1_PRVI0P01_Deterministic.csv.gz"
+  },
+  {
+    "name": "E2007R1_AK0P10_Deterministic",
+    "grid_spacing": 0.05,
+    "max_latitude": 72.0,
+    "max_longitude": -125.1,
+    "min_latitude": 48.0,
+    "min_longitude": -200.0,
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2007R1_AK0P10_Deterministic.csv.gz"
+  },
+  {
+    "name": "E2008R2_COUS0P01_Deterministic",
+    "grid_spacing": 0.01,
+    "max_latitude": 50.0,
+    "max_longitude": -65.0,
+    "min_latitude": 24.6,
+    "min_longitude": -125.0,
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2008R2_COUS0P01_Deterministic.csv.gz"
   }
 ]
