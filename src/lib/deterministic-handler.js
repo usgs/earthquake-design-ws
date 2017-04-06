@@ -3,11 +3,8 @@
 
 var DeterministicFactory = require('./deterministic-factory'),
     extend = require('extend'),
-    pg = require('pg');
+    Pool = require('./db/pool');
 
-
-// Register data type parsers for data returned by pg
-require('./db/data-parsers');
 
 var _DEFAULTS;
 
@@ -16,6 +13,7 @@ _DEFAULTS = {
   DB_HOST: 'localhost',
   DB_PASSWORD: null,
   DB_PORT: 5432,
+  DB_SCHEMA_DETERMINISTIC: 'deterministic',
   DB_USER: null
 };
 
@@ -80,15 +78,11 @@ var DeterministicHandler = function (options) {
   _this.createDbPool = function (options) {
     options = options || _DEFAULTS;
 
-    _this.db = new pg.Pool({
-      database: options.DB_DATABASE,
-      host: options.DB_HOST,
-      password: options.DB_PASSWORD,
-      port: parseInt(options.DB_PORT, 10),
-      user: options.DB_USER
-    });
-
-    _this.db.query('SET search_path = ' + options.DB_SCHEMA_DETERMINISTIC);
+    if (!_this.db) {
+      _this.destroyDb = true;
+      _this.db = Pool(extend(true, {}, options,
+          {DB_SCHEMA: options.DB_SCHEMA_DETERMINISTIC}));
+    }
 
     return _this.db;
   };
@@ -101,6 +95,10 @@ var DeterministicHandler = function (options) {
     if (_this.destroyFactory && _this.factory) {
       _this.factory.destroy();
       _this.factory = null;
+    }
+
+    if (_this.destroyDb) {
+      _this.db.destroy(); // Technically async, but what would we do anyway?
     }
 
     _initialize = null;

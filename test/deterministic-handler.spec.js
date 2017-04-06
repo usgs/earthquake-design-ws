@@ -3,7 +3,6 @@
 
 var DeterministicHandler = require('../src/lib/deterministic-handler'),
     expect = require('chai').expect,
-    pg = require('pg'),
     sinon = require('sinon');
 
 
@@ -110,7 +109,7 @@ describe('deterministic-handler', () => {
   });
 
   describe('createDbPool', () => {
-    it('sets _this.db to a pg.Pool', () => {
+    it('sets _this.db to a Pool', () => {
       var handler;
 
       handler = DeterministicHandler({factory: _FACTORY});
@@ -118,7 +117,9 @@ describe('deterministic-handler', () => {
       expect(handler.db).to.be.undefined;
       handler.createDbPool();
 
-      expect(handler.db).to.be.instanceof(pg.Pool);
+      // Do a duck-type check on the db
+      expect(typeof handler.db.destroy).to.equal('function');
+      expect(typeof handler.db.query).to.equal('function');
 
       handler.destroy();
       handler = null;
