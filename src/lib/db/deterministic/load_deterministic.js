@@ -14,6 +14,7 @@ var config = require('../../../conf/config.json'),
 
 // methods
 var connectDatabase,
+    createIndexes,
     createSchema,
     insertRegions,
     insertDocuments,
@@ -254,9 +255,15 @@ insertData = insertRegions.then((regionIds) => {
   return promise;
 });
 
+createIndexes = Promise.all([insertData, insertDocuments]).then(() => {
+  return dbUtils.readSqlFile(__dirname + '/./index.sql').then((statements) => {
+    return dbUtils.exec(db, statements);
+  });
+});
 
-// wait for data to finish loading
-Promise.all([insertData, insertDocuments]).then(() => {
+
+// wait for indexes to finish loading
+createIndexes.then(() => {
   process.stderr.write('Success!\n');
   process.exit(0);
 }).catch((err) => {
