@@ -183,7 +183,7 @@ describe('deterministic-factory', () => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.interpolate.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            DeterministicFactory.QUERY_DATA, [0, 0, 1, 1])).to.be.true;
+            DeterministicFactory.QUERY_DATA, [1, 0, 0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {

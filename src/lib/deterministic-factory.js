@@ -16,27 +16,27 @@ _MOCK_DB = {
     var result;
 
     if (query === _QUERY_REGION) {
-      result = [{
+      result = {rows: [{
         id: 1,
         grid_spacing: 0.01,
         max_latitude: 50.0,
         max_longitude: -65.0,
         min_latitude: 24.6,
         min_longitude: -125.0,
-        name: 'COUS0P01'
-      }];
+        name: 'COUS_2008'
+      }]};
     } else if (query === _QUERY_DATA) {
-      result = [{
+      result = {rows: [{
         id: 9602302,
         region_id: 1,
-        latitude: parseFloat(params[0]),
-        longitude: parseFloat(params[1]),
+        latitude: parseFloat(params[1]),
+        longitude: parseFloat(params[2]),
         mapped_pgad: 0.5666,
         mapped_s1d: 0.4291,
         mapped_ssd: 1.3788
-      }];
+      }]};
     } else if (query === _QUERY_DOCUMENT) {
-      result = [{
+      result = {rows: [{
         id: 1,
         region_id: 1,
         floor_pgad: 0.5,
@@ -46,13 +46,14 @@ _MOCK_DB = {
         max_direction_pgad: 1.0,
         max_direction_s1d: 1.3,
         max_direction_ssd: 1.1,
+        model_version: 'v3.1.x',
         percentile_pgad: 1.8,
         percentile_s1d: 1.8,
         percentile_ssd: 1.8,
         name: 'ASCE41-13' // ?
-      }];
+      }]};
     } else {
-      result = [];
+      result = {rows: []};
     }
 
     return Promise.resolve(result);
@@ -78,13 +79,13 @@ _QUERY_DATA = `
     mapped_s1d,
     mapped_ssd
   FROM
-    data
+    deterministic.data
   WHERE
-    region_id = $4 AND
-    latitude < $1 + $3 AND
-    latitude > $1 - $3 AND
-    longitude < $2 + $3 AND
-    longitude > $2 - $3
+    region_id = $1 AND
+    latitude < ($2::Numeric + $4::Numeric) AND
+    latitude > ($2::Numeric - $4::Numeric) AND
+    longitude < ($3::Numeric + $4::Numeric) AND
+    longitude > ($3::Numeric - $4::Numeric)
   ORDER BY
     latitude DESC,
     longitude ASC
@@ -106,11 +107,11 @@ _QUERY_REGION = `
     min_longitude,
     name
   FROM
-    region
+    deterministic.region
   WHERE
-    max_latitude >= $1,
-    max_longitude >= $2,
-    min_latitude <= $1,
+    max_latitude >= $1 AND
+    max_longitude >= $2 AND
+    min_latitude <= $1 AND
     min_longitude <= $2
 `;
 
@@ -129,12 +130,13 @@ _QUERY_DOCUMENT = `
     max_direction_pgad,
     max_direction_s1d,
     max_direction_ssd,
+    model_version,
     percentile_pgad,
     percentile_s1d,
     percentile_ssd,
     name
   FROM
-    document
+    deterministic.document
   WHERE
     region_id = $1 AND
     name = $2
@@ -220,12 +222,12 @@ var DeterministicFactory = function (options) {
     var parameters;
 
     parameters = [
-      region.id,               // _QUERY_DOCUMENT::$1
+      parseInt(region.id, 10), // _QUERY_DOCUMENT::$1
       inputs.referenceDocument // _QUERY_DOCUMENT::$2
     ];
 
-    return _this.db.query(_QUERY_DOCUMENT, parameters).then((rows) => {
-      return rows[0];
+    return _this.db.query(_QUERY_DOCUMENT, parameters).then((result) => {
+      return result.rows[0];
     });
   };
 
@@ -248,14 +250,14 @@ var DeterministicFactory = function (options) {
     inputs.region = inputs.region || {};
 
     parameters = [
-      inputs.latitude,              // _QUERY_DATA::$1
-      inputs.longitude,             // _QUERY_DATA::$2
-      metadata.region.grid_spacing, // _QUERY_DATA::$3
-      metadata.region.id            // _QUERY_DATA::$4
+      parseInt(metadata.region.id, 10),        // _QUERY_DATA::$1
+      parseFloat(inputs.latitude),             // _QUERY_DATA::$2
+      parseFloat(inputs.longitude),            // _QUERY_DATA::$3
+      parseFloat(metadata.region.grid_spacing) // _QUERY_DATA::$4
     ];
 
-    return _this.db.query(_QUERY_DATA, parameters).then((rows) => {
-      return _this.interpolate(rows, inputs, metadata);
+    return _this.db.query(_QUERY_DATA, parameters).then((result) => {
+      return _this.interpolate(result.rows, inputs, metadata);
     });
   };
 
@@ -303,12 +305,12 @@ var DeterministicFactory = function (options) {
     var parameters;
 
     parameters = [
-      inputs.latitude, // _QUERY_REGION::$1
-      inputs.longitude // _QUERY_REGION::$2
+      parseFloat(inputs.latitude), // _QUERY_REGION::$1
+      parseFloat(inputs.longitude) // _QUERY_REGION::$2
     ];
 
-    return _this.db.query(_QUERY_REGION, parameters).then((rows) => {
-      return rows[0];
+    return _this.db.query(_QUERY_REGION, parameters).then((result) => {
+      return result.rows[0];
     });
   };
 
