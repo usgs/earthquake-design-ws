@@ -28,32 +28,43 @@ _FACTORY = {
 };
 
 _RESULT = {
-  'request': {
-    'date': '2016-09-14T23:35:50.279Z',
-    'referenceDocument': 'ASCE41-13',
-    'status': 'success',
-    'url': 'http://localhost:8000/ws/designmaps/deterministic.json?latitude=34&longitude=-118&referenceDocument=ASCE41-13',
-    'parameters': {
-      'latitude': 34,
-      'longitude': -118
-    }
+  'data': {
+    'id': 9859572,
+    'region_id': 4,
+    'latitude': 35,
+    'longitude': -90,
+    'mapped_pgad': 0.2167,
+    'mapped_s1d': 0.1343,
+    'mapped_ssd': 0.4474,
+    'pgad': 0.5,
+    's1d': 0.6,
+    'ssd': 1.5
   },
-  'response': {
-    'data': {
-      'mapped_pgad': 0.5670918,
-      'mapped_s1d': 0.53527123,
-      'mapped_ssd': 1.35112175,
-      'pgad': 1.02076524,
-      's1d': 0.963488214,
-      'ssd': 2.4320191500000004
+  'metadata': {
+    'region': {
+      'id': 4,
+      'grid_spacing': 0.01,
+      'max_latitude': 50,
+      'max_longitude': -65,
+      'min_latitude': 24.6,
+      'min_longitude': -125,
+      'name': 'E2008R2_COUS0P01_Deterministic'
     },
-    'metadata': {
+    'document': {
+      'id': 3,
+      'region_id': 4,
       'floor_pgad': 0.5,
       'floor_s1d': 0.6,
       'floor_ssd': 1.5,
+      'interpolation_method': 'linear',
+      'max_direction_pgad': 1,
+      'max_direction_s1d': 1.3,
+      'max_direction_ssd': 1.1,
+      'model_version': 'v3.1.x',
       'percentile_pgad': 1.8,
       'percentile_s1d': 1.8,
-      'percentile_ssd': 1.8
+      'percentile_ssd': 1.8,
+      'name': 'ASCE41-13'
     }
   }
 };
