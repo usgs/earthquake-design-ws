@@ -78,10 +78,21 @@ describe('target-ground-motion', () => {
 
   });
 
-  describe('getGroundMotionForProbability', () => {
-    it('computes correct afe value', () => {
-      expect(targetGroundMotion.getGroundMotionForProbability(.2)).
+  describe('getFrequencyForProbability', () => {
+    var probability,
+        years;
+
+    probability = .20;
+    years = 25;
+
+    it('computes correct afe value when years are not given', () => {
+      expect(targetGroundMotion.getFrequencyForProbability(probability)).
           to.equal(0.004462871026284194);
+    });
+
+    it('computes correct afe value when years are given', () => {
+      expect(targetGroundMotion.getFrequencyForProbability(probability, years)).
+          to.equal(0.008925742052568388);
     });
   });
 
