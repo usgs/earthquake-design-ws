@@ -54,6 +54,10 @@ var TargetGroundMotion = function (options) {
     found = false;
 
     for (i = 0, len = curve.length; i < len; i++) {
+      if ((i + 1) > (len)) {
+        break;
+      }
+
       x1 = curve[i][0];
       x2 = curve[(i + 1)][0];
       y1 = curve[i][1];
