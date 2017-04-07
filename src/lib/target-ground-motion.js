@@ -14,7 +14,7 @@ var TargetGroundMotion = function (options) {
   _initialize = function (options) {
     options = extend({}, options);
 
-    _this.numberUtils = options.NumberUtils || NumberUtils();
+    _this.numberUtils = options.numberUtils || NumberUtils();
   };
 
   /**
