@@ -83,9 +83,13 @@ var TargetGroundMotion = function (options) {
    * Uses the given probability to compute afe (Annual frequency of exceedance)
    * @param probability {number}
    *    Custom probability
+   * @pparam years {number}
+   *    Custom years or defaults to 50 if years are not given
    */
-  _this.getGroundMotionForProbability = function (probability) {
-    return -Math.log(1 - probability) / 50;
+  _this.getFrequencyForProbability = function (probability, years) {
+    years = years || 50;
+
+    return -Math.log(1 - probability) / years;
   };
 
   /**
@@ -100,7 +104,7 @@ var TargetGroundMotion = function (options) {
         bounds,
         result;
 
-    afe = _this.getGroundMotionForProbability(probability);
+    afe = _this.getFrequencyForProbability(probability);
     bounds = _this.findBounds(curve, afe);
 
     result = _numberUtils.interpolate(
