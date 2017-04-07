@@ -7,14 +7,15 @@ var extend = require('extend'),
 
 var TargetGroundMotion = function (options) {
   var _this,
-      _initialize;
+      _initialize,
+
+      _numberUtils;
 
   _this = {};
 
   _initialize = function (options) {
     options = extend({}, options);
-
-    _this.numberUtils = options.numberUtils || NumberUtils();
+    _numberUtils = options.numberUtils || NumberUtils();
   };
 
   /**
@@ -24,6 +25,8 @@ var TargetGroundMotion = function (options) {
     if (_this === null) {
       return;
     }
+
+    _numberUtils.destroy();
 
     _this = null;
     _initialize = null;
@@ -96,13 +99,13 @@ var TargetGroundMotion = function (options) {
     afe = _this.getGroundMotionForProbability(probability);
     bounds = _this.findBounds(curve, afe);
 
-    result = _this.numberUtils.interpolate(
+    result = _numberUtils.interpolate(
       bounds[0][0],
       bounds[0][1],
       bounds[1][0],
       bounds[1][1],
       afe,
-      _this.numberUtils.INTERPOLATE_USING_LOG
+      _numberUtils.INTERPOLATE_USING_LOG
     );
 
     return result;
