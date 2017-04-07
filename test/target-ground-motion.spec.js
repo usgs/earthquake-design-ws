@@ -6,12 +6,12 @@ var expect = require('chai').expect,
 
 describe('target-ground-motion', () => {
   var afe,
-      badAfe,
       curve,
+      highAfe,
+      lowAfe,
       targetGroundMotion;
 
   afe = 1;
-  badAfe = 12;
   curve = [
     [0, 10],
     [1, 9],
@@ -25,6 +25,9 @@ describe('target-ground-motion', () => {
     [9, 1],
     [10, 0]
   ];
+
+  highAfe = 11;
+  lowAfe = -1;
 
 
   beforeEach(() => {
@@ -63,10 +66,16 @@ describe('target-ground-motion', () => {
       expect(targetGroundMotion.findBounds(curve, afe)).to.deep.equal(points);
     });
 
-    it('show error when afe value is outside curve range', () => {
-      expect(() => targetGroundMotion.findBounds(curve, badAfe)).
+    it('throw error when afe value is below the curve range', () => {
+      expect(() => targetGroundMotion.findBounds(curve, lowAfe)).
           to.throw(Error);
     });
+
+    it('throw error when afe value is above the curve range', () => {
+      expect(() => targetGroundMotion.findBounds(curve, highAfe)).
+          to.throw(Error);
+    });
+
   });
 
   describe('getGroundMotionForProbability', () => {
