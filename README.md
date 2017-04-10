@@ -2,8 +2,6 @@
 Web service provided by the U.S. Geological Survey for computing seismic
 design parameters compatible with various building code reference documents.
 
-
-==============
 [![Build Status](https://travis-ci.org/usgs/earthquake-design-ws.svg?branch=master)](https://travis-ci.org/usgs/earthquake-design-ws)
 [![Coverage](https://codecov.io/github/usgs/earthquake-design-ws/coverage.svg?branch=master)](https://codecov.io/github/usgs/earthquake-design-ws?branch=master)
 
