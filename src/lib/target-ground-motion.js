@@ -5,28 +5,34 @@ var extend = require('extend'),
     NumberUtils = require('./util/number-utils');
 
 
+var _DEFAULTS;
+
+_DEFAULTS = {
+  numberUtils: NumberUtils.instance
+};
+
+
 var TargetGroundMotion = function (options) {
   var _this,
-      _initialize,
+      _initialize;
 
-      _numberUtils;
 
   _this = {};
 
   _initialize = function (options) {
-    options = extend({}, options);
-    _numberUtils = options.numberUtils || NumberUtils();
+    options = extend({}, _DEFAULTS, options);
+
+    _this.numberUtils = options.numberUtils;
   };
 
   /**
    * Destroy all the things.
+   *
    */
   _this.destroy = function () {
     if (_this === null) {
       return;
     }
-
-    _numberUtils.destroy();
 
     _this = null;
     _initialize = null;
@@ -35,10 +41,10 @@ var TargetGroundMotion = function (options) {
   /**
    * Finds bounds on a curve of a given afe value.
    *
-   * @param curve {array}
+   * @param curve {Array}
    *    array of [x, y] value pairs
    *
-   * @param afe {number}
+   * @param afe {Number}
    *    Annual frequency of exceedance
    */
   _this.findBounds = function (curve, afe) {
@@ -53,10 +59,7 @@ var TargetGroundMotion = function (options) {
 
     found = false;
 
-    for (i = 0, len = curve.length; i < len; i++) {
-      if ((i + 1) > (len)) {
-        break;
-      }
+    for (i = 0, len = curve.length; i < (len - 1); i++) {
 
       x1 = curve[i][0];
       x2 = curve[(i + 1)][0];
@@ -73,7 +76,7 @@ var TargetGroundMotion = function (options) {
 
     if (!found){
       throw Error('AFE Value (' + afe + ') must be within the range: ' +
-          curve[0] + ' and ' + curve[(curve.length - 1)]);
+          curve[0][1] + ' and ' + curve[(curve.length - 1)][1]);
     }
 
     return bounds;
@@ -81,9 +84,10 @@ var TargetGroundMotion = function (options) {
 
   /**
    * Uses the given probability to compute afe (Annual frequency of exceedance)
-   * @param probability {number}
+   *
+   * @param probability {Number}
    *    Custom probability
-   * @pparam years {number}
+   * @pparam years {Number}
    *    Custom years or defaults to 50 if years are not given
    */
   _this.getFrequencyForProbability = function (probability, years) {
@@ -94,9 +98,10 @@ var TargetGroundMotion = function (options) {
 
   /**
    * Computes target ground motion
-   * @param curve {array}
+   &
+   * @param curve {Array}
    *    array of (x, y) value pairs
-   * @param probability {number}
+   * @param probability {Number}
    *    Custom probability
    */
   _this.getTargetedGroundMotion = function (curve, probability) {
@@ -107,13 +112,13 @@ var TargetGroundMotion = function (options) {
     afe = _this.getFrequencyForProbability(probability);
     bounds = _this.findBounds(curve, afe);
 
-    result = _numberUtils.interpolate(
+    result = _this.numberUtils.interpolate(
       bounds[0][0],
       bounds[0][1],
       bounds[1][0],
       bounds[1][1],
       afe,
-      _numberUtils.INTERPOLATE_USING_LOG
+      _this.numberUtils.INTERPOLATE_USING_LOG
     );
 
     return result;
