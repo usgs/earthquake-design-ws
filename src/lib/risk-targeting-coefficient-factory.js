@@ -55,19 +55,6 @@ var RiskTargetingCoefficientFactory = function (options) {
     _this = null;
   };
 
-  /**
-   * Uses interpolated grid data to calculate risk targeted coefficient
-   *
-   * @return {Object}
-   *         An object containing crs and cr1 data
-   */
-  _this.formatCoefficients = function(results) {
-    return {
-      'cr1': results.mapped_cr,
-      'crs': results.mapped_crs
-    };
-  };
-
 
   /**
    * [getRiskTargetingData description]
@@ -94,10 +81,6 @@ var RiskTargetingCoefficientFactory = function (options) {
       // spatially interpolate using reference point (latitude/longitude)
       return NumberUtils.spatialInterpolate(grid.points, latitude, longitude,
           NumberUtils.INTERPOLATE_USING_LINEAR);
-
-    }).then((result) => {
-      // return risk targeted coefficients
-      return _this.formatCoefficients(result);
     });
   };
 

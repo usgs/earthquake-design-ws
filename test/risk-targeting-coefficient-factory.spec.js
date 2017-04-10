@@ -43,23 +43,6 @@ describe('risk-targeting-coefficient-factory', () => {
   });
 
 
-  describe('formatCoefficients', () => {
-    it('formats the response into the expected object', () => {
-      var input,
-          result;
-
-      input = {
-        'mapped_cr': 1,
-        'mapped_crs': 2
-      };
-
-      result = factory.formatCoefficients(input);
-
-      expect(result.cr1).to.equal(input.mapped_cr);
-      expect(result.crs).to.equal(input.mapped_crs);
-    });
-  });
-
   describe('getRiskTargetingData', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
