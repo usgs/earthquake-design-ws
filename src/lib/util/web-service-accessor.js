@@ -67,7 +67,7 @@ var WebServiceAccessor = function (options) {
    * Query the web service and return results
    *
    * @param inputs {object}
-   *     new web service inputs to be translated to legacy inputs
+   *     parameters to provided to web service
    *
    * @return {Promise}
    *     A promise that resolves with the web service response or rejects
