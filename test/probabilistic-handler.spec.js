@@ -147,9 +147,9 @@ describe('probabilistic-handler', () => {
         expect(data.hasOwnProperty('s1')).to.be.true;
         expect(data.hasOwnProperty('ss')).to.be.true;
 
-        expect(metadata.hasOwnProperty('region_name')).to.be.true;
-        expect(metadata.hasOwnProperty('model_version')).to.be.true;
         expect(metadata.hasOwnProperty('interpolation_method')).to.be.true;
+        expect(metadata.hasOwnProperty('model_version')).to.be.true;
+        expect(metadata.hasOwnProperty('region_name')).to.be.true;
       }).catch((err) => {
         return err;
       }).then(done);
