@@ -115,9 +115,9 @@ var ProbabilisticHandler = function (options) {
       try {
         formatted = {
           data: {
-            pga: result.data.mapped_pga,
-            s1: result.data.mapped_s1,
-            ss: result.data.mapped_ss
+            pga: result.data.pga,
+            s1: result.data.s1,
+            ss: result.data.ss
           },
           metadata: {
             region_name: result.metadata.region.name,

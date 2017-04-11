@@ -15,8 +15,8 @@ CREATE TABLE data (
   region_id INTEGER NOT NULL REFERENCES region(id),
   latitude NUMERIC NOT NULL,
   longitude NUMERIC NOT NULL,
-  mapped_cr1 NUMERIC NOT NULL,
-  mapped_crs NUMERIC NOT NULL
+  cr1 NUMERIC NOT NULL,
+  crs NUMERIC NOT NULL
 );
 
 CREATE TABLE document (

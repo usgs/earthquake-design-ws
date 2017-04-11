@@ -18,8 +18,8 @@ _MOCK_DB = {
         region_id: 1,
         latitude: 35,
         longitude: -105,
-        mapped_cr1: 1.0,
-        mapped_crs: 1.0
+        cr1: 1.0,
+        crs: 1.0
       }]
     };
 
@@ -117,7 +117,7 @@ var RiskTargetingCoefficientFactory = function (options) {
         'AND    latitude  < ($2::Numeric + $4::Numeric) ' +
         'AND    latitude  > ($2::Numeric - $4::Numeric) ' +
         'AND    longitude < ($3::Numeric + $4::Numeric) ' +
-        'AND    longitude > ($3::Numeric - $4::Numeric)', 
+        'AND    longitude > ($3::Numeric - $4::Numeric)',
       [
         region,
         latitude,

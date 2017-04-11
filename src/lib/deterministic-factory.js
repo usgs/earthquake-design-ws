@@ -31,9 +31,9 @@ _MOCK_DB = {
         region_id: 1,
         latitude: parseFloat(params[1]),
         longitude: parseFloat(params[2]),
-        mapped_pgad: 0.5666,
-        mapped_s1d: 0.4291,
-        mapped_ssd: 1.3788
+        pgad: 0.5666,
+        s1d: 0.4291,
+        ssd: 1.3788
       }]};
     } else if (query === _QUERY_DOCUMENT) {
       result = {rows: [{
@@ -75,9 +75,9 @@ _QUERY_DATA = `
     region_id,
     latitude,
     longitude,
-    mapped_pgad,
-    mapped_s1d,
-    mapped_ssd
+    pgad,
+    s1d,
+    ssd
   FROM
     data
   WHERE
@@ -177,9 +177,9 @@ var DeterministicFactory = function (options) {
 
     return new Promise((resolve, reject) => {
       try {
-        pgad = data.mapped_pgad * metadata.document.percentile_pgad;
-        s1d = data.mapped_s1d * metadata.document.percentile_s1d;
-        ssd = data.mapped_ssd * metadata.document.percentile_ssd;
+        pgad = data.pgad * metadata.document.percentile_pgad;
+        s1d = data.s1d * metadata.document.percentile_s1d;
+        ssd = data.ssd * metadata.document.percentile_ssd;
 
         resolve({
           'data': extend(true, {}, data, {
@@ -317,7 +317,7 @@ var DeterministicFactory = function (options) {
   /**
    * @param rows {Array}
    *     An ordered array of results from the database. Contains
-   *     latitude/longitude/mapped_X properties for each matching grid point.
+   *     latitude/longitude/valueX properties for each matching grid point.
    * @param inputs {Object}
    *     An object containing `latitude` and `longitude` properties identifying
    *     the location of interest.

@@ -112,9 +112,6 @@ var DeterministicHandler = function (options) {
       try {
         formatted = {
           data: {
-            mapped_pgad: result.data.mapped_pgad,
-            mapped_s1d: result.data.mapped_s1d,
-            mapped_ssd: result.data.mapped_ssd,
             pgad: result.data.pgad,
             s1d: result.data.s1d,
             ssd: result.data.ssd

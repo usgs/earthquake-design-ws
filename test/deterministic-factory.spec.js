@@ -55,9 +55,9 @@ describe('deterministic-factory', () => {
 
     beforeEach(() => {
       data = {
-        mapped_pgad: 1,
-        mapped_s1d: 2,
-        mapped_ssd: 3
+        pgad: 1,
+        s1d: 2,
+        ssd: 3
       };
 
       metadata = {

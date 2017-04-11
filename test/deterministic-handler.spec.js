@@ -32,12 +32,9 @@ _RESULT = {
     'region_id': 4,
     'latitude': 35,
     'longitude': -90,
-    'mapped_pgad': 0.2167,
-    'mapped_s1d': 0.1343,
-    'mapped_ssd': 0.4474,
-    'pgad': 0.5,
-    's1d': 0.6,
-    'ssd': 1.5
+    'pgad': 0.2167,
+    's1d': 0.1343,
+    'ssd': 0.4474
   },
   'metadata': {
     'region': {

@@ -187,9 +187,9 @@ insertData = insertRegions.then((regionIds) => {
           CREATE TABLE temp_region_data (
             latitude NUMERIC NOT NULL,
             longitude NUMERIC NOT NULL,
-            mapped_pgad NUMERIC NOT NULL,
-            mapped_s1d NUMERIC NOT NULL,
-            mapped_ssd NUMERIC NOT NULL
+            pgad NUMERIC NOT NULL,
+            s1d NUMERIC NOT NULL,
+            ssd NUMERIC NOT NULL
           )
         `);
       }).then(() => {
@@ -206,7 +206,7 @@ insertData = insertRegions.then((regionIds) => {
 
           stream = db.query(copyFrom(`
               COPY temp_region_data
-              (latitude, longitude, mapped_pgad, mapped_s1d, mapped_ssd)
+              (latitude, longitude, pgad, s1d, ssd)
               FROM STDIN
               WITH CSV HEADER
           `));
@@ -233,17 +233,17 @@ insertData = insertRegions.then((regionIds) => {
             region_id,
             latitude,
             longitude,
-            mapped_pgad,
-            mapped_s1d,
-            mapped_ssd
+            pgad,
+            s1d,
+            ssd
           ) (
             SELECT
               $1,
               latitude,
               longitude,
-              mapped_pgad,
-              mapped_s1d,
-              mapped_ssd
+              pgad,
+              s1d,
+              ssd
               FROM temp_region_data
           )
         `, [regionIds[region.name]]);

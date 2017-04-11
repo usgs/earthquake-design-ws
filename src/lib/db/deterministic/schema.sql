@@ -16,9 +16,9 @@ CREATE TABLE data (
   region_id INTEGER NOT NULL REFERENCES region(id),
   latitude NUMERIC NOT NULL,
   longitude NUMERIC NOT NULL,
-  mapped_pgad NUMERIC NOT NULL,
-  mapped_s1d NUMERIC NOT NULL,
-  mapped_ssd NUMERIC NOT NULL
+  pgad NUMERIC NOT NULL,
+  s1d NUMERIC NOT NULL,
+  ssd NUMERIC NOT NULL
 );
 
 
