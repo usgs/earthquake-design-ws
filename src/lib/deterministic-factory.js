@@ -39,17 +39,8 @@ _MOCK_DB = {
       result = {rows: [{
         id: 1,
         region_id: 1,
-        floor_pgad: 0.5,
-        floor_s1d: 0.6,
-        floor_ssd: 1.5,
         interpolation_method: 'linear',
-        max_direction_pgad: 1.0,
-        max_direction_s1d: 1.3,
-        max_direction_ssd: 1.1,
         model_version: 'v3.1.x',
-        percentile_pgad: 1.8,
-        percentile_s1d: 1.8,
-        percentile_ssd: 1.8,
         name: 'ASCE41-13' // ?
       }]};
     } else {
@@ -123,17 +114,8 @@ _QUERY_DOCUMENT = `
   SELECT
     id,
     region_id,
-    floor_pgad,
-    floor_s1d,
-    floor_ssd,
     interpolation_method,
-    max_direction_pgad,
-    max_direction_s1d,
-    max_direction_ssd,
     model_version,
-    percentile_pgad,
-    percentile_s1d,
-    percentile_ssd,
     name
   FROM
     document
@@ -170,31 +152,6 @@ var DeterministicFactory = function (options) {
     _this = null;
   };
 
-  _this.computeResult = function (metadata, data) {
-    var pgad,
-        s1d,
-        ssd;
-
-    return new Promise((resolve, reject) => {
-      try {
-        pgad = data.pgad * metadata.document.percentile_pgad;
-        s1d = data.s1d * metadata.document.percentile_s1d;
-        ssd = data.ssd * metadata.document.percentile_ssd;
-
-        resolve({
-          'data': extend(true, {}, data, {
-            pgad:  Math.max(pgad, metadata.document.floor_pgad),
-            s1d: Math.max(s1d, metadata.document.floor_s1d),
-            ssd: Math.max(ssd, metadata.document.floor_ssd)
-          }),
-          'metadata': metadata
-        });
-      } catch (e) {
-        reject(e);
-      }
-    });
-  };
-
   _this.getDeterministicData = function (inputs) {
     var metadata;
 
@@ -202,7 +159,10 @@ var DeterministicFactory = function (options) {
       metadata = result;
       return _this.getMappedData(metadata, inputs);
     }).then((data) => {
-      return _this.computeResult(metadata, data);
+      return {
+        data: data,
+        metadata: metadata
+      };
     });
   };
 
