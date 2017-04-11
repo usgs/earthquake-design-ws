@@ -1,0 +1,20 @@
+[
+  {
+    "name": "ASCE41-13",
+    "interpolation_method": "linear",
+    "model_version": "v3.1.x",
+    "regions": [
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P10_Risk_Coefficient",
+      "E2008R2_COUS0P01_Risk_Coefficient"
+    ]
+  },
+  {
+    "name": "ASCE41-13",
+    "interpolation_method": "linear",
+    "model_version": "v3.1.x",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient"
+    ]
+  }
+]
