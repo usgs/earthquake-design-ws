@@ -56,5 +56,11 @@ module.exports = [
     name: 'DB_SCHEMA_DETERMINISTIC',
     message: 'Database schema for deterministic data',
     default: 'deterministic'
+  },
+  {
+    type: 'input',
+    name: 'DB_SCHEMA_PROBABILISTIC',
+    message: 'Database schema for probabilistic data',
+    default: 'probabilistic'
   }
 ];
