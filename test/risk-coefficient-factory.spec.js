@@ -2,13 +2,13 @@
 'use strict';
 
 
-var RiskTargetingCoefficientFactory = require('../src/lib/risk-targeting-coefficient-factory'),
+var RiskCoefficientFactory = require('../src/lib/risk-coefficient-factory'),
     expect = require('chai').expect,
     NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
 
 
-describe('risk-targeting-coefficient-factory', () => {
+describe('risk-coefficient-factory', () => {
   var factory;
 
 
@@ -18,24 +18,24 @@ describe('risk-targeting-coefficient-factory', () => {
   });
 
   beforeEach(() => {
-    factory = RiskTargetingCoefficientFactory();
+    factory = RiskCoefficientFactory();
   });
 
 
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof RiskTargetingCoefficientFactory).to.equal('function');
+      expect(typeof RiskCoefficientFactory).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(RiskTargetingCoefficientFactory).to.not.throw(Error);
+      expect(RiskCoefficientFactory).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
       var destroyTest;
 
       destroyTest = function () {
-        RiskTargetingCoefficientFactory().destroy();
+        RiskCoefficientFactory().destroy();
       };
 
       expect(destroyTest).to.not.throw(Error);
@@ -43,7 +43,7 @@ describe('risk-targeting-coefficient-factory', () => {
   });
 
 
-  describe('getRiskTargetingData', () => {
+  describe('getRiskCoefficientData', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
 
@@ -52,7 +52,7 @@ describe('risk-targeting-coefficient-factory', () => {
       sinon.spy(NumberUtils, 'spatialInterpolate');
 
 
-      result = factory.getRiskTargetingData({
+      result = factory.getRiskCoefficientData({
         latitude: 35,
         longitude: -105
       });

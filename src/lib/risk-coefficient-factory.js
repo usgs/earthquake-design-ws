@@ -32,7 +32,7 @@ _DEFAULTS = {
 };
 
 
-var RiskTargetingCoefficientFactory = function (options) {
+var RiskCoefficientFactory = function (options) {
   var _this,
       _initialize;
 
@@ -57,9 +57,7 @@ var RiskTargetingCoefficientFactory = function (options) {
 
 
   /**
-   * [getRiskTargetingData description]
-   *
-   * @param  {Object} inputs
+   * @param inputs {Object}
    *         {
    *           'gridSpacing': grid spacing for region {Number},
    *           'latitude': latitude for refrence point {Number},
@@ -70,7 +68,7 @@ var RiskTargetingCoefficientFactory = function (options) {
    * @return {Object}
    *     An object containing cr1 and crs properties
    */
-  _this.getRiskTargetingData = function (inputs) {
+  _this.getRiskCoefficientData = function (inputs) {
     var latitude,
         longitude;
 
@@ -138,4 +136,4 @@ var RiskTargetingCoefficientFactory = function (options) {
 };
 
 
-module.exports = RiskTargetingCoefficientFactory;
+module.exports = RiskCoefficientFactory;
