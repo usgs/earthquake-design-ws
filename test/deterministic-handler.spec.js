@@ -21,7 +21,7 @@ _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
-  getDeterministicData: () => {
+  get: () => {
     return Promise.resolve(_RESULT);
   }
 };
@@ -176,7 +176,7 @@ describe('deterministic-handler', () => {
       stub = sinon.stub(handler, 'checkParams', () => {
         return Promise.resolve(_INPUT);
       });
-      spy = sinon.spy(handler.factory, 'getDeterministicData');
+      spy = sinon.spy(handler.factory, 'get');
 
       handler.get(_INPUT).then(() => {
         expect(stub.callCount).to.equal(1);
