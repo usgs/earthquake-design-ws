@@ -4,7 +4,6 @@
 
 var DeterministicFactory = require('../src/lib/deterministic-factory'),
     expect = require('chai').expect,
-    extend = require('extend'),
     NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
 
@@ -43,63 +42,12 @@ describe('deterministic-factory', () => {
     });
   });
 
-  describe('computeResult', () => {
-    var data,
-        metadata;
-
-
-    afterEach(() => {
-      data = null;
-      metadata = null;
-    });
-
-    beforeEach(() => {
-      data = {
-        mapped_pgad: 1,
-        mapped_s1d: 2,
-        mapped_ssd: 3
-      };
-
-      metadata = {
-        document: {
-          percentile_pgad: 1.5,
-          percentile_s1d: 2.0,
-          percentile_ssd: 2.5,
-          floor_pgad: 2,
-          floor_s1d: 3,
-          floor_ssd: 5
-        }
-      };
-    });
-
-
-    it('returns a promise', () => {
-      expect(factory.computeResult(metadata, data)).to.be.instanceof(Promise);
-    });
-
-    it('resolves with expected results', (done) => {
-      var expected;
-
-      expected = {
-        data: extend(true, {}, data, {pgad: 2, s1d: 4, ssd: 7.5}),
-        metadata: metadata
-      };
-
-      factory.computeResult(metadata, data).then((result) => {
-        expect(result).to.deep.equal(expected);
-      }).catch((err) => {
-        return err;
-      }).then(done);
-    });
-  });
-
   describe('getDeterministicData', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
 
       sinon.spy(factory, 'getMetadata');
       sinon.spy(factory, 'getMappedData');
-      sinon.spy(factory, 'computeResult');
 
       result = factory.getDeterministicData({
         latitude: 0,
@@ -110,14 +58,12 @@ describe('deterministic-factory', () => {
       result.then(() => {
         expect(factory.getMetadata.callCount).to.equal(1);
         expect(factory.getMappedData.callCount).to.equal(1);
-        expect(factory.computeResult.callCount).to.equal(1);
       }).catch((err) => {
         return err;
       }).then((err) => {
         try {
           factory.getMetadata.restore();
           factory.getMappedData.restore();
-          factory.computeResult.restore();
         } catch (e) {
           err = (err ? [err, e] : e);
         }

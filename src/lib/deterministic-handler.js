@@ -13,7 +13,7 @@ _DEFAULTS = {
   DB_HOST: 'localhost',
   DB_PASSWORD: null,
   DB_PORT: 5432,
-  DB_SCHEMA_DETERMINISTIC: 'deterministic',
+  DB_SCHEMA: 'deterministic',
   DB_USER: null
 };
 
@@ -27,6 +27,9 @@ var DeterministicHandler = function (options) {
 
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
+    if (options.hasOwnProperty('DB_SCHEMA_DETERMINISTIC')) {
+      options.DB_SCHEMA = options.DB_SCHEMA_DETERMINISTIC;
+    }
 
     if (options.factory) {
       _this.factory = options.factory;
@@ -80,8 +83,7 @@ var DeterministicHandler = function (options) {
 
     if (!_this.db) {
       _this.destroyDb = true;
-      _this.db = Pool(extend(true, {}, options,
-          {DB_SCHEMA: options.DB_SCHEMA_DETERMINISTIC}));
+      _this.db = Pool(extend(options));
     }
 
     return _this.db;
@@ -112,25 +114,14 @@ var DeterministicHandler = function (options) {
       try {
         formatted = {
           data: {
-            mapped_pgad: result.data.mapped_pgad,
-            mapped_s1d: result.data.mapped_s1d,
-            mapped_ssd: result.data.mapped_ssd,
             pgad: result.data.pgad,
             s1d: result.data.s1d,
             ssd: result.data.ssd
           },
           metadata: {
-            region_name: result.metadata.region.name,
-            floor_pgad: result.metadata.document.floor_pgad,
-            floor_s1d: result.metadata.document.floor_s1d,
-            floor_ssd: result.metadata.document.floor_ssd,
-            max_direction_pgad: result.metadata.document.max_direction_pgad,
-            max_direction_s1d: result.metadata.document.max_direction_s1d,
-            max_direction_ssd: result.metadata.document.max_direction_pgad,
+            interpolation_method: result.metadata.document.interpolation_method,
             model_version: result.metadata.document.model_version,
-            percentile_pgad: result.metadata.document.percentile_pgad,
-            percentile_s1d: result.metadata.document.percentile_s1d,
-            percentile_ssd: result.metadata.document.percentile_ssd
+            region_name: result.metadata.region.name
           }
         };
 

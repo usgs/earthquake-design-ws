@@ -5,7 +5,6 @@ var copyFrom = require('pg-copy-streams').from,
     UrlStream = require('../../util/url-stream'),
     zlib = require('zlib');
 
-
 // variables/data
 var config = require('../../../conf/config.json'),
     db,
@@ -20,49 +19,47 @@ var connectDatabase,
     insertDocuments,
     insertData;
 
-
 /**
  * Get admin database connection.
  *
- * Sets `db` variable used by other methods below.
+ * sets 'db' variable used by other methods below.
  */
 connectDatabase = dbUtils.getAdminDb().then((adminDb) => {
   db = adminDb;
 });
 
-
 /**
  * Create database schema.
  *
- * Based on config.DB_SCHEMA_DETERMINISTIC.
+ * Based on config.DB_SCHEMA_RISK_COEFFICIENT.
  *
  * @return {Promise}
- *     promise representing schema has been created.
+ *    promise representing schema has been created.
  */
 createSchema = connectDatabase.then(() => {
   var schemaName,
       schemaUser;
 
-  schemaName = config.DB_SCHEMA_DETERMINISTIC;
+  schemaName = config.DB_SCHEMA_RISK_COEFFICIENT;
   schemaUser = config.DB_USER;
-  if (!schemaName || !schemaUser) {
-    throw new Error('deterministic schema name not configured');
+
+  if(!schemaName || !schemaUser) {
+    throw new Error('Risk Coefficient schema name not configured');
   }
 
   return dbUtils.createSchema({
     db: db,
     file: __dirname + '/./schema.sql',
-    name: config.DB_SCHEMA_DETERMINISTIC,
+    name: config.DB_SCHEMA_RISK_COEFFICIENT,
     user: config.DB_USER
   });
 });
-
 
 /**
  * Insert region metadata.
  *
  * @return {Promise<Array<String, Int>>}
- *     resolves to mapping from region name to region id.
+ *    resolves to mapping from region name to region id.
  */
 insertRegions = createSchema.then(() => {
   var promise,
@@ -103,7 +100,6 @@ insertRegions = createSchema.then(() => {
   });
 });
 
-
 /**
  * Insert document metadata.
  *
@@ -128,33 +124,15 @@ insertDocuments = insertRegions.then((regionIds) => {
         return db.query(`
           INSERT INTO document (
             region_id,
-            floor_pgad,
-            floor_s1d,
-            floor_ssd,
             interpolation_method,
-            max_direction_pgad,
-            max_direction_s1d,
-            max_direction_ssd,
             model_version,
-            name,
-            percentile_pgad,
-            percentile_s1d,
-            percentile_ssd
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+            name
+          ) VALUES ($1, $2, $3, $4)
         `, [
           regionId,
-          doc.floor_pgad,
-          doc.floor_s1d,
-          doc.floor_ssd,
           doc.interpolation_method,
-          doc.max_direction_pgad,
-          doc.max_direction_s1d,
-          doc.max_direction_ssd,
           doc.model_version,
-          doc.name,
-          doc.percentile_pgad,
-          doc.percentile_s1d,
-          doc.percentile_ssd
+          doc.name
         ]);
       });
     });
@@ -187,9 +165,8 @@ insertData = insertRegions.then((regionIds) => {
           CREATE TABLE temp_region_data (
             latitude NUMERIC NOT NULL,
             longitude NUMERIC NOT NULL,
-            pgad NUMERIC NOT NULL,
-            s1d NUMERIC NOT NULL,
-            ssd NUMERIC NOT NULL
+            cr1 NUMERIC NOT NULL,
+            crs NUMERIC NOT NULL
           )
         `);
       }).then(() => {
@@ -206,7 +183,7 @@ insertData = insertRegions.then((regionIds) => {
 
           stream = db.query(copyFrom(`
               COPY temp_region_data
-              (latitude, longitude, pgad, s1d, ssd)
+              (latitude, longitude, cr1, crs)
               FROM STDIN
               WITH CSV HEADER
           `));
@@ -233,17 +210,15 @@ insertData = insertRegions.then((regionIds) => {
             region_id,
             latitude,
             longitude,
-            pgad,
-            s1d,
-            ssd
+            cr1,
+            crs
           ) (
             SELECT
               $1,
               latitude,
               longitude,
-              pgad,
-              s1d,
-              ssd
+              cr1,
+              crs
               FROM temp_region_data
           )
         `, [regionIds[region.name]]);

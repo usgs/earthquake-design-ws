@@ -66,9 +66,9 @@ _QUERY_DATA = `
     region_id,
     latitude,
     longitude,
-    mapped_pga,
-    mapped_s1,
-    mapped_ss
+    pga,
+    s1,
+    ss
   FROM
     data
   WHERE
@@ -277,7 +277,7 @@ var ProbabilisticFactory = function (options) {
   /**
    * @param rows {Array}
    *     An ordered array of results from the database. Contains
-   *     latitude/longitude/mapped_X properties for each matching grid point.
+   *     latitude/longitude/valueX properties for each matching grid point.
    * @param inputs {Object}
    *     An object containing `latitude` and `longitude` properties identifying
    *     the location of interest.

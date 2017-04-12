@@ -18,8 +18,8 @@ _MOCK_DB = {
         region_id: 1,
         latitude: 35,
         longitude: -105,
-        mapped_cr1: 1.0,
-        mapped_crs: 1.0
+        cr1: 1.0,
+        crs: 1.0
       }]
     };
 
@@ -32,7 +32,7 @@ _DEFAULTS = {
 };
 
 
-var RiskTargetingCoefficientFactory = function (options) {
+var RiskCoefficientFactory = function (options) {
   var _this,
       _initialize;
 
@@ -57,9 +57,7 @@ var RiskTargetingCoefficientFactory = function (options) {
 
 
   /**
-   * [getRiskTargetingData description]
-   *
-   * @param  {Object} inputs
+   * @param inputs {Object}
    *         {
    *           'gridSpacing': grid spacing for region {Number},
    *           'latitude': latitude for refrence point {Number},
@@ -70,7 +68,7 @@ var RiskTargetingCoefficientFactory = function (options) {
    * @return {Object}
    *     An object containing cr1 and crs properties
    */
-  _this.getRiskTargetingData = function (inputs) {
+  _this.getRiskCoefficientData = function (inputs) {
     var latitude,
         longitude;
 
@@ -117,7 +115,7 @@ var RiskTargetingCoefficientFactory = function (options) {
         'AND    latitude  < ($2::Numeric + $4::Numeric) ' +
         'AND    latitude  > ($2::Numeric - $4::Numeric) ' +
         'AND    longitude < ($3::Numeric + $4::Numeric) ' +
-        'AND    longitude > ($3::Numeric - $4::Numeric)', 
+        'AND    longitude > ($3::Numeric - $4::Numeric)',
       [
         region,
         latitude,
@@ -138,4 +136,4 @@ var RiskTargetingCoefficientFactory = function (options) {
 };
 
 
-module.exports = RiskTargetingCoefficientFactory;
+module.exports = RiskCoefficientFactory;

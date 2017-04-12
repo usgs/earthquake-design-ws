@@ -56,5 +56,17 @@ module.exports = [
     name: 'DB_SCHEMA_DETERMINISTIC',
     message: 'Database schema for deterministic data',
     default: 'deterministic'
+  },
+  {
+    type: 'input',
+    name: 'DB_SCHEMA_RISK_COEFFICIENT',
+    message: 'Database schema for risk coefficient data',
+    default: 'risk_coefficient'
+  },
+  {
+    type: 'input',
+    name: 'DB_SCHEMA_PROBABILISTIC',
+    message: 'Database schema for probabilistic data',
+    default: 'probabilistic'
   }
 ];

@@ -32,12 +32,9 @@ _RESULT = {
     'region_id': 4,
     'latitude': 35,
     'longitude': -90,
-    'mapped_pgad': 0.2167,
-    'mapped_s1d': 0.1343,
-    'mapped_ssd': 0.4474,
-    'pgad': 0.5,
-    's1d': 0.6,
-    'ssd': 1.5
+    'pgad': 0.2167,
+    's1d': 0.1343,
+    'ssd': 0.4474
   },
   'metadata': {
     'region': {
@@ -52,17 +49,8 @@ _RESULT = {
     'document': {
       'id': 3,
       'region_id': 4,
-      'floor_pgad': 0.5,
-      'floor_s1d': 0.6,
-      'floor_ssd': 1.5,
       'interpolation_method': 'linear',
-      'max_direction_pgad': 1,
-      'max_direction_s1d': 1.3,
-      'max_direction_ssd': 1.1,
       'model_version': 'v3.1.x',
-      'percentile_pgad': 1.8,
-      'percentile_s1d': 1.8,
-      'percentile_ssd': 1.8,
       'name': 'ASCE41-13'
     }
   }
@@ -126,8 +114,58 @@ describe('deterministic-handler', () => {
     });
   });
 
-  describe('get', () => {
+  describe('formatResult', () => {
+    var handler;
 
+    afterEach(() => {
+      handler.destroy();
+      handler = null;
+    });
+
+    beforeEach(() => {
+      handler = DeterministicHandler({factory: _FACTORY});
+    });
+
+
+    it('resolves with object with appropriate structure', (done) => {
+      var formatted;
+
+      formatted = handler.formatResult(_RESULT);
+      expect(formatted).to.be.instanceof(Promise);
+
+      formatted.then((result) => {
+        var data,
+            metadata;
+
+        expect(result.hasOwnProperty('data')).to.be.true;
+        expect(result.hasOwnProperty('metadata')).to.be.true;
+
+        data = result.data;
+        metadata = result.metadata;
+
+        expect(data.hasOwnProperty('pgad')).to.be.true;
+        expect(data.hasOwnProperty('s1d')).to.be.true;
+        expect(data.hasOwnProperty('ssd')).to.be.true;
+
+        expect(metadata.hasOwnProperty('interpolation_method')).to.be.true;
+        expect(metadata.hasOwnProperty('model_version')).to.be.true;
+        expect(metadata.hasOwnProperty('region_name')).to.be.true;
+      }).catch((err) => {
+        return err;
+      }).then(done);
+    });
+
+    it('rejects if input object is invalid', (done) => {
+      handler.formatResult({}).then(() => {
+        done(new Error('Result was invalid and should have rejected, ' +
+            'but instead resolved.'));
+      }).catch((/*err*/) => {
+        done();
+      });
+    });
+  });
+
+  describe('get', () => {
     it('checks params and defers to factory', (done) => {
       var handler,
           spy,
