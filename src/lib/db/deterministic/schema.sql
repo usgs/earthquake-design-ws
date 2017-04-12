@@ -9,11 +9,10 @@ CREATE TABLE region (
   name VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE data (
   id SERIAL NOT NULL PRIMARY KEY,
-
   region_id INTEGER NOT NULL REFERENCES region(id),
+
   latitude NUMERIC NOT NULL,
   longitude NUMERIC NOT NULL,
   pgad NUMERIC NOT NULL,
@@ -21,21 +20,11 @@ CREATE TABLE data (
   ssd NUMERIC NOT NULL
 );
 
-
 CREATE TABLE document (
   id SERIAL NOT NULL PRIMARY KEY,
-
   region_id INTEGER NOT NULL REFERENCES region(id),
-  floor_pgad NUMERIC NOT NULL,
-  floor_s1d NUMERIC NOT NULL,
-  floor_ssd NUMERIC NOT NULL,
+
   interpolation_method VARCHAR(255) NOT NULL,
-  max_direction_pgad NUMERIC NOT NULL,
-  max_direction_s1d NUMERIC NOT NULL,
-  max_direction_ssd NUMERIC NOT NULL,
   model_version VARCHAR(255) NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  percentile_pgad NUMERIC NOT NULL,
-  percentile_s1d NUMERIC NOT NULL,
-  percentile_ssd NUMERIC NOT NULL
+  name VARCHAR(255) NOT NULL
 );
