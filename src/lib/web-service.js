@@ -208,9 +208,10 @@ var WebService = function (options) {
       ip = request.ip;
     }
 
-    length = JSON.stringify(payload).length;
+    length = payload ? JSON.stringify(payload).length : '-';
     method = request.method;
     path = request.path + '?' + require('querystring').stringify(request.query);
+    status = status || '-';
     timestamp = (new Date()).toUTCString();
     userAgent = userAgent || '-';
 
@@ -240,7 +241,8 @@ var WebService = function (options) {
 
     status = (err && err.status) ? err.status : 500;
 
-    _this.log(request, response, payload, err.status );
+    _this.log(request, response, payload, status);
+
     if (err && err.stack) {
       process.stderr.write(err.stack + '\n');
     }
