@@ -177,7 +177,8 @@ var GriddedDataFactory = function (options) {
     var parameters;
 
     inputs = inputs || {};
-    inputs.region = inputs.region || {};
+    metadata = metadata || {};
+    metadata.region = metadata.region || {};
 
     parameters = [
       parseInt(metadata.region.id, 10),        // _QUERY_DATA::$1
