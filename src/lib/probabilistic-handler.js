@@ -1,7 +1,7 @@
 'use strict';
 
 
-var ProbabilisticFactory = require('./probabilistic-factory'),
+var ProbabilisticFactory = require('./gridded-data-factory'),
     extend = require('extend'),
     Pool = require('./db/pool');
 
@@ -134,7 +134,7 @@ var ProbabilisticHandler = function (options) {
 
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.factory.getProbabilisticData(params);
+      return _this.factory.get(params);
     }).then((result) => {
       return _this.formatResult(result);
     });

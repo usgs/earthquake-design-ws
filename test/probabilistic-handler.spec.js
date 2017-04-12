@@ -21,7 +21,7 @@ _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
-  getProbabilisticData: () => {
+  get: () => {
     return Promise.resolve(_RESULT);
   }
 };
@@ -176,7 +176,7 @@ describe('probabilistic-handler', () => {
       stub = sinon.stub(handler, 'checkParams', () => {
         return Promise.resolve(_INPUT);
       });
-      spy = sinon.spy(handler.factory, 'getProbabilisticData');
+      spy = sinon.spy(handler.factory, 'get');
 
       handler.get(_INPUT).then(() => {
         expect(stub.callCount).to.equal(1);
