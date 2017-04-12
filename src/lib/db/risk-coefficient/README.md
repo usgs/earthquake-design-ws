@@ -1,4 +1,4 @@
-# deterministic database schema
+# risk-coefficient database schema
 
 ## Tables
 
@@ -14,7 +14,7 @@
 
 - `region`
 
-  Metadata for a grid of Risk Targeting Coefficient values.
+  Metadata for a grid of Risk Coefficient values.
 
   A region may be referenced by multiple design documents.
 
@@ -35,6 +35,6 @@
 
   `npm run postinstall`
 
-- run the deterministic data loader
+- run the risk-coefficient data loader
 
   `node src/lib/db/risk-coefficient/load_risk_coefficient.js`
