@@ -308,7 +308,18 @@ var WebService = function (options) {
     app.get(_mountPath + '/:method', _this.get);
 
     // rest fall through to htdocs as static content.
-    app.use(_mountPath, express.static(_docRoot));
+    app.use(_mountPath, express.static(_docRoot, {fallthrough: true}));
+
+    // Final handler for 404 (no handler, no static file)
+    app.get(_mountPath + '/:error', (req, res/*, next*/) => {
+      var payload;
+
+      payload = `Cannot GET ${req.path}`;
+      _this.log(req, res, payload, 404);
+      res.status(404);
+      res.send(payload);
+      res.end();
+    });
 
     app.listen(_port, function () {
       process.stderr.write('WebService listening ' +
