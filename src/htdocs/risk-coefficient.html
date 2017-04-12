@@ -15,7 +15,8 @@
   <header>
     <h1>Risk Coefficient Endpoint Documentation</h1>
     <p>
-      TODO
+      This endpoint returns mapped risk coefficients at short periods and
+      at 1 second periods.
     </p>
   </header>
 
@@ -97,15 +98,14 @@
         <dt id="response-data">data</dt>
         <dd>
           <dl>
-
             <dt id="response-data-cr1">cr1</dt>
             <dd>
-              TODO
+              Mapped risk coefficient at a period of 1 second.
             </dd>
 
             <dt id="response-data-crs">crs</dt>
             <dd>
-              TODO
+              Mapped risk coefficient at short periods.
             </dd>
           </dl>
         </dd>
@@ -158,8 +158,8 @@
   },
   "response": {
     "data": {
-      "cr1": 0.53527123,
-      "crs": 1.35112175
+      "cr1": 0.988,
+      "crs": 0.955
     },
     "metadata": {
       "interpolation_method": "linear",
