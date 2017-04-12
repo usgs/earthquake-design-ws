@@ -4,6 +4,7 @@
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     DeterministicHandler = require('./deterministic-handler'),
+    ProbabilisticHander = require('./probabilistic-handler'),
     RiskCoefficientHandler = require('./risk-coefficient-handler'),
 
     express = require('express'),
@@ -66,6 +67,7 @@ var WebService = function (options) {
         'asce41-13.json': ASCE41_13Handler(options),
 
         'deterministic.json': DeterministicHandler(options),
+        'probabilistic.json': ProbabilisticHander(options),
         'risk-coefficient.json': RiskCoefficientHandler(options)
       };
     }
