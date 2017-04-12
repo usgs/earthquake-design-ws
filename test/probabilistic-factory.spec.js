@@ -2,7 +2,7 @@
 'use strict';
 
 
-var RiskCoefficientFactory = require('../src/lib/risk-coefficient-factory'),
+var ProbabilisticFactory = require('../src/lib/probabilistic-factory'),
     expect = require('chai').expect,
     NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
@@ -18,38 +18,38 @@ describe('probabilistic-factory', () => {
   });
 
   beforeEach(() => {
-    factory = RiskCoefficientFactory();
+    factory = ProbabilisticFactory();
   });
 
 
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof RiskCoefficientFactory).to.equal('function');
+      expect(typeof ProbabilisticFactory).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(RiskCoefficientFactory).to.not.throw(Error);
+      expect(ProbabilisticFactory).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
       var destroyTest;
 
       destroyTest = function () {
-        RiskCoefficientFactory().destroy();
+        ProbabilisticFactory().destroy();
       };
 
       expect(destroyTest).to.not.throw(Error);
     });
   });
 
-  describe('getRiskCoefficientData', () => {
+  describe('getProbabilisticData', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
 
       sinon.spy(factory, 'getMetadata');
       sinon.spy(factory, 'getMappedData');
 
-      result = factory.getRiskCoefficientData({
+      result = factory.getProbabilisticData({
         latitude: 0,
         longitude: 1
       });
@@ -83,9 +83,8 @@ describe('probabilistic-factory', () => {
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
-
         expect(factory.db.query.calledWith(
-            RiskCoefficientFactory.QUERY_DOCUMENT, [1, 'foo'])).to.be.true;
+            ProbabilisticFactory.QUERY_DOCUMENT, [1, 'foo'])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -130,7 +129,7 @@ describe('probabilistic-factory', () => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.interpolate.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            RiskCoefficientFactory.QUERY_DATA, [1, 0, 0, 1])).to.be.true;
+            ProbabilisticFactory.QUERY_DATA, [1, 0, 0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -194,7 +193,7 @@ describe('probabilistic-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            RiskCoefficientFactory.QUERY_REGION, [0, 1])).to.be.true;
+            ProbabilisticFactory.QUERY_REGION, [0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
