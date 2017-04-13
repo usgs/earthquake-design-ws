@@ -9,11 +9,6 @@ var _DEFAULTS,
     _METADATA,
     _REGIONS;
 
-_DEFAULTS = {
-  'metadata': _METADATA,
-  'regions': _REGIONS
-};
-
 _METADATA = {
   'ASCE 41-13': [
     {
@@ -91,6 +86,12 @@ _REGIONS = [
   }
 ];
 
+_DEFAULTS = {
+  'metadata': _METADATA,
+  'regions': _REGIONS
+};
+
+
 var MetadataFactory = function (options) {
   var _this,
       _initialize;
@@ -117,7 +118,7 @@ var MetadataFactory = function (options) {
 
 
   /**
-   * Get metadata related to inputs of referenceDocument,
+   * Get metadata associated with inputs of referenceDocument,
    * latitude, and longitude
    *
    * @param inputs {Object}
@@ -130,18 +131,58 @@ var MetadataFactory = function (options) {
    *     error occurs.
    */
   _this.getMetadata = function (inputs) {
-    var referenceDocument,
-        region;
+    var region;
 
-    referenceDocument = inputs.referenceDocument;
-
-    return _this.getRegion(inputs).then((result) => {
-      region = result;
-      return _this.getData(referenceDocument, region);
+    // validate inputs
+    return _this.checkParams(inputs).then(() => {
+      return _this.getRegion(inputs.latitude, inputs.longitude);
     }).then((result) => {
-      return {
-        'metadata': result
-      };
+      region = result;
+      return _this.getData(inputs.referenceDocument, region);
+    });
+  };
+
+  /**
+   * Check input parameters to make sure latitude, longitude, and
+   * referenceDocument are all provided
+   *
+   * @param inputs {Object}
+   *     inputs.latitude {Number}
+   *     inputs.longitude {Number}
+   *     inputs.referenceDocument {String}
+   *
+   * @return {Promise}
+   *    A promise that resolves with inputs or rejects if an
+   *    error occurs.
+   */
+  _this.checkParams = function (inputs) {
+    var latitude,
+        longitude,
+        referenceDocument;
+
+    return new Promise((resolve, reject) => {
+      try {
+        latitude = inputs.latitude;
+        longitude = inputs.longitude;
+        referenceDocument = inputs.referenceDocument;
+
+        if (typeof latitude === 'undefined' || latitude === null) {
+          throw new Error('"latitude" is required to determine metadata.');
+        }
+
+        if (typeof longitude === 'undefined' || longitude === null) {
+          throw new Error('"longitude" is required to determine metadata.');
+        }
+
+        if (typeof referenceDocument === 'undefined' ||
+            referenceDocument === null) {
+          throw new Error('"referenceDocument" is required to determine metadata.');
+        }
+
+        return resolve(inputs);
+      } catch (e) {
+        return reject(e);
+      }
     });
   };
 
@@ -149,21 +190,21 @@ var MetadataFactory = function (options) {
     var metadata,
         result;
 
-    // determine metadata set based on referenceDocument
-    metadata = _this.metadata[referenceDocument];
-
     return new Promise((resolve, reject) => {
+      // determine metadata set based on referenceDocument
       try {
+        metadata = _this.metadata[referenceDocument];
+
         // loop through metadata objects
         for (var i = 0; i < metadata[i].length; i++) {
-          if (metadata[i].indexOf(region) !== -1) {
+          if (metadata[i].regions.indexOf(region) !== -1) {
             result = metadata[i].data;
           }
         }
         // return metadata
-        resolve(result);
+        return resolve(result);
       } catch (err) {
-        reject(err);
+        return reject(err);
       }
     });
   };
@@ -179,29 +220,23 @@ var MetadataFactory = function (options) {
    * @return {String}
    *     The name of the region that contains the lat/lng reference point
    */
-  _this.getRegion = function (inputs) {
-    var latitude,
-        longitude,
-        region;
+  _this.getRegion = function (latitude, longitude) {
+    var region;
 
     return new Promise((resolve, reject) => {
-      // check that these values exist or will there be a handler that does this?
-      latitude = inputs.latitude;
-      longitude = inputs.longitude;
-
       // loop over regions and find the region that matches the input lat/lng
-      for (var i = 0; i < _this.region.length; i++) {
-        region = _this.region[i];
+      for (var i = 0; i < _this.regions.length; i++) {
+        region = _this.regions[i];
 
         if (latitude  <= region.max_latitude  &&
             latitude  >= region.min_latitude  &&
             longitude <= region.max_longitude &&
             longitude >= region.min_longitude) {
-          resolve(region.name);
+          return resolve(region.name);
         }
       }
 
-      reject(new Error('No metadata exists.'));
+      return reject(new Error('No metadata exists.'));
     });
   };
 
