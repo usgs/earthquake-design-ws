@@ -1,7 +1,8 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    NumberUtils = require('./util/number-utils').instance;
 
 
 var _DEFAULTS,
@@ -22,10 +23,10 @@ _METADATA = {
         'PRVI'
       ],
       'data': {
+        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LOG,
         'floor_pgad': 0.5,
         'floor_s1d': 0.6,
         'floor_ssd': 1.5,
-        'interpolation_method': 'linear',
         'max_direction_pgad': 1.0,
         'max_direction_s1d': 1.3,
         'max_direction_ssd': 1.1,
@@ -33,6 +34,7 @@ _METADATA = {
         'percentile_pgad': 1.8,
         'percentile_s1d': 1.8,
         'percentile_ssd': 1.8,
+        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
       }
     },
     {
@@ -40,10 +42,10 @@ _METADATA = {
         'HI'
       ],
       'data': {
+        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
         'floor_pgad': 0.5,
         'floor_s1d': 0.6,
         'floor_ssd': 1.5,
-        'interpolation_method': 'linear',
         'max_direction_pga': 1.0,
         'max_direction_s1': 1.0,
         'max_direction_ss': 1.0,
@@ -51,6 +53,7 @@ _METADATA = {
         'percentile_pga': 1.8,
         'percentile_s1': 1.8,
         'percentile_ss': 1.8,
+        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
       }
     }
   ]
