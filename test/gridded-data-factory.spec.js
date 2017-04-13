@@ -2,13 +2,13 @@
 'use strict';
 
 
-var DeterministicFactory = require('../src/lib/deterministic-factory'),
+var GriddedDataFactory = require('../src/lib/gridded-data-factory'),
     expect = require('chai').expect,
     NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
 
 
-describe('deterministic-factory', () => {
+describe('gridded-data-factory', () => {
   var factory;
 
 
@@ -18,88 +18,55 @@ describe('deterministic-factory', () => {
   });
 
   beforeEach(() => {
-    factory = DeterministicFactory();
+    factory = GriddedDataFactory();
   });
 
 
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof DeterministicFactory).to.equal('function');
+      expect(typeof GriddedDataFactory).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(DeterministicFactory).to.not.throw(Error);
+      expect(GriddedDataFactory).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
-      var destroyTest;
-
-      destroyTest = function () {
-        DeterministicFactory().destroy();
-      };
-
-      expect(destroyTest).to.not.throw(Error);
+      expect(() => { GriddedDataFactory().destroy(); }).to.not.throw(Error);
     });
   });
 
-  describe('getDeterministicData', () => {
+  describe('get', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
 
-      sinon.spy(factory, 'getMetadata');
-      sinon.spy(factory, 'getMappedData');
+      sinon.stub(factory, 'getMetadata', () => Promise.resolve({}));
+      sinon.stub(factory, 'getData', () => Promise.resolve({}));
 
-      result = factory.getDeterministicData({
+      result = factory.get({
         latitude: 0,
         longitude: 1
       });
 
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
+        expect(factory.getData.callCount).to.equal(1);
         expect(factory.getMetadata.callCount).to.equal(1);
-        expect(factory.getMappedData.callCount).to.equal(1);
       }).catch((err) => {
         return err;
       }).then((err) => {
         try {
+          factory.getData.restore();
           factory.getMetadata.restore();
-          factory.getMappedData.restore();
         } catch (e) {
-          err = (err ? [err, e] : e);
+          err = err || e;
         }
-
         done(err);
       });
     });
   });
 
-  describe('getDocument', () => {
-    it('returns a promise and queries the database', (done) => {
-      var result;
-
-      sinon.spy(factory.db, 'query');
-      result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
-
-      expect(result).to.be.instanceof(Promise);
-      result.then(() => {
-        expect(factory.db.query.callCount).to.equal(1);
-        expect(factory.db.query.calledWith(
-            DeterministicFactory.QUERY_DOCUMENT, [1, 'foo'])).to.be.true;
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
-        try {
-          factory.db.query.restore();
-        } catch (e) {
-          err = (err ? [err, e] : e);
-        }
-
-        done(err);
-      });
-    });
-  });
-
-  describe('getMappedData', () => {
+  describe('getData', () => {
     it('returns a promise and queries the database', (done) => {
       var inputs,
           metadata,
@@ -121,15 +88,15 @@ describe('deterministic-factory', () => {
       };
 
       sinon.spy(factory.db, 'query');
-      sinon.spy(factory, 'interpolate');
-      result = factory.getMappedData(metadata, inputs);
+      sinon.stub(factory, 'interpolate', () => {return {};});
+      result = factory.getData(metadata, inputs);
 
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.interpolate.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            DeterministicFactory.QUERY_DATA, [1, 0, 0, 1])).to.be.true;
+            factory.queryData, [1, 0, 0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -137,9 +104,33 @@ describe('deterministic-factory', () => {
           factory.db.query.restore();
           factory.interpolate.restore();
         } catch (e) {
-          err = (err ? [err, e] : e);
+          err = err || e;
         }
+        done(err);
+      });
+    });
+  });
 
+  describe('getDocument', () => {
+    it('returns a promise and queries the database', (done) => {
+      var result;
+
+      sinon.spy(factory.db, 'query');
+      result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
+
+      expect(result).to.be.instanceof(Promise);
+      result.then(() => {
+        expect(factory.db.query.callCount).to.equal(1);
+        expect(factory.db.query.calledWith(
+            factory.queryDocument, [1, 'foo'])).to.be.true;
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        try {
+          factory.db.query.restore();
+        } catch (e) {
+          err = err || e;
+        }
         done(err);
       });
     });
@@ -157,7 +148,7 @@ describe('deterministic-factory', () => {
       };
 
       sinon.spy(factory, 'getRegion');
-      sinon.spy(factory, 'getDocument');
+      sinon.stub(factory, 'getDocument', () => Promise.resolve({}));
       result = factory.getMetadata(inputs);
 
       expect(result).to.be.instanceof(Promise);
@@ -174,9 +165,8 @@ describe('deterministic-factory', () => {
           factory.getRegion.restore();
           factory.getDocument.restore();
         } catch (e) {
-          err = (err ? [err, e] : e);
+          err = err || e;
         }
-
         done(err);
       });
     });
@@ -193,16 +183,15 @@ describe('deterministic-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            DeterministicFactory.QUERY_REGION, [0, 1])).to.be.true;
+            factory.queryRegion, [0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
         try {
           factory.db.query.restore();
         } catch (e) {
-          err = (err ? [err, e] : e);
+          err = err || e;
         }
-
         done(err);
       });
     });

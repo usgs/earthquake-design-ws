@@ -1,7 +1,7 @@
 'use strict';
 
 
-var RiskTargetingCoefficientFactory = require('./risk-targeting-coefficient-factory'),
+var GriddedDataFactory = require('./gridded-data-factory'),
     extend = require('extend'),
     Pool = require('./db/pool');
 
@@ -13,12 +13,12 @@ _DEFAULTS = {
   DB_HOST: 'localhost',
   DB_PASSWORD: null,
   DB_PORT: 5432,
-  DB_SCHEMA_DETERMINISTIC: 'deterministic',
+  DB_SCHEMA: 'public',
   DB_USER: null
 };
 
 
-var RiskTargetingCoefficientHandler = function (options) {
+var GriddedDataHandler = function (options) {
   var _this,
       _initialize;
 
@@ -32,7 +32,7 @@ var RiskTargetingCoefficientHandler = function (options) {
       _this.factory = options.factory;
     } else {
       _this.destroyFactory = true;
-      _this.factory = RiskTargetingCoefficientFactory({
+      _this.factory = GriddedDataFactory({
         db: _this.createDbPool(options)
       });
     }
@@ -42,21 +42,15 @@ var RiskTargetingCoefficientHandler = function (options) {
   _this.checkParams = function (params) {
     var buf,
         err,
-        gridSpacing,
         latitude,
         longitude,
-        region;
+        referenceDocument;
 
     buf = [];
 
-    gridSpacing = params.gridSpacing;
     latitude = params.latitude;
     longitude = params.longitude;
-    region = params.region;
-
-    if (typeof gridSpacing === 'undefined' || gridSpacing === null) {
-      buf.push('gridSpacing');
-    }
+    referenceDocument = params.referenceDocument;
 
     if (typeof latitude === 'undefined' || latitude === null) {
       buf.push('latitude');
@@ -66,8 +60,9 @@ var RiskTargetingCoefficientHandler = function (options) {
       buf.push('longitude');
     }
 
-    if (typeof region === 'undefined' || region === null) {
-      buf.push('region');
+    if (typeof referenceDocument === 'undefined' ||
+        referenceDocument === null) {
+      buf.push('referenceDocument');
     }
 
     if (buf.length > 0) {
@@ -85,8 +80,7 @@ var RiskTargetingCoefficientHandler = function (options) {
 
     if (!_this.db) {
       _this.destroyDb = true;
-      _this.db = Pool(extend(true, {}, options,
-          {DB_SCHEMA: options.DB_SCHEMA_DETERMINISTIC}));
+      _this.db = Pool(options);
     }
 
     return _this.db;
@@ -110,17 +104,38 @@ var RiskTargetingCoefficientHandler = function (options) {
     _this = null;
   };
 
+  _this.formatData = function (result) {
+    var data;
+
+    // make a copy so we don't muck up the original
+    data = JSON.parse(JSON.stringify(result.data));
+
+    // delete stuff that is not relevant to the data
+    delete data.id;
+    delete data.latitude;
+    delete data.longitude;
+    delete data.region_id;
+
+    // return everything that is left
+    return data;
+  };
+
+  _this.formatMetadata = function (result) {
+    // pull some particular metadata off the original structure
+    return {
+      interpolation_method: result.metadata.document.interpolation_method,
+      model_version: result.metadata.document.model_version,
+      region_name: result.metadata.region.name
+    };
+  };
+
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
-      var formatted;
-
       try {
-        formatted = {
-          'cr1': result.mapped_cr,
-          'crs': result.mapped_crs
-        };
-
-        return resolve(formatted);
+        return resolve({
+          data: _this.formatData(result),
+          metadata: _this.formatMetadata(result)
+        });
       } catch (e) {
         return reject(e);
       }
@@ -129,7 +144,7 @@ var RiskTargetingCoefficientHandler = function (options) {
 
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.factory.getRiskTargetingData(params);
+      return _this.factory.get(params);
     }).then((result) => {
       return _this.formatResult(result);
     });
@@ -142,4 +157,4 @@ var RiskTargetingCoefficientHandler = function (options) {
 };
 
 
-module.exports = RiskTargetingCoefficientHandler;
+module.exports = GriddedDataHandler;

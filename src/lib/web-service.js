@@ -4,7 +4,8 @@
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     DeterministicHandler = require('./deterministic-handler'),
-    RiskTargetingCoefficientHandler = require('./risk-targeting-coefficient-handler'),
+    ProbabilisticHander = require('./probabilistic-handler'),
+    RiskCoefficientHandler = require('./risk-coefficient-handler'),
 
     express = require('express'),
     extend = require('extend');
@@ -66,7 +67,8 @@ var WebService = function (options) {
         'asce41-13.json': ASCE41_13Handler(options),
 
         'deterministic.json': DeterministicHandler(options),
-        'risk-coefficient.json': RiskTargetingCoefficientHandler(options)
+        'probabilistic.json': ProbabilisticHander(options),
+        'risk-coefficient.json': RiskCoefficientHandler(options)
       };
     }
   };
@@ -182,6 +184,40 @@ var WebService = function (options) {
     };
   };
 
+  _this.log = function (request, response, payload, status) {
+    var ip,
+        length,
+        method,
+        path,
+        timestamp,
+        userAgent;
+
+    request = request || {};
+
+    // Checked proxy-forwarded ip
+    if (typeof request.get === 'function') {
+      ip = request.get('X-Client-IP');
+      if (!ip) {
+        ip = request.get('X-Forwarded-For');
+      }
+
+      userAgent = request.get('User-Agent');
+    }
+
+    if (!ip) {
+      ip = request.ip;
+    }
+
+    length = payload ? JSON.stringify(payload).length : '-';
+    method = request.method;
+    path = request.path + '?' + require('querystring').stringify(request.query);
+    status = status || '-';
+    timestamp = (new Date()).toUTCString();
+    userAgent = userAgent || '-';
+
+    process.stdout.write(`${ip} [${timestamp}] "${method} ${path} HTTP/1.1" ${status} ${length} "${userAgent}"\n`);
+  };
+
   /**
    * Handles errors that occur in the handler. Sets the response code based on
    * `err.status` and the message based on `err.message`. If either of these
@@ -195,18 +231,24 @@ var WebService = function (options) {
    * @param next {Function}
    */
   _this.onError = function (err, request, response/*, next*/) {
-    if (request) {
-      process.stderr.write('url=' + request.originalUrl);
-    }
-    if (err && err.stack) {
-      process.stderr.write(err.stack);
-    }
+    var payload,
+        status;
 
-    response.status((err && err.status) ? err.status : 500);
-    response.json({
+    payload = {
       request: _this.getResponseMetadata(request, false),
       response: (err && err.message) ? err.message : 'internal server error'
-    });
+    };
+
+    status = (err && err.status) ? err.status : 500;
+
+    _this.log(request, response, payload, status);
+
+    if (err && err.stack) {
+      process.stderr.write(err.stack + '\n');
+    }
+
+    response.status(status);
+    response.json(payload);
   };
 
   /**
@@ -221,14 +263,20 @@ var WebService = function (options) {
    *
    */
   _this.onSuccess = function (data, request, response, next) {
+    var payload;
+
     if (data === null) {
       return next();
     }
 
-    response.json({
+    payload = {
       request: _this.getResponseMetadata(request, true),
       response: data
-    });
+    };
+
+    _this.log(request, response, payload, 200);
+
+    response.json(payload);
   };
 
   /**
@@ -264,7 +312,18 @@ var WebService = function (options) {
     app.get(_mountPath + '/:method', _this.get);
 
     // rest fall through to htdocs as static content.
-    app.use(_mountPath, express.static(_docRoot));
+    app.use(_mountPath, express.static(_docRoot, {fallthrough: true}));
+
+    // Final handler for 404 (no handler, no static file)
+    app.get(_mountPath + '/:error', (req, res/*, next*/) => {
+      var payload;
+
+      payload = `Cannot GET ${req.path}`;
+      _this.log(req, res, payload, 404);
+      res.status(404);
+      res.send(payload);
+      res.end();
+    });
 
     app.listen(_port, function () {
       process.stderr.write('WebService listening ' +
