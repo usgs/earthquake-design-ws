@@ -17,7 +17,7 @@ var DesignHazardMetadata = function (options) {
       _this.map = {
         'ASCE41-13': [
           {
-            'hazardEdition': 'E2008RII',
+            'hazardEdition': 'E2008R2',
             'hazardRegion': 'COUS0P05',
             'minLatitude': 24.6,
             'maxLatitude': 50.0,
@@ -26,7 +26,7 @@ var DesignHazardMetadata = function (options) {
             'gridSpacing': 0.05
           },
           {
-            'hazardEdition': 'E2007RI',
+            'hazardEdition': 'E2007R1',
             'hazardRegion': 'AK0P10',
             'minLatitude': 48.0,
             'maxLatitude': 72.0,
@@ -35,7 +35,16 @@ var DesignHazardMetadata = function (options) {
             'gridSpacing': 0.10
           },
           {
-            'hazardEdition': 'E1998RI',
+            'hazardEdition': 'E2003R1',
+            'hazardRegion': 'PRVI0P01',
+            'minLatitude': 17.5,
+            'maxLatitude': 19.0,
+            'minLongitude': -67.5,
+            'maxLongitude': -64.5,
+            'gridSpacing': 0.01
+          },
+          {
+            'hazardEdition': 'E1998R1',
             'hazardRegion': 'HI0P02',
             'minLatitude': 18.0,
             'maxLatitude': 23.0,
@@ -43,7 +52,6 @@ var DesignHazardMetadata = function (options) {
             'maxLongitude': -65.0,
             'gridSpacing': 0.02
           }
-          // TODO :: Update with Guam, AmSam, and PRVI
         ]
       };
     }
@@ -88,7 +96,7 @@ var DesignHazardMetadata = function (options) {
    * Written as a promise so use need not change if/when this metadata is
    * fetched async from some web service metadata endpoint.
    *
-   * @param params.designEdition {String}
+   * @param params.referenceDocument {String}
    *     Design edition identifier.
    * @param params.latitude {Number}
    *     Decimal degrees latitude
@@ -100,7 +108,7 @@ var DesignHazardMetadata = function (options) {
    *     service metadata or will reject if an error occurs.
    */
   _this.getHazardMetadata = function (params) {
-    var designEdition,
+    var referenceDocument,
         i,
         latitude,
         longitude,
@@ -108,16 +116,16 @@ var DesignHazardMetadata = function (options) {
         regions;
 
     params = params || {};
-    designEdition = params.designEdition;
+    referenceDocument = params.referenceDocument;
     latitude = params.latitude;
     longitude = params.longitude;
 
-    if (!_this.map.hasOwnProperty(designEdition)) {
+    if (!_this.map.hasOwnProperty(referenceDocument)) {
       return Promise.reject(new Error('No mapping available for ' +
-          designEdition));
+          referenceDocument));
     }
 
-    regions = _this.map[designEdition];
+    regions = _this.map[referenceDocument];
 
     for (i = 0; i < regions.length; i++) {
       region = regions[i];
