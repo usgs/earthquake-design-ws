@@ -128,33 +128,15 @@ insertDocuments = insertRegions.then((regionIds) => {
         return db.query(`
           INSERT INTO document (
             region_id,
-            floor_pgad,
-            floor_s1d,
-            floor_ssd,
             interpolation_method,
-            max_direction_pgad,
-            max_direction_s1d,
-            max_direction_ssd,
             model_version,
-            name,
-            percentile_pgad,
-            percentile_s1d,
-            percentile_ssd
-          ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+            name
+          ) VALUES ($1, $2, $3, $4)
         `, [
           regionId,
-          doc.floor_pgad,
-          doc.floor_s1d,
-          doc.floor_ssd,
           doc.interpolation_method,
-          doc.max_direction_pgad,
-          doc.max_direction_s1d,
-          doc.max_direction_ssd,
           doc.model_version,
-          doc.name,
-          doc.percentile_pgad,
-          doc.percentile_s1d,
-          doc.percentile_ssd
+          doc.name
         ]);
       });
     });
