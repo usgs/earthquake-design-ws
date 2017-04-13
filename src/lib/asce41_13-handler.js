@@ -1,6 +1,7 @@
 'use strict';
 
 var ASCE41_13Factory = require('./asce41_13-factory'),
+    NumberUtils = require('./util/number-utils').instance,
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
@@ -106,9 +107,43 @@ var ASCE41_13Handler = function (options) {
   };
 
   _this.formatResult = function (result) {
+    var formatted;
+
     return new Promise((resolve, reject) => {
       try {
-        return resolve(result);
+        formatted = [];
+
+        result.data.forEach((hazardLevel) => {
+          var data;
+
+          data = {};
+
+          Object.keys(hazardLevel).forEach((key) => {
+            var value;
+
+            if (key === 'hazardLevel' || key === 'customProbability') {
+              value = hazardLevel[key];
+            } else if (key === 'horizontalSpectrum') {
+              value = hazardLevel[key].map((v) => {
+                return [
+                  NumberUtils.round(v[0]),
+                  NumberUtils.round(v[1])
+                ];
+              });
+            } else {
+              value = NumberUtils.round(hazardLevel[key]);
+            }
+
+            data[key] = value;
+          });
+
+          formatted.push(data);
+        });
+
+        resolve({
+          data: formatted,
+          metadata: result.metadata
+        });
       } catch (err) {
         return reject(err);
       }
