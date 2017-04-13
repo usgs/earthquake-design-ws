@@ -1,7 +1,8 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    NumberUtils = require('./util/number-utils').instance;
 
 
 var _DEFAULTS;
@@ -50,9 +51,10 @@ var ASCE41_13Factory = function (options) {
       }
     };
 
-    _this.probabilisticHazardFactory = options.probabilisticHazardFactory;
+    _this.uhtHazardCurveFactory = options.uhtHazardCurveFactory;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
     _this.spectraFactory = options.spectraFactory;
+    _this.targetGroundMotion = options.targetGroundMotion;
   };
 
 
@@ -225,41 +227,76 @@ var ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getCustomProbabilityDesignData = function (inputs) {
-    var result;
+    var fa,
+        fv,
+        horizontalSpectrum,
+        metadata,
+        s1,
+        ss,
+        sx1,
+        sxs;
 
     inputs = inputs || {};
 
-    result = {
-      hazardLevel: 'Custom',
-      customProbability: inputs.customProbability,
-      ss: null,
-      fa: null,
-      sxs: null,
-      s1: null,
-      fv: null,
-      sx1: null,
-      horizontalSpectrum: null
-    };
+    return _this.computeMetadata(inputs).then((result) => {
+      metadata = result;
+      return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
+    }).then((result) => {
+      var groundMotions;
 
-    return _this.probabilisticHazardFactory.getProbabilisticData(inputs)
-      .then((output) => {
-        result.ss = output.ss,
-        result.s1 = output.s1;
+      // Find target (mapped) ground motions for Ss and S1 from the curves and
+      // the specified probability of exceedance
+      groundMotions = NumberUtils.spatialInterpolate(result.SA0P2.map((ssCurve, index) => {
+        var s1Curve;
 
-        return _this.siteAmplificationFactory.getSiteAmplificationData(
-          extend({}, result, inputs));
-      }).then((output) => {
-        result.fa = output.fa;
-        result.fv = output.fv;
-        result.sxs = result.ss * result.fa;
-        result.sx1 = result.s1 * result.fv;
+        s1Curve = result.SA1P0[index];
 
-        return _this.spectraFactory.getSpectrum(result.sxs, result.sx1);
-      }).then((output) => {
-        result.horizontalSpectrum = output;
+        return {
+          latitude: ssCurve.latitude,
+          longitude: ssCurve.longitude,
+          // TODO :: Fix this for HI which is interpolated in linear space...
+          ss: _this.targetGroundMotion.getTargetedGroundMotion(
+              ssCurve.data, inputs.customProbability),
+          s1: _this.targetGroundMotion.getTargetedGroundMotion(
+              s1Curve.data, inputs.customProbability)
+        };
+      }), inputs.latitude, inputs.longitude);
 
-        return result;
+      //   groundMotions
+      ss = groundMotions.ss * metadata.max_direction_ss;
+      s1 = groundMotions.s1 * metadata.max_direction_s1;
+
+      return _this.siteAmplificationFactory.getSiteAmplificationData({
+        referenceDocument: inputs.referenceDocument,
+        siteClass: inputs.siteClass,
+        ss: ss,
+        s1: s1
       });
+    }).then((result) => {
+      fa = result.fa;
+      fv = result.fv;
+      sxs = ss * fa;
+      sx1 = s1 * fv;
+
+      return _this.spectraFactory.getSpectrum(sxs, sx1);
+    }).then((result) => {
+      horizontalSpectrum = result;
+
+      return {
+        data: [{
+          'hazardLevel': 'Custom',
+          'customProbability': inputs.customProbability,
+          'ss': ss,
+          'fa': fa,
+          'sxs': sxs,
+          's1': s1,
+          'fv': fv,
+          'sx1': sx1,
+          'horizontalSpectrum': horizontalSpectrum
+        }],
+        metadata: metadata
+      };
+    });
   };
 
   /**
