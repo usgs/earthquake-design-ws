@@ -233,9 +233,19 @@ var UHTHazardCurveFactory = function (options) {
     }).then((parsed) => {
       var curves;
 
-      // merge arrays of curves into one array
-      curves = [];
-      return curves.concat.apply(curves, parsed);
+      // Build an object of curve arrays indexed by spectral period.
+      // Each curve array is ordered top-left to bottom-right, typewriter style
+      curves = {};
+      parsed.forEach((corner) => {
+        corner.forEach((curve) => {
+          if (!curves.hasOwnProperty(curve.spectralPeriod)) {
+            curves[curve.spectralPeriod] = [];
+          }
+          curves[curve.spectralPeriod].push(curve);
+        });
+      });
+
+      return curves;
     });
   };
 
@@ -261,7 +271,7 @@ var UHTHazardCurveFactory = function (options) {
         querystring.escape(options.hazardRegion));
     hazardUrl = hazardUrl.replace('{latitude}',
         querystring.escape(options.latitude));
-    hazardUrl = hazardUrl.replace('{longitude}', 
+    hazardUrl = hazardUrl.replace('{longitude}',
         querystring.escape(options.longitude));
     hazardUrl = hazardUrl.replace('{imt}', 'any');
     hazardUrl = hazardUrl.replace('{vs30}', '760');
@@ -305,6 +315,7 @@ var UHTHazardCurveFactory = function (options) {
         port: port,
         path: path
       };
+
 
       request = client.request(options, (response) => {
         var buffer;
