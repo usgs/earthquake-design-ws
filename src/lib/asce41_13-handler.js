@@ -1,5 +1,12 @@
 'use strict';
 
+var ASCE41_13Factory = require('./asce41_13-factory'),
+    NumberUtils = require('./util/number-utils').instance,
+    SiteAmplificationFactory = require('./site-amplification-factory'),
+    SpectraFactory = require('./spectra-factory'),
+    TargetGroundMotion = require('./target-ground-motion'),
+    UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
+    WebServiceAccessor = require('./util/web-service-accessor');
 
 var ASCE41_13Handler = function (options) {
   var _this,
@@ -15,6 +22,26 @@ var ASCE41_13Handler = function (options) {
       _this.factory = options.factory;
     } else {
       // TODO :: Create custom ASCE 41-13 Factory and use. Issue #64.
+      _this.destroyFactory = true;
+
+      _this.factory = ASCE41_13Factory({
+        probabilisticService: WebServiceAccessor(
+          {url: options.PROBABILISTIC_SERVICE_URL}),
+
+        riskCoefficientService: WebServiceAccessor(
+          {url: options.RISK_COEFFICIENT_SERVICE_URL}),
+
+        deterministicService: WebServiceAccessor(
+          {url: options.DETERMINISTIC_SERVICE_URL}),
+
+        siteAmplificationFactory: SiteAmplificationFactory(),
+
+        spectraFactory: SpectraFactory(),
+
+        uhtHazardCurveFactory: UhtHazardCurveFactory(),
+
+        targetGroundMotion: TargetGroundMotion()
+      });
     }
   };
 
@@ -37,6 +64,9 @@ var ASCE41_13Handler = function (options) {
         siteClass;
 
     buf = [];
+
+    params = params || {};
+    params.referenceDocument = 'ASCE41-13';
 
     latitude = params.latitude;
     longitude = params.longitude;
@@ -82,6 +112,44 @@ var ASCE41_13Handler = function (options) {
     _this = null;
   };
 
+  _this.formatResult = function (result) {
+    var formatted;
+
+    return new Promise((resolve, reject) => {
+      try {
+        formatted = [];
+
+        result.data.forEach((hazardLevel) => {
+          var data;
+
+          data = {};
+
+          Object.keys(hazardLevel).forEach((key) => {
+            var value;
+
+            if (key === 'hazardLevel' || key === 'customProbability') {
+              value = hazardLevel[key];
+            } else if (key === 'horizontalSpectrum') {
+              value = NumberUtils.roundSpectrum(hazardLevel[key]);
+            } else {
+              value = NumberUtils.round(hazardLevel[key]);
+            }
+
+            data[key] = value;
+          });
+
+          formatted.push(data);
+        });
+
+        resolve({
+          data: formatted,
+          metadata: result.metadata
+        });
+      } catch (err) {
+        return reject(err);
+      }
+    });
+  };
 
   /**
    * Handles GET request for data
@@ -94,7 +162,9 @@ var ASCE41_13Handler = function (options) {
    */
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.factory.getDesignData(params);
+      return _this.factory.get(params);
+    }).then((result) => {
+      return _this.formatResult(result);
     });
   };
 

@@ -29,6 +29,10 @@ var NumberUtils = function (options) {
 
     _this.epsilon = options.epsilon;
     _this.roundPrecision = options.roundPrecision;
+
+    // Expose these on the instance as well
+    _this.INTERPOLATE_USING_LINEAR = _INTERPOLATE_USING_LINEAR;
+    _this.INTERPOLATE_USING_LOG = _INTERPOLATE_USING_LOG;
   };
 
 
@@ -122,6 +126,9 @@ var NumberUtils = function (options) {
       if (y0 <= 0 || y1 <= 0) {
         throw new Error('Can not perform log interpolation values <= 0.');
       } else {
+        x = Math.log(x);
+        x0 = Math.log(x0);
+        x1 = Math.log(x1);
         y0 = Math.log(y0);
         y1 = Math.log(y1);
 

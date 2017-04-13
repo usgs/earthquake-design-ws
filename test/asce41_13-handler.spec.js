@@ -7,22 +7,19 @@ var ASCE41_13Handler = require('../src/lib/asce41_13-handler'),
 
 
 var _FACTORY,
-    _INPUT;
+    _RESULT;
 
-
-_INPUT = {
-  latitude: 34.0,
-  longitude: -118.0,
-  siteClass: 'Site Class B',
-  probability: 0.10
+_RESULT = {
+  data: [],
+  metadata: {}
 };
 
 _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
-  getDesignData: () => {
-    return Promise.resolve(_INPUT);
+  get: () => {
+    return Promise.resolve(_RESULT);
   }
 };
 
@@ -83,7 +80,7 @@ describe('asce41_13-handler', () => {
       });
 
       handler.get({}).then((params) => {
-        expect(params).to.deep.equal(_INPUT);
+        expect(params).to.deep.equal(_RESULT);
       }).catch((err) => {
         return err;
       }).then(done);

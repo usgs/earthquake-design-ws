@@ -38,6 +38,56 @@ describe('UHTHazardCurveFactory', () => {
     });
   });
 
+  describe('getDesignCurves', () => {
+    var factory,
+        metadata;
+
+    beforeEach(function () {
+      metadata = {
+        getHazardMetadata: function (/*options*/) {
+          return Promise.resolve({
+            gridSpacing: 'gridSpacing',
+            hazardEdition: 'hazardEdition',
+            hazardRegion: 'hazardRegion',
+          });
+        }
+      };
+
+      factory = UHTHazardCurveFactory({
+        metadata: metadata
+      });
+    });
+
+    afterEach(function () {
+      factory.destroy();
+      factory = null;
+      metadata = null;
+    });
+
+    it('Uses metadata to call getHazardCurves', function (done) {
+      factory.getHazardCurves = function (options) {
+        return Promise.resolve(options);
+      };
+
+      factory.getDesignCurves({
+        designEdition: 'designEdition',
+        latitude: 'latitude',
+        longitude: 'longitude'
+      }).then(function (results) {
+        expect(results.gridSpacing).to.equal('gridSpacing');
+        expect(results.hazardEdition).to.equal('hazardEdition');
+        expect(results.hazardRegion).to.equal('hazardRegion');
+        expect(results.latitude).to.equal('latitude');
+        expect(results.longitude).to.equal('longitude');
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+
+    });
+  });
+
   describe('getGridPoints', () => {
     // NOTE that the tests below also verify the correct point return order
     // (top to bottom, left to right)
@@ -135,56 +185,6 @@ describe('UHTHazardCurveFactory', () => {
     });
   });
 
-  describe('getDesignCurves', () => {
-    var factory,
-        metadata;
-
-    beforeEach(function () {
-      metadata = {
-        getHazardMetadata: function (/*options*/) {
-          return Promise.resolve({
-            gridSpacing: 'gridSpacing',
-            hazardEdition: 'hazardEdition',
-            hazardRegion: 'hazardRegion',
-          });
-        }
-      };
-
-      factory = UHTHazardCurveFactory({
-        metadata: metadata
-      });
-    });
-
-    afterEach(function () {
-      factory.destroy();
-      factory = null;
-      metadata = null;
-    });
-
-    it('Uses metadata to call getHazardCurves', function (done) {
-      factory.getHazardCurves = function (options) {
-        return Promise.resolve(options);
-      };
-
-      factory.getDesignCurves({
-        designEdition: 'designEdition',
-        latitude: 'latitude',
-        longitude: 'longitude'
-      }).then(function (results) {
-        expect(results.gridSpacing).to.equal('gridSpacing');
-        expect(results.hazardEdition).to.equal('hazardEdition');
-        expect(results.hazardRegion).to.equal('hazardRegion');
-        expect(results.latitude).to.equal('latitude');
-        expect(results.longitude).to.equal('longitude');
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
-        done(err);
-      });
-
-    });
-  });
-
   describe('getHazardCurves', () => {
     it('does stuff', (done) => {
       var options;
@@ -226,24 +226,27 @@ describe('UHTHazardCurveFactory', () => {
         // make sure url was generated before being requested
         expect(options.url.urled).to.equal(true);
         options.url.requested = true;
+        options.url.spectralPeriod = 'spectralPeriod';
         return Promise.resolve(options.url);
       };
       factory.parseHazardCurves = function (options) {
         // make sure data was requested before being parsed
         expect(options.requested).to.equal(true);
+        expect(options.spectralPeriod).to.equal('spectralPeriod');
         options.parsed = true;
-        return options;
+        return [options];
       };
 
       // call getHazardCurves
       factory.getHazardCurves(options).then((curves) => {
-        expect(curves[0]).to.deep.equal({
+        expect(curves.spectralPeriod[0]).to.deep.equal({
           'hazardEdition': 'hazardEdition',
           'hazardRegion': 'hazardRegion',
           'latitude': 'lat1',
           'longitude': 'lon1',
           'urled': true,
           'requested': true,
+          'spectralPeriod': 'spectralPeriod',
           'parsed': true
         });
       }).catch((err) => {
@@ -253,7 +256,6 @@ describe('UHTHazardCurveFactory', () => {
       });
     });
   });
-
 
   describe('getHazardCurveUrl', () => {
     var replacements;
