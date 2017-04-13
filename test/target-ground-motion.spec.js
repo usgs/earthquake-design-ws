@@ -2,6 +2,7 @@
 'use strict';
 
 var expect = require('chai').expect,
+    sinon = require('sinon'),
     TargetGroundMotion = require('../src/lib/target-ground-motion');
 
 describe('target-ground-motion', () => {
@@ -97,9 +98,22 @@ describe('target-ground-motion', () => {
   });
 
   describe('getTargetedGroundMotion', () => {
-    it('gives correct target ground motion', () => {
-      expect(targetGroundMotion.getTargetedGroundMotion(curve, .05)).
-          to.equal(9.998974134112249);
+    it('calls all methods as expected', () => {
+      sinon.spy(targetGroundMotion, 'getFrequencyForProbability');
+      sinon.spy(targetGroundMotion, 'findBounds');
+      sinon.spy(targetGroundMotion.numberUtils, 'interpolate');
+
+      targetGroundMotion.getTargetedGroundMotion(curve, .05);
+
+      expect(targetGroundMotion.getFrequencyForProbability.callCount)
+        .to.equal(1);
+      expect(targetGroundMotion.findBounds.callCount).to.equal(1);
+      expect(targetGroundMotion.numberUtils.interpolate.callCount).to.equal(1);
+      expect(targetGroundMotion.numberUtils.interpolate.calledWith(1, 9, 0, 10)).to.be.true;
+
+      targetGroundMotion.getFrequencyForProbability.restore();
+      targetGroundMotion.findBounds.restore();
+      targetGroundMotion.numberUtils.interpolate.restore();
     });
   });
 });

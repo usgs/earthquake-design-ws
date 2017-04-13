@@ -78,7 +78,7 @@ describe('util/design-hazard-metadata', () => {
         'gridSpacing': 0.01
       };
 
-      metadata = DesignHazardMetadata({map: {'testDesignEdition': [region]}});
+      metadata = DesignHazardMetadata({map: {'testreferenceDocument': [region]}});
     });
 
 
@@ -96,7 +96,7 @@ describe('util/design-hazard-metadata', () => {
 
     it('rejects with an error when no mapping found', (done) => {
       metadata.getHazardMetadata({
-        designEdition: 'testDesignEdition',
+        referenceDocument: 'testreferenceDocument',
         latitude: 1.5,
         longitude: 1.5
       }).then((/*result*/) => {
@@ -108,7 +108,7 @@ describe('util/design-hazard-metadata', () => {
 
     it('resolves with a region when found', (done) => {
       metadata.getHazardMetadata({
-        designEdition: 'testDesignEdition',
+        referenceDocument: 'testreferenceDocument',
         latitude: 0.5,
         longitude: 0.5
       }).then((result) => {
