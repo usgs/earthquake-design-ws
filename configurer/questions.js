@@ -68,5 +68,23 @@ module.exports = [
     name: 'DB_SCHEMA_PROBABILISTIC',
     message: 'Database schema for probabilistic data',
     default: 'probabilistic'
+  },
+  {
+    type: 'input',
+    name: 'PROBABILISTIC_SERVICE_URL',
+    message: 'Web service for fetching mapped probabilistic ground motion data',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/probabilistic.json'
+  },
+  {
+    type: 'input',
+    name: 'RISK_COEFFICIENT_SERVICE_URL',
+    message: 'Web service for fetching mapped risk coefficent data',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/risk-coefficient.json'
+  },
+  {
+    type: 'input',
+    name: 'DETERMINISTIC_SERVICE_URL',
+    message: 'Web service for fetching mapped deterministic ground motion data',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/deterministic.json'
   }
 ];
