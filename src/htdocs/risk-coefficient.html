@@ -15,8 +15,12 @@
   <header>
     <h1>Risk Coefficient Endpoint Documentation</h1>
     <p>
-      This endpoint returns mapped risk coefficients at 0.2 s SA and
-      at 1 s SA periods.
+      This endpoint returns ratios of risk-targeted divided by
+      uniform-hazard ground motions, known as risk coefficients. The
+      risk-targeted ground motions are for a target probability of
+      structural collapse corresponding to 1&percnt; in 50 years.
+      The uniform-hazard ground motions correspond to a probability
+      of ground motion exceedance of 2&percnt; in 50 years.
     </p>
   </header>
 
@@ -100,12 +104,12 @@
           <dl>
             <dt id="response-data-cr1">cr1</dt>
             <dd>
-              Mapped risk coefficient at a period of 1 second.
+              Risk coefficient at a spectral period of 0.2 seconds.
             </dd>
 
             <dt id="response-data-crs">crs</dt>
             <dd>
-              Mapped risk coefficient at short periods.
+              Risk coefficient at a spectral period of 1 second.
             </dd>
           </dl>
         </dd>
