@@ -4,7 +4,6 @@
 
 var ASCE41_13Factory = require('../src/lib/asce41_13-factory'),
     expect = require('chai').expect,
-    NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
 
 
@@ -36,39 +35,28 @@ describe('asce41_13-factory', () => {
     });
   });
 
-  describe('formatResult', () => {
-    it('returns a promise', () => {
+  describe('get', () => {
+    it('delegates to proper method', (done) => {
       var factory;
 
       factory = ASCE41_13Factory();
-      expect(factory.formatResult()).to.be.an.instanceof(Promise);
+      sinon.stub(factory, 'getCustomProbabilityDesignData',
+          () => { Promise.resolve({}); });
+      sinon.stub(factory, 'getStandardDesignData',
+          () => { Promise.resolve({}); });
 
-      factory.destroy();
-    });
+      Promise.all([
+        factory.get({customProbability: 0.1}),
+        factory.get({})
+      ]).then(() => {
+        expect(factory.getCustomProbabilityDesignData.callCount).to.equal(1);
+        expect(factory.getStandardDesignData.callCount).to.equal(1);
 
-    it('rounds all outputs', (done) => {
-      var factory,
-          result;
-
-      factory = ASCE41_13Factory();
-      sinon.spy(NumberUtils, 'round');
-      sinon.spy(NumberUtils, 'roundSpectrum');
-
-      result = {
-        ss: 1, fa: 2, sxs: 3,
-        s1: 4, fv: 5, sx1: 6,
-        horizontalSpectrum: [[7, 8], [9, 0]]
-      };
-
-      factory.formatResult(result).then(() => {
-        expect(NumberUtils.round.callCount).to.equal(10);
-        expect(NumberUtils.roundSpectrum.callCount).to.equal(1);
+        factory.getCustomProbabilityDesignData.restore();
+        factory.getStandardDesignData.restore();
       }).catch((err) => {
         return err;
-      }).then((err) => {
-        factory.destroy();
-        done(err);
-      });
+      }).then(done);
     });
   });
 
@@ -124,31 +112,6 @@ describe('asce41_13-factory', () => {
           s1: 2, fv: 4, sx1: 8,
           horizontalSpectrum: [[5, 6], [7, 8]]
         });
-      }).catch((err) => {
-        return err;
-      }).then(done);
-    });
-  });
-
-  describe('getDesignData', () => {
-    it('delegates to proper method', (done) => {
-      var factory;
-
-      factory = ASCE41_13Factory();
-      sinon.stub(factory, 'getCustomProbabilityDesignData',
-          () => { Promise.resolve({}); });
-      sinon.stub(factory, 'getStandardDesignData',
-          () => { Promise.resolve({}); });
-
-      Promise.all([
-        factory.getDesignData({customProbability: 0.1}),
-        factory.getDesignData({})
-      ]).then(() => {
-        expect(factory.getCustomProbabilityDesignData.callCount).to.equal(1);
-        expect(factory.getStandardDesignData.callCount).to.equal(1);
-
-        factory.getCustomProbabilityDesignData.restore();
-        factory.getStandardDesignData.restore();
       }).catch((err) => {
         return err;
       }).then(done);
