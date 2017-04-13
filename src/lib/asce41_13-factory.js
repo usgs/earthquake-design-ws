@@ -39,9 +39,9 @@ var ASCE41_13Factory = function (options) {
           'floor_s1d': 0.6,
           'floor_ssd': 1.5,
           'interpolation_method': 'linear',
-          'max_direction_pgad': 1.0,
-          'max_direction_s1d': 1.3,
-          'max_direction_ssd': 1.1,
+          'max_direction_pga': 1.0,
+          'max_direction_s1': 1.3,
+          'max_direction_ss': 1.1,
           'model_version': 'v3.1.x',
           'percentile_pgad': 1.8,
           'percentile_s1d': 1.8,
@@ -115,16 +115,16 @@ var ASCE41_13Factory = function (options) {
       riskCoefficientData = results[1].response.data;
       deterministicData = results[2].response.data;
 
-      ssuh = probabilisticData.ss;
-      s1uh = probabilisticData.s1;
+      ssuh = probabilisticData.ss * metadata.max_direction_ss;
+      s1uh = probabilisticData.s1 * metadata.max_direction_s1;
 
       crs = riskCoefficientData.crs;
       cr1 = riskCoefficientData.cr1;
 
       ssd = Math.max(metadata.floor_ssd,
-          metadata.percentile_ssd * deterministicData.ssd);
+          metadata.percentile_ssd * metadata.percentile_ssd * deterministicData.ssd);
       s1d = Math.max(metadata.floor_s1d,
-          metadata.percentile_s1d * deterministicData.s1d);
+          metadata.percentile_s1d * metadata.percentile_s1d * deterministicData.s1d);
 
       ssrt = ssuh * crs;
       s1rt = s1uh * cr1;
