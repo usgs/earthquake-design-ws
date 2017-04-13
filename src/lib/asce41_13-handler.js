@@ -4,6 +4,8 @@ var ASCE41_13Factory = require('./asce41_13-factory'),
     NumberUtils = require('./util/number-utils').instance,
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
+    TargetGroundMotion = require('./target-ground-motion'),
+    UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
 var ASCE41_13Handler = function (options) {
@@ -34,7 +36,11 @@ var ASCE41_13Handler = function (options) {
 
         siteAmplificationFactory: SiteAmplificationFactory(),
 
-        spectraFactory: SpectraFactory()
+        spectraFactory: SpectraFactory(),
+
+        uhtHazardCurveFactory: UhtHazardCurveFactory(),
+
+        targetGroundMotion: TargetGroundMotion()
       });
     }
   };
@@ -124,12 +130,7 @@ var ASCE41_13Handler = function (options) {
             if (key === 'hazardLevel' || key === 'customProbability') {
               value = hazardLevel[key];
             } else if (key === 'horizontalSpectrum') {
-              value = hazardLevel[key].map((v) => {
-                return [
-                  NumberUtils.round(v[0]),
-                  NumberUtils.round(v[1])
-                ];
-              });
+              value = NumberUtils.roundSpectrum(hazardLevel[key]);
             } else {
               value = NumberUtils.round(hazardLevel[key]);
             }
