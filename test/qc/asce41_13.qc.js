@@ -18,7 +18,7 @@ compareResults = function (expected, actual) {
   expect(actual.sx1).to.be.closeTo(expected.sx1, epsilon);
 };
 
-describe.skip(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
+describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
   var handler;
 
   after(() => {
