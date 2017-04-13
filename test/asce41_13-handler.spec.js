@@ -21,7 +21,7 @@ _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
-  getDesignData: () => {
+  get: () => {
     return Promise.resolve(_INPUT);
   }
 };
