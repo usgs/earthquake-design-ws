@@ -113,10 +113,10 @@ var TargetGroundMotion = function (options) {
     bounds = _this.findBounds(curve, afe);
 
     result = _this.numberUtils.interpolate(
-      bounds[0][0],
       bounds[0][1],
-      bounds[1][0],
+      bounds[0][0],
       bounds[1][1],
+      bounds[1][0],
       afe,
       _this.numberUtils.INTERPOLATE_USING_LOG
     );
