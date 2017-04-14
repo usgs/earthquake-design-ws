@@ -8,7 +8,7 @@ var expect = require('chai').expect,
     sinon = require('sinon');
 
 
-describe.only('MetadataFactory', () => {
+describe('MetadataFactory', () => {
   var factory;
 
   beforeEach(() => {
@@ -92,6 +92,26 @@ describe.only('MetadataFactory', () => {
     });
   });
 
+  describe('getData', () => {
+    it ('returns a promise', () => {
+      expect(factory.getData()).to.be.an.instanceof(Promise);
+    });
+    // returns correct region
+    it('returns metadata', (done) => {
+      var result;
+
+      result = factory.getData('ASCE 41-13', 'COUS');
+      result.then((results) => {
+        expect(results.curve_interpolation_method).to.equal(
+            NumberUtils.INTERPOLATE_USING_LOG);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+  });
+
   describe('getRegion', () => {
     it ('returns a promise', () => {
       expect(factory.getRegion()).to.be.an.instanceof(Promise);
@@ -116,23 +136,4 @@ describe.only('MetadataFactory', () => {
     });
   });
 
-  describe.skip('getData', () => {
-    it ('returns a promise', () => {
-      expect(factory.getData()).to.be.an.instanceof(Promise);
-    });
-    // returns correct region
-    it('returns metadata', (done) => {
-      var result;
-
-      result = factory.getData('ASCE 41-13', 'COUS');
-      result.then((results) => {
-        expect(results.curve_interpolation_method).to.equal(
-            NumberUtils.INTERPOLATE_USING_LOG);
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
-        done(err);
-      });
-    });
-  });
 });

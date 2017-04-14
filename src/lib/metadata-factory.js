@@ -194,13 +194,13 @@ var MetadataFactory = function (options) {
       // determine metadata set based on referenceDocument
       try {
         metadata = _this.metadata[referenceDocument];
-
         // loop through metadata objects
-        for (var i = 0; i < metadata[i].length; i++) {
+        for (var i = 0; i < metadata.length; i++) {
           if (metadata[i].regions.indexOf(region) !== -1) {
             result = metadata[i].data;
           }
         }
+
         // return metadata
         return resolve(result);
       } catch (err) {
