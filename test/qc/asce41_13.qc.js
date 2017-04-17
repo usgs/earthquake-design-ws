@@ -20,7 +20,7 @@ compareResults = function (expected, actual) {
 };
 
 
-describe.skip(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
+describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
   var handler;
 
   after(() => {
