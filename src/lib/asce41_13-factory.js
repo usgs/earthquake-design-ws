@@ -71,7 +71,7 @@ var ASCE41_13Factory = function (options) {
       horizontalSpectrum = result;
 
       return {
-        'hazardLevel': 'BSE-2E',
+        'hazardLevel': 'BSE-1E',
         'ss': ss,
         'fa': fa,
         'sxs': sxs,
@@ -181,10 +181,10 @@ var ASCE41_13Factory = function (options) {
       crs = riskCoefficientData.crs;
       cr1 = riskCoefficientData.cr1;
 
-      ssd = Math.max(metadata.floor_ssd,
-          metadata.percentile_ssd * metadata.max_direction_ss * deterministicData.ssd);
-      s1d = Math.max(metadata.floor_s1d,
-          metadata.percentile_s1d * metadata.max_direction_s1 * deterministicData.s1d);
+      ssd = Math.max(metadata.floor_ssd, metadata.percentile_ssd *
+          metadata.max_direction_ss * deterministicData.ssd);
+      s1d = Math.max(metadata.floor_s1d, metadata.percentile_s1d *
+          metadata.max_direction_s1 * deterministicData.s1d);
 
       ssrt = ssuh * crs;
       s1rt = s1uh * cr1;
@@ -308,17 +308,23 @@ var ASCE41_13Factory = function (options) {
         var s1Curve;
 
         s1Curve = result.SA1P0[index];
-
+        process.stdout.write(`curve_interpolation_method = ${metadata.curve_interpolation_method}\n`);
         return {
           latitude: ssCurve.latitude,
           longitude: ssCurve.longitude,
           // TODO :: Fix this for HI which is interpolated in linear space...
           ss: _this.targetGroundMotion.getTargetedGroundMotion(
-              ssCurve.data, inputs.customProbability),
+              ssCurve.data, inputs.customProbability,
+              metadata.curve_interpolation_method),
           s1: _this.targetGroundMotion.getTargetedGroundMotion(
-              s1Curve.data, inputs.customProbability)
+              s1Curve.data, inputs.customProbability,
+              metadata.curve_interpolation_method)
         };
-      }), inputs.latitude, inputs.longitude);
+      }),
+        inputs.latitude,
+        inputs.longitude,
+        metadata.spatial_interpolation_method
+      );
 
       //   groundMotions
       ss = groundMotions.ss * metadata.max_direction_ss;
