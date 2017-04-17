@@ -1,7 +1,7 @@
 /* global before, describe, it */
 'use strict';
 
-var allcities = require('../etc/cities34.js'),
+var allcities = require('../../etc/cities34.js'),
     expect = require('chai').expect,
     fs = require('fs'),
     http = require('http'),

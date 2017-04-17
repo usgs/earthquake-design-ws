@@ -1,9 +1,9 @@
 /* global after, before, describe, it */
 
 
-var ASCE41_13Handler = require('../src/lib/asce41_13-handler'),
-    CityInputs = require('../etc/asce41_13-qc.json'),
-    Config = require('../src/conf/config.json'),
+var ASCE41_13Handler = require('../../src/lib/asce41_13-handler'),
+    CityInputs = require('../../etc/asce41_13-qc.json'),
+    Config = require('../../src/conf/config.json'),
     expect = require('chai').expect,
     extend = require('extend');
 

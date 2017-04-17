@@ -12,8 +12,10 @@
   "scripts": {
     "coverage": "istanbul cover _mocha -- -u exports \"test/**/*.spec.js\" -R spec",
     "dev": "npm-run-all --parallel watch start",
-    "postinstall": "node configurer/configure.js",
     "lint": "eslint \"**/*.js\"",
+    "postinstall": "node configurer/configure.js",
+    "qc": "mocha \"test/qc/**/*.qc.js\" --reporter spec",
+    "qcdoc": "mocha \"test/qc/**/*.qc.js\" --reporter ../../../gh-reporter",
     "start": "nodemon --watch src src/server.js",
     "test": "mocha \"test/**/*.spec.js\" --reporter spec",
     "uninstall": "node src/lib/uninstall",
