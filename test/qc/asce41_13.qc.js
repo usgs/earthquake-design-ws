@@ -31,7 +31,6 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
   });
 
   CityInputs.forEach((city) => {
-    if (city.request.parameters.label !== 'Sitka') { return; }
     describe(`${city.request.parameters.label} (${city.request.parameters.latitude}, ${city.request.parameters.longitude})`, () => {
       var customResults,
           standardResults;
