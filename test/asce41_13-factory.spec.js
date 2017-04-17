@@ -31,9 +31,9 @@ describe('asce41_13-factory', () => {
       var factory;
 
       factory = ASCE41_13Factory();
-      sinon.stub(factory, 'getCustomProbabilityDesignData',
+      sinon.stub(factory, 'getCustomProbabilityDesignData').callsFake(
           () => { Promise.resolve({}); });
-      sinon.stub(factory, 'getStandardDesignData',
+      sinon.stub(factory, 'getStandardDesignData').callsFake(
           () => { Promise.resolve({}); });
 
       Promise.all([

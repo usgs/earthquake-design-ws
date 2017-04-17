@@ -124,7 +124,7 @@ describe('WebService test suite', () => {
         query: {}
       };
 
-      sinon.stub(service, 'onSuccess', function () {
+      sinon.stub(service, 'onSuccess').callsFake(() => {
         expect(service.onSuccess.calledOnce).to.equal(true);
         args = service.onSuccess.getCall(0).args;
         expect(args[0]).to.equal(data);
@@ -154,7 +154,7 @@ describe('WebService test suite', () => {
         query: {}
       };
 
-      sinon.stub(service, 'onError', function () {
+      sinon.stub(service, 'onError').callsFake(() => {
         expect(service.onError.calledOnce).to.equal(true);
         args = service.onError.getCall(0).args;
         expect(args[0]).to.equal(err);
@@ -195,7 +195,7 @@ describe('WebService test suite', () => {
     it('writes to stdout', function () {
       var service;
 
-      sinon.stub(process.stdout, 'write', () => {});
+      sinon.stub(process.stdout, 'write').callsFake(() => {});
       service = WebService();
 
       service.log({}, {}, {}, 200);
@@ -222,7 +222,7 @@ describe('WebService test suite', () => {
       };
 
       service = WebService();
-      sinon.stub(service, 'log', () => {});
+      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onError({
         status: status,
@@ -270,8 +270,9 @@ describe('WebService test suite', () => {
         json: sinon.spy()
       };
       service = WebService();
-      stub = sinon.stub(service, 'getResponseMetadata', () => { return ''; });
-      sinon.stub(service, 'log', () => {});
+      stub = sinon.stub(service, 'getResponseMetadata').callsFake(
+          () => { return ''; });
+      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onSuccess(data, request, response, null);
       expect(response.json.getCall(0).args[0].response).to.equal(data);

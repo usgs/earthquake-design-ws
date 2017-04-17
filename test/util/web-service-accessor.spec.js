@@ -34,9 +34,9 @@ describe('util/web-service-accessor', () => {
           result;
 
       accessor = WebServiceAccessor();
-      sinon.stub(accessor, 'getRequestOptions',
+      sinon.stub(accessor, 'getRequestOptions').callsFake(
           () => { return Promise.resolve(); });
-      sinon.stub(accessor, 'request',
+      sinon.stub(accessor, 'request').callsFake(
           () => { return Promise.resolve(); });
 
       result = accessor.getData({});
@@ -134,7 +134,7 @@ describe('util/web-service-accessor', () => {
       var accessor;
 
       accessor = WebServiceAccessor();
-      sinon.stub(accessor, 'getHostname',
+      sinon.stub(accessor, 'getHostname').callsFake(
           () => { throw new Error('Example Error'); });
 
       accessor.getRequestOptions({}).then(() => {
