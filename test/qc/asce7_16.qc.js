@@ -1,130 +1,63 @@
-/* global before, describe, it */
+/* global after, before, describe, it */
 'use strict';
 
-var allcities = require('../../etc/cities34.js'),
-    expect = require('chai').expect,
-    fs = require('fs'),
-    http = require('http'),
-    https = require('https'),
-    querystring = require('querystring');
+
+var ASCE7_16Handler = require('../../src/lib/asce7_16-handler'),
+    CityInputs = require('../../etc/asce7_16-qc.json'),
+    Config = require('../../src/conf/config.json'),
+    expect = require('chai').expect;
 
 
 var compareResult,
-    fetchResult,
+    epsilon;
 
-    CLIENT,
-    CONFIG,
-    CONFIG_FILE,
-    EPSILON,
-    SERVICE_URL;
+epsilon = Config.epsilon || 1E-4;
 
-
-compareResult = function (expected, actual) {
-  expect(actual.response.data.ss).to.be.closeTo(expected.ss, EPSILON);
-  expect(actual.response.data.s1).to.be.closeTo(expected.s1, EPSILON);
-  expect(actual.response.data.pga).to.be.closeTo(expected.pga, EPSILON);
+compareResult = function (expected, actual, key) {
+  expect(actual.data[key]).to.be.closeTo(expected[key], epsilon);
 };
 
-fetchResult = function (city) {
-  var params,
-      url;
 
-  params = {
-    latitude: city.latitude,
-    longitude: city.longitude,
-    referenceDocument: 'ASCE7-16',
-    riskCategory: 'III',
-    siteClass: 'C',
-    title: city.name
-  };
+describe(`ASCE 7-16 Quality Control Tests +/- ${epsilon}`, () => {
+  var handler;
 
-  url = SERVICE_URL + '?' + querystring.stringify(params);
+  handler = ASCE7_16Handler(Config);
 
-  return new Promise((resolve, reject) => {
-    CLIENT.get(url, (response) => {
-      var buffer;
-
-      buffer = [];
-
-      response.on('data', (chunk) => {
-        buffer.push(chunk);
-      });
-
-      response.on('end', () => {
-        resolve({
-          expected: city,
-          actual: JSON.parse(buffer.join(''))
-        });
-      });
-
-    }).on('error', (err) => {
-      reject(err);
-    });
-  });
-};
-
-//
-// Specify a different configuration file to test the service running
-// at different locations. eg. production, development, local, etc...
-// Configuration files can specify the following:
-//    - MOUNT_PATH : Optional {String} Default: ''
-//                   Base URL path to the application
-//    - PORT : Optional {Integer} Default: 80
-//             Port number on which server is listening for connections
-//    - HOST : Optional {String} Default: 'localhost'
-//             Server host name to make connections against
-//    - EPSILON : Optional {Decimal} Default: 1E-4
-//                Tolerance for variance between expected and actual values
-//
-CONFIG_FILE = 'src/conf/config.json';
-CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE));
-EPSILON = CONFIG.EPSILON || 1E-4;
-
-
-describe('ASCE7-16 Quality Control', () => {
-  before(() => {
-    var host,
-        path,
-        protocol,
-        port;
-
-    path = (CONFIG.MOUNT_PATH || '') + '/asce7-16.json';
-    port = CONFIG.PORT || 80;
-    protocol = (port == 443) ? 'https:' : 'http:';
-    host = CONFIG.HOST || 'localhost';
-
-    // Do this so the :port is not included when the protocol implies it.
-    if (port == 443 || port == 80) {
-      port = '';
-    } else {
-      port = ':' + port;
-    }
-
-    if (protocol === 'https:') {
-      CLIENT = https;
-    } else {
-      CLIENT = http;
-    }
-
-    SERVICE_URL = `${protocol}//${host}${port}${path}`;
+  after(() => {
+    handler.destroy();
+    handler = null;
   });
 
-  describe(`COUS Off-Grid (Tolerance: +/-${EPSILON})`, () => {
-    var cities;
+  CityInputs.forEach((city) => {
+    describe(`${city.name} (${city.latitude}, ${city.longitude})`, function () {
+      var actual;
 
-    cities = allcities['ASCE7-16'];
+      // Allow up to 5 seconds response time
+      this.timeout(5000);
 
-    cities.forEach((city) => {
-      it(JSON.stringify(city), function (done) {
-        this.timeout(5000); // Allow up to 5 seconds response time
-        fetchResult(city).then((result) => {
-          compareResult(result.expected, result.actual);
-          done();
+      before((done) => {
+        handler.get({
+          latitude: city.latitude,
+          longitude: city.longitude,
+          riskCategory: 'I',
+          siteClass: 'B (unmeasured)',
+          title: 'QC_Test-ASCE7_16Handler'
+        }).then((result) => {
+          actual = result;
         }).catch((err) => {
-          done(err);
-        });
+          return err;
+        }).then(done);
+      });
+
+      it('Computes PGA correctly', () => {
+        compareResult(city, actual, 'pga');
+      });
+      it('Computes S1 correctly', () => {
+        compareResult(city, actual, 's1');
+      });
+      it('Computes Ss correctly', () => {
+        compareResult(city, actual, 'ss');
       });
     });
-
   });
 });
