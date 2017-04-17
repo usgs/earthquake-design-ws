@@ -104,13 +104,14 @@ var TargetGroundMotion = function (options) {
    * @param probability {Number}
    *    Custom probability
    */
-  _this.getTargetedGroundMotion = function (curve, probability) {
+  _this.getTargetedGroundMotion = function (curve, probability, method) {
     var afe,
         bounds,
         result;
 
     afe = _this.getFrequencyForProbability(probability);
     bounds = _this.findBounds(curve, afe);
+    method = method || _this.numberUtils.INTERPOLATE_USING_LOG;
 
     result = _this.numberUtils.interpolate(
       bounds[0][1],
@@ -118,7 +119,7 @@ var TargetGroundMotion = function (options) {
       bounds[1][1],
       bounds[1][0],
       afe,
-      _this.numberUtils.INTERPOLATE_USING_LOG
+      method
     );
 
     return result;

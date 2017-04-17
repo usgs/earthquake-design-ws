@@ -32,49 +32,7 @@ var ASCE41_13Factory = function (options) {
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.deterministicService = options.deterministicService;
 
-    // TODO :: Replace with real metadata factory when ready
-    _this.metadataFactory = {
-      get: (inputs) => {
-        var latitude,
-            longitude;
-
-        latitude = inputs.latitude;
-        longitude = inputs.longitude;
-
-        if (latitude >= 18.0 && latitude <= 23.0 &&
-              longitude >= -161.0 && longitude <= -154.0) {
-          // Hawaii
-          return Promise.resolve({
-            'floor_pgad': 0.5,
-            'floor_s1d': 0.6,
-            'floor_ssd': 1.5,
-            'interpolation_method': 'log',
-            'max_direction_pga': 1.0,
-            'max_direction_s1': 1.0,
-            'max_direction_ss': 1.0,
-            'model_version': 'v3.1.x',
-            'percentile_pgad': 1.8,
-            'percentile_s1d': 1.8,
-            'percentile_ssd': 1.8
-          });
-        } else {
-          // Everyone else
-          return Promise.resolve({
-            'floor_pgad': 0.5,
-            'floor_s1d': 0.6,
-            'floor_ssd': 1.5,
-            'interpolation_method': 'linear',
-            'max_direction_pga': 1.0,
-            'max_direction_s1': 1.3,
-            'max_direction_ss': 1.1,
-            'model_version': 'v3.1.x',
-            'percentile_pgad': 1.8,
-            'percentile_s1d': 1.8,
-            'percentile_ssd': 1.8
-          });
-        }
-      }
-    };
+    _this.metadataFactory = options.metadataFactory;
 
     _this.uhtHazardCurveFactory = options.uhtHazardCurveFactory;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
@@ -113,7 +71,7 @@ var ASCE41_13Factory = function (options) {
       horizontalSpectrum = result;
 
       return {
-        'hazardLevel': 'BSE-2E',
+        'hazardLevel': 'BSE-1E',
         'ss': ss,
         'fa': fa,
         'sxs': sxs,
@@ -219,16 +177,14 @@ var ASCE41_13Factory = function (options) {
 
       ssuh = probabilisticData.ss * metadata.max_direction_ss;
       s1uh = probabilisticData.s1 * metadata.max_direction_s1;
-      process.stdout.write(`s1uh = ${probabilisticData.s1} * ${metadata.max_direction_s1} = ${s1uh}\n`);
 
       crs = riskCoefficientData.crs;
       cr1 = riskCoefficientData.cr1;
 
-      // process.stdout.write(`ssd = max(${metadata.floor_ssd}, ${metadata.percentile_ssd} * meta))
-      ssd = Math.max(metadata.floor_ssd,
-          metadata.percentile_ssd * metadata.max_direction_ss * deterministicData.ssd);
-      s1d = Math.max(metadata.floor_s1d,
-          metadata.percentile_s1d * metadata.max_direction_s1 * deterministicData.s1d);
+      ssd = Math.max(metadata.floor_ssd, metadata.percentile_ssd *
+          metadata.max_direction_ss * deterministicData.ssd);
+      s1d = Math.max(metadata.floor_s1d, metadata.percentile_s1d *
+          metadata.max_direction_s1 * deterministicData.s1d);
 
       ssrt = ssuh * crs;
       s1rt = s1uh * cr1;
@@ -275,7 +231,7 @@ var ASCE41_13Factory = function (options) {
   };
 
   _this.computeMetadata = function (inputs) {
-    return _this.metadataFactory.get(inputs);
+    return _this.metadataFactory.getMetadata(inputs);
   };
 
   /**
@@ -358,11 +314,17 @@ var ASCE41_13Factory = function (options) {
           longitude: ssCurve.longitude,
           // TODO :: Fix this for HI which is interpolated in linear space...
           ss: _this.targetGroundMotion.getTargetedGroundMotion(
-              ssCurve.data, inputs.customProbability),
+              ssCurve.data, inputs.customProbability,
+              metadata.curve_interpolation_method),
           s1: _this.targetGroundMotion.getTargetedGroundMotion(
-              s1Curve.data, inputs.customProbability)
+              s1Curve.data, inputs.customProbability,
+              metadata.curve_interpolation_method)
         };
-      }), inputs.latitude, inputs.longitude);
+      }),
+        inputs.latitude,
+        inputs.longitude,
+        metadata.spatial_interpolation_method
+      );
 
       //   groundMotions
       ss = groundMotions.ss * metadata.max_direction_ss;

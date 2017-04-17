@@ -123,7 +123,8 @@ var GriddedDataHandler = function (options) {
   _this.formatMetadata = function (result) {
     // pull some particular metadata off the original structure
     return {
-      interpolation_method: result.metadata.document.interpolation_method,
+      spatial_interpolation_method:
+          result.metadata.document.spatial_interpolation_method,
       model_version: result.metadata.document.model_version,
       region_name: result.metadata.region.name
     };

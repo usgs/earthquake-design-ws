@@ -79,7 +79,7 @@ describe('gridded-data-factory', () => {
 
       metadata = {
         document: {
-          interpolation_method: 'linear'
+          spatial_interpolation_method: 'linear'
         },
         region: {
           grid_spacing: 1,
@@ -204,7 +204,7 @@ describe('gridded-data-factory', () => {
       factory.interpolate(
         [{latitude: 0,longitude: 0}],
         {latitude: 0, longitude: 0},
-        {document: {interpolation_method: 'foo'}}
+        {document: {spatial_interpolation_method: 'foo'}}
       );
 
       expect(NumberUtils.spatialInterpolate.callCount).to.equal(1);

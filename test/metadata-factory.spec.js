@@ -72,7 +72,7 @@ describe('MetadataFactory', () => {
       result = factory.getMetadata({
         latitude: 35,
         longitude: -105,
-        referenceDocument: 'ASCE 41-13'
+        referenceDocument: 'ASCE41-13'
       });
 
       result.then(() => {
@@ -100,7 +100,7 @@ describe('MetadataFactory', () => {
     it('returns metadata', (done) => {
       var result;
 
-      result = factory.getData('ASCE 41-13', 'COUS');
+      result = factory.getData('ASCE41-13', 'COUS');
       result.then((results) => {
         expect(results.curve_interpolation_method).to.equal(
             NumberUtils.INTERPOLATE_USING_LOG);

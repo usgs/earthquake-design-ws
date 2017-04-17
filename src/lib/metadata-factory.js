@@ -10,7 +10,7 @@ var _DEFAULTS,
     _REGIONS;
 
 _METADATA = {
-  'ASCE 41-13': [
+  'ASCE41-13': [
     {
       'regions': [
         'COUS',
@@ -22,9 +22,9 @@ _METADATA = {
         'floor_pgad': 0.5,
         'floor_s1d': 0.6,
         'floor_ssd': 1.5,
-        'max_direction_pgad': 1.0,
-        'max_direction_s1d': 1.3,
-        'max_direction_ssd': 1.1,
+        'max_direction_pga': 1.0,
+        'max_direction_s1': 1.3,
+        'max_direction_ss': 1.1,
         'model_version': 'v3.1.x',
         'percentile_pgad': 1.8,
         'percentile_s1d': 1.8,
@@ -45,9 +45,9 @@ _METADATA = {
         'max_direction_s1': 1.0,
         'max_direction_ss': 1.0,
         'model_version': 'v3.1.x',
-        'percentile_pga': 1.8,
-        'percentile_s1': 1.8,
-        'percentile_ss': 1.8,
+        'percentile_pgad': 1.8,
+        'percentile_s1d': 1.8,
+        'percentile_ssd': 1.8,
         'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
       }
     }
@@ -57,6 +57,7 @@ _METADATA = {
 _REGIONS = [
   {
     'name': 'AK',
+    'grid_spacing':    0.05,
     'max_latitude':    72.0,
     'max_longitude': -125.1,
     'min_latitude':    48.0,
@@ -64,6 +65,7 @@ _REGIONS = [
   },
   {
     'name': 'COUS',
+    'grid_spacing':    0.01,
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
@@ -79,6 +81,7 @@ _REGIONS = [
   },
   {
     'name': 'PRVI',
+    'grid_spacing':   0.01,
     'max_latitude':   19.0,
     'max_longitude': -64.5,
     'min_latitude':   17.5,
@@ -95,7 +98,6 @@ _DEFAULTS = {
 var MetadataFactory = function (options) {
   var _this,
       _initialize;
-
 
   _this = {};
 

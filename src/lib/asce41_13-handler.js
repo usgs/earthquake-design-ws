@@ -1,6 +1,7 @@
 'use strict';
 
 var ASCE41_13Factory = require('./asce41_13-factory'),
+    MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
@@ -21,10 +22,11 @@ var ASCE41_13Handler = function (options) {
     if (options.factory) {
       _this.factory = options.factory;
     } else {
-      // TODO :: Create custom ASCE 41-13 Factory and use. Issue #64.
       _this.destroyFactory = true;
 
       _this.factory = ASCE41_13Factory({
+        metadataFactory: MetadataFactory(),
+
         probabilisticService: WebServiceAccessor(
           {url: options.PROBABILISTIC_SERVICE_URL}),
 

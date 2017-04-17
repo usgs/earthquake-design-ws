@@ -122,14 +122,6 @@
         <dt id="response-metadata">metadata</dt>
         <dd>
           <dl>
-            <dt id="response-metadata-interpolation_method">
-              interpolation_method
-            </dt>
-            <dd>
-              Identifier for the interpolation method used to obtain data for
-              location of interest from underlying gridded datasets.
-            </dd>
-
             <dt id="response-metadata-model_version">model_version</dt>
             <dd>
               Identifier for the underlying model version in the database.
@@ -138,6 +130,14 @@
             <dt id="response-metadata-region_name">region_name</dt>
             <dd>
               Identifier for the underlying region name in the database.
+            </dd>
+
+            <dt id="response-metadata-spatial_interpolation_method">
+              spatial_interpolation_method
+            </dt>
+            <dd>
+              Identifier for the interpolation method used to obtain data for
+              location of interest from underlying gridded datasets.
             </dd>
           </dl>
         </dd>
@@ -172,9 +172,9 @@
       "ssd": 1.35112175,
     },
     "metadata": {
-      "interpolation_method": "linear",
       "model_version": "v3.1.x",
-      "region_name": "E2008R2_COUS0P01_Deterministic"
+      "region_name": "E2008R2_COUS0P01_Deterministic",
+      "spatial_interpolation_method": "linear"
     }
   }
 }</pre>

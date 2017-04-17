@@ -124,15 +124,15 @@ insertDocuments = insertRegions.then((regionIds) => {
         return db.query(`
           INSERT INTO document (
             region_id,
-            interpolation_method,
             model_version,
-            name
+            name,
+            spatial_interpolation_method
           ) VALUES ($1, $2, $3, $4)
         `, [
           regionId,
-          doc.interpolation_method,
           doc.model_version,
-          doc.name
+          doc.name,
+          doc.spatial_interpolation_method
         ]);
       });
     });
