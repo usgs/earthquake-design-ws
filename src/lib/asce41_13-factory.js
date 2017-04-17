@@ -308,7 +308,7 @@ var ASCE41_13Factory = function (options) {
         var s1Curve;
 
         s1Curve = result.SA1P0[index];
-        process.stdout.write(`curve_interpolation_method = ${metadata.curve_interpolation_method}\n`);
+
         return {
           latitude: ssCurve.latitude,
           longitude: ssCurve.longitude,
