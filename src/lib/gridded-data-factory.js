@@ -287,7 +287,7 @@ var GriddedDataFactory = function (options) {
    *     inputs.latitude {Number}
    *     inputs.longitude {Number}
    * @param metadata {Object}
-   *     metadata.document.interpolation_method {String}
+   *     metadata.document.spatial_interpolation_method {String}
    *
    * @see util/NumberUtils#spatialInterpolate
    *
@@ -297,7 +297,7 @@ var GriddedDataFactory = function (options) {
   _this.interpolate = function (rows, inputs, metadata) {
     var method;
 
-    if (metadata.document.interpolation_method === 'log') {
+    if (metadata.document.spatial_interpolation_method === 'log') {
       method = NumberUtils.INTERPOLATE_USING_LOG;
     } else {
       method = NumberUtils.INTERPOLATE_USING_LINEAR;
