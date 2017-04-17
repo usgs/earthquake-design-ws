@@ -4877,8 +4877,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.315,
-          "sx1": 0.107
+          "sxs": 0.287,
+          "sx1": 0.082
         }
       ]
     }
@@ -4921,8 +4921,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.318,
-          "sx1": 0.605
+          "sxs": 1.198,
+          "sx1": 0.465
         }
       ]
     }
@@ -4965,8 +4965,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.333,
-          "sx1": 0.11
+          "sxs": 0.303,
+          "sx1": 0.085
         }
       ]
     }
@@ -5009,8 +5009,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.324,
-          "sx1": 0.108
+          "sxs": 0.295,
+          "sx1": 0.083
         }
       ]
     }
@@ -5053,8 +5053,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.472,
-          "sx1": 0.168
+          "sxs": 0.429,
+          "sx1": 0.123
         }
       ]
     }
@@ -5097,8 +5097,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.471,
-          "sx1": 0.17
+          "sxs": 0.428,
+          "sx1": 0.131
         }
       ]
     }
@@ -5141,8 +5141,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.291,
-          "sx1": 0.091
+          "sxs": 0.264,
+          "sx1": 0.07
         }
       ]
     }
@@ -5185,8 +5185,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.706,
-          "sx1": 0.719
+          "sxs": 1.551,
+          "sx1": 0.553
         }
       ]
     }
@@ -5229,8 +5229,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.452,
-          "sx1": 0.157
+          "sxs": 0.411,
+          "sx1": 0.121
         }
       ]
     }
@@ -5273,8 +5273,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.95,
-          "sx1": 0.397
+          "sxs": 0.863,
+          "sx1": 0.305
         }
       ]
     }
@@ -5317,8 +5317,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.115,
-          "sx1": 0.039
+          "sxs": 0.104,
+          "sx1": 0.03
         }
       ]
     }
@@ -5361,8 +5361,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.138,
-          "sx1": 0.442
+          "sxs": 1.034,
+          "sx1": 0.34
         }
       ]
     }
@@ -5405,8 +5405,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.42,
-          "sx1": 0.142
+          "sxs": 0.382,
+          "sx1": 0.109
         }
       ]
     }
@@ -5449,8 +5449,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.421,
-          "sx1": 0.136
+          "sxs": 0.382,
+          "sx1": 0.104
         }
       ]
     }
@@ -5493,8 +5493,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 2.783,
-          "sx1": 1.323
+          "sxs": 2.53,
+          "sx1": 1.017
         }
       ]
     }
@@ -5537,8 +5537,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 2.049,
-          "sx1": 1.066
+          "sxs": 1.862,
+          "sx1": 0.82
         }
       ]
     }
@@ -5581,8 +5581,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.3,
-          "sx1": 0.097
+          "sxs": 0.273,
+          "sx1": 0.074
         }
       ]
     }
@@ -5625,8 +5625,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.093,
-          "sx1": 0.033
+          "sxs": 0.085,
+          "sx1": 0.025
         }
       ]
     }
@@ -5669,8 +5669,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.132,
-          "sx1": 0.473
+          "sxs": 1.029,
+          "sx1": 0.364
         }
       ]
     }
@@ -5713,8 +5713,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.5,
-          "sx1": 0.18
+          "sxs": 0.455,
+          "sx1": 0.139
         }
       ]
     }
@@ -5757,8 +5757,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.384,
-          "sx1": 0.719
+          "sxs": 1.258,
+          "sx1": 0.553
         }
       ]
     }
@@ -5801,8 +5801,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.315,
-          "sx1": 0.107
+          "sxs": 0.287,
+          "sx1": 0.082
         }
       ]
     }
@@ -5845,8 +5845,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.311,
-          "sx1": 0.599
+          "sxs": 1.192,
+          "sx1": 0.461
         }
       ]
     }
@@ -5889,8 +5889,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.333,
-          "sx1": 0.11
+          "sxs": 0.303,
+          "sx1": 0.085
         }
       ]
     }
@@ -5933,8 +5933,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.323,
-          "sx1": 0.108
+          "sxs": 0.294,
+          "sx1": 0.083
         }
       ]
     }
@@ -5977,8 +5977,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.472,
-          "sx1": 0.168
+          "sxs": 0.429,
+          "sx1": 0.129
         }
       ]
     }
@@ -6021,8 +6021,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.471,
-          "sx1": 0.171
+          "sxs": 0.428,
+          "sx1": 0.131
         }
       ]
     }
@@ -6065,8 +6065,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.29,
-          "sx1": 0.091
+          "sxs": 0.264,
+          "sx1": 0.07
         }
       ]
     }
@@ -6109,8 +6109,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.711,
-          "sx1": 0.722
+          "sxs": 1.555,
+          "sx1": 0.555
         }
       ]
     }
@@ -6153,8 +6153,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.452,
-          "sx1": 0.157
+          "sxs": 0.411,
+          "sx1": 0.121
         }
       ]
     }
@@ -6197,8 +6197,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.939,
-          "sx1": 0.395
+          "sxs": 0.854,
+          "sx1": 0.304
         }
       ]
     }
@@ -6241,8 +6241,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.114,
-          "sx1": 0.039
+          "sxs": 0.104,
+          "sx1": 0.03
         }
       ]
     }
@@ -6285,8 +6285,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.136,
-          "sx1": 0.439
+          "sxs": 1.033,
+          "sx1": 0.337
         }
       ]
     }
@@ -6329,8 +6329,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.42,
-          "sx1": 0.142
+          "sxs": 0.382,
+          "sx1": 0.109
         }
       ]
     }
@@ -6373,8 +6373,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.419,
-          "sx1": 0.135
+          "sxs": 0.381,
+          "sx1": 0.104
         }
       ]
     }
@@ -6417,8 +6417,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 2.861,
-          "sx1": 1.347
+          "sxs": 2.601,
+          "sx1": 1.036
         }
       ]
     }
@@ -6461,8 +6461,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 2.055,
-          "sx1": 1.073
+          "sxs": 1.868,
+          "sx1": 0.825
         }
       ]
     }
@@ -6505,8 +6505,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.3,
-          "sx1": 0.097
+          "sxs": 0.272,
+          "sx1": 0.074
         }
       ]
     }
@@ -6549,8 +6549,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.093,
-          "sx1": 0.033
+          "sxs": 0.085,
+          "sx1": 0.025
         }
       ]
     }
@@ -6593,8 +6593,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.146,
-          "sx1": 0.482
+          "sxs": 1.042,
+          "sx1": 0.371
         }
       ]
     }
@@ -6637,8 +6637,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 0.501,
-          "sx1": 0.18
+          "sxs": 0.456,
+          "sx1": 0.139
         }
       ]
     }
@@ -6681,8 +6681,8 @@
         {
           "hazardLevel": "Custom",
           "customProbability": 0.1,
-          "sxs": 1.387,
-          "sx1": 0.726
+          "sxs": 1.261,
+          "sx1": 0.558
         }
       ]
     }
