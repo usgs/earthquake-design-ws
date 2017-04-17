@@ -27,6 +27,20 @@ if (fs.existsSync(configPath)) {
 
 config = extend(config, process.env);
 
+// Override generic configuration properties with site-specific properties
+// as applicable.
+if (config.hasOwnProperty('database')) {
+  config.DB_HOST = config.database;
+}
+
+if (config.hasOwnProperty('pgsql_read_only_user')) {
+  config.DB_USER = config.pgsql_read_only_user;
+}
+
+if (config.hasOwnProperty('pgsql_read_only_password')) {
+  config.DB_PASSWORD = config.pgsql_read_only_password;
+}
+
 
 service = WebService(config);
 service.start();
