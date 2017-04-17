@@ -8,7 +8,7 @@ var expect = require('chai').expect,
     sinon = require('sinon');
 
 
-describe.only('MetadataFactory', () => {
+describe('MetadataFactory', () => {
   var factory;
 
   beforeEach(() => {
