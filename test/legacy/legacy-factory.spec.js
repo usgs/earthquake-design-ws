@@ -134,8 +134,10 @@ describe('LegacyFactory test suite', () => {
 
   describe('getLegacyData', () => {
     it('returns the cached request', () => {
-      sinon.stub(legacyFactory, 'cleanseInputs', () => { return {}; });
-      sinon.stub(legacyFactory, 'getCachedRequest', () => { return 'test'; });
+      sinon.stub(legacyFactory, 'cleanseInputs').callsFake(
+          () => { return {}; });
+      sinon.stub(legacyFactory, 'getCachedRequest').callsFake(
+          () => { return 'test'; });
       legacyFactory.getLegacyData();
 
       expect(legacyFactory.getLegacyData()).to.equal('test');
@@ -152,25 +154,19 @@ describe('LegacyFactory test suite', () => {
 
       response = {'output': {'data': 'test'}};
 
-      cleanseStub = sinon.stub(legacyFactory, 'cleanseInputs', () => {
-        return {};
-      });
+      cleanseStub = sinon.stub(legacyFactory, 'cleanseInputs').callsFake(
+          () => { return {}; });
 
-      getCachedRequestStub = sinon.stub(legacyFactory, 'getCachedRequest', () => {
-        return null;
-      });
+      getCachedRequestStub = sinon.stub(legacyFactory, 'getCachedRequest').callsFake(
+          () => { return null; });
 
-      interpolateStub = sinon.stub(legacyFactory, 'interpolate', () => {
-        return {};
-      });
+      interpolateStub = sinon.stub(legacyFactory, 'interpolate').callsFake(
+          () => { return {}; });
 
-      requestStub = sinon.stub(legacyFactory, 'makeRequest', () => {
-        return new Promise((resolve) => {
-          resolve(response);
-        });
-      });
+      requestStub = sinon.stub(legacyFactory, 'makeRequest').callsFake(
+          () => { return new Promise((resolve) => { resolve(response); }); });
 
-      urlEncodeStub = sinon.stub(legacyFactory, 'urlEncode', () => {
+      urlEncodeStub = sinon.stub(legacyFactory, 'urlEncode').callsFake(() => {
         return '';
       });
 
@@ -205,7 +201,8 @@ describe('LegacyFactory test suite', () => {
       legacyFactory.port = 'port';
       legacyFactory.pathname = 'pathname';
 
-      stub = sinon.stub(legacyFactory, 'urlEncode', () => { return ''; });
+      stub = sinon.stub(legacyFactory, 'urlEncode').callsFake(
+          () => { return ''; });
       options = legacyFactory.getOptions(inputs);
 
       expect(stub.callCount).to.equal(1);
@@ -380,7 +377,8 @@ describe('LegacyFactory test suite', () => {
         'three': 3
       };
 
-      stub = sinon.stub(legacyFactory, 'interpolateValue', () => { return; });
+      stub = sinon.stub(legacyFactory, 'interpolateValue').callsFake(
+          () => { return; });
       legacyFactory.interpolateResults(d0, d1, 0, 0, 0, 0);
 
       expect(stub.callCount).to.equal(3);
@@ -440,7 +438,7 @@ describe('LegacyFactory test suite', () => {
 
       inputs = {'key': 'value'};
 
-      optionsStub = sinon.stub(legacyFactory, 'getOptions', () => {
+      optionsStub = sinon.stub(legacyFactory, 'getOptions').callsFake(() => {
         return {
           'hostname': 'localhost',
           'port': testPort,

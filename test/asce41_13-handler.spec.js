@@ -75,7 +75,7 @@ describe('asce41_13-handler', () => {
     });
 
     it('returns an object with data', (done) => {
-      sinon.stub(handler, 'checkParams', () => {
+      sinon.stub(handler, 'checkParams').callsFake(() => {
         return Promise.resolve({});
       });
 

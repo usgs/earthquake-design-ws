@@ -103,7 +103,7 @@ describe('RiskTargetingFactory', () => {
         legacyFactory: _LEGACY_FACTORY
       });
 
-      sinon.stub(factory, 'formatResult', () => {});
+      sinon.stub(factory, 'formatResult').callsFake(() => {});
       sinon.spy(factory.legacyFactory, 'getLegacyData');
 
       factory.getRiskCoefficients().then(() => {

@@ -40,8 +40,8 @@ describe('gridded-data-factory', () => {
     it('returns a promise and calls functions as intended', (done) => {
       var result;
 
-      sinon.stub(factory, 'getMetadata', () => Promise.resolve({}));
-      sinon.stub(factory, 'getData', () => Promise.resolve({}));
+      sinon.stub(factory, 'getMetadata').callsFake(() => Promise.resolve({}));
+      sinon.stub(factory, 'getData').callsFake(() => Promise.resolve({}));
 
       result = factory.get({
         latitude: 0,
@@ -88,7 +88,7 @@ describe('gridded-data-factory', () => {
       };
 
       sinon.spy(factory.db, 'query');
-      sinon.stub(factory, 'interpolate', () => {return {};});
+      sinon.stub(factory, 'interpolate').callsFake(() => {return {};});
       result = factory.getData(metadata, inputs);
 
       expect(result).to.be.instanceof(Promise);
@@ -148,7 +148,7 @@ describe('gridded-data-factory', () => {
       };
 
       sinon.spy(factory, 'getRegion');
-      sinon.stub(factory, 'getDocument', () => Promise.resolve({}));
+      sinon.stub(factory, 'getDocument').callsFake(() => Promise.resolve({}));
       result = factory.getMetadata(inputs);
 
       expect(result).to.be.instanceof(Promise);

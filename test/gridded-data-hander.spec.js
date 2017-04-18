@@ -174,7 +174,7 @@ describe('gridded-data-handler', () => {
 
       handler = GriddedDataHandler({factory: _FACTORY});
 
-      stub = sinon.stub(handler, 'checkParams', () => {
+      stub = sinon.stub(handler, 'checkParams').callsFake(() => {
         return Promise.resolve(_INPUT);
       });
       spy = sinon.spy(handler.factory, 'get');

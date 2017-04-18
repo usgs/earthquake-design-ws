@@ -1,9 +1,42 @@
 build:
-  image: usgs/earthquake-design-ws:latest
+  image: usgs/earthquake-design-ws:0.3.0-rc1
   ports:
     - 8000:8000
-  # volumes:
-  #   - ./src:/hazdev-project/src
-  environment:
-    - MOUNT_PATH=/ws/designmaps
-    - LEGACY_URL=https://earthquake.usgs.gov/designmaps/beta/us/service
+  env_file:
+    - ./docker-compose.ini
+    # Note This ENV file should provide the following configuration parameters:
+    #
+    #
+    # ; This file is used when running the application from within a container
+    # ; locally.
+
+    # ; URL path where application may be accessed
+    # MOUNT_PATH=/some/path
+
+    # ; Port for application to listen on, should match the right-side "PORT"
+    # ; from "port:PORT" specified above above.
+    # PORT=8000
+
+    # ; Where legacy data comes from
+    # LEGACY_URL=https://earthquake.usgs.gov/designmaps/beta/us/service
+
+
+    # ; Where current gridded data comes from
+    # ; Probably needs real IP address since localhost will resolve as
+    # ; container-local and that is probably not correct.
+    # DB_HOST=localhost
+    # DB_PORT=5432
+
+    # DB_DATABASE=earthquake-design-ws
+    # DB_USER=some_user
+    # DB_PASSWORD=some_password
+
+    # DB_SCHEMA_DETERMINISTIC=deterministic
+    # DB_SCHEMA_RISK_COEFFICIENT=risk_coefficient
+    # DB_SCHEMA_PROBABILISTIC=probabilistic
+
+
+    # ; Where current sub-services are located
+    # PROBABILISTIC_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/probabilistic.json
+    # RISK_COEFFICIENT_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/risk-coefficient.json
+    # DETERMINISTIC_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/deterministic.json

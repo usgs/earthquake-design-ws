@@ -3,3 +3,4 @@ node_modules
 *.sublime-workspace
 coverage
 npm-debug.log
+docker-compose.ini

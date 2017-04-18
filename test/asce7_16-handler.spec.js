@@ -77,7 +77,7 @@ describe('asce7-16-handler', () => {
     });
 
     it('calls checkParams method', () => {
-      sinon.stub(designHandler, 'checkParams', () => {
+      sinon.stub(designHandler, 'checkParams').callsFake(() => {
         return Promise.resolve({});
       });
 
@@ -97,7 +97,7 @@ describe('asce7-16-handler', () => {
     });
 
     it('returns an object with data', (done) => {
-      sinon.stub(designHandler, 'checkParams', () => {
+      sinon.stub(designHandler, 'checkParams').callsFake(() => {
         return Promise.resolve({});
       });
 
