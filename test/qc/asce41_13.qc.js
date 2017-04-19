@@ -33,7 +33,19 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
   });
 
   CityInputs.forEach((city) => {
-    describe(`${city.request.parameters.label} (${city.request.parameters.latitude}, ${city.request.parameters.longitude})`, () => {
+    var label,
+        latitude,
+        longitude,
+        siteClass;
+
+    label = city.request.parameters.label;
+    latitude = city.request.parameters.latitude;
+    longitude = city.request.parameters.longitude;
+    siteClass = city.request.parameters.siteClass;
+
+    label = `${label} (${latitude}, ${longitude}) "Site Class ${siteClass}"`;
+
+    describe(label, () => {
       var customResults,
           standardResults;
 
@@ -42,9 +54,9 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
             standardRequest;
 
         standardRequest = {
-          latitude: city.request.parameters.latitude,
-          longitude: city.request.parameters.longitude,
-          siteClass: city.request.parameters.siteClass
+          latitude: latitude,
+          longitude: longitude,
+          siteClass: siteClass
         };
 
         customRequest = extend({
@@ -58,6 +70,7 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
           standardResults = results[0];
           customResults = results[1];
         }).catch((err) => {
+          process.stderr.write(err.stack + '\n');
           return err;
         }).then(done);
       });
