@@ -12,6 +12,18 @@ _DEFAULTS = {
     'ASCE7-16': {
       'ss': {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
+        restriction: {
+          'A': null,
+          'B (measured)': null,
+          'B (unmeasured)': null,
+          'C': null,
+          'D (determined)': null,
+          'D (default)': null,
+          'E': {
+            'message': 'See Section 11.4.8',
+            'limit': 1.00
+          }
+        },
         siteClasses: {
           'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
           'B (measured)': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
@@ -24,6 +36,18 @@ _DEFAULTS = {
       },
       's1': {
         bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
+        restriction: {
+          'A': null,
+          'B (measured)': null,
+          'B (unmeasured)': null,
+          'C': null,
+          'D (determined)': null,
+          'D (default)': null,
+          'E': {
+            'message': 'See Section 11.4.8',
+            'limit': 0.20
+          }
+        },
         siteClasses: {
           'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
           'B (measured)': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
@@ -50,6 +74,13 @@ _DEFAULTS = {
     'ASCE41-13': {
       'ss': {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25],
+        restriction: {
+          'A': null,
+          'B': null,
+          'C': null,
+          'D': null,
+          'E': null
+        },
         siteClasses: {
           'A': [0.8, 0.8, 0.8, 0.8, 0.8],
           'B': [1.0, 1.0, 1.0, 1.0, 1.0],
@@ -60,6 +91,13 @@ _DEFAULTS = {
       },
       's1': {
         bins: [0.10, 0.20, 0.30, 0.40, 0.50],
+        restriction: {
+          'A': null,
+          'B': null,
+          'C': null,
+          'D': null,
+          'E': null
+        },
         siteClasses: {
           'A': [0.8, 0.8, 0.8, 0.8, 0.8],
           'B': [1.0, 1.0, 1.0, 1.0, 1.0],
