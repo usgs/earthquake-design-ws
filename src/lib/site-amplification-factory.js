@@ -1,7 +1,8 @@
 'use strict';
 
 
-var extend = require('extend');
+var extend = require('extend'),
+    NumberUtils = require('./util/number-utils').instance;
 
 
 var _DEFAULTS;
@@ -155,7 +156,7 @@ var SiteAmplificationFactory = function (options) {
       ymax = yvals[i];
 
       if (xmin <= x && x <= xmax) {
-        return _this.interpolate(xmin, xmax, ymin, ymax, x);
+        return NumberUtils.interpolate(xmin, ymin, xmax, ymax, x);
       }
     }
 
@@ -240,27 +241,6 @@ var SiteAmplificationFactory = function (options) {
         reject(err);
       }
     });
-  };
-
-  /**
-   * Performs generic linear interpolation.
-   *
-   * @param xmin {Double}
-   *     The lower x-value
-   * @param xmax {Double}
-   *     The upper x-value
-   * @param ymin {Double}
-   *     The lower y-value
-   * @param ymax {Double}
-   *     The upper y-value
-   * @param x {Double}
-   *     The target x-value
-   *
-   * @return {Double}
-   *     The interpolated y-value corresponding to the input target x-value.
-   */
-  _this.interpolate = function (xmin, xmax, ymin, ymax, x) {
-    return ymin + ((x - xmin) * ((ymax - ymin) / (xmax - xmin)));
   };
 
 
