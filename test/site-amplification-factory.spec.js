@@ -3,6 +3,7 @@
 
 
 var expect = require('chai').expect,
+    NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon'),
     SiteAmplificationFactory = require('../src/lib/site-amplification-factory');
 
@@ -67,14 +68,14 @@ describe('SiteAmplificationFactory', () => {
     it('calls interpolate for intermediate values', () => {
       var result;
 
-      sinon.spy(factory, 'interpolate');
+      sinon.spy(NumberUtils, 'interpolate');
 
       result = factory.getAmplificationFactor(xvals, yvals, 2.5);
 
-      expect(factory.interpolate.callCount).to.equal(1);
+      expect(NumberUtils.interpolate.callCount).to.equal(1);
       expect(result).to.be.closeTo(2.5, _EPSILON);
 
-      factory.interpolate.restore();
+      NumberUtils.interpolate.restore();
     });
   });
 
@@ -178,21 +179,6 @@ describe('SiteAmplificationFactory', () => {
         factory.destroy();
         done(err);
       });
-    });
-  });
-
-  describe('interpolate', function () {
-    it('produces expected results', () => {
-      var factory;
-
-      factory = SiteAmplificationFactory();
-
-      expect(factory.interpolate(0, 1, 0, 1, 0.5)).to.be.closeTo(0.5, _EPSILON);
-      expect(factory.interpolate(0, 1, 1, 0, 0.5)).to.be.closeTo(0.5, _EPSILON);
-      expect(factory.interpolate(0, 1, 0, 1, 0.0)).to.be.closeTo(0.0, _EPSILON);
-      expect(factory.interpolate(0, 1, 0, 1, 1.0)).to.be.closeTo(1.0, _EPSILON);
-
-      factory.destroy();
     });
   });
 });
