@@ -267,8 +267,7 @@ var SiteAmplificationFactory = function (options) {
           result.fa = _this.getAmplificationFactor(data.bins,
               data.siteClasses[siteClass], inputs.ss);
 
-          if (restriction && restriction !== null &&
-              inputs.ss >= restriction.limit) {
+          if (restriction !== null && inputs.ss >= restriction.limit) {
             result.fa = null;
             result.fa_error = restriction.message;
           }
@@ -281,8 +280,7 @@ var SiteAmplificationFactory = function (options) {
           result.fv = _this.getAmplificationFactor(data.bins,
               data.siteClasses[siteClass], inputs.s1);
 
-          if (restriction && restriction !== null &&
-              inputs.s1 >= restriction.limit) {
+          if (restriction !== null && inputs.s1 >= restriction.limit) {
             result.fv = null;
             result.fv_error = restriction.message;
           }
