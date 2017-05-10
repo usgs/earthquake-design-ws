@@ -41,7 +41,10 @@ _DEFAULTS = {
           'B (measured)': null,
           'B (unmeasured)': null,
           'C': null,
-          'D (determined)': null,
+          'D (determined)': {
+            'message': 'See Section 11.4.8',
+            'limit': 0.20
+          },
           'D (default)': null,
           'E': {
             'message': 'See Section 11.4.8',
