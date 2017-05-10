@@ -390,14 +390,14 @@ var ASCE7_16Factory = function (options) {
                 _this.outputDecimals),
             ss: NumberUtils.round(basicDesign.ss,
                 _this.outputDecimals),
-            fa: NumberUtils.round(siteAmplification.fa,
-                _this.outputDecimals),
+            fa: siteAmplification.fa === null ? null : NumberUtils.round(
+                siteAmplification.fa, _this.outputDecimals),
             fa_error: siteAmplification.fa_error,
-            sms: NumberUtils.round(finalDesign.sms,
-                _this.outputDecimals),
-            sds: NumberUtils.round(finalDesign.sds,
-                _this.outputDecimals),
-            sdcs: designCategory.sdcs,
+            sms: siteAmplification.fa === null ? null : NumberUtils.round(
+                finalDesign.sms, _this.outputDecimals),
+            sds: siteAmplification.fa === null ? null : NumberUtils.round(
+                finalDesign.sds, _this.outputDecimals),
+            sdcs: siteAmplification.fa === null ? null : designCategory.sdcs,
 
             s1rt: NumberUtils.round(basicDesign.s1rt,
                 _this.outputDecimals),
@@ -409,22 +409,27 @@ var ASCE7_16Factory = function (options) {
                 _this.outputDecimals),
             s1: NumberUtils.round(basicDesign.s1,
                 _this.outputDecimals),
-            fv: NumberUtils.round(siteAmplification.fv,
-                _this.outputDecimals),
+            fv: siteAmplification.fv === null ? null : NumberUtils.round(
+                siteAmplification.fv, _this.outputDecimals),
             fv_error: siteAmplification.fv_error,
-            sm1: NumberUtils.round(finalDesign.sm1,
-                _this.outputDecimals),
-            sd1: NumberUtils.round(finalDesign.sd1,
-                _this.outputDecimals),
-            sdc1: designCategory.sdc1,
+            sm1: siteAmplification.fv === null ? null : NumberUtils.round(
+                finalDesign.sm1, _this.outputDecimals),
+            sd1: siteAmplification.fv === null ? null : NumberUtils.round(
+                finalDesign.sd1, _this.outputDecimals),
+            sdc1: siteAmplification.fv === null ? null : designCategory.sdc1,
 
-            sdc: designCategory.sdc,
+            sdc: siteAmplification.fa === null || siteAmplification.fv === null
+                ? null : designCategory.sdc,
             // tl: result.tl,
 
             // TODO
-            sdSpectrum: NumberUtils.roundSpectrum(spectra.sdSpectrum,
+            sdSpectrum: siteAmplification.fa === null ||
+                siteAmplification.fv === null ? null :
+                NumberUtils.roundSpectrum(spectra.sdSpectrum,
                 _this.outputDecimals),
-            smSpectrum: NumberUtils.roundSpectrum(spectra.smSpectrum,
+            smSpectrum: siteAmplification.fa === null ||
+                siteAmplification.fv === null ? null :
+                NumberUtils.roundSpectrum(spectra.smSpectrum,
                 _this.outputDecimals)
           },
 
