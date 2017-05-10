@@ -148,14 +148,7 @@ describe('SiteAmplificationFactory', () => {
       lookupTable = {
         bins: [0, 1, 2, 3, 4, 5],
         restriction: {
-          1: null,
-          2: null,
-          3: null,
-          4: null,
-          5: {
-            'message': 'See Section 11.4.8',
-            'limit': 3.00
-          }
+          'siteClass': null
         },
         siteClasses: {
           'siteClass': [0, 1, 2, 3, 4, 5]
