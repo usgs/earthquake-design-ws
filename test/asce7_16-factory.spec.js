@@ -332,7 +332,12 @@ describe('DesignFactory', () => {
         },
         'probabilistic': {},
         'riskCoefficients': {},
-        'siteAmplification': {},
+        'siteAmplification': {
+          'fa': null,
+          'fa_error': null,
+          'fv': null,
+          'fv_error': null
+        },
         'designCategory': {
           'sdcs': null,
           'sdc1': null,
@@ -349,6 +354,7 @@ describe('DesignFactory', () => {
           'ssd', 's1d', 'pgad',
           'ss', 's1', 'pga',
           'sms', 'sm1', 'pgam',
+          'fa', 'fa_error', 'fv', 'fv_error',
           'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
