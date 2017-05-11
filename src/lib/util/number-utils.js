@@ -212,6 +212,10 @@ var NumberUtils = function (options) {
     var factor,
         rounded;
 
+    if (value === null) {
+      return null;
+    }
+
     if (typeof precision === 'undefined') {
       precision = _this.roundPrecision;
     }
