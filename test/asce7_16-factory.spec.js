@@ -214,6 +214,9 @@ describe('DesignFactory', () => {
       expect(factory.computeSiteModifiedValue(1, 2)).to.equal(2);
       expect(factory.computeSiteModifiedValue(2, 1)).to.equal(2);
       expect(factory.computeSiteModifiedValue(1, 0)).to.equal(0);
+      expect(factory.computeSiteModifiedValue(null, 0)).to.equal(null);
+      expect(factory.computeSiteModifiedValue(0, null)).to.equal(null);
+      expect(factory.computeSiteModifiedValue(null, null)).to.equal(null);
 
       factory.destroy();
     });
