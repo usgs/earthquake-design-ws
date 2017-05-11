@@ -233,6 +233,7 @@ var SiteAmplificationFactory = function (options) {
     var data,
         lookupTable,
         referenceDocument,
+        restriction,
         result,
         siteClass;
 
@@ -261,14 +262,28 @@ var SiteAmplificationFactory = function (options) {
 
         if (inputs.hasOwnProperty('ss')) {
           data = lookupTable.ss;
+          restriction = data.restriction[siteClass];
+
           result.fa = _this.getAmplificationFactor(data.bins,
               data.siteClasses[siteClass], inputs.ss);
+
+          if (restriction !== null && inputs.ss >= restriction.limit) {
+            result.fa = null;
+            result.fa_error = restriction.message;
+          }
         }
 
         if (inputs.hasOwnProperty('s1')) {
           data = lookupTable.s1;
+          restriction = data.restriction[siteClass];
+
           result.fv = _this.getAmplificationFactor(data.bins,
               data.siteClasses[siteClass], inputs.s1);
+
+          if (restriction !== null && inputs.s1 >= restriction.limit) {
+            result.fv = null;
+            result.fv_error = restriction.message;
+          }
         }
 
         if (inputs.hasOwnProperty('pga')) {
