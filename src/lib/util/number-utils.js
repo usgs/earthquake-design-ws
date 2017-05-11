@@ -207,6 +207,7 @@ var NumberUtils = function (options) {
    *
    * @return {Decimal}
    *     The rounded result.
+   *     If value is null returns null.
    */
   _this.round = function (value, precision) {
     var factor,
