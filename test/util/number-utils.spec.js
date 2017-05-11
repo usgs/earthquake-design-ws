@@ -127,6 +127,10 @@ describe('util/number-utils', () => {
   });
 
   describe('round', () => {
+    it('returns null if param value is null', () => {
+      expect(util.round(null, 3)).to.equal(null);
+    });
+
     it('rounds correctly', () => {
       expect(util.round(0.0005, 3)).to.equal(0.001);
       expect(util.round(0.0015, 3)).to.equal(0.002);
