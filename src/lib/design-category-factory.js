@@ -94,11 +94,11 @@ var DesignCategoryFactory = function (options) {
     return new Promise((resolve, reject) => {
       try {
 
-        if (typeof sds === 'undefined' || sds === null) {
+        if (typeof sds === 'undefined') {
           throw new Error('"sds" is required to determine design category.');
         }
 
-        if (typeof sd1 === 'undefined' || sd1 === null) {
+        if (typeof sd1 === 'undefined') {
           throw new Error('"sd1" is required to determine design category.');
         }
 
@@ -134,6 +134,10 @@ var DesignCategoryFactory = function (options) {
           );
         }
 
+        if (s1 === null || sds === null || sd1 === null) {
+          sdCategory = null;
+        }
+
         resolve({
           sdc: sdCategory,
           sdc1: sd1Category,
@@ -163,6 +167,10 @@ var DesignCategoryFactory = function (options) {
     var i,
         len,
         lookupTable;
+
+    if (value === null) {
+      return null;
+    }
 
     lookupTable = _this.lookupTables[key];
 
