@@ -80,6 +80,13 @@ var SpectraFactory = function (options) {
         // If 1.0-second ground motion exceeds 0.2-second ground motion,
         // take the 0.2-second ground motion to equal the 1.0-second ground
         // motion. This prevents awkward spectra results
+
+        if (gms === null || gm1 === null) {
+          spectrum = [];
+          spectrum.push([null]);
+          return resolve(spectrum);
+        }
+
         if (gm1 > gms) {
           gms = gm1;
         }
