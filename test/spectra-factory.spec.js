@@ -134,5 +134,23 @@ describe('SpectraFactory', () => {
         done(err);
       });
     });
+
+    it('resolves with null value when null values are given', (done) => {
+      var factory;
+
+      factory = SpectraFactory();
+
+      factory.getSpectrum(null, null).then((result) => {
+
+        expect(result[0][0]).to.equal(null);
+
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.destroy();
+        factory = null;
+        done(err);
+      });
+    });
   });
 });

@@ -152,6 +152,10 @@ var ASCE7_16Factory = function (options) {
    *     The seismic design value
    */
   _this.computeDesignValue = function (siteModifiedValue) {
+    if (siteModifiedValue === null) {
+      return null;
+    }
+
     return (2/3) * siteModifiedValue;
   };
 
@@ -259,6 +263,10 @@ var ASCE7_16Factory = function (options) {
    *     The site-modified ground motion for purposes of design
    */
   _this.computeSiteModifiedValue = function (groundMotion, amplification) {
+    if (groundMotion === null || amplification === null) {
+      return null;
+    }
+
     return groundMotion * amplification;
   };
 
@@ -390,13 +398,10 @@ var ASCE7_16Factory = function (options) {
                 _this.outputDecimals),
             ss: NumberUtils.round(basicDesign.ss,
                 _this.outputDecimals),
-            fa: NumberUtils.round(siteAmplification.fa,
-                _this.outputDecimals),
+            fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             fa_error: siteAmplification.fa_error,
-            sms: NumberUtils.round(finalDesign.sms,
-                _this.outputDecimals),
-            sds: NumberUtils.round(finalDesign.sds,
-                _this.outputDecimals),
+            sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
+            sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
             sdcs: designCategory.sdcs,
 
             s1rt: NumberUtils.round(basicDesign.s1rt,
@@ -409,13 +414,10 @@ var ASCE7_16Factory = function (options) {
                 _this.outputDecimals),
             s1: NumberUtils.round(basicDesign.s1,
                 _this.outputDecimals),
-            fv: NumberUtils.round(siteAmplification.fv,
-                _this.outputDecimals),
+            fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
             fv_error: siteAmplification.fv_error,
-            sm1: NumberUtils.round(finalDesign.sm1,
-                _this.outputDecimals),
-            sd1: NumberUtils.round(finalDesign.sd1,
-                _this.outputDecimals),
+            sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
+            sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
             sdc1: designCategory.sdc1,
 
             sdc: designCategory.sdc,

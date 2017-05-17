@@ -127,6 +127,7 @@ describe('DesignFactory', () => {
       factory = DesignFactory();
 
       expect(factory.computeDesignValue(1.0)).to.be.closeTo(2/3, _EPSILON);
+      expect(factory.computeDesignValue(null)).to.equal(null);
     });
   });
 
@@ -214,6 +215,9 @@ describe('DesignFactory', () => {
       expect(factory.computeSiteModifiedValue(1, 2)).to.equal(2);
       expect(factory.computeSiteModifiedValue(2, 1)).to.equal(2);
       expect(factory.computeSiteModifiedValue(1, 0)).to.equal(0);
+      expect(factory.computeSiteModifiedValue(null, 0)).to.equal(null);
+      expect(factory.computeSiteModifiedValue(0, null)).to.equal(null);
+      expect(factory.computeSiteModifiedValue(null, null)).to.equal(null);
 
       factory.destroy();
     });
@@ -329,7 +333,12 @@ describe('DesignFactory', () => {
         },
         'probabilistic': {},
         'riskCoefficients': {},
-        'siteAmplification': {},
+        'siteAmplification': {
+          'fa': null,
+          'fa_error': null,
+          'fv': null,
+          'fv_error': null
+        },
         'designCategory': {
           'sdcs': null,
           'sdc1': null,
@@ -346,6 +355,7 @@ describe('DesignFactory', () => {
           'ssd', 's1d', 'pgad',
           'ss', 's1', 'pga',
           'sms', 'sm1', 'pgam',
+          'fa', 'fa_error', 'fv', 'fv_error',
           'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {

@@ -95,11 +95,49 @@ describe('DesignCategoryFactory', () => {
         done(err);
       });
     });
+
+    it('returns sdc = null when s1, sds, or sd1 are null', function (done) {
+      factory.getDesignCategory('I', 0, null, null, null).then((result) => {
+        expect(result.sdc).to.equal(null);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns sdc = null and sdc1 = null when sds and sd1 are null', function
+        (done) {
+      factory.getDesignCategory('I', 0, 1, null, null).then((result) => {
+        expect(result.sdc).to.equal(null);
+        expect(result.sdc1).to.equal(null);
+        expect(result.sdcs).to.equal('D');
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns sdc = null and sdcs = null when s1 and sd1 are null', function
+        (done) {
+      factory.getDesignCategory('I', 0, null, 1, null).then((result) => {
+        expect(result.sdc).to.equal(null);
+        expect(result.sdc1).to.equal('D');
+        expect(result.sdcs).to.equal(null);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
   });
 
   describe('mapDesignCategory', () => {
     it('returns the correct design category', () => {
       var f = factory;
+
+      expect(f.mapDesignCategory('I', 'sds', null)).to.equal(null);
 
       expect(f.mapDesignCategory('I', 'sds', -1.0)).to.equal('A');
       expect(f.mapDesignCategory('I', 'sds', 0.1)).to.equal('A');
