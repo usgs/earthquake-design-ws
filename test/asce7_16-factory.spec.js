@@ -127,6 +127,7 @@ describe('DesignFactory', () => {
       factory = DesignFactory();
 
       expect(factory.computeDesignValue(1.0)).to.be.closeTo(2/3, _EPSILON);
+      expect(factory.computeDesignValue(null)).to.equal(null);
     });
   });
 
