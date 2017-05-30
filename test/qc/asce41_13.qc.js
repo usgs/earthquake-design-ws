@@ -20,8 +20,10 @@ compareResults = function (expected, actual) {
 };
 
 
-describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, () => {
+describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, function () {
   var handler;
+
+  this.timeout(100000);
 
   after(() => {
     handler.destroy();
