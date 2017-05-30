@@ -424,10 +424,11 @@ var ASCE7_16Factory = function (options) {
             sdc: designCategory.sdc,
             // tl: result.tl,
 
+
             // TODO
-            sdSpectrum: NumberUtils.roundSpectrum(spectra.sdSpectrum,
+            sdSpectrum: siteAmplification.fa === null || siteAmplification.fv === null ? null : NumberUtils.roundSpectrum(spectra.sdSpectrum,
                 _this.outputDecimals),
-            smSpectrum: NumberUtils.roundSpectrum(spectra.smSpectrum,
+            smSpectrum: siteAmplification.fa === null || siteAmplification.fv === null ? null : NumberUtils.roundSpectrum(spectra.smSpectrum,
                 _this.outputDecimals)
           },
 
