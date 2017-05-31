@@ -14,24 +14,29 @@ var compareResult,
 epsilon = Config.epsilon || 1E-4;
 
 compareResult = function (expected, actual) {
-  if (actual.sms === null) {
-    expect(expected.sms).to.equal(null);
-  } else {
-    expect(actual.sms).to.be.closeTo(expected.sms, epsilon);
+  if (expected.hasOwnProperty('sms')) {
+    if (expected.sms === null) {
+      expect(actual.sms).to.equal(null);
+    } else {
+      expect(actual.sms).to.be.closeTo(expected.sms, epsilon);
+    }
   }
 
-  if (actual.sm1 === null) {
-    expect(expected.sm1).to.equal(null);
-  } else {
-    expect(actual.sm1).to.be.closeTo(expected.sm1, epsilon);
+  if (expected.hasOwnProperty('sm1')) {
+    if (expected.sm1 === null) {
+      expect(actual.sm1).to.equal(null);
+    } else {
+      expect(actual.sm1).to.be.closeTo(expected.sm1, epsilon);
+    }
   }
 
-  if (actual.pgam === null) {
-    expect(actual.pgam).to.equal(null);
-  } else {
-    expect(actual.pgam).to.be.closeTo(expected.pgam, epsilon);
+  if (expected.hasOwnProperty('pgam')) {
+    if (expected.pgam === null) {
+      expect(actual.pgam).to.equal(null);
+    } else {
+      expect(actual.pgam).to.be.closeTo(expected.pgam, epsilon);
+    }
   }
-
 };
 
 
@@ -71,6 +76,7 @@ describe(`ASCE 7-16 Quality Control Tests +/- ${epsilon}`, () => {
       for (i = 0; i < len; i++) {
         cityResponse = city.response.data[i];
         siteClass = cityResponse.siteClass;
+
 
         it(JSON.stringify(cityResponse), (done) => {
           var request;
