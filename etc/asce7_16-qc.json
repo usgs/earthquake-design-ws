@@ -1,274 +1,5083 @@
 [
   {
-    "name": "Los Angeles",
-    "latitude": 34.0531,
-    "longitude": -118.2428,
-    "ss": 1.976,
-    "s1": 0.704,
-    "pga": 0.848
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Los Angeles",
+        "latitude": 34.0531,
+        "longitude": -118.2428
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.976,
+          "sm1": 0.704,
+          "pgam": 0.848
+        }
+      ]
+    }
   },
   {
-    "name": "Century City",
-    "latitude": 34.0498,
-    "longitude": -118.4252,
-    "ss": 2.064,
-    "s1": 0.738,
-    "pga": 0.885
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Los Angeles",
+        "latitude": 34.05,
+        "longitude": -118.25
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.576,
+          "sm1": 0.561,
+          "pgam": 0.675
+        },
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.970,
+          "sm1": 0.701,
+          "pgam": 0.844
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.773,
+          "sm1": 0.561,
+          "pgam": 0.759
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.364,
+          "sm1": 0.982,
+          "pgam": 1.012
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.970,
+          "sm1": 1.192,
+          "pgam": 0.928
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.364,
+          "sm1": 1.192,
+          "pgam": 1.012
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.928
+        }
+      ]
+    }
   },
   {
-    "name": "Northridge",
-    "latitude": 34.2283,
-    "longitude": -118.5361,
-    "ss": 1.748,
-    "s1": 0.603,
-    "pga": 0.716
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Century City",
+        "latitude": 34.0498,
+        "longitude": -118.4252
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.064,
+          "sm1": 0.738,
+          "pgam": 0.885
+        }
+      ]
+    }
   },
   {
-    "name": "Long Beach",
-    "latitude": 33.7669,
-    "longitude": -118.1883,
-    "ss": 1.616,
-    "s1": 0.588,
-    "pga": 0.716
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Century City",
+        "latitude": 34.05,
+        "longitude": -118.40
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.689,
+          "sm1": 0.603,
+          "pgam": 0.728
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.900,
+          "sm1": 0.603,
+          "pgam": 0.819
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.533,
+          "sm1": 1.054,
+          "pgam": 1.091
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.111,
+          "sm1": 1.280,
+          "pgam": 1.001
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.533,
+          "sm1": 1.280,
+          "pgam": 1.091
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 1.001
+        }
+      ]
+    }
   },
   {
-    "name": "Irvine",
-    "latitude": 33.6695,
-    "longitude": -117.8223,
-    "ss": 1.262,
-    "s1": 0.451,
-    "pga": 0.534
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Northridge",
+        "latitude": 34.2283,
+        "longitude": -118.5361
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.748,
+          "sm1": 0.603,
+          "pgam": 0.716
+        }
+      ]
+    }
   },
   {
-    "name": "Riverside",
-    "latitude": 33.9533,
-    "longitude": -117.3953,
-    "ss": 1.500,
-    "s1": 0.587,
-    "pga": 0.500
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Northridge",
+        "latitude": 34.20,
+        "longitude": -118.55
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.388,
+          "sm1": 0.480,
+          "pgam": 0.571
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.562,
+          "sm1": 0.480,
+          "pgam": 0.642
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.082,
+          "sm1": 0.840,
+          "pgam": 0.856
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.735,
+          "sm1": 1.020,
+          "pgam": 0.785
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.082,
+          "sm1": 1.020,
+          "pgam": 0.856
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.785
+        }
+      ]
+    }
   },
   {
-    "name": "San Bernardino",
-    "latitude": 34.1083,
-    "longitude": -117.2889,
-    "ss": 2.153,
-    "s1": 0.857,
-    "pga": 0.908
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Long Beach",
+        "latitude": 33.7669,
+        "longitude": -118.1883
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.616,
+          "sm1": 0.588,
+          "pgam": 0.716
+        }
+      ]
+    }
   },
   {
-    "name": "San Luis Obispo",
-    "latitude": 35.2828,
-    "longitude": -120.6586,
-    "ss": 1.068,
-    "s1": 0.394,
-    "pga": 0.473
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Long Beach",
+        "latitude": 33.80,
+        "longitude": -118.20
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.346,
+          "sm1": 0.486,
+          "pgam": 0.595
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.515,
+          "sm1": 0.486,
+          "pgam": 0.669
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.020,
+          "sm1": 0.851,
+          "pgam": 0.892
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.683,
+          "sm1": 1.033,
+          "pgam": 0.818
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.020,
+          "sm1": 1.033,
+          "pgam": 0.892
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.818
+        }
+      ]
+    }
   },
   {
-    "name": "San Diego",
-    "latitude": 32.7153,
-    "longitude": -117.1564,
-    "ss": 1.498,
-    "s1": 0.504,
-    "pga": 0.682
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Irvine",
+        "latitude": 33.6695,
+        "longitude": -117.8223
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.262,
+          "sm1": 0.451,
+          "pgam": 0.534
+        }
+      ]
+    }
   },
   {
-    "name": "Santa Barbara",
-    "latitude": 34.4209,
-    "longitude": -119.6973,
-    "ss": 2.189,
-    "s1": 0.792,
-    "pga": 0.961
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Irvine",
+        "latitude": 33.65,
+        "longitude": -117.80
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.999,
+          "sm1": 0.357,
+          "pgam": 0.422
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.124,
+          "sm1": 0.357,
+          "pgam": 0.475
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.499,
+          "sm1": 0.670,
+          "pgam": 0.633
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.249,
+          "sm1": 0.828,
+          "pgam": 0.580
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.499,
+          "sm1": 0.828,
+          "pgam": 0.633
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.618
+        }
+      ]
+    }
   },
   {
-    "name": "Ventura",
-    "latitude": 34.2788,
-    "longitude": -119.2922,
-    "ss": 1.964,
-    "s1": 0.739,
-    "pga": 0.861
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Riverside",
+        "latitude": 33.9533,
+        "longitude": -117.3953
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.587,
+          "pgam": 0.500
+        }
+      ]
+    }
   },
   {
-    "name": "Oakland",
-    "latitude": 37.8044,
-    "longitude": -122.2698,
-    "ss": 1.730,
-    "s1": 0.656,
-    "pga": 0.728
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Riverside",
+        "latitude": 33.95,
+        "longitude": -117.40
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.200,
+          "sm1": 0.464,
+          "pgam": 0.400
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.350,
+          "sm1": 0.464,
+          "pgam": 0.450
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.800,
+          "sm1": 0.824,
+          "pgam": 0.600
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.500,
+          "sm1": 0.998,
+          "pgam": 0.550
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.800,
+          "sm1": 0.998,
+          "pgam": 0.600
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.600
+        }
+      ]
+    }
   },
   {
-    "name": "Concord",
-    "latitude": 37.9779,
-    "longitude": -122.0301,
-    "ss": 1.881,
-    "s1": 0.600,
-    "pga": 0.768
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Bernardino",
+        "latitude": 34.1083,
+        "longitude": -117.2889
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.153,
+          "sm1": 0.857,
+          "pgam": 0.908
+        }
+      ]
+    }
   },
   {
-    "name": "Monterey",
-    "latitude": 36.6003,
-    "longitude": -121.8937,
-    "ss": 1.331,
-    "s1": 0.497,
-    "pga": 0.576
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Bernardino",
+        "latitude": 34.10,
+        "longitude": -117.30
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.862,
+          "sm1": 0.745,
+          "pgam": 0.784
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 2.095,
+          "sm1": 0.745,
+          "pgam": 0.882
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.793,
+          "sm1": 1.304,
+          "pgam": 1.177
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.327,
+          "sm1": 1.583,
+          "pgam": 1.078
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.793,
+          "sm1": 1.583,
+          "pgam": 1.177
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 1.078
+        }
+      ]
+    }
   },
   {
-    "name": "Sacramento",
-    "latitude": 38.5817,
-    "longitude": -121.4934,
-    "ss": 0.567,
-    "s1": 0.253,
-    "pga": 0.238
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Luis Obispo",
+        "latitude": 35.2828,
+        "longitude": -120.6586
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.068,
+          "sm1": 0.394,
+          "pgam": 0.473
+        }
+      ]
+    }
   },
   {
-    "name": "San Francisco",
-    "latitude": 37.7752,
-    "longitude": -122.4185,
-    "ss": 1.500,
-    "s1": 0.600,
-    "pga": 0.571
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Luis Obispo",
+        "latitude": 35.30,
+        "longitude": -120.65
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.871,
+          "sm1": 0.321,
+          "pgam": 0.387
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.980,
+          "sm1": 0.321,
+          "pgam": 0.435
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.306,
+          "sm1": 0.602,
+          "pgam": 0.580
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.159,
+          "sm1": 0.762,
+          "pgam": 0.540
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.306,
+          "sm1": 0.762,
+          "pgam": 0.580
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.596
+        }
+      ]
+    }
   },
   {
-    "name": "San Mateo",
-    "latitude": 37.5631,
-    "longitude": -122.3245,
-    "ss": 1.911,
-    "s1": 0.785,
-    "pga": 0.821
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Diego",
+        "latitude": 32.7153,
+        "longitude": -117.1564
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.498,
+          "sm1": 0.504,
+          "pgam": 0.682
+        }
+      ]
+    }
   },
   {
-    "name": "San Jose",
-    "latitude": 37.3395,
-    "longitude": -121.8939,
-    "ss": 1.500,
-    "s1": 0.600,
-    "pga": 0.560
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Diego",
+        "latitude": 32.70,
+        "longitude": -117.15
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.261,
+          "sm1": 0.421,
+          "pgam": 0.575
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.418,
+          "sm1": 0.421,
+          "pgam": 0.647
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.891,
+          "sm1": 0.776,
+          "pgam": 0.863
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.576,
+          "sm1": 0.934,
+          "pgam": 0.791
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.891,
+          "sm1": 0.934,
+          "pgam": 0.863
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.791
+        }
+      ]
+    }
   },
   {
-    "name": "Santa Cruz",
-    "latitude": 36.9741,
-    "longitude": -122.0297,
-    "ss": 1.640,
-    "s1": 0.627,
-    "pga": 0.689
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Barbara",
+        "latitude": 34.4209,
+        "longitude": -119.6973
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.189,
+          "sm1": 0.792,
+          "pgam": 0.961
+        }
+      ]
+    }
   },
   {
-    "name": "Vallejo",
-    "latitude": 38.1041,
-    "longitude": -122.2555,
-    "ss": 1.560,
-    "s1": 0.600,
-    "pga": 0.639
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Barbara",
+        "latitude": 34.45,
+        "longitude": -119.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.695,
+          "sm1": 0.620,
+          "pgam": 0.743
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.907,
+          "sm1": 0.620,
+          "pgam": 0.836
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.543,
+          "sm1": 1.085,
+          "pgam": 1.115
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.119,
+          "sm1": 1.317,
+          "pgam": 1.022
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.543,
+          "sm1": 1.317,
+          "pgam": 1.115
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 1.022
+        }
+      ]
+    }
   },
   {
-    "name": "Santa Rosa",
-    "latitude": 38.4406,
-    "longitude": -122.7133,
-    "ss": 2.261,
-    "s1": 0.876,
-    "pga": 0.951
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ventura",
+        "latitude": 34.2788,
+        "longitude": -119.2922
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.964,
+          "sm1": 0.739,
+          "pgam": 0.861
+        }
+      ]
+    }
   },
   {
-    "name": "Seattle",
-    "latitude": 47.6065,
-    "longitude": -122.3307,
-    "ss": 1.399,
-    "s1": 0.488,
-    "pga": 0.597
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ventura",
+        "latitude": 34.30,
+        "longitude": -119.30
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.616,
+          "sm1": 0.610,
+          "pgam": 0.708
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.818,
+          "sm1": 0.610,
+          "pgam": 0.797
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.424,
+          "sm1": 1.068,
+          "pgam": 1.062
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.020,
+          "sm1": 1.297,
+          "pgam": 0.974
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.424,
+          "sm1": 1.297,
+          "pgam": 1.062
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.974
+        }
+      ]
+    }
   },
   {
-    "name": "Tacoma",
-    "latitude": 47.2530,
-    "longitude": -122.4432,
-    "ss": 1.354,
-    "s1": 0.468,
-    "pga": 0.500
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Oakland",
+        "latitude": 37.8044,
+        "longitude": -122.2698
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.730,
+          "sm1": 0.656,
+          "pgam": 0.728
+        }
+      ]
+    }
   },
   {
-    "name": "Everett",
-    "latitude": 47.9792,
-    "longitude": -122.2009,
-    "ss": 1.235,
-    "s1": 0.438,
-    "pga": 0.530
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Oakland",
+        "latitude": 37.80,
+        "longitude": -122.25
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.507,
+          "sm1": 0.575,
+          "pgam": 0.633
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.695,
+          "sm1": 0.575,
+          "pgam": 0.712
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.260,
+          "sm1": 1.006,
+          "pgam": 0.950
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.883,
+          "sm1": 1.222,
+          "pgam": 0.871
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.260,
+          "sm1": 1.222,
+          "pgam": 0.950
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.871
+        }
+      ]
+    }
   },
   {
-    "name": "Portland",
-    "latitude": 45.5236,
-    "longitude": -122.6750,
-    "ss": 0.884,
-    "s1": 0.395,
-    "pga": 0.399
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Concord",
+        "latitude": 37.9779,
+        "longitude": -122.0301
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.881,
+          "sm1": 0.600,
+          "pgam": 0.768
+        }
+      ]
+    }
   },
   {
-    "name": "Salt Lake City",
-    "latitude": 40.7609,
-    "longitude": -111.8905,
-    "ss": 1.494,
-    "s1": 0.543,
-    "pga": 0.678
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Concord",
+        "latitude": 37.95,
+        "longitude": -122.00
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.777,
+          "sm1": 0.538,
+          "pgam": 0.716
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.999,
+          "sm1": 0.538,
+          "pgam": 0.806
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.666,
+          "sm1": 0.942,
+          "pgam": 1.074
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.221,
+          "sm1": 1.114,
+          "pgam": 0.985
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.666,
+          "sm1": 1.144,
+          "pgam": 1.074
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.985
+        }
+      ]
+    }
   },
   {
-    "name": "Boise",
-    "latitude": 43.6136,
-    "longitude": -116.2025,
-    "ss": 0.309,
-    "s1": 0.110,
-    "pga": 0.136
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Monterey",
+        "latitude": 36.6003,
+        "longitude": -121.8937
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.331,
+          "sm1": 0.497,
+          "pgam": 0.576
+        }
+      ]
+    }
   },
   {
-    "name": "Reno",
-    "latitude": 39.5298,
-    "longitude": -119.8128,
-    "ss": 1.582,
-    "s1": 0.559,
-    "pga": 0.675
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Monterey",
+        "latitude": 36.60,
+        "longitude": -121.90
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.063,
+          "sm1": 0.397,
+          "pgam": 0.461
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.195,
+          "sm1": 0.397,
+          "pgam": 0.519
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.594,
+          "sm1": 0.745,
+          "pgam": 0.692
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.328,
+          "sm1": 0.895,
+          "pgam": 0.634
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.594,
+          "sm1": 0.895,
+          "pgam": 0.692
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.648
+        }
+      ]
+    }
   },
   {
-    "name": "Las Vegas",
-    "latitude": 36.1751,
-    "longitude": -115.1365,
-    "ss": 0.594,
-    "s1": 0.194,
-    "pga": 0.262
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sacramento",
+        "latitude": 38.5817,
+        "longitude": -121.4934
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.567,
+          "sm1": 0.253,
+          "pgam": 0.238
+        }
+      ]
+    }
   },
   {
-    "name": "St. Louis",
-    "latitude": 38.6274,
-    "longitude": -90.1978,
-    "ss":  0.453,
-    "s1": 0.160,
-    "pga": 0.261
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sacramento",
+        "latitude": 38.60,
+        "longitude": -121.50
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.453,
+          "sm1": 0.202,
+          "pgam": 0.190
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.510,
+          "sm1": 0.202,
+          "pgam": 0.214
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.721,
+          "sm1": 0.379,
+          "pgam": 0.285
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.763,
+          "sm1": 0.530,
+          "pgam": 0.324
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.763,
+          "sm1": 0.530,
+          "pgam": 0.324
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.903,
+          "sm1": null,
+          "pgam": 0.425
+        }
+      ]
+    }
   },
   {
-    "name": "Memphis",
-    "latitude": 35.1496,
-    "longitude": -90.0488,
-    "ss":  1.023,
-    "s1": 0.347,
-    "pga": 0.611
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Francisco",
+        "latitude": 37.7752,
+        "longitude": -122.4185
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600,
+          "pgam": 0.571
+        }
+      ]
+    }
   },
   {
-    "name": "Charleston",
-    "latitude": 32.7763,
-    "longitude": -79.9307,
-    "ss":  1.311,
-    "s1": 0.386,
-    "pga": 0.855
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Francisco",
+        "latitude": 37.75,
+        "longitude": -122.40
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.200,
+          "sm1": 0.480,
+          "pgam": 0.465
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.350,
+          "sm1": 0.480,
+          "pgam": 0.523
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.800,
+          "sm1": 0.840,
+          "pgam": 0.697
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.500,
+          "sm1": 1.020,
+          "pgam": 0.639
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.800,
+          "sm1": 1.020,
+          "pgam": 0.697
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.650
+        }
+      ]
+    }
   },
   {
-    "name": "Chicago",
-    "latitude": 41.8504,
-    "longitude": -87.6503,
-    "ss":  0.117,
-    "s1": 0.063,
-    "pga": 0.059
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Mateo",
+        "latitude": 37.5631,
+        "longitude": -122.3245
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.911,
+          "sm1": 0.785,
+          "pgam": 0.821
+        }
+      ]
+    }
   },
   {
-    "name": "New York",
-    "latitude": 40.7143,
-    "longitude": -74.0060,
-    "ss":  0.288,
-    "s1": 0.060,
-    "pga": 0.178
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Mateo",
+        "latitude": 37.55,
+        "longitude": -122.30
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.441,
+          "sm1": 0.589,
+          "pgam": 0.589
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.621,
+          "sm1": 0.589,
+          "pgam": 0.698
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.161,
+          "sm1": 1.030,
+          "pgam": 0.930
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.801,
+          "sm1": 1.251,
+          "pgam": 0.853
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.161,
+          "sm1": 1.251,
+          "pgam": 0.930
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.853
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Jose",
+        "latitude": 37.3395,
+        "longitude": -121.8939
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600,
+          "pgam": 0.560
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Jose",
+        "latitude": 37.35,
+        "longitude": -121.90
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.200,
+          "sm1": 0.480,
+          "pgam": 0.460
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.350,
+          "sm1": 0.480,
+          "pgam": 0.517
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.800,
+          "sm1": 0.840,
+          "pgam": 0.690
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.500,
+          "sm1": 1.020,
+          "pgam": 0.632
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.800,
+          "sm1": 1.020,
+          "pgam": 0.690
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.647
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Cruz",
+        "latitude": 36.9741,
+        "longitude": -122.0297
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.640,
+          "sm1": 0.627,
+          "pgam": 0.689
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Cruz",
+        "latitude": 36.95,
+        "longitude": -122.05
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.275,
+          "sm1": 0.482,
+          "pgam": 0.538
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.434,
+          "sm1": 0.482,
+          "pgam": 0.605
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.912,
+          "sm1": 0.843,
+          "pgam": 0.806
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.594,
+          "sm1": 1.024,
+          "pgam": 0.739
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.912,
+          "sm1": 1.024,
+          "pgam": 0.806
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.739
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Vallejo",
+        "latitude": 38.1041,
+        "longitude": -122.2555
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.560,
+          "sm1": 0.600,
+          "pgam": 0.639
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Vallejo",
+        "latitude": 38.10,
+        "longitude": -122.25
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.201,
+          "sm1": 0.480,
+          "pgam": 0.492
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.351,
+          "sm1": 0.480,
+          "pgam": 0.554
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.802,
+          "sm1": 0.840,
+          "pgam": 0.738
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.502,
+          "sm1": 1.020,
+          "pgam": 0.677
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.802,
+          "sm1": 1.020,
+          "pgam": 0.738
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.677
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Rosa",
+        "latitude": 38.4406,
+        "longitude": -122.7133
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.261,
+          "sm1": 0.876,
+          "pgam": 0.951
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Santa Rosa",
+        "latitude": 38.45,
+        "longitude": -122.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.930,
+          "sm1": 0.751,
+          "pgam": 0.812
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 2.172,
+          "sm1": 0.751,
+          "pgam": 0.914
+        },
+        {
+          "siteClass": "C",
+          "sms": 2.896,
+          "sm1": 1.314,
+          "pgam": 1.219
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 2.413,
+          "sm1": 1.596,
+          "pgam": 1.117
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 2.896,
+          "sm1": 1.596,
+          "pgam": 1.219
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 1.117
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Seattle",
+        "latitude": 47.6065,
+        "longitude": -122.3307
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.399,
+          "sm1": 0.488,
+          "pgam": 0.597
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Seattle",
+        "latitude": 47.60,
+        "longitude": -122.30
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.118,
+          "sm1": 0.390,
+          "pgam": 0.477
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.257,
+          "sm1": 0.390,
+          "pgam": 0.537
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.676,
+          "sm1": 0.731,
+          "pgam": 0.716
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.397,
+          "sm1": 0.883,
+          "pgam": 0.656
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.676,
+          "sm1": 0.883,
+          "pgam": 0.716
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.658
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tacoma",
+        "latitude": 47.2530,
+        "longitude": -122.4432
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.354,
+          "sm1": 0.468,
+          "pgam": 0.500
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tacoma",
+        "latitude": 47.25,
+        "longitude": -122.45
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.084,
+          "sm1": 0.375,
+          "pgam": 0.400
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.220,
+          "sm1": 0.375,
+          "pgam": 0.450
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.626,
+          "sm1": 0.702,
+          "pgam": 0.600
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.355,
+          "sm1": 0.858,
+          "pgam": 0.550
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.626,
+          "sm1": 0.858,
+          "pgam": 0.600
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Everett",
+        "latitude": 47.9792,
+        "longitude": -122.2009
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.235,
+          "sm1": 0.438,
+          "pgam": 0.530
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Everett",
+        "latitude": 48.00,
+        "longitude": -122.20
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.961,
+          "sm1": 0.342,
+          "pgam": 0.411
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.081,
+          "sm1": 0.342,
+          "pgam": 0.463
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.441,
+          "sm1": 0.641,
+          "pgam": 0.617
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.225,
+          "sm1": 0.800,
+          "pgam": 0.566
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.441,
+          "sm1": 0.800,
+          "pgam": 0.617
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.610
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Portland",
+        "latitude": 45.5236,
+        "longitude": -122.6750
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.884,
+          "sm1": 0.395,
+          "pgam": 0.399
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Portland",
+        "latitude": 45.50,
+        "longitude": -122.65
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.710,
+          "sm1": 0.315,
+          "pgam": 0.321
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.799,
+          "sm1": 0.315,
+          "pgam": 0.361
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.065,
+          "sm1": 0.590,
+          "pgam": 0.481
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.016,
+          "sm1": 0.750,
+          "pgam": 0.481
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.065,
+          "sm1": 0.750,
+          "pgam": 0.481
+        },
+        {
+          "siteClass": "E",
+          "sms": 1.154,
+          "sm1": null,
+          "pgam": 0.561
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Salt Lake City",
+        "latitude": 40.7609,
+        "longitude": -111.8905
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.494,
+          "sm1": 0.543,
+          "pgam": 0.678
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Salt Lake City",
+        "latitude": 40.75,
+        "longitude": -111.90
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.236,
+          "sm1": 0.444,
+          "pgam": 0.562
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.390,
+          "sm1": 0.444,
+          "pgam": 0.632
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.854,
+          "sm1": 0.802,
+          "pgam": 0.843
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.545,
+          "sm1": 0.968,
+          "pgam": 0.773
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.854,
+          "sm1": 0.968,
+          "pgam": 0.843
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.773
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Boise",
+        "latitude": 43.6136,
+        "longitude": -116.2025
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.309,
+          "sm1": 0.110,
+          "pgam": 0.136
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Boise",
+        "latitude": 43.60,
+        "longitude": -116.20
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.245,
+          "sm1": 0.088,
+          "pgam": 0.108
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.276,
+          "sm1": 0.088,
+          "pgam": 0.122
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.399,
+          "sm1": 0.164,
+          "pgam": 0.171
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.477,
+          "sm1": 0.261,
+          "pgam": 0.207
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.477,
+          "sm1": 0.261,
+          "pgam": 0.207
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.688,
+          "sm1": 0.460,
+          "pgam": 0.301
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Reno",
+        "latitude": 39.5298,
+        "longitude": -119.8128
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.582,
+          "sm1": 0.559,
+          "pgam": 0.675
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Reno",
+        "latitude": 39.55,
+        "longitude": -119.80
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.172,
+          "sm1": 0.412,
+          "pgam": 0.494
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.319,
+          "sm1": 0.412,
+          "pgam": 0.555
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.758,
+          "sm1": 0.765,
+          "pgam": 0.741
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.465,
+          "sm1": 0.920,
+          "pgam": 0.679
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.758,
+          "sm1": 0.920,
+          "pgam": 0.741
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.679
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Las Vegas",
+        "latitude": 36.1751,
+        "longitude": -115.1365
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.594,
+          "sm1": 0.194,
+          "pgam": 0.262
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Las Vegas",
+        "latitude": 36.20,
+        "longitude": -115.15
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.516,
+          "sm1": 0.165,
+          "pgam": 0.228
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.581,
+          "sm1": 0.165,
+          "pgam": 0.256
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.801,
+          "sm1": 0.308,
+          "pgam": 0.341
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.828,
+          "sm1": 0.450,
+          "pgam": 0.374
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.828,
+          "sm1": 0.450,
+          "pgam": 0.374
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.947,
+          "sm1": null,
+          "pgam": 0.468
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "St. Louis",
+        "latitude": 38.6274,
+        "longitude": -90.1978
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.453,
+          "sm1": 0.160,
+          "pgam": 0.261
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "St. Louis",
+        "latitude": 38.60,
+        "longitude": -90.20
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.369,
+          "sm1": 0.130,
+          "pgam": 0.213
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.415,
+          "sm1": 0.130,
+          "pgam": 0.240
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.599,
+          "sm1": 0.243,
+          "pgam": 0.320
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.660,
+          "sm1": 0.369,
+          "pgam": 0.355
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.660,
+          "sm1": 0.369,
+          "pgam": 0.355
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.834,
+          "sm1": 0.681,
+          "pgam": 0.453
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Memphis",
+        "latitude": 35.1496,
+        "longitude": -90.0488
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.023,
+          "sm1": 0.347,
+          "pgam": 0.611
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Memphis",
+        "latitude": 35.15,
+        "longitude": -90.05
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.820,
+          "sm1": 0.278,
+          "pgam": 0.490
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.922,
+          "sm1": 0.278,
+          "pgam": 0.551
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.229,
+          "sm1": 0.520,
+          "pgam": 0.734
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.117,
+          "sm1": 0.678,
+          "pgam": 0.673
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.229,
+          "sm1": 0.678,
+          "pgam": 0.734
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 0.673
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charleston",
+        "latitude": 32.7763,
+        "longitude": -79.9307
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.311,
+          "sm1": 0.386,
+          "pgam": 0.855
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charleston",
+        "latitude": 32.80,
+        "longitude": -79.95
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 1.134,
+          "sm1": 0.331,
+          "pgam": 0.747
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 1.276,
+          "sm1": 0.331,
+          "pgam": 0.840
+        },
+        {
+          "siteClass": "C",
+          "sms": 1.702,
+          "sm1": 0.621,
+          "pgam": 1.120
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 1.418,
+          "sm1": 0.781,
+          "pgam": 1.027
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 1.702,
+          "sm1": 0.781,
+          "pgam": 1.120
+        },
+        {
+          "siteClass": "E",
+          "sms": null,
+          "sm1": null,
+          "pgam": 1.027
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chicago",
+        "latitude": 41.8504,
+        "longitude": -87.6503
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.117,
+          "sm1": 0.063,
+          "pgam": 0.059
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chicago",
+        "latitude": 41.85,
+        "longitude": -87.65
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.094,
+          "sm1": 0.051,
+          "pgam": 0.047
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.106,
+          "sm1": 0.051,
+          "pgam": 0.053
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.153,
+          "sm1": 0.095,
+          "pgam": 0.076
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.188,
+          "sm1": 0.152,
+          "pgam": 0.094
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.188,
+          "sm1": 0.152,
+          "pgam": 0.094
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.282,
+          "sm1": 0.266,
+          "pgam": 0.141
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "New York",
+        "latitude": 40.7143,
+        "longitude": -74.0060
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.288,
+          "sm1": 0.060,
+          "pgam": 0.178
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "New York",
+        "latitude": 40.75,
+        "longitude": -74.00
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "A",
+          "sms": 0.232,
+          "sm1": 0.048,
+          "pgam": 0.144
+        },
+        {
+          "siteClass": "B (measured)",
+          "sms": 0.261,
+          "sm1": 0.048,
+          "pgam": 0.161
+        },
+        {
+          "siteClass": "C",
+          "sms": 0.378,
+          "sm1": 0.090,
+          "pgam": 0.219
+        },
+        {
+          "siteClass": "D (determined)",
+          "sms": 0.455,
+          "sm1": 0.144,
+          "pgam": 0.259
+        },
+        {
+          "siteClass": "D (default)",
+          "sms": 0.455,
+          "sm1": 0.144,
+          "pgam": 0.259
+        },
+        {
+          "siteClass": "E",
+          "sms": 0.664,
+          "sm1": 0.252,
+          "pgam": 0.359
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Anchorage",
+        "latitude": 61.2,
+        "longitude": -149.9
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.676
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Juneau",
+        "latitude": 58.4,
+        "longitude": -134.6
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.618,
+          "sm1": 0.384
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fairbanks",
+        "latitude": 64.8,
+        "longitude": -147.7
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.999,
+          "sm1": 0.382
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sitka",
+        "latitude": 57.1,
+        "longitude": -135.3
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.873,
+          "sm1": 0.604
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ketchikan",
+        "latitude": 55.3,
+        "longitude": -131.6
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.307,
+          "sm1": 0.247
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Knik-Fairview",
+        "latitude": 61.5,
+        "longitude": -149.6
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.680
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kenai",
+        "latitude": 60.6,
+        "longitude": -151.2
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lakes",
+        "latitude": 61.6,
+        "longitude": -149.3
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.644,
+          "sm1": 0.858
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kodiak",
+        "latitude": 57.8,
+        "longitude": -152.4
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.881
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bethel",
+        "latitude": 60.8,
+        "longitude": -161.8
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.302,
+          "sm1": 0.125
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Unalaska",
+        "latitude": 53.9,
+        "longitude": -166.5
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Nome",
+        "latitude": 64.5,
+        "longitude": -165.4
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.537,
+          "sm1": 0.190
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Dillingham",
+        "latitude": 59.0,
+        "longitude": -158.5
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.314,
+          "sm1": 0.180
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tok",
+        "latitude": 63.3,
+        "longitude": -143.0
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.529,
+          "sm1": 0.336
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Delta Junction",
+        "latitude": 64.0,
+        "longitude": -145.7
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.726,
+          "sm1": 0.366
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Galena",
+        "latitude": 64.7,
+        "longitude": -156.9
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.428,
+          "sm1": 0.165
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Glenallen",
+        "latitude": 62.1,
+        "longitude": -145.5
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.971,
+          "sm1": 0.451
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Adak",
+        "latitude": 51.9,
+        "longitude": -176.6
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Gakona",
+        "latitude": 62.3,
+        "longitude": -145.3
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.812,
+          "sm1": 0.404
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chitina",
+        "latitude": 61.5,
+        "longitude": -144.4
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.136,
+          "sm1": 0.539
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sleetmute",
+        "latitude": 61.7,
+        "longitude": -157.2
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.620,
+          "sm1": 0.231
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Anchorage",
+        "latitude": 61.2166,
+        "longitude": -149.8934
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.676
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Juneau",
+        "latitude": 58.3624,
+        "longitude": -134.5803
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.609,
+          "sm1": 0.383
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fairbanks",
+        "latitude": 64.8413,
+        "longitude": -147.7214
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.991,
+          "sm1": 0.378
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sitka",
+        "latitude": 57.0529,
+        "longitude": -135.3358
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.928,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ketchikan",
+        "latitude": 55.3420,
+        "longitude": -131.6453
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.302,
+          "sm1": 0.247
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Knik-Fairview",
+        "latitude": 61.4975,
+        "longitude": -149.6414
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.689
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kenai",
+        "latitude": 60.5589,
+        "longitude": -151.2474
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lakes",
+        "latitude": 61.6152,
+        "longitude": -149.3268
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.869,
+          "sm1": 0.937
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kodiak",
+        "latitude": 57.7886,
+        "longitude": -152.4067
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.502,
+          "sm1": 0.909
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bethel",
+        "latitude": 60.7949,
+        "longitude": -161.7630
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.300,
+          "sm1": 0.125
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Unalaska",
+        "latitude": 53.8736,
+        "longitude": -166.5327
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Nome",
+        "latitude": 64.4988,
+        "longitude": -165.3980
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.537,
+          "sm1": 0.190
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Dillingham",
+        "latitude": 59.0408,
+        "longitude": -158.4640
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.311,
+          "sm1": 0.178
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tok",
+        "latitude": 63.3345,
+        "longitude": -142.9886
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.509,
+          "sm1": 0.325
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Delta Junction",
+        "latitude": 64.0380,
+        "longitude": -145.7328
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.728,
+          "sm1": 0.361
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Galena",
+        "latitude": 64.7452,
+        "longitude": -156.8711
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.434,
+          "sm1": 0.167
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Glenallen",
+        "latitude": 62.1086,
+        "longitude": -145.5290
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.970,
+          "sm1": 0.451
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Adak",
+        "latitude": 51.8715,
+        "longitude": -176.6377
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Gakona",
+        "latitude": 62.3018,
+        "longitude": -145.2829
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.808,
+          "sm1": 0.403
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Chitina",
+        "latitude": 61.5166,
+        "longitude": -144.4397
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.133,
+          "sm1": 0.534
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Sleetmute",
+        "latitude": 61.7021,
+        "longitude": -157.1711
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.618,
+          "sm1": 0.231
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Central Tutuila",
+        "latitude": -14.30,
+        "longitude": -170.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "SW Tutuila",
+        "latitude": -14.30,
+        "longitude": -170.80
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Faganeanea",
+        "latitude": -14.3018,
+        "longitude": -170.8094
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fagamalo",
+        "latitude": -14.2992,
+        "longitude": -170.8094
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Central Guam",
+        "latitude": 13.50,
+        "longitude": 144.80
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "NE Guam",
+        "latitude": 13.60,
+        "longitude": 144.90
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "SW Guam",
+        "latitude": 13.30,
+        "longitude": 144.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Central Saipan",
+        "latitude": 15.20,
+        "longitude": 145.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Tamuning",
+        "latitude": 13.5027,
+        "longitude": 144.8016
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Upi",
+        "latitude": 13.5893,
+        "longitude": 144.8985
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Umatac",
+        "latitude": 13.3140,
+        "longitude": 144.6698
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Garapan",
+        "latitude": 15.2070,
+        "longitude": 145.7208
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)"
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Honolulu",
+        "latitude": 21.30,
+        "longitude": -157.84
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.579,
+          "sm1": 0.169
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hilo",
+        "latitude": 19.72,
+        "longitude": -155.08
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua",
+        "latitude": 21.40,
+        "longitude": -157.74
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.593,
+          "sm1": 0.175
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaneohe",
+        "latitude": 21.42,
+        "longitude": -157.80
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.588,
+          "sm1": 0.172
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahului",
+        "latitude": 20.88,
+        "longitude": -156.46
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.992,
+          "sm1": 0.253
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kihei",
+        "latitude": 20.78,
+        "longitude": -156.46
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.991,
+          "sm1": 0.256
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Wai'anae",
+        "latitude": 21.44,
+        "longitude": -158.18
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.534,
+          "sm1": 0.146
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua-Kona",
+        "latitude": 19.64,
+        "longitude": -156.00
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.920,
+          "sm1": 0.880
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lahaina",
+        "latitude": 20.88,
+        "longitude": -156.68
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.910,
+          "sm1": 0.229
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waimea",
+        "latitude": 20.02,
+        "longitude": -155.66
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.496,
+          "sm1": 0.551
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lihue",
+        "latitude": 21.96,
+        "longitude": -159.36
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.226,
+          "sm1": 0.064
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waikoloa Village",
+        "latitude": 19.94,
+        "longitude": -155.78
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lanai City",
+        "latitude": 20.82,
+        "longitude": -156.92
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.782,
+          "sm1": 0.210
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaunakakai",
+        "latitude": 21.08,
+        "longitude": -157.00
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.790,
+          "sm1": 0.205
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Volcano",
+        "latitude": 19.44,
+        "longitude": -155.22
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.333,
+          "sm1": 0.997
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hawaiian Ocean View",
+        "latitude": 19.10,
+        "longitude": -155.78
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.099,
+          "sm1": 0.876
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahuku",
+        "latitude": 21.68,
+        "longitude": -157.94
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.550,
+          "sm1": 0.153
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Princeville",
+        "latitude": 22.22,
+        "longitude": -159.48
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.192,
+          "sm1": 0.055
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Pepeekeo",
+        "latitude": 19.84,
+        "longitude": -155.10
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hana",
+        "latitude": 20.76,
+        "longitude": -155.98
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.047,
+          "sm1": 0.278
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bradshaw AFB",
+        "latitude": 19.76,
+        "longitude": -155.54
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Honolulu",
+        "latitude": 21.2905,
+        "longitude": -157.8374
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.579,
+          "sm1": 0.169
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hilo",
+        "latitude": 19.7236,
+        "longitude": -155.0878
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua",
+        "latitude": 21.3923,
+        "longitude": -157.7415
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.593,
+          "sm1": 0.175
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaneohe",
+        "latitude": 21.4182,
+        "longitude": -157.8046
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.587,
+          "sm1": 0.172
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahului",
+        "latitude": 20.8852,
+        "longitude": -156.4584
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.993,
+          "sm1": 0.253
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kihei",
+        "latitude": 20.7706,
+        "longitude": -156.4573
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.992,
+          "sm1": 0.256
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Wai'anae",
+        "latitude": 21.4432,
+        "longitude": -158.1854
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.534,
+          "sm1": 0.146
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kailua-Kona",
+        "latitude": 19.6418,
+        "longitude": -155.9925
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.920,
+          "sm1": 0.880
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lahaina",
+        "latitude": 20.8773,
+        "longitude": -156.6792
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.910,
+          "sm1": 0.229
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lihue",
+        "latitude": 21.9695,
+        "longitude": -159.3581
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.226,
+          "sm1": 0.064
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Waikoloa Village",
+        "latitude": 19.9400,
+        "longitude": -155.7892
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Lanai City",
+        "latitude": 20.8251,
+        "longitude": -156.9204
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.783,
+          "sm1": 0.210
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kaunakakai",
+        "latitude": 21.0841,
+        "longitude": -157.0099
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.786,
+          "sm1": 0.204
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Volcano",
+        "latitude": 19.4317,
+        "longitude": -155.2294
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.414,
+          "sm1": 1.053
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hawaiian Ocean View",
+        "latitude": 19.0959,
+        "longitude": -155.7769
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 2.113,
+          "sm1": 0.883
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Kahuku",
+        "latitude": 21.6757,
+        "longitude": -157.9476
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.549,
+          "sm1": 0.153
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Princeville",
+        "latitude": 22.2211,
+        "longitude": -159.4817
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.191,
+          "sm1": 0.055
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Pepeekeo",
+        "latitude": 19.8325,
+        "longitude": -155.1040
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Hana",
+        "latitude": 20.7563,
+        "longitude": -155.9870
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.048,
+          "sm1": 0.279
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bradshaw AFB",
+        "latitude": 19.7573,
+        "longitude": -155.5357
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.500,
+          "sm1": 0.600
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "san Juan",
+        "latitude": 18.47,
+        "longitude": -66.12
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.998,
+          "sm1": 0.399
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bayamon",
+        "latitude": 18.40,
+        "longitude": -66.16
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.984,
+          "sm1": 0.384
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ponce",
+        "latitude": 18.00,
+        "longitude": -66.62
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.032,
+          "sm1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Caguas",
+        "latitude": 18.24,
+        "longitude": -66.04
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.945,
+          "sm1": 0.359
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Arecibo",
+        "latitude": 18.47,
+        "longitude": -66.72
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.118,
+          "sm1": 0.433
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Mayaguez",
+        "latitude": 18.20,
+        "longitude": -67.14
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.233,
+          "sm1": 0.474
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fajardo",
+        "latitude": 18.34,
+        "longitude": -65.65
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.985,
+          "sm1": 0.377
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Yabucoa",
+        "latitude": 18.05,
+        "longitude": -65.88
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.974,
+          "sm1": 0.354
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Utuado",
+        "latitude": 18.27,
+        "longitude": -66.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.073,
+          "sm1": 0.413
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Isabel II",
+        "latitude": 18.15,
+        "longitude": -65.44
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.036,
+          "sm1": 0.377
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Culebra Barrio",
+        "latitude": 18.30,
+        "longitude": -65.30
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.092,
+          "sm1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charlotte Amalie",
+        "latitude": 18.34,
+        "longitude": -64.93
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.231,
+          "sm1": 0.430
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Cruz Bay",
+        "latitude": 18.33,
+        "longitude": -64.79
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.241,
+          "sm1": 0.432
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Christiansted",
+        "latitude": 17.75,
+        "longitude": -64.70
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.822,
+          "sm1": 0.307
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "San Juan",
+        "latitude": 18.4662,
+        "longitude": -66.1164
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.997,
+          "sm1": 0.398
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Bayamon",
+        "latitude": 18.3971,
+        "longitude": -66.1559
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.983,
+          "sm1": 0.383
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Ponce",
+        "latitude": 17.9960,
+        "longitude": -66.6208
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.031,
+          "sm1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Caguas",
+        "latitude": 18.2359,
+        "longitude": -66.0357
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.945,
+          "sm1": 0.359
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Arecibo",
+        "latitude": 18.4725,
+        "longitude": -66.7181
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.119,
+          "sm1": 0.434
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Mayaguez",
+        "latitude": 18.2008,
+        "longitude": -67.1425
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.235,
+          "sm1": 0.475
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Fajardo",
+        "latitude": 18.3360,
+        "longitude": -65.6535
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.984,
+          "sm1": 0.377
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Yabucoa",
+        "latitude": 18.0471,
+        "longitude": -65.8760
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.976,
+          "sm1": 0.354
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Utuado",
+        "latitude": 18.2673,
+        "longitude": -66.7018
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.073,
+          "sm1": 0.413
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Isabel II",
+        "latitude": 18.1492,
+        "longitude": -65.4424
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.036,
+          "sm1": 0.377
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Culebra Barrio",
+        "latitude": 18.3030,
+        "longitude": -65.3010
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.092,
+          "sm1": 0.397
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Charlotte Amalie",
+        "latitude": 18.3407,
+        "longitude": -64.9340
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.231,
+          "sm1": 0.430
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Cruz Bay",
+        "latitude": 18.3311,
+        "longitude": -64.7944
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 1.241,
+          "sm1": 0.432
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7_16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "label": "Christiansted",
+        "latitude": 17.7461,
+        "longitude": -64.7043
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "siteClass": "B (unmeasured)",
+          "sms": 0.820,
+          "sm1": 0.306
+        }
+      ]
+    }
   }
 ]

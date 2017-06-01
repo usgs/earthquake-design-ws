@@ -260,7 +260,8 @@ var ASCE7_16Factory = function (options) {
    *     The amplification factor to apply
    *
    * @return {Double}
-   *     The site-modified ground motion for purposes of design
+   *     The site-modified ground motion for purposes of design or null if
+   *     either groundMotion or amplification is set to null.
    */
   _this.computeSiteModifiedValue = function (groundMotion, amplification) {
     if (groundMotion === null || amplification === null) {
@@ -423,10 +424,11 @@ var ASCE7_16Factory = function (options) {
             sdc: designCategory.sdc,
             // tl: result.tl,
 
+
             // TODO
-            sdSpectrum: NumberUtils.roundSpectrum(spectra.sdSpectrum,
+            sdSpectrum: siteAmplification.fa === null || siteAmplification.fv === null ? null : NumberUtils.roundSpectrum(spectra.sdSpectrum,
                 _this.outputDecimals),
-            smSpectrum: NumberUtils.roundSpectrum(spectra.smSpectrum,
+            smSpectrum: siteAmplification.fa === null || siteAmplification.fv === null ? null : NumberUtils.roundSpectrum(spectra.smSpectrum,
                 _this.outputDecimals)
           },
 
