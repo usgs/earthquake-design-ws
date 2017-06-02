@@ -2,10 +2,12 @@
 
 var extend = require('extend'),
     fs = require('fs'),
+    https = require('https'),
     WebService = require('./lib/web-service');
 
 
-var config,
+var ca,
+    config,
     configPath,
     service;
 
@@ -41,6 +43,14 @@ if (config.hasOwnProperty('pgsql_read_only_password')) {
   config.DB_PASSWORD = config.pgsql_read_only_password;
 }
 
+// Config custom certificate chain
+if (config.SSL_CERT_FILE) {
+  ca = fs.readFileSync(config.SSL_CERT_FILE, 'utf-8');
+  ca = ca.split('-----END CERTIFICATE-----').map((c) => {
+    return c + '-----END CERTIFICATE-----';
+  });
+  https.globalAgent.options.ca = ca;
+}
 
 service = WebService(config);
 service.start();
