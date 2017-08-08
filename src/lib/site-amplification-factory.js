@@ -45,7 +45,10 @@ _DEFAULTS = {
             'message': 'See Section 11.4.8',
             'limit': 0.20
           },
-          'D (default)': null,
+          'D (default)': {
+            'message': 'See Section 11.4.8',
+            'limit': 0.20
+          },
           'E': {
             'message': 'See Section 11.4.8',
             'limit': 0.20
