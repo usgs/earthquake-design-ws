@@ -1,7 +1,6 @@
 ## Docker file to build app as container
 
 FROM usgs/hazdev-base-images:latest-node as node-libcurl-build
-#FROM usgs/hazdev-base-images:latest-node
 
 # node-libcurl build dependencies
 RUN yum groupinstall -y 'Development Tools' && \
@@ -24,6 +23,7 @@ RUN /bin/bash --login -c " \
             $HOME/.npm \
             /tmp/npm* \
         "
+
 
 
 ## Docker file to build app as container
