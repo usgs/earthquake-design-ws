@@ -5,11 +5,40 @@
 var ASCE7_16Handler = require('../../src/lib/asce7_16-handler'),
     CityInputs = require('../../etc/asce7_16-qc.json'),
     Config = require('../../src/conf/config.json'),
-    expect = require('chai').expect;
+    expect = require('chai').expect,
+    extend = require('extend'),
+    fs = require('fs'),
+    https = require('https');
 
 
-var compareResult,
+var ca,
+    compareResult,
     epsilon;
+
+Config = extend(Config, process.env);
+
+// Override generic configuration properties with site-specific properties
+// as applicable.
+if (Config.hasOwnProperty('database')) {
+  Config.DB_HOST = Config.database;
+}
+
+if (Config.hasOwnProperty('pgsql_read_only_user')) {
+  Config.DB_USER = Config.pgsql_read_only_user;
+}
+
+if (Config.hasOwnProperty('pgsql_read_only_password')) {
+  Config.DB_PASSWORD = Config.pgsql_read_only_password;
+}
+
+// Config custom certificate chain
+if (Config.SSL_CERT_FILE) {
+  ca = fs.readFileSync(Config.SSL_CERT_FILE, 'utf-8');
+  ca = ca.split('-----END CERTIFICATE-----').map((c) => {
+    return c + '-----END CERTIFICATE-----';
+  });
+  https.globalAgent.options.ca = ca;
+}
 
 epsilon = Config.epsilon || 1E-4;
 
