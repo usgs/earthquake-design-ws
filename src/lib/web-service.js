@@ -1,5 +1,5 @@
 'use strict';
-
+var fs = require('fs');
 
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
@@ -16,7 +16,8 @@ var _DEFAULTS;
 _DEFAULTS = {
   MOUNT_PATH: '',
   PORT: 8000,
-  LEGACY_URL: '/legacy/service'
+  LEGACY_URL: '/legacy/service',
+  VERSION_INFO: ''
 };
 
 
@@ -35,7 +36,8 @@ var WebService = function (options) {
 
       _docRoot,
       _mountPath,
-      _port;
+      _port,
+      _versionInfo;
 
 
   _this = {};
@@ -53,6 +55,7 @@ var WebService = function (options) {
     _docRoot = options.webDir;
     _mountPath = options.MOUNT_PATH;
     _port = options.PORT;
+    _versionInfo = options.VERSION_INFO;
 
     // Setup handler and pass in factory
     if (options.handlers) {
@@ -312,6 +315,12 @@ var WebService = function (options) {
     app.get(_mountPath + '/:method', _this.get);
 
     // rest fall through to htdocs as static content.
+    app.get(_mountPath + '/index.html', function(req, res){
+      fs.readFile('src/htdocs/index.html', 'utf8', function(err, data){
+        res.send(data.replace('{{VERSION}}', _versionInfo));
+      });
+    });
+
     app.use(_mountPath, express.static(_docRoot, {fallthrough: true}));
 
     // Final handler for 404 (no handler, no static file)
