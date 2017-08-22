@@ -1,8 +1,13 @@
 'use strict';
 
+var pjson = require('../package.json');
+
 // This file contains prompts the user is presented with when configuring this
 // application. This should export an array of {Question} objects as defined
 // by npm/inquirer. See: https://www.npmjs.com/package/inquirer#question
+
+// Get app version info from packages.json
+var VERSION = pjson.version;
 
 module.exports = [
   {
@@ -86,5 +91,11 @@ module.exports = [
     name: 'DETERMINISTIC_SERVICE_URL',
     message: 'Web service for fetching mapped deterministic ground motion data',
     default: 'https://earthquake.usgs.gov/ws/designmaps/deterministic.json'
+  },
+  {
+    type: 'input',
+    name: 'VERSION_INFO',
+    message: 'Version Info for the release',
+    default: VERSION
   }
 ];
