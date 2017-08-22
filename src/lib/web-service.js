@@ -17,6 +17,7 @@ _DEFAULTS = {
   MOUNT_PATH: '',
   PORT: 8000,
   LEGACY_URL: '/legacy/service',
+  REVISION_INFO: '',
   VERSION_INFO: ''
 };
 
@@ -37,6 +38,7 @@ var WebService = function (options) {
       _docRoot,
       _mountPath,
       _port,
+      _revisionInfo,
       _versionInfo;
 
 
@@ -55,6 +57,7 @@ var WebService = function (options) {
     _docRoot = options.webDir;
     _mountPath = options.MOUNT_PATH;
     _port = options.PORT;
+    _revisionInfo = options.REVISION_INFO;
     _versionInfo = options.VERSION_INFO;
 
     // Setup handler and pass in factory
@@ -317,7 +320,8 @@ var WebService = function (options) {
     // rest fall through to htdocs as static content.
     app.get(_mountPath + '/index.html', function(req, res){
       fs.readFile('src/htdocs/index.html', 'utf8', function(err, data){
-        res.send(data.replace('{{VERSION}}', _versionInfo));
+        res.send(data.replace('{{VERSION}}', _versionInfo)
+            .replace('{{REVISION}}', _revisionInfo));
       });
     });
 

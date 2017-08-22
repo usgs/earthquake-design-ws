@@ -1,13 +1,27 @@
 'use strict';
 
-var pjson = require('../package.json');
+process.stdout.write(process.cwd() + '\n');
+
+var fs = require('fs'),
+    pjson = require('../package.json');
+
+
 
 // This file contains prompts the user is presented with when configuring this
 // application. This should export an array of {Question} objects as defined
 // by npm/inquirer. See: https://www.npmjs.com/package/inquirer#question
 
 // Get app version info from packages.json
-var VERSION = pjson.version;
+var REVISION,
+    VERSION;
+
+if (fs.existsSync(process.cwd() + '/../.REVISION')) {
+  REVISION = fs.readFileSync(process.cwd() + '/../.REVISION');
+} else {
+  REVISION = 'Working Development';
+}
+
+VERSION = pjson.version;
 
 module.exports = [
   {
@@ -97,5 +111,11 @@ module.exports = [
     name: 'VERSION_INFO',
     message: 'Version Info for the release',
     default: VERSION
+  },
+  {
+    type: 'input',
+    name: 'REVISION_INFO',
+    message: 'Git commit hash of working copy',
+    default: REVISION
   }
 ];
