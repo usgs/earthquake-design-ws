@@ -3,13 +3,13 @@ var fs = require('fs');
 
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
+    express = require('express'),
+    extend = require('extend'),
     DeterministicHandler = require('./deterministic-handler'),
+    morgan = require('morgan'),
     ProbabilisticHander = require('./probabilistic-handler'),
     RiskCoefficientHandler = require('./risk-coefficient-handler'),
-    TSubLDataHandler = require('./t-sub-l-data-handler'),
-
-    express = require('express'),
-    extend = require('extend');
+    TSubLDataHandler = require('./t-sub-l-data-handler');
 
 
 var _DEFAULTS;
@@ -34,13 +34,7 @@ _DEFAULTS = {
  */
 var WebService = function (options) {
   var _this,
-      _initialize,
-
-      _docRoot,
-      _mountPath,
-      _port,
-      _revisionInfo,
-      _versionInfo;
+      _initialize;
 
 
   _this = {};
@@ -55,11 +49,11 @@ var WebService = function (options) {
 
     options = extend(true, {}, _DEFAULTS, options);
 
-    _docRoot = options.webDir;
-    _mountPath = options.MOUNT_PATH;
-    _port = options.PORT;
-    _revisionInfo = options.REVISION;
-    _versionInfo = options.VERSION;
+    _this.docRoot = options.webDir;
+    _this.mountPath = options.MOUNT_PATH;
+    _this.port = options.PORT;
+    _this.revisionInfo = options.REVISION;
+    _this.versionInfo = options.VERSION;
 
     // Setup handler and pass in factory
     if (options.handlers) {
@@ -76,7 +70,7 @@ var WebService = function (options) {
         'deterministic.json': DeterministicHandler(options),
         'probabilistic.json': ProbabilisticHander(options),
         'risk-coefficient.json': RiskCoefficientHandler(options),
-        't-sub-l.json': TSubLDataHandler(options) 
+        't-sub-l.json': TSubLDataHandler(options)
       };
     }
   };
@@ -95,10 +89,6 @@ var WebService = function (options) {
     for (endpoint in _this.handlers) {
       _this.handlers[endpoint].destroy();
     }
-
-    _docRoot = null;
-    _mountPath = null;
-    _port = null;
 
     _initialize = null;
     _this = null;
@@ -192,40 +182,6 @@ var WebService = function (options) {
     };
   };
 
-  _this.log = function (request, response, payload, status) {
-    var ip,
-        length,
-        method,
-        path,
-        timestamp,
-        userAgent;
-
-    request = request || {};
-
-    // Checked proxy-forwarded ip
-    if (typeof request.get === 'function') {
-      ip = request.get('X-Client-IP');
-      if (!ip) {
-        ip = request.get('X-Forwarded-For');
-      }
-
-      userAgent = request.get('User-Agent');
-    }
-
-    if (!ip) {
-      ip = request.ip;
-    }
-
-    length = payload ? JSON.stringify(payload).length : '-';
-    method = request.method;
-    path = request.path + '?' + require('querystring').stringify(request.query);
-    status = status || '-';
-    timestamp = (new Date()).toUTCString();
-    userAgent = userAgent || '-';
-
-    process.stdout.write(`${ip} [${timestamp}] "${method} ${path} HTTP/1.1" ${status} ${length} "${userAgent}"\n`);
-  };
-
   /**
    * Handles errors that occur in the handler. Sets the response code based on
    * `err.status` and the message based on `err.message`. If either of these
@@ -248,8 +204,6 @@ var WebService = function (options) {
     };
 
     status = (err && err.status) ? err.status : 500;
-
-    _this.log(request, response, payload, status);
 
     if (err && err.stack) {
       process.stderr.write(err.stack + '\n');
@@ -281,8 +235,6 @@ var WebService = function (options) {
       request: _this.getResponseMetadata(request, true),
       response: data
     };
-
-    _this.log(request, response, payload, 200);
 
     response.json(payload);
   };
@@ -316,42 +268,37 @@ var WebService = function (options) {
 
     app = express();
 
-    app.get(_mountPath + '/:request', function (req, res, next) {
-      process.stdout.write(`request = ${req.params.request}\n`);
-      process.stdout.write(`  mountpath = ${_mountPath}\n`);
-      process.stdout.write(`  docroot = ${_docRoot}\n`);
-      next();
-    });
+    app.use(morgan('combined'));
 
     // handle dynamic requests
-    app.get(_mountPath + '/:method', _this.get);
+    app.get(_this.mountPath + '/:method', _this.get);
 
     // rest fall through to htdocs as static content.
-    app.get([_mountPath, _mountPath + '/index.html'], function(req, res){
-      fs.readFile('src/htdocs/index.html', 'utf8', function(err, data){
+    app.get([_this.mountPath, _this.mountPath + '/index.html'], (req, res) => {
+      fs.readFile('src/htdocs/index.html', 'utf8', (err, data) => {
         res.send(data
-            .replace('{{VERSION}}', _versionInfo)
-            .replace('{{REVISION}}', _revisionInfo)
+            .replace('{{VERSION}}', _this.versionInfo)
+            .replace('{{REVISION}}', _this.revisionInfo)
           );
       });
     });
 
-    app.use(_mountPath, express.static(_docRoot, {fallthrough: true}));
+    app.use(_this.mountPath, express.static(_this.docRoot,
+        {fallthrough: true}));
 
     // Final handler for 404 (no handler, no static file)
-    app.get(_mountPath + '/:error', (req, res/*, next*/) => {
+    app.get(_this.mountPath + '/:error', (req, res/*, next*/) => {
       var payload;
 
       payload = `Cannot GET ${req.path}`;
-      _this.log(req, res, payload, 404);
       res.status(404);
       res.send(payload);
       res.end();
     });
 
-    app.listen(_port, function () {
+    app.listen(_this.port, function () {
       process.stderr.write('WebService listening ' +
-          'http://localhost:' + _port + _mountPath + '/\n');
+          'http://localhost:' + _this.port + _this.mountPath + '/\n');
     });
   };
 

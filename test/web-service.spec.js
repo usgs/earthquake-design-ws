@@ -191,21 +191,6 @@ describe('WebService test suite', () => {
     });
   });
 
-  describe('log', function () {
-    it('writes to stdout', function () {
-      var service;
-
-      sinon.stub(process.stdout, 'write').callsFake(() => {});
-      service = WebService();
-
-      service.log({}, {}, {}, 200);
-      expect(process.stdout.write.callCount).to.equal(1);
-
-      process.stdout.write.restore();
-      service.destroy();
-    });
-  });
-
   describe('onError', function () {
     it('calls status/json callbacks with expected values', function () {
       var message,
@@ -222,7 +207,6 @@ describe('WebService test suite', () => {
       };
 
       service = WebService();
-      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onError({
         status: status,
@@ -234,9 +218,7 @@ describe('WebService test suite', () => {
       expect(response.json.calledOnce).to.equal(true);
       expect(response.json.firstCall.args[0].response).to.equal(
           message);
-      expect(service.log.callCount).to.equal(1);
 
-      service.log.restore();
       service.destroy();
     });
   });
@@ -272,13 +254,11 @@ describe('WebService test suite', () => {
       service = WebService();
       stub = sinon.stub(service, 'getResponseMetadata').callsFake(
           () => { return ''; });
-      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onSuccess(data, request, response, null);
       expect(response.json.getCall(0).args[0].response).to.equal(data);
       expect(stub.getCall(0).args[0]).to.equal(request);
 
-      service.log.restore();
       service.destroy();
     });
   });
