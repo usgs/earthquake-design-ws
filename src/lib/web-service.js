@@ -1,5 +1,5 @@
 'use strict';
-
+var fs = require('fs');
 
 var ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
@@ -16,7 +16,9 @@ var _DEFAULTS;
 _DEFAULTS = {
   MOUNT_PATH: '',
   PORT: 8000,
-  LEGACY_URL: '/legacy/service'
+  LEGACY_URL: '/legacy/service',
+  REVISION: '',
+  VERSION: ''
 };
 
 
@@ -35,7 +37,9 @@ var WebService = function (options) {
 
       _docRoot,
       _mountPath,
-      _port;
+      _port,
+      _revisionInfo,
+      _versionInfo;
 
 
   _this = {};
@@ -53,6 +57,8 @@ var WebService = function (options) {
     _docRoot = options.webDir;
     _mountPath = options.MOUNT_PATH;
     _port = options.PORT;
+    _revisionInfo = options.REVISION;
+    _versionInfo = options.VERSION;
 
     // Setup handler and pass in factory
     if (options.handlers) {
@@ -308,10 +314,26 @@ var WebService = function (options) {
 
     app = express();
 
+    app.get(_mountPath + '/:request', function (req, res, next) {
+      process.stdout.write(`request = ${req.params.request}\n`);
+      process.stdout.write(`  mountpath = ${_mountPath}\n`);
+      process.stdout.write(`  docroot = ${_docRoot}\n`);
+      next();
+    });
+
     // handle dynamic requests
     app.get(_mountPath + '/:method', _this.get);
 
     // rest fall through to htdocs as static content.
+    app.get(_mountPath + '/index.html', function(req, res){
+      fs.readFile('src/htdocs/index.html', 'utf8', function(err, data){
+        res.send(data
+            .replace('{{VERSION}}', _versionInfo)
+            .replace('{{REVISION}}', _revisionInfo)
+          );
+      });
+    });
+
     app.use(_mountPath, express.static(_docRoot, {fallthrough: true}));
 
     // Final handler for 404 (no handler, no static file)
@@ -327,7 +349,7 @@ var WebService = function (options) {
 
     app.listen(_port, function () {
       process.stderr.write('WebService listening ' +
-          'http://localhost:' + _port + _mountPath + '\n');
+          'http://localhost:' + _port + _mountPath + '/\n');
     });
   };
 

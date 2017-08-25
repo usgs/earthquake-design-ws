@@ -6,3 +6,9 @@ main {
 .optional {
   color: #666;
 }
+
+.footer {
+  color: green;
+  font-style: oblique;
+  padding-left: 15px;
+}
