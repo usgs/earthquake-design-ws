@@ -124,11 +124,11 @@ var LegacyFactory = function (options) {
 
     siteClasses = {
       'A': 1,
-      'B (measured)': 2,
-      'B (unmeasured)': 3,
+      'B': 2,
+      'B-estimated': 3,
       'C': 4,
-      'D (determined)': 5,
-      'D (default) ': 6,
+      'D': 5,
+      'D-default': 6,
       'E': 7
     };
 

@@ -192,11 +192,11 @@ describe('SiteAmplificationFactory', () => {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
         restriction: {
           'A': null,
-          'B (measured)': null,
-          'B (unmeasured)': null,
+          'B': null,
+          'B-estimated': null,
           'C': null,
-          'D (determined)': null,
-          'D (default)': null,
+          'D': null,
+          'D-default': null,
           'E': {
             'message': 'See Section 11.4.8',
             'limit': 1.00
@@ -204,11 +204,11 @@ describe('SiteAmplificationFactory', () => {
         },
         siteClasses: {
           'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B (measured)': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B (unmeasured)': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
+          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
           'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
-          'D (determined)': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
-          'D (default)': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
+          'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
+          'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
           'E': [2.4, 1.7, 1.3, 1.3, 1.3, 1.3]
         }
       };

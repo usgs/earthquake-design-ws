@@ -13,7 +13,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.976,
           "sm1": 0.704,
           "pgam": 0.848
@@ -41,13 +41,13 @@
           "pgam": 0.675
         },
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.970,
           "sm1": 0.701,
           "pgam": 0.844
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.773,
           "sm1": 0.561,
           "pgam": 0.759
@@ -59,13 +59,13 @@
           "pgam": 1.012
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.970,
           "sm1": 1.192,
           "pgam": 0.928
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.364,
           "sm1": 1.192,
           "pgam": 1.012
@@ -93,7 +93,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.064,
           "sm1": 0.738,
           "pgam": 0.885
@@ -121,7 +121,7 @@
           "pgam": 0.728
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.900,
           "sm1": 0.603,
           "pgam": 0.819
@@ -133,13 +133,13 @@
           "pgam": 1.091
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.111,
           "sm1": 1.280,
           "pgam": 1.001
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.533,
           "sm1": 1.280,
           "pgam": 1.091
@@ -167,7 +167,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.748,
           "sm1": 0.603,
           "pgam": 0.716
@@ -195,7 +195,7 @@
           "pgam": 0.571
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.562,
           "sm1": 0.480,
           "pgam": 0.642
@@ -207,13 +207,13 @@
           "pgam": 0.856
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.735,
           "sm1": 1.020,
           "pgam": 0.785
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.082,
           "sm1": 1.020,
           "pgam": 0.856
@@ -241,7 +241,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.616,
           "sm1": 0.588,
           "pgam": 0.716
@@ -269,7 +269,7 @@
           "pgam": 0.595
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.515,
           "sm1": 0.486,
           "pgam": 0.669
@@ -281,13 +281,13 @@
           "pgam": 0.892
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.683,
           "sm1": 1.033,
           "pgam": 0.818
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.020,
           "sm1": 1.033,
           "pgam": 0.892
@@ -315,7 +315,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.262,
           "sm1": 0.451,
           "pgam": 0.534
@@ -343,7 +343,7 @@
           "pgam": 0.422
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.124,
           "sm1": 0.357,
           "pgam": 0.475
@@ -355,13 +355,13 @@
           "pgam": 0.633
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.249,
           "sm1": 0.828,
           "pgam": 0.580
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.499,
           "sm1": 0.828,
           "pgam": 0.633
@@ -389,7 +389,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.587,
           "pgam": 0.500
@@ -417,7 +417,7 @@
           "pgam": 0.400
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.350,
           "sm1": 0.464,
           "pgam": 0.450
@@ -429,13 +429,13 @@
           "pgam": 0.600
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.500,
           "sm1": 0.998,
           "pgam": 0.550
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.800,
           "sm1": 0.998,
           "pgam": 0.600
@@ -463,7 +463,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.153,
           "sm1": 0.857,
           "pgam": 0.908
@@ -491,7 +491,7 @@
           "pgam": 0.784
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 2.095,
           "sm1": 0.745,
           "pgam": 0.882
@@ -503,13 +503,13 @@
           "pgam": 1.177
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.327,
           "sm1": 1.583,
           "pgam": 1.078
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.793,
           "sm1": 1.583,
           "pgam": 1.177
@@ -537,7 +537,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.068,
           "sm1": 0.394,
           "pgam": 0.473
@@ -565,7 +565,7 @@
           "pgam": 0.387
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.980,
           "sm1": 0.321,
           "pgam": 0.435
@@ -577,13 +577,13 @@
           "pgam": 0.580
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.159,
           "sm1": 0.762,
           "pgam": 0.540
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.306,
           "sm1": 0.762,
           "pgam": 0.580
@@ -611,7 +611,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.498,
           "sm1": 0.504,
           "pgam": 0.682
@@ -639,7 +639,7 @@
           "pgam": 0.575
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.418,
           "sm1": 0.421,
           "pgam": 0.647
@@ -651,13 +651,13 @@
           "pgam": 0.863
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.576,
           "sm1": 0.934,
           "pgam": 0.791
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.891,
           "sm1": 0.934,
           "pgam": 0.863
@@ -685,7 +685,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.189,
           "sm1": 0.792,
           "pgam": 0.961
@@ -713,7 +713,7 @@
           "pgam": 0.743
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.907,
           "sm1": 0.620,
           "pgam": 0.836
@@ -725,13 +725,13 @@
           "pgam": 1.115
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.119,
           "sm1": 1.317,
           "pgam": 1.022
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.543,
           "sm1": 1.317,
           "pgam": 1.115
@@ -759,7 +759,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.964,
           "sm1": 0.739,
           "pgam": 0.861
@@ -787,7 +787,7 @@
           "pgam": 0.708
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.818,
           "sm1": 0.610,
           "pgam": 0.797
@@ -799,13 +799,13 @@
           "pgam": 1.062
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.020,
           "sm1": 1.297,
           "pgam": 0.974
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.424,
           "sm1": 1.297,
           "pgam": 1.062
@@ -833,7 +833,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.730,
           "sm1": 0.656,
           "pgam": 0.728
@@ -861,7 +861,7 @@
           "pgam": 0.633
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.695,
           "sm1": 0.575,
           "pgam": 0.712
@@ -873,13 +873,13 @@
           "pgam": 0.950
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.883,
           "sm1": 1.222,
           "pgam": 0.871
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.260,
           "sm1": 1.222,
           "pgam": 0.950
@@ -907,7 +907,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.881,
           "sm1": 0.600,
           "pgam": 0.768
@@ -935,7 +935,7 @@
           "pgam": 0.716
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.999,
           "sm1": 0.538,
           "pgam": 0.806
@@ -947,13 +947,13 @@
           "pgam": 1.074
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.221,
           "sm1": 1.114,
           "pgam": 0.985
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.666,
           "sm1": 1.144,
           "pgam": 1.074
@@ -981,7 +981,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.331,
           "sm1": 0.497,
           "pgam": 0.576
@@ -1009,7 +1009,7 @@
           "pgam": 0.461
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.195,
           "sm1": 0.397,
           "pgam": 0.519
@@ -1021,13 +1021,13 @@
           "pgam": 0.692
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.328,
           "sm1": 0.895,
           "pgam": 0.634
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.594,
           "sm1": 0.895,
           "pgam": 0.692
@@ -1055,7 +1055,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.567,
           "sm1": 0.253,
           "pgam": 0.238
@@ -1083,7 +1083,7 @@
           "pgam": 0.190
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.510,
           "sm1": 0.202,
           "pgam": 0.214
@@ -1095,13 +1095,13 @@
           "pgam": 0.285
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.763,
           "sm1": 0.530,
           "pgam": 0.324
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.763,
           "sm1": 0.530,
           "pgam": 0.324
@@ -1129,7 +1129,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600,
           "pgam": 0.571
@@ -1157,7 +1157,7 @@
           "pgam": 0.465
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.350,
           "sm1": 0.480,
           "pgam": 0.523
@@ -1169,13 +1169,13 @@
           "pgam": 0.697
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.500,
           "sm1": 1.020,
           "pgam": 0.639
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.800,
           "sm1": 1.020,
           "pgam": 0.697
@@ -1203,7 +1203,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.911,
           "sm1": 0.785,
           "pgam": 0.821
@@ -1231,7 +1231,7 @@
           "pgam": 0.589
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.621,
           "sm1": 0.589,
           "pgam": 0.698
@@ -1243,13 +1243,13 @@
           "pgam": 0.930
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.801,
           "sm1": 1.251,
           "pgam": 0.853
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.161,
           "sm1": 1.251,
           "pgam": 0.930
@@ -1277,7 +1277,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600,
           "pgam": 0.560
@@ -1305,7 +1305,7 @@
           "pgam": 0.460
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.350,
           "sm1": 0.480,
           "pgam": 0.517
@@ -1317,13 +1317,13 @@
           "pgam": 0.690
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.500,
           "sm1": 1.020,
           "pgam": 0.632
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.800,
           "sm1": 1.020,
           "pgam": 0.690
@@ -1351,7 +1351,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.640,
           "sm1": 0.627,
           "pgam": 0.689
@@ -1379,7 +1379,7 @@
           "pgam": 0.538
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.434,
           "sm1": 0.482,
           "pgam": 0.605
@@ -1391,13 +1391,13 @@
           "pgam": 0.806
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.594,
           "sm1": 1.024,
           "pgam": 0.739
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.912,
           "sm1": 1.024,
           "pgam": 0.806
@@ -1425,7 +1425,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.560,
           "sm1": 0.600,
           "pgam": 0.639
@@ -1453,7 +1453,7 @@
           "pgam": 0.492
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.351,
           "sm1": 0.480,
           "pgam": 0.554
@@ -1465,13 +1465,13 @@
           "pgam": 0.738
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.502,
           "sm1": 1.020,
           "pgam": 0.677
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.802,
           "sm1": 1.020,
           "pgam": 0.738
@@ -1499,7 +1499,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.261,
           "sm1": 0.876,
           "pgam": 0.951
@@ -1527,7 +1527,7 @@
           "pgam": 0.812
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 2.172,
           "sm1": 0.751,
           "pgam": 0.914
@@ -1539,13 +1539,13 @@
           "pgam": 1.219
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 2.413,
           "sm1": 1.596,
           "pgam": 1.117
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 2.896,
           "sm1": 1.596,
           "pgam": 1.219
@@ -1573,7 +1573,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.399,
           "sm1": 0.488,
           "pgam": 0.597
@@ -1601,7 +1601,7 @@
           "pgam": 0.477
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.257,
           "sm1": 0.390,
           "pgam": 0.537
@@ -1613,13 +1613,13 @@
           "pgam": 0.716
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.397,
           "sm1": 0.883,
           "pgam": 0.656
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.676,
           "sm1": 0.883,
           "pgam": 0.716
@@ -1647,7 +1647,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.354,
           "sm1": 0.468,
           "pgam": 0.500
@@ -1675,7 +1675,7 @@
           "pgam": 0.400
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.220,
           "sm1": 0.375,
           "pgam": 0.450
@@ -1687,13 +1687,13 @@
           "pgam": 0.600
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.355,
           "sm1": 0.858,
           "pgam": 0.550
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.626,
           "sm1": 0.858,
           "pgam": 0.600
@@ -1721,7 +1721,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.235,
           "sm1": 0.438,
           "pgam": 0.530
@@ -1749,7 +1749,7 @@
           "pgam": 0.411
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.081,
           "sm1": 0.342,
           "pgam": 0.463
@@ -1761,13 +1761,13 @@
           "pgam": 0.617
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.225,
           "sm1": 0.800,
           "pgam": 0.566
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.441,
           "sm1": 0.800,
           "pgam": 0.617
@@ -1795,7 +1795,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.884,
           "sm1": 0.395,
           "pgam": 0.399
@@ -1823,7 +1823,7 @@
           "pgam": 0.321
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.799,
           "sm1": 0.315,
           "pgam": 0.361
@@ -1835,13 +1835,13 @@
           "pgam": 0.481
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.016,
           "sm1": 0.750,
           "pgam": 0.481
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.065,
           "sm1": 0.750,
           "pgam": 0.481
@@ -1869,7 +1869,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.494,
           "sm1": 0.543,
           "pgam": 0.678
@@ -1897,7 +1897,7 @@
           "pgam": 0.562
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.390,
           "sm1": 0.444,
           "pgam": 0.632
@@ -1909,13 +1909,13 @@
           "pgam": 0.843
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.545,
           "sm1": 0.968,
           "pgam": 0.773
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.854,
           "sm1": 0.968,
           "pgam": 0.843
@@ -1943,7 +1943,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.309,
           "sm1": 0.110,
           "pgam": 0.136
@@ -1971,7 +1971,7 @@
           "pgam": 0.108
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.276,
           "sm1": 0.088,
           "pgam": 0.122
@@ -1983,13 +1983,13 @@
           "pgam": 0.171
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.477,
           "sm1": 0.261,
           "pgam": 0.207
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.477,
           "sm1": 0.261,
           "pgam": 0.207
@@ -2017,7 +2017,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.582,
           "sm1": 0.559,
           "pgam": 0.675
@@ -2045,7 +2045,7 @@
           "pgam": 0.494
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.319,
           "sm1": 0.412,
           "pgam": 0.555
@@ -2057,13 +2057,13 @@
           "pgam": 0.741
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.465,
           "sm1": 0.920,
           "pgam": 0.679
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.758,
           "sm1": 0.920,
           "pgam": 0.741
@@ -2091,7 +2091,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.594,
           "sm1": 0.194,
           "pgam": 0.262
@@ -2119,7 +2119,7 @@
           "pgam": 0.228
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.581,
           "sm1": 0.165,
           "pgam": 0.256
@@ -2131,13 +2131,13 @@
           "pgam": 0.341
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.828,
           "sm1": 0.450,
           "pgam": 0.374
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.828,
           "sm1": 0.450,
           "pgam": 0.374
@@ -2165,7 +2165,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.453,
           "sm1": 0.160,
           "pgam": 0.261
@@ -2193,7 +2193,7 @@
           "pgam": 0.213
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.415,
           "sm1": 0.130,
           "pgam": 0.240
@@ -2205,13 +2205,13 @@
           "pgam": 0.320
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.660,
           "sm1": 0.369,
           "pgam": 0.355
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.660,
           "sm1": 0.369,
           "pgam": 0.355
@@ -2239,7 +2239,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.023,
           "sm1": 0.347,
           "pgam": 0.611
@@ -2267,7 +2267,7 @@
           "pgam": 0.490
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.922,
           "sm1": 0.278,
           "pgam": 0.551
@@ -2279,13 +2279,13 @@
           "pgam": 0.734
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.117,
           "sm1": 0.678,
           "pgam": 0.673
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.229,
           "sm1": 0.678,
           "pgam": 0.734
@@ -2313,7 +2313,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.311,
           "sm1": 0.386,
           "pgam": 0.855
@@ -2341,7 +2341,7 @@
           "pgam": 0.747
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 1.276,
           "sm1": 0.331,
           "pgam": 0.840
@@ -2353,13 +2353,13 @@
           "pgam": 1.120
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 1.418,
           "sm1": 0.781,
           "pgam": 1.027
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 1.702,
           "sm1": 0.781,
           "pgam": 1.120
@@ -2387,7 +2387,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.117,
           "sm1": 0.063,
           "pgam": 0.059
@@ -2415,7 +2415,7 @@
           "pgam": 0.047
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.106,
           "sm1": 0.051,
           "pgam": 0.053
@@ -2427,13 +2427,13 @@
           "pgam": 0.076
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.188,
           "sm1": 0.152,
           "pgam": 0.094
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.188,
           "sm1": 0.152,
           "pgam": 0.094
@@ -2461,7 +2461,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.288,
           "sm1": 0.060,
           "pgam": 0.178
@@ -2489,7 +2489,7 @@
           "pgam": 0.144
         },
         {
-          "siteClass": "B (measured)",
+          "siteClass": "B",
           "sms": 0.261,
           "sm1": 0.048,
           "pgam": 0.161
@@ -2501,13 +2501,13 @@
           "pgam": 0.219
         },
         {
-          "siteClass": "D (determined)",
+          "siteClass": "D",
           "sms": 0.455,
           "sm1": 0.144,
           "pgam": 0.259
         },
         {
-          "siteClass": "D (default)",
+          "siteClass": "D-default",
           "sms": 0.455,
           "sm1": 0.144,
           "pgam": 0.259
@@ -2535,7 +2535,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.676
         }
@@ -2556,7 +2556,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.618,
           "sm1": 0.384
         }
@@ -2577,7 +2577,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.999,
           "sm1": 0.382
         }
@@ -2598,7 +2598,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.873,
           "sm1": 0.604
         }
@@ -2619,7 +2619,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.307,
           "sm1": 0.247
         }
@@ -2640,7 +2640,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.680
         }
@@ -2661,7 +2661,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -2682,7 +2682,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.644,
           "sm1": 0.858
         }
@@ -2703,7 +2703,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.881
         }
@@ -2724,7 +2724,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.302,
           "sm1": 0.125
         }
@@ -2745,7 +2745,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -2766,7 +2766,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.537,
           "sm1": 0.190
         }
@@ -2787,7 +2787,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.314,
           "sm1": 0.180
         }
@@ -2808,7 +2808,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.529,
           "sm1": 0.336
         }
@@ -2829,7 +2829,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.726,
           "sm1": 0.366
         }
@@ -2850,7 +2850,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.428,
           "sm1": 0.165
         }
@@ -2871,7 +2871,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.971,
           "sm1": 0.451
         }
@@ -2892,7 +2892,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -2913,7 +2913,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.812,
           "sm1": 0.404
         }
@@ -2934,7 +2934,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.136,
           "sm1": 0.539
         }
@@ -2955,7 +2955,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.620,
           "sm1": 0.231
         }
@@ -2976,7 +2976,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.676
         }
@@ -2997,7 +2997,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.609,
           "sm1": 0.383
         }
@@ -3018,7 +3018,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.991,
           "sm1": 0.378
         }
@@ -3039,7 +3039,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.928,
           "sm1": 0.600
         }
@@ -3060,7 +3060,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.302,
           "sm1": 0.247
         }
@@ -3081,7 +3081,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.689
         }
@@ -3102,7 +3102,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -3123,7 +3123,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.869,
           "sm1": 0.937
         }
@@ -3144,7 +3144,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.502,
           "sm1": 0.909
         }
@@ -3165,7 +3165,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.300,
           "sm1": 0.125
         }
@@ -3186,7 +3186,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -3207,7 +3207,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.537,
           "sm1": 0.190
         }
@@ -3228,7 +3228,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.311,
           "sm1": 0.178
         }
@@ -3249,7 +3249,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.509,
           "sm1": 0.325
         }
@@ -3270,7 +3270,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.728,
           "sm1": 0.361
         }
@@ -3291,7 +3291,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.434,
           "sm1": 0.167
         }
@@ -3312,7 +3312,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.970,
           "sm1": 0.451
         }
@@ -3333,7 +3333,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -3354,7 +3354,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.808,
           "sm1": 0.403
         }
@@ -3375,7 +3375,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.133,
           "sm1": 0.534
         }
@@ -3396,7 +3396,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.618,
           "sm1": 0.231
         }
@@ -3417,7 +3417,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3436,7 +3436,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3455,7 +3455,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3474,7 +3474,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3493,7 +3493,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3512,7 +3512,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3531,7 +3531,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3550,7 +3550,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3569,7 +3569,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3588,7 +3588,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3607,7 +3607,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3626,7 +3626,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)"
+          "siteClass": "B-estimated"
         }
       ]
     }
@@ -3645,7 +3645,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.579,
           "sm1": 0.169
         }
@@ -3666,7 +3666,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -3687,7 +3687,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.593,
           "sm1": 0.175
         }
@@ -3708,7 +3708,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.588,
           "sm1": 0.172
         }
@@ -3729,7 +3729,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.992,
           "sm1": 0.253
         }
@@ -3750,7 +3750,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.991,
           "sm1": 0.256
         }
@@ -3771,7 +3771,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.534,
           "sm1": 0.146
         }
@@ -3792,7 +3792,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.920,
           "sm1": 0.880
         }
@@ -3813,7 +3813,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.910,
           "sm1": 0.229
         }
@@ -3834,7 +3834,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.496,
           "sm1": 0.551
         }
@@ -3855,7 +3855,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.226,
           "sm1": 0.064
         }
@@ -3876,7 +3876,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -3897,7 +3897,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.782,
           "sm1": 0.210
         }
@@ -3918,7 +3918,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.790,
           "sm1": 0.205
         }
@@ -3939,7 +3939,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.333,
           "sm1": 0.997
         }
@@ -3960,7 +3960,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.099,
           "sm1": 0.876
         }
@@ -3981,7 +3981,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.550,
           "sm1": 0.153
         }
@@ -4002,7 +4002,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.192,
           "sm1": 0.055
         }
@@ -4023,7 +4023,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4044,7 +4044,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.047,
           "sm1": 0.278
         }
@@ -4065,7 +4065,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4086,7 +4086,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.579,
           "sm1": 0.169
         }
@@ -4107,7 +4107,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4128,7 +4128,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.593,
           "sm1": 0.175
         }
@@ -4149,7 +4149,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.587,
           "sm1": 0.172
         }
@@ -4170,7 +4170,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.993,
           "sm1": 0.253
         }
@@ -4191,7 +4191,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.992,
           "sm1": 0.256
         }
@@ -4212,7 +4212,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.534,
           "sm1": 0.146
         }
@@ -4233,7 +4233,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.920,
           "sm1": 0.880
         }
@@ -4254,7 +4254,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.910,
           "sm1": 0.229
         }
@@ -4275,7 +4275,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.226,
           "sm1": 0.064
         }
@@ -4296,7 +4296,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4317,7 +4317,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.783,
           "sm1": 0.210
         }
@@ -4338,7 +4338,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.786,
           "sm1": 0.204
         }
@@ -4359,7 +4359,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.414,
           "sm1": 1.053
         }
@@ -4380,7 +4380,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 2.113,
           "sm1": 0.883
         }
@@ -4401,7 +4401,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.549,
           "sm1": 0.153
         }
@@ -4422,7 +4422,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.191,
           "sm1": 0.055
         }
@@ -4443,7 +4443,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4464,7 +4464,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.048,
           "sm1": 0.279
         }
@@ -4485,7 +4485,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.500,
           "sm1": 0.600
         }
@@ -4506,7 +4506,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.998,
           "sm1": 0.399
         }
@@ -4527,7 +4527,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.984,
           "sm1": 0.384
         }
@@ -4548,7 +4548,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.032,
           "sm1": 0.397
         }
@@ -4569,7 +4569,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.945,
           "sm1": 0.359
         }
@@ -4590,7 +4590,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.118,
           "sm1": 0.433
         }
@@ -4611,7 +4611,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.233,
           "sm1": 0.474
         }
@@ -4632,7 +4632,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.985,
           "sm1": 0.377
         }
@@ -4653,7 +4653,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.974,
           "sm1": 0.354
         }
@@ -4674,7 +4674,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.073,
           "sm1": 0.413
         }
@@ -4695,7 +4695,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.036,
           "sm1": 0.377
         }
@@ -4716,7 +4716,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.092,
           "sm1": 0.397
         }
@@ -4737,7 +4737,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.231,
           "sm1": 0.430
         }
@@ -4758,7 +4758,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.241,
           "sm1": 0.432
         }
@@ -4779,7 +4779,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.822,
           "sm1": 0.307
         }
@@ -4800,7 +4800,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.997,
           "sm1": 0.398
         }
@@ -4821,7 +4821,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.983,
           "sm1": 0.383
         }
@@ -4842,7 +4842,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.031,
           "sm1": 0.397
         }
@@ -4863,7 +4863,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.945,
           "sm1": 0.359
         }
@@ -4884,7 +4884,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.119,
           "sm1": 0.434
         }
@@ -4905,7 +4905,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.235,
           "sm1": 0.475
         }
@@ -4926,7 +4926,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.984,
           "sm1": 0.377
         }
@@ -4947,7 +4947,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.976,
           "sm1": 0.354
         }
@@ -4968,7 +4968,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.073,
           "sm1": 0.413
         }
@@ -4989,7 +4989,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.036,
           "sm1": 0.377
         }
@@ -5010,7 +5010,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.092,
           "sm1": 0.397
         }
@@ -5031,7 +5031,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.231,
           "sm1": 0.430
         }
@@ -5052,7 +5052,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 1.241,
           "sm1": 0.432
         }
@@ -5073,7 +5073,7 @@
     "response": {
       "data": [
         {
-          "siteClass": "B (unmeasured)",
+          "siteClass": "B-estimated",
           "sms": 0.820,
           "sm1": 0.306
         }
