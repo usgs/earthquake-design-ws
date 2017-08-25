@@ -9,10 +9,28 @@ Using the Generated Project
 ---------------------------
 
 ## Getting Started
-- run `npm install` to install application development dependencies
+
+Before developing locally, you will need to execute the following steps to
+setup your local environment:
+
+- Run `npm install` to install application development dependencies
     - The application will prompt you for configuration information,
       and create a file named `src/conf/config.json` in the project.
-- run `npm run dev` from the install directory
+- Setup a postgis enabled Postgres database
+    - Use the [mdillon/postgis](https://hub.docker.com/r/mdillon/postgis/)
+      image to install a docker container running Postgres:
+      ```
+      docker run
+        --name postgres-postgis \
+        -p {DB_PORT}:5432 \
+        -e POSTGRES_PASSWORD={DB_PASSWORD} \
+        -d mdillon/postgis
+      ```
+- Load data for component data end points into the Postgres database:
+    - [deterministic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/deterministic)
+    - [probabilistic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/probabilistic)
+    - [risk coefficient](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/risk-coefficient)
+- Run `npm run dev` from the install directory
 
 
 ## Docker
