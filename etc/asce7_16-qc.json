@@ -61,13 +61,13 @@
         {
           "siteClass": "D",
           "sms": 1.970,
-          "sm1": 1.192,
+          "sm1": null,
           "pgam": 0.928
         },
         {
           "siteClass": "D-default",
           "sms": 2.364,
-          "sm1": 1.192,
+          "sm1": null,
           "pgam": 1.012
         },
         {
@@ -135,13 +135,13 @@
         {
           "siteClass": "D",
           "sms": 2.111,
-          "sm1": 1.280,
+          "sm1": null,
           "pgam": 1.001
         },
         {
           "siteClass": "D-default",
           "sms": 2.533,
-          "sm1": 1.280,
+          "sm1": null,
           "pgam": 1.091
         },
         {
@@ -209,13 +209,13 @@
         {
           "siteClass": "D",
           "sms": 1.735,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.785
         },
         {
           "siteClass": "D-default",
           "sms": 2.082,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.856
         },
         {
@@ -283,13 +283,13 @@
         {
           "siteClass": "D",
           "sms": 1.683,
-          "sm1": 1.033,
+          "sm1": null,
           "pgam": 0.818
         },
         {
           "siteClass": "D-default",
           "sms": 2.020,
-          "sm1": 1.033,
+          "sm1": null,
           "pgam": 0.892
         },
         {
@@ -357,13 +357,13 @@
         {
           "siteClass": "D",
           "sms": 1.249,
-          "sm1": 0.828,
+          "sm1": null,
           "pgam": 0.580
         },
         {
           "siteClass": "D-default",
           "sms": 1.499,
-          "sm1": 0.828,
+          "sm1": null,
           "pgam": 0.633
         },
         {
@@ -431,13 +431,13 @@
         {
           "siteClass": "D",
           "sms": 1.500,
-          "sm1": 0.998,
+          "sm1": null,
           "pgam": 0.550
         },
         {
           "siteClass": "D-default",
           "sms": 1.800,
-          "sm1": 0.998,
+          "sm1": null,
           "pgam": 0.600
         },
         {
@@ -505,13 +505,13 @@
         {
           "siteClass": "D",
           "sms": 2.327,
-          "sm1": 1.583,
+          "sm1": null,
           "pgam": 1.078
         },
         {
           "siteClass": "D-default",
           "sms": 2.793,
-          "sm1": 1.583,
+          "sm1": null,
           "pgam": 1.177
         },
         {
@@ -579,13 +579,13 @@
         {
           "siteClass": "D",
           "sms": 1.159,
-          "sm1": 0.762,
+          "sm1": null,
           "pgam": 0.540
         },
         {
           "siteClass": "D-default",
           "sms": 1.306,
-          "sm1": 0.762,
+          "sm1": null,
           "pgam": 0.580
         },
         {
@@ -653,13 +653,13 @@
         {
           "siteClass": "D",
           "sms": 1.576,
-          "sm1": 0.934,
+          "sm1": null,
           "pgam": 0.791
         },
         {
           "siteClass": "D-default",
           "sms": 1.891,
-          "sm1": 0.934,
+          "sm1": null,
           "pgam": 0.863
         },
         {
@@ -727,13 +727,13 @@
         {
           "siteClass": "D",
           "sms": 2.119,
-          "sm1": 1.317,
+          "sm1": null,
           "pgam": 1.022
         },
         {
           "siteClass": "D-default",
           "sms": 2.543,
-          "sm1": 1.317,
+          "sm1": null,
           "pgam": 1.115
         },
         {
@@ -801,13 +801,13 @@
         {
           "siteClass": "D",
           "sms": 2.020,
-          "sm1": 1.297,
+          "sm1": null,
           "pgam": 0.974
         },
         {
           "siteClass": "D-default",
           "sms": 2.424,
-          "sm1": 1.297,
+          "sm1": null,
           "pgam": 1.062
         },
         {
@@ -875,13 +875,13 @@
         {
           "siteClass": "D",
           "sms": 1.883,
-          "sm1": 1.222,
+          "sm1": null,
           "pgam": 0.871
         },
         {
           "siteClass": "D-default",
           "sms": 2.260,
-          "sm1": 1.222,
+          "sm1": null,
           "pgam": 0.950
         },
         {
@@ -949,13 +949,13 @@
         {
           "siteClass": "D",
           "sms": 2.221,
-          "sm1": 1.114,
+          "sm1": null,
           "pgam": 0.985
         },
         {
           "siteClass": "D-default",
           "sms": 2.666,
-          "sm1": 1.144,
+          "sm1": null,
           "pgam": 1.074
         },
         {
@@ -1023,13 +1023,13 @@
         {
           "siteClass": "D",
           "sms": 1.328,
-          "sm1": 0.895,
+          "sm1": null,
           "pgam": 0.634
         },
         {
           "siteClass": "D-default",
           "sms": 1.594,
-          "sm1": 0.895,
+          "sm1": null,
           "pgam": 0.692
         },
         {
@@ -1097,13 +1097,13 @@
         {
           "siteClass": "D",
           "sms": 0.763,
-          "sm1": 0.530,
+          "sm1": null,
           "pgam": 0.324
         },
         {
           "siteClass": "D-default",
           "sms": 0.763,
-          "sm1": 0.530,
+          "sm1": null,
           "pgam": 0.324
         },
         {
@@ -1171,13 +1171,13 @@
         {
           "siteClass": "D",
           "sms": 1.500,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.639
         },
         {
           "siteClass": "D-default",
           "sms": 1.800,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.697
         },
         {
@@ -1245,13 +1245,13 @@
         {
           "siteClass": "D",
           "sms": 1.801,
-          "sm1": 1.251,
+          "sm1": null,
           "pgam": 0.853
         },
         {
           "siteClass": "D-default",
           "sms": 2.161,
-          "sm1": 1.251,
+          "sm1": null,
           "pgam": 0.930
         },
         {
@@ -1319,13 +1319,13 @@
         {
           "siteClass": "D",
           "sms": 1.500,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.632
         },
         {
           "siteClass": "D-default",
           "sms": 1.800,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.690
         },
         {
@@ -1393,13 +1393,13 @@
         {
           "siteClass": "D",
           "sms": 1.594,
-          "sm1": 1.024,
+          "sm1": null,
           "pgam": 0.739
         },
         {
           "siteClass": "D-default",
           "sms": 1.912,
-          "sm1": 1.024,
+          "sm1": null,
           "pgam": 0.806
         },
         {
@@ -1467,13 +1467,13 @@
         {
           "siteClass": "D",
           "sms": 1.502,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.677
         },
         {
           "siteClass": "D-default",
           "sms": 1.802,
-          "sm1": 1.020,
+          "sm1": null,
           "pgam": 0.738
         },
         {
@@ -1541,13 +1541,13 @@
         {
           "siteClass": "D",
           "sms": 2.413,
-          "sm1": 1.596,
+          "sm1": null,
           "pgam": 1.117
         },
         {
           "siteClass": "D-default",
           "sms": 2.896,
-          "sm1": 1.596,
+          "sm1": null,
           "pgam": 1.219
         },
         {
@@ -1615,13 +1615,13 @@
         {
           "siteClass": "D",
           "sms": 1.397,
-          "sm1": 0.883,
+          "sm1": null,
           "pgam": 0.656
         },
         {
           "siteClass": "D-default",
           "sms": 1.676,
-          "sm1": 0.883,
+          "sm1": null,
           "pgam": 0.716
         },
         {
@@ -1689,13 +1689,13 @@
         {
           "siteClass": "D",
           "sms": 1.355,
-          "sm1": 0.858,
+          "sm1": null,
           "pgam": 0.550
         },
         {
           "siteClass": "D-default",
           "sms": 1.626,
-          "sm1": 0.858,
+          "sm1": null,
           "pgam": 0.600
         },
         {
@@ -1763,13 +1763,13 @@
         {
           "siteClass": "D",
           "sms": 1.225,
-          "sm1": 0.800,
+          "sm1": null,
           "pgam": 0.566
         },
         {
           "siteClass": "D-default",
           "sms": 1.441,
-          "sm1": 0.800,
+          "sm1": null,
           "pgam": 0.617
         },
         {
@@ -1837,13 +1837,13 @@
         {
           "siteClass": "D",
           "sms": 1.016,
-          "sm1": 0.750,
+          "sm1": null,
           "pgam": 0.481
         },
         {
           "siteClass": "D-default",
           "sms": 1.065,
-          "sm1": 0.750,
+          "sm1": null,
           "pgam": 0.481
         },
         {
@@ -1911,13 +1911,13 @@
         {
           "siteClass": "D",
           "sms": 1.545,
-          "sm1": 0.968,
+          "sm1": null,
           "pgam": 0.773
         },
         {
           "siteClass": "D-default",
           "sms": 1.854,
-          "sm1": 0.968,
+          "sm1": null,
           "pgam": 0.843
         },
         {
@@ -2059,13 +2059,13 @@
         {
           "siteClass": "D",
           "sms": 1.465,
-          "sm1": 0.920,
+          "sm1": null,
           "pgam": 0.679
         },
         {
           "siteClass": "D-default",
           "sms": 1.758,
-          "sm1": 0.920,
+          "sm1": null,
           "pgam": 0.741
         },
         {
@@ -2133,13 +2133,13 @@
         {
           "siteClass": "D",
           "sms": 0.828,
-          "sm1": 0.450,
+          "sm1": null,
           "pgam": 0.374
         },
         {
           "siteClass": "D-default",
           "sms": 0.828,
-          "sm1": 0.450,
+          "sm1": null,
           "pgam": 0.374
         },
         {
@@ -2281,13 +2281,13 @@
         {
           "siteClass": "D",
           "sms": 1.117,
-          "sm1": 0.678,
+          "sm1": null,
           "pgam": 0.673
         },
         {
           "siteClass": "D-default",
           "sms": 1.229,
-          "sm1": 0.678,
+          "sm1": null,
           "pgam": 0.734
         },
         {
@@ -2355,13 +2355,13 @@
         {
           "siteClass": "D",
           "sms": 1.418,
-          "sm1": 0.781,
+          "sm1": null,
           "pgam": 1.027
         },
         {
           "siteClass": "D-default",
           "sms": 1.702,
-          "sm1": 0.781,
+          "sm1": null,
           "pgam": 1.120
         },
         {
