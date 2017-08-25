@@ -50,7 +50,7 @@ var Config = function (options) {
     var map;
 
     map = {
-      'database': 'DB_USER',
+      'database': 'DB_HOST',
       'pgsql_read_only_user': 'DB_USER',
       'pgsql_read_only_password': 'DB_PASSWORD'
     };
