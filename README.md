@@ -55,7 +55,7 @@ several configuration parameters based on your working environment.
   > starting the container you should update the relevant configuration
   > information in the docker-compose.yml file and then run the command:
     ```
-    dockker-compose up -d
+    docker-compose up -d
     ```
 
 - Connect to the running container in browser.
