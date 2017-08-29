@@ -42,7 +42,7 @@
     "max_longitude": -165.0,
     "min_latitude": -33.0,
     "min_longitude": -195.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2012R1_AMSAM0P10_Probabilistic.csv.gz"
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2012R2_AMSAM0P10_Probabilistic.csv.gz"
   },
   {
     "name": "E2012R1_GNMI0P10_Probabilistic",
