@@ -45,13 +45,13 @@
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2012R2_AMSAM0P10_Risk_Coefficient.csv.gz"
   },
   {
-    "name": "E2014R1_GNMI0P10_Risk_Coefficient",
+    "name": "E2012R1_GNMI0P10_Risk_Coefficient",
     "grid_spacing": 0.10,
     "max_latitude": 23.0,
     "max_longitude": 151.0,
     "min_latitude": 9.0,
     "min_longitude": 139.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2014R1_GNMI0P10_Risk_Coefficient.csv.gz"
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2012R1_GNMI0P10_Risk_Coefficient.csv.gz"
   },
   {
     "name": "E2014R1_COUS0P01_Risk_Coefficient",

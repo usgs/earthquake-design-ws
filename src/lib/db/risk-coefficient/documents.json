@@ -28,7 +28,7 @@
       "E2003R1_PRVI0P01_Risk_Coefficient",
       "E2007R1_AK0P05_Risk_Coefficient",
       "E2012R2_AMSAM0P10_Risk_Coefficient",
-      "E2014R1_GNMI0P10_Risk_Coefficient",
+      "E2012R1_GNMI0P10_Risk_Coefficient",
       "E2014R1_COUS0P01_Risk_Coefficient"
     ],
     "spatial_interpolation_method": "linear"
