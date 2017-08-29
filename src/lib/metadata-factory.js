@@ -51,6 +51,42 @@ _METADATA = {
         'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
       }
     }
+  ],
+  'ASCE7-16': [
+    {
+      'regions': [
+        'AK',
+        'AMSAM',
+        'COUS',
+        'GUAM',
+        'PRVI'
+      ],
+      'data': {
+        'pgadPercentileFactor': 1.8,
+        'pgadFloor': 0.5,
+        's1MaxDirFactor': 1.3,
+        's1dPercentileFactor': 1.8,
+        's1dFloor': 0.6,
+        'ssMaxDirFactor': 1.1,
+        'ssdPercentileFactor': 1.8,
+        'ssdFloor': 1.5,
+      }
+    },
+    {
+      'regions': [
+        'HI'
+      ],
+      'data': {
+        'pgadPercentileFactor': 1.8,
+        'pgadFloor': 0.5,
+        's1MaxDirFactor': 1,
+        's1dPercentileFactor': 1.8,
+        's1dFloor': 0.6,
+        'ssMaxDirFactor': 1,
+        'ssdPercentileFactor': 1.8,
+        'ssdFloor': 1.5,
+      }
+    }
   ]
 };
 
@@ -64,12 +100,28 @@ _REGIONS = [
     'min_longitude': -200.0,
   },
   {
+    'name': 'AMSAM',
+    'grid_spacing':   0.1,
+    'max_latitude':   -11,
+    'max_longitude': -165,
+    'min_latitude':   -33,
+    'min_longitude': -195,
+  },
+  {
     'name': 'COUS',
     'grid_spacing':    0.01,
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
     'min_longitude': -125.0,
+  },
+  {
+    'name': 'GUAM',
+    'grid_spacing':  0.1,
+    'max_latitude':   23,
+    'max_longitude': 151,
+    'min_latitude':    9,
+    'min_longitude': 139,
   },
   {
     'name': 'HI',
