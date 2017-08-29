@@ -18,13 +18,13 @@
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2003R1_PRVI0P01_Deterministic.csv.gz"
   },
   {
-    "name": "E2007R1_AK0P10_Deterministic",
+    "name": "E2007R1_AK0P05_Deterministic",
     "grid_spacing": 0.05,
     "max_latitude": 72.0,
     "max_longitude": -125.1,
     "min_latitude": 48.0,
     "min_longitude": -200.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2007R1_AK0P10_Deterministic.csv.gz"
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2007R1_AK0P05_Deterministic.csv.gz"
   },
   {
     "name": "E2008R2_COUS0P01_Deterministic",
