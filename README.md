@@ -9,10 +9,33 @@ Using the Generated Project
 ---------------------------
 
 ## Getting Started
-- run `npm install` to install application development dependencies
+
+Before developing locally, you will need to execute the following steps to
+setup your local environment:
+
+1. Run `npm install` to install application development dependencies
     - The application will prompt you for configuration information,
       and create a file named `src/conf/config.json` in the project.
-- run `npm run dev` from the install directory
+
+      > The application expects that the configured postgres database already
+      > exists. If you set "database name" to anything other than "postgres"
+      > you will need to manually create the database after installing the
+      > postgres instance
+1. Setup a postgis enabled Postgres database
+    - Use the [mdillon/postgis](https://hub.docker.com/r/mdillon/postgis/)
+      image to install a docker container running Postgres:
+      ```
+      docker run
+        --name postgres-postgis \
+        -p {DB_PORT}:5432 \
+        -e POSTGRES_PASSWORD={DB_PASSWORD} \
+        -d mdillon/postgis
+      ```
+1. Load data for component data end points into the Postgres database:
+    - [deterministic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/deterministic)
+    - [probabilistic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/probabilistic)
+    - [risk coefficient](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/risk-coefficient)
+1. Run `npm run dev` from the install directory
 
 
 ## Docker
@@ -55,7 +78,7 @@ several configuration parameters based on your working environment.
   > starting the container you should update the relevant configuration
   > information in the docker-compose.yml file and then run the command:
     ```
-    dockker-compose up -d
+    docker-compose up -d
     ```
 
 - Connect to the running container in browser.
