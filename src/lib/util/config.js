@@ -11,7 +11,7 @@ var _DEFAULTS;
 
 _DEFAULTS = {
   configFile: 'src/conf/config.json',
-  revisionFile: '../../../.REVISION',
+  revisionFile: '.REVISION',
   overrides: {}
 };
 
