@@ -97,13 +97,26 @@ describe('MetadataFactory', () => {
       expect(factory.getData()).to.be.an.instanceof(Promise);
     });
     // returns correct region
-    it('returns metadata', (done) => {
+    it('returns ASCE41-13 metadata', (done) => {
       var result;
 
       result = factory.getData('ASCE41-13', 'COUS');
       result.then((results) => {
         expect(results.curve_interpolation_method).to.equal(
             NumberUtils.INTERPOLATE_USING_LOG);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns ASCE7-16 metadata', (done) => {
+      var result;
+
+      result = factory.getData('ASCE7-16', 'COUS');
+      result.then((results) => {
+        expect(results.pgadPercentileFactor).to.equal(1.8);
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -122,12 +135,16 @@ describe('MetadataFactory', () => {
         factory.getRegion(70, -170),
         factory.getRegion(35, -105),
         factory.getRegion(20, -160),
-        factory.getRegion(18, -66)
+        factory.getRegion(18, -66),
+        factory.getRegion(-18, -175),
+        factory.getRegion(18, 140)
       ]).then((results) => {
         expect(results[0]).to.equal('AK');
         expect(results[1]).to.equal('COUS');
         expect(results[2]).to.equal('HI');
         expect(results[3]).to.equal('PRVI');
+        expect(results[4]).to.equal('AMSAM');
+        expect(results[5]).to.equal('GUAM');
       }).catch((err) => {
         return err;
       }).then((err) => {
