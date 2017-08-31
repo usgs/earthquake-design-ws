@@ -87,5 +87,11 @@ module.exports = [
     name: 'DETERMINISTIC_SERVICE_URL',
     message: 'Web service for fetching mapped deterministic ground motion data',
     default: 'https://earthquake.usgs.gov/ws/designmaps/deterministic.json'
+  },
+  {
+    type: 'input',
+    name: 'TSUBL_SERVICE_URL',
+    message: 'Web service for fetching T-Sub-L data',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/t-sub-l.json'
   }
 ];
