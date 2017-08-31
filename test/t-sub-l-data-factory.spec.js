@@ -77,12 +77,8 @@ describe('t-sub-l-data-factory', () => {
       };
 
       metadata = {
-        document: {
-          spatial_interpolation_method: ''
-        },
         region: {
-          grid_spacing: 0,
-          id: 1
+          id: 0
         }
       };
 
@@ -93,7 +89,7 @@ describe('t-sub-l-data-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryData, [1, 0, 0, 0])).to.be.true;
+            factory.queryData, [0, 0, 0])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -179,7 +175,7 @@ describe('t-sub-l-data-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryRegion, [0, 1])).to.be.true;
+            factory.queryRegion, null)).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {

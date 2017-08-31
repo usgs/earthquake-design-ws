@@ -22,8 +22,13 @@ _QUERY_DATA = `
     data
   WHERE
     region_id = $1 AND
-    ST_Intersects(ST_GeometryFromText('POINT($2 $3)'), shape)
+    ST_Intersects(ST_Point($2, $3), shape)
 `;
+
+//_QUERY_DATA = `
+//  SELECT
+//    public.ST_Point($1, $2)
+//`;
 
 /**
  * @param $1 {Number}
@@ -112,7 +117,6 @@ var TSubLDataFactory = function (options) {
    */
   _this.get = function (inputs) {
     var metadata;
-
     return _this.getMetadata(inputs).then((result) => {
       metadata = result;
       return _this.getData(metadata, inputs);
@@ -139,8 +143,7 @@ var TSubLDataFactory = function (options) {
    */
   _this.getMetadata = function (inputs) {
     var region;
-
-    return _this.getRegion(inputs).then((result) => {
+    return _this.getRegion().then((result) => {
       region = result;
       return _this.getDocument(inputs, region);
     }).then((result) => {
@@ -159,7 +162,6 @@ var TSubLDataFactory = function (options) {
    *
    * @param metadata {Object}
    *     metadata.region.id {Number}
-   *     metadata.region.grid_spacing {Number}
    * @param inputs {Object}
    *     inputs.latitude {Number}
    *     inputs.longitude {Number}
@@ -177,13 +179,12 @@ var TSubLDataFactory = function (options) {
 
     parameters = [
       parseInt(metadata.region.id, 10),        // _QUERY_DATA::$1
-      parseFloat(inputs.latitude),             // _QUERY_DATA::$2
-      parseFloat(inputs.longitude),            // _QUERY_DATA::$3
-      parseFloat(metadata.region.grid_spacing) // _QUERY_DATA::$4
+      parseFloat(inputs.longitude),            // _QUERY_DATA::$2
+      parseFloat(inputs.latitude)              // _QUERY_DATA::$3
     ];
 
     return _this.db.query(_this.queryData, parameters).then((result) => {
-      return result;
+      return result.rows[0];
     });
   };
 
@@ -219,23 +220,13 @@ var TSubLDataFactory = function (options) {
    * Gets metadata associated with a particular region based on the provided
    * `inputs.latitude` and `inputs.longitude`.
    *
-   * @param inputs {Object}
-   *     inputs.latitude` {Number}
-   *     inputs.longitude` {Number}
-   *
    * @return {Promise<Object>}
    *     A promise that resolves with region metadata or rejects if an
    *     error occurs.
    */
-  _this.getRegion = function (inputs) {
-    var parameters;
-
-    parameters = [
-      parseFloat(inputs.latitude), // _QUERY_REGION::$1
-      parseFloat(inputs.longitude) // _QUERY_REGION::$2
-    ];
-
-    return _this.db.query(_this.queryRegion, parameters).then((result) => {
+  _this.getRegion = function () {
+    // There is only one region logically assigned to this data set
+    return _this.db.query(_this.queryRegion, null).then((result) => {
       return result.rows[0];
     });
   };
