@@ -17,7 +17,7 @@ var _DEFAULTS,
  */
 _QUERY_DATA = `
   SELECT
-    value
+    value as "t-sub-l"
   FROM
     data
   WHERE
