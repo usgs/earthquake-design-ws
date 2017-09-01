@@ -73,7 +73,7 @@ module.exports = [
   {
     type: 'input',
     name: 'DB_SCHEMA_TSUBL',
-    message: 'Database schema for t-sub-l data',
+    message: 'Database schema for T-Sub-L data',
     default: 'tsubl'
   },
   {
