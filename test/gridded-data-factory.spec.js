@@ -81,10 +81,10 @@ describe('gridded-data-factory', () => {
         document: {
           spatial_interpolation_method: 'linear'
         },
-        region: {
+        region: [{
           grid_spacing: 1,
           id: 1
-        }
+        }]
       };
 
       sinon.spy(factory.db, 'query');

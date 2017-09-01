@@ -63,7 +63,7 @@ _QUERY_DOCUMENT = `
   FROM
     document
   WHERE
-    region_id = $1 AND
+    region_id = ANY($1::int[]) AND
     name = $2
 `;
 
@@ -180,11 +180,12 @@ var GriddedDataFactory = function (options) {
     metadata = metadata || {};
     metadata.region = metadata.region || {};
 
+    // TODO, figure out how to read the right region (for id and grid_spacing)
     parameters = [
-      parseInt(metadata.region.id, 10),        // _QUERY_DATA::$1
-      parseFloat(inputs.latitude),             // _QUERY_DATA::$2
-      parseFloat(inputs.longitude),            // _QUERY_DATA::$3
-      parseFloat(metadata.region.grid_spacing) // _QUERY_DATA::$4
+      parseInt(metadata.document.region_id, 10),  // _QUERY_DATA::$1
+      parseFloat(inputs.latitude),                // _QUERY_DATA::$2
+      parseFloat(inputs.longitude),               // _QUERY_DATA::$3
+      parseFloat(metadata.region[0].grid_spacing) // _QUERY_DATA::$4
     ];
 
     return _this.db.query(_this.queryData, parameters).then((result) => {
@@ -207,11 +208,20 @@ var GriddedDataFactory = function (options) {
    *     A promise that resolves with document metadata or rejects if an
    *     error occurs.
    */
-  _this.getDocument = function (inputs, region) {
-    var parameters;
+  _this.getDocument = function (inputs, regions) {
+    var i,
+        len,
+        regionIds,
+        parameters;
+
+    regionIds = [];
+
+    for (i = 0, len = regions.length; i < len; i++) {
+      regionIds.push(regions[i].id);
+    }
 
     parameters = [
-      parseInt(region.id, 10), // _QUERY_DOCUMENT::$1
+      regionIds,               // _QUERY_DOCUMENT::$1
       inputs.referenceDocument // _QUERY_DOCUMENT::$2
     ];
 
@@ -268,7 +278,7 @@ var GriddedDataFactory = function (options) {
     ];
 
     return _this.db.query(_this.queryRegion, parameters).then((result) => {
-      return result.rows[0];
+      return result.rows;
     });
   };
 

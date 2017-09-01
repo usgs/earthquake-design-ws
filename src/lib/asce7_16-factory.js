@@ -36,11 +36,11 @@ var ASCE7_16Factory = function (options) {
    * @param options.metadataFactory {MetadataFactory}
    *     A factory for fetching metadata parameters for the building code
    *     reference document
-   * @param options.probabilisticHazardFactory {ProbabilisticHazardFactory}
+   * @param options.probabilisticService {ProbabilisticHazardFactory}
    *     A factory for fetching probabilistic hazard data
-   * @param options.deterministicHazardFactory {DeterministicHazardFactory}
+   * @param options.deterministicService {DeterministicHazardFactory}
    *     A factory for fetching deterministic hazard data
-   * @param options.riskTargetingFactory {RiskTargetingFactory}
+   * @param options.riskCoefficientService {RiskTargetingFactory}
    *     A factory for fetching risk coefficient data
    * @param options.siteAmplificationFactory {SiteAmplificationFactory}
    *     A factory for computing site-amplification factors
@@ -55,9 +55,9 @@ var ASCE7_16Factory = function (options) {
     _this.outputDecimals = options.outputDecimals;
 
     _this.metadataFactory = options.metadataFactory;
-    _this.probabilisticHazardFactory = options.probabilisticHazardFactory;
-    _this.deterministicHazardFactory = options.deterministicHazardFactory;
-    _this.riskTargetingFactory = options.riskTargetingFactory;
+    _this.probabilisticService = options.probabilisticService;
+    _this.deterministicService = options.deterministicService;
+    _this.riskCoefficientService = options.riskCoefficientService;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
     _this.designCategoryFactory = options.designCategoryFactory;
     _this.spectraFactory = options.spectraFactory;
@@ -101,9 +101,9 @@ var ASCE7_16Factory = function (options) {
 
       try {
         metadata = data.metadata;
-        probabilistic = data.probabilistic;
-        riskCoefficients = data.riskCoefficients;
-        deterministic = data.deterministic;
+        probabilistic = data.probabilistic.response.data;
+        riskCoefficients = data.riskCoefficients.response.data;
+        deterministic = data.deterministic.response.data;
 
         // Compute Ss
         basicDesign.ssuh = _this.computeUniformHazard(probabilistic.ss,
@@ -458,9 +458,9 @@ var ASCE7_16Factory = function (options) {
 
     return Promise.all([
       _this.metadataFactory.getMetadata(inputs),
-      _this.probabilisticHazardFactory.getProbabilisticData(inputs),
-      _this.deterministicHazardFactory.getDeterministicData(inputs),
-      _this.riskTargetingFactory.getRiskCoefficients(inputs)
+      _this.probabilisticService.getData(inputs),
+      _this.deterministicService.getData(inputs),
+      _this.riskCoefficientService.getData(inputs)
     ]).then((promiseResults) => {
       // => [metadata, probabilistic, deterministic, riskCoefficients]
       result.metadata = promiseResults[0];
