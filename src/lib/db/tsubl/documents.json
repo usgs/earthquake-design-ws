@@ -1,0 +1,9 @@
+[
+  {
+    "name": "ASCE7-10",
+
+    "model_version": "v3.1.x",
+    "regions": [ "T-Sub-L" ],
+    "spatial_interpolation_method": ""
+  }
+]
