@@ -25,11 +25,6 @@ _QUERY_DATA = `
     ST_Intersects(ST_Point($2, $3), shape)
 `;
 
-//_QUERY_DATA = `
-//  SELECT
-//    public.ST_Point($1, $2)
-//`;
-
 /**
  * @param $1 {Number}
  *     Latitude decimal degrees
