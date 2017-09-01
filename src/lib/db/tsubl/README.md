@@ -45,4 +45,4 @@
 
 - run the deterministic data loader
 
-  `node src/lib/db/deterministic/load_tsubl.js`
+  `node src/lib/db/tsubl/load_tsubl.js`
