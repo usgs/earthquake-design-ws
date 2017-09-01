@@ -72,6 +72,12 @@ module.exports = [
   },
   {
     type: 'input',
+    name: 'DB_SCHEMA_TSUBL',
+    message: 'Database schema for t-sub-l data',
+    default: 'tsubl'
+  },
+  {
+    type: 'input',
     name: 'PROBABILISTIC_SERVICE_URL',
     message: 'Web service for fetching mapped probabilistic ground motion data',
     default: 'https://earthquake.usgs.gov/ws/designmaps/probabilistic.json'

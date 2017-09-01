@@ -36,6 +36,9 @@ var ASCE41_13Handler = function (options) {
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
 
+        tsublService: WebServiceAccessor(
+          {url: options.TSUBL_SERVICE_URL}),
+
         siteAmplificationFactory: SiteAmplificationFactory(),
 
         spectraFactory: SpectraFactory(),

@@ -145,6 +145,7 @@ var WebServiceAccessor = function (options) {
       client = (requestOptions.port === 443) ? https : http;
 
       request = client.request(requestOptions, (response) => {
+
         var buffer;
 
         buffer = [];

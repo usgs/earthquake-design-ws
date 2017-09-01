@@ -31,6 +31,7 @@ var ASCE41_13Factory = function (options) {
     _this.probabilisticService = options.probabilisticService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.deterministicService = options.deterministicService;
+    _this.tsublService = options.tsublService;
 
     _this.metadataFactory = options.metadataFactory;
 
@@ -164,16 +165,22 @@ var ASCE41_13Factory = function (options) {
         ssrt,
         ssuh,
         sx1,
-        sxs;
+        sxs,
+        tSublData;
 
     return Promise.all([
       _this.probabilisticService.getData(inputs),
       _this.riskCoefficientService.getData(inputs),
-      _this.deterministicService.getData(inputs)
+      _this.deterministicService.getData(inputs),
+      _this.tsublService.getData(inputs)
     ]).then((results) => {
       probabilisticData = results[0].response.data;
       riskCoefficientData = results[1].response.data;
       deterministicData = results[2].response.data;
+
+      console.log('TSUBL Results => ' + JSON.stringify(results[2]));
+
+      tSublData = results[3].response.data;
 
       ssuh = probabilisticData.ss * metadata.max_direction_ss;
       s1uh = probabilisticData.s1 * metadata.max_direction_s1;
@@ -225,6 +232,7 @@ var ASCE41_13Factory = function (options) {
         's1': s1,
         'fv': fv,
         'sx1': sx1,
+        't-sub-l': tSublData,
         'horizontalSpectrum': horizontalSpectrum
       };
     });
