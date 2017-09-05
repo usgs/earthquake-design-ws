@@ -11,13 +11,27 @@ var _DUMMY_FACTORY,
     _EPSILON;
 
 _DUMMY_FACTORY = {
-  getMetadata: () => { return Promise.resolve({}); },
-  getProbabilisticData: () => { return Promise.resolve({}); },
-  getDesignCategory: () => { return Promise.resolve({}); },
-  getDeterministicData: () => { return Promise.resolve({}); },
-  getRiskCoefficients: () => { return Promise.resolve({}); },
-  getSiteAmplificationData: () => { return Promise.resolve({}); },
-  getSpectrum: () => { return Promise.resolve([]); }
+  metadataFactory: {
+    getMetadata: () => { return Promise.resolve([]); }
+  },
+  probabilisticService: {
+    getData: () => { return Promise.resolve([]); }
+  },
+  deterministicService: {
+    getData: () => { return Promise.resolve([]); }
+  },
+  riskCoefficientService: {
+    getData: () => { return Promise.resolve([]); }
+  },
+  siteAmplificationFactory: {
+    getSiteAmplificationData: () => { return Promise.resolve([]); }
+  },
+  designCategoryFactory: {
+    getDesignCategory: () => { return Promise.resolve([]); }
+  },
+  spectraFactory: {
+    getSpectrum: () => { return Promise.resolve([]); }
+  }
 };
 
 _EPSILON = Number.EPSILON;
@@ -97,9 +111,21 @@ describe('DesignFactory', () => {
           pgaPercentile: 0,
           pgadFloor: 0
         },
-        probabilistic: {ss: 0, s1: 0, pga: 0},
-        deterministic: {ss: 0, s1: 0, pga: 0},
-        riskCoefficients: {crs: 0, cr1: 0}
+        probabilistic: {
+          response: {
+            data: {ss: 0, s1: 0, pga: 0}
+          },
+        },
+        deterministic: {
+          response: {
+            data: {ss: 0, s1: 0, pga: 0},
+          },
+        },
+        riskCoefficients: {
+          response: {
+            data: {crs: 0, cr1: 0}
+          },
+        },
       }).then(() => {
         expect(factory.computeUniformHazard.callCount).to.equal(3);
         expect(factory.computeUniformRisk.callCount).to.equal(2);
@@ -227,7 +253,7 @@ describe('DesignFactory', () => {
     it('returns a promise', () => {
       var factory;
 
-      factory = DesignFactory({spectraFactory: _DUMMY_FACTORY});
+      factory = DesignFactory(_DUMMY_FACTORY);
 
       expect(factory.computeSpectra({})).to.be.instanceof(Promise);
     });
@@ -235,7 +261,7 @@ describe('DesignFactory', () => {
     it('calls factory method twice', (done) => {
       var factory;
 
-      factory = DesignFactory({spectraFactory: _DUMMY_FACTORY});
+      factory = DesignFactory(_DUMMY_FACTORY);
       sinon.spy(factory.spectraFactory, 'getSpectrum');
 
       factory.computeSpectra().then((/*spectra*/) => {
@@ -381,15 +407,7 @@ describe('DesignFactory', () => {
     it('returns a promise', () => {
       var factory;
 
-      factory = DesignFactory({
-        metadataFactory: _DUMMY_FACTORY,
-        probabilisticHazardFactory: _DUMMY_FACTORY,
-        deterministicHazardFactory: _DUMMY_FACTORY,
-        riskTargetingFactory: _DUMMY_FACTORY,
-        siteAmplificationFactory: _DUMMY_FACTORY,
-        designCategoryFactory: _DUMMY_FACTORY,
-        spectraFactory: _DUMMY_FACTORY
-      });
+      factory = DesignFactory(_DUMMY_FACTORY);
 
       expect(factory.getDesignData()).to.be.instanceof(Promise);
 
@@ -399,38 +417,27 @@ describe('DesignFactory', () => {
     it('calls expected sub-methods', (done) => {
       var factory;
 
-      factory = DesignFactory({
-        metadataFactory: _DUMMY_FACTORY,
-        probabilisticHazardFactory: _DUMMY_FACTORY,
-        deterministicHazardFactory: _DUMMY_FACTORY,
-        riskTargetingFactory: _DUMMY_FACTORY,
-        siteAmplificationFactory: _DUMMY_FACTORY,
-        designCategoryFactory: _DUMMY_FACTORY,
-        spectraFactory: _DUMMY_FACTORY
-      });
+      factory = DesignFactory(_DUMMY_FACTORY);
 
       sinon.spy(factory.metadataFactory, 'getMetadata');
-      sinon.spy(factory.probabilisticHazardFactory, 'getProbabilisticData');
-      sinon.spy(factory.deterministicHazardFactory, 'getDeterministicData');
-      sinon.spy(factory.riskTargetingFactory, 'getRiskCoefficients');
+      sinon.spy(factory.probabilisticService, 'getData');
+      sinon.spy(factory.deterministicService, 'getData');
+      sinon.spy(factory.riskCoefficientService, 'getData');
 
-      sinon.spy(factory, 'computeBasicDesign');
+      sinon.stub(factory, 'computeBasicDesign', () => { return Promise.resolve([]); });
 
       sinon.spy(factory.siteAmplificationFactory, 'getSiteAmplificationData');
-      sinon.spy(factory, 'computeFinalDesign');
+      sinon.stub(factory, 'computeFinalDesign', () => { return Promise.resolve([]); });
       sinon.spy(factory.designCategoryFactory, 'getDesignCategory');
-      sinon.spy(factory, 'computeSpectra');
+      sinon.stub(factory, 'computeSpectra', () => { return Promise.resolve([]); });
 
-      sinon.spy(factory, 'formatResult');
+      sinon.stub(factory, 'formatResult', () => { return Promise.resolve([]); });
 
       factory.getDesignData({}).then((/*result*/) => {
         expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
-        expect(factory.probabilisticHazardFactory
-            .getProbabilisticData.callCount).to.equal(1);
-        expect(factory.deterministicHazardFactory
-            .getDeterministicData.callCount).to.equal(1);
-        expect(factory.riskTargetingFactory
-            .getRiskCoefficients.callCount).to.equal(1);
+        expect(factory.probabilisticService.getData.callCount).to.equal(1);
+        expect(factory.deterministicService.getData.callCount).to.equal(1);
+        expect(factory.riskCoefficientService.getData.callCount).to.equal(1);
 
         expect(factory.computeBasicDesign.callCount).to.equal(1);
 
@@ -445,20 +452,6 @@ describe('DesignFactory', () => {
       }).catch((err) => {
         return err;
       }).then((err) => {
-        factory.metadataFactory.getMetadata.restore();
-        factory.probabilisticHazardFactory.getProbabilisticData.restore();
-        factory.deterministicHazardFactory.getDeterministicData.restore();
-        factory.riskTargetingFactory.getRiskCoefficients.restore();
-
-        factory.computeBasicDesign.restore();
-
-        factory.siteAmplificationFactory.getSiteAmplificationData.restore();
-        factory.computeFinalDesign.restore();
-        factory.designCategoryFactory.getDesignCategory.restore();
-        factory.computeSpectra.restore();
-
-        factory.formatResult.restore();
-
         factory.destroy();
         done(err);
       });

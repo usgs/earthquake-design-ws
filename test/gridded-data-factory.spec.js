@@ -79,7 +79,8 @@ describe('gridded-data-factory', () => {
 
       metadata = {
         document: {
-          spatial_interpolation_method: 'linear'
+          spatial_interpolation_method: 'linear',
+          region_id: 1
         },
         region: [{
           grid_spacing: 1,
@@ -116,13 +117,13 @@ describe('gridded-data-factory', () => {
       var result;
 
       sinon.spy(factory.db, 'query');
-      result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
+      result = factory.getDocument({referenceDocument: 'foo'}, [{id: 1}]);
 
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryDocument, [1, 'foo'])).to.be.true;
+            factory.queryDocument, [[1], 'foo'])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
