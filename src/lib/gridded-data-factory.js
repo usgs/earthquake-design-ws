@@ -36,21 +36,28 @@ _QUERY_DATA = `
 `;
 
 /**
- * @param $1 {Number}
+ * @param $1 {String}
+ *     Reference document identifier
+ * @param $2 {Number}
  *     Latitude decimal degrees
- * @paran $2 {Number}
+ * @param $3 {Number}
  *     Longitude decimal degrees
  */
 _QUERY_REGION = `
   SELECT
-    *
+    r.*
   FROM
-    region
+    region AS r
+  JOIN
+    document AS d
+  ON
+    r.id = d.region_id
   WHERE
-    max_latitude >= $1 AND
-    max_longitude >= $2 AND
-    min_latitude <= $1 AND
-    min_longitude <= $2
+    d.name = $1 AND
+    max_latitude >= $2 AND
+    max_longitude >= $3 AND
+    min_latitude <= $2 AND
+    min_longitude <= $3
 `;
 
 /**
@@ -180,11 +187,12 @@ var GriddedDataFactory = function (options) {
     metadata = metadata || {};
     metadata.region = metadata.region || {};
 
+    // TODO, figure out how to read the right region (for id and grid_spacing)
     parameters = [
-      parseInt(metadata.region.id, 10),        // _QUERY_DATA::$1
-      parseFloat(inputs.latitude),             // _QUERY_DATA::$2
-      parseFloat(inputs.longitude),            // _QUERY_DATA::$3
-      parseFloat(metadata.region.grid_spacing) // _QUERY_DATA::$4
+      parseInt(metadata.region.id, 10),         // _QUERY_DATA::$1
+      parseFloat(inputs.latitude),              // _QUERY_DATA::$2
+      parseFloat(inputs.longitude),             // _QUERY_DATA::$3
+      parseFloat(metadata.region.grid_spacing)  // _QUERY_DATA::$4
     ];
 
     return _this.db.query(_this.queryData, parameters).then((result) => {
@@ -209,6 +217,7 @@ var GriddedDataFactory = function (options) {
    */
   _this.getDocument = function (inputs, region) {
     var parameters;
+
 
     parameters = [
       parseInt(region.id, 10), // _QUERY_DOCUMENT::$1
@@ -252,6 +261,7 @@ var GriddedDataFactory = function (options) {
    * `inputs.latitude` and `inputs.longitude`.
    *
    * @param inputs {Object}
+   *     inputs.referenceDocument {String}
    *     inputs.latitude` {Number}
    *     inputs.longitude` {Number}
    *
@@ -263,8 +273,9 @@ var GriddedDataFactory = function (options) {
     var parameters;
 
     parameters = [
-      parseFloat(inputs.latitude), // _QUERY_REGION::$1
-      parseFloat(inputs.longitude) // _QUERY_REGION::$2
+      inputs.referenceDocument,    // _QUERY_REGION::$1
+      parseFloat(inputs.latitude), // _QUERY_REGION::$2
+      parseFloat(inputs.longitude) // _QUERY_REGION::$3
     ];
 
     return _this.db.query(_this.queryRegion, parameters).then((result) => {

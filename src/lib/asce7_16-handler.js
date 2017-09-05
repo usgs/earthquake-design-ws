@@ -3,13 +3,10 @@
 
 var DesignCategoryFactory = require('./design-category-factory'),
     ASCE7_16Factory = require('./asce7_16-factory'),
-    DeterministicHazardFactory = require('./legacy/deterministic-hazard-factory'),
-    LegacyFactory = require('./legacy/legacy-factory'),
-    MetadataFactory = require('./legacy/metadata-factory'),
-    ProbabilisticHazardFactory = require('./legacy/probabilistic-hazard-factory'),
-    RiskTargetingFactory = require('./legacy/risk-targeting-factory'),
+    MetadataFactory = require('./metadata-factory'),
     SiteAmplificationFactory = require('./site-amplification-factory'),
-    SpectraFactory = require('./spectra-factory');
+    SpectraFactory = require('./spectra-factory'),
+    WebServiceAccessor = require('./util/web-service-accessor');
 
 
 /**
@@ -37,19 +34,16 @@ var ASCE7_16Handler = function (options) {
     if (options.factory) {
       _this.factory = options.factory;
     } else {
-      _this.legacyFactory = LegacyFactory({
-        url: options.LEGACY_URL
-      });
+      _this.destroyFactory = true;
 
       _this.factory = ASCE7_16Factory({
-        deterministicHazardFactory: DeterministicHazardFactory(
-            {legacyFactory: _this.legacyFactory}),
-        metadataFactory: MetadataFactory(
-            {legacyFactory: _this.legacyFactory}),
-        probabilisticHazardFactory: ProbabilisticHazardFactory(
-            {legacyFactory: _this.legacyFactory}),
-        riskTargetingFactory: RiskTargetingFactory(
-            {legacyFactory: _this.legacyFactory}),
+        probabilisticService: WebServiceAccessor(
+          {url: options.PROBABILISTIC_SERVICE_URL}),
+        riskCoefficientService: WebServiceAccessor(
+          {url: options.RISK_COEFFICIENT_SERVICE_URL}),
+        deterministicService: WebServiceAccessor(
+          {url: options.DETERMINISTIC_SERVICE_URL}),
+        metadataFactory: MetadataFactory(),
         siteAmplificationFactory: SiteAmplificationFactory(),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
@@ -123,14 +117,10 @@ var ASCE7_16Handler = function (options) {
       return;
     }
 
-    if (_this.legacyFactory) {
-      _this.legacyFactory.destroy();
-      // Only destroy the factory if we created it
+    if (_this.destroyFactory) {
       _this.factory.destroy();
+      _this.factory = null;
     }
-
-    _this.factory = null;
-    _this.legacyFactory = null;
 
     _initialize = null;
     _this = null;

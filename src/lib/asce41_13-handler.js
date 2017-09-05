@@ -108,7 +108,6 @@ var ASCE41_13Handler = function (options) {
     // TODO :: Destroy more things
 
     _this.factory = null;
-    _this.legacyFactory = null;
 
     _initialize = null;
     _this = null;
