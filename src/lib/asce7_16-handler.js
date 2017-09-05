@@ -43,8 +43,7 @@ var ASCE7_16Handler = function (options) {
           {url: options.RISK_COEFFICIENT_SERVICE_URL}),
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
-        metadataFactory: MetadataFactory(
-            {legacyFactory: _this.legacyFactory}),
+        metadataFactory: MetadataFactory(),
         siteAmplificationFactory: SiteAmplificationFactory(),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
@@ -118,14 +117,10 @@ var ASCE7_16Handler = function (options) {
       return;
     }
 
-    if (_this.legacyFactory) {
-      _this.legacyFactory.destroy();
-      // Only destroy the factory if we created it
+    if (_this.destroyFactory) {
       _this.factory.destroy();
+      _this.factory = null;
     }
-
-    _this.factory = null;
-    _this.legacyFactory = null;
 
     _initialize = null;
     _this = null;

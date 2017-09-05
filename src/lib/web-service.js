@@ -16,7 +16,6 @@ var _DEFAULTS;
 _DEFAULTS = {
   MOUNT_PATH: '',
   PORT: 8000,
-  LEGACY_URL: '/legacy/service',
   REVISION: '',
   VERSION: ''
 };

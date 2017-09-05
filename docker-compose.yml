@@ -17,10 +17,6 @@ build:
     # ; from "port:PORT" specified above above.
     # PORT=8000
 
-    # ; Where legacy data comes from
-    # LEGACY_URL=https://earthquake.usgs.gov/designmaps/beta/us/service
-
-
     # ; Where current gridded data comes from
     # ; Probably needs real IP address since localhost will resolve as
     # ; container-local and that is probably not correct.
