@@ -1,7 +1,7 @@
 'use strict';
 
 
-var DesignCategoryFactory = require('./design-category-factory'),
+const DesignCategoryFactory = require('./design-category-factory'),
     ASCE7_16Factory = require('./asce7_16-factory'),
     MetadataFactory = require('./metadata-factory'),
     SiteAmplificationFactory = require('./site-amplification-factory'),
@@ -16,9 +16,10 @@ var DesignCategoryFactory = require('./design-category-factory'),
  * @param options {Object}
  *    Configuration options
  */
-var ASCE7_16Handler = function (options) {
-  var _this,
+const ASCE7_16Handler = function (options) {
+  let _this,
       _initialize;
+
 
   _this = {};
 
@@ -44,6 +45,8 @@ var ASCE7_16Handler = function (options) {
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
         metadataFactory: MetadataFactory(),
+        tSubLService: WebServiceAccessor(
+            {url: options.TSUBL_SERVICE_URL}),
         siteAmplificationFactory: SiteAmplificationFactory(),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
@@ -63,7 +66,7 @@ var ASCE7_16Handler = function (options) {
    *    resolves with params if all values pass checks.
    */
   _this.checkParams = function (params) {
-    var buf,
+    let buf,
         err,
         latitude,
         longitude,
