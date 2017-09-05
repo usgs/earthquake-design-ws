@@ -2,24 +2,24 @@
 'use strict';
 
 
-const ASCE7_16Factory = require('../src/lib/asce7_16-factory'),
+const ASCE7_10Factory = require('../src/lib/asce7_10-factory'),
     expect = require('chai').expect;
 
 
-describe('asce7_16-factory', () => {
+describe('asce7_10-factory', () => {
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof ASCE7_16Factory).to.not.equal('undefined');
+      expect(typeof ASCE7_10Factory).to.not.equal('undefined');
     });
 
     it('can be instantiated', () => {
-      expect(ASCE7_16Factory).to.not.throw(Error);
+      expect(ASCE7_10Factory).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
       let factory;
 
-      factory = ASCE7_16Factory();
+      factory = ASCE7_10Factory();
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
@@ -27,8 +27,8 @@ describe('asce7_16-factory', () => {
     it('Sets the correct referenceDocument value', () => {
       let factory;
 
-      factory = ASCE7_16Factory();
-      expect(factory.referenceDocument).to.equal('ASCE7-16');
+      factory = ASCE7_10Factory();
+      expect(factory.referenceDocument).to.equal('ASCE7-10');
     });
   });
 });
