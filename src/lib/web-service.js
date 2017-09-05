@@ -315,6 +315,7 @@ var WebService = function (options) {
     var app;
 
     app = express();
+    app.set('json spaces', 2);
 
     app.get(_mountPath + '/:request', function (req, res, next) {
       process.stdout.write(`request = ${req.params.request}\n`);
