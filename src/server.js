@@ -1,13 +1,13 @@
 'use strict';
 
 
-var Config = require('./lib/util/config'),
+const Config = require('./lib/util/config'),
     fs = require('fs'),
     https = require('https'),
     WebService = require('./lib/web-service');
 
 
-var ca,
+let ca,
     config,
     service;
 

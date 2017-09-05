@@ -1,20 +1,19 @@
 'use strict';
-var fs = require('fs');
 
-var ASCE7_16Handler = require('./asce7_16-handler'),
+
+const ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
+    DeterministicHandler = require('./deterministic-handler'),
     express = require('express'),
     extend = require('extend'),
-    DeterministicHandler = require('./deterministic-handler'),
+    fs = require('fs'),
     morgan = require('morgan'),
     ProbabilisticHander = require('./probabilistic-handler'),
     RiskCoefficientHandler = require('./risk-coefficient-handler'),
     TSubLDataHandler = require('./t-sub-l-data-handler');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   MOUNT_PATH: '',
   PORT: 8000,
   LEGACY_URL: '/legacy/service',
@@ -32,8 +31,8 @@ _DEFAULTS = {
  * @param options {Object}
  *
  */
-var WebService = function (options) {
-  var _this,
+const WebService = function (options) {
+  let _this,
       _initialize;
 
 
@@ -45,7 +44,7 @@ var WebService = function (options) {
    * @param options {Object}
    */
   _initialize = function (options) {
-    var endpoint;
+    let endpoint;
 
     options = extend(true, {}, _DEFAULTS, options);
 
@@ -80,13 +79,11 @@ var WebService = function (options) {
    *
    */
   _this.destroy = function () {
-    var endpoint;
-
     if (_this === null) {
       return;
     }
 
-    for (endpoint in _this.handlers) {
+    for (let endpoint in _this.handlers) {
       _this.handlers[endpoint].destroy();
     }
 
@@ -108,7 +105,7 @@ var WebService = function (options) {
    *
    */
   _this.get = function (request, response, next) {
-    var handler,
+    let handler,
         method;
 
     method = request.params.method;
@@ -149,7 +146,7 @@ var WebService = function (options) {
    *     An object with metadata information about the response.
    */
   _this.getResponseMetadata = function (request, isSuccess) {
-    var params,
+    let params,
         protocol,
         referenceDocument;
 
@@ -195,7 +192,7 @@ var WebService = function (options) {
    * @param next {Function}
    */
   _this.onError = function (err, request, response/*, next*/) {
-    var payload,
+    let payload,
         status;
 
     payload = {
@@ -225,7 +222,7 @@ var WebService = function (options) {
    *
    */
   _this.onSuccess = function (data, request, response, next) {
-    var payload;
+    let payload;
 
     if (data === null) {
       return next();
@@ -264,7 +261,7 @@ var WebService = function (options) {
    *
    */
   _this.start = function () {
-    var app;
+    let app;
 
     app = express();
 
@@ -288,7 +285,7 @@ var WebService = function (options) {
 
     // Final handler for 404 (no handler, no static file)
     app.get(_this.mountPath + '/:error', (req, res/*, next*/) => {
-      var payload;
+      let payload;
 
       payload = `Cannot GET ${req.path}`;
       res.status(404);

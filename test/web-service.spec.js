@@ -2,7 +2,7 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     sinon = require('sinon'),
     WebService = require('../src/lib/web-service');
 
@@ -14,7 +14,7 @@ describe('WebService test suite', () => {
     });
 
     it('creates/destroys a handler for each endpoint appropriately', () => {
-      var constructor,
+      let constructor,
           handler,
           handlers,
           options;
@@ -42,7 +42,7 @@ describe('WebService test suite', () => {
   describe('destroy', function () {
     it('can be called', function () {
       expect(function () {
-        var obj;
+        let obj;
 
         obj = WebService();
         obj.destroy();
@@ -51,7 +51,7 @@ describe('WebService test suite', () => {
   });
 
   describe('get', function () {
-    var service;
+    let service;
 
     beforeEach(function () {
       service = WebService();
@@ -63,7 +63,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls next when no handler for method', function () {
-      var next,
+      let next,
           request;
 
       next = sinon.spy();
@@ -78,7 +78,7 @@ describe('WebService test suite', () => {
     });
 
     it('uses handler and calls its get method', function () {
-      var handler,
+      let handler,
           request;
 
       handler = {
@@ -106,7 +106,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls onSuccess when handler promise resolves', function (done) {
-      var args,
+      let args,
           data,
           handler,
           request;
@@ -136,7 +136,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls onError when handler promise rejects', function (done) {
-      var args,
+      let args,
           err,
           handler,
           request;
@@ -168,7 +168,7 @@ describe('WebService test suite', () => {
 
   describe('getResponseMetadata', function () {
     it('formats the metadata response', () => {
-      var metadata,
+      let metadata,
           request,
           service;
 
@@ -193,7 +193,7 @@ describe('WebService test suite', () => {
 
   describe('onError', function () {
     it('calls status/json callbacks with expected values', function () {
-      var message,
+      let message,
           response,
           service,
           status;
@@ -225,7 +225,7 @@ describe('WebService test suite', () => {
 
   describe('onSuccess', function () {
     it('calls next when data is null', function () {
-      var next,
+      let next,
           service;
 
       next = sinon.spy();
@@ -238,7 +238,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls response.json with data', function () {
-      var data,
+      let data,
           request,
           response,
           service,
@@ -265,7 +265,7 @@ describe('WebService test suite', () => {
 
   describe('setHeaders', function () {
     it('sets headers on the response', function () {
-      var response,
+      let response,
           service;
 
       response = {
