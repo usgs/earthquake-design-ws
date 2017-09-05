@@ -22,7 +22,7 @@
   {
     "name": "ASCE7-16",
 
-    "model_version": "v3.1.x",
+    "model_version": "v4.0.x",
     "regions": [
       "E1998R1_HI0P02_Deterministic",
       "E2003R1_PRVI0P01_Deterministic",
