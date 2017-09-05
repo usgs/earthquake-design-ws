@@ -1,6 +1,6 @@
 'use strict';
 
-var ASCE41_13Factory = require('./asce41_13-factory'),
+const ASCE41_13Factory = require('./asce41_13-factory'),
     MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
     SiteAmplificationFactory = require('./site-amplification-factory'),
@@ -9,7 +9,7 @@ var ASCE41_13Factory = require('./asce41_13-factory'),
     UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
-var ASCE41_13Handler = function (options) {
+const ASCE41_13Handler = function (options) {
   var _this,
       _initialize;
 
@@ -36,6 +36,9 @@ var ASCE41_13Handler = function (options) {
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
 
+        tsublService: WebServiceAccessor(
+          {url: options.TSUBL_SERVICE_URL}),
+
         siteAmplificationFactory: SiteAmplificationFactory(),
 
         spectraFactory: SpectraFactory(),
@@ -59,7 +62,7 @@ var ASCE41_13Handler = function (options) {
    *    resolves with params if all values pass checks.
    */
   _this.checkParams = function (params) {
-    var buf,
+    let buf,
         err,
         latitude,
         longitude,
@@ -115,7 +118,7 @@ var ASCE41_13Handler = function (options) {
   };
 
   _this.formatResult = function (result) {
-    var formatted;
+    let formatted;
 
     return new Promise((resolve, reject) => {
       try {
@@ -145,6 +148,7 @@ var ASCE41_13Handler = function (options) {
 
         resolve({
           data: formatted,
+          't-sub-l': result['t-sub-l'],
           metadata: result.metadata
         });
       } catch (err) {

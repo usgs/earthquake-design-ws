@@ -1,18 +1,15 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
-
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   outputDecimals: 3
 };
 
 
-var ASCE41_13Factory = function (options) {
+const ASCE41_13Factory = function (options) {
   var _this,
       _initialize;
 
@@ -31,6 +28,7 @@ var ASCE41_13Factory = function (options) {
     _this.probabilisticService = options.probabilisticService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.deterministicService = options.deterministicService;
+    _this.tsublService = options.tsublService;
 
     _this.metadataFactory = options.metadataFactory;
 
@@ -42,7 +40,7 @@ var ASCE41_13Factory = function (options) {
 
 
   _this.computeBse1E = function (inputs, metadata, bse2n) {
-    var customIn,
+    let customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -54,7 +52,7 @@ var ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.2}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      var custom;
+      let custom;
 
       custom = result.data[0];
 
@@ -84,7 +82,7 @@ var ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2E = function (inputs, metadata, bse2n) {
-    var customIn,
+    let customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -96,7 +94,7 @@ var ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.05}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      var custom;
+      let custom;
 
       custom = result.data[0];
 
@@ -147,7 +145,7 @@ var ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2N = function (inputs, metadata) {
-    var cr1,
+    let cr1,
         crs,
         deterministicData,
         fa,
@@ -285,7 +283,7 @@ var ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getCustomProbabilityDesignData = function (inputs) {
-    var fa,
+    let fa,
         fv,
         horizontalSpectrum,
         metadata,
@@ -300,12 +298,12 @@ var ASCE41_13Factory = function (options) {
       metadata = result;
       return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
     }).then((result) => {
-      var groundMotions;
+      let groundMotions;
 
       // Find target (mapped) ground motions for Ss and S1 from the curves and
       // the specified probability of exceedance
       groundMotions = NumberUtils.spatialInterpolate(result.SA0P2.map((ssCurve, index) => {
-        var s1Curve;
+        let s1Curve;
 
         s1Curve = result.SA1P0[index];
 
@@ -342,9 +340,15 @@ var ASCE41_13Factory = function (options) {
       sxs = ss * fa;
       sx1 = s1 * fv;
 
-      return _this.spectraFactory.getSpectrum(sxs, sx1);
+      return Promise.all([
+        _this.spectraFactory.getSpectrum(sxs, sx1),
+
+        // Retrieve T-Sub-L Data
+        _this.tsublService.getData(inputs)
+
+      ]);
     }).then((result) => {
-      horizontalSpectrum = result;
+      horizontalSpectrum = result[0];
 
       return {
         data: [{
@@ -358,6 +362,7 @@ var ASCE41_13Factory = function (options) {
           'sx1': sx1,
           'horizontalSpectrum': horizontalSpectrum
         }],
+        't-sub-l': result[1].response.data['t-sub-l'],
         metadata: metadata
       };
     });
@@ -375,10 +380,11 @@ var ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getStandardDesignData = function (inputs) {
-    var bse1e,
+    let bse1e,
         bse2e,
         bse1n,
         bse2n,
+        tSubLData,
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
@@ -396,21 +402,29 @@ var ASCE41_13Factory = function (options) {
         // values. BSE-1E is capped as BSE-1N
         _this.computeBse1E(inputs, metadata, bse2n),
         // BSE-2E is capped at BSE-2N
-        _this.computeBse2E(inputs, metadata, bse2n)
+        _this.computeBse2E(inputs, metadata, bse2n),
+
+        // Retrieve T-Sub-L Data
+        _this.tsublService.getData(inputs)
       ]);
     }).then((results) => {
       bse1e = results[0];
       bse2e = results[1];
+      tSubLData = results[2];
     }).then(() => {
-      return {
+      const resp = {
         data: [
           bse2n,
           bse1n,
           bse2e,
           bse1e
         ],
+        't-sub-l': tSubLData.response.data['t-sub-l'],
         metadata: metadata
       };
+
+      return resp;
+
     });
   };
 
