@@ -36,21 +36,28 @@ _QUERY_DATA = `
 `;
 
 /**
- * @param $1 {Number}
+ * @param $1 {String}
+ *     Reference document identifier
+ * @param $2 {Number}
  *     Latitude decimal degrees
- * @paran $2 {Number}
+ * @param $3 {Number}
  *     Longitude decimal degrees
  */
 _QUERY_REGION = `
   SELECT
-    *
+    r.*
   FROM
-    region
+    region AS r
+  JOIN
+    document AS d
+  ON
+    r.id = d.region_id
   WHERE
-    max_latitude >= $1 AND
-    max_longitude >= $2 AND
-    min_latitude <= $1 AND
-    min_longitude <= $2
+    d.name = $1 AND
+    max_latitude >= $2 AND
+    max_longitude >= $3 AND
+    min_latitude <= $2 AND
+    min_longitude <= $3
 `;
 
 /**
@@ -63,7 +70,7 @@ _QUERY_DOCUMENT = `
   FROM
     document
   WHERE
-    region_id = ANY($1::int[]) AND
+    region_id = $1 AND
     name = $2
 `;
 
@@ -182,10 +189,10 @@ var GriddedDataFactory = function (options) {
 
     // TODO, figure out how to read the right region (for id and grid_spacing)
     parameters = [
-      parseInt(metadata.document.region_id, 10),  // _QUERY_DATA::$1
-      parseFloat(inputs.latitude),                // _QUERY_DATA::$2
-      parseFloat(inputs.longitude),               // _QUERY_DATA::$3
-      parseFloat(metadata.region[0].grid_spacing) // _QUERY_DATA::$4
+      parseInt(metadata.region.id, 10),         // _QUERY_DATA::$1
+      parseFloat(inputs.latitude),              // _QUERY_DATA::$2
+      parseFloat(inputs.longitude),             // _QUERY_DATA::$3
+      parseFloat(metadata.region.grid_spacing)  // _QUERY_DATA::$4
     ];
 
     return _this.db.query(_this.queryData, parameters).then((result) => {
@@ -208,20 +215,12 @@ var GriddedDataFactory = function (options) {
    *     A promise that resolves with document metadata or rejects if an
    *     error occurs.
    */
-  _this.getDocument = function (inputs, regions) {
-    var i,
-        len,
-        regionIds,
-        parameters;
+  _this.getDocument = function (inputs, region) {
+    var parameters;
 
-    regionIds = [];
-
-    for (i = 0, len = regions.length; i < len; i++) {
-      regionIds.push(regions[i].id);
-    }
 
     parameters = [
-      regionIds,               // _QUERY_DOCUMENT::$1
+      parseInt(region.id, 10), // _QUERY_DOCUMENT::$1
       inputs.referenceDocument // _QUERY_DOCUMENT::$2
     ];
 
@@ -262,6 +261,7 @@ var GriddedDataFactory = function (options) {
    * `inputs.latitude` and `inputs.longitude`.
    *
    * @param inputs {Object}
+   *     inputs.referenceDocument {String}
    *     inputs.latitude` {Number}
    *     inputs.longitude` {Number}
    *
@@ -273,12 +273,13 @@ var GriddedDataFactory = function (options) {
     var parameters;
 
     parameters = [
-      parseFloat(inputs.latitude), // _QUERY_REGION::$1
-      parseFloat(inputs.longitude) // _QUERY_REGION::$2
+      inputs.referenceDocument,    // _QUERY_REGION::$1
+      parseFloat(inputs.latitude), // _QUERY_REGION::$2
+      parseFloat(inputs.longitude) // _QUERY_REGION::$3
     ];
 
     return _this.db.query(_this.queryRegion, parameters).then((result) => {
-      return result.rows;
+      return result.rows[0];
     });
   };
 

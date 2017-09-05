@@ -82,10 +82,10 @@ describe('gridded-data-factory', () => {
           spatial_interpolation_method: 'linear',
           region_id: 1
         },
-        region: [{
+        region: {
           grid_spacing: 1,
           id: 1
-        }]
+        }
       };
 
       sinon.spy(factory.db, 'query');
@@ -117,13 +117,13 @@ describe('gridded-data-factory', () => {
       var result;
 
       sinon.spy(factory.db, 'query');
-      result = factory.getDocument({referenceDocument: 'foo'}, [{id: 1}]);
+      result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
 
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryDocument, [[1], 'foo'])).to.be.true;
+            factory.queryDocument, [1, 'foo'])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -178,13 +178,13 @@ describe('gridded-data-factory', () => {
       var result;
 
       sinon.spy(factory.db, 'query');
-      result = factory.getRegion({latitude: 0, longitude: 1});
+      result = factory.getRegion({referenceDocument: 'TEST', latitude: 0, longitude: 1});
 
       expect(result).to.be.instanceof(Promise);
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryRegion, [0, 1])).to.be.true;
+            factory.queryRegion, ['TEST', 0, 1])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
