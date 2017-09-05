@@ -144,7 +144,7 @@ describe('MetadataFactory', () => {
         expect(results[2]).to.equal('HI');
         expect(results[3]).to.equal('PRVI');
         expect(results[4]).to.equal('AMSAM');
-        expect(results[5]).to.equal('GUAM');
+        expect(results[5]).to.equal('GNMI');
       }).catch((err) => {
         return err;
       }).then((err) => {

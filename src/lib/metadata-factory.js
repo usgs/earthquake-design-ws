@@ -52,7 +52,7 @@ _METADATA = {
         'AK',
         'AMSAM',
         'COUS',
-        'GUAM',
+        'GNMI',
         'PRVI'
       ],
       'data': {
@@ -110,7 +110,7 @@ _REGIONS = [
     'min_longitude': -125.0,
   },
   {
-    'name': 'GUAM',
+    'name': 'GNMI',
     'grid_spacing':  0.1,
     'max_latitude':   23,
     'max_longitude': 151,
