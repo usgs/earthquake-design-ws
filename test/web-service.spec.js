@@ -2,7 +2,7 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     sinon = require('sinon'),
     WebService = require('../src/lib/web-service');
 
@@ -14,7 +14,7 @@ describe('WebService test suite', () => {
     });
 
     it('creates/destroys a handler for each endpoint appropriately', () => {
-      var constructor,
+      let constructor,
           handler,
           handlers,
           options;
@@ -42,7 +42,7 @@ describe('WebService test suite', () => {
   describe('destroy', function () {
     it('can be called', function () {
       expect(function () {
-        var obj;
+        let obj;
 
         obj = WebService();
         obj.destroy();
@@ -51,7 +51,7 @@ describe('WebService test suite', () => {
   });
 
   describe('get', function () {
-    var service;
+    let service;
 
     beforeEach(function () {
       service = WebService();
@@ -63,7 +63,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls next when no handler for method', function () {
-      var next,
+      let next,
           request;
 
       next = sinon.spy();
@@ -78,7 +78,7 @@ describe('WebService test suite', () => {
     });
 
     it('uses handler and calls its get method', function () {
-      var handler,
+      let handler,
           request;
 
       handler = {
@@ -106,7 +106,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls onSuccess when handler promise resolves', function (done) {
-      var args,
+      let args,
           data,
           handler,
           request;
@@ -136,7 +136,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls onError when handler promise rejects', function (done) {
-      var args,
+      let args,
           err,
           handler,
           request;
@@ -168,7 +168,7 @@ describe('WebService test suite', () => {
 
   describe('getResponseMetadata', function () {
     it('formats the metadata response', () => {
-      var metadata,
+      let metadata,
           request,
           service;
 
@@ -191,24 +191,9 @@ describe('WebService test suite', () => {
     });
   });
 
-  describe('log', function () {
-    it('writes to stdout', function () {
-      var service;
-
-      sinon.stub(process.stdout, 'write').callsFake(() => {});
-      service = WebService();
-
-      service.log({}, {}, {}, 200);
-      expect(process.stdout.write.callCount).to.equal(1);
-
-      process.stdout.write.restore();
-      service.destroy();
-    });
-  });
-
   describe('onError', function () {
     it('calls status/json callbacks with expected values', function () {
-      var message,
+      let message,
           response,
           service,
           status;
@@ -222,7 +207,6 @@ describe('WebService test suite', () => {
       };
 
       service = WebService();
-      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onError({
         status: status,
@@ -234,16 +218,14 @@ describe('WebService test suite', () => {
       expect(response.json.calledOnce).to.equal(true);
       expect(response.json.firstCall.args[0].response).to.equal(
           message);
-      expect(service.log.callCount).to.equal(1);
 
-      service.log.restore();
       service.destroy();
     });
   });
 
   describe('onSuccess', function () {
     it('calls next when data is null', function () {
-      var next,
+      let next,
           service;
 
       next = sinon.spy();
@@ -256,7 +238,7 @@ describe('WebService test suite', () => {
     });
 
     it('calls response.json with data', function () {
-      var data,
+      let data,
           request,
           response,
           service,
@@ -272,20 +254,18 @@ describe('WebService test suite', () => {
       service = WebService();
       stub = sinon.stub(service, 'getResponseMetadata').callsFake(
           () => { return ''; });
-      sinon.stub(service, 'log').callsFake(() => {});
 
       service.onSuccess(data, request, response, null);
       expect(response.json.getCall(0).args[0].response).to.equal(data);
       expect(stub.getCall(0).args[0]).to.equal(request);
 
-      service.log.restore();
       service.destroy();
     });
   });
 
   describe('setHeaders', function () {
     it('sets headers on the response', function () {
-      var response,
+      let response,
           service;
 
       response = {

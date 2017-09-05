@@ -304,7 +304,7 @@ var ASCE41_13Factory = function (options) {
 
       // Find target (mapped) ground motions for Ss and S1 from the curves and
       // the specified probability of exceedance
-      groundMotions = NumberUtils.spatialInterpolate(result.SA0P2.map((ssCurve, index) => {
+      groundMotions = result.SA0P2.map((ssCurve, index) => {
         var s1Curve;
 
         s1Curve = result.SA1P0[index];
@@ -320,10 +320,12 @@ var ASCE41_13Factory = function (options) {
               s1Curve.data, inputs.customProbability,
               metadata.curve_interpolation_method)
         };
-      }),
-        inputs.latitude,
-        inputs.longitude,
-        metadata.spatial_interpolation_method
+      });
+
+      // Spatially interpolate targeted ground motions
+      groundMotions = NumberUtils.spatialInterpolate(groundMotions,
+          inputs.latitude, inputs.longitude,
+          metadata.spatial_interpolation_method
       );
 
       //   groundMotions
