@@ -372,9 +372,10 @@ var ASCE7_16Factory = function (options) {
         basicDesign = result.basicDesign;
         designCategory = result.designCategory;
         finalDesign = result.finalDesign;
-        riskCoefficients = result.riskCoefficients;
+        riskCoefficients = result.riskCoefficients.response.data;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
+
 
         resolve({
           data: {

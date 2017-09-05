@@ -358,7 +358,11 @@ describe('DesignFactory', () => {
           'ssdFloor': null
         },
         'probabilistic': {},
-        'riskCoefficients': {},
+        'riskCoefficients': {
+          'response': {
+            'data': {}
+          }
+        },
         'siteAmplification': {
           'fa': null,
           'fa_error': null,
