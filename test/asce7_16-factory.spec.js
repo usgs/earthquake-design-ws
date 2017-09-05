@@ -15,13 +15,13 @@ _DUMMY_FACTORY = {
     getMetadata: () => { return Promise.resolve([]); }
   },
   probabilisticService: {
-    getData: () => { return Promise.resolve([]); }
+    getData: () => { return Promise.resolve({}); }
   },
   deterministicService: {
-    getData: () => { return Promise.resolve([]); }
+    getData: () => { return Promise.resolve({}); }
   },
   riskCoefficientService: {
-    getData: () => { return Promise.resolve([]); }
+    getData: () => { return Promise.resolve({}); }
   },
   siteAmplificationFactory: {
     getSiteAmplificationData: () => { return Promise.resolve([]); }
@@ -428,14 +428,18 @@ describe('DesignFactory', () => {
       sinon.spy(factory.deterministicService, 'getData');
       sinon.spy(factory.riskCoefficientService, 'getData');
 
-      sinon.stub(factory, 'computeBasicDesign', () => { return Promise.resolve([]); });
+      sinon.stub(factory, 'computeBasicDesign').callsFake(
+          () => {return Promise.resolve({}); });
 
       sinon.spy(factory.siteAmplificationFactory, 'getSiteAmplificationData');
-      sinon.stub(factory, 'computeFinalDesign', () => { return Promise.resolve([]); });
+      sinon.stub(factory, 'computeFinalDesign').callsFake(
+          () => { return Promise.resolve([]); });
       sinon.spy(factory.designCategoryFactory, 'getDesignCategory');
-      sinon.stub(factory, 'computeSpectra', () => { return Promise.resolve([]); });
+      sinon.stub(factory, 'computeSpectra').callsFake(
+          () => { return Promise.resolve([]); });
 
-      sinon.stub(factory, 'formatResult', () => { return Promise.resolve([]); });
+      sinon.stub(factory, 'formatResult').callsFake(
+          () => { return Promise.resolve([]); });
 
       factory.getDesignData({}).then((/*result*/) => {
         expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
