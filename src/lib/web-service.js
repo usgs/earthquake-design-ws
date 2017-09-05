@@ -274,14 +274,19 @@ const WebService = function (options) {
     app.get([_this.mountPath, _this.mountPath + '/index.html'], (req, res) => {
       fs.readFile('src/htdocs/index.html', 'utf8', (err, data) => {
         res.send(data
-            .replace('{{VERSION}}', _this.versionInfo)
-            .replace('{{REVISION}}', _this.revisionInfo)
-          );
+          .replace('{{VERSION}}', _this.versionInfo)
+          .replace('{{REVISION}}', _this.revisionInfo)
+        );
       });
     });
 
-    app.use(_this.mountPath, express.static(_this.docRoot,
-        {fallthrough: true}));
+    app.use(_this.mountPath,
+      express.static(
+        _this.docRoot, {
+          fallthrough: true
+        }
+      )
+    );
 
     // Final handler for 404 (no handler, no static file)
     app.get(_this.mountPath + '/:error', (req, res/*, next*/) => {
