@@ -1,8 +1,8 @@
 /* global describe, it */
 'use strict';
 
-
 var ASCE41_13Factory = require('../src/lib/asce41_13-factory'),
+    TSubLDataFactory = require('../src/lib/t-sub-l-data-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
@@ -31,6 +31,8 @@ describe('asce41_13-factory', () => {
       var factory;
 
       factory = ASCE41_13Factory();
+      factory.tsublService = TSubLDataFactory();
+
       sinon.stub(factory, 'getCustomProbabilityDesignData').callsFake(
           () => { Promise.resolve({}); });
       sinon.stub(factory, 'getStandardDesignData').callsFake(

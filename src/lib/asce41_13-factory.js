@@ -39,7 +39,7 @@ const ASCE41_13Factory = function (options) {
   };
 
 
-  _this.computeBse1E = function (inputs, metadata, bse2n) {
+  _this.computeBse1E = function (inputs, metadata, bse2n, tSubLData) {
     let customIn,
         fa,
         fv,
@@ -51,7 +51,7 @@ const ASCE41_13Factory = function (options) {
 
     customIn = extend({customProbability: 0.2}, inputs);
 
-    return _this.getCustomProbabilityDesignData(customIn).then((result) => {
+    return _this.getCustomProbabilityDesignData(customIn, tSubLData).then((result) => {
       let custom;
 
       custom = result.data[0];
@@ -81,7 +81,7 @@ const ASCE41_13Factory = function (options) {
     });
   };
 
-  _this.computeBse2E = function (inputs, metadata, bse2n) {
+  _this.computeBse2E = function (inputs, metadata, bse2n, tSubLData) {
     let customIn,
         fa,
         fv,
@@ -93,7 +93,7 @@ const ASCE41_13Factory = function (options) {
 
     customIn = extend({customProbability: 0.05}, inputs);
 
-    return _this.getCustomProbabilityDesignData(customIn).then((result) => {
+    return _this.getCustomProbabilityDesignData(customIn, tSubLData).then((result) => {
       let custom;
 
       custom = result.data[0];
@@ -264,11 +264,14 @@ const ASCE41_13Factory = function (options) {
   _this.get = function (inputs) {
     inputs = inputs || {};
 
-    if (inputs.hasOwnProperty('customProbability')) {
-      return _this.getCustomProbabilityDesignData(inputs);
-    } else {
-      return _this.getStandardDesignData(inputs);
-    }
+    // Retrieve T-Sub-L Data first, then collect the other data
+    return _this.tsublService.getData(inputs).then((tSubLData) => {
+      if (inputs.hasOwnProperty('customProbability')) {
+        return _this.getCustomProbabilityDesignData(inputs, tSubLData);
+      } else {
+        return _this.getStandardDesignData(inputs, tSubLData);
+      }
+    });
   };
 
   /**
@@ -282,7 +285,7 @@ const ASCE41_13Factory = function (options) {
    *     A promise that resolves with the design data result or rejects with
    *     an error if one should occur.
    */
-  _this.getCustomProbabilityDesignData = function (inputs) {
+  _this.getCustomProbabilityDesignData = function (inputs, tSubLData) {
     let fa,
         fv,
         horizontalSpectrum,
@@ -341,11 +344,7 @@ const ASCE41_13Factory = function (options) {
       sx1 = s1 * fv;
 
       return Promise.all([
-        _this.spectraFactory.getSpectrum(sxs, sx1),
-
-        // Retrieve T-Sub-L Data
-        _this.tsublService.getData(inputs)
-
+        _this.spectraFactory.getSpectrum(sxs, sx1)
       ]);
     }).then((result) => {
       horizontalSpectrum = result[0];
@@ -362,7 +361,7 @@ const ASCE41_13Factory = function (options) {
           'sx1': sx1,
           'horizontalSpectrum': horizontalSpectrum
         }],
-        't-sub-l': result[1].response.data['t-sub-l'],
+        't-sub-l': tSubLData.response.data['t-sub-l'],
         metadata: metadata
       };
     });
@@ -379,12 +378,11 @@ const ASCE41_13Factory = function (options) {
    *     A promise that resolves with the design data result or rejects with
    *     an error if one should occur.
    */
-  _this.getStandardDesignData = function (inputs) {
+  _this.getStandardDesignData = function (inputs, tSubLData) {
     let bse1e,
         bse2e,
         bse1n,
         bse2n,
-        tSubLData,
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
@@ -400,17 +398,13 @@ const ASCE41_13Factory = function (options) {
         // deterministic data is considered. We use BSE-2N for this data and
         // internally apply the 2/3 factor to re-compute BSE-1N intermediate
         // values. BSE-1E is capped as BSE-1N
-        _this.computeBse1E(inputs, metadata, bse2n),
+        _this.computeBse1E(inputs, metadata, bse2n, tSubLData),
         // BSE-2E is capped at BSE-2N
-        _this.computeBse2E(inputs, metadata, bse2n),
-
-        // Retrieve T-Sub-L Data
-        _this.tsublService.getData(inputs)
+        _this.computeBse2E(inputs, metadata, bse2n, tSubLData)
       ]);
     }).then((results) => {
       bse1e = results[0];
       bse2e = results[1];
-      tSubLData = results[2];
     }).then(() => {
       const resp = {
         data: [

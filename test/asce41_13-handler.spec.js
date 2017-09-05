@@ -6,9 +6,6 @@ var ASCE41_13Handler = require('../src/lib/asce41_13-handler'),
     sinon = require('sinon');
 
 
-//var _FACTORY,
-//    _RESULT;
-
 const _RESULT = {
   data: [],
   't-sub-l': {},
