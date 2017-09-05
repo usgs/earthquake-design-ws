@@ -6,17 +6,17 @@ const ASCE7Factory = require('./asce7-factory'),
 
 
 const _DEFAULTS = {
-  referenceDocument: 'ASCE7-16'
+  referenceDocument: 'ASCE7-10'
 };
 
 
 /**
- * Class: ASCE7_16Factory
+ * Class: ASCE7_10Factory
  *
  * @param options Object
  *.     Configuration options for this instance.
  */
-const ASCE7_16Factory = function (options) {
+const ASCE7_10Factory = function (options) {
   let _this;
 
 
@@ -29,4 +29,4 @@ const ASCE7_16Factory = function (options) {
 };
 
 
-module.exports = ASCE7_16Factory;
+module.exports = ASCE7_10Factory;
