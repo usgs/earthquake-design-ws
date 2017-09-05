@@ -20,12 +20,6 @@ module.exports = [
   },
   {
     type: 'input',
-    name: 'LEGACY_URL',
-    message: 'Legacy web service endpoint',
-    default: 'https://earthquake.usgs.gov/designmaps/beta/us/service'
-  },
-  {
-    type: 'input',
     name: 'DB_HOST',
     message: 'Database hostname',
     default: 'localhost'
