@@ -280,13 +280,8 @@ const WebService = function (options) {
       });
     });
 
-    app.use(_this.mountPath,
-      express.static(
-        _this.docRoot, {
-          fallthrough: true
-        }
-      )
-    );
+    app.use(_this.mountPath,express.static(_this.docRoot,
+        {fallthrough: true}));
 
     // Final handler for 404 (no handler, no static file)
     app.get(_this.mountPath + '/:error', (req, res/*, next*/) => {

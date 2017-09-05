@@ -312,24 +312,24 @@ var NumberUtils = function (options) {
           _this.closeTo(points[0].latitude, points[1].latitude)) {
         // Latitudes match, interpolate longitudes
         return _this.interpolateObject(
-          points[0].longitude,
-          points[0],
-          points[1].longitude,
-          points[1],
-          longitude,
-          method
-        );
+            points[0].longitude,
+            points[0],
+            points[1].longitude,
+            points[1],
+            longitude,
+            method
+          );
       } else if (_this.closeTo(points[0].longitude, longitude) &&
           _this.closeTo(points[0].longitude, points[1].longitude)) {
         // Longitudes match, interpolate latitudes
         return _this.interpolateObject(
-          points[0].latitude,
-          points[0],
-          points[1].latitude,
-          points[1],
-          latitude,
-          method
-        );
+            points[0].latitude,
+            points[0],
+            points[1].latitude,
+            points[1],
+            latitude,
+            method
+          );
       } else {
         throw new Error('Two-point interpolation failed. Neither latitude ' +
             'nor longitude matched.');
@@ -363,33 +363,33 @@ var NumberUtils = function (options) {
 
       // Interpolate top two with respect to longitude
       top = _this.interpolateObject(
-        points[0].longitude,
-        points[0],
-        points[1].longitude,
-        points[1],
-        longitude,
-        method
-      );
+          points[0].longitude,
+          points[0],
+          points[1].longitude,
+          points[1],
+          longitude,
+          method
+        );
 
       // Interpolate bottom two with respect to longitude
       bot = _this.interpolateObject(
-        points[2].longitude,
-        points[2],
-        points[3].longitude,
-        points[3],
-        longitude,
-        method
-      );
+          points[2].longitude,
+          points[2],
+          points[3].longitude,
+          points[3],
+          longitude,
+          method
+        );
 
       // Interpolate top/bot results with respect to latitude
       return _this.interpolateObject(
-        top.latitude,
-        top,
-        bot.latitude,
-        bot,
-        latitude,
-        method
-      );
+          top.latitude,
+          top,
+          bot.latitude,
+          bot,
+          latitude,
+          method
+        );
     } else {
       throw new Error('Spatial interpolation failed. Unexpected number of ' +
           'points.');

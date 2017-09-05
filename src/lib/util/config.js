@@ -37,13 +37,14 @@ var Config = function (options) {
     options = extend({}, _DEFAULTS, options);
 
     _this.config = _this.backportParams(extend({}, // <-- Least priority
-      _this.getDefaults(questions),
-      _this.getConfigFromFile(options.configFile),
-      _this.getSupplemental(options),
-      process.env, // Override from environment
-      options.overrides // Override anything as desired at runtime
-      // ^^ Most Priority
-    ));
+        _this.getDefaults(questions),
+        _this.getConfigFromFile(options.configFile),
+        _this.getSupplemental(options),
+        process.env, // Override from environment
+        options.overrides // Override anything as desired at runtime
+        // ^^ Most Priority
+      )
+    );
   };
 
   _this.backportParams = function (object) {
