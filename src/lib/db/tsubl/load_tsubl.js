@@ -1,13 +1,14 @@
 'use strict';
 
-var copyFrom = require('pg-copy-streams').from,
+var Config = require('../../util/config'),
+    copyFrom = require('pg-copy-streams').from,
     dbUtils = require('../db-utils'),
     UrlStream = require('../../util/url-stream'),
     zlib = require('zlib');
 
 
 // variables/data
-var config = require('../../../conf/config.json'),
+var config = Config().get(),
     db,
     documents = require('./documents.json'),
     regions = require('./regions.json');
