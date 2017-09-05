@@ -10,6 +10,40 @@ var _DEFAULTS,
     _REGIONS;
 
 _METADATA = {
+  'ASCE7-10': [
+    {
+      'regions': [
+        'AK',
+        'COUS',
+        'PRVI'
+      ],
+      'data': {
+        'pgadPercentileFactor': 1.8,
+        'pgadFloor': 0.5,
+        's1MaxDirFactor': 1.3,
+        's1dPercentileFactor': 1.8,
+        's1dFloor': 0.6,
+        'ssMaxDirFactor': 1.1,
+        'ssdPercentileFactor': 1.8,
+        'ssdFloor': 1.5,
+      }
+    },
+    {
+      'regions': [
+        'HI'
+      ],
+      'data': {
+        'pgadPercentileFactor': 1.8,
+        'pgadFloor': 0.5,
+        's1MaxDirFactor': 1,
+        's1dPercentileFactor': 1.8,
+        's1dFloor': 0.6,
+        'ssMaxDirFactor': 1,
+        'ssdPercentileFactor': 1.8,
+        'ssdFloor': 1.5,
+      }
+    }
+  ],
   'ASCE41-13': [
     {
       'regions': [
