@@ -137,7 +137,7 @@ var ASCE7_16Handler = function (options) {
    */
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.factory.getDesignData(params);
+      return _this.factory.get(params);
     });
   };
 

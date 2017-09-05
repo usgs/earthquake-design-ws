@@ -19,7 +19,7 @@ _INPUT = {
 };
 
 _DESIGN_FACTORY = {
-  getDesignData: () => {
+  get: () => {
     return Promise.resolve(_INPUT);
   }
 };
