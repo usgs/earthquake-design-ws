@@ -89,7 +89,7 @@ describe('t-sub-l-data-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryData, [0, 0, 0])).to.be.true;
+          factory.queryData, [0, 0, 0])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -114,7 +114,7 @@ describe('t-sub-l-data-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryDocument, [1, 'foo'])).to.be.true;
+          factory.queryDocument, [1, 'foo'])).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
@@ -175,7 +175,7 @@ describe('t-sub-l-data-factory', () => {
       result.then(() => {
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(
-            factory.queryRegion, null)).to.be.true;
+          factory.queryRegion, null)).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
