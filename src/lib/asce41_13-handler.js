@@ -145,9 +145,13 @@ const ASCE41_13Handler = function (options) {
           formatted.push(data);
         });
 
+        // Add T-Sub-L Node
+        let tsubl = { 'hazardLevel': 'T-Sub-L Data' };
+        tsubl['t-sub-l'] = _this.factory.tSubLData['t-sub-l'];
+        formatted.push(tsubl);
+
         resolve({
           data: formatted,
-          't-sub-l': result['t-sub-l'],
           metadata: result.metadata
         });
       } catch (err) {
