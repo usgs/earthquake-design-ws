@@ -6,14 +6,14 @@
       "E2003R1_PRVI0P01_Deterministic",
       "E2007R1_AK0P05_Deterministic",
       "E2008R2_COUS0P01_Deterministic"
-    ],
+    ]
   },
   {
     "name": "ASCE41-13",
     "regions": [
       "E2003R1_PRVI0P01_Deterministic",
       "E2007R1_AK0P05_Deterministic",
-      "E2008R2_COUS0P01_Deterministic"
+      "E2008R2_COUS0P01_Deterministic",
       "E1998R1_HI0P02_Deterministic"
     ]
   },

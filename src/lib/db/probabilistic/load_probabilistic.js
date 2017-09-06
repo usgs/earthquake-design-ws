@@ -73,20 +73,10 @@ insertRegions = createSchema.then(() => {
     promise = promise.then(() => {
       return db.query(`
         INSERT INTO region (
-          grid_spacing,
-          max_latitude,
-          max_longitude,
-          min_latitude,
-          min_longitude,
           name
-        ) VALUES ($1, $2, $3, $4, $5, $6)
+        ) VALUES ($1)
         RETURNING id
       `, [
-        region.grid_spacing,
-        region.max_latitude,
-        region.max_longitude,
-        region.min_latitude,
-        region.min_longitude,
         region.name
       ]).then((result) => {
         // save region id for later data loading
@@ -125,15 +115,11 @@ insertDocuments = insertRegions.then((regionIds) => {
         return db.query(`
           INSERT INTO document (
             region_id,
-            model_version,
-            name,
-            spatial_interpolation_method
-          ) VALUES ($1, $2, $3, $4)
+            name
+          ) VALUES ($1, $2)
         `, [
           regionId,
-          doc.model_version,
-          doc.name,
-          doc.spatial_interpolation_method
+          doc.name
         ]);
       });
     });

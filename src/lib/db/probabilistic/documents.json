@@ -6,14 +6,14 @@
       "E2003R1_PRVI0P01_Probabilistic",
       "E2007R1_AK0P05_Probabilistic",
       "E2008R2_COUS0P01_Probabilistic"
-    ],
+    ]
   },
   {
     "name": "ASCE41-13",
     "regions": [
       "E2003R1_PRVI0P01_Probabilistic",
       "E2007R1_AK0P05_Probabilistic",
-      "E2008R2_COUS0P01_Probabilistic"
+      "E2008R2_COUS0P01_Probabilistic",
       "E1998R1_HI0P02_Probabilistic"
     ]
   },
