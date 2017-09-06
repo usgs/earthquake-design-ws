@@ -5,16 +5,19 @@ var extend = require('extend');
 
 
 var _DEFAULTS,
-    _INTERPOLATE_USING_LINEAR,
-    _INTERPOLATE_USING_LOG;
+    _INTERPOLATE_LINEARX_LINEARY_LINEAR,
+    _INTERPOLATE_LINEARX_LOGY_LINEAR,
+    _INTERPOLATE_LOGX_LOGY_LINEAR;
 
 _DEFAULTS = {
   epsilon: 1E-10,
   roundPrecision: 3
 };
 
-_INTERPOLATE_USING_LINEAR = 'linear';
-_INTERPOLATE_USING_LOG = 'log';
+// x-space_y-space_method
+_INTERPOLATE_LINEARX_LINEARY_LINEAR = 'linearlinearlinear';
+_INTERPOLATE_LINEARX_LOGY_LINEAR = 'linearloglinear';
+_INTERPOLATE_LOGX_LOGY_LINEAR = 'logloglinear';
 
 
 var NumberUtils = function (options) {
@@ -31,8 +34,9 @@ var NumberUtils = function (options) {
     _this.roundPrecision = options.roundPrecision;
 
     // Expose these on the instance as well
-    _this.INTERPOLATE_USING_LINEAR = _INTERPOLATE_USING_LINEAR;
-    _this.INTERPOLATE_USING_LOG = _INTERPOLATE_USING_LOG;
+    _this.INTERPOLATE_LINEARX_LINEARY_LINEAR = _INTERPOLATE_LINEARX_LINEARY_LINEAR;
+    _this.INTERPOLATE_LINEARX_LOGY_LINEAR = _INTERPOLATE_LINEARX_LOGY_LINEAR;
+    _this.INTERPOLATE_LOGX_LOGY_LINEAR = _INTERPOLATE_LOGX_LOGY_LINEAR;
   };
 
 
@@ -108,21 +112,22 @@ var NumberUtils = function (options) {
    * @return {Number}
    *     The y value such that f(x) = y
    *
-   * @see NumberUtils.INTERPOLATE_USING_LINEAR
-   * @see NumberUtils.INTERPOLATE_USING_LOG
+   * @see NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR
+   * @see NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR
+   * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolate = function (x0, y0, x1, y1, x, method) {
     var value;
 
     if (typeof method === 'undefined') {
-      method = _INTERPOLATE_USING_LINEAR;
+      method = _INTERPOLATE_LINEARX_LINEARY_LINEAR;
     }
 
     if (x0 === y0 && x1 === y1) {
       return x;
     }
 
-    if (method === _INTERPOLATE_USING_LOG) {
+    if (method === _INTERPOLATE_LOGX_LOGY_LINEAR) {
       if (y0 <= 0 || y1 <= 0) {
         throw new Error('Can not perform log interpolation values <= 0.');
       } else {
@@ -134,7 +139,10 @@ var NumberUtils = function (options) {
 
         value = Math.exp(y0 + (((y1-y0)/(x1-x0))*(x-x0)));
       }
-    } else {
+    } else if (method === _INTERPOLATE_LINEARX_LOGY_LINEAR) {
+      // TODO
+      throw new Error('Interpolation method linearloglinear not implemented!');
+    } else if (method === _INTERPOLATE_LINEARX_LINEARY_LINEAR) {
       value = y0 + (((y1-y0)/(x1-x0))*(x-x0));
     }
 
@@ -165,12 +173,14 @@ var NumberUtils = function (options) {
    *     method is always linear, but may be performed in logarithmic space
    *     if so indicated.
    *
+   *
    * @return {Object}
    *     An object with keys common to both `obj1` and `obj2` with corresponding
    *     properties equal to the interpolated result between `obj1` and `obj2`.
    *
-   * @see NumberUtils.INTERPOLATE_USING_LINEAR
-   * @see NumberUtils.INTERPOLATE_USING_LOG
+   * @see NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR
+   * @see NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR
+   * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolateObject = function (x0, obj0, x1, obj1, x, method) {
     var key,
@@ -406,8 +416,9 @@ var NumberUtils = function (options) {
 NumberUtils.instance = NumberUtils();
 
 // Some constants
-NumberUtils.INTERPOLATE_USING_LINEAR = _INTERPOLATE_USING_LINEAR;
-NumberUtils.INTERPOLATE_USING_LOG = _INTERPOLATE_USING_LOG;
+NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR = _INTERPOLATE_LINEARX_LINEARY_LINEAR;
+NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR = _INTERPOLATE_LINEARX_LOGY_LINEAR;
+NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR = _INTERPOLATE_LOGX_LOGY_LINEAR;
 
 
 module.exports = NumberUtils;
