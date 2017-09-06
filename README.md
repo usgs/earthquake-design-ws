@@ -34,7 +34,7 @@ setup your local environment:
 1. Run data loading process for component data end points:
     - `node src/lib/db/deterministic/load_deterministic.js`
     - `node src/lib/db/probabilistic/load_probabilistic.js`
-    - `node src/lib/db/risk_coefficient/load_risk_coefficient.js`
+    - `node src/lib/db/risk-coefficient/load_risk_coefficient.js`
     - `node src/lib/db/tsubl/load_tsubl.js`
 1. Run `npm run dev` from the install directory
 
