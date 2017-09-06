@@ -8,6 +8,11 @@ var GriddedDataFactory = require('../src/lib/gridded-data-factory'),
     sinon = require('sinon');
 
 
+const _DUMMY_METADATA_FACTORY = {
+  getMetadata: () => { return Promise.resolve({}); }
+};
+
+
 describe('gridded-data-factory', () => {
   var factory;
 
@@ -18,7 +23,9 @@ describe('gridded-data-factory', () => {
   });
 
   beforeEach(() => {
-    factory = GriddedDataFactory();
+    factory = GriddedDataFactory({
+      metadataFactory: _DUMMY_METADATA_FACTORY
+    });
   });
 
 
@@ -143,9 +150,9 @@ describe('gridded-data-factory', () => {
           result;
 
       inputs = {
-        latitude: 0,
-        longitude: 0,
-        referenceDocument: 'foo'
+        latitude: 34,
+        longitude: -118,
+        referenceDocument: 'ASCE7-'
       };
 
       sinon.spy(factory, 'getRegion');
@@ -205,7 +212,7 @@ describe('gridded-data-factory', () => {
       factory.interpolate(
         [{latitude: 0,longitude: 0}],
         {latitude: 0, longitude: 0},
-        {document: {spatial_interpolation_method: 'foo'}}
+        {metadata: {spatialInterpolationMethod: 'foo'}}
       );
 
       expect(NumberUtils.spatialInterpolate.callCount).to.equal(1);
