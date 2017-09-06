@@ -49,9 +49,11 @@ _RESULT = {
     'document': {
       'id': 0,
       'region_id': 0,
-      'model_version': 'vMAJOR.MINOR.BUGFIX',
       'name': 'EXAMPLE_DOCUMENT',
-      'spatial_interpolation_method': 'linear',
+    },
+    'metadata': {
+      'modelVersion': 'EXAMLE_MODEL_VERSION',
+      'spatialInterpolationMethod': 'EXAMPLE_INTERPOLATION_METHOD'
     }
   }
 };
@@ -147,9 +149,9 @@ describe('gridded-data-handler', () => {
         expect(data.hasOwnProperty('value2')).to.be.true;
         expect(data.hasOwnProperty('value3')).to.be.true;
 
-        expect(metadata.hasOwnProperty('model_version')).to.be.true;
-        expect(metadata.hasOwnProperty('region_name')).to.be.true;
-        expect(metadata.hasOwnProperty('spatial_interpolation_method'))
+        expect(metadata.hasOwnProperty('modelVersion')).to.be.true;
+        expect(metadata.hasOwnProperty('regionName')).to.be.true;
+        expect(metadata.hasOwnProperty('spatialInterpolationMethod'))
             .to.be.true;
       }).catch((err) => {
         return err;
