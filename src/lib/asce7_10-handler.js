@@ -1,21 +1,33 @@
 'use strict';
 
-const ASCE41_13Factory = require('./asce41_13-factory'),
+
+const DesignCategoryFactory = require('./design-category-factory'),
+    ASCE7_10Factory = require('./asce7_10-factory'),
     MetadataFactory = require('./metadata-factory'),
-    NumberUtils = require('./util/number-utils').instance,
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
-    TargetGroundMotion = require('./target-ground-motion'),
-    UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
-const ASCE41_13Handler = function (options) {
-  var _this,
-      _initialize;
 
+/**
+ * Handler for ASCE7-10 web service validates parameters and calls
+ * factory with params.
+ *
+ * @param options {Object}
+ *    Configuration options
+ */
+const ASCE7_10Handler = function (options) {
+  let _this,
+      _initialize;
 
   _this = {};
 
+  /**
+   * Initializes a new handler instance.
+   *
+   * @param options {Object}
+   *    Configuration options
+   */
   _initialize = function (options) {
     options = options || {};
 
@@ -24,28 +36,17 @@ const ASCE41_13Handler = function (options) {
     } else {
       _this.destroyFactory = true;
 
-      _this.factory = ASCE41_13Factory({
-        metadataFactory: MetadataFactory(),
-
+      _this.factory = ASCE7_10Factory({
         probabilisticService: WebServiceAccessor(
           {url: options.PROBABILISTIC_SERVICE_URL}),
-
         riskCoefficientService: WebServiceAccessor(
           {url: options.RISK_COEFFICIENT_SERVICE_URL}),
-
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
-
-        tsublService: WebServiceAccessor(
-          {url: options.TSUBL_SERVICE_URL}),
-
+        metadataFactory: MetadataFactory(),
         siteAmplificationFactory: SiteAmplificationFactory(),
-
-        spectraFactory: SpectraFactory(),
-
-        uhtHazardCurveFactory: UhtHazardCurveFactory(),
-
-        targetGroundMotion: TargetGroundMotion()
+        designCategoryFactory: DesignCategoryFactory(),
+        spectraFactory: SpectraFactory()
       });
     }
   };
@@ -57,7 +58,7 @@ const ASCE41_13Handler = function (options) {
    * @param params {Object}
    *    Object containing required parameters.
    *
-   * @return {Promise<array, Error>}
+   * @param {Promise<array, Error>}
    *    A promise resolving with an array of missing parameter(s) and error or
    *    resolves with params if all values pass checks.
    */
@@ -66,16 +67,17 @@ const ASCE41_13Handler = function (options) {
         err,
         latitude,
         longitude,
-        siteClass;
+        riskCategory,
+        siteClass,
+        title;
 
     buf = [];
 
-    params = params || {};
-    params.referenceDocument = 'ASCE41-13';
-
     latitude = params.latitude;
     longitude = params.longitude;
+    riskCategory = params.riskCategory;
     siteClass = params.siteClass;
+    title = params.title;
 
     if (typeof latitude === 'undefined' || latitude === null) {
       buf.push('latitude');
@@ -85,8 +87,16 @@ const ASCE41_13Handler = function (options) {
       buf.push('longitude');
     }
 
+    if (typeof riskCategory === 'undefined' || riskCategory === null) {
+      buf.push('riskCategory');
+    }
+
     if (typeof siteClass === 'undefined' || siteClass === null) {
       buf.push('siteClass');
+    }
+
+    if (typeof title === 'undefined' || title === null) {
+      buf.push('title');
     }
 
     if (buf.length > 0) {
@@ -101,59 +111,19 @@ const ASCE41_13Handler = function (options) {
 
   /**
    * Destroy all the things.
-   *
    */
   _this.destroy = function () {
     if (_this === null) {
       return;
     }
 
-    // TODO :: Destroy more things
-
-    _this.factory = null;
+    if (_this.destroyFactory) {
+      _this.factory.destroy();
+      _this.factory = null;
+    }
 
     _initialize = null;
     _this = null;
-  };
-
-  _this.formatResult = function (result) {
-    let formatted;
-
-    return new Promise((resolve, reject) => {
-      try {
-        formatted = [];
-
-        result.data.forEach((hazardLevel) => {
-          var data;
-
-          data = {};
-
-          Object.keys(hazardLevel).forEach((key) => {
-            var value;
-
-            if (key === 'hazardLevel' || key === 'customProbability') {
-              value = hazardLevel[key];
-            } else if (key === 'horizontalSpectrum') {
-              value = NumberUtils.roundSpectrum(hazardLevel[key]);
-            } else {
-              value = NumberUtils.round(hazardLevel[key]);
-            }
-
-            data[key] = value;
-          });
-
-          formatted.push(data);
-        });
-
-        resolve({
-          data: formatted,
-          't-sub-l': result['t-sub-l'],
-          metadata: result.metadata
-        });
-      } catch (err) {
-        return reject(err);
-      }
-    });
   };
 
   /**
@@ -168,8 +138,6 @@ const ASCE41_13Handler = function (options) {
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
       return _this.factory.get(params);
-    }).then((result) => {
-      return _this.formatResult(result);
     });
   };
 
@@ -179,5 +147,4 @@ const ASCE41_13Handler = function (options) {
   return _this;
 };
 
-
-module.exports = ASCE41_13Handler;
+module.exports = ASCE7_10Handler;

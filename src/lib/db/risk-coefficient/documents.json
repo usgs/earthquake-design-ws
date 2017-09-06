@@ -1,5 +1,18 @@
 [
   {
+    "name": "ASCE7-10",
+
+    "model_version": "v3.1.x",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient",
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P05_Risk_Coefficient",
+      "E2008R2_COUS0P01_Risk_Coefficient"
+    ],
+    "spatial_interpolation_method": "linear"
+  },
+
+  {
     "name": "ASCE41-13",
 
     "model_version": "v3.1.x",
@@ -10,6 +23,7 @@
     ],
     "spatial_interpolation_method": "linear"
   },
+
   {
     "name": "ASCE41-13",
 
@@ -19,10 +33,11 @@
     ],
     "spatial_interpolation_method": "linear"
   },
+
   {
     "name": "ASCE7-16",
 
-    "model_version": "v3.1.x",
+    "model_version": "v4.0.x",
     "regions": [
       "E1998R1_HI0P02_Risk_Coefficient",
       "E2003R1_PRVI0P01_Risk_Coefficient",

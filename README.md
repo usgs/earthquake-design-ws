@@ -31,10 +31,11 @@ setup your local environment:
         -e POSTGRES_PASSWORD={DB_PASSWORD} \
         -d mdillon/postgis
       ```
-1. Load data for component data end points into the Postgres database:
-    - [deterministic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/deterministic)
-    - [probabilistic](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/probabilistic)
-    - [risk coefficient](https://github.com/usgs/earthquake-design-ws/tree/master/src/lib/db/risk-coefficient)
+1. Run data loading process for component data end points:
+    - `node src/lib/db/deterministic/load_deterministic.js`
+    - `node src/lib/db/probabilistic/load_probabilistic.js`
+    - `node src/lib/db/risk-coefficient/load_risk_coefficient.js`
+    - `node src/lib/db/tsubl/load_tsubl.js`
 1. Run `npm run dev` from the install directory
 
 
@@ -57,8 +58,6 @@ several configuration parameters based on your working environment.
                   be any path, or an empty path to listen on slash "/".
   - `PORT`: The port number on which to listen for connections. This can be
             any available port on the host system.
-  - `LEGACY_URL`: Fetches design data in legacy format.
-                  Example: https://earthquake.usgs.gov/designmaps/beta/us/service
 
 - Start the container using the image tag.
 

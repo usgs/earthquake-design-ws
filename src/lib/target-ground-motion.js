@@ -114,13 +114,13 @@ var TargetGroundMotion = function (options) {
     method = method || _this.numberUtils.INTERPOLATE_USING_LOG;
 
     result = _this.numberUtils.interpolate(
-      bounds[0][1],
-      bounds[0][0],
-      bounds[1][1],
-      bounds[1][0],
-      afe,
-      method
-    );
+        bounds[0][1],
+        bounds[0][0],
+        bounds[1][1],
+        bounds[1][0],
+        afe,
+        method
+      );
 
     return result;
   };

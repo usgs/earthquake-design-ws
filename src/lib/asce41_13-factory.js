@@ -1,15 +1,18 @@
 'use strict';
 
 
-const extend = require('extend'),
+var extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
-const _DEFAULTS = {
+
+var _DEFAULTS;
+
+_DEFAULTS = {
   outputDecimals: 3
 };
 
 
-const ASCE41_13Factory = function (options) {
+var ASCE41_13Factory = function (options) {
   var _this,
       _initialize;
 
@@ -40,7 +43,7 @@ const ASCE41_13Factory = function (options) {
 
 
   _this.computeBse1E = function (inputs, metadata, bse2n) {
-    let customIn,
+    var customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -52,7 +55,7 @@ const ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.2}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      let custom;
+      var custom;
 
       custom = result.data[0];
 
@@ -82,7 +85,7 @@ const ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2E = function (inputs, metadata, bse2n) {
-    let customIn,
+    var customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -94,7 +97,7 @@ const ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.05}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      let custom;
+      var custom;
 
       custom = result.data[0];
 
@@ -145,7 +148,7 @@ const ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2N = function (inputs, metadata) {
-    let cr1,
+    var cr1,
         crs,
         deterministicData,
         fa,
@@ -232,6 +235,8 @@ const ASCE41_13Factory = function (options) {
     return _this.metadataFactory.getMetadata(inputs);
   };
 
+  _this.tSubLData = {};
+
   /**
    * Frees resources associated with this factory.
    *
@@ -264,11 +269,14 @@ const ASCE41_13Factory = function (options) {
   _this.get = function (inputs) {
     inputs = inputs || {};
 
-    if (inputs.hasOwnProperty('customProbability')) {
-      return _this.getCustomProbabilityDesignData(inputs);
-    } else {
-      return _this.getStandardDesignData(inputs);
-    }
+    return _this.tsublService.getData(inputs).then((result) => {
+      _this.tSubLData = result.response.data;
+      if (inputs.hasOwnProperty('customProbability')) {
+        return _this.getCustomProbabilityDesignData(inputs);
+      } else {
+        return _this.getStandardDesignData(inputs);
+      }
+    });
   };
 
   /**
@@ -283,7 +291,7 @@ const ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getCustomProbabilityDesignData = function (inputs) {
-    let fa,
+    var fa,
         fv,
         horizontalSpectrum,
         metadata,
@@ -298,12 +306,12 @@ const ASCE41_13Factory = function (options) {
       metadata = result;
       return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
     }).then((result) => {
-      let groundMotions;
+      var groundMotions;
 
       // Find target (mapped) ground motions for Ss and S1 from the curves and
       // the specified probability of exceedance
-      groundMotions = NumberUtils.spatialInterpolate(result.SA0P2.map((ssCurve, index) => {
-        let s1Curve;
+      groundMotions = result.SA0P2.map((ssCurve, index) => {
+        var s1Curve;
 
         s1Curve = result.SA1P0[index];
 
@@ -318,10 +326,12 @@ const ASCE41_13Factory = function (options) {
               s1Curve.data, inputs.customProbability,
               metadata.curve_interpolation_method)
         };
-      }),
-        inputs.latitude,
-        inputs.longitude,
-        metadata.spatial_interpolation_method
+      });
+
+      // Spatially interpolate targeted ground motions
+      groundMotions = NumberUtils.spatialInterpolate(groundMotions,
+          inputs.latitude, inputs.longitude,
+          metadata.spatial_interpolation_method
       );
 
       //   groundMotions
@@ -340,15 +350,9 @@ const ASCE41_13Factory = function (options) {
       sxs = ss * fa;
       sx1 = s1 * fv;
 
-      return Promise.all([
-        _this.spectraFactory.getSpectrum(sxs, sx1),
-
-        // Retrieve T-Sub-L Data
-        _this.tsublService.getData(inputs)
-
-      ]);
+      return _this.spectraFactory.getSpectrum(sxs, sx1);
     }).then((result) => {
-      horizontalSpectrum = result[0];
+      horizontalSpectrum = result;
 
       return {
         data: [{
@@ -362,7 +366,6 @@ const ASCE41_13Factory = function (options) {
           'sx1': sx1,
           'horizontalSpectrum': horizontalSpectrum
         }],
-        't-sub-l': result[1].response.data['t-sub-l'],
         metadata: metadata
       };
     });
@@ -380,11 +383,10 @@ const ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getStandardDesignData = function (inputs) {
-    let bse1e,
+    var bse1e,
         bse2e,
         bse1n,
         bse2n,
-        tSubLData,
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
@@ -402,29 +404,21 @@ const ASCE41_13Factory = function (options) {
         // values. BSE-1E is capped as BSE-1N
         _this.computeBse1E(inputs, metadata, bse2n),
         // BSE-2E is capped at BSE-2N
-        _this.computeBse2E(inputs, metadata, bse2n),
-
-        // Retrieve T-Sub-L Data
-        _this.tsublService.getData(inputs)
+        _this.computeBse2E(inputs, metadata, bse2n)
       ]);
     }).then((results) => {
       bse1e = results[0];
       bse2e = results[1];
-      tSubLData = results[2];
     }).then(() => {
-      const resp = {
+      return {
         data: [
           bse2n,
           bse1n,
           bse2e,
           bse1e
         ],
-        't-sub-l': tSubLData.response.data['t-sub-l'],
         metadata: metadata
       };
-
-      return resp;
-
     });
   };
 
