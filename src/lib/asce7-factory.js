@@ -59,6 +59,7 @@ var ASCE7Factory = function (options) {
     _this.probabilisticService = options.probabilisticService;
     _this.deterministicService = options.deterministicService;
     _this.riskCoefficientService = options.riskCoefficientService;
+    _this.tSubLService = options.tSubLService;
     _this.siteAmplificationFactory = options.siteAmplificationFactory;
     _this.designCategoryFactory = options.designCategoryFactory;
     _this.spectraFactory = options.spectraFactory;
@@ -424,10 +425,8 @@ var ASCE7Factory = function (options) {
             sdc1: designCategory.sdc1,
 
             sdc: designCategory.sdc,
-            // tl: result.tl,
+            't-sub-l': result.tSubL,
 
-
-            // TODO
             sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
                 null :
                 NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
@@ -464,13 +463,16 @@ var ASCE7Factory = function (options) {
       _this.metadataFactory.getMetadata(inputs),
       _this.probabilisticService.getData(inputs),
       _this.deterministicService.getData(inputs),
-      _this.riskCoefficientService.getData(inputs)
+      _this.riskCoefficientService.getData(inputs),
+      _this.tSubLService.getData(inputs)
     ]).then((promiseResults) => {
-      // => [metadata, probabilistic, deterministic, riskCoefficients]
+      // => [metadata, probabilistic, deterministic, riskCoefficients, tSubL]
       result.metadata = promiseResults[0];
       result.probabilistic = promiseResults[1];
       result.deterministic = promiseResults[2];
       result.riskCoefficients = promiseResults[3];
+      process.stdout.write('TLResponse = ' + JSON.stringify(promiseResults[4], null, 2) + '\n');
+      result.tSubL = promiseResults[4].response.data['t-sub-l'];
 
       return _this.computeBasicDesign(result);
     }).then((basicDesign) => {
