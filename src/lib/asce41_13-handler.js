@@ -10,7 +10,7 @@ const ASCE41_13Factory = require('./asce41_13-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
 const ASCE41_13Handler = function (options) {
-  var _this,
+  let _this,
       _initialize;
 
 
