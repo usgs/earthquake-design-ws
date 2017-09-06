@@ -23,6 +23,9 @@ _DUMMY_FACTORY = {
   riskCoefficientService: {
     getData: () => { return Promise.resolve({}); }
   },
+  tSubLService: {
+    getData: () => { return Promise.resolve({response: {data: {}}}); }
+  },
   siteAmplificationFactory: {
     getSiteAmplificationData: () => { return Promise.resolve([]); }
   },
