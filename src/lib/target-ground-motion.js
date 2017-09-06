@@ -111,7 +111,7 @@ var TargetGroundMotion = function (options) {
 
     afe = _this.getFrequencyForProbability(probability);
     bounds = _this.findBounds(curve, afe);
-    method = method || _this.numberUtils.INTERPOLATE_USING_LOG;
+    method = method || _this.numberUtils.INTERPOLATE_LOGX_LOGY_LINEAR;
 
     result = _this.numberUtils.interpolate(
         bounds[0][1],

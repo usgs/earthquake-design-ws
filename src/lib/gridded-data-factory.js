@@ -309,9 +309,9 @@ var GriddedDataFactory = function (options) {
     var method;
 
     if (metadata.document.spatial_interpolation_method === 'log') {
-      method = NumberUtils.INTERPOLATE_USING_LOG;
+      method = NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR;
     } else {
-      method = NumberUtils.INTERPOLATE_USING_LINEAR;
+      method = NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR;
     }
 
     return NumberUtils.spatialInterpolate(rows, inputs.latitude,

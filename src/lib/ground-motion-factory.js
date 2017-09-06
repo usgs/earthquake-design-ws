@@ -70,7 +70,7 @@ var GroundMotionFactory = function (options) {
 
     // perform linear spatial interpolation
     return _this.util.spatialInterpolate(points, latitude, longitude,
-        _this.util.INTERPOLATE_USING_LINEAR);
+        _this.util.INTERPOLATE_LINEARX_LINEARY_LINEAR);
   };
 
   /**
