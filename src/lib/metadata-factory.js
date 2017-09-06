@@ -18,14 +18,16 @@ _METADATA = {
         'PRVI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
+        'model_veresion': 'v3.1.x',
         'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
-        's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.1,
-        'ssdPercentileFactor': 1.8,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     },
     {
@@ -33,17 +35,20 @@ _METADATA = {
         'HI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
+        'model_veresion': 'v3.1.x',
         'pgadFloor': 0.5,
-        's1MaxDirFactor': 1,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.0,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
-        'ssMaxDirFactor': 1,
-        'ssdPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     }
   ],
+
   'ASCE41-13': [
     {
       'regions': [
@@ -52,52 +57,15 @@ _METADATA = {
         'PRVI'
       ],
       'data': {
-        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LOG,
-        'floor_s1d': 0.6,
-        'floor_ssd': 1.5,
-        'max_direction_s1': 1.3,
-        'max_direction_ss': 1.1,
-        'model_version': 'v3.1.x',
-        'percentile_s1d': 1.8,
-        'percentile_ssd': 1.8,
-        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-      }
-    },
-    {
-      'regions': [
-        'HI'
-      ],
-      'data': {
-        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-        'floor_s1d': 0.6,
-        'floor_ssd': 1.5,
-        'max_direction_s1': 1.0,
-        'max_direction_ss': 1.0,
-        'model_version': 'v3.1.x',
-        'percentile_s1d': 1.8,
-        'percentile_ssd': 1.8,
-        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-      }
-    }
-  ],
-  'ASCE7-16': [
-    {
-      'regions': [
-        'AK',
-        'AMSAM',
-        'COUS',
-        'GNMI',
-        'PRVI'
-      ],
-      'data': {
-        'pgadPercentileFactor': 1.8,
-        'pgadFloor': 0.5,
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
+        'modelVersion': 'v3.1.x',
         's1MaxDirFactor': 1.3,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.1,
-        'ssdPercentileFactor': 1.8,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     },
     {
@@ -105,14 +73,75 @@ _METADATA = {
         'HI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
-        'pgadFloor': 0.5,
-        's1MaxDirFactor': 1,
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'modelVersion': 'v3.1.x',
+        's1MaxDirFactor': 1.0,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
-        'ssMaxDirFactor': 1,
-        'ssdPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    }
+  ],
+
+  'ASCE7-16': [
+    // LogY interpolation, standard factors
+    {
+      'regions': [
+        'AMSAM',
+        'COUS',
+        'GNMI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.3,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR,
+        'ssMaxDirFactor': 1.1,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    },
+    // LinearY interpolation, standard factors
+    {
+      'regions': [
+        'AK',
+        'PRVI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.3,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.1,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    },
+    // LinearY interpolation, custom factors
+    {
+      'regions': [
+        'HI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.0,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLTE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     }
   ]
