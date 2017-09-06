@@ -138,8 +138,7 @@ describe('t-sub-l-data-handler', () => {
         metadata = result.metadata;
 
         expect(data.hasOwnProperty('value')).to.be.true;
-        expect(metadata.hasOwnProperty('model_version')).to.be.true;
-        expect(metadata.hasOwnProperty('region_name')).to.be.true;
+        expect(metadata.hasOwnProperty('regionName')).to.be.true;
         //expect(metadata.hasOwnProperty('spatial_interpolation_method'))
         //    .to.be.true;
       }).catch((err) => {
