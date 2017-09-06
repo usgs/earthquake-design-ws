@@ -1,8 +1,8 @@
 'use strict';
 
 
-var DesignCategoryFactory = require('./design-category-factory'),
-    ASCE7_16Factory = require('./asce7_16-factory'),
+const DesignCategoryFactory = require('./design-category-factory'),
+    ASCE7_10Factory = require('./asce7_10-factory'),
     MetadataFactory = require('./metadata-factory'),
     SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
@@ -10,14 +10,14 @@ var DesignCategoryFactory = require('./design-category-factory'),
 
 
 /**
- * Handler for ASCE7-16 web service validates parameters and calls
+ * Handler for ASCE7-10 web service validates parameters and calls
  * factory with params.
  *
  * @param options {Object}
  *    Configuration options
  */
-var ASCE7_16Handler = function (options) {
-  var _this,
+const ASCE7_10Handler = function (options) {
+  let _this,
       _initialize;
 
   _this = {};
@@ -36,7 +36,7 @@ var ASCE7_16Handler = function (options) {
     } else {
       _this.destroyFactory = true;
 
-      _this.factory = ASCE7_16Factory({
+      _this.factory = ASCE7_10Factory({
         probabilisticService: WebServiceAccessor(
           {url: options.PROBABILISTIC_SERVICE_URL}),
         riskCoefficientService: WebServiceAccessor(
@@ -63,7 +63,7 @@ var ASCE7_16Handler = function (options) {
    *    resolves with params if all values pass checks.
    */
   _this.checkParams = function (params) {
-    var buf,
+    let buf,
         err,
         latitude,
         longitude,
@@ -147,4 +147,4 @@ var ASCE7_16Handler = function (options) {
   return _this;
 };
 
-module.exports = ASCE7_16Handler;
+module.exports = ASCE7_10Handler;

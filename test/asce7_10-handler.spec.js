@@ -1,7 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var DesignHandler = require('../src/lib/asce7_16-handler'),
+var DesignHandler = require('../src/lib/asce7_10-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
@@ -25,7 +25,7 @@ _DESIGN_FACTORY = {
 };
 
 
-describe('asce7-16-handler', () => {
+describe('asce7-10-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof DesignHandler).to.equal('function');

@@ -2,6 +2,7 @@
 
 
 const ASCE7_16Handler = require('./asce7_16-handler'),
+    ASCE7_10Handler = require('./asce7_10-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     DeterministicHandler = require('./deterministic-handler'),
     express = require('express'),
@@ -63,6 +64,7 @@ const WebService = function (options) {
     } else {
       _this.handlers = {
         'asce7-16.json': ASCE7_16Handler(options),
+        'asce7-10.json': ASCE7_10Handler(options),
         'asce41-13.json': ASCE41_13Handler(options),
 
         'deterministic.json': DeterministicHandler(options),
