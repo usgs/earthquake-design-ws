@@ -133,7 +133,7 @@ var ASCE7_16Handler = function (options) {
    *    request parameters.
    * @return {Promise}
    *    A promise that resolves with and error or calls
-   *    factory.getDesignData with params.
+   *    factory.get with params.
    */
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
