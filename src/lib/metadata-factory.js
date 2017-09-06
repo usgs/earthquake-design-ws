@@ -150,51 +150,45 @@ _METADATA = {
 _REGIONS = [
   {
     'name': 'AK',
-    'grid_spacing':    0.05,
     'max_latitude':    72.0,
     'max_longitude': -125.1,
     'min_latitude':    48.0,
-    'min_longitude': -200.0,
+    'min_longitude': -200.0
   },
   {
     'name': 'AMSAM',
-    'grid_spacing':   0.1,
-    'max_latitude':   -11,
-    'max_longitude': -165,
-    'min_latitude':   -33,
-    'min_longitude': -195,
+    'max_latitude':   -11.0,
+    'max_longitude': -165.0,
+    'min_latitude':   -33.0,
+    'min_longitude': -195.0
   },
   {
     'name': 'COUS',
-    'grid_spacing':    0.01,
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
-    'min_longitude': -125.0,
+    'min_longitude': -125.0
   },
   {
     'name': 'GNMI',
-    'grid_spacing':  0.1,
-    'max_latitude':   23,
-    'max_longitude': 151,
-    'min_latitude':    9,
-    'min_longitude': 139,
+    'max_latitude':   23.0,
+    'max_longitude': 151.0,
+    'min_latitude':    9.0,
+    'min_longitude': 139.0
   },
   {
     'name': 'HI',
-    'grid_spacing':    0.02,
     'max_latitude':    23.0,
     'max_longitude': -154.0,
     'min_latitude':    18.0,
-    'min_longitude': -161.0,
+    'min_longitude': -161.0
   },
   {
     'name': 'PRVI',
-    'grid_spacing':   0.01,
     'max_latitude':   19.0,
     'max_longitude': -64.5,
     'min_latitude':   17.5,
-    'min_longitude': -67.5,
+    'min_longitude': -67.5
   }
 ];
 
