@@ -1,6 +1,10 @@
 [
   {
     "name": "T-Sub-L",
+    "max_latitude":    90.0,
+    "max_longitude":  180.0,
+    "min_latitude":   -90.0,
+    "min_longitude": -180.0,
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/tsubl.dat.gz"
   }
 ]

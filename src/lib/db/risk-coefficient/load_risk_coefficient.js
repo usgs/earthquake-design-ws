@@ -73,11 +73,21 @@ insertRegions = createSchema.then(() => {
     promise = promise.then(() => {
       return db.query(`
         INSERT INTO region (
-          name
-        ) VALUES ($1)
+          name,
+          grid_spacing,
+          max_latitude,
+          max_longitude,
+          min_latitude,
+          min_longitude
+        ) VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING id
       `, [
-        region.name
+        region.name,
+        region.grid_spacing,
+        region.max_latitude,
+        region.max_longitude,
+        region.min_latitude,
+        region.min_longitude
       ]).then((result) => {
         // save region id for later data loading
         regionIds[region.name] = result.rows[0].id;

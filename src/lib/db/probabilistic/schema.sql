@@ -1,6 +1,11 @@
 CREATE TABLE region (
   id SERIAL NOT NULL PRIMARY KEY,
 
+  grid_spacing NUMERIC NOT NULL,
+  max_latitude NUMERIC NOT NULL,
+  max_longitude NUMERIC NOT NULL,
+  min_latitude NUMERIC NOT NULL,
+  min_longitude NUMERIC NOT NULL,
   name VARCHAR(255) NOT NULL
 );
 

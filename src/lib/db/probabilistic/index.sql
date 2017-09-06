@@ -1,3 +1,11 @@
+CREATE INDEX region__bounds_idx
+ON region (
+  max_latitude,
+  max_longitude,
+  min_latitude,
+  min_longitude
+);
+
 CREATE INDEX data__regionid_latitude_longitude_idx
 ON data (
   region_id,
