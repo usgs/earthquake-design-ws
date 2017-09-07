@@ -1,34 +1,28 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     sinon = require('sinon'),
     TargetGroundMotion = require('../src/lib/target-ground-motion');
 
 describe('target-ground-motion', () => {
-  var afe,
-      curve,
-      highAfe,
-      lowAfe,
-      targetGroundMotion;
+  let targetGroundMotion;
 
-  afe = 1;
-  curve = [
-    [0, 10],
-    [1, 9],
-    [2, 8],
-    [3, 7],
-    [4, 6],
-    [5, 5],
-    [6, 4],
-    [7, 3],
-    [8, 2],
-    [9, 1],
-    [10, 0]
+  const afe = 0.09;
+  const curve = [
+    [1, 0.999],
+    [2, 0.450],
+    [3, 0.100],
+    [4, 0.075],
+    [5, 0.035],
+    [6, 0.015],
+    [7, 0.005],
+    [8, 0.002],
+    [9, 0.001],
   ];
 
-  highAfe = 11;
-  lowAfe = -1;
+  const highAfe = 1;
+  const lowAfe = 0;
 
 
   beforeEach(() => {
@@ -50,7 +44,7 @@ describe('target-ground-motion', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var targetGroundMotion;
+        let targetGroundMotion;
 
         targetGroundMotion = TargetGroundMotion();
         targetGroundMotion.destroy();
@@ -60,9 +54,9 @@ describe('target-ground-motion', () => {
 
   describe('findBounds', () => {
     it('finds correct bounds', () => {
-      var points;
+      let points;
 
-      points = [[8, 2], [9, 1]];
+      points = [[3, 0.100], [4, 0.075]];
 
       expect(targetGroundMotion.findBounds(curve, afe)).to.deep.equal(points);
     });
@@ -80,7 +74,7 @@ describe('target-ground-motion', () => {
   });
 
   describe('getFrequencyForProbability', () => {
-    var probability,
+    let probability,
         years;
 
     probability = .20;
@@ -103,13 +97,14 @@ describe('target-ground-motion', () => {
       sinon.spy(targetGroundMotion, 'findBounds');
       sinon.spy(targetGroundMotion.numberUtils, 'interpolate');
 
-      targetGroundMotion.getTargetedGroundMotion(curve, .05);
+      targetGroundMotion.getTargetedGroundMotion(curve, 0.99999);
 
       expect(targetGroundMotion.getFrequencyForProbability.callCount)
         .to.equal(1);
       expect(targetGroundMotion.findBounds.callCount).to.equal(1);
       expect(targetGroundMotion.numberUtils.interpolate.callCount).to.equal(1);
-      expect(targetGroundMotion.numberUtils.interpolate.calledWith(1, 9, 0, 10)).to.be.true;
+      expect(targetGroundMotion.numberUtils.interpolate.calledWith(
+          0.45, 2, 0.1, 3)).to.be.true;
 
       targetGroundMotion.getFrequencyForProbability.restore();
       targetGroundMotion.findBounds.restore();

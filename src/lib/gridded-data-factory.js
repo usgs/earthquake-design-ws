@@ -1,15 +1,9 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance;
-
-
-var _DEFAULTS,
-    _QUERY_DATA,
-    _QUERY_DOCUMENT,
-    _QUERY_REGION;
 
 
 /**
@@ -20,7 +14,7 @@ var _DEFAULTS,
  * @param $3 {Double}
  *     Grid spacing
  */
-_QUERY_DATA = `
+const _QUERY_DATA = `
   SELECT
     *
   FROM
@@ -44,7 +38,7 @@ _QUERY_DATA = `
  * @param $3 {Number}
  *     Longitude decimal degrees
  */
-_QUERY_REGION = `
+const _QUERY_REGION = `
   SELECT
     r.*
   FROM
@@ -65,7 +59,7 @@ _QUERY_REGION = `
  * @param $1 {Number}
  *     Region ID
  */
-_QUERY_DOCUMENT = `
+const _QUERY_DOCUMENT = `
   SELECT
     *
   FROM
@@ -75,7 +69,7 @@ _QUERY_DOCUMENT = `
     name = $2
 `;
 
-_DEFAULTS = {
+const _DEFAULTS = {
   db: {query: () => Promise.resolve({rows: []})},
   queryData: _QUERY_DATA,
   queryDocument: _QUERY_DOCUMENT,
@@ -98,8 +92,8 @@ _DEFAULTS = {
  *     options.queryRegion {String}
  *         SQL to query regions from the schema
  */
-var GriddedDataFactory = function (options) {
-  var _this,
+const GriddedDataFactory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -162,7 +156,7 @@ var GriddedDataFactory = function (options) {
    *     inputs, or rejects if an error occurs.
    */
   _this.get = function (inputs) {
-    var metadata;
+    let metadata;
 
     return _this.getMetadata(inputs).then((result) => {
       metadata = result;
@@ -193,13 +187,12 @@ var GriddedDataFactory = function (options) {
    *     from the database or rejects if an error occurs.
    */
   _this.getData = function (metadata, inputs) {
-    var parameters;
+    let parameters;
 
     inputs = inputs || {};
     metadata = metadata || {};
     metadata.region = metadata.region || {};
 
-    // TODO, figure out how to read the right region (for id and grid_spacing)
     parameters = [
       parseInt(metadata.region.id, 10),         // _QUERY_DATA::$1
       parseFloat(inputs.latitude),              // _QUERY_DATA::$2
@@ -228,7 +221,7 @@ var GriddedDataFactory = function (options) {
    *     error occurs.
    */
   _this.getDocument = function (inputs, region) {
-    var parameters;
+    let parameters;
 
 
     parameters = [
@@ -289,7 +282,7 @@ var GriddedDataFactory = function (options) {
    *     error occurs.
    */
   _this.getRegion = function (inputs) {
-    var parameters;
+    let parameters;
 
     parameters = [
       inputs.referenceDocument,    // _QUERY_REGION::$1

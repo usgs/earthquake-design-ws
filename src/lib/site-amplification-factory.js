@@ -207,8 +207,6 @@ var SiteAmplificationFactory = function (options) {
       return;
     }
 
-    // TODO :: Free resources here
-
     _initialize = null;
     _this = null;
   };

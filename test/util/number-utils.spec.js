@@ -173,14 +173,35 @@ describe('util/number-utils', () => {
   });
 
   describe('interpolate', () => {
-    it('is correct when method is linear', () => {
-      expect(util.interpolate(0, 0, 1, 1, 0.5)).to.equal(0.5);
+    it('is correct when interpolation is not needed', () => {
+      sinon.spy(Math, 'exp');
+
+      expect(util.interpolate(0, 0, 1, 1, 0,
+          NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR)).to.equal(0);
+      expect(util.interpolate(0, 0, 1, 1, 1,
+          NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR)).to.equal(1);
+
+      // Ensure we short-circuited. Since LOGX_LOGY is specified, Math.exp
+      // would be called if not short-circuited.
+      expect(Math.exp.callCount).to.equal(0);
+      Math.exp.restore();
     });
 
-    it('is correct when method is log-space', () => {
+    it('is correct when method is logloglinear', () => {
       expect(util.interpolate(Math.exp(0), Math.exp(0),
-          Math.exp(1), Math.exp(1), Math.exp(0.5), util.INTERPOLATE_LOGX_LOGY_LINEAR))
-          .to.be.closeTo(Math.exp(0.5), EPSILON);
+          Math.exp(1), Math.exp(1), Math.exp(0.5),
+          util.INTERPOLATE_LOGX_LOGY_LINEAR))
+        .to.be.closeTo(Math.exp(0.5), EPSILON);
+    });
+
+    it('is correct when method is linearloglinear', () => {
+      expect(util.interpolate(0, Math.exp(0), 1, Math.exp(1), 0.5,
+          NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR))
+        .to.be.closeTo(Math.exp(0.5), EPSILON);
+    });
+
+    it('is correct when method is linearlinearlinear', () => {
+      expect(util.interpolate(0, 0, 1, 1, 0.5)).to.equal(0.5);
     });
 
     it('throws error for y-value = 0, using log-space interpolation', () => {
