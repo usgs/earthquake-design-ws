@@ -7,7 +7,7 @@ var ASCE41_13Handler = require('../src/lib/asce41_13-handler'),
 
 
 const _RESULT = {
-  data: [{'hazardLevel':'T-Sub-L Data','t-sub-l':0}],
+  data: [],
   metadata: {}
 };
 
@@ -17,8 +17,7 @@ const _FACTORY = {
   },
   get: () => {
     return Promise.resolve({data:[],metadata:{}});
-  },
-  tSubLData: { 't-sub-l': 0 }
+  }
 };
 
 
