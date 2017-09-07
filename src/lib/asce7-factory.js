@@ -471,7 +471,6 @@ var ASCE7Factory = function (options) {
       result.probabilistic = promiseResults[1];
       result.deterministic = promiseResults[2];
       result.riskCoefficients = promiseResults[3];
-      process.stdout.write('TLResponse = ' + JSON.stringify(promiseResults[4], null, 2) + '\n');
       result.tSubL = promiseResults[4].response.data['t-sub-l'];
 
       return _this.computeBasicDesign(result);
