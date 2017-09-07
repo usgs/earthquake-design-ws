@@ -108,7 +108,10 @@ const ASCE41_13Handler = function (options) {
       return;
     }
 
-    // TODO :: Destroy more things
+    if (_this.destroyFactory) {
+      delete _this.destroyFactory;
+      _this.factory.destroy();
+    }
 
     _this.factory = null;
 

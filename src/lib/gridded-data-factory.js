@@ -193,7 +193,6 @@ const GriddedDataFactory = function (options) {
     metadata = metadata || {};
     metadata.region = metadata.region || {};
 
-    // TODO, figure out how to read the right region (for id and grid_spacing)
     parameters = [
       parseInt(metadata.region.id, 10),         // _QUERY_DATA::$1
       parseFloat(inputs.latitude),              // _QUERY_DATA::$2

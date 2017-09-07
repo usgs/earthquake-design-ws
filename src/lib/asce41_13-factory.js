@@ -124,7 +124,6 @@ const ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse1N = function (bse2n) {
-    // TODO
     return new Promise((resolve, reject) => {
       try {
         resolve({
@@ -315,7 +314,6 @@ const ASCE41_13Factory = function (options) {
         return {
           latitude: ssCurve.latitude,
           longitude: ssCurve.longitude,
-          // TODO :: Fix this for HI which is interpolated in linear space...
           ss: _this.targetGroundMotion.getTargetedGroundMotion(
               ssCurve.data, inputs.customProbability,
               metadata.curveInterpolationMethod),
