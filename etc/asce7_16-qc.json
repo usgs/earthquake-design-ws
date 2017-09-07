@@ -464,9 +464,9 @@
       "data": [
         {
           "siteClass": "B-estimated",
-          "sms": 2.153,
-          "sm1": 0.857,
-          "pgam": 0.908
+          "sms": 2.154,
+          "sm1": 0.858,
+          "pgam": 0.909
         }
       ]
     }
@@ -908,7 +908,7 @@
       "data": [
         {
           "siteClass": "B-estimated",
-          "sms": 1.881,
+          "sms": 1.882,
           "sm1": 0.600,
           "pgam": 0.768
         }
@@ -1204,9 +1204,9 @@
       "data": [
         {
           "siteClass": "B-estimated",
-          "sms": 1.911,
-          "sm1": 0.785,
-          "pgam": 0.821
+          "sms": 1.912,
+          "sm1": 0.786,
+          "pgam": 0.822
         }
       ]
     }
@@ -1426,9 +1426,9 @@
       "data": [
         {
           "siteClass": "B-estimated",
-          "sms": 1.560,
+          "sms": 1.561,
           "sm1": 0.600,
-          "pgam": 0.639
+          "pgam": 0.64
         }
       ]
     }
