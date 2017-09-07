@@ -44,6 +44,8 @@ const ASCE7_10Handler = function (options) {
         deterministicService: WebServiceAccessor(
           {url: options.DETERMINISTIC_SERVICE_URL}),
         metadataFactory: MetadataFactory(),
+        tSubLService: WebServiceAccessor(
+          {url: options.TSUBL_SERVICE_URL}),
         siteAmplificationFactory: SiteAmplificationFactory(),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
