@@ -82,6 +82,97 @@ var NumberUtils = function (options) {
   };
 
   /**
+   * Given a gridSpacing, find the 1, 2, or 4 points
+   * on grid that surround the specified location.
+   *
+   * @param gridSpacing {Number}
+   * @param latitude {Number}
+   * @param longitude {Number}
+   *
+   * @return {Array<Object>}
+   *.    1, 2, or 4 points surrounding input location.
+   */
+  _this.getGridPoints = function (options) {
+    var bottom,
+        gridSpacing,
+        latitude,
+        left,
+        longitude,
+        points,
+        right,
+        top;
+
+    gridSpacing = options.gridSpacing;
+    latitude = parseFloat(options.latitude);
+    longitude = parseFloat(options.longitude);
+
+    top = Math.ceil(latitude / gridSpacing) * gridSpacing;
+    left = Math.floor(longitude / gridSpacing) * gridSpacing;
+    bottom = Math.floor(latitude / gridSpacing) * gridSpacing;
+    right = Math.ceil(longitude / gridSpacing) * gridSpacing;
+    // handle floating point precision errors
+    top = parseFloat(top.toPrecision(10));
+    left = parseFloat(left.toPrecision(10));
+    bottom = parseFloat(bottom.toPrecision(10));
+    right = parseFloat(right.toPrecision(10));
+
+    if (top === latitude && left === longitude) {
+      // point is on grid
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        }
+      ];
+    } else if (left === longitude) {
+      // point is on vertical line between two grid points
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        }
+      ];
+    } else if (top === latitude) {
+      // point is on horizontal line between two grid points
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        }
+      ];
+    } else {
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: right
+        }
+      ];
+    }
+
+    return points;
+  };
+
+  /**
    * Performs linear interpolation for between (x0, y0) and (x1, y1) to obtain
    * (x, y) where y is unknown. More verbosely; if the linear (potentially in
    * logarithmic space) function f is defined such that

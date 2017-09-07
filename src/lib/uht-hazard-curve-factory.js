@@ -6,6 +6,7 @@ var extend = require('extend'),
     https = require('https'),
     DesignHazardMetadata = require('./util/design-hazard-metadata'),
     querystring = require('querystring'),
+    NumberUtils = require('./util/number-utils').instance,
     url = require('url');
 
 
@@ -46,6 +47,7 @@ var UHTHazardCurveFactory = function (options) {
       _this.metadata = DesignHazardMetadata();
     }
     _this.url = options.url;
+    _this.numberUtils = options.numberUtils || NumberUtils;
   };
 
 
@@ -95,96 +97,6 @@ var UHTHazardCurveFactory = function (options) {
     });
   };
 
-  /**
-   * Given a gridSpacing, find the 1, 2, or 4 points
-   * on grid that surround the specified location.
-   *
-   * @param gridSpacing {Number}
-   * @param latitude {Number}
-   * @param longitude {Number}
-   *
-   * @return {Array<Object>}
-   *.    1, 2, or 4 points surrounding input location.
-   */
-  _this.getGridPoints = function (options) {
-    var bottom,
-        gridSpacing,
-        latitude,
-        left,
-        longitude,
-        points,
-        right,
-        top;
-
-    gridSpacing = options.gridSpacing;
-    latitude = options.latitude;
-    longitude = options.longitude;
-
-    top = Math.ceil(latitude / gridSpacing) * gridSpacing;
-    left = Math.floor(longitude / gridSpacing) * gridSpacing;
-    bottom = top - gridSpacing;
-    right = left + gridSpacing;
-    // handle floating point precision errors
-    top = parseFloat(top.toPrecision(10));
-    left = parseFloat(left.toPrecision(10));
-    bottom = parseFloat(bottom.toPrecision(10));
-    right = parseFloat(right.toPrecision(10));
-
-    if (top === latitude && left === longitude) {
-      // point is on grid
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        }
-      ];
-    } else if (left === longitude) {
-      // point is on vertical line between two grid points
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: bottom,
-          longitude: left
-        }
-      ];
-    } else if (top === latitude) {
-      // point is on horizontal line between two grid points
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: top,
-          longitude: right
-        }
-      ];
-    } else {
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: top,
-          longitude: right
-        },
-        {
-          latitude: bottom,
-          longitude: left
-        },
-        {
-          latitude: bottom,
-          longitude: right
-        }
-      ];
-    }
-
-    return points;
-  };
 
   /**
    * Fetch curves for a location based on hazard edition and region.
@@ -206,7 +118,7 @@ var UHTHazardCurveFactory = function (options) {
     hazardRegion = options.hazardRegion;
 
     // get grid points to request
-    points = _this.getGridPoints({
+    points = _this.numberUtils.getGridPoints({
       gridSpacing: options.gridSpacing,
       latitude: options.latitude,
       longitude: options.longitude
