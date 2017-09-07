@@ -66,6 +66,14 @@ compareResult = function (expected, actual) {
       expect(actual.pgam).to.be.closeTo(expected.pgam, epsilon);
     }
   }
+
+  if (expected.hasOwnProperty('t-sub-l')) {
+    if (expected['t-sub-l'] === null) {
+      expect(actual['t-sub-l']).to.equal(null);
+    } else {
+      expect(actual['t-sub-l']).to.be.closeTo(expected['t-sub-l'], epsilon);
+    }
+  }
 };
 
 
