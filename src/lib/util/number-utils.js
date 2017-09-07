@@ -1,27 +1,22 @@
 'use strict';
 
 
-var extend = require('extend');
+const extend = require('extend');
 
 
-var _DEFAULTS,
-    _INTERPOLATE_LINEARX_LINEARY_LINEAR,
-    _INTERPOLATE_LINEARX_LOGY_LINEAR,
-    _INTERPOLATE_LOGX_LOGY_LINEAR;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   epsilon: 1E-10,
   roundPrecision: 3
 };
 
 // x-space_y-space_method
-_INTERPOLATE_LINEARX_LINEARY_LINEAR = 'linearlinearlinear';
-_INTERPOLATE_LINEARX_LOGY_LINEAR = 'linearloglinear';
-_INTERPOLATE_LOGX_LOGY_LINEAR = 'logloglinear';
+const _INTERPOLATE_LINEARX_LINEARY_LINEAR = 'linearlinearlinear';
+const _INTERPOLATE_LINEARX_LOGY_LINEAR = 'linearloglinear';
+const _INTERPOLATE_LOGX_LOGY_LINEAR = 'logloglinear';
 
 
-var NumberUtils = function (options) {
-  var _this,
+const NumberUtils = function (options) {
+  let _this,
       _initialize;
 
 
@@ -82,6 +77,97 @@ var NumberUtils = function (options) {
   };
 
   /**
+   * Given a gridSpacing, find the 1, 2, or 4 points
+   * on grid that surround the specified location.
+   *
+   * @param gridSpacing {Number}
+   * @param latitude {Number}
+   * @param longitude {Number}
+   *
+   * @return {Array<Object>}
+   *.    1, 2, or 4 points surrounding input location.
+   */
+  _this.getGridPoints = function (options) {
+    let bottom,
+        gridSpacing,
+        latitude,
+        left,
+        longitude,
+        points,
+        right,
+        top;
+
+    gridSpacing = options.gridSpacing;
+    latitude = parseFloat(options.latitude);
+    longitude = parseFloat(options.longitude);
+
+    top = Math.ceil(latitude / gridSpacing) * gridSpacing;
+    left = Math.floor(longitude / gridSpacing) * gridSpacing;
+    bottom = Math.floor(latitude / gridSpacing) * gridSpacing;
+    right = Math.ceil(longitude / gridSpacing) * gridSpacing;
+    // handle floating point precision errors
+    top = parseFloat(top.toPrecision(10));
+    left = parseFloat(left.toPrecision(10));
+    bottom = parseFloat(bottom.toPrecision(10));
+    right = parseFloat(right.toPrecision(10));
+
+    if (top === latitude && left === longitude) {
+      // point is on grid
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        }
+      ];
+    } else if (left === longitude) {
+      // point is on vertical line between two grid points
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        }
+      ];
+    } else if (top === latitude) {
+      // point is on horizontal line between two grid points
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        }
+      ];
+    } else {
+      points = [
+        {
+          latitude: top,
+          longitude: left
+        },
+        {
+          latitude: top,
+          longitude: right
+        },
+        {
+          latitude: bottom,
+          longitude: left
+        },
+        {
+          latitude: bottom,
+          longitude: right
+        }
+      ];
+    }
+
+    return points;
+  };
+
+  /**
    * Performs linear interpolation for between (x0, y0) and (x1, y1) to obtain
    * (x, y) where y is unknown. More verbosely; if the linear (potentially in
    * logarithmic space) function f is defined such that
@@ -117,7 +203,7 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolate = function (x0, y0, x1, y1, x, method) {
-    var value;
+    let value;
 
     if (typeof method === 'undefined') {
       method = _INTERPOLATE_LINEARX_LINEARY_LINEAR;
@@ -183,7 +269,7 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolateObject = function (x0, obj0, x1, obj1, x, method) {
-    var key,
+    let key,
         result;
 
     result = {};
@@ -220,7 +306,7 @@ var NumberUtils = function (options) {
    *     If value is null returns null.
    */
   _this.round = function (value, precision) {
-    var factor,
+    let factor,
         rounded;
 
     if (value === null) {
@@ -303,7 +389,7 @@ var NumberUtils = function (options) {
    *     `longitude` coordinate.
    */
   _this.spatialInterpolate = function (points, latitude, longitude, method) {
-    var bot,
+    let bot,
         botLat,
         leftLng,
         rightLng,

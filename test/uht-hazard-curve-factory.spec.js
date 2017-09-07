@@ -2,13 +2,14 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     express = require('express'),
+    sinon = require('sinon'),
     UHTHazardCurveFactory = require('../src/lib/uht-hazard-curve-factory');
 
 
 describe('UHTHazardCurveFactory', () => {
-  var factory;
+  let factory;
 
   beforeEach(() => {
     factory = UHTHazardCurveFactory();
@@ -30,7 +31,7 @@ describe('UHTHazardCurveFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = UHTHazardCurveFactory();
         factory.destroy();
@@ -39,7 +40,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('getDesignCurves', () => {
-    var factory,
+    let factory,
         metadata;
 
     beforeEach(function () {
@@ -88,106 +89,9 @@ describe('UHTHazardCurveFactory', () => {
     });
   });
 
-  describe('getGridPoints', () => {
-    // NOTE that the tests below also verify the correct point return order
-    // (top to bottom, left to right)
-
-    it('returns one point when on grid', () => {
-      var points;
-
-      points = factory.getGridPoints({
-        gridSpacing: 0.05,
-        latitude: 34.05,
-        longitude: -118.05
-      });
-
-      expect(points.length).to.equal(1);
-      expect(points).to.deep.equal([
-        {
-          latitude: 34.05,
-          longitude: -118.05
-        }
-      ]);
-    });
-
-    it('returns two points when on vertical line between grid', () => {
-      var points;
-
-      points = factory.getGridPoints({
-        gridSpacing: 0.05,
-        latitude: 34.06,
-        longitude: -118.05
-      });
-
-      expect(points.length).to.equal(2);
-      expect(points).to.deep.equal([
-        {
-          latitude: 34.10,
-          longitude: -118.05
-        },
-        {
-          latitude: 34.05,
-          longitude: -118.05
-        }
-      ]);
-    });
-
-    it('returns two points when on horizontal line between grid', () => {
-      var points;
-
-      points = factory.getGridPoints({
-        gridSpacing: 0.02,
-        latitude: 34.04,
-        longitude: -118.05
-      });
-
-      expect(points.length).to.equal(2);
-      expect(points).to.deep.equal([
-        {
-          latitude: 34.04,
-          longitude: -118.06
-        },
-        {
-          latitude: 34.04,
-          longitude: -118.04
-        }
-      ]);
-    });
-
-    it('returns four points when off grid', () => {
-      var points;
-
-      points = factory.getGridPoints({
-        gridSpacing: 0.1,
-        latitude: 34.05,
-        longitude: -118.05
-      });
-
-      expect(points.length).to.equal(4);
-      expect(points).to.deep.equal([
-        {
-          latitude: 34.1,
-          longitude: -118.1
-        },
-        {
-          latitude: 34.1,
-          longitude: -118.0
-        },
-        {
-          latitude: 34.0,
-          longitude: -118.1
-        },
-        {
-          latitude: 34.0,
-          longitude: -118.0
-        }
-      ]);
-    });
-  });
-
   describe('getHazardCurves', () => {
     it('does stuff', (done) => {
-      var options;
+      let options;
 
       // fake options for testing
       options = {
@@ -198,23 +102,15 @@ describe('UHTHazardCurveFactory', () => {
         longitude: 'longitude'
       };
 
-      // stub methods called by getHazardCurves to verify order
-      factory.getGridPoints = function (options) {
-        // make sure requested gridSpacing and location are passed
-        expect(options.gridSpacing).to.equal('gridSpacing');
-        expect(options.latitude).to.equal('latitude');
-        expect(options.longitude).to.equal('longitude');
+      sinon.stub(factory.numberUtils, 'getGridPoints').callsFake(() => {
         return [
           {
-            latitude: 'lat1',
-            longitude: 'lon1'
-          },
-          {
-            latitude: 'lat2',
-            longitude: 'lon2'
+            latitude: 34,
+            longitude: -118
           }
         ];
-      };
+      });
+
       factory.getHazardCurveUrl = function (options) {
         // make sure hazardEdition and hazardRegion are passed
         expect(options.hazardEdition).to.equal('hazardEdition');
@@ -242,8 +138,8 @@ describe('UHTHazardCurveFactory', () => {
         expect(curves.spectralPeriod[0]).to.deep.equal({
           'hazardEdition': 'hazardEdition',
           'hazardRegion': 'hazardRegion',
-          'latitude': 'lat1',
-          'longitude': 'lon1',
+          'latitude': 34,
+          'longitude': -118,
           'urled': true,
           'requested': true,
           'spectralPeriod': 'spectralPeriod',
@@ -258,7 +154,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('getHazardCurveUrl', () => {
-    var replacements;
+    let replacements;
 
     replacements = {
       hazardEdition: 'hazardEdition',
@@ -301,7 +197,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('makeRequest', () => {
-    var testApp,
+    let testApp,
         testPort,
         testServer;
 
@@ -318,7 +214,7 @@ describe('UHTHazardCurveFactory', () => {
     });
 
     it('returns the expected response', (done) => {
-      var factory,
+      let factory,
           result;
 
       factory = UHTHazardCurveFactory();
@@ -339,7 +235,7 @@ describe('UHTHazardCurveFactory', () => {
 
   describe('parseHazardCurves', () => {
     it('parses', () => {
-      var uhtResponse,
+      let uhtResponse,
           parsed;
 
       uhtResponse = require('../etc/hazws-staticcurve-response.json');

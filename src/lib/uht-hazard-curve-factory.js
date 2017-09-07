@@ -1,17 +1,16 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     http = require('http'),
     https = require('https'),
     DesignHazardMetadata = require('./util/design-hazard-metadata'),
     querystring = require('querystring'),
+    NumberUtils = require('./util/number-utils').instance,
     url = require('url');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   metadata: null,
   url: 'https://earthquake.usgs.gov/hazws/staticcurve/1/{edition}/{region}/{longitude}/{latitude}/{imt}/{vs30}'
 };
@@ -24,8 +23,8 @@ _DEFAULTS = {
  * @param options.url {String}
  *    UHT URL.
  */
-var UHTHazardCurveFactory = function (options) {
-  var _this,
+const UHTHazardCurveFactory = function (options) {
+  let _this,
       _initialize;
 
   _this = {};
@@ -46,6 +45,7 @@ var UHTHazardCurveFactory = function (options) {
       _this.metadata = DesignHazardMetadata();
     }
     _this.url = options.url;
+    _this.numberUtils = options.numberUtils || NumberUtils;
   };
 
 
@@ -95,96 +95,6 @@ var UHTHazardCurveFactory = function (options) {
     });
   };
 
-  /**
-   * Given a gridSpacing, find the 1, 2, or 4 points
-   * on grid that surround the specified location.
-   *
-   * @param gridSpacing {Number}
-   * @param latitude {Number}
-   * @param longitude {Number}
-   *
-   * @return {Array<Object>}
-   *.    1, 2, or 4 points surrounding input location.
-   */
-  _this.getGridPoints = function (options) {
-    var bottom,
-        gridSpacing,
-        latitude,
-        left,
-        longitude,
-        points,
-        right,
-        top;
-
-    gridSpacing = options.gridSpacing;
-    latitude = options.latitude;
-    longitude = options.longitude;
-
-    top = Math.ceil(latitude / gridSpacing) * gridSpacing;
-    left = Math.floor(longitude / gridSpacing) * gridSpacing;
-    bottom = top - gridSpacing;
-    right = left + gridSpacing;
-    // handle floating point precision errors
-    top = parseFloat(top.toPrecision(10));
-    left = parseFloat(left.toPrecision(10));
-    bottom = parseFloat(bottom.toPrecision(10));
-    right = parseFloat(right.toPrecision(10));
-
-    if (top === latitude && left === longitude) {
-      // point is on grid
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        }
-      ];
-    } else if (left === longitude) {
-      // point is on vertical line between two grid points
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: bottom,
-          longitude: left
-        }
-      ];
-    } else if (top === latitude) {
-      // point is on horizontal line between two grid points
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: top,
-          longitude: right
-        }
-      ];
-    } else {
-      points = [
-        {
-          latitude: top,
-          longitude: left
-        },
-        {
-          latitude: top,
-          longitude: right
-        },
-        {
-          latitude: bottom,
-          longitude: left
-        },
-        {
-          latitude: bottom,
-          longitude: right
-        }
-      ];
-    }
-
-    return points;
-  };
 
   /**
    * Fetch curves for a location based on hazard edition and region.
@@ -197,7 +107,7 @@ var UHTHazardCurveFactory = function (options) {
    * @return {Promise}
    */
   _this.getHazardCurves = function (options) {
-    var hazardEdition,
+    let hazardEdition,
         hazardRegion,
         points,
         requests;
@@ -206,7 +116,7 @@ var UHTHazardCurveFactory = function (options) {
     hazardRegion = options.hazardRegion;
 
     // get grid points to request
-    points = _this.getGridPoints({
+    points = _this.numberUtils.getGridPoints({
       gridSpacing: options.gridSpacing,
       latitude: options.latitude,
       longitude: options.longitude
@@ -214,7 +124,7 @@ var UHTHazardCurveFactory = function (options) {
 
     // build and start requests
     requests = points.map(function (point) {
-      var url;
+      let url;
 
       url = _this.getHazardCurveUrl({
         hazardEdition: hazardEdition,
@@ -231,7 +141,7 @@ var UHTHazardCurveFactory = function (options) {
     return Promise.all(requests).then((responses) => {
       return responses.map(_this.parseHazardCurves);
     }).then((parsed) => {
-      var curves;
+      let curves;
 
       // Build an object of curve arrays indexed by spectral period.
       // Each curve array is ordered top-left to bottom-right, typewriter style
@@ -262,7 +172,7 @@ var UHTHazardCurveFactory = function (options) {
    *     URL for hazard curve request.
    */
   _this.getHazardCurveUrl = function (options) {
-    var hazardUrl;
+    let hazardUrl;
 
     hazardUrl = _this.url;
     hazardUrl = hazardUrl.replace('{edition}',
@@ -290,7 +200,7 @@ var UHTHazardCurveFactory = function (options) {
    */
   _this.makeRequest = function (options) {
     return new Promise((resolve, reject) => {
-      var client,
+      let client,
           hostname,
           params,
           path,
@@ -318,7 +228,7 @@ var UHTHazardCurveFactory = function (options) {
 
 
       request = client.request(options, (response) => {
-        var buffer;
+        let buffer;
 
         buffer = [];
 
@@ -359,10 +269,10 @@ var UHTHazardCurveFactory = function (options) {
    *   data {Array<Array<x, y>>}
    */
   _this.parseHazardCurves = function (uhtResponse) {
-    var curves;
+    let curves;
 
     curves = uhtResponse.response.map((response) => {
-      var curve,
+      let curve,
           metadata,
           yvals;
 
