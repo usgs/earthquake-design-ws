@@ -2,14 +2,14 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     express = require('express'),
     sinon = require('sinon'),
     UHTHazardCurveFactory = require('../src/lib/uht-hazard-curve-factory');
 
 
 describe('UHTHazardCurveFactory', () => {
-  var factory;
+  let factory;
 
   beforeEach(() => {
     factory = UHTHazardCurveFactory();
@@ -31,7 +31,7 @@ describe('UHTHazardCurveFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = UHTHazardCurveFactory();
         factory.destroy();
@@ -40,7 +40,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('getDesignCurves', () => {
-    var factory,
+    let factory,
         metadata;
 
     beforeEach(function () {
@@ -91,7 +91,7 @@ describe('UHTHazardCurveFactory', () => {
 
   describe('getHazardCurves', () => {
     it('does stuff', (done) => {
-      var options;
+      let options;
 
       // fake options for testing
       options = {
@@ -154,7 +154,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('getHazardCurveUrl', () => {
-    var replacements;
+    let replacements;
 
     replacements = {
       hazardEdition: 'hazardEdition',
@@ -197,7 +197,7 @@ describe('UHTHazardCurveFactory', () => {
   });
 
   describe('makeRequest', () => {
-    var testApp,
+    let testApp,
         testPort,
         testServer;
 
@@ -214,7 +214,7 @@ describe('UHTHazardCurveFactory', () => {
     });
 
     it('returns the expected response', (done) => {
-      var factory,
+      let factory,
           result;
 
       factory = UHTHazardCurveFactory();
@@ -235,7 +235,7 @@ describe('UHTHazardCurveFactory', () => {
 
   describe('parseHazardCurves', () => {
     it('parses', () => {
-      var uhtResponse,
+      let uhtResponse,
           parsed;
 
       uhtResponse = require('../etc/hazws-staticcurve-response.json');

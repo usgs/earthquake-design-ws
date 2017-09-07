@@ -2,17 +2,15 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     NumberUtils = require('../../src/lib/util/number-utils'),
     sinon = require('sinon');
 
 
-var EPSILON;
-
-EPSILON = 1E-10;
+const EPSILON = 1E-10;
 
 describe('util/number-utils', () => {
-  var util;
+  let util;
 
   after(() => {
     util.destroy();
@@ -33,10 +31,10 @@ describe('util/number-utils', () => {
     });
 
     it('can be destroyed', () => {
-      var destroyTest;
+      let destroyTest;
 
       destroyTest = function () {
-        var localUtil;
+        let localUtil;
 
         localUtil = NumberUtils();
         localUtil.destroy();
@@ -48,7 +46,7 @@ describe('util/number-utils', () => {
 
   describe('closeTo', () => {
     it('returns true when values are close', () => {
-      var epsilon;
+      let epsilon;
 
       // Using default epsilon
       epsilon = util.epsilon;
@@ -62,7 +60,7 @@ describe('util/number-utils', () => {
     });
 
     it('returns false when values are not close', () => {
-      var epsilon;
+      let epsilon;
 
       // Using default epsilon
       epsilon = util.epsilon;
@@ -82,7 +80,7 @@ describe('util/number-utils', () => {
     // (top to bottom, left to right)
 
     it('returns one point when on grid', () => {
-      var points;
+      let points;
 
       points = util.getGridPoints({
         gridSpacing: 0.05,
@@ -100,7 +98,7 @@ describe('util/number-utils', () => {
     });
 
     it('returns two points when on vertical line between grid', () => {
-      var points;
+      let points;
 
       points = util.getGridPoints({
         gridSpacing: 0.05,
@@ -122,7 +120,7 @@ describe('util/number-utils', () => {
     });
 
     it('returns two points when on horizontal line between grid', () => {
-      var points;
+      let points;
 
       points = util.getGridPoints({
         gridSpacing: 0.02,
@@ -144,7 +142,7 @@ describe('util/number-utils', () => {
     });
 
     it('returns four points when off grid', () => {
-      var points;
+      let points;
 
       points = util.getGridPoints({
         gridSpacing: 0.1,
@@ -186,7 +184,7 @@ describe('util/number-utils', () => {
     });
 
     it('throws error for y-value = 0, using log-space interpolation', () => {
-      var throwError;
+      let throwError;
 
       throwError = () => {
         util.interpolateValue(0, 0, 1, 1, 0.5, util.INTERPOLATE_LOGX_LOGY_LINEAR);
@@ -198,7 +196,7 @@ describe('util/number-utils', () => {
 
   describe('interpolateObject', () => {
     it('calls interpolate method proper number of times', () => {
-      var obj0,
+      let obj0,
           obj1,
           result;
 
@@ -238,7 +236,7 @@ describe('util/number-utils', () => {
 
   describe('roundSpectrum', () => {
     it('calls roundOutput the proper number of times', () => {
-      var spectrum;
+      let spectrum;
 
       spectrum = [
         [0, 0],
@@ -258,7 +256,7 @@ describe('util/number-utils', () => {
 
   describe('spatialInterpolate', () => {
     it('1-point no match', () => {
-      var points;
+      let points;
 
       points = [];
       points.push({
@@ -271,7 +269,7 @@ describe('util/number-utils', () => {
     });
 
     it('1-point match', () => {
-      var points;
+      let points;
 
       points = [];
       points.push({
@@ -284,7 +282,7 @@ describe('util/number-utils', () => {
     });
 
     it('2-point no match', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -311,7 +309,7 @@ describe('util/number-utils', () => {
     });
 
     it('2-point match latitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -335,7 +333,7 @@ describe('util/number-utils', () => {
     });
 
     it('2-point match longitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -359,7 +357,7 @@ describe('util/number-utils', () => {
     });
 
     it('4-point no match top latitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -391,7 +389,7 @@ describe('util/number-utils', () => {
     });
 
     it('4-point no match bottom latitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -423,7 +421,7 @@ describe('util/number-utils', () => {
     });
 
     it('4-point no match left longitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -455,7 +453,7 @@ describe('util/number-utils', () => {
     });
 
     it('4-point no match left longitude', () => {
-      var points;
+      let points;
 
       points = [];
 
@@ -487,7 +485,7 @@ describe('util/number-utils', () => {
     });
 
     it('4-point match all', () => {
-      var points;
+      let points;
 
       points = [];
 

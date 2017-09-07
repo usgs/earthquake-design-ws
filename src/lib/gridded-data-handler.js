@@ -1,14 +1,12 @@
 'use strict';
 
 
-var GriddedDataFactory = require('./gridded-data-factory'),
+const GriddedDataFactory = require('./gridded-data-factory'),
     extend = require('extend'),
     Pool = require('./db/pool');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   DB_DATABASE: 'postgres',
   DB_HOST: 'localhost',
   DB_PASSWORD: null,
@@ -18,8 +16,8 @@ _DEFAULTS = {
 };
 
 
-var GriddedDataHandler = function (options) {
-  var _this,
+const GriddedDataHandler = function (options) {
+  let _this,
       _initialize;
 
 
@@ -40,7 +38,7 @@ var GriddedDataHandler = function (options) {
 
 
   _this.checkParams = function (params) {
-    var buf,
+    let buf,
         err,
         latitude,
         longitude,
@@ -105,7 +103,7 @@ var GriddedDataHandler = function (options) {
   };
 
   _this.formatData = function (result) {
-    var data;
+    let data;
 
     // make a copy so we don't muck up the original
     data = JSON.parse(JSON.stringify(result.data));

@@ -1,27 +1,22 @@
 'use strict';
 
 
-var extend = require('extend');
+const extend = require('extend');
 
 
-var _DEFAULTS,
-    _INTERPOLATE_LINEARX_LINEARY_LINEAR,
-    _INTERPOLATE_LINEARX_LOGY_LINEAR,
-    _INTERPOLATE_LOGX_LOGY_LINEAR;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   epsilon: 1E-10,
   roundPrecision: 3
 };
 
 // x-space_y-space_method
-_INTERPOLATE_LINEARX_LINEARY_LINEAR = 'linearlinearlinear';
-_INTERPOLATE_LINEARX_LOGY_LINEAR = 'linearloglinear';
-_INTERPOLATE_LOGX_LOGY_LINEAR = 'logloglinear';
+const _INTERPOLATE_LINEARX_LINEARY_LINEAR = 'linearlinearlinear';
+const _INTERPOLATE_LINEARX_LOGY_LINEAR = 'linearloglinear';
+const _INTERPOLATE_LOGX_LOGY_LINEAR = 'logloglinear';
 
 
-var NumberUtils = function (options) {
-  var _this,
+const NumberUtils = function (options) {
+  let _this,
       _initialize;
 
 
@@ -93,7 +88,7 @@ var NumberUtils = function (options) {
    *.    1, 2, or 4 points surrounding input location.
    */
   _this.getGridPoints = function (options) {
-    var bottom,
+    let bottom,
         gridSpacing,
         latitude,
         left,
@@ -208,7 +203,7 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolate = function (x0, y0, x1, y1, x, method) {
-    var value;
+    let value;
 
     if (typeof method === 'undefined') {
       method = _INTERPOLATE_LINEARX_LINEARY_LINEAR;
@@ -274,7 +269,7 @@ var NumberUtils = function (options) {
    * @see NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR
    */
   _this.interpolateObject = function (x0, obj0, x1, obj1, x, method) {
-    var key,
+    let key,
         result;
 
     result = {};
@@ -311,7 +306,7 @@ var NumberUtils = function (options) {
    *     If value is null returns null.
    */
   _this.round = function (value, precision) {
-    var factor,
+    let factor,
         rounded;
 
     if (value === null) {
@@ -394,7 +389,7 @@ var NumberUtils = function (options) {
    *     `longitude` coordinate.
    */
   _this.spatialInterpolate = function (points, latitude, longitude, method) {
-    var bot,
+    let bot,
         botLat,
         leftLng,
         rightLng,

@@ -1,7 +1,7 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     http = require('http'),
     https = require('https'),
     DesignHazardMetadata = require('./util/design-hazard-metadata'),
@@ -10,9 +10,7 @@ var extend = require('extend'),
     url = require('url');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   metadata: null,
   url: 'https://earthquake.usgs.gov/hazws/staticcurve/1/{edition}/{region}/{longitude}/{latitude}/{imt}/{vs30}'
 };
@@ -25,8 +23,8 @@ _DEFAULTS = {
  * @param options.url {String}
  *    UHT URL.
  */
-var UHTHazardCurveFactory = function (options) {
-  var _this,
+const UHTHazardCurveFactory = function (options) {
+  let _this,
       _initialize;
 
   _this = {};
@@ -109,7 +107,7 @@ var UHTHazardCurveFactory = function (options) {
    * @return {Promise}
    */
   _this.getHazardCurves = function (options) {
-    var hazardEdition,
+    let hazardEdition,
         hazardRegion,
         points,
         requests;
@@ -126,7 +124,7 @@ var UHTHazardCurveFactory = function (options) {
 
     // build and start requests
     requests = points.map(function (point) {
-      var url;
+      let url;
 
       url = _this.getHazardCurveUrl({
         hazardEdition: hazardEdition,
@@ -143,7 +141,7 @@ var UHTHazardCurveFactory = function (options) {
     return Promise.all(requests).then((responses) => {
       return responses.map(_this.parseHazardCurves);
     }).then((parsed) => {
-      var curves;
+      let curves;
 
       // Build an object of curve arrays indexed by spectral period.
       // Each curve array is ordered top-left to bottom-right, typewriter style
@@ -174,7 +172,7 @@ var UHTHazardCurveFactory = function (options) {
    *     URL for hazard curve request.
    */
   _this.getHazardCurveUrl = function (options) {
-    var hazardUrl;
+    let hazardUrl;
 
     hazardUrl = _this.url;
     hazardUrl = hazardUrl.replace('{edition}',
@@ -202,7 +200,7 @@ var UHTHazardCurveFactory = function (options) {
    */
   _this.makeRequest = function (options) {
     return new Promise((resolve, reject) => {
-      var client,
+      let client,
           hostname,
           params,
           path,
@@ -230,7 +228,7 @@ var UHTHazardCurveFactory = function (options) {
 
 
       request = client.request(options, (response) => {
-        var buffer;
+        let buffer;
 
         buffer = [];
 
@@ -271,10 +269,10 @@ var UHTHazardCurveFactory = function (options) {
    *   data {Array<Array<x, y>>}
    */
   _this.parseHazardCurves = function (uhtResponse) {
-    var curves;
+    let curves;
 
     curves = uhtResponse.response.map((response) => {
-      var curve,
+      let curve,
           metadata,
           yvals;
 
