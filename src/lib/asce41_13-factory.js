@@ -232,8 +232,6 @@ const ASCE41_13Factory = function (options) {
     return _this.metadataFactory.getMetadata(inputs);
   };
 
-  _this.tSubLData = {};
-
   /**
    * Frees resources associated with this factory.
    *
@@ -264,15 +262,23 @@ const ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.get = function (inputs) {
-    inputs = inputs || {};
+    let tSubL;
 
+    inputs = inputs || {};
     return _this.tsublService.getData(inputs).then((result) => {
-      _this.tSubLData = result.response.data;
+      tSubL = {
+        hazardLevel: 'T-Sub-L Data',
+        't-sub-l': result.response.data['t-sub-l']
+      };
+
       if (inputs.hasOwnProperty('customProbability')) {
         return _this.getCustomProbabilityDesignData(inputs);
       } else {
         return _this.getStandardDesignData(inputs);
       }
+    }).then((designData) => {
+      designData.data.push(tSubL);
+      return designData;
     });
   };
 
@@ -384,7 +390,6 @@ const ASCE41_13Factory = function (options) {
         bse2e,
         bse1n,
         bse2n,
-        tsubl,
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
@@ -407,16 +412,13 @@ const ASCE41_13Factory = function (options) {
     }).then((results) => {
       bse1e = results[0];
       bse2e = results[1];
-      tsubl = { 'hazardLevel': 'T-Sub-L Data' };
-      tsubl['t-sub-l'] = _this.tSubLData['t-sub-l'];
     }).then(() => {
       return {
         data: [
           bse2n,
           bse1n,
           bse2e,
-          bse1e,
-          tsubl
+          bse1e
         ],
         metadata: metadata
       };

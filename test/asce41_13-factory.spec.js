@@ -37,9 +37,9 @@ describe('asce41_13-factory', () => {
       factory = ASCE41_13Factory(_DUMMY_FACTORY);
 
       sinon.stub(factory, 'getCustomProbabilityDesignData').callsFake(
-          () => { Promise.resolve({}); });
+          () => { return Promise.resolve({data: []}); });
       sinon.stub(factory, 'getStandardDesignData').callsFake(
-          () => { Promise.resolve({}); });
+          () => { return Promise.resolve({data: []}); });
 
       Promise.all([
         factory.get({customProbability: 0.1}),
