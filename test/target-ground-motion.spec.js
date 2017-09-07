@@ -1,19 +1,15 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     sinon = require('sinon'),
     TargetGroundMotion = require('../src/lib/target-ground-motion');
 
 describe('target-ground-motion', () => {
-  var afe,
-      curve,
-      highAfe,
-      lowAfe,
-      targetGroundMotion;
+  let targetGroundMotion;
 
-  afe = 0.09;
-  curve = [
+  const afe = 0.09;
+  const curve = [
     [1, 0.999],
     [2, 0.450],
     [3, 0.100],
@@ -25,8 +21,8 @@ describe('target-ground-motion', () => {
     [9, 0.001],
   ];
 
-  highAfe = 11;
-  lowAfe = -1;
+  const highAfe = 1;
+  const lowAfe = 0;
 
 
   beforeEach(() => {
@@ -48,7 +44,7 @@ describe('target-ground-motion', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var targetGroundMotion;
+        let targetGroundMotion;
 
         targetGroundMotion = TargetGroundMotion();
         targetGroundMotion.destroy();
@@ -58,7 +54,7 @@ describe('target-ground-motion', () => {
 
   describe('findBounds', () => {
     it('finds correct bounds', () => {
-      var points;
+      let points;
 
       points = [[3, 0.100], [4, 0.075]];
 
@@ -78,7 +74,7 @@ describe('target-ground-motion', () => {
   });
 
   describe('getFrequencyForProbability', () => {
-    var probability,
+    let probability,
         years;
 
     probability = .20;

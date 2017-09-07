@@ -1,13 +1,11 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   outputDecimals: 3,         // Number of decimals to include in output
   referenceDocument: 'ASCE7' // Junk default
 };
@@ -23,8 +21,8 @@ _DEFAULTS = {
  *     Configuration options used to instantiate this factory. See
  *     #_initialize for details.
  */
-var ASCE7Factory = function (options) {
-  var _this,
+const ASCE7Factory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -89,7 +87,7 @@ var ASCE7Factory = function (options) {
   _this.computeBasicDesign = function (data) {
     // return Promise.resolve({});
     return new Promise((resolve, reject) => {
-      var basicDesign,
+      let basicDesign,
           deterministic,
           metadata,
           probabilistic,
@@ -179,7 +177,7 @@ var ASCE7Factory = function (options) {
    */
   _this.computeDeterministic = function (medianGroundMotion, percentileFactor,
       maxDirectionFactor, floor) {
-    var deterministic;
+    let deterministic;
 
     deterministic = medianGroundMotion * percentileFactor * maxDirectionFactor;
 
@@ -203,7 +201,7 @@ var ASCE7Factory = function (options) {
    */
   _this.computeFinalDesign = function (data) {
     return new Promise((resolve, reject) => {
-      var basicDesign,
+      let basicDesign,
           finalDesign,
           siteAmplification;
 
@@ -294,7 +292,7 @@ var ASCE7Factory = function (options) {
    *     specified spectrum.
    */
   _this.computeSpectra = function (params) {
-    var sd1,
+    let sd1,
         sds,
         sm1,
         sms;
@@ -363,7 +361,7 @@ var ASCE7Factory = function (options) {
 
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
-      var basicDesign,
+      let basicDesign,
           designCategory,
           finalDesign,
           riskCoefficients,
@@ -444,7 +442,7 @@ var ASCE7Factory = function (options) {
   };
 
   _this.get = function (inputs) {
-    var result;
+    let result;
 
     inputs = inputs || {};
     inputs.referenceDocument = _this.referenceDocument;

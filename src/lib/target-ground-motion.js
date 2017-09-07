@@ -1,19 +1,17 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   numberUtils: NumberUtils.instance
 };
 
 
-var TargetGroundMotion = function (options) {
-  var _this,
+const TargetGroundMotion = function (options) {
+  let _this,
       _initialize;
 
 
@@ -48,7 +46,7 @@ var TargetGroundMotion = function (options) {
    *    Annual frequency of exceedance
    */
   _this.findBounds = function (curve, afe) {
-    var bounds,
+    let bounds,
         found,
         i,
         len,
@@ -105,7 +103,7 @@ var TargetGroundMotion = function (options) {
    *    Custom probability
    */
   _this.getTargetedGroundMotion = function (curve, probability, method) {
-    var afe,
+    let afe,
         bounds,
         result;
 
