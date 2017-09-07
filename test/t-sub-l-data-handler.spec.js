@@ -30,6 +30,7 @@ _RESULT = {
   'data': {
     'id': 0,
     'region_id': 0,
+
     'latitude': 0,
     'longitude': 0,
     'value': 1
@@ -37,19 +38,14 @@ _RESULT = {
   'metadata': {
     'region': {
       'id': 0,
-      'grid_spacing': 0.1,
-      'max_latitude': 1,
-      'max_longitude': 1,
-      'min_latitude': -1,
-      'min_longitude': -1,
+
       'name': 'EXAMPLE_REGION'
     },
     'document': {
       'id': 0,
+
       'region_id': 0,
-      'model_version': 'vMAJOR.MINOR.BUGFIX',
-      'name': 'EXAMPLE_DOCUMENT',
-      'spatial_interpolation_method': '',
+      'name': 'EXAMPLE_DOCUMENT'
     }
   }
 };
@@ -142,10 +138,7 @@ describe('t-sub-l-data-handler', () => {
         metadata = result.metadata;
 
         expect(data.hasOwnProperty('value')).to.be.true;
-        expect(metadata.hasOwnProperty('model_version')).to.be.true;
-        expect(metadata.hasOwnProperty('region_name')).to.be.true;
-        //expect(metadata.hasOwnProperty('spatial_interpolation_method'))
-        //    .to.be.true;
+        expect(metadata.hasOwnProperty('regionName')).to.be.true;
       }).catch((err) => {
         return err;
       }).then(done);

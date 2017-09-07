@@ -83,7 +83,7 @@ describe('util/number-utils', () => {
 
     it('is correct when method is log-space', () => {
       expect(util.interpolate(Math.exp(0), Math.exp(0),
-          Math.exp(1), Math.exp(1), Math.exp(0.5), util.INTERPOLATE_USING_LOG))
+          Math.exp(1), Math.exp(1), Math.exp(0.5), util.INTERPOLATE_LOGX_LOGY_LINEAR))
           .to.be.closeTo(Math.exp(0.5), EPSILON);
     });
 
@@ -91,7 +91,7 @@ describe('util/number-utils', () => {
       var throwError;
 
       throwError = () => {
-        util.interpolateValue(0, 0, 1, 1, 0.5, util.INTERPOLATE_USING_LOG);
+        util.interpolateValue(0, 0, 1, 1, 0.5, util.INTERPOLATE_LOGX_LOGY_LINEAR);
       };
 
       expect(throwError).to.throw(Error);

@@ -2,6 +2,7 @@
 
 
 var extend = require('extend'),
+    MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance;
 
 
@@ -114,9 +115,15 @@ var GriddedDataFactory = function (options) {
     options = extend({}, _DEFAULTS, options);
 
     _this.db = options.db;
+    _this.metadataFactory = options.metadataFactory;
     _this.queryData = options.queryData;
     _this.queryDocument = options.queryDocument;
     _this.queryRegion = options.queryRegion;
+
+    if (!_this.metadataFactory) {
+      _this.destroyMetadataFactory = true;
+      _this.metadataFactory = MetadataFactory();
+    }
   };
 
 
@@ -127,6 +134,11 @@ var GriddedDataFactory = function (options) {
   _this.destroy = function () {
     if (_this === null) {
       return;
+    }
+
+    if (_this.destroyMetadataFactory) {
+      delete _this.destroyMetadataFactory;
+      _this.metadataFactory.destroy();
     }
 
     _initialize = null;
@@ -243,15 +255,22 @@ var GriddedDataFactory = function (options) {
    *     A promise that resolves with metadata or rejects if an error occurs.
    */
   _this.getMetadata = function (inputs) {
-    var region;
+    let metadata,
+        region;
 
-    return _this.getRegion(inputs).then((result) => {
-      region = result;
+    return Promise.all([
+      _this.getRegion(inputs),
+      _this.metadataFactory.getMetadata(inputs)
+    ]).then((promiseResults) => {
+      region = promiseResults[0];
+      metadata = promiseResults[1];
+
       return _this.getDocument(inputs, region);
-    }).then((result) => {
+    }).then((promiseResult) => {
       return {
+        document: promiseResult,
+        metadata: metadata,
         region: region,
-        document: result
       };
     });
   };
@@ -298,7 +317,7 @@ var GriddedDataFactory = function (options) {
    *     inputs.latitude {Number}
    *     inputs.longitude {Number}
    * @param metadata {Object}
-   *     metadata.document.spatial_interpolation_method {String}
+   *     metadata.metadata.spatialInterpolationMethod {String}
    *
    * @see util/NumberUtils#spatialInterpolate
    *
@@ -306,16 +325,8 @@ var GriddedDataFactory = function (options) {
    *     An object containing spatially interpolated results
    */
   _this.interpolate = function (rows, inputs, metadata) {
-    var method;
-
-    if (metadata.document.spatial_interpolation_method === 'log') {
-      method = NumberUtils.INTERPOLATE_USING_LOG;
-    } else {
-      method = NumberUtils.INTERPOLATE_USING_LINEAR;
-    }
-
     return NumberUtils.spatialInterpolate(rows, inputs.latitude,
-        inputs.longitude, method);
+        inputs.longitude, metadata.metadata.spatialInterpolationMethod);
   };
 
 

@@ -135,8 +135,8 @@ describe('MetadataFactory', () => {
     // returns correct region
     it('returns ASCE41-13 metadata', (done) => {
       factory.getData('ASCE41-13', 'COUS').then((results) => {
-        expect(results.curve_interpolation_method).to.equal(
-            NumberUtils.INTERPOLATE_USING_LOG);
+        expect(results.curveInterpolationMethod).to.equal(
+            NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR);
       }).catch((err) => {
         return err;
       }).then((err) => {

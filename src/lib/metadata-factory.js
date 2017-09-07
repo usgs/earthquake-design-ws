@@ -18,14 +18,16 @@ _METADATA = {
         'PRVI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
+        'model_veresion': 'v3.1.x',
         'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
-        's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.1,
-        'ssdPercentileFactor': 1.8,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     },
     {
@@ -33,17 +35,20 @@ _METADATA = {
         'HI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
+        'model_veresion': 'v3.1.x',
         'pgadFloor': 0.5,
-        's1MaxDirFactor': 1,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.0,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
-        'ssMaxDirFactor': 1,
-        'ssdPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     }
   ],
+
   'ASCE41-13': [
     {
       'regions': [
@@ -52,52 +57,15 @@ _METADATA = {
         'PRVI'
       ],
       'data': {
-        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LOG,
-        'floor_s1d': 0.6,
-        'floor_ssd': 1.5,
-        'max_direction_s1': 1.3,
-        'max_direction_ss': 1.1,
-        'model_version': 'v3.1.x',
-        'percentile_s1d': 1.8,
-        'percentile_ssd': 1.8,
-        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-      }
-    },
-    {
-      'regions': [
-        'HI'
-      ],
-      'data': {
-        'curve_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-        'floor_s1d': 0.6,
-        'floor_ssd': 1.5,
-        'max_direction_s1': 1.0,
-        'max_direction_ss': 1.0,
-        'model_version': 'v3.1.x',
-        'percentile_s1d': 1.8,
-        'percentile_ssd': 1.8,
-        'spatial_interpolation_method': NumberUtils.INTERPOLATE_USING_LINEAR,
-      }
-    }
-  ],
-  'ASCE7-16': [
-    {
-      'regions': [
-        'AK',
-        'AMSAM',
-        'COUS',
-        'GNMI',
-        'PRVI'
-      ],
-      'data': {
-        'pgadPercentileFactor': 1.8,
-        'pgadFloor': 0.5,
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
+        'modelVersion': 'v3.1.x',
         's1MaxDirFactor': 1.3,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.1,
-        'ssdPercentileFactor': 1.8,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     },
     {
@@ -105,14 +73,75 @@ _METADATA = {
         'HI'
       ],
       'data': {
-        'pgadPercentileFactor': 1.8,
-        'pgadFloor': 0.5,
-        's1MaxDirFactor': 1,
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'modelVersion': 'v3.1.x',
+        's1MaxDirFactor': 1.0,
         's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
-        'ssMaxDirFactor': 1,
-        'ssdPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    }
+  ],
+
+  'ASCE7-16': [
+    // LogY interpolation, standard factors
+    {
+      'regions': [
+        'AMSAM',
+        'COUS',
+        'GNMI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.3,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR,
+        'ssMaxDirFactor': 1.1,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    },
+    // LinearY interpolation, standard factors
+    {
+      'regions': [
+        'AK',
+        'PRVI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.3,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.1,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    },
+    // LinearY interpolation, custom factors
+    {
+      'regions': [
+        'HI'
+      ],
+      'data': {
+        'modelVersion': 'v4.0.x',
+        'pgadFloor': 0.5,
+        'pgadPercentileFactor': 1.8,
+        's1MaxDirFactor': 1.0,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLTE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
       }
     }
   ]
@@ -121,51 +150,45 @@ _METADATA = {
 _REGIONS = [
   {
     'name': 'AK',
-    'grid_spacing':    0.05,
     'max_latitude':    72.0,
     'max_longitude': -125.1,
     'min_latitude':    48.0,
-    'min_longitude': -200.0,
+    'min_longitude': -200.0
   },
   {
     'name': 'AMSAM',
-    'grid_spacing':   0.1,
-    'max_latitude':   -11,
-    'max_longitude': -165,
-    'min_latitude':   -33,
-    'min_longitude': -195,
+    'max_latitude':   -11.0,
+    'max_longitude': -165.0,
+    'min_latitude':   -33.0,
+    'min_longitude': -195.0
   },
   {
     'name': 'COUS',
-    'grid_spacing':    0.01,
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
-    'min_longitude': -125.0,
+    'min_longitude': -125.0
   },
   {
     'name': 'GNMI',
-    'grid_spacing':  0.1,
-    'max_latitude':   23,
-    'max_longitude': 151,
-    'min_latitude':    9,
-    'min_longitude': 139,
+    'max_latitude':   23.0,
+    'max_longitude': 151.0,
+    'min_latitude':    9.0,
+    'min_longitude': 139.0
   },
   {
     'name': 'HI',
-    'grid_spacing':    0.02,
     'max_latitude':    23.0,
     'max_longitude': -154.0,
     'min_latitude':    18.0,
-    'min_longitude': -161.0,
+    'min_longitude': -161.0
   },
   {
     'name': 'PRVI',
-    'grid_spacing':   0.01,
     'max_latitude':   19.0,
     'max_longitude': -64.5,
     'min_latitude':   17.5,
-    'min_longitude': -67.5,
+    'min_longitude': -67.5
   }
 ];
 
