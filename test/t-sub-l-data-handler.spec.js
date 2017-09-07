@@ -139,8 +139,6 @@ describe('t-sub-l-data-handler', () => {
 
         expect(data.hasOwnProperty('value')).to.be.true;
         expect(metadata.hasOwnProperty('regionName')).to.be.true;
-        //expect(metadata.hasOwnProperty('spatial_interpolation_method'))
-        //    .to.be.true;
       }).catch((err) => {
         return err;
       }).then(done);

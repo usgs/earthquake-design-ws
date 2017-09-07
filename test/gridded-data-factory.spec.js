@@ -86,12 +86,14 @@ describe('gridded-data-factory', () => {
 
       metadata = {
         document: {
-          spatial_interpolation_method: 'linear',
           region_id: 1
         },
         region: {
           grid_spacing: 1,
           id: 1
+        },
+        metadata: {
+          spatialInterpolationMethod: 'linear'
         }
       };
 
