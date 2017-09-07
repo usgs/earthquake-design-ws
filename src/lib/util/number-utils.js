@@ -132,8 +132,8 @@ var NumberUtils = function (options) {
     }
 
     if (method === _INTERPOLATE_LOGX_LOGY_LINEAR) {
-      if (y0 <= 0 || y1 <= 0 || x0 <= 0 || x1 <= 0 || x <= 0) {
-        throw new Error('Can not use logxlogy interpolation for values <= 0.');
+      if (y0 === 0 || y1 === 0 || x0 === 0 || x1 === 0 || x === 0) {
+        throw new Error('Can not use logxlogy interpolation for values === 0.');
       } else {
         x = Math.log(x);
         x0 = Math.log(x0);
@@ -144,8 +144,8 @@ var NumberUtils = function (options) {
         value = Math.exp(y0 + (((y1-y0)/(x1-x0))*(x-x0)));
       }
     } else if (method === _INTERPOLATE_LINEARX_LOGY_LINEAR) {
-      if (y0 <= 0 || y1 <= 0) {
-        throw new Error('Can not use logy interpolation for values <= 0.');
+      if (y0 === 0 || y1 === 0) {
+        throw new Error('Can not use logy interpolation for values === 0.');
       } else {
         y0 = Math.log(y0);
         y1 = Math.log(y1);
