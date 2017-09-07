@@ -126,7 +126,8 @@ var GriddedDataHandler = function (options) {
       spatialInterpolationMethod:
           result.metadata.metadata.spatialInterpolationMethod,
       modelVersion: result.metadata.metadata.modelVersion,
-      regionName: result.metadata.region.name
+      regionName: result.metadata.region.name,
+      gridSpacing: result.metadata.region.grid_spacing
     };
   };
 

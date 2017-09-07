@@ -110,8 +110,9 @@ var ASCE7Factory = function (options) {
         // Compute Ss
         basicDesign.ssuh = _this.computeUniformHazard(probabilistic.ss,
             metadata.ssMaxDirFactor);
+        basicDesign.crs = riskCoefficients.crs;
         basicDesign.ssrt = _this.computeUniformRisk(basicDesign.ssuh,
-            riskCoefficients.crs);
+            basicDesign.crs);
         basicDesign.ssd = _this.computeDeterministic(deterministic.ssd,
             metadata.ssdPercentileFactor, metadata.ssMaxDirFactor,
             metadata.ssdFloor);
@@ -121,8 +122,9 @@ var ASCE7Factory = function (options) {
         // Compute S1
         basicDesign.s1uh = _this.computeUniformHazard(probabilistic.s1,
             metadata.s1MaxDirFactor);
+        basicDesign.cr1 = riskCoefficients.cr1;
         basicDesign.s1rt = _this.computeUniformRisk(basicDesign.s1uh,
-            riskCoefficients.cr1);
+            basicDesign.cr1);
         basicDesign.s1d = _this.computeDeterministic(deterministic.s1d,
             metadata.s1dPercentileFactor, metadata.s1MaxDirFactor,
             metadata.s1dFloor);
@@ -366,7 +368,6 @@ var ASCE7Factory = function (options) {
       var basicDesign,
           designCategory,
           finalDesign,
-          riskCoefficients,
           siteAmplification,
           spectra;
 
@@ -374,7 +375,6 @@ var ASCE7Factory = function (options) {
         basicDesign = result.basicDesign;
         designCategory = result.designCategory;
         finalDesign = result.finalDesign;
-        riskCoefficients = result.riskCoefficients.response.data;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
 
@@ -394,7 +394,7 @@ var ASCE7Factory = function (options) {
 
             ssrt: NumberUtils.round(basicDesign.ssrt,
                 _this.outputDecimals),
-            crs: NumberUtils.round(riskCoefficients.crs,
+            crs: NumberUtils.round(basicDesign.crs,
                 _this.outputDecimals),
             ssuh: NumberUtils.round(basicDesign.ssuh,
                 _this.outputDecimals),
@@ -410,7 +410,7 @@ var ASCE7Factory = function (options) {
 
             s1rt: NumberUtils.round(basicDesign.s1rt,
                 _this.outputDecimals),
-            cr1: NumberUtils.round(riskCoefficients.cr1,
+            cr1: NumberUtils.round(basicDesign.cr1,
                 _this.outputDecimals),
             s1uh: NumberUtils.round(basicDesign.s1uh,
                 _this.outputDecimals),
@@ -471,7 +471,6 @@ var ASCE7Factory = function (options) {
       result.probabilistic = promiseResults[1];
       result.deterministic = promiseResults[2];
       result.riskCoefficients = promiseResults[3];
-      process.stdout.write('TLResponse = ' + JSON.stringify(promiseResults[4], null, 2) + '\n');
       result.tSubL = promiseResults[4].response.data['t-sub-l'];
 
       return _this.computeBasicDesign(result);
