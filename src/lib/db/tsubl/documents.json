@@ -10,5 +10,12 @@
     "model_version": "v4.0.x",
     "regions": ["T-Sub-L"],
     "spatial_interpolation_method": ""
+  },
+  {
+    "name": "ASCE41-13",
+
+    "model_version": "v3.1.x",
+    "regions": [ "T-Sub-L" ],
+    "spatial_interpolation_method": ""
   }
 ]

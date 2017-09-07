@@ -1,19 +1,16 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
-
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   outputDecimals: 3
 };
 
 
-var ASCE41_13Factory = function (options) {
-  var _this,
+const ASCE41_13Factory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -31,6 +28,7 @@ var ASCE41_13Factory = function (options) {
     _this.probabilisticService = options.probabilisticService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.deterministicService = options.deterministicService;
+    _this.tsublService = options.tsublService;
 
     _this.metadataFactory = options.metadataFactory;
 
@@ -42,7 +40,7 @@ var ASCE41_13Factory = function (options) {
 
 
   _this.computeBse1E = function (inputs, metadata, bse2n) {
-    var customIn,
+    let customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -54,7 +52,7 @@ var ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.2}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      var custom;
+      let custom;
 
       custom = result.data[0];
 
@@ -84,7 +82,7 @@ var ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2E = function (inputs, metadata, bse2n) {
-    var customIn,
+    let customIn,
         fa,
         fv,
         horizontalSpectrum,
@@ -96,7 +94,7 @@ var ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.05}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      var custom;
+      let custom;
 
       custom = result.data[0];
 
@@ -147,7 +145,7 @@ var ASCE41_13Factory = function (options) {
   };
 
   _this.computeBse2N = function (inputs, metadata) {
-    var cr1,
+    let cr1,
         crs,
         deterministicData,
         fa,
@@ -234,6 +232,8 @@ var ASCE41_13Factory = function (options) {
     return _this.metadataFactory.getMetadata(inputs);
   };
 
+  _this.tSubLData = {};
+
   /**
    * Frees resources associated with this factory.
    *
@@ -266,11 +266,14 @@ var ASCE41_13Factory = function (options) {
   _this.get = function (inputs) {
     inputs = inputs || {};
 
-    if (inputs.hasOwnProperty('customProbability')) {
-      return _this.getCustomProbabilityDesignData(inputs);
-    } else {
-      return _this.getStandardDesignData(inputs);
-    }
+    return _this.tsublService.getData(inputs).then((result) => {
+      _this.tSubLData = result.response.data;
+      if (inputs.hasOwnProperty('customProbability')) {
+        return _this.getCustomProbabilityDesignData(inputs);
+      } else {
+        return _this.getStandardDesignData(inputs);
+      }
+    });
   };
 
   /**
@@ -285,7 +288,7 @@ var ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getCustomProbabilityDesignData = function (inputs) {
-    var fa,
+    let fa,
         fv,
         horizontalSpectrum,
         metadata,
@@ -300,12 +303,12 @@ var ASCE41_13Factory = function (options) {
       metadata = result;
       return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
     }).then((result) => {
-      var groundMotions;
+      let groundMotions;
 
       // Find target (mapped) ground motions for Ss and S1 from the curves and
       // the specified probability of exceedance
       groundMotions = result.SA0P2.map((ssCurve, index) => {
-        var s1Curve;
+        let s1Curve;
 
         s1Curve = result.SA1P0[index];
 
@@ -377,7 +380,7 @@ var ASCE41_13Factory = function (options) {
    *     an error if one should occur.
    */
   _this.getStandardDesignData = function (inputs) {
-    var bse1e,
+    let bse1e,
         bse2e,
         bse1n,
         bse2n,

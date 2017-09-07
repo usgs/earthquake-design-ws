@@ -6,21 +6,19 @@ var ASCE41_13Handler = require('../src/lib/asce41_13-handler'),
     sinon = require('sinon');
 
 
-var _FACTORY,
-    _RESULT;
-
-_RESULT = {
-  data: [],
+const _RESULT = {
+  data: [{'hazardLevel':'T-Sub-L Data','t-sub-l':0}],
   metadata: {}
 };
 
-_FACTORY = {
+const _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
   get: () => {
-    return Promise.resolve(_RESULT);
-  }
+    return Promise.resolve({data:[],metadata:{}});
+  },
+  tSubLData: { 't-sub-l': 0 }
 };
 
 

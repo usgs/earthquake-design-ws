@@ -1,16 +1,13 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     http = require('http'),
     https = require('https'),
     querystring = require('querystring'),
     url = require('url');
 
-
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   url: 'https://earthquake.usgs.gov/ws'
 };
 
@@ -19,7 +16,7 @@ _DEFAULTS = {
  * Generalized class for accessing external web services.
  *
  */
-var WebServiceAccessor = function (options) {
+const WebServiceAccessor = function (options) {
   var _this,
       _initialize;
 
@@ -145,6 +142,7 @@ var WebServiceAccessor = function (options) {
       client = (requestOptions.port === 443) ? https : http;
 
       request = client.request(requestOptions, (response) => {
+
         var buffer;
 
         buffer = [];

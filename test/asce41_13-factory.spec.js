@@ -1,11 +1,15 @@
 /* global describe, it */
 'use strict';
 
-
 var ASCE41_13Factory = require('../src/lib/asce41_13-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
+const _DUMMY_FACTORY = {
+  tsublService: {
+    getData: () => { return Promise.resolve({'response': { 'data': {}}}); }
+  }
+};
 
 describe('asce41_13-factory', () => {
   describe('constructor', () => {
@@ -30,7 +34,8 @@ describe('asce41_13-factory', () => {
     it('delegates to proper method', (done) => {
       var factory;
 
-      factory = ASCE41_13Factory();
+      factory = ASCE41_13Factory(_DUMMY_FACTORY);
+
       sinon.stub(factory, 'getCustomProbabilityDesignData').callsFake(
           () => { Promise.resolve({}); });
       sinon.stub(factory, 'getStandardDesignData').callsFake(
