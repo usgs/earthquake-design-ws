@@ -384,6 +384,7 @@ const ASCE41_13Factory = function (options) {
         bse2e,
         bse1n,
         bse2n,
+        tsubl,
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
@@ -406,13 +407,16 @@ const ASCE41_13Factory = function (options) {
     }).then((results) => {
       bse1e = results[0];
       bse2e = results[1];
+      tsubl = { 'hazardLevel': 'T-Sub-L Data' };
+      tsubl['t-sub-l'] = _this.tSubLData['t-sub-l'];
     }).then(() => {
       return {
         data: [
           bse2n,
           bse1n,
           bse2e,
-          bse1e
+          bse1e,
+          tsubl
         ],
         metadata: metadata
       };
