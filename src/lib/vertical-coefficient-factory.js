@@ -54,6 +54,19 @@ var VerticalCoefficientFactory = function (options) {
 
 
   /**
+   * Frees resources associated with this factory.
+   *
+   */
+  _this.destroy = function () {
+    if (_this === null) {
+      return;
+    }
+
+    _this = null;
+    _initialize = null;
+  };
+
+  /**
    * Computes the vertical coefficient value based on Ss value
    *
    * @param inputs {Object}
@@ -118,7 +131,7 @@ var VerticalCoefficientFactory = function (options) {
   };
 
   _initialize(options);
-  _this = null;
+  options = null;
   return _this;
 };
 
