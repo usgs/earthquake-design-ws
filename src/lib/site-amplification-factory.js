@@ -271,13 +271,13 @@ var SiteAmplificationFactory = function (options) {
    *     site-amplification values.
    * @param inputs.ss {Double} Optional
    *     The Ss value for which to compute Fa. If no `ss` value is present,
-   *     the result object will contain an `fa` value of `null`.
+   *     the result object will contain an `fa` value of `undefined`.
    * @param inputs.s1 {Double} Optional
    *     The S1 value for which to compute Fv. If no `s1` value is present,
-   *     the result object will contain an `fv` value of `null`.
+   *     the result object will contain an `fv` value of `undefined`.
    * @param inputs.pga {Double} Optional
    *     The PGA value for which to compute Fpga. If no `pga` value is present,
-   *     the result object will contain an `fpga` value of `null`.
+   *     the result object will contain an `fpga` value of `undefined`.
    *
    * @return {Promise}
    *     A promise that will resolve with an object containing
