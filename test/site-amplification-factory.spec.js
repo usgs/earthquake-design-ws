@@ -1,16 +1,10 @@
-/* global after, before, describe, it */
+/* global describe, it */
 'use strict';
 
 
 var expect = require('chai').expect,
-    NumberUtils = require('../src/lib/util/number-utils').instance,
-    sinon = require('sinon'),
     SiteAmplificationFactory = require('../src/lib/site-amplification-factory');
 
-
-var _EPSILON;
-
-_EPSILON = 1E-10;
 
 describe('SiteAmplificationFactory', () => {
   describe('constructor', () => {
@@ -29,53 +23,6 @@ describe('SiteAmplificationFactory', () => {
         factory = SiteAmplificationFactory();
         factory.destroy();
       }).to.not.throw(Error);
-    });
-  });
-
-  describe('getAmplificationFactor', () => {
-    var factory,
-        xvals,
-        yvals;
-
-    before(() => {
-      xvals = [0, 1, 2, 3, 4];
-      yvals = [0, 1, 2, 3, 4];
-
-      factory = SiteAmplificationFactory();
-    });
-
-    after(() => {
-      factory.destroy();
-    });
-
-
-    it('returns first value when below bounds', () => {
-      var result;
-
-      result = factory.getAmplificationFactor(xvals,  yvals, -1);
-
-      expect(result).to.equal(yvals[0]);
-    });
-
-    it('returns last value when above bounds', () => {
-      var result;
-
-      result = factory.getAmplificationFactor(xvals, yvals, 5);
-
-      expect(result).to.equal(yvals[yvals.length - 1]);
-    });
-
-    it('calls interpolate for intermediate values', () => {
-      var result;
-
-      sinon.spy(NumberUtils, 'interpolate');
-
-      result = factory.getAmplificationFactor(xvals, yvals, 2.5);
-
-      expect(NumberUtils.interpolate.callCount).to.equal(1);
-      expect(result).to.be.closeTo(2.5, _EPSILON);
-
-      NumberUtils.interpolate.restore();
     });
   });
 

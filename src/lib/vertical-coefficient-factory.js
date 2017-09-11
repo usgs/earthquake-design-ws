@@ -52,54 +52,6 @@ var VerticalCoefficientFactory = function (options) {
     _this.lookupTables = options.lookupTables;
   };
 
-  /**
-   * Computes a single vertical coefficient value for given inputs.
-   *
-   * @param xvals {Array}
-   *     An array containing the ground motion bins.
-   * @param yvals {Array}
-   *     An array containing vertical coefficient values corresponding to
-   *     the xvals.
-   * @param x {Double}
-   *     The target ground motion for which to produce a vertical coefficient
-   *     value.
-   *
-   * @return {Double}
-   *     The coefficient value.
-   */
-  _this.getCoefficientFactor = function (xvals, yvals, x) {
-    var i,
-        numVals,
-        xmax,
-        xmin,
-        ymax,
-        ymin;
-
-    numVals = xvals.length;
-
-    // check lower bound
-    if (x <= xvals[0]) {
-      return yvals[0];
-    }
-
-    // check upper bound
-    if (x >= xvals[numVals - 1]) {
-      return yvals[numVals - 1];
-    }
-
-    for (i = 1; i < numVals; i++) {
-      xmin = xvals[i - 1];
-      xmax = xvals[i];
-      ymin = yvals[i - 1];
-      ymax = yvals[i];
-
-      if (xmin <= x && x <= xmax) {
-        return NumberUtils.interpolate(xmin, ymin, xmax, ymax, x);
-      }
-    }
-
-    throw new Error('Could not interpolate coefficient factor.');
-  };
 
   /**
    * Computes the vertical coefficient value based on Ss value
@@ -153,7 +105,7 @@ var VerticalCoefficientFactory = function (options) {
         if (inputs.hasOwnProperty('ss')) {
           data = lookupTable.ss;
 
-          result.cv = _this.getCoefficientFactor(data.bins,
+          result.cv = NumberUtils.interpolateBinnedValue(data.bins,
               data.siteClasses[siteClass], inputs.ss);
         }
 
