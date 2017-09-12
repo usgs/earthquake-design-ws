@@ -33,7 +33,7 @@ _DUMMY_FACTORY = {
     getDesignCategory: () => { return Promise.resolve([]); }
   },
   spectraFactory: {
-    getSpectrum: () => { return Promise.resolve([]); }
+    getHorizontalSpectrum: () => { return Promise.resolve([]); }
   }
 };
 
@@ -265,14 +265,14 @@ describe('ASCE7Factory', () => {
       var factory;
 
       factory = ASCE7Factory(_DUMMY_FACTORY);
-      sinon.spy(factory.spectraFactory, 'getSpectrum');
+      sinon.spy(factory.spectraFactory, 'getHorizontalSpectrum');
 
       factory.computeSpectra().then((/*spectra*/) => {
-        expect(factory.spectraFactory.getSpectrum.callCount).to.equal(2);
+        expect(factory.spectraFactory.getHorizontalSpectrum.callCount).to.equal(2);
       }).catch((err) => {
         return err;
       }).then((err) => {
-        factory.spectraFactory.getSpectrum.restore();
+        factory.spectraFactory.getHorizontalSpectrum.restore();
         factory.destroy();
         factory = null;
         done(err);
