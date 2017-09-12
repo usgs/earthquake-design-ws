@@ -246,6 +246,54 @@ const NumberUtils = function (options) {
   };
 
   /**
+   * Interpolates a y-value such that y = f(x) for the discrete function f(x)
+   * with domain xvals and range yvals.
+   *
+   * @param xvals {Array}
+   *     An array containing the discrete domain.
+   * @param yvals {Array}
+   *     An array containing the discrete range.
+   * @param x {Double}
+   *     The target x-value
+   *
+   * @return {Double}
+   *     The interpolated y-value.
+   */
+  _this.interpolateBinnedValue = function (xvals, yvals, x) {
+    let i,
+        numVals,
+        xmax,
+        xmin,
+        ymax,
+        ymin;
+
+    numVals = xvals.length;
+
+    // check lower bound
+    if (x <= xvals[0]) {
+      return yvals[0];
+    }
+
+    // check upper bound
+    if (x >= xvals[numVals - 1]) {
+      return yvals[numVals - 1];
+    }
+
+    for (i = 1; i < numVals; i++) {
+      xmin = xvals[i - 1];
+      xmax = xvals[i];
+      ymin = yvals[i - 1];
+      ymax = yvals[i];
+
+      if (xmin <= x && x <= xmax) {
+        return _this.interpolate(xmin, ymin, xmax, ymax, x);
+      }
+    }
+
+    throw new Error('Could not interpolate y-value for discrete function.');
+  };
+
+  /**
    * Loops over each key in the object and interpolates to find the target
    * value for that key. Note that only keys common between `obj1` and `obj1`
    * will appear in the result.

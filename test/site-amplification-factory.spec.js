@@ -1,16 +1,10 @@
-/* global after, before, describe, it */
+/* global describe, it */
 'use strict';
 
 
-var expect = require('chai').expect,
-    NumberUtils = require('../src/lib/util/number-utils').instance,
-    sinon = require('sinon'),
+const expect = require('chai').expect,
     SiteAmplificationFactory = require('../src/lib/site-amplification-factory');
 
-
-var _EPSILON;
-
-_EPSILON = 1E-10;
 
 describe('SiteAmplificationFactory', () => {
   describe('constructor', () => {
@@ -24,7 +18,7 @@ describe('SiteAmplificationFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = SiteAmplificationFactory();
         factory.destroy();
@@ -32,56 +26,9 @@ describe('SiteAmplificationFactory', () => {
     });
   });
 
-  describe('getAmplificationFactor', () => {
-    var factory,
-        xvals,
-        yvals;
-
-    before(() => {
-      xvals = [0, 1, 2, 3, 4];
-      yvals = [0, 1, 2, 3, 4];
-
-      factory = SiteAmplificationFactory();
-    });
-
-    after(() => {
-      factory.destroy();
-    });
-
-
-    it('returns first value when below bounds', () => {
-      var result;
-
-      result = factory.getAmplificationFactor(xvals,  yvals, -1);
-
-      expect(result).to.equal(yvals[0]);
-    });
-
-    it('returns last value when above bounds', () => {
-      var result;
-
-      result = factory.getAmplificationFactor(xvals, yvals, 5);
-
-      expect(result).to.equal(yvals[yvals.length - 1]);
-    });
-
-    it('calls interpolate for intermediate values', () => {
-      var result;
-
-      sinon.spy(NumberUtils, 'interpolate');
-
-      result = factory.getAmplificationFactor(xvals, yvals, 2.5);
-
-      expect(NumberUtils.interpolate.callCount).to.equal(1);
-      expect(result).to.be.closeTo(2.5, _EPSILON);
-
-      NumberUtils.interpolate.restore();
-    });
-  });
-
   describe('getSiteAmplificationData', () => {
     it('returns a promise', () => {
-      var factory,
+      let factory,
           result;
 
       factory = SiteAmplificationFactory();
@@ -93,7 +40,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('rejects if missing required paramter', (done) => {
-      var badReference,
+      let badReference,
           noReference,
           noSiteClass,
           factory;
@@ -142,7 +89,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('resolves with a solution', (done) => {
-      var factory,
+      let factory,
           lookupTable;
 
       lookupTable = {
@@ -185,7 +132,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('resolves with an error and sets Fa, Fv values to null', (done) => {
-      var factory,
+      let factory,
           lookupTable;
 
       lookupTable =  {

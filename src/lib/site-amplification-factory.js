@@ -1,13 +1,11 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   lookupTables: {
     'ASCE7-10': {
       'ss': {
@@ -178,8 +176,8 @@ _DEFAULTS = {
  * @param options {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var SiteAmplificationFactory = function (options) {
-  var _this,
+const SiteAmplificationFactory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -212,53 +210,6 @@ var SiteAmplificationFactory = function (options) {
   };
 
   /**
-   * Computes a single amplification factor for given inputs.
-   *
-   * @param xvals {Array}
-   *     An array containing the ground motion bins.
-   * @param yvals {Array}
-   *     An array containing amplification factors corresponding to the xvals.
-   * @param x {Double}
-   *     The target ground motion for which to produce an amplification factor.
-   *
-   * @return {Double}
-   *     The amplification factor.
-   */
-  _this.getAmplificationFactor = function (xvals, yvals, x) {
-    var i,
-        numVals,
-        xmax,
-        xmin,
-        ymax,
-        ymin;
-
-    numVals = xvals.length;
-
-    // check lower bound
-    if (x <= xvals[0]) {
-      return yvals[0];
-    }
-
-    // check upper bound
-    if (x >= xvals[numVals - 1]) {
-      return yvals[numVals - 1];
-    }
-
-    for (i = 1; i < numVals; i++) {
-      xmin = xvals[i - 1];
-      xmax = xvals[i];
-      ymin = yvals[i - 1];
-      ymax = yvals[i];
-
-      if (xmin <= x && x <= xmax) {
-        return NumberUtils.interpolate(xmin, ymin, xmax, ymax, x);
-      }
-    }
-
-    throw new Error('Could not interpolate amplification factor.');
-  };
-
-  /**
    * Computes the site amplification coefficient values.
    *
    * @param inputs {Object}
@@ -271,20 +222,20 @@ var SiteAmplificationFactory = function (options) {
    *     site-amplification values.
    * @param inputs.ss {Double} Optional
    *     The Ss value for which to compute Fa. If no `ss` value is present,
-   *     the result object will contain an `fa` value of `null`.
+   *     the result object will contain an `fa` value of `undefined`.
    * @param inputs.s1 {Double} Optional
    *     The S1 value for which to compute Fv. If no `s1` value is present,
-   *     the result object will contain an `fv` value of `null`.
+   *     the result object will contain an `fv` value of `undefined`.
    * @param inputs.pga {Double} Optional
    *     The PGA value for which to compute Fpga. If no `pga` value is present,
-   *     the result object will contain an `fpga` value of `null`.
+   *     the result object will contain an `fpga` value of `undefined`.
    *
    * @return {Promise}
    *     A promise that will resolve with an object containing
    *     the `fa`, `fv`, and `fpga` site amplification values.
    */
   _this.getSiteAmplificationData = function (inputs) {
-    var data,
+    let data,
         lookupTable,
         referenceDocument,
         restriction,
@@ -318,7 +269,7 @@ var SiteAmplificationFactory = function (options) {
           data = lookupTable.ss;
           restriction = data.restriction[siteClass];
 
-          result.fa = _this.getAmplificationFactor(data.bins,
+          result.fa = NumberUtils.interpolateBinnedValue(data.bins,
               data.siteClasses[siteClass], inputs.ss);
 
           if (restriction !== null && inputs.ss >= restriction.limit) {
@@ -331,7 +282,7 @@ var SiteAmplificationFactory = function (options) {
           data = lookupTable.s1;
           restriction = data.restriction[siteClass];
 
-          result.fv = _this.getAmplificationFactor(data.bins,
+          result.fv = NumberUtils.interpolateBinnedValue(data.bins,
               data.siteClasses[siteClass], inputs.s1);
 
           if (restriction !== null && inputs.s1 >= restriction.limit) {
@@ -342,7 +293,7 @@ var SiteAmplificationFactory = function (options) {
 
         if (inputs.hasOwnProperty('pga')) {
           data = lookupTable.pga;
-          result.fpga = _this.getAmplificationFactor(data.bins,
+          result.fpga = NumberUtils.interpolateBinnedValue(data.bins,
               data.siteClasses[siteClass], inputs.pga);
         }
 
