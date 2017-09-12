@@ -52,6 +52,64 @@ var DesignHazardMetadata = function (options) {
             'maxLongitude': -65.0,
             'gridSpacing': 0.02
           }
+        ],
+
+        'ASCE41-17': [
+          {
+            'hazardEdition': 'E2014R1',
+            'hazardRegion': 'COUS0P05',
+            'minLatitude': 24.6,
+            'maxLatitude': 50.0,
+            'minLongitude': -125.0,
+            'maxLongitude': -65.0,
+            'gridSpacing': 0.05
+          },
+          {
+            'hazardEdition': 'E2007R1',
+            'hazardRegion': 'AK0P10',
+            'minLatitude': 48.0,
+            'maxLatitude': 72.0,
+            'minLongitude': -200.0,
+            'maxLongitude': -125.0,
+            'gridSpacing': 0.10
+          },
+          {
+            'hazardEdition': 'E2003R1',
+            'hazardRegion': 'PRVI0P01',
+            'minLatitude': 17.5,
+            'maxLatitude': 19.0,
+            'minLongitude': -67.5,
+            'maxLongitude': -64.5,
+            'gridSpacing': 0.01
+          },
+          {
+            'hazardEdition': 'E1998R1',
+            'hazardRegion': 'HI0P02',
+            'minLatitude': 18.0,
+            'maxLatitude': 23.0,
+            'minLongitude': -161.0,
+            'maxLongitude': -65.0,
+            'gridSpacing': 0.02
+          },
+          {
+            'hazardEdition': 'E2012R1',
+            'hazardRegion': 'GNMI0P10',
+            'minLatitude': 9.0,
+            'maxLatitude': 23.0,
+            'minLongitude': 139.0,
+            'maxLongitude': 151.0,
+            'gridSpacing': 0.1
+          },
+          {
+            'hazardEdition': 'E2012R2',
+            'hazardRegion': 'AMSAM0P05',
+
+            'minLatitude': -33.0,
+            'maxLatitude': -11.0,
+            'minLongitude': -195.0,
+            'maxLongitude': -165.0,
+            'gridSpacing': 0.05
+          }
         ]
       };
     }
