@@ -245,7 +245,7 @@ const NumberUtils = function (options) {
     return value;
   };
 
-    /**
+  /**
    * Interpolates a y-value such that y = f(x) for the discrete function f(x)
    * with domain xvals and range yvals.
    *
