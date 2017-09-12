@@ -52,9 +52,11 @@ const ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.2}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      let custom;
+      let custom,
+          tSubL;
 
       custom = result.data[0];
+      tSubL = inputs['t-sub-l'];
 
       ss = custom.ss;
       s1 = custom.s1;
@@ -64,7 +66,7 @@ const ASCE41_13Factory = function (options) {
       sxs = Math.min(ss * fa, (2/3) * bse2n.ss * bse2n.fa);
       sx1 = Math.min(s1 * fv, (2/3) * bse2n.s1 * bse2n.fv);
 
-      return _this.spectraFactory.getSpectrum(sxs, sx1);
+      return _this.spectraFactory.getHorizontalSpectrum(sxs, sx1, tSubL);
     }).then((result) => {
       horizontalSpectrum = result;
 
@@ -94,9 +96,11 @@ const ASCE41_13Factory = function (options) {
     customIn = extend({customProbability: 0.05}, inputs);
 
     return _this.getCustomProbabilityDesignData(customIn).then((result) => {
-      let custom;
+      let custom,
+          tSubL;
 
       custom = result.data[0];
+      tSubL = inputs['t-sub-l'];
 
       ss = custom.ss;
       s1 = custom.s1;
@@ -106,7 +110,7 @@ const ASCE41_13Factory = function (options) {
       sxs = Math.min(ss * fa, bse2n.ss * bse2n.fa);
       sx1 = Math.min(s1 * fv, bse2n.s1 * bse2n.fv);
 
-      return _this.spectraFactory.getSpectrum(sxs, sx1);
+      return _this.spectraFactory.getHorizontalSpectrum(sxs, sx1, tSubL);
     }).then((result) => {
       horizontalSpectrum = result;
 
@@ -196,13 +200,15 @@ const ASCE41_13Factory = function (options) {
         s1: s1
       });
     }).then((result) => {
+      let tSubL = inputs['t-sub-l'];
+
       fa = result.fa;
       fv = result.fv;
 
       sxs = ss * fa;
       sx1 = s1 * fv;
 
-      return _this.spectraFactory.getSpectrum(sxs, sx1);
+      return _this.spectraFactory.getHorizontalSpectrum(sxs, sx1, tSubL);
     }).then((result) => {
       horizontalSpectrum = result;
 
@@ -265,10 +271,8 @@ const ASCE41_13Factory = function (options) {
 
     inputs = inputs || {};
     return _this.tsublService.getData(inputs).then((result) => {
-      tSubL = {
-        hazardLevel: 'T-Sub-L Data',
-        't-sub-l': result.response.data['t-sub-l']
-      };
+      tSubL = result.response.data['t-sub-l'];
+      inputs = extend({}, inputs, {'t-sub-l': tSubL});
 
       if (inputs.hasOwnProperty('customProbability')) {
         return _this.getCustomProbabilityDesignData(inputs);
@@ -276,7 +280,11 @@ const ASCE41_13Factory = function (options) {
         return _this.getStandardDesignData(inputs);
       }
     }).then((designData) => {
-      designData.data.push(tSubL);
+      designData.data.push({
+        hazardLevel: 'T-Sub-L Data',
+        't-sub-l': tSubL
+      });
+
       return designData;
     });
   };
@@ -346,12 +354,14 @@ const ASCE41_13Factory = function (options) {
         s1: s1
       });
     }).then((result) => {
+      let tSubL = inputs['t-sub-l'];
+
       fa = result.fa;
       fv = result.fv;
       sxs = ss * fa;
       sx1 = s1 * fv;
 
-      return _this.spectraFactory.getSpectrum(sxs, sx1);
+      return _this.spectraFactory.getHorizontalSpectrum(sxs, sx1, tSubL);
     }).then((result) => {
       horizontalSpectrum = result;
 

@@ -297,17 +297,19 @@ const ASCE7Factory = function (options) {
     let sd1,
         sds,
         sm1,
-        sms;
+        sms,
+        tSubL;
 
     params = params || {};
     sms = params.sms;
     sm1 = params.sm1;
     sds = params.sds;
     sd1 = params.sd1;
+    tSubL = params.tSubL;
 
     return Promise.all([
-      _this.spectraFactory.getSpectrum(sms, sm1),
-      _this.spectraFactory.getSpectrum(sds, sd1)
+      _this.spectraFactory.getHorizontalSpectrum(sms, sm1, tSubL),
+      _this.spectraFactory.getHorizontalSpectrum(sds, sd1, tSubL)
     ]).then((spectra) => {
       return {
         smSpectrum: spectra[0],
@@ -452,7 +454,8 @@ const ASCE7Factory = function (options) {
       metadata: null,
       probabilistic: null,
       riskCoefficients: null,
-      siteAmplification: null
+      siteAmplification: null,
+      tSubL: null
     };
 
     return Promise.all([
