@@ -133,9 +133,7 @@ var SpectraFactory = function (options) {
    *     or rejects with an {Error} if one should occur.
    */
   _this.getTimeValues = function (gms, gm1, tl) {
-    let index,
-        t,
-        timeMax,
+    let timeMax,
         times,
         ts;
 
@@ -155,20 +153,22 @@ var SpectraFactory = function (options) {
     times = [];
     ts = gm1 / gms;
 
+    // Specific times required by ASCE7-16 vertical spectrum
     times.push(0);
+    times.push(0.025);
+    times.push(0.05);
+    times.push(0.15);
+    times.push(2.0);
     times.push(0.2 * ts);
     times.push(ts);
-    times.push(0.025);
 
     // Use tl+1 if defined, otherwise using timeMax value
     timeMax = (typeof(tl) === 'undefined') ? _this.timeMax : (tl + 1);
 
-    t = 0;
-    index = 1;
-    while (t < timeMax) {
-      t = (_this.timeIncrement * index);
+    // Time values between zero and timeMax, by timeIncrement
+    for (let index = 0, t = 0; t < timeMax; index++) {
+      t = _this.timeIncrement * index;
       times.push(+t.toFixed(3));
-      index += 1;
     }
 
     // Sort in ascending order
