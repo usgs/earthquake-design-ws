@@ -2,7 +2,7 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     VerticalCoefficientFactory = require('../src/lib/vertical-coefficient-factory');
 
 
@@ -18,7 +18,7 @@ describe('VerticalCoefficientFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = VerticalCoefficientFactory();
         factory.destroy();
@@ -28,7 +28,7 @@ describe('VerticalCoefficientFactory', () => {
 
   describe('getVerticalCoefficientData', () => {
     it('returns a promise', () => {
-      var factory,
+      let factory,
           result;
 
       factory = VerticalCoefficientFactory();
@@ -40,7 +40,7 @@ describe('VerticalCoefficientFactory', () => {
     });
 
     it('rejects if missing required paramter', (done) => {
-      var badReference,
+      let badReference,
           noReference,
           noSiteClass,
           factory;
@@ -89,7 +89,7 @@ describe('VerticalCoefficientFactory', () => {
     });
 
     it('resolves with a solution', (done) => {
-      var factory,
+      let factory,
           lookupTable;
 
       lookupTable = {

@@ -1,13 +1,11 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   lookupTables: {
     'ASCE7-16': {
       'ss': {
@@ -33,8 +31,8 @@ _DEFAULTS = {
  * @param options {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var VerticalCoefficientFactory = function (options) {
-  var _this,
+const VerticalCoefficientFactory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -86,7 +84,7 @@ var VerticalCoefficientFactory = function (options) {
    *     the `cv` vertical coefficient values.
    */
   _this.getVerticalCoefficientData = function (inputs) {
-    var data,
+    let data,
         lookupTable,
         referenceDocument,
         result,

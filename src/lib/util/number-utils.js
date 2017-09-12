@@ -260,7 +260,7 @@ const NumberUtils = function (options) {
    *     The interpolated y-value.
    */
   _this.interpolateBinnedValue = function (xvals, yvals, x) {
-    var i,
+    let i,
         numVals,
         xmax,
         xmin,

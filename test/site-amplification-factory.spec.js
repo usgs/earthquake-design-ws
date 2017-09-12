@@ -2,7 +2,7 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     SiteAmplificationFactory = require('../src/lib/site-amplification-factory');
 
 
@@ -18,7 +18,7 @@ describe('SiteAmplificationFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = SiteAmplificationFactory();
         factory.destroy();
@@ -28,7 +28,7 @@ describe('SiteAmplificationFactory', () => {
 
   describe('getSiteAmplificationData', () => {
     it('returns a promise', () => {
-      var factory,
+      let factory,
           result;
 
       factory = SiteAmplificationFactory();
@@ -40,7 +40,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('rejects if missing required paramter', (done) => {
-      var badReference,
+      let badReference,
           noReference,
           noSiteClass,
           factory;
@@ -89,7 +89,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('resolves with a solution', (done) => {
-      var factory,
+      let factory,
           lookupTable;
 
       lookupTable = {
@@ -132,7 +132,7 @@ describe('SiteAmplificationFactory', () => {
     });
 
     it('resolves with an error and sets Fa, Fv values to null', (done) => {
-      var factory,
+      let factory,
           lookupTable;
 
       lookupTable =  {

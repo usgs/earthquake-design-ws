@@ -9,6 +9,7 @@ const expect = require('chai').expect,
 
 const _EPSILON = 1E-10;
 
+
 describe('util/number-utils', () => {
   let util;
 
@@ -216,7 +217,7 @@ describe('util/number-utils', () => {
   });
 
   describe('interpolateBinnedValue', () => {
-    var xvals,
+    let xvals,
         yvals;
 
     before(() => {
@@ -226,7 +227,7 @@ describe('util/number-utils', () => {
 
 
     it('returns first value when below bounds', () => {
-      var result;
+      let result;
 
       result = util.interpolateBinnedValue(xvals,  yvals, -1);
 
@@ -234,7 +235,7 @@ describe('util/number-utils', () => {
     });
 
     it('returns last value when above bounds', () => {
-      var result;
+      let result;
 
       result = util.interpolateBinnedValue(xvals, yvals, 5);
 
@@ -242,7 +243,7 @@ describe('util/number-utils', () => {
     });
 
     it('calls interpolate for intermediate values', () => {
-      var result;
+      let result;
 
       sinon.spy(util, 'interpolate');
 
