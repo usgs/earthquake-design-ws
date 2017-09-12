@@ -1,5 +1,6 @@
 'use strict';
 
+
 const extend = require('extend'),
     MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
@@ -9,10 +10,12 @@ const extend = require('extend'),
     UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
+
 const _DEFAULTS = {
   factory: null,              // must be defined
   referenceDocument: 'ASCE41' // not real
 };
+
 
 const ASCE41Handler = function (options) {
   let _this,
