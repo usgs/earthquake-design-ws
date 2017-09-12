@@ -269,11 +269,13 @@ const WebService = function (options) {
 
     app.use(morgan('combined'));
 
-    // handle dynamic requests
-    app.get(_this.mountPath + '/:method', _this.get);
+    // Redirect to index.html
+    app.get(_this.mountPath + '$', (req, res) => {
+      res.redirect(_this.mountPath + '/');
+    });
 
     // rest fall through to htdocs as static content.
-    app.get([_this.mountPath, _this.mountPath + '/index.html'], (req, res) => {
+    app.get([_this.mountPath + '/', _this.mountPath + '/index.html'], (req, res) => {
       fs.readFile('src/htdocs/index.html', 'utf8', (err, data) => {
         res.send(data
           .replace('{{VERSION}}', _this.versionInfo)
@@ -281,6 +283,9 @@ const WebService = function (options) {
         );
       });
     });
+
+    // handle dynamic requests
+    app.get(_this.mountPath + '/:method', _this.get);
 
     app.use(_this.mountPath,express.static(_this.docRoot,
         {fallthrough: true}));
