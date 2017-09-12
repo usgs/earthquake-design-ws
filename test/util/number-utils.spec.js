@@ -7,7 +7,7 @@ const expect = require('chai').expect,
     sinon = require('sinon');
 
 
-const EPSILON = 1E-10;
+const _EPSILON = 1E-10;
 
 describe('util/number-utils', () => {
   let util;
@@ -191,13 +191,13 @@ describe('util/number-utils', () => {
       expect(util.interpolate(Math.exp(0), Math.exp(0),
           Math.exp(1), Math.exp(1), Math.exp(0.5),
           util.INTERPOLATE_LOGX_LOGY_LINEAR))
-        .to.be.closeTo(Math.exp(0.5), EPSILON);
+        .to.be.closeTo(Math.exp(0.5), _EPSILON);
     });
 
     it('is correct when method is linearloglinear', () => {
       expect(util.interpolate(0, Math.exp(0), 1, Math.exp(1), 0.5,
           NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR))
-        .to.be.closeTo(Math.exp(0.5), EPSILON);
+        .to.be.closeTo(Math.exp(0.5), _EPSILON);
     });
 
     it('is correct when method is linearlinearlinear', () => {
@@ -212,6 +212,46 @@ describe('util/number-utils', () => {
       };
 
       expect(throwError).to.throw(Error);
+    });
+  });
+
+  describe('interpolateBinnedValue', () => {
+    var xvals,
+        yvals;
+
+    before(() => {
+      xvals = [0, 1, 2, 3, 4];
+      yvals = [0, 1, 2, 3, 4];
+    });
+
+
+    it('returns first value when below bounds', () => {
+      var result;
+
+      result = util.interpolateBinnedValue(xvals,  yvals, -1);
+
+      expect(result).to.equal(yvals[0]);
+    });
+
+    it('returns last value when above bounds', () => {
+      var result;
+
+      result = util.interpolateBinnedValue(xvals, yvals, 5);
+
+      expect(result).to.equal(yvals[yvals.length - 1]);
+    });
+
+    it('calls interpolate for intermediate values', () => {
+      var result;
+
+      sinon.spy(util, 'interpolate');
+
+      result = util.interpolateBinnedValue(xvals, yvals, 2.5);
+
+      expect(util.interpolate.callCount).to.equal(1);
+      expect(result).to.be.closeTo(2.5, _EPSILON);
+
+      util.interpolate.restore();
     });
   });
 
