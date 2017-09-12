@@ -272,6 +272,11 @@ const WebService = function (options) {
     // handle dynamic requests
     app.get(_this.mountPath + '/:method', _this.get);
 
+    // Redirect to index.html
+    app.get(this.mountPath, (req, res) => {
+      res.redirect(_this.mountPath + '/index.html');
+    });
+
     // rest fall through to htdocs as static content.
     app.get([_this.mountPath, _this.mountPath + '/index.html'], (req, res) => {
       fs.readFile('src/htdocs/index.html', 'utf8', (err, data) => {
