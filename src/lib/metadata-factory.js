@@ -60,8 +60,8 @@ _METADATA = {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
         'modelVersion': 'v3.1.x',
         's1MaxDirFactor': 1.3,
-        's1dPercentileFactor': 1.8,
         's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
         'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.1,
         'ssdFloor': 1.5,
@@ -139,6 +139,45 @@ _METADATA = {
         's1dFloor': 0.6,
         's1dPercentileFactor': 1.8,
         'spatialInterpolationMethod': NumberUtils.INTERPOLTE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1.0,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    }
+  ],
+
+  'ASCE41-17': [
+    {
+      'regions': [
+        'AK',
+        'AMSAM',
+        'COUS',
+        'GNMI',
+        'PRVI'
+      ],
+      'data': {
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
+        'modelVersion': 'v4.0.x',
+        's1MaxDirFactor': 1.3,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR,
+        'ssMaxDirFactor': 1.1,
+        'ssdFloor': 1.5,
+        'ssdPercentileFactor': 1.8
+      }
+    },
+    {
+      'regions': [
+        'HI'
+      ],
+      'data': {
+        'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'modelVersion': 'v4.0.x',
+        's1MaxDirFactor': 1.0,
+        's1dFloor': 0.6,
+        's1dPercentileFactor': 1.8,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LOGY_LINEAR,
         'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
         'ssdPercentileFactor': 1.8
