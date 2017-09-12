@@ -1,27 +1,27 @@
 'use strict';
 
 
-const ASCE7Factory = require('./asce7-factory'),
+const ASCE41_13Factory = require('./asce7-factory'),
     extend = require('extend');
 
 
 const _DEFAULTS = {
-  referenceDocument: 'ASCE7-16'
+  referenceDocument: 'ASCE41-17'
 };
 
 
 /**
- * Class: ASCE7_16Factory
+ * Class: ASCE41_17Factory
  *
  * @param options Object
  *     Configuration options for this instance.
  */
-const ASCE7_16Factory = function (options) {
+const ASCE41_17Factory = function (options) {
   let _this;
 
 
   options = extend({}, _DEFAULTS, options);
-  _this = ASCE7Factory(options);
+  _this = ASCE41_13Factory(options);
 
 
   options = null;
@@ -29,4 +29,4 @@ const ASCE7_16Factory = function (options) {
 };
 
 
-module.exports = ASCE7_16Factory;
+module.exports = ASCE41_17Factory;
