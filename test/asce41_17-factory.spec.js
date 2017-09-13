@@ -23,12 +23,5 @@ describe('asce41_17-factory', () => {
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
-
-    it('Sets the correct referenceDocument value', () => {
-      let factory;
-
-      factory = ASCE41_17Factory();
-      expect(factory.referenceDocument).to.equal('ASCE41-17');
-    });
   });
 });
