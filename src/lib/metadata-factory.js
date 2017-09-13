@@ -10,6 +10,29 @@ var _DEFAULTS,
     _REGIONS;
 
 _METADATA = {
+  'ASCE7-05': [
+    {
+      'regions': [
+        'AK',
+        'AMSAM',
+        'COUS',
+        'GNMI',
+        'HI',
+        'PRVI'
+      ],
+      'data': {
+        'modelVersion': 'v2.0.x',
+        's1MaxDirFactor': 1,
+        's1dFloor': 0,
+        's1dPercentileFactor': 1,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1,
+        'ssdFloor': 0,
+        'ssdPercentileFactor': 1
+      }
+    }
+  ],
+
   'ASCE7-10': [
     {
       'regions': [
