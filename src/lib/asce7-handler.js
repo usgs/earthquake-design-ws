@@ -207,12 +207,20 @@ const ASCE7_Handler = function (options) {
             sdc: designCategory.sdc,
             't-sub-l': result.tSubL,
 
+            cv: (result.hasOwnProperty('cv')) ? NumberUtils.round(result.cv, _this.outputDecimals) : undefined,
+
             sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
                 null :
                 NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
             smSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
                 null :
-                NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals)
+                NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals),
+
+            savSpectrum: (result.hasOwnProperty('savSpectrum')) ?
+                NumberUtils.roundSpectrum(result.savSpectrum, _this.outputDecimals) : undefined,
+
+            samvSpectrum: (result.hasOwnProperty('samvSpectrum')) ?
+                NumberUtils.roundSpectrum(result.samvSpectrum, _this.outputDecimals) : undefined
           },
 
           metadata: extend(true, {}, result.metadata)

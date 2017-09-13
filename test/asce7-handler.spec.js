@@ -92,7 +92,10 @@ const _HANDLER_RESULT = {
     'ssd': null,
     'ssrt': null,
     'ssuh': null,
-    't-sub-l': undefined
+    't-sub-l': undefined,
+    'cv': undefined,
+    'savSpectrum': undefined,
+    'samvSpectrum': undefined
   },
   'metadata': {
     'pgadFloor': null,
