@@ -73,8 +73,6 @@ describe.only('asce7_16-factory', () => {
       });
 
       expect(result).to.be.instanceof(Promise);
-      
-      console.log(JSON.stringify(result, null, 2));
     });
   });
 });
