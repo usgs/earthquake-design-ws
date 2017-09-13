@@ -1,8 +1,7 @@
 'use strict';
 
 
-const extend = require('extend'),
-    NumberUtils = require('./util/number-utils').instance;
+const extend = require('extend');
 
 
 const _DEFAULTS = {
@@ -361,86 +360,6 @@ const ASCE7Factory = function (options) {
     _this = null;
   };
 
-  _this.formatResult = function (result) {
-    return new Promise((resolve, reject) => {
-      let basicDesign,
-          designCategory,
-          finalDesign,
-          siteAmplification,
-          spectra;
-
-      try {
-        basicDesign = result.basicDesign;
-        designCategory = result.designCategory;
-        finalDesign = result.finalDesign;
-        siteAmplification = result.siteAmplification;
-        spectra = result.spectra;
-
-
-        resolve({
-          data: {
-            pgauh: NumberUtils.round(basicDesign.pgauh,
-                _this.outputDecimals),
-            pgad: NumberUtils.round(basicDesign.pgad,
-                _this.outputDecimals),
-            pga: NumberUtils.round(basicDesign.pga,
-                _this.outputDecimals),
-            fpga: NumberUtils.round(siteAmplification.fpga,
-                _this.outputDecimals),
-            pgam: NumberUtils.round(finalDesign.pgam,
-                _this.outputDecimals),
-
-            ssrt: NumberUtils.round(basicDesign.ssrt,
-                _this.outputDecimals),
-            crs: NumberUtils.round(basicDesign.crs,
-                _this.outputDecimals),
-            ssuh: NumberUtils.round(basicDesign.ssuh,
-                _this.outputDecimals),
-            ssd: NumberUtils.round(basicDesign.ssd,
-                _this.outputDecimals),
-            ss: NumberUtils.round(basicDesign.ss,
-                _this.outputDecimals),
-            fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
-            fa_error: siteAmplification.fa_error,
-            sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
-            sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
-            sdcs: designCategory.sdcs,
-
-            s1rt: NumberUtils.round(basicDesign.s1rt,
-                _this.outputDecimals),
-            cr1: NumberUtils.round(basicDesign.cr1,
-                _this.outputDecimals),
-            s1uh: NumberUtils.round(basicDesign.s1uh,
-                _this.outputDecimals),
-            s1d: NumberUtils.round(basicDesign.s1d,
-                _this.outputDecimals),
-            s1: NumberUtils.round(basicDesign.s1,
-                _this.outputDecimals),
-            fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
-            fv_error: siteAmplification.fv_error,
-            sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
-            sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
-            sdc1: designCategory.sdc1,
-
-            sdc: designCategory.sdc,
-            't-sub-l': result.tSubL,
-
-            sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
-            smSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals)
-          },
-
-          metadata: extend(true, {}, result.metadata)
-        });
-      } catch (err) {
-        reject(err);
-      }
-    });
-  };
-
   _this.get = function (inputs) {
     let result;
 
@@ -494,7 +413,7 @@ const ASCE7Factory = function (options) {
       result.designCategory = promiseResults[0];
       result.spectra = promiseResults[1];
 
-      return _this.formatResult(result);
+      return result;
     });
   };
 

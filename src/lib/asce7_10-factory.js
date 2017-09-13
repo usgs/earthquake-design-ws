@@ -219,7 +219,7 @@ const ASCE7_10Factory = function (options) {
       result.designCategory = promiseResults[0];
       result.spectra = promiseResults[1];
 
-      return _this.formatResult(result);
+      return result;
     });
 
   };

@@ -223,7 +223,7 @@ describe('ASCE7Factory', () => {
     });
   });
 
-  describe('computeSiteModified', () => {
+  describe('computeSiteModifiedValue', () => {
     it('returns expected results', () => {
 
       const factory = ASCE7Factory();
@@ -296,103 +296,6 @@ describe('ASCE7Factory', () => {
     });
   });
 
-  describe('formatResult', () => {
-    it('returns a promise', () => {
-
-      const factory = ASCE7Factory();
-
-      expect(factory.formatResult()).to.be.instanceof(Promise);
-
-      factory.destroy();
-    });
-
-    it('resolves with expected data structure', (done) => {
-
-      const factory = ASCE7Factory();
-
-      factory.formatResult({
-        'basicDesign': {
-          'ss': null,
-          's1': null,
-          'pga': null,
-          'ssuh': null,
-          'ssrt': null,
-          'ssd': null,
-          's1uh': null,
-          's1rt': null,
-          's1d': null,
-          'pgad': null
-        },
-        'deterministic': {},
-        'finalDesign': {
-          'sms': null,
-          'sm1': null,
-          'pgam': null,
-          'sds': null,
-          'sd1': null
-        },
-        'metadata': {
-          'pgadPercentileFactor': null,
-          'pgadFloor': null,
-
-          's1MaxDirFactor': null,
-          's1dPercentileFactor': null,
-          's1dFloor': null,
-
-          'ssMaxDirFactor': null,
-          'ssdPercentileFactor': null,
-          'ssdFloor': null
-        },
-        'probabilistic': {},
-        'riskCoefficients': {
-          'response': {
-            'data': {}
-          }
-        },
-        'siteAmplification': {
-          'fa': null,
-          'fa_error': null,
-          'fv': null,
-          'fv_error': null
-        },
-        'designCategory': {
-          'sdcs': null,
-          'sdc1': null,
-          'sdc': null
-        },
-        'spectra': {
-          'smSpectrum': [],
-          'sdSpectrum': []
-        }
-      }).then((formatted) => {
-        [
-          'ssuh', 's1uh',
-          'ssrt', 's1rt',
-          'ssd', 's1d', 'pgad',
-          'ss', 's1', 'pga',
-          'sms', 'sm1', 'pgam',
-          'fa', 'fa_error', 'fv', 'fv_error',
-          'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
-          'smSpectrum', 'sdSpectrum'
-        ].forEach((key) => {
-          expect(formatted.data.hasOwnProperty(key)).to.equal(true);
-        });
-        [
-          'pgadPercentileFactor', 'pgadFloor',
-          's1MaxDirFactor', 's1dPercentileFactor', 's1dFloor',
-          'ssMaxDirFactor', 'ssdPercentileFactor', 'ssdFloor'
-        ].forEach((key) => {
-          expect(formatted.metadata.hasOwnProperty(key)).to.equal(true);
-        });
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
-        factory.destroy();
-        done(err);
-      });
-    });
-  });
-
   describe('get', () => {
     it('returns a promise', () => {
 
@@ -422,9 +325,6 @@ describe('ASCE7Factory', () => {
       sinon.stub(factory, 'computeSpectra').callsFake(
           () => { return Promise.resolve([]); });
 
-      sinon.stub(factory, 'formatResult').callsFake(
-          () => { return Promise.resolve([]); });
-
       factory.get({}).then((/*result*/) => {
         expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
         expect(factory.probabilisticService.getData.callCount).to.equal(1);
@@ -439,8 +339,6 @@ describe('ASCE7Factory', () => {
         expect(factory.designCategoryFactory
             .getDesignCategory.callCount).to.equal(1);
         expect(factory.computeSpectra.callCount).to.equal(1);
-
-        expect(factory.formatResult.callCount).to.equal(1);
       }).catch((err) => {
         return err;
       }).then((err) => {

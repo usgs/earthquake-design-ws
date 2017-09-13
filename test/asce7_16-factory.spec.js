@@ -33,7 +33,7 @@ const _DUMMY_FACTORY = {
   }
 };
 
-describe.only('asce7_16-factory', () => {
+describe('asce7_16-factory', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof ASCE7_16Factory).to.not.equal('undefined');
