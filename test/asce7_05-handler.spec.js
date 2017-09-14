@@ -31,7 +31,6 @@ describe('asce7_05-handler', () => {
       let handler;
 
       handler = DesignHandler();
-
       handler.formatResult({
         'basicDesign': {
           'ss': null,

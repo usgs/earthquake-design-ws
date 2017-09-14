@@ -3,7 +3,8 @@
 
 
 const DesignHandler = require('../src/lib/asce7_10-handler'),
-    expect = require('chai').expect;
+    expect = require('chai').expect,
+    sinon = require('sinon');
 
 
 describe('asce7-10-handler', () => {
