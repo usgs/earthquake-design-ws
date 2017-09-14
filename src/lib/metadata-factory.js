@@ -28,9 +28,9 @@ const _METADATA = {
   'ASCE7-10': [
     {
       'regions': [
-        'AK',
-        'COUS',
-        'PRVI'
+        'AK0P05',
+        'COUS0P01',
+        'PRVI0P01'
       ],
       'data': {
         'model_veresion': 'v3.1.x',
@@ -47,7 +47,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'model_veresion': 'v3.1.x',
@@ -67,9 +67,9 @@ const _METADATA = {
   'ASCE41-13': [
     {
       'regions': [
-        'COUS',
-        'AK',
-        'PRVI'
+        'COUS0P01',
+        'AK0P05',
+        'PRVI0P01'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
@@ -85,7 +85,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
@@ -105,9 +105,9 @@ const _METADATA = {
     // LogY interpolation, standard factors
     {
       'regions': [
-        'AMSAM',
-        'COUS',
-        'GNMI'
+        'AMSAM0P10',
+        'COUS0P01',
+        'GNMI0P10'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -125,8 +125,8 @@ const _METADATA = {
     // LinearY interpolation, standard factors
     {
       'regions': [
-        'AK',
-        'PRVI'
+        'AK0P05',
+        'PRVI0P01'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -164,11 +164,11 @@ const _METADATA = {
   'ASCE41-17': [
     {
       'regions': [
-        'AK',
-        'AMSAM',
-        'COUS',
-        'GNMI',
-        'PRVI'
+        'AK0P05',
+        'AMSAM0P10',
+        'COUS0P01',
+        'GNMI0P10',
+        'PRVI0P01'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
@@ -184,7 +184,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
@@ -203,7 +203,7 @@ const _METADATA = {
 
 const _REGIONS = [
   {
-    'name': 'AK',
+    'name': 'AK0P05',
     'max_latitude':    72.0,
     'max_longitude': -125.1,
     'min_latitude':    48.0,
@@ -217,7 +217,7 @@ const _REGIONS = [
     'min_longitude': -190.0,
   },
   {
-    'name': 'AMSAM',
+    'name': 'AMSAM0P10',
     'max_latitude':   -11.0,
     'max_longitude': -165.0,
     'min_latitude':   -33.0,
@@ -238,25 +238,18 @@ const _REGIONS = [
     'min_longitude': -92.0,
   },
   {
-    'name': 'COUS',
+    'name': 'COUS0P01',
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
     'min_longitude': -125.0
   },
   {
-    'name': 'GNMI',
+    'name': 'GNMI0P10',
     'max_latitude':   23.0,
     'max_longitude': 151.0,
     'min_latitude':    9.0,
     'min_longitude': 139.0
-  },
-  {
-    'name': 'HI',
-    'max_latitude':    23.0,
-    'max_longitude': -154.0,
-    'min_latitude':    18.0,
-    'min_longitude': -161.0
   },
   {
     'name': 'HI0P02',
@@ -273,7 +266,7 @@ const _REGIONS = [
     'min_longitude': -125.0,
   },
   {
-    'name': 'PRVI',
+    'name': 'PRVI0P01',
     'max_latitude':   19.0,
     'max_longitude': -64.5,
     'min_latitude':   17.5,
