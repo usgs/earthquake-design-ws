@@ -1,15 +1,34 @@
 'use strict';
 
 
-var extend = require('extend'),
+const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
 
-var _DEFAULTS,
-    _METADATA,
-    _REGIONS;
+const _METADATA = {
+  'ASCE7-05': [
+    {
+      'regions': [
+        'AK',
+        'AMSAM',
+        'COUS',
+        'GNMI',
+        'HI',
+        'PRVI'
+      ],
+      'data': {
+        'modelVersion': 'v2.0.x',
+        's1MaxDirFactor': 1,
+        's1dFloor': 0,
+        's1dPercentileFactor': 1,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
+        'ssMaxDirFactor': 1,
+        'ssdFloor': 0,
+        'ssdPercentileFactor': 1
+      }
+    }
+  ],
 
-_METADATA = {
   'ASCE7-10': [
     {
       'regions': [
@@ -186,7 +205,7 @@ _METADATA = {
   ]
 };
 
-_REGIONS = [
+const _REGIONS = [
   {
     'name': 'AK',
     'max_latitude':    72.0,
@@ -231,14 +250,14 @@ _REGIONS = [
   }
 ];
 
-_DEFAULTS = {
+const _DEFAULTS = {
   'metadata': _METADATA,
   'regions': _REGIONS
 };
 
 
-var MetadataFactory = function (options) {
-  var _this,
+const MetadataFactory = function (options) {
+  let _this,
       _initialize;
 
   _this = {};
@@ -275,7 +294,7 @@ var MetadataFactory = function (options) {
    *     error occurs.
    */
   _this.getMetadata = function (inputs) {
-    var region;
+    let region;
 
     // validate inputs
     return _this.checkParams(inputs).then(() => {
@@ -300,7 +319,7 @@ var MetadataFactory = function (options) {
    *    error occurs.
    */
   _this.checkParams = function (inputs) {
-    var latitude,
+    let latitude,
         longitude,
         referenceDocument;
 
@@ -331,7 +350,7 @@ var MetadataFactory = function (options) {
   };
 
   _this.getData = function (referenceDocument, region) {
-    var metadata,
+    let metadata,
         result;
 
     return new Promise((resolve, reject) => {
@@ -339,7 +358,7 @@ var MetadataFactory = function (options) {
       try {
         metadata = _this.metadata[referenceDocument];
         // loop through metadata objects
-        for (var i = 0; i < metadata.length; i++) {
+        for (let i = 0; i < metadata.length; i++) {
           if (metadata[i].regions.indexOf(region) !== -1) {
             result = metadata[i].data;
           }
@@ -365,11 +384,11 @@ var MetadataFactory = function (options) {
    *     The name of the region that contains the lat/lng reference point
    */
   _this.getRegion = function (latitude, longitude) {
-    var region;
+    let region;
 
     return new Promise((resolve, reject) => {
       // loop over regions and find the region that matches the input lat/lng
-      for (var i = 0; i < _this.regions.length; i++) {
+      for (let i = 0; i < _this.regions.length; i++) {
         region = _this.regions[i];
 
         if (latitude  <= region.max_latitude  &&
