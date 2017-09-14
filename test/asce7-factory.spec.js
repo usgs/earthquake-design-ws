@@ -72,7 +72,7 @@ describe('ASCE7Factory', () => {
 
       factory.computeBasicDesign().then((/*obj*/) => {
         // This should not execute because we expect a rejected promise
-        var err;
+        let err;
 
         err = new Error('[computeBasicDesign] resolved when it should reject');
         err.unitTestFailed = true;
@@ -183,9 +183,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('calls expected calculation methods', (done) => {
-      let factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       sinon.spy(factory, 'computeSiteModifiedValue');
       sinon.spy(factory, 'computeDesignValue');
@@ -249,9 +248,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('calls factory method twice', (done) => {
-      let factory;
 
-      factory = ASCE7Factory(_DUMMY_FACTORY);
+      let factory = ASCE7Factory(_DUMMY_FACTORY);
       sinon.spy(factory.spectraFactory, 'getHorizontalSpectrum');
 
       factory.computeSpectra().then((/*spectra*/) => {

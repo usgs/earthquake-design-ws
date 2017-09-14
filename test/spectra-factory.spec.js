@@ -143,7 +143,7 @@ describe('SpectraFactory', () => {
         ];
 
         expectation.forEach((expected, index) => {
-          var actual,
+          let actual,
               actual_x,
               actual_y,
               expected_x,
@@ -173,9 +173,8 @@ describe('SpectraFactory', () => {
     });
 
     it('resolves with null value when null values are given', (done) => {
-      let factory;
 
-      factory = SpectraFactory();
+      const factory = SpectraFactory();
 
       factory.getHorizontalSpectrum(null).then((result) => {
         expect(result[0][0]).to.equal(null);
@@ -187,9 +186,8 @@ describe('SpectraFactory', () => {
 
   describe('getTimeValues', () => {
     it('returns an Array', () => {
-      let factory;
 
-      factory = SpectraFactory();
+      const factory = SpectraFactory();
 
       expect(factory.getTimeValues(1.0, 0.5, 4)).to.be.instanceof(Array);
 
@@ -568,9 +566,8 @@ describe('SpectraFactory', () => {
       });
 
       it('resolves with null value when null values are given', (done) => {
-        let factory;
 
-        factory = SpectraFactory();
+        const factory = SpectraFactory();
 
         factory.getHorizontalSpectrum(null).then((result) => {
           expect(result[0][0]).to.equal(null);

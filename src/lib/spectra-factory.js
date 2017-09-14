@@ -1,12 +1,10 @@
 'use strict';
 
 
-var extend = require('extend');
+let extend = require('extend');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   timeIncrement: 0.05, // Spacing between discrete time values
   timeMax: 2.0 // Time when to terminate discrete spectrum
 };
@@ -18,8 +16,8 @@ _DEFAULTS = {
  * @param option {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var SpectraFactory = function (options) {
-  var _this,
+const SpectraFactory = function (options) {
+  let _this,
       _initialize;
 
 

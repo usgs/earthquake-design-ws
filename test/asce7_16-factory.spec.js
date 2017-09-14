@@ -59,12 +59,10 @@ describe('asce7_16-factory', () => {
 
   describe('get', () => {
     it('returns a promise and calls functions as intended', () => {
-      var result,
-          factory;
 
-      factory = ASCE7_16Factory(_DUMMY_FACTORY);
+      const factory = ASCE7_16Factory(_DUMMY_FACTORY);
 
-      result = factory.get({
+      let result = factory.get({
         latitude: 0,
         longitude: 1,
         riskCategory: 2,
