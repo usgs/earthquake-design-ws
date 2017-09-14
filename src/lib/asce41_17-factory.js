@@ -1,7 +1,7 @@
 'use strict';
 
 
-const ASCE41_13Factory = require('./asce7-factory'),
+const ASCE41_13Factory = require('./asce41_13-factory'),
     extend = require('extend');
 
 
