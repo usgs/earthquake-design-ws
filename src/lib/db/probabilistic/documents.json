@@ -3,8 +3,8 @@
     "name": "ASCE7-05",
     "regions": [
       "E1997R1A_AK0P10_Probabilistic",
-      "E1998R1A_HI0P05_Probabilistic",
-      "E2003R1A_CANV0P05_Probabilistic",
+      "E1998R1A_HI0P02_Probabilistic",
+      "E2003R1A_CANV0P01_Probabilistic",
       "E2003R1A_CEUS0P01_Probabilistic",
       "E2003R1A_PACNW0P01_Probabilistic",
       "E2003R1A_PRVI0P05_Probabilistic",
