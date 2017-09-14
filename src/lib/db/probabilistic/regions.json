@@ -72,15 +72,6 @@
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2003R1A_PRVI0P05_Probabilistic.csv.gz"
   },
   {
-    "name": "E2003R1A_PRVI0P05_Probabilistic",
-    "grid_spacing":    0.05,
-    "max_latitude":    50.0,
-    "max_longitude": -65.0,
-    "min_latitude":    24.6,
-    "min_longitude":  -125.0,
-    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2003R1A_PRVI0P05_Probabilistic.csv.gz"
-  },
-  {
     "name": "E2003RA_SLC0P01_Probabilistic",
     "grid_spacing":    0.01,
     "max_latitude":    45.0,
@@ -133,5 +124,14 @@
     "min_latitude":    24.6,
     "min_longitude": -125.0,
     "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2014R1_COUS0P01_Probabilistic.csv.gz"
+  },
+  {
+    "name": "E2003R1A_US0P05_Probabilistic",
+    "grid_spacing":    0.05,
+    "max_latitude":    50.0,
+    "max_longitude":  -65.0,
+    "min_latitude":    24.6,
+    "min_longitude": -125.0,
+    "url": "ftp://hazards.cr.usgs.gov/web/earthquake-design-ws/E2003R1A_US0P05_Probabilistic.csv.gz"
   }
 ]
