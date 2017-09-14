@@ -31,4 +31,5 @@ const ASCE7_16Handler = function (options) {
   return _this;
 };
 
+
 module.exports = ASCE7_16Handler;

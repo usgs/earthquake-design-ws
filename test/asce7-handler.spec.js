@@ -1,6 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
+
 const ASCE7Handler = require('../src/lib/asce7-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
@@ -115,6 +116,7 @@ const _DESIGN_FACTORY = {
   }
 };
 
+
 describe('asce7-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
@@ -137,7 +139,6 @@ describe('asce7-handler', () => {
     });
 
     it('can be destroyed', () => {
-
       const handler = ASCE7Handler({factory: {}});
 
       expect(handler.destroy).to.not.throw(Error);
