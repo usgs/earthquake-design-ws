@@ -486,7 +486,7 @@ describe('SpectraFactory', () => {
          * "siteClass": "C",
          * "title": "Example"
          **/
-        factory.getVerticalSpectrum(2.265, 0.936, 8, 1.1).then((result) => {
+        factory.getVerticalSpectrum(2.265, 0.936, 1.1).then((result) => {
 
           // TODO: Ask @nluco-usgs to review these values
           let expectation = [

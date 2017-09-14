@@ -58,9 +58,8 @@ const ASCE7_16Factory = function (options) {
       });
     }).then((verticalCoefficientResult) => {
       result.cv = verticalCoefficientResult.cv;
-      process.stdout.write('CV --> ' + JSON.stringify(verticalCoefficientResult, null, 2));
       return _this.spectraFactory.getVerticalSpectrum(result.finalDesign.sms,
-          result.finalDesign.sm1, result.cv, result.tSubL);
+          result.finalDesign.sm1, result.cv);
     }).then((samvRawSpectrum) => {
       let samvSpectrum,
           savSpectrum;
