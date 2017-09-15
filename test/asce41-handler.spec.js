@@ -1,7 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var ASCE41Handler = require('../src/lib/asce41-handler'),
+const ASCE41Handler = require('../src/lib/asce41-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
@@ -36,15 +36,13 @@ describe('asce41-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var handler;
-
-      handler = ASCE41Handler({factory: _FACTORY});
+      const handler = ASCE41Handler({factory: _FACTORY});
       expect(handler.destroy).to.not.throw(Error);
     });
   });
 
   describe('checkParams', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();
@@ -65,7 +63,7 @@ describe('asce41-handler', () => {
   });
 
   describe('get', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();

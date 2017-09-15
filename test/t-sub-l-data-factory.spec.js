@@ -2,13 +2,13 @@
 'use strict';
 
 
-var TSubLDataFactory = require('../src/lib/t-sub-l-data-factory'),
+const TSubLDataFactory = require('../src/lib/t-sub-l-data-factory'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
 describe('t-sub-l-data-factory', () => {
-  var factory;
+  let factory;
 
 
   afterEach(() => {
@@ -37,7 +37,7 @@ describe('t-sub-l-data-factory', () => {
 
   describe('get', () => {
     it('returns a promise and calls functions as intended', (done) => {
-      var result;
+      let result;
 
       sinon.stub(factory, 'getMetadata').callsFake(() => Promise.resolve({}));
       sinon.stub(factory, 'getData').callsFake(() => Promise.resolve({}));
@@ -67,7 +67,7 @@ describe('t-sub-l-data-factory', () => {
 
   describe('getData', () => {
     it('returns a promise and queries the database', (done) => {
-      var inputs,
+      let inputs,
           metadata,
           result;
 
@@ -104,7 +104,7 @@ describe('t-sub-l-data-factory', () => {
 
   describe('getDocument', () => {
     it('returns a promise and queries the database', (done) => {
-      var result;
+      let result;
 
       sinon.spy(factory.db, 'query');
       result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
@@ -128,7 +128,7 @@ describe('t-sub-l-data-factory', () => {
 
   describe('getMetadata', () => {
     it('returns a promise and calls correct sub-methods', (done) => {
-      var inputs,
+      let inputs,
           result;
 
       inputs = {
@@ -164,7 +164,7 @@ describe('t-sub-l-data-factory', () => {
 
   describe('getRegion', () => {
     it('returns a promise and queries the database', (done) => {
-      var result;
+      let result;
 
       sinon.spy(factory.db, 'query');
       result = factory.getRegion({latitude: 0, longitude: 1});

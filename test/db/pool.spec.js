@@ -2,21 +2,18 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     Pool = require('../../src/lib/db/pool'),
     sinon = require('sinon');
 
 
-var _MOCK_DB_CLIENT,
-    _MOCK_DB_POOL;
-
-_MOCK_DB_CLIENT = {
+const _MOCK_DB_CLIENT = {
   query: sinon.spy(() => {
     return Promise.resolve({rows: []});
   })
 };
 
-_MOCK_DB_POOL = {
+const _MOCK_DB_POOL = {
   connect: sinon.spy(() => {
     return Promise.resolve(_MOCK_DB_CLIENT);
   })
@@ -35,7 +32,7 @@ describe('db/pool', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var pool;
+        let pool;
 
         pool = Pool({pool: null});
         pool.destroy();
@@ -44,14 +41,14 @@ describe('db/pool', () => {
   });
 
   describe('query', () => {
-    var pool;
+    let pool;
 
     afterEach((done) => {
       pool.destroy().then(done);
     });
 
     beforeEach(() => {
-      var key;
+      let key;
 
       pool = Pool({pool: _MOCK_DB_POOL});
 
@@ -75,9 +72,8 @@ describe('db/pool', () => {
     });
 
     it('calls query method as on underlying client as expected', () => {
-      var sql;
 
-      sql = 'Example Query';
+      const sql = 'Example Query';
 
       pool.query().then(() => {
         expect(_MOCK_DB_CLIENT.query.callCount).to.equal(2);

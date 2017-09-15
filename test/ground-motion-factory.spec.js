@@ -2,10 +2,10 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     GroundMotionFactory = require('../src/lib/ground-motion-factory');
 
-var EPSILION = 0.00001;
+const EPSILION = 0.00001;
 
 describe('GroundMotionFactory test suite', function () {
   var groundMotionFactory;
@@ -36,7 +36,7 @@ describe('GroundMotionFactory test suite', function () {
 
   describe('interpolate', () => {
     it('interpolates one point correctly', () => {
-      var interpolate,
+      let interpolate,
           latitude,
           longitude,
           points;
@@ -60,7 +60,7 @@ describe('GroundMotionFactory test suite', function () {
     });
 
     it('interpolates two points correctly', () => {
-      var interpolate,
+      let interpolate,
           latitude,
           longitude,
           points;
@@ -91,7 +91,7 @@ describe('GroundMotionFactory test suite', function () {
   });
 
   it('interpolates four points correctly', () => {
-    var interpolate,
+    let interpolate,
         latitude,
         longitude,
         points;
@@ -134,7 +134,7 @@ describe('GroundMotionFactory test suite', function () {
 
 
   it('Throws an error when missing an "s1" or "ss" value', () => {
-    var latitude,
+    let latitude,
         longitude,
         points;
 

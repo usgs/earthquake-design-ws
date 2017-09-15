@@ -2,7 +2,7 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     SpectraFactory = require('../src/lib/spectra-factory');
 
 
@@ -18,7 +18,7 @@ describe('SpectraFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
+        let factory;
 
         factory = SpectraFactory();
         factory.destroy();
@@ -173,7 +173,7 @@ describe('SpectraFactory', () => {
     });
 
     it('resolves with null value when null values are given', (done) => {
-      var factory;
+      let factory;
 
       factory = SpectraFactory();
 
@@ -187,7 +187,7 @@ describe('SpectraFactory', () => {
 
   describe('getTimeValues', () => {
     it('returns an Array', () => {
-      var factory;
+      let factory;
 
       factory = SpectraFactory();
 
@@ -313,7 +313,7 @@ describe('SpectraFactory', () => {
         ];
 
         expectation.forEach((expected, index) => {
-          var actual;
+          let actual;
 
           actual = result[index];
 
@@ -442,7 +442,7 @@ describe('SpectraFactory', () => {
         ];
 
         expectation.forEach((expected, index) => {
-          var actual;
+          let actual;
 
           actual = result[index];
 
@@ -538,7 +538,7 @@ describe('SpectraFactory', () => {
 
           expectation.forEach((expected, index) => {
 
-            var actual,
+            let actual,
                 actual_x,
                 actual_y,
                 expected_x,
@@ -568,7 +568,7 @@ describe('SpectraFactory', () => {
       });
 
       it('resolves with null value when null values are given', (done) => {
-        var factory;
+        let factory;
 
         factory = SpectraFactory();
 

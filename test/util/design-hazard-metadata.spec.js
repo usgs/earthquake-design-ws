@@ -2,7 +2,7 @@
 'use strict';
 
 
-var DesignHazardMetadata = require('../../src/lib/util/design-hazard-metadata'),
+const DesignHazardMetadata = require('../../src/lib/util/design-hazard-metadata'),
     expect = require('chai').expect;
 
 
@@ -17,7 +17,7 @@ describe('util/design-hazard-metadata', () => {
     });
 
     it('can be destroyed', () => {
-      var metadata;
+      let metadata;
 
       metadata = DesignHazardMetadata();
 
@@ -26,7 +26,7 @@ describe('util/design-hazard-metadata', () => {
   });
 
   describe('contains', () => {
-    var metadata;
+    let metadata;
 
     afterEach(() => {
       metadata.destroy();
@@ -57,7 +57,7 @@ describe('util/design-hazard-metadata', () => {
   });
 
   describe('getHazardMetadata', () => {
-    var metadata,
+    let metadata,
         region;
 
     after(() => {

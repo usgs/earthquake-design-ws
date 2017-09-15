@@ -1,7 +1,7 @@
 /* global describe, it */
 'use strict';
 
-var DeterministicHandler = require('../src/lib/deterministic-handler'),
+const DeterministicHandler = require('../src/lib/deterministic-handler'),
     expect = require('chai').expect;
 
 
@@ -16,9 +16,8 @@ describe('deterministic-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var handler;
 
-      handler = DeterministicHandler();
+      const handler = DeterministicHandler();
       expect(handler.destroy).to.not.throw(Error);
     });
   });

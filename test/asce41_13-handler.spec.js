@@ -17,9 +17,8 @@ describe('asce41_13-handler', () => {
     });
 
     it('can be destroyed', () => {
-      let handler;
 
-      handler = ASCE41_13Handler();
+      const handler = ASCE41_13Handler();
 
       expect(handler.destroy).to.not.throw(Error);
     });

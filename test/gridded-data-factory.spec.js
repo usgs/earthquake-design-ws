@@ -2,7 +2,7 @@
 'use strict';
 
 
-var GriddedDataFactory = require('../src/lib/gridded-data-factory'),
+const GriddedDataFactory = require('../src/lib/gridded-data-factory'),
     expect = require('chai').expect,
     NumberUtils = require('../src/lib/util/number-utils').instance,
     sinon = require('sinon');
@@ -14,7 +14,7 @@ const _DUMMY_METADATA_FACTORY = {
 
 
 describe('gridded-data-factory', () => {
-  var factory;
+  let factory;
 
 
   afterEach(() => {
@@ -45,7 +45,7 @@ describe('gridded-data-factory', () => {
 
   describe('get', () => {
     it('returns a promise and calls functions as intended', (done) => {
-      var result;
+      let result;
 
       sinon.stub(factory, 'getMetadata').callsFake(() => Promise.resolve({}));
       sinon.stub(factory, 'getData').callsFake(() => Promise.resolve({}));
@@ -75,7 +75,7 @@ describe('gridded-data-factory', () => {
 
   describe('getData', () => {
     it('returns a promise and queries the database', (done) => {
-      var inputs,
+      let inputs,
           metadata,
           result;
 
@@ -123,7 +123,7 @@ describe('gridded-data-factory', () => {
 
   describe('getDocument', () => {
     it('returns a promise and queries the database', (done) => {
-      var result;
+      let result;
 
       sinon.spy(factory.db, 'query');
       result = factory.getDocument({referenceDocument: 'foo'}, {id: 1});
@@ -148,7 +148,7 @@ describe('gridded-data-factory', () => {
 
   describe('getMetadata', () => {
     it('returns a promise and calls correct sub-methods', (done) => {
-      var inputs,
+      let inputs,
           result;
 
       inputs = {
@@ -184,7 +184,7 @@ describe('gridded-data-factory', () => {
 
   describe('getRegion', () => {
     it('returns a promise and queries the database', (done) => {
-      var result;
+      let result;
 
       sinon.spy(factory.db, 'query');
       result = factory.getRegion({referenceDocument: 'TEST', latitude: 0, longitude: 1});

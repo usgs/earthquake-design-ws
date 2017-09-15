@@ -2,15 +2,12 @@
 'use strict';
 
 
-var ASCE7Factory = require('../src/lib/asce7-factory.js'),
+const ASCE7Factory = require('../src/lib/asce7-factory.js'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
-var _DUMMY_FACTORY,
-    _EPSILON;
-
-_DUMMY_FACTORY = {
+const _DUMMY_FACTORY = {
   metadataFactory: {
     getMetadata: () => { return Promise.resolve([]); }
   },
@@ -37,7 +34,7 @@ _DUMMY_FACTORY = {
   }
 };
 
-_EPSILON = Number.EPSILON;
+const _EPSILON = Number.EPSILON;
 
 
 describe('ASCE7Factory', () => {
@@ -52,9 +49,8 @@ describe('ASCE7Factory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
 
-        factory = ASCE7Factory();
+        const factory = ASCE7Factory();
         factory.destroy();
       }).to.not.throw(Error);
     });
@@ -62,9 +58,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeBasicDesign', () => {
     it('returns a promise', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeBasicDesign()).to.be.instanceof(Promise);
 
@@ -72,9 +67,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('rejects with an error when one occurs', function (done) {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       factory.computeBasicDesign().then((/*obj*/) => {
         // This should not execute because we expect a rejected promise
@@ -94,9 +88,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('calls expected calculation methods', (done) => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       sinon.spy(factory, 'computeUniformHazard');
       sinon.spy(factory, 'computeUniformRisk');
@@ -151,9 +144,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeDesignValue', () => {
     it('returns expected values', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeDesignValue(1.0)).to.be.closeTo(2/3, _EPSILON);
       expect(factory.computeDesignValue(null)).to.equal(null);
@@ -162,9 +154,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeDeterministic', () => {
     it('returns expected results', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       // Use floor when it is greater
       expect(factory.computeDeterministic(
@@ -183,9 +174,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeFinalDesign', () => {
     it('returns a promise', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeFinalDesign()).to.be.instanceof(Promise);
 
@@ -193,7 +183,7 @@ describe('ASCE7Factory', () => {
     });
 
     it('calls expected calculation methods', (done) => {
-      var factory;
+      let factory;
 
       factory = ASCE7Factory();
 
@@ -221,9 +211,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeGroundMotion', () => {
     it('returns expected results', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeGroundMotion(0, 1)).to.equal(0);
       expect(factory.computeGroundMotion(1, 2)).to.equal(1);
@@ -236,9 +225,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeSiteModified', () => {
     it('returns expected results', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeSiteModifiedValue(0, 1)).to.equal(0);
       expect(factory.computeSiteModifiedValue(1, 2)).to.equal(2);
@@ -254,15 +242,14 @@ describe('ASCE7Factory', () => {
 
   describe('computeSpectra', () => {
     it('returns a promise', () => {
-      var factory;
 
-      factory = ASCE7Factory(_DUMMY_FACTORY);
+      const factory = ASCE7Factory(_DUMMY_FACTORY);
 
       expect(factory.computeSpectra({})).to.be.instanceof(Promise);
     });
 
     it('calls factory method twice', (done) => {
-      var factory;
+      let factory;
 
       factory = ASCE7Factory(_DUMMY_FACTORY);
       sinon.spy(factory.spectraFactory, 'getHorizontalSpectrum');
@@ -282,9 +269,8 @@ describe('ASCE7Factory', () => {
 
   describe('computeUniformHazard', () => {
     it('returns expected results', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeUniformHazard(0, 0)).to.be.closeTo(0, _EPSILON);
       expect(factory.computeUniformHazard(1, 0)).to.be.closeTo(0, _EPSILON);
@@ -297,9 +283,8 @@ describe('ASCE7Factory', () => {
   });
   describe('computeUniformRisk', () => {
     it('returns expected results', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.computeUniformRisk(0, 0)).to.be.closeTo(0, _EPSILON);
       expect(factory.computeUniformRisk(1, 0)).to.be.closeTo(0, _EPSILON);
@@ -313,9 +298,8 @@ describe('ASCE7Factory', () => {
 
   describe('formatResult', () => {
     it('returns a promise', () => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       expect(factory.formatResult()).to.be.instanceof(Promise);
 
@@ -323,9 +307,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('resolves with expected data structure', (done) => {
-      var factory;
 
-      factory = ASCE7Factory();
+      const factory = ASCE7Factory();
 
       factory.formatResult({
         'basicDesign': {
@@ -412,9 +395,8 @@ describe('ASCE7Factory', () => {
 
   describe('get', () => {
     it('returns a promise', () => {
-      var factory;
 
-      factory = ASCE7Factory(_DUMMY_FACTORY);
+      const factory = ASCE7Factory(_DUMMY_FACTORY);
 
       expect(factory.get()).to.be.instanceof(Promise);
 
@@ -422,9 +404,8 @@ describe('ASCE7Factory', () => {
     });
 
     it('calls expected sub-methods', (done) => {
-      var factory;
 
-      factory = ASCE7Factory(_DUMMY_FACTORY);
+      const factory = ASCE7Factory(_DUMMY_FACTORY);
 
       sinon.spy(factory.metadataFactory, 'getMetadata');
       sinon.spy(factory.probabilisticService, 'getData');
