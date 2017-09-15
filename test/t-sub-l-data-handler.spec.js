@@ -1,23 +1,18 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var TSubLDataHandler = require('../src/lib/t-sub-l-data-handler'),
+const TSubLDataHandler = require('../src/lib/t-sub-l-data-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
-var _FACTORY,
-    _INPUT,
-    _RESULT;
-
-
-_INPUT = {
+const _INPUT = {
   latitude: 0,
   longitude: 0,
   referenceDocument: 'EXAMPLE_DOCUMENT'
 };
 
-_FACTORY = {
+const _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
@@ -26,7 +21,7 @@ _FACTORY = {
   }
 };
 
-_RESULT = {
+const _RESULT = {
   'data': {
     'id': 0,
     'region_id': 0,
@@ -70,7 +65,7 @@ describe('t-sub-l-data-handler', () => {
   });
 
   describe('checkParams', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();
@@ -92,7 +87,7 @@ describe('t-sub-l-data-handler', () => {
 
   describe('createDbPool', () => {
     it('sets _this.db to a Pool', () => {
-      var handler;
+      let handler;
 
       handler = TSubLDataHandler({factory: _FACTORY});
 
@@ -109,7 +104,7 @@ describe('t-sub-l-data-handler', () => {
   });
 
   describe('formatResult', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();
@@ -122,13 +117,13 @@ describe('t-sub-l-data-handler', () => {
 
 
     it('resolves with object with appropriate structure', (done) => {
-      var formatted;
+      let formatted;
 
       formatted = handler.formatResult(_RESULT);
       expect(formatted).to.be.instanceof(Promise);
 
       formatted.then((result) => {
-        var data,
+        let data,
             metadata;
 
         expect(result.hasOwnProperty('data')).to.be.true;
@@ -156,7 +151,7 @@ describe('t-sub-l-data-handler', () => {
 
   describe('get', () => {
     it('checks params and defers to factory', (done) => {
-      var handler,
+      let handler,
           spy,
           stub;
 

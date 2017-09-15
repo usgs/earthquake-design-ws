@@ -2,15 +2,13 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     express = require('express'),
     sinon = require('sinon'),
     WebServiceAccessor = require('../../src/lib/util/web-service-accessor');
 
 
-var _EXAMPLE_URL;
-
-_EXAMPLE_URL = 'https://example.com/some/path';
+const _EXAMPLE_URL = 'https://example.com/some/path';
 
 
 describe('util/web-service-accessor', () => {
@@ -30,7 +28,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getData', () => {
     it('calls sub-methods and returns a promise', (done) => {
-      var accessor,
+      let accessor,
           result;
 
       accessor = WebServiceAccessor();
@@ -63,7 +61,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getHostname', () => {
     it('returns the hostname as expected', () => {
-      var accessor;
+      let accessor;
 
       accessor = WebServiceAccessor({url: _EXAMPLE_URL});
       expect(accessor.getHostname()).to.equal('example.com');
@@ -73,7 +71,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getPath', () => {
     it('returns the path as expected', () => {
-      var accessor;
+      let accessor;
 
       accessor = WebServiceAccessor({url: _EXAMPLE_URL});
       expect(accessor.getPath()).to.equal('/some/path');
@@ -83,7 +81,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getPort', () => {
     it('returns the port as expected', () => {
-      var accessor;
+      let accessor;
 
       accessor = WebServiceAccessor({url: _EXAMPLE_URL});
       expect(accessor.getPort()).to.equal(443);
@@ -93,7 +91,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getQueryString', () => {
     it('returns a query string as expected', () => {
-      var accessor;
+      let accessor;
 
       accessor = WebServiceAccessor();
       expect(accessor.getQueryString({param1: 'value1', param2: 'value2'}))
@@ -105,7 +103,7 @@ describe('util/web-service-accessor', () => {
 
   describe('getRequestOptions', () => {
     it('returns a promise with proper keys/values', (done) => {
-      var accessor,
+      let accessor,
           promise;
 
       accessor = WebServiceAccessor();
@@ -131,7 +129,7 @@ describe('util/web-service-accessor', () => {
     });
 
     it('rejects on error', (done) => {
-      var accessor;
+      let accessor;
 
       accessor = WebServiceAccessor();
       sinon.stub(accessor, 'getHostname').callsFake(
@@ -154,7 +152,7 @@ describe('util/web-service-accessor', () => {
   });
 
   describe('request', () => {
-    var testApp,
+    let testApp,
         testPort,
         testServer;
 
@@ -173,7 +171,7 @@ describe('util/web-service-accessor', () => {
     });
 
     it('properly fetches results', (done) => {
-      var accessor,
+      let accessor,
           dataFile;
 
       accessor = WebServiceAccessor();

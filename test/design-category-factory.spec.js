@@ -2,13 +2,13 @@
 'use strict';
 
 
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     //sinon = require('sinon'),
     DesignCategoryFactory = require('../src/lib/design-category-factory');
 
 
 describe('DesignCategoryFactory', () => {
-  var factory;
+  let factory;
 
   beforeEach(() => {
     factory = DesignCategoryFactory();
@@ -29,9 +29,8 @@ describe('DesignCategoryFactory', () => {
 
     it('can be destroyed', () => {
       expect(() => {
-        var factory;
 
-        factory = DesignCategoryFactory();
+        const factory = DesignCategoryFactory();
         factory.destroy();
       }).to.not.throw(Error);
     });
@@ -40,7 +39,7 @@ describe('DesignCategoryFactory', () => {
   describe('getDesignCategory', () => {
     it('throws an error when required values are omitted', (done) => {
       factory.getDesignCategory().then((/*result*/) => {
-        var error;
+        let error;
 
         error = new Error('Method resolved but should have rejected!');
         error.assertionFailed = true; // Flag to distinguish this error
@@ -135,7 +134,7 @@ describe('DesignCategoryFactory', () => {
 
   describe('mapDesignCategory', () => {
     it('returns the correct design category', () => {
-      var f = factory;
+      const f = factory;
 
       expect(f.mapDesignCategory('I', 'sds', null)).to.equal(null);
 

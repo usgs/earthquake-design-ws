@@ -1,16 +1,12 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var DesignHandler = require('../src/lib/asce7_10-handler'),
+const DesignHandler = require('../src/lib/asce7_10-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
-var _DESIGN_FACTORY,
-    _INPUT;
-
-
-_INPUT = {
+const _INPUT = {
   'title': 'This is a title',
   'latitude': 30,
   'longitude': 80,
@@ -18,7 +14,7 @@ _INPUT = {
   'riskCategory': 3
 };
 
-_DESIGN_FACTORY = {
+const _DESIGN_FACTORY = {
   get: () => {
     return Promise.resolve(_INPUT);
   }
@@ -36,16 +32,15 @@ describe('asce7-10-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var designHandler;
 
-      designHandler = DesignHandler();
+      const designHandler = DesignHandler();
 
       expect(designHandler.destroy).to.not.throw(Error);
     });
   });
 
   describe('checkParams', () => {
-    var designHandler;
+    let designHandler;
 
     afterEach(() => {
       designHandler.destroy();
@@ -66,7 +61,7 @@ describe('asce7-10-handler', () => {
   });
 
   describe('get', () => {
-    var designHandler;
+    let designHandler;
 
     afterEach(() => {
       designHandler.destroy();
@@ -89,9 +84,8 @@ describe('asce7-10-handler', () => {
     });
 
     it('returns a promise', () => {
-      var result;
 
-      result = designHandler.get({});
+      const result = designHandler.get({});
 
       expect(result).to.be.an.instanceof(Promise);
     });

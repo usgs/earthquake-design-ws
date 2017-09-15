@@ -17,17 +17,15 @@ describe('asce7_10-factory', () => {
     });
 
     it('can be destroyed', () => {
-      let factory;
 
-      factory = ASCE7_10Factory();
+      const factory = ASCE7_10Factory();
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
 
     it('Sets the correct referenceDocument value', () => {
-      let factory;
 
-      factory = ASCE7_10Factory();
+      const factory = ASCE7_10Factory();
       expect(factory.referenceDocument).to.equal('ASCE7-10');
     });
   });

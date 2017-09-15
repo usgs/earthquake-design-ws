@@ -2,18 +2,19 @@
 'use strict';
 
 
-var ASCE41_13Handler = require('../../src/lib/asce41_13-handler'),
+const ASCE41_13Handler = require('../../src/lib/asce41_13-handler'),
     CityInputs = require('../../etc/asce41_13-qc.json'),
-    Config = require('../../src/conf/config.json'),
     expect = require('chai').expect,
     extend = require('extend'),
     fs = require('fs'),
     https = require('https');
 
+const epsilon = Config.epsilon || 1E-4;
 
-var ca,
-    compareResults,
-    epsilon;
+let Config = require('../../src/conf/config.json'),
+    ca,
+    compareResults;
+
 
 Config = extend(Config, process.env);
 
@@ -40,8 +41,6 @@ if (Config.SSL_CERT_FILE) {
   https.globalAgent.options.ca = ca;
 }
 
-epsilon = Config.epsilon || 1E-4;
-
 compareResults = function (expected, actual) {
   expect(actual.sxs).to.be.closeTo(expected.sxs, epsilon);
   expect(actual.sx1).to.be.closeTo(expected.sx1, epsilon);
@@ -49,7 +48,7 @@ compareResults = function (expected, actual) {
 
 
 describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, function () {
-  var handler;
+  let handler;
 
   this.timeout(100000);
 
@@ -63,7 +62,7 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, function () {
   });
 
   CityInputs.forEach((city) => {
-    var label,
+    let label,
         latitude,
         longitude,
         siteClass;
@@ -76,11 +75,11 @@ describe(`ASCE 41-13 Quality Control Tests +/- ${epsilon}`, function () {
     label = `${label} (${latitude}, ${longitude}) "Site Class ${siteClass}"`;
 
     describe(label, () => {
-      var customResults,
+      let customResults,
           standardResults;
 
       before((done) => {
-        var customRequest,
+        let customRequest,
             standardRequest;
 
         standardRequest = {

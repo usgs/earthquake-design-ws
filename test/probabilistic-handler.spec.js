@@ -1,7 +1,7 @@
 /* global describe, it */
 'use strict';
 
-var ProbabilisticHandler = require('../src/lib/probabilistic-handler'),
+const ProbabilisticHandler = require('../src/lib/probabilistic-handler'),
     expect = require('chai').expect;
 
 
@@ -16,9 +16,8 @@ describe('probabilistic-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var handler;
 
-      handler = ProbabilisticHandler();
+      const handler = ProbabilisticHandler();
       expect(handler.destroy).to.not.throw(Error);
     });
   });

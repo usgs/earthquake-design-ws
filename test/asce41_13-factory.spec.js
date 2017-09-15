@@ -31,7 +31,7 @@ const _DUMMY_FACTORY = {
   },
   uhtHazardCurveFactory: {
     getDesignCurves: () => {
-      let points = [];
+      const points = [];
       points.push({
         latitude: 1,
         longitude: 1,
@@ -123,11 +123,10 @@ describe('asce41_13-factory', () => {
 
   describe('computeBse1N', () => {
     it('should return a valid Bse1N value', (done) => {
-      let result;
 
       const factory = ASCE41_13Factory(_DUMMY_FACTORY);
+      const result = factory.computeBse1N({sxs: 0, sx1: 0, horizontalSpectrum: [0,0]});
 
-      result = factory.computeBse1N({sxs: 0, sx1: 0, horizontalSpectrum: [0,0]});
       expect(result).to.be.instanceof(Promise);
       result.then((result) => {
         expect(result).to.have.property('hazardLevel');
@@ -144,11 +143,10 @@ describe('asce41_13-factory', () => {
 
   describe('computeBse2N', () => {
     it('should return a valid Bse2N value', (done) => {
-      let result;
 
       const factory = ASCE41_13Factory(_DUMMY_FACTORY);
+      const result = factory.computeBse2N({},{});
 
-      result = factory.computeBse2N({},{});
       expect(result).to.be.instanceof(Promise);
       result.then((result) => {
         expect(result).to.have.property('hazardLevel');
@@ -190,12 +188,12 @@ describe('asce41_13-factory', () => {
 
   describe('getCustomProbabilityDesignData', () => {
     it('should return valid Custom Design Data', (done) => {
-      let result;
 
       const factory = ASCE41_13Factory(_DUMMY_FACTORY);
+      const result = factory.getCustomProbabilityDesignData({latitude:1 ,longitude:1});
 
-      result = factory.getCustomProbabilityDesignData({latitude:1 ,longitude:1});
       expect(result).to.be.instanceof(Promise);
+
       result.then((result) => {
         expect(result.data[0]).to.have.property('hazardLevel');
         expect(result.data[0]).to.have.property('customProbability');
@@ -216,7 +214,6 @@ describe('asce41_13-factory', () => {
 
   describe('getStandardDesignData', () => {
     it('should call computeBse1E, computeBse2E, computeBse1N and computeBse2N', () => {
-      let result;
 
       const factory = ASCE41_13Factory(_DUMMY_FACTORY);
 
@@ -229,7 +226,8 @@ describe('asce41_13-factory', () => {
       sinon.stub(factory, 'computeBse2N').callsFake(
           () => { return Promise.resolve({}); });
 
-      result = factory.getStandardDesignData({});
+      const result = factory.getStandardDesignData({});
+
       result.then(() => {
         expect(factory.computeBse1E.callCount).to.equal(1);
         expect(factory.computeBse2E.callCount).to.equal(1);

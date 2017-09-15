@@ -1,7 +1,7 @@
 /* global describe, it */
 'use strict';
 
-var RiskCoefficientHandler = require('../src/lib/risk-coefficient-handler'),
+const RiskCoefficientHandler = require('../src/lib/risk-coefficient-handler'),
     expect = require('chai').expect;
 
 
@@ -16,9 +16,8 @@ describe('risk-coefficient-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var handler;
 
-      handler = RiskCoefficientHandler();
+      const handler = RiskCoefficientHandler();
       expect(handler.destroy).to.not.throw(Error);
     });
   });

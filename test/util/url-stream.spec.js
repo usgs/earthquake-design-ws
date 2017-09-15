@@ -1,14 +1,14 @@
 /* global after, before, describe, it */
+'use strict';
 
-
-var expect = require('chai').expect,
+const expect = require('chai').expect,
     express = require('express'),
     UrlStream = require('../../src/lib/util/url-stream');
 
 
 
 describe('util/url-stream', function () {
-  var testApp,
+  let testApp,
       testPort,
       testServer;
 

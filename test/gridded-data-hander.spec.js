@@ -1,23 +1,18 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-var GriddedDataHandler = require('../src/lib/gridded-data-handler'),
+const GriddedDataHandler = require('../src/lib/gridded-data-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
-var _FACTORY,
-    _INPUT,
-    _RESULT;
-
-
-_INPUT = {
+const _INPUT = {
   latitude: 0,
   longitude: 0,
   referenceDocument: 'EXAMPLE_DOCUMENT'
 };
 
-_FACTORY = {
+const _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
@@ -26,7 +21,7 @@ _FACTORY = {
   }
 };
 
-_RESULT = {
+const _RESULT = {
   'data': {
     'id': 0,
     'region_id': 0,
@@ -70,15 +65,14 @@ describe('gridded-data-handler', () => {
     });
 
     it('can be destroyed', () => {
-      var handler;
 
-      handler = GriddedDataHandler();
+      const handler = GriddedDataHandler();
       expect(handler.destroy).to.not.throw(Error);
     });
   });
 
   describe('checkParams', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();
@@ -100,7 +94,7 @@ describe('gridded-data-handler', () => {
 
   describe('createDbPool', () => {
     it('sets _this.db to a Pool', () => {
-      var handler;
+      let handler;
 
       handler = GriddedDataHandler({factory: _FACTORY});
 
@@ -117,7 +111,7 @@ describe('gridded-data-handler', () => {
   });
 
   describe('formatResult', () => {
-    var handler;
+    let handler;
 
     afterEach(() => {
       handler.destroy();
@@ -130,9 +124,8 @@ describe('gridded-data-handler', () => {
 
 
     it('resolves with object with appropriate structure', (done) => {
-      var formatted;
 
-      formatted = handler.formatResult(_RESULT);
+      const formatted = handler.formatResult(_RESULT);
       expect(formatted).to.be.instanceof(Promise);
 
       formatted.then((result) => {
@@ -170,7 +163,7 @@ describe('gridded-data-handler', () => {
 
   describe('get', () => {
     it('checks params and defers to factory', (done) => {
-      var handler,
+      let handler,
           spy,
           stub;
 

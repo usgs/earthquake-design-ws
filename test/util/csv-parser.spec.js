@@ -2,14 +2,14 @@
 'use strict';
 
 
-var CsvParser = require('../../src/lib/util/csv-parser'),
+const CsvParser = require('../../src/lib/util/csv-parser'),
     expect = require('chai').expect,
     sinon = require('sinon'),
     stream = require('stream');
 
 
-var StringStream = function (str) {
-  var s;
+const StringStream = function (str) {
+  let s;
 
   s = new stream.Readable();
   s._read = () => {
@@ -22,7 +22,7 @@ var StringStream = function (str) {
 
 
 describe('util/csv-parser', () => {
-  var parser;
+  let parser;
 
   beforeEach(() => {
     parser = CsvParser({url: ''});
@@ -42,7 +42,7 @@ describe('util/csv-parser', () => {
 
   describe('destroy', () => {
     it('can be called repeatedly', () => {
-      var parser;
+      let parser;
 
       parser = CsvParser({url: ''});
       parser.destroy();
@@ -52,7 +52,7 @@ describe('util/csv-parser', () => {
 
   describe('onData', () => {
     it('buffers parsed objects', () => {
-      var test1,
+      let test1,
           test2;
 
       test1 = {};
@@ -70,7 +70,7 @@ describe('util/csv-parser', () => {
 
   describe('parse', () => {
     it('parses gzipped urls', (done) => {
-      var parser;
+      let parser;
 
       parser = CsvParser({
         url: 'file://' + __dirname + '/../../etc/test.csv.gz'
@@ -93,7 +93,7 @@ describe('util/csv-parser', () => {
     });
 
     it('parses a stream', (done) => {
-      var parser;
+      let parser;
 
       parser = CsvParser({
         stream: StringStream('header1,header2\nvalue1,value2\n')
@@ -112,7 +112,7 @@ describe('util/csv-parser', () => {
     });
 
     it('rejects the promise when there are errors', (done) => {
-      var parser;
+      let parser;
 
       parser = CsvParser({
         stream: StringStream('header1,header2\nvalue1,value2,value3\n')
@@ -125,7 +125,7 @@ describe('util/csv-parser', () => {
     });
 
     it('rejects the promise when the urls is invalid', (done) => {
-      var parser;
+      let parser;
 
       parser = CsvParser({
         url: 'file://' + __dirname + '../../../etc/doesnotexist.csv.gz'
@@ -140,7 +140,7 @@ describe('util/csv-parser', () => {
 
   describe('parseHeaders', () => {
     it('stores results of splitLine in headers', () => {
-      var line,
+      let line,
           test;
 
       line = {};
@@ -157,7 +157,7 @@ describe('util/csv-parser', () => {
 
   describe('parseLine', () => {
     it('treats first line as headers', () => {
-      var line1,
+      let line1,
           line2;
 
       line1 = 'header1,header2';
@@ -175,7 +175,7 @@ describe('util/csv-parser', () => {
 
     it('throws error if header and line column counts differ', () => {
       expect(() => {
-        var line1,
+        let line1,
             line2;
 
         line1 = 'header1,header2';
