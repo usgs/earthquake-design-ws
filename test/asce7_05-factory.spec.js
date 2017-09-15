@@ -98,8 +98,6 @@ describe('ASCE7_05Factory', () => {
       factory = ASCE7_05Factory();
 
       sinon.spy(factory, 'computeUniformHazard');
-      sinon.spy(factory, 'computeDeterministic');
-      sinon.spy(factory, 'computeGroundMotion');
 
       factory.computeBasicDesign({
         inputs: {
@@ -127,12 +125,10 @@ describe('ASCE7_05Factory', () => {
         }]
       }).then(() => {
         expect(factory.computeUniformHazard.callCount).to.equal(2);
-        expect(factory.computeGroundMotion.callCount).to.equal(2);
       }).catch((err) => {
         return err;
       }).then((err) => {
         factory.computeUniformHazard.restore();
-        factory.computeGroundMotion.restore();
 
         factory.destroy();
 
@@ -251,12 +247,10 @@ describe('ASCE7_05Factory', () => {
         }
       }).then((formatted) => {
         [
-          'ssuh', 's1uh',
-          'ssrt', 's1rt',
           'ss', 's1',
           'sms', 'sm1',
+          'sds', 'sd1',
           'fa', 'fa_error', 'fv', 'fv_error',
-          'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);

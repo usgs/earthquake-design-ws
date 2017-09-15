@@ -63,28 +63,30 @@ const ASCE7_05Factory = function (options) {
 
           probabilisticItem = probabilistic[i];
           result = {
-            latitude: parseFloat(data.probabilistic[i].request.parameters.latitude),
-            longitude: parseFloat(data.probabilistic[i].request.parameters.longitude)
+            latitude:
+                parseFloat(data.probabilistic[i].request.parameters.latitude),
+            longitude:
+                parseFloat(data.probabilistic[i].request.parameters.longitude)
           };
 
           // Compute Ss
-          result.ssuh = _this.computeUniformHazard(probabilisticItem.ss,
+          result.ss = _this.computeUniformHazard(probabilisticItem.ss,
               metadata.ssMaxDirFactor);
 
           // Compute S1
-          result.s1uh = _this.computeUniformHazard(probabilisticItem.s1,
+          result.s1 = _this.computeUniformHazard(probabilisticItem.s1,
               metadata.s1MaxDirFactor);
 
           basicDesign.push(result);
         }
 
-        // interpolate result
-        basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude, inputs.longitude, inputs.spatial_interpolation_method);
-
-        basicDesign.ss = _this.computeGroundMotion(basicDesign.ssrt,
-            basicDesign.ssd);
-        basicDesign.s1 = _this.computeGroundMotion(basicDesign.s1rt,
-            basicDesign.s1d);
+        // interpolate ss and s1
+        basicDesign = NumberUtils.spatialInterpolate(
+            basicDesign,
+            inputs.latitude,
+            inputs.longitude,
+            inputs.spatial_interpolation_method
+          );
 
         resolve(basicDesign);
       } catch (err) {
@@ -144,14 +146,12 @@ const ASCE7_05Factory = function (options) {
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
       let basicDesign,
-          designCategory,
           finalDesign,
           siteAmplification,
           spectra;
 
       try {
         basicDesign = result.basicDesign;
-        designCategory = result.designCategory;
         finalDesign = result.finalDesign;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
@@ -159,31 +159,19 @@ const ASCE7_05Factory = function (options) {
 
         resolve({
           data: {
-            ssrt: NumberUtils.round(basicDesign.ssrt,
-                _this.outputDecimals),
-            ssuh: NumberUtils.round(basicDesign.ssuh,
-                _this.outputDecimals),
-            ss: NumberUtils.round(basicDesign.ss,
-                _this.outputDecimals),
+            ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             fa_error: siteAmplification.fa_error,
             sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
-            sdcs: designCategory.sdcs,
 
-            s1rt: NumberUtils.round(basicDesign.s1rt,
-                _this.outputDecimals),
-            s1uh: NumberUtils.round(basicDesign.s1uh,
-                _this.outputDecimals),
             s1: NumberUtils.round(basicDesign.s1,
                 _this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
             fv_error: siteAmplification.fv_error,
             sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
-            sdc1: designCategory.sdc1,
 
-            sdc: designCategory.sdc,
             't-sub-l': result.tSubL,
 
             sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
