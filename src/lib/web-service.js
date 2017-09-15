@@ -3,6 +3,7 @@
 
 const ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE7_10Handler = require('./asce7_10-handler'),
+    ASCE7_05Handler = require('./asce7_05-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     ASCE41_17Handler = require('./asce41_17-handler'),
     DeterministicHandler = require('./deterministic-handler'),
@@ -66,8 +67,10 @@ const WebService = function (options) {
       _this.handlers = {
         'asce7-16.json': ASCE7_16Handler(options),
         'asce7-10.json': ASCE7_10Handler(options),
-        'asce41-13.json': ASCE41_13Handler(options),
+        'asce7-05.json': ASCE7_05Handler(options),
+
         'asce41-17.json': ASCE41_17Handler(options),
+        'asce41-13.json': ASCE41_13Handler(options),
 
         'deterministic.json': DeterministicHandler(options),
         'probabilistic.json': ProbabilisticHander(options),
