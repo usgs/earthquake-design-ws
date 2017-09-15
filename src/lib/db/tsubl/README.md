@@ -40,9 +40,9 @@
 ## Loading the schema
 
 - make sure the project is configured
-  
+
   `npm run postinstall`
 
-- run the deterministic data loader
+- run the t-sub-l data loader
 
   `node src/lib/db/tsubl/load_tsubl.js`
