@@ -121,49 +121,6 @@
         <dt id="data-data">data</dt>
         <dd>
           <dl>
-            <dt id="data-data-pgauh">pgauh</dt>
-            <dd>
-              Uniform-hazard (2% probability of exceedance in 50 years) Peak
-              Ground Acceleration
-            </dd>
-
-            <dt id="data-data-pgad">pgad</dt>
-            <dd>
-              Factored deterministic acceleration value. (Peak Ground
-              Acceleration)
-            </dd>
-
-            <dt id="data-data-pga">pga</dt>
-            <dd>
-              MCE<sub>G</sub> peak ground acceleration.
-            </dd>
-
-            <dt id="data-data-fpga">fpga</dt>
-            <dd>
-              Site amplification factor at PGA
-            </dd>
-
-            <dt id="data-data-pgam">pgam</dt>
-            <dd>
-              Site modified peak ground acceleration.
-            </dd>
-
-            <dt>ssrt</dt>
-            <dd>
-              Probabilistic risk-targeted ground motion. (0.2 second)
-            </dd>
-
-            <dt id="data-data-ssuh">ssuh</dt>
-            <dd>
-              Factored uniform-hazard (2% probability of exceedance in 50
-              years) spectral acceleration.
-            </dd>
-
-            <dt id="data-data-ssd">ssd</dt>
-            <dd>
-              Factored deterministic acceleration value. (0.2 second)
-            </dd>
-
             <dt id="data-data-ss">ss</dt>
             <dd>
               MCE<sub>R</sub> ground motion. (for 0.2 second period)
@@ -184,27 +141,6 @@
               Numeric seismic design value at 0.2 second SA.
             </dd>
 
-            <dt id="data-data-sdcs">sdcs</dt>
-            <dd>
-              Seismic design category from sds
-            </dd>
-
-            <dt>s1rt</dt>
-            <dd>
-              Probabilistic risk-targeted ground motion. (1.0 second)
-            </dd>
-
-            <dt id="data-data-s1uh">s1uh</dt>
-            <dd>
-              Factored uniform-hazard (2% probability of exceedance in 50
-              years) spectral acceleration.
-            </dd>
-
-            <dt id="data-data-s1d">s1d</dt>
-            <dd>
-              Factored deterministic acceleration value. (1.0 second)
-            </dd>
-
             <dt id="data-data-s1">s1</dt>
             <dd>
               MCE<sub>R</sub> ground motion. (for 1.0s period)
@@ -223,16 +159,6 @@
             <dt id="data-data-sd1">sd1</dt>
             <dd>
               Numeric seismic design value at 1.0 second SA.
-            </dd>
-
-            <dt id="data-data-sdc1">sdc1</dt>
-            <dd>
-              Seismic design category from sd1.
-            </dd>
-
-            <dt id="data-data-sdc">sdc</dt>
-            <dd>
-              Seismic design category from sdcs and sdc1.
             </dd>
 
             <dt id="data-data-tl">t-sub-l</dt>
@@ -256,18 +182,6 @@
         <dt>metadata</dt>
         <dd>
           <dl>
-            <dt id="data-metadata-pgadPercentile">pgadPercentileFactor</dt>
-            <dd>
-              Factor applyed to 50% ground motion to achieve target percentile
-              ground motion. (Peak Ground Acceleration)
-            </dd>
-
-            <dt id="data-metadata-pgadFloor">pgadFloor</dt>
-            <dd>
-              Minimum constraint placed on the deterministic ground motion.
-              (Peak Ground Acceleration)
-            </dd>
-
             <dt id="data-metadata-s1MaxDirection">s1MaxDirFactor</dt>
             <dd>
               Factor applyed to the geometric mean ground motion to get max
@@ -334,30 +248,14 @@
   },
   "response": {
     "data": {
-      "pgauh": 0.819,
-      "pgad": 1.021,
-      "pga": 0.819,
-      "fpga": 1.2,
-      "pgam": 0.983,
-      "ssrt": 1.888,
-      "crs": 0.896,
-      "ssuh": 2.106,
-      "ssd": 2.432,
       "ss": 1.888,
       "fa": 1.2,
       "sms": 2.265,
       "sds": 1.51,
-      "sdcs": "D",
-      "s1rt": 0.669,
-      "cr1": 0.9,
-      "s1uh": 0.743,
-      "s1d": 0.963,
       "s1": 0.669,
       "fv": 1.4,
       "sm1": 0.936,
       "sd1": 0.624,
-      "sdc1": "D",
-      "sdc": "D",
       "t-sub-l": 8,
       "sdSpectrum": [
         [
