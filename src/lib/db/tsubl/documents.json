@@ -1,5 +1,11 @@
 [
   {
+    "name": "ASCE7-05",
+    "regions": [
+      "T-Sub-L"
+    ]
+  },
+  {
     "name": "ASCE7-10",
     "regions": [
       "T-Sub-L"

@@ -9,22 +9,18 @@ const _METADATA = {
   'ASCE7-05': [
     {
       'regions': [
-        'AK',
-        'AMSAM',
-        'COUS',
-        'GNMI',
-        'HI',
-        'PRVI'
+        'AK0P10',
+        'CANV0P01',
+        'CEUS0P01',
+        'HI0P02',
+        'PACNW0P01',
+        'PRVI0P05',
+        'SLC0P01',
+        'US0P05'
       ],
       'data': {
         'modelVersion': 'v2.0.x',
-        's1MaxDirFactor': 1,
-        's1dFloor': 0,
-        's1dPercentileFactor': 1,
-        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
-        'ssMaxDirFactor': 1,
-        'ssdFloor': 0,
-        'ssdPercentileFactor': 1
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR
       }
     }
   ],
@@ -32,9 +28,9 @@ const _METADATA = {
   'ASCE7-10': [
     {
       'regions': [
-        'AK',
-        'COUS',
-        'PRVI'
+        'AK0P05',
+        'COUS0P01',
+        'PRVI0P01'
       ],
       'data': {
         'model_veresion': 'v3.1.x',
@@ -51,7 +47,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'model_veresion': 'v3.1.x',
@@ -71,9 +67,9 @@ const _METADATA = {
   'ASCE41-13': [
     {
       'regions': [
-        'COUS',
-        'AK',
-        'PRVI'
+        'COUS0P01',
+        'AK0P05',
+        'PRVI0P01'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
@@ -89,7 +85,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
@@ -109,9 +105,9 @@ const _METADATA = {
     // LogY interpolation, standard factors
     {
       'regions': [
-        'AMSAM',
-        'COUS',
-        'GNMI'
+        'AMSAM0P10',
+        'COUS0P01',
+        'GNMI0P10'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -129,8 +125,8 @@ const _METADATA = {
     // LinearY interpolation, standard factors
     {
       'regions': [
-        'AK',
-        'PRVI'
+        'AK0P05',
+        'PRVI0P01'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -148,7 +144,7 @@ const _METADATA = {
     // LinearY interpolation, custom factors
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -168,11 +164,11 @@ const _METADATA = {
   'ASCE41-17': [
     {
       'regions': [
-        'AK',
-        'AMSAM',
-        'COUS',
-        'GNMI',
-        'PRVI'
+        'AK0P05',
+        'AMSAM0P10',
+        'COUS0P01',
+        'GNMI0P10',
+        'PRVI0P01'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LOGX_LOGY_LINEAR,
@@ -188,7 +184,7 @@ const _METADATA = {
     },
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'curveInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
@@ -207,46 +203,95 @@ const _METADATA = {
 
 const _REGIONS = [
   {
-    'name': 'AK',
+    'name': 'AK0P05',
     'max_latitude':    72.0,
     'max_longitude': -125.1,
     'min_latitude':    48.0,
     'min_longitude': -200.0
   },
   {
-    'name': 'AMSAM',
+    'name': 'AK0P10',
+    'max_latitude':    72.0,
+    'max_longitude': -130.0,
+    'min_latitude':    50.0,
+    'min_longitude': -190.0,
+  },
+  {
+    'name': 'AMSAM0P10',
     'max_latitude':   -11.0,
     'max_longitude': -165.0,
     'min_latitude':   -33.0,
     'min_longitude': -195.0
   },
   {
-    'name': 'COUS',
+    'name': 'CANV0P01',
+    'max_latitude':    42.0,
+    'max_longitude': -115.0,
+    'min_latitude':    32.0,
+    'min_longitude': -125.0,
+  },
+  {
+    'name': 'CEUS0P01',
+    'max_latitude':   38.0,
+    'max_longitude': -88.0,
+    'min_latitude':   35.0,
+    'min_longitude': -92.0,
+  },
+  {
+    'name': 'COUS0P01',
     'max_latitude':    50.0,
     'max_longitude':  -65.0,
     'min_latitude':    24.6,
     'min_longitude': -125.0
   },
   {
-    'name': 'GNMI',
+    'name': 'GNMI0P10',
     'max_latitude':   23.0,
     'max_longitude': 151.0,
     'min_latitude':    9.0,
     'min_longitude': 139.0
   },
   {
-    'name': 'HI',
+    'name': 'HI0P02',
     'max_latitude':    23.0,
     'max_longitude': -154.0,
     'min_latitude':    18.0,
     'min_longitude': -161.0
   },
   {
-    'name': 'PRVI',
+    'name': 'PACNW0P01',
+    'max_latitude':    49.0,
+    'max_longitude': -123.0,
+    'min_latitude':    41.0,
+    'min_longitude': -125.0,
+  },
+  {
+    'name': 'PRVI0P01',
     'max_latitude':   19.0,
     'max_longitude': -64.5,
     'min_latitude':   17.5,
     'min_longitude': -67.5
+  },
+  {
+    'name': 'PRVI0P05',
+    'max_latitude':   21.0,
+    'max_longitude': -62.0,
+    'min_latitude':   16.0,
+    'min_longitude': -70.0,
+  },
+  {
+    'name': 'SLC0P01',
+    'max_latitude':    45.0,
+    'max_longitude': -110.0,
+    'min_latitude':    40.0,
+    'min_longitude': -112.0,
+  },
+  {
+    'name': 'US0P05',
+    'max_latitude':    50.0,
+    'max_longitude':  -65.0,
+    'min_latitude':    24.6,
+    'min_longitude': -125.0,
   }
 ];
 
@@ -270,6 +315,28 @@ const MetadataFactory = function (options) {
   };
 
 
+  /**
+   * computes the size of a region.
+   * @param inputs {object}
+   *        region.max_latitude {number}
+   *        region.min_latitude {number}
+   *        region.max_longitude {number}
+   *        region.min_longitude {number}
+   * @return {number}
+   *        The area of the given extents.
+   */
+  _this._computeRegionArea = function (region) {
+    let area,
+        height,
+        width;
+
+    height = Math.abs(region.max_latitude - region.min_latitude);
+    width = Math.abs(region.max_longitude - region.min_longitude);
+    area = width * height;
+
+    return area;
+  };
+
   _this.destroy = function () {
     if (_this === null) {
       return;
@@ -278,7 +345,6 @@ const MetadataFactory = function (options) {
     _initialize = null;
     _this = null;
   };
-
 
   /**
    * Get metadata associated with inputs of referenceDocument,
@@ -298,7 +364,8 @@ const MetadataFactory = function (options) {
 
     // validate inputs
     return _this.checkParams(inputs).then(() => {
-      return _this.getRegion(inputs.latitude, inputs.longitude);
+      return _this.getRegion(inputs.latitude, inputs.longitude,
+          inputs.referenceDocument);
     }).then((result) => {
       region = result;
       return _this.getData(inputs.referenceDocument, region);
@@ -383,23 +450,53 @@ const MetadataFactory = function (options) {
    * @return {String}
    *     The name of the region that contains the lat/lng reference point
    */
-  _this.getRegion = function (latitude, longitude) {
-    let region;
+  _this.getRegion = function (latitude, longitude, referenceDocument) {
+    let documentRegions,
+        region,
+        regions;
+
+    regions = [];
+    documentRegions = [];
 
     return new Promise((resolve, reject) => {
+      _this.metadata[referenceDocument].forEach((item) => {
+        documentRegions = documentRegions.concat(item.regions);
+      });
+
       // loop over regions and find the region that matches the input lat/lng
       for (let i = 0; i < _this.regions.length; i++) {
         region = _this.regions[i];
 
-        if (latitude  <= region.max_latitude  &&
+        if (documentRegions.indexOf(region.name) !== -1 &&
+            latitude  <= region.max_latitude  &&
             latitude  >= region.min_latitude  &&
             longitude <= region.max_longitude &&
             longitude >= region.min_longitude) {
-          return resolve(region.name);
+          // regions.push(region.name);
+          regions.push(region);
         }
       }
 
-      return reject(new Error('No metadata exists.'));
+      // if more than one region is found then use the smallest region
+      if (regions.length > 1) {
+        // sort region by size
+        regions.sort((a, b) => {
+          let aArea,
+              bArea;
+
+          aArea = _this._computeRegionArea(a);
+          bArea = _this._computeRegionArea(b);
+
+          return aArea - bArea;
+        });
+      }
+
+      if (regions.length !== 0) {
+        //resolve(regions);
+        resolve(regions[0].name);
+      }
+
+      reject(new Error('No metadata exists. ' + latitude + ' ' + longitude + ' ' + referenceDocument));
     });
   };
 
