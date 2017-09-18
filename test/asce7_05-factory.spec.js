@@ -311,10 +311,10 @@ describe('ASCE7_05Factory', () => {
         expect(factory.computeBasicDesign.callCount).to.equal(1);
 
         expect(factory.siteAmplificationFactory
-            .getSiteAmplificationData.callCount).to.equal(1);
+          .getSiteAmplificationData.callCount).to.equal(1);
         expect(factory.computeFinalDesign.callCount).to.equal(1);
         expect(factory.designCategoryFactory
-            .getDesignCategory.callCount).to.equal(1);
+          .getDesignCategory.callCount).to.equal(1);
         expect(factory.computeSpectra.callCount).to.equal(1);
 
         expect(factory.formatResult.callCount).to.equal(1);

@@ -86,7 +86,7 @@ const ASCE7_05Factory = function (options) {
             inputs.latitude,
             inputs.longitude,
             inputs.spatial_interpolation_method
-          );
+        );
 
         resolve(basicDesign);
       } catch (err) {
@@ -147,7 +147,9 @@ const ASCE7_05Factory = function (options) {
     return new Promise((resolve, reject) => {
       let basicDesign,
           finalDesign,
+          sdSpectrum,
           siteAmplification,
+          smSpectrum,
           spectra;
 
       try {
@@ -156,6 +158,15 @@ const ASCE7_05Factory = function (options) {
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
 
+        if (siteAmplification.fa === null || siteAmplification.fv === null) {
+          sdSpectrum = null;
+          smSpectrum = null;
+        } else {
+          sdSpectrum = NumberUtils.roundSpectrum(spectra.sdSpectrum,
+              _this.outputDecimals);
+          smSpectrum = NumberUtils.roundSpectrum(spectra.smSpectrum,
+              _this.outputDecimals);
+        }
 
         resolve({
           data: {
@@ -174,12 +185,8 @@ const ASCE7_05Factory = function (options) {
 
             't-sub-l': result.tSubL,
 
-            sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
-            smSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals)
+            sdSpectrum: sdSpectrum,
+            smSpectrum: smSpectrum
           },
 
           metadata: extend(true, {}, result.metadata)
@@ -213,14 +220,14 @@ const ASCE7_05Factory = function (options) {
       probabilisticInputs = extend(
           {gridSpacing: promiseResults[0].response.metadata.gridSpacing},
           inputs
-        );
+      );
 
       return Promise.all([
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(probabilisticInputs),
             probabilisticInputs,
             _this.probabilisticService
-          ),
+        ),
         _this.metadataFactory.getMetadata(inputs),
         _this.tSubLService.getData(inputs)
       ]);
