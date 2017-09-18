@@ -91,50 +91,6 @@ describe('ASCE7_05Factory', () => {
         done(err);
       });
     });
-
-    it('calls expected calculation methods', (done) => {
-      var factory;
-
-      factory = ASCE7_05Factory();
-
-      sinon.spy(factory, 'computeUniformHazard');
-
-      factory.computeBasicDesign({
-        inputs: {
-          latitude: 35,
-          longitude: -118
-        },
-        metadata: {
-          ssMaxDirection: 0,
-          ssPercentile: 0,
-          ssdFloor: 0,
-          s1MaxDirection: 0,
-          s1Percentile: 0,
-          s1dFloor: 0,
-        },
-        probabilistic: [{
-          request: {
-            parameters: {
-              latitude: 35,
-              longitude: -118
-            }
-          },
-          response: {
-            data: {ss: 0, s1: 0, pga: 0}
-          }
-        }]
-      }).then(() => {
-        expect(factory.computeUniformHazard.callCount).to.equal(2);
-      }).catch((err) => {
-        return err;
-      }).then((err) => {
-        factory.computeUniformHazard.restore();
-
-        factory.destroy();
-
-        done(err);
-      });
-    });
   });
 
   describe('computeFinalDesign', () => {

@@ -1,9 +1,8 @@
 'use strict';
 
 
-const ASCE7_10Factory = require('./asce7_10-factory'),
-    extend = require('extend'),
-    NumberUtils = require('./util/number-utils').instance;
+const ASCE7_Factory = require('./asce7-factory'),
+    extend = require('extend');
 
 
 const _DEFAULTS = {
@@ -22,7 +21,7 @@ const ASCE7_05Factory = function (options) {
 
 
   options = extend({}, _DEFAULTS, options);
-  _this = ASCE7_10Factory(options);
+  _this = ASCE7_Factory(options);
 
 
   /**
@@ -43,52 +42,24 @@ const ASCE7_05Factory = function (options) {
   _this.computeBasicDesign = function (data) {
     // return Promise.resolve({});
     return new Promise((resolve, reject) => {
-      let basicDesign,
-          inputs,
-          metadata,
-          probabilistic;
+      let inputs,
+          probabilistic,
+          result;
 
-      basicDesign = [];
+      result = {};
       inputs = data.inputs;
 
       try {
-        metadata = data.metadata;
-        probabilistic = data.probabilistic.map((item) => {
-          return item.response.data;
-        });
+        probabilistic = data.probabilistic;
 
-        for (let i = 0, len = probabilistic.length; i < len; i++) {
-          let probabilisticItem,
-              result;
+        result = {
+          latitude: parseFloat(inputs.latitude),
+          longitude: parseFloat(inputs.longitude),
+          ss: probabilistic.ss,
+          s1:probabilistic.s1
+        };
 
-          probabilisticItem = probabilistic[i];
-          result = {
-            latitude:
-                parseFloat(data.probabilistic[i].request.parameters.latitude),
-            longitude:
-                parseFloat(data.probabilistic[i].request.parameters.longitude)
-          };
-
-          // Compute Ss
-          result.ss = _this.computeUniformHazard(probabilisticItem.ss,
-              metadata.ssMaxDirFactor);
-
-          // Compute S1
-          result.s1 = _this.computeUniformHazard(probabilisticItem.s1,
-              metadata.s1MaxDirFactor);
-
-          basicDesign.push(result);
-        }
-
-        // interpolate ss and s1
-        basicDesign = NumberUtils.spatialInterpolate(
-            basicDesign,
-            inputs.latitude,
-            inputs.longitude,
-            inputs.spatial_interpolation_method
-        );
-
-        resolve(basicDesign);
+        resolve(result);
       } catch (err) {
         reject(err);
       }
@@ -160,24 +131,9 @@ const ASCE7_05Factory = function (options) {
 
     return Promise.all([
       _this.probabilisticService.getData(inputs),
+      _this.metadataFactory.getMetadata(inputs),
+      _this.tSubLService.getData(inputs)
     ]).then((promiseResults) => {
-      let probabilisticInputs;
-
-      probabilisticInputs = extend(
-          {gridSpacing: promiseResults[0].response.metadata.gridSpacing},
-          inputs
-      );
-
-      return Promise.all([
-        _this.makeMultipleRequests(
-            NumberUtils.getGridPoints(probabilisticInputs),
-            probabilisticInputs,
-            _this.probabilisticService
-        ),
-        _this.metadataFactory.getMetadata(inputs),
-        _this.tSubLService.getData(inputs)
-      ]);
-    }).then((promiseResults) => {
       result.probabilistic = promiseResults[0];
       result.metadata = promiseResults[1];
       result.tSubL = promiseResults[2].response.data['t-sub-l'];
