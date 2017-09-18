@@ -67,8 +67,7 @@ const ASCE7_05Handler = function (options) {
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
             sdcs: designCategory.sdcs,
 
-            s1: NumberUtils.round(basicDesign.s1,
-                _this.outputDecimals),
+            s1: NumberUtils.round(basicDesign.s1,_this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
             sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
