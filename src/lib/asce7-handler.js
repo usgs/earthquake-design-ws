@@ -12,7 +12,7 @@ const DesignCategoryFactory = require('./design-category-factory'),
 
 const _DEFAULTS = {
   factoryConstructor: null,  // must be defined
-  outputDecimals: 3,         // Number of decimals to include in output
+  outputDecimals: 3,         // Number of decimals to use in output
   referenceDocument: 'ASCE7' // not real
 };
 
