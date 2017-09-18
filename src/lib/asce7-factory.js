@@ -5,7 +5,6 @@ const extend = require('extend');
 
 
 const _DEFAULTS = {
-  outputDecimals: 3,         // Number of decimals to include in output
   referenceDocument: 'ASCE7' // Junk default
 };
 
@@ -49,7 +48,6 @@ const ASCE7Factory = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
-    _this.outputDecimals = options.outputDecimals;
     _this.referenceDocument = options.referenceDocument;
 
     _this.metadataFactory = options.metadataFactory;
