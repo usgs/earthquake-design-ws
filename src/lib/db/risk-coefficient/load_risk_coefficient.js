@@ -162,8 +162,8 @@ insertData = insertRegions.then((regionIds) => {
           CREATE TABLE temp_region_data (
             latitude NUMERIC NOT NULL,
             longitude NUMERIC NOT NULL,
-            cr1 NUMERIC NOT NULL,
-            crs NUMERIC NOT NULL
+            cr1 NUMERIC DEFAULT NULL,
+            crs NUMERIC DEFAULT NULL
           )
         `);
       }).then(() => {
