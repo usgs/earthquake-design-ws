@@ -1,12 +1,10 @@
 'use strict';
 
 
-var extend = require('extend');
+let extend = require('extend');
 
 
-var _DEFAULTS;
-
-_DEFAULTS = {
+const _DEFAULTS = {
   timeIncrement: 0.05, // Spacing between discrete time values
   timeMax: 2.0 // Time when to terminate discrete spectrum
 };
@@ -18,8 +16,8 @@ _DEFAULTS = {
  * @param option {Object}
  *     Configuration options for this factory. See #_initialize for details.
  */
-var SpectraFactory = function (options) {
-  var _this,
+const SpectraFactory = function (options) {
+  let _this,
       _initialize;
 
 
@@ -189,8 +187,6 @@ var SpectraFactory = function (options) {
    *     Ground motion for 0.2 second spectral period
    * @param gm1 {Double}
    *     Ground motion for 1.0 second spectral period
-   * @param tl {Integer}
-   *     Long-period/transition period.
    * @param cv {Double}
    *     Vertical Coefficient
    *
@@ -198,12 +194,12 @@ var SpectraFactory = function (options) {
    *     A promise that resolves with the {XY_Series} data for a spectrum,
    *     or rejects with an {Error} if one should occur.
    */
-  _this.getVerticalSpectrum = function (gms, gm1, tl, cv) {
+  _this.getVerticalSpectrum = function (gms, gm1, cv) {
     return new Promise((resolve/*, reject*/) => {
       let spectrum,
           times;
 
-      if (gms === null || gm1 === null || tl === null || cv === null) {
+      if (gms === null || gm1 === null || cv === null) {
         spectrum = [];
         spectrum.push([null]);
         resolve(spectrum);
@@ -218,7 +214,7 @@ var SpectraFactory = function (options) {
       }
 
       spectrum = [];
-      times = _this.getTimeValues(gms, gm1, tl);
+      times = _this.getTimeValues(gms, gm1);
 
       for(let idx = 0; idx < times.length; idx++) {
         let s_a,
