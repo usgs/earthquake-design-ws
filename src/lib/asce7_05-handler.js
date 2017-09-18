@@ -90,6 +90,7 @@ const ASCE7_05Handler = function (options) {
     });
   };
 
+
   options = null;
   return _this;
 };
