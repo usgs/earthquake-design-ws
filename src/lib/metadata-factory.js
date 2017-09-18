@@ -144,7 +144,7 @@ const _METADATA = {
     // LinearY interpolation, custom factors
     {
       'regions': [
-        'HI'
+        'HI0P02'
       ],
       'data': {
         'modelVersion': 'v4.0.x',
@@ -364,7 +364,8 @@ const MetadataFactory = function (options) {
 
     // validate inputs
     return _this.checkParams(inputs).then(() => {
-      return _this.getRegion(inputs.latitude, inputs.longitude);
+      return _this.getRegion(inputs.latitude, inputs.longitude,
+          inputs.referenceDocument);
     }).then((result) => {
       region = result;
       return _this.getData(inputs.referenceDocument, region);
@@ -449,18 +450,25 @@ const MetadataFactory = function (options) {
    * @return {String}
    *     The name of the region that contains the lat/lng reference point
    */
-  _this.getRegion = function (latitude, longitude) {
-    let region,
+  _this.getRegion = function (latitude, longitude, referenceDocument) {
+    let documentRegions,
+        region,
         regions;
 
     regions = [];
+    documentRegions = [];
 
     return new Promise((resolve, reject) => {
+      _this.metadata[referenceDocument].forEach((item) => {
+        documentRegions = documentRegions.concat(item.regions);
+      });
+
       // loop over regions and find the region that matches the input lat/lng
       for (let i = 0; i < _this.regions.length; i++) {
         region = _this.regions[i];
 
-        if (latitude  <= region.max_latitude  &&
+        if (documentRegions.indexOf(region.name) !== -1 &&
+            latitude  <= region.max_latitude  &&
             latitude  >= region.min_latitude  &&
             longitude <= region.max_longitude &&
             longitude >= region.min_longitude) {
@@ -488,7 +496,7 @@ const MetadataFactory = function (options) {
         resolve(regions[0].name);
       }
 
-      reject(new Error('No metadata exists.'));
+      reject(new Error('No metadata exists. ' + latitude + ' ' + longitude + ' ' + referenceDocument));
     });
   };
 
