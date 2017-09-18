@@ -199,14 +199,14 @@ describe('MetadataFactory', () => {
     // returns correct data
     it('returns a region', (done) => {
       Promise.all([
-        factory.getRegion(70, -170),
-        factory.getRegion(35, -105),
-        factory.getRegion(20, -160),
-        factory.getRegion(18, -66),
-        factory.getRegion(-18, -175),
-        factory.getRegion(18, 140),
+        factory.getRegion(70, -170, 'ASCE7-16'),
+        factory.getRegion(35, -105, 'ASCE7-16'),
+        factory.getRegion(20, -160, 'ASCE7-16'),
+        factory.getRegion(18, -66, 'ASCE7-16'),
+        factory.getRegion(-18, -175, 'ASCE7-16'),
+        factory.getRegion(18, 140, 'ASCE7-16'),
       ]).then((results) => {
-        expect(results[0]).to.equal('AK0P10');
+        expect(results[0]).to.equal('AK0P05');
         expect(results[1]).to.equal('COUS0P01');
         expect(results[2]).to.equal('HI0P02');
         expect(results[3]).to.equal('PRVI0P01');
