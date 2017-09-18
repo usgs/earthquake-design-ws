@@ -315,6 +315,28 @@ const MetadataFactory = function (options) {
   };
 
 
+  /**
+   * computes the size of a region.
+   * @param inputs {object}
+   *        region.max_latitude {number}
+   *        region.min_latitude {number}
+   *        region.max_longitude {number}
+   *        region.min_longitude {number}
+   * @return {number}
+   *        The area of the given extents.
+   */
+  _this._computeRegionArea = function (region) {
+    let area,
+        height,
+        width;
+
+    height = Math.abs(region.max_latitude - region.min_latitude);
+    width = Math.abs(region.max_longitude - region.min_longitude);
+    area = width * height;
+
+    return area;
+  };
+
   _this.destroy = function () {
     if (_this === null) {
       return;
@@ -323,7 +345,6 @@ const MetadataFactory = function (options) {
     _initialize = null;
     _this = null;
   };
-
 
   /**
    * Get metadata associated with inputs of referenceDocument,
@@ -429,7 +450,10 @@ const MetadataFactory = function (options) {
    *     The name of the region that contains the lat/lng reference point
    */
   _this.getRegion = function (latitude, longitude) {
-    let region;
+    let region,
+        regions;
+
+    regions = [];
 
     return new Promise((resolve, reject) => {
       // loop over regions and find the region that matches the input lat/lng
@@ -440,11 +464,31 @@ const MetadataFactory = function (options) {
             latitude  >= region.min_latitude  &&
             longitude <= region.max_longitude &&
             longitude >= region.min_longitude) {
-          return resolve(region.name);
+          // regions.push(region.name);
+          regions.push(region);
         }
       }
 
-      return reject(new Error('No metadata exists.'));
+      // if more than one region is found then use the smallest region
+      if (regions.length > 1) {
+        // sort region by size
+        regions.sort((a, b) => {
+          let aArea,
+              bArea;
+
+          aArea = _this._computeRegionArea(a);
+          bArea = _this._computeRegionArea(b);
+
+          return aArea - bArea;
+        });
+      }
+
+      if (regions.length !== 0) {
+        //resolve(regions);
+        resolve(regions[0].name);
+      }
+
+      reject(new Error('No metadata exists.'));
     });
   };
 
