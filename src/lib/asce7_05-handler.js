@@ -6,7 +6,7 @@ const ASCE7_05Factory = require('./asce7_05-factory'),
     extend = require('extend');
 
 const _DEFAULTS = {
-  factory: ASCE7_05Factory,
+  factoryConstructor: ASCE7_05Factory,
   referenceDocument: 'ASCE7_05'
 };
 
