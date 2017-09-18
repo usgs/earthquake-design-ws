@@ -1,6 +1,10 @@
 'use strict';
 
 
+/**
+ * This contains metadata used to request hazard curves from the unified
+ * hazard tool web services.
+ */
 var DesignHazardMetadata = function (options) {
   var _this,
       _initialize;
