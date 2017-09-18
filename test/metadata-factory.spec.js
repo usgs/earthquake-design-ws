@@ -40,6 +40,21 @@ describe('MetadataFactory', () => {
     });
   });
 
+  describe('_computeRegionArea', () => {
+    let region;
+
+    region = {
+      'max_latitude':    45.0,
+      'max_longitude': 112.0,
+      'min_latitude':    40.0,
+      'min_longitude': 110.0,
+    };
+
+    it ('returns correct area', () => {
+      expect(factory._computeRegionArea(region)).to.equal(10);
+    });
+  });
+
   describe('getMetadata', () => {
     it ('returns a promise', () => {
       expect(factory.getMetadata()).to.be.an.instanceof(Promise);
@@ -191,7 +206,7 @@ describe('MetadataFactory', () => {
         factory.getRegion(-18, -175),
         factory.getRegion(18, 140),
       ]).then((results) => {
-        expect(results[0]).to.equal('AK0P05');
+        expect(results[0]).to.equal('AK0P10');
         expect(results[1]).to.equal('COUS0P01');
         expect(results[2]).to.equal('HI0P02');
         expect(results[3]).to.equal('PRVI0P01');
