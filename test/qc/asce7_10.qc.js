@@ -74,7 +74,6 @@ compareResult = function (expected, actual) {
   }
 };
 
-
 describe(`ASCE 7-10 Quality Control Tests +/- ${epsilon}`, () => {
   let handler;
 
