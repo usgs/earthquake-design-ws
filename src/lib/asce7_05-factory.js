@@ -42,21 +42,16 @@ const ASCE7_05Factory = function (options) {
   _this.computeBasicDesign = function (data) {
     // return Promise.resolve({});
     return new Promise((resolve, reject) => {
-      let inputs,
-          probabilistic,
+      let probabilistic,
           result;
 
-      result = {};
-      inputs = data.inputs;
-
       try {
+        result = {};
         probabilistic = data.probabilistic;
 
         result = {
-          latitude: parseFloat(inputs.latitude),
-          longitude: parseFloat(inputs.longitude),
           ss: probabilistic.ss,
-          s1:probabilistic.s1
+          s1: probabilistic.s1
         };
 
         resolve(result);
@@ -164,6 +159,7 @@ const ASCE7_05Factory = function (options) {
       return result;
     });
   };
+
 
   options = null;
   return _this;
