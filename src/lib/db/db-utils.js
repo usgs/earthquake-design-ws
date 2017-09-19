@@ -48,6 +48,13 @@ var DbUtils = {
     });
   },
 
+  'setSearchPath': function(options) {
+    let db = options.db;
+    let name = options.name;
+    let sql = ['SET search_path TO ' + name];
+    return DbUtils.exec(db, sql);
+  },
+
   /**
    * Execute a list of statements.
    *
