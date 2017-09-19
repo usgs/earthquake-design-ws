@@ -1,26 +1,18 @@
 /* global describe, it */
 'use strict';
 
-const ASCE7_05Handler = require('../src/lib/asce7_05-handler'),
+const DesignHandler = require('../src/lib/asce7_05-handler'),
     expect = require('chai').expect;
 
 
 describe('asce7_05-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof ASCE7_05Handler).to.equal('function');
+      expect(typeof DesignHandler).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(ASCE7_05Handler).to.not.throw(Error);
-    });
-
-    it('can be destroyed', () => {
-      let handler;
-
-      handler = ASCE7_05Handler();
-
-      expect(handler.destroy).to.not.throw(Error);
+      expect(DesignHandler).to.not.throw(Error);
     });
   });
 
@@ -28,7 +20,7 @@ describe('asce7_05-handler', () => {
     it('returns a promise', () => {
       let handler;
 
-      handler = ASCE7_05Handler();
+      handler = DesignHandler();
 
       expect(handler.formatResult()).to.be.instanceof(Promise);
 
@@ -38,7 +30,7 @@ describe('asce7_05-handler', () => {
     it('resolves with expected data structure', (done) => {
       let handler;
 
-      handler = ASCE7_05Handler();
+      handler = DesignHandler();
 
       handler.formatResult({
         'basicDesign': {
