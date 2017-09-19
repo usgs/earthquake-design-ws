@@ -75,6 +75,7 @@ describe('asce7_05-handler', () => {
           'ss', 's1',
           'sms', 'sm1',
           'sds', 'sd1',
+          'sdcs', 'sdc1', 'sdc',
           'fa', 'fv',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {

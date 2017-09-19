@@ -33,6 +33,7 @@ const ASCE7_05Handler = function (options) {
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {
       let basicDesign,
+          designCategory,
           finalDesign,
           metadata,
           sdSpectrum,
@@ -42,6 +43,7 @@ const ASCE7_05Handler = function (options) {
 
       try {
         basicDesign = result.basicDesign;
+        designCategory = result.designCategory;
         finalDesign = result.finalDesign;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
@@ -63,13 +65,16 @@ const ASCE7_05Handler = function (options) {
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
+            sdcs: designCategory.sdcs,
 
             s1: NumberUtils.round(basicDesign.s1,
                 _this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
             sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
+            sdc1: designCategory.sdc1,
 
+            sdc: designCategory.sdc,
             't-sub-l': result.tSubL,
 
             sdSpectrum: sdSpectrum,
