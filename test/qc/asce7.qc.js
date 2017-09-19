@@ -9,7 +9,6 @@ const ASCE7_10Handler = require('../../src/lib/asce7_10-handler'),
     ASCE7_16CityInputs = require('../../etc/asce7_16-qc.json'),
     ASCE7_05CityInputs = require('../../etc/asce7_05-qc.json'),
     expect = require('chai').expect,
-    /*extend = require('extend'),*/
     fs = require('fs'),
     https = require('https');
 
