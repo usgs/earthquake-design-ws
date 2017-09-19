@@ -34,6 +34,7 @@ const ASCE7_05Handler = function (options) {
     return new Promise((resolve, reject) => {
       let basicDesign,
           finalDesign,
+          metadata,
           sdSpectrum,
           siteAmplification,
           smSpectrum,
@@ -44,6 +45,7 @@ const ASCE7_05Handler = function (options) {
         finalDesign = result.finalDesign;
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
+        metadata = result.metadata;
 
         if (siteAmplification.fa === null || siteAmplification.fv === null) {
           sdSpectrum = null;
@@ -59,14 +61,12 @@ const ASCE7_05Handler = function (options) {
           data: {
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
-            fa_error: siteAmplification.fa_error,
             sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
 
             s1: NumberUtils.round(basicDesign.s1,
                 _this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
-            fv_error: siteAmplification.fv_error,
             sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
 
@@ -76,7 +76,9 @@ const ASCE7_05Handler = function (options) {
             smSpectrum: smSpectrum
           },
 
-          metadata: extend(true, {}, result.metadata)
+          metadata: {
+            spatialInterpolationMethod: metadata.spatialInterpolationMethod
+          }
         });
       } catch (err) {
         reject(err);

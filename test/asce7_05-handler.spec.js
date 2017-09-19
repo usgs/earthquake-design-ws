@@ -2,8 +2,7 @@
 'use strict';
 
 const ASCE7_05Handler = require('../src/lib/asce7_05-handler'),
-    expect = require('chai').expect,
-    sinon = require('sinon');
+    expect = require('chai').expect;
 
 
 describe('asce7_05-handler', () => {
@@ -22,22 +21,6 @@ describe('asce7_05-handler', () => {
       handler = ASCE7_05Handler();
 
       expect(handler.destroy).to.not.throw(Error);
-    });
-
-    it('sets the referenceDocument and instantiates the factory', () => {
-      let factory,
-          handler,
-          referenceDocument;
-
-      factory = sinon.spy();
-      referenceDocument = 'ASCE7-05';
-      handler = ASCE7_05Handler({
-        factoryConstructor: factory,
-        referenceDocument: referenceDocument
-      });
-
-      expect(handler.referenceDocument).to.equal(referenceDocument);
-      expect(factory.called).to.be.true;
     });
   });
 
@@ -116,15 +99,13 @@ describe('asce7_05-handler', () => {
           'ss', 's1',
           'sms', 'sm1',
           'sds', 'sd1',
-          'fa', 'fa_error', 'fv', 'fv_error',
+          'fa', 'fv',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
         });
         [
-          'pgadPercentileFactor', 'pgadFloor',
-          's1MaxDirFactor', 's1dPercentileFactor', 's1dFloor',
-          'ssMaxDirFactor', 'ssdPercentileFactor', 'ssdFloor'
+          'spatialInterpolationMethod'
         ].forEach((key) => {
           expect(formatted.metadata.hasOwnProperty(key)).to.equal(true);
         });

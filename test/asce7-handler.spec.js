@@ -143,6 +143,22 @@ describe('asce7-handler', () => {
 
       expect(handler.destroy).to.not.throw(Error);
     });
+
+    it('sets the referenceDocument and instantiates the factory', () => {
+      let factory,
+          handler,
+          referenceDocument;
+
+      factory = sinon.spy();
+      referenceDocument = 'ASCE7-16';
+      handler = ASCE7Handler({
+        factoryConstructor: factory,
+        referenceDocument: referenceDocument
+      });
+
+      expect(handler.referenceDocument).to.equal(referenceDocument);
+      expect(factory.called).to.be.true;
+    });
   });
 
   describe('checkParams', () => {

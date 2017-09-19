@@ -1,5 +1,6 @@
-/* global describe, it, sinon */
+/* global describe, it */
 'use strict';
+
 
 const DesignHandler = require('../src/lib/asce7_16-handler'),
     expect = require('chai').expect;
@@ -19,22 +20,6 @@ describe('asce7-16-handler', () => {
       const designHandler = DesignHandler();
 
       expect(designHandler.destroy).to.not.throw(Error);
-    });
-
-    it('sets the referenceDocument and instantiates the factory', () => {
-      let factory,
-          handler,
-          referenceDocument;
-
-      factory = sinon.spy();
-      referenceDocument = 'ASCE7-16';
-      handler = DesignHandler({
-        factory: factory,
-        referenceDocument: referenceDocument
-      });
-
-      expect(handler.referenceDocument).to.equal(referenceDocument);
-      expect(factory.called).to.be.true;
     });
   });
 });

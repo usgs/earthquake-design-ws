@@ -1,4 +1,4 @@
-/* global describe, it, sinon */
+/* global describe, it */
 'use strict';
 
 
@@ -20,22 +20,6 @@ describe('asce7-10-handler', () => {
       const designHandler = DesignHandler();
 
       expect(designHandler.destroy).to.not.throw(Error);
-    });
-
-    it('sets the referenceDocument and instantiates the factory', () => {
-      let factory,
-          handler,
-          referenceDocument;
-
-      factory = sinon.spy();
-      referenceDocument = 'ASCE7-10';
-      handler = DesignHandler({
-        factory: factory,
-        referenceDocument: referenceDocument
-      });
-
-      expect(handler.referenceDocument).to.equal(referenceDocument);
-      expect(factory.called).to.be.true;
     });
   });
 });
