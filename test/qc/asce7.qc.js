@@ -4,8 +4,10 @@
 
 const ASCE7_10Handler = require('../../src/lib/asce7_10-handler'),
     ASCE7_16Handler = require('../../src/lib/asce7_16-handler'),
+    ASCE7_05Handler = require('../../src/lib/asce7_05-handler'),
     ASCE7_10CityInputs = require('../../etc/asce7_10-qc.json'),
     ASCE7_16CityInputs = require('../../etc/asce7_16-qc.json'),
+    ASCE7_05CityInputs = require('../../etc/asce7_05-qc.json'),
     expect = require('chai').expect,
     /*extend = require('extend'),*/
     fs = require('fs'),
@@ -21,6 +23,11 @@ const ASCE7_HANDlERS = [
     handler: ASCE7_16Handler,
     name: 'ASCE 7-16',
     data: ASCE7_16CityInputs
+  },
+  {
+    handler: ASCE7_05Handler,
+    name: 'ASCE 7-05',
+    data: ASCE7_05CityInputs
   }
 ];
 
