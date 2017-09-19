@@ -36,34 +36,20 @@ describe('asce7_05-handler', () => {
         'basicDesign': {
           'ss': null,
           's1': null,
-          'pga': null,
           'ssuh': null,
           'ssrt': null,
           'ssd': null,
-          's1uh': null,
-          's1rt': null,
-          's1d': null,
-          'pgad': null
+          's1d': null
         },
         'deterministic': {},
         'finalDesign': {
           'sms': null,
           'sm1': null,
-          'pgam': null,
           'sds': null,
           'sd1': null
         },
         'metadata': {
-          'pgadPercentileFactor': null,
-          'pgadFloor': null,
-
-          's1MaxDirFactor': null,
-          's1dPercentileFactor': null,
-          's1dFloor': null,
-
-          'ssMaxDirFactor': null,
-          'ssdPercentileFactor': null,
-          'ssdFloor': null
+          'spatialInterpolationMethod': null
         },
         'probabilistic': {},
         'riskCoefficients': {
@@ -73,9 +59,7 @@ describe('asce7_05-handler', () => {
         },
         'siteAmplification': {
           'fa': null,
-          'fa_error': null,
-          'fv': null,
-          'fv_error': null
+          'fv': null
         },
         'designCategory': {
           'sdcs': null,
