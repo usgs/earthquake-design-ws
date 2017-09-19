@@ -1,6 +1,7 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
+
 const ASCE7Handler = require('../src/lib/asce7-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
@@ -115,6 +116,7 @@ const _DESIGN_FACTORY = {
   }
 };
 
+
 describe('asce7-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
@@ -137,10 +139,25 @@ describe('asce7-handler', () => {
     });
 
     it('can be destroyed', () => {
-
       const handler = ASCE7Handler({factory: {}});
 
       expect(handler.destroy).to.not.throw(Error);
+    });
+
+    it('sets the referenceDocument and instantiates the factory', () => {
+      let factory,
+          handler,
+          referenceDocument;
+
+      factory = sinon.spy();
+      referenceDocument = 'ASCE7-16';
+      handler = ASCE7Handler({
+        factoryConstructor: factory,
+        referenceDocument: referenceDocument
+      });
+
+      expect(handler.referenceDocument).to.equal(referenceDocument);
+      expect(factory.called).to.be.true;
     });
   });
 

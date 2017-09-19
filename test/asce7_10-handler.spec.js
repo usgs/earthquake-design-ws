@@ -15,13 +15,5 @@ describe('asce7-10-handler', () => {
     it('can be instantiated', () => {
       expect(DesignHandler).to.not.throw(Error);
     });
-
-    it('can be destroyed', () => {
-
-      const designHandler = DesignHandler();
-
-      expect(designHandler.destroy).to.not.throw(Error);
-    });
   });
-
 });
