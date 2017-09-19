@@ -76,11 +76,11 @@ insertRegions = createSchema.then(() => {
       `, [
         region.name
       ]).then((result) => {
-        process.stdout.log('RESULT REGION INSERT -> ' + JSON.stringify(result));
+        process.stdout.write('\r\nRESULT REGION INSERT -> ' + JSON.stringify(result));
         // save region id for later data loading
         regionIds[region.name] = result.rows[0].id;
       }).catch((err) => {
-        process.stdout.log('Data Load Error: ' + err);
+        process.stdout.write('\r\nData Load Error: ' + err);
       });
     });
   });
@@ -117,7 +117,7 @@ insertDocuments = insertRegions.then((regionIds) => {
             region_id,
             name
           ) VALUES ($1, $2)
-          ON CONFLICT (region_id, name) DO NOTHING
+          ON CONFLICT (region_id, name) DO UPDATE SET NAME = ($2)
         `, [
           regionId,
           doc.name
