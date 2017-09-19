@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Design Endpoint Documentation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <link rel="stylesheet" href="https://earthquake.usgs.gov/theme/site/earthquake/index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons%7cMerriweather:400,400italic,700%7cSource+Sans+Pro:400,300,700"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<main>
+  <header>
+    <h1>ASCE7-05 Endpoint Documentation</h1>
+  </header>
+
+  <h2 id="parameters">Request Parameters</h2>
+  <p>Required parameters</p>
+  <dl>
+    <dt id="latitude">latitude</dt>
+    <dd>
+      Latitude for location at which to compute composite results.
+      <br/>Example: <code>34.01</code>
+    </dd>
+
+    <dt id="longitude">longitude</dt>
+    <dd>
+      Longitude for location at which to compute composite results.
+      <br/>Example: <code>-118.01</code>
+    </dd>
+
+    <dt id="riskCategory">riskCategory</dt>
+    <dd>
+      Risk category for structure.
+      <br/>Example: <code>III</code>
+    </dd>
+
+    <dt id="siteClass">siteClass</dt>
+    <dd>
+      NEHRP site classification.
+      <br/>Example: <code>D</code>
+    </dd>
+
+    <dt id="title">title</dt>
+    <dd>
+      Name for site/report.
+      <br/>Example: <code>Example</code>
+    </dd>
+  </dl>
+
+  <h2 id="output">Output</h2>
+  <p>Web service response</p>
+  <dl>
+    <dt>request</dt>
+    <dd>
+      <dl>
+        <dt id="output-date">date</dt>
+        <dd>
+          Timestamp
+          <br/>Example: <code>YYYY-MM-DDThh:mm:ssZ</code>
+        </dd>
+
+        <dt id="output-reference-document">referenceDocument</dt>
+        <dd>
+          Identifying the reference document for the returned data.
+          <br/>Example: <code>&ldquo;ASCE7-05&rdquo;</code>
+        </dd>
+
+        <dt id="output-status">status</dt>
+        <dd>
+          String ("success" or "error")
+          <br/>Example: <code>&ldquo;success&rdquo;</code>
+        </dd>
+
+        <dt id="output-url">url</dt>
+        <dd>
+          URL to reproduce this result.
+          <br/>Example: <code><span class="url-stub">{MOUNT_PATH}</span>/asce7-05.json?latitude=34&amp;longitude=-118&amp;riskCategory=I%20or%20II%20or%20III&amp;siteClass=C&amp;title=Example</code>
+        </dd>
+        <dt>parameters</dt>
+        <dd>
+          <dl>
+            <dt id="metadata-parameters-latitude">latitude</dt>
+            <dd>
+              Latitude for location at which to compute composite results.
+              <br/>Example: <code>34.01</code>
+            </dd>
+
+            <dt id="metadata-parameters-longitude">longitude</dt>
+            <dd>
+              Longitude for location at which to compute composite results.
+              <br/>Example: <code>-118.01</code>
+            </dd>
+
+            <dt id="metadata-parameters-riskCategory">riskCategory</dt>
+            <dd>
+              Risk category for structure.
+              <br/>Example: <code>III</code>
+            </dd>
+
+            <dt id="metadata-parameters-siteClass">siteClass</dt>
+            <dd>
+              NEHRP site classification.
+              <br/>Example: <code>D</code>
+            </dd>
+
+            <dt id="metadata-parameters-title">title</dt>
+            <dd>
+              Name for site/report.
+              <br/>Example: <code>Example</code>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt id="data">response</dt>
+    <dd>
+      <dl>
+        <dt id="data-data">data</dt>
+        <dd>
+          <dl>
+            <dt id="data-data-ss">ss</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion. (for 0.2 second period)
+            </dd>
+
+            <dt id="data-data-fa">fa</dt>
+            <dd>
+              Site amplification factor at 0.2 second
+            </dd>
+
+            <dt id="data-data-sms">sms</dt>
+            <dd>
+              Site-modified spectral acceleration value
+            </dd>
+
+            <dt id="data-data-sds">sds</dt>
+            <dd>
+              Numeric seismic design value at 0.2 second SA
+            </dd>
+
+            <dt id="data-data-sdcs">sdcs</dt>
+            <dd>
+              Seismic design category from sds
+            </dd>
+
+            <dt id="data-data-s1">s1</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion (for 1.0s period)
+            </dd>
+
+            <dt id="data-data-fv">fv</dt>
+            <dd>
+              Site amplification factor at 1.0 second
+            </dd>
+
+            <dt id="data-data-sm1">sm1</dt>
+            <dd>
+              Site-modified spectral acceleration value
+            </dd>
+
+            <dt id="data-data-sd1">sd1</dt>
+            <dd>
+              Numeric seismic design value at 1.0 second SA
+            </dd>
+
+            <dt id="data-data-sdc1">sdc1</dt>
+            <dd>
+              Seismic design category from sd1
+            </dd>
+
+            <dt id="data-data-sdc">sdc</dt>
+            <dd>
+              Seismic design category from sdcs and sdc1
+            </dd>
+
+            <dt id="data-data-tl">t-sub-l</dt>
+            <dd>
+              Long-period transition period
+            </dd>
+
+            <dt id="data-data-sdSpectrum">sdSpectrum</dt>
+            <dd>
+              Seismic design spectrum
+            </dd>
+
+            <dt id="data-data-smSpectrum">smSpectrum</dt>
+            <dd>
+              Site modified spectrum.
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+      <dl>
+        <dt>metadata</dt>
+        <dd>
+          <dl>
+            <dt id="data-metadata-spatialInterpolationMethod">
+              spatialInterpolationMethod
+            </dt>
+            <dd>
+               Spatial interpolation method.
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3 id="example_response">Example</h3>
+
+  <h4>Request</h4>
+  <p>
+    <a href="asce7-05.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example"><span class="url-stub">&amp;hellip;</span>/asce7-05.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example</a>
+  </p>
+
+  <h4>Response</h4>
+  <div class="code">
+    <pre>{
+  "request": {
+    "date": "2017-09-19T17:19:41.302Z",
+    "referenceDocument": "ASCE7-05",
+    "status": "success",
+    "url": "http://localhost/ws/designmaps/asce7-05.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example",
+    "parameters": {
+      "latitude": 34,
+      "longitude": -118,
+      "riskCategory": "III",
+      "siteClass": "C",
+      "title": "Example"
+    }
+  },
+  "response": {
+    "data": {
+      "ss": 2.123,
+      "fa": 1,
+      "sms": 2.123,
+      "sds": 1.415,
+      "sdcs": "",
+      "s1": 0.784,
+      "fv": 1.3,
+      "sm1": 1.019,
+      "sd1": 0.679,
+      "sdc1": "",
+      "sdc": "E",
+      "t-sub-l": 8,
+      "sdSpectrum": [
+        [
+          0,
+          0.566
+        ],
+        [
+          0.025,
+          0.787
+        ],
+        [
+          0.05,
+          1.008
+        ],
+        [
+          0.096,
+          1.415
+        ],
+        [
+          0.1,
+          1.415
+        ],
+        [
+          0.15,
+          1.415
+        ],
+        [
+          0.2,
+          1.415
+        ],
+        [
+          0.25,
+          1.415
+        ],
+        [
+          0.3,
+          1.415
+        ],
+        [
+          0.35,
+          1.415
+        ],
+        [
+          0.4,
+          1.415
+        ],
+        [
+          0.45,
+          1.415
+        ],
+        [
+          0.48,
+          1.415
+        ],
+        [
+          0.5,
+          null
+        ],
+        [
+          0.55,
+          null
+        ],
+        [
+          0.6,
+          null
+        ],
+        [
+          0.65,
+          null
+        ],
+        [
+          0.7,
+          null
+        ],
+        [
+          0.75,
+          null
+        ],
+        [
+          0.8,
+          null
+        ],
+        [
+          0.85,
+          null
+        ],
+        [
+          0.9,
+          null
+        ],
+        [
+          0.95,
+          null
+        ],
+        [
+          1,
+          null
+        ],
+        [
+          1.05,
+          null
+        ],
+        [
+          1.1,
+          null
+        ],
+        [
+          1.15,
+          null
+        ],
+        [
+          1.2,
+          null
+        ],
+        [
+          1.25,
+          null
+        ],
+        [
+          1.3,
+          null
+        ],
+        [
+          1.35,
+          null
+        ],
+        [
+          1.4,
+          null
+        ],
+        [
+          1.45,
+          null
+        ],
+        [
+          1.5,
+          null
+        ],
+        [
+          1.55,
+          null
+        ],
+        [
+          1.6,
+          null
+        ],
+        [
+          1.65,
+          null
+        ],
+        [
+          1.7,
+          null
+        ],
+        [
+          1.75,
+          null
+        ],
+        [
+          1.8,
+          null
+        ],
+        [
+          1.85,
+          null
+        ],
+        [
+          1.9,
+          null
+        ],
+        [
+          1.95,
+          null
+        ],
+        [
+          2,
+          null
+        ]
+      ],
+      "smSpectrum": [
+        [
+          0,
+          0.849
+        ],
+        [
+          0.025,
+          1.181
+        ],
+        [
+          0.05,
+          1.512
+        ],
+        [
+          0.096,
+          2.123
+        ],
+        [
+          0.1,
+          2.123
+        ],
+        [
+          0.15,
+          2.123
+        ],
+        [
+          0.2,
+          2.123
+        ],
+        [
+          0.25,
+          2.123
+        ],
+        [
+          0.3,
+          2.123
+        ],
+        [
+          0.35,
+          2.123
+        ],
+        [
+          0.4,
+          2.123
+        ],
+        [
+          0.45,
+          2.123
+        ],
+        [
+          0.48,
+          2.123
+        ],
+        [
+          0.5,
+          null
+        ],
+        [
+          0.55,
+          null
+        ],
+        [
+          0.6,
+          null
+        ],
+        [
+          0.65,
+          null
+        ],
+        [
+          0.7,
+          null
+        ],
+        [
+          0.75,
+          null
+        ],
+        [
+          0.8,
+          null
+        ],
+        [
+          0.85,
+          null
+        ],
+        [
+          0.9,
+          null
+        ],
+        [
+          0.95,
+          null
+        ],
+        [
+          1,
+          null
+        ],
+        [
+          1.05,
+          null
+        ],
+        [
+          1.1,
+          null
+        ],
+        [
+          1.15,
+          null
+        ],
+        [
+          1.2,
+          null
+        ],
+        [
+          1.25,
+          null
+        ],
+        [
+          1.3,
+          null
+        ],
+        [
+          1.35,
+          null
+        ],
+        [
+          1.4,
+          null
+        ],
+        [
+          1.45,
+          null
+        ],
+        [
+          1.5,
+          null
+        ],
+        [
+          1.55,
+          null
+        ],
+        [
+          1.6,
+          null
+        ],
+        [
+          1.65,
+          null
+        ],
+        [
+          1.7,
+          null
+        ],
+        [
+          1.75,
+          null
+        ],
+        [
+          1.8,
+          null
+        ],
+        [
+          1.85,
+          null
+        ],
+        [
+          1.9,
+          null
+        ],
+        [
+          1.95,
+          null
+        ],
+        [
+          2,
+          null
+        ]
+      ]
+    },
+    "metadata": {
+      "spatialInterpolationMethod": "linearlinearlinear"
+    }
+  }
+}</pre>
+  </div>
+</main>
+<footer class="site-commonnav">
+  <a href="index.html">Seismic Design Web Service Documentation</a>
+</footer>
+<script src="js/config.js"></script>
+</body>
+</html>
