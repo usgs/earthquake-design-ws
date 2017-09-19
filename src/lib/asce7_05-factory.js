@@ -50,8 +50,8 @@ const ASCE7_05Factory = function (options) {
         probabilistic = data.probabilistic;
 
         result = {
-          ss: probabilistic.ss,
-          s1: probabilistic.s1
+          ss: probabilistic.response.data.ss,
+          s1: probabilistic.response.data.s1
         };
 
         resolve(result);
