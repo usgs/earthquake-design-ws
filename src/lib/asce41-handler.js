@@ -141,8 +141,10 @@ const ASCE41Handler = function (options) {
           Object.keys(hazardLevel).forEach((key) => {
             var value;
 
-            if (key === 'hazardLevel' || key === 'customProbability') {
+            if (key === 'hazardLevel') {
               value = hazardLevel[key];
+            } else if (key === 'customProbability') {
+              value = parseFloat(hazardLevel[key]);
             } else if (key === 'horizontalSpectrum') {
               value = NumberUtils.roundSpectrum(hazardLevel[key]);
             } else {

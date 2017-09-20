@@ -166,7 +166,7 @@ describe('WebService test suite', () => {
     });
   });
 
-  describe('getResponseMetadata', function () {
+  describe('getRequestMetadata', function () {
     it('formats the metadata response', () => {
       let metadata,
           request,
@@ -183,7 +183,7 @@ describe('WebService test suite', () => {
       };
 
       service = WebService();
-      metadata = service.getResponseMetadata(request, true);
+      metadata = service.getRequestMetadata(request, true);
 
       expect(metadata.status).to.equal('success');
       expect(metadata.url).to.equal('protocol://hostname/url');
@@ -252,7 +252,7 @@ describe('WebService test suite', () => {
         json: sinon.spy()
       };
       service = WebService();
-      stub = sinon.stub(service, 'getResponseMetadata').callsFake(
+      stub = sinon.stub(service, 'getRequestMetadata').callsFake(
           () => { return ''; });
 
       service.onSuccess(data, request, response, null);
