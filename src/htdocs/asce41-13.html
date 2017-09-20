@@ -21,13 +21,13 @@
   <dl>
     <dt id="latitude">latitude</dt>
     <dd>
-      Latitude for location at which to compute composite results.
+      Latitude for location at which to compute composite results
       <br/>Example: <code>34</code>
     </dd>
 
     <dt id="longitude">longitude</dt>
     <dd>
-      Longitude for location at which to compute composite results.
+      Longitude for location at which to compute composite results
       <br/>Example: <code>-118</code>
     </dd>
 
@@ -40,12 +40,12 @@
     <dt id="customProbability">customProbability</dt>
     <dd>
       Target custom probability of exceedance in a 50 year return period as
-      a decimal.
+      a decimal
       <br/>Example: <code>0.10</code>
     </dd>
     <dd class="optional">
       <em>Optional</em>, if not specificed then service returns results for
-      BSE-2N, BSE-1N, BSE-2E, BSE-1E instead.
+      BSE-2N, BSE-1N, BSE-2E, BSE-1E instead
     </dd>
   </dl>
 
@@ -63,7 +63,7 @@
 
         <dt id="output-reference-document">referenceDocument</dt>
         <dd>
-          Identifying the reference document for the returned data.
+          Identifying the reference document for the returned data
           <br/>Example: <code>&ldquo;ASCE41-13&rdquo;</code>
         </dd>
 
@@ -75,7 +75,7 @@
 
         <dt id="output-url">url</dt>
         <dd>
-          URL to reproduce this result.
+          URL to reproduce this result
           <br/>Example: <code>&ldquo;<span class="url-stub">{MOUNT_PATH}</span>/asce41-13.json?latitude=34&amp;longitude=-118&amp;siteClass=C&rdquo;</code>
         </dd>
         <dt>parameters</dt>
@@ -83,13 +83,13 @@
           <dl>
             <dt id="metadata-parameters-latitude">latitude</dt>
             <dd>
-              Latitude for location at which to compute composite results.
+              Latitude for location at which to compute composite results
               <br/>Example: <code>34</code>
             </dd>
 
             <dt id="metadata-parameters-longitude">longitude</dt>
             <dd>
-              Longitude for location at which to compute composite results.
+              Longitude for location at which to compute composite results
               <br/>Example: <code>-118</code>
             </dd>
 
@@ -105,8 +105,16 @@
             <dd>
               Target custom probability of exceedance in a 50 year return
               period as a decimal. Only included if user specified in
-              request.
+              request
               <br/>Example: <code>0.10</code>
+            </dd>
+
+            <dt id="response-metadata-spatial_interpolation_method">
+              spatialInterpolationMethod
+            </dt>
+            <dd>
+              Identifier for the interpolation method used to obtain data for
+              location of interest from underlying gridded datasets
             </dd>
           </dl>
         </dd>
@@ -119,7 +127,7 @@
         <dd>
           An array containing <a href="#output-hazard-level">HazardLevel</a>
           objects with varying properties based on different hazard level
-          responses (BSE-2N, etc&hellip;).
+          responses (BSE-2N, etc&hellip;)
         </dd>
       </dl>
       <dl>
@@ -175,7 +183,7 @@
     <dl>
       <dt id="output-hazard-level-bse-2n-hazard-level">hazardLevel</dt>
       <dd>
-        Label describing this hazard level object.
+        Label describing this hazard level object
         <br/>&ldquo;BSE-2N&rdquo;
       </dd>
 
@@ -255,7 +263,7 @@
         horizontalSpectrum
       </dt>
       <dd>
-        Discrete horizontal response spectrum.
+        Discrete horizontal response spectrum
       </dd>
     </dl>
   </dd>
@@ -265,7 +273,7 @@
     <dl>
       <dt id="output-hazard-level-bse-1n-hazard-level">hazardLevel</dt>
       <dd>
-        Label describing this hazard level object.
+        Label describing this hazard level object
         <br/>&ldquo;BSE-1N&rdquo;
       </dd>
 
@@ -283,7 +291,7 @@
         horizontalSpectrum
       </dt>
       <dd>
-        Discrete horizontal response spectrum.
+        Discrete horizontal response spectrum
       </dd>
     </dl>
   </dd>
@@ -333,7 +341,7 @@
         horizontalSpectrum
       </dt>
       <dd>
-        Discrete horizontal response spectrum.
+        Discrete horizontal response spectrum
       </dd>
     </dl>
   </dd>
@@ -343,7 +351,7 @@
     <dl>
       <dt id="output-hazard-level-bse-1e-hazard-level">hazardLevel</dt>
       <dd>
-        Label describing this hazard level object.
+        Label describing this hazard level object
         <br/>&ldquo;BSE-1E&rdquo;
       </dd>
 
@@ -383,7 +391,7 @@
         horizontalSpectrum
       </dt>
       <dd>
-        Discrete horizontal response spectrum.
+        Discrete horizontal response spectrum
       </dd>
     </dl>
   </dd>
@@ -394,7 +402,7 @@
     <dl>
       <dt id="t-sub-l-tag">t-sub-l</dt>
       <dd>
-        T-Sub-L data key/value pair
+        Long-period transition period in seconds
       </dd>
     </dl>
   </dd>
@@ -404,7 +412,7 @@
     <dl>
       <dt id="output-hazard-level-custom-hazard-level">hazardLevel</dt>
       <dd>
-        Label describing this hazard level object.
+        Label describing this hazard level object
         <br/>&ldquo;Custom&rdquo;
       </dd>
 
