@@ -117,7 +117,7 @@ insertDocuments = insertRegions.then((regionIds) => {
             region_id,
             name
           ) VALUES ($1, $2)
-          ON CONFLICT (region_id, name) DO UPDATE SET NAME = ($2)
+          ON CONFLICT (region_id, name) DO NOTHING
         `, [
           regionId,
           doc.name
