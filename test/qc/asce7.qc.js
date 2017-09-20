@@ -29,10 +29,32 @@ const ASCE7_HANDlERS = [
   }
 ];
 
-let config = Config().get(),
-    compareResult;
+let config,
+    compareResult,
+    handlerSwitch,
+    handlerIndex,
+    asce7_handler;
+
+config = Config().get();
 
 const epsilon = config.epsilon || 1E-4;
+
+/**
+ * The index of the handler is passed in from the CLI from the
+ * update-quality-control.sh script.  This is so distinct
+ * quality control reports for each handler can be generated.
+ */
+handlerSwitch = (process.argv[5] === undefined) ? '--asce7-10' : process.argv[5];
+
+if (handlerSwitch === '--asce7-10') {
+  handlerIndex = 0;
+} else if (handlerSwitch === '--asce7-16') {
+  handlerIndex = 1;
+} else {
+  handlerIndex = 2;
+}
+
+asce7_handler = ASCE7_HANDlERS[handlerIndex];
 
 
 compareResult = function (expected, actual) {
@@ -69,65 +91,63 @@ compareResult = function (expected, actual) {
   }
 };
 
-ASCE7_HANDlERS.forEach(function(asce7_handler) {
-  describe(asce7_handler.name + ` Quality Control Tests +/- ${epsilon}`, () => {
-    let handler;
+describe(asce7_handler.name + ` Quality Control Tests +/- ${epsilon}`, () => {
+  let handler;
 
-    before(() => {
-      handler = asce7_handler.handler(config);
-    });
+  before(() => {
+    handler = asce7_handler.handler(config);
+  });
 
-    after(() => {
-      handler.destroy();
-      handler = null;
-    });
+  after(() => {
+    handler.destroy();
+    handler = null;
+  });
 
-    asce7_handler.data.forEach((city) => {
-      let label,
-          latitude,
-          longitude,
-          riskCategory,
-          title;
+  asce7_handler.data.forEach((city) => {
+    let label,
+        latitude,
+        longitude,
+        riskCategory,
+        title;
 
-      label = city.request.parameters.label;
-      latitude = city.request.parameters.latitude;
-      longitude = city.request.parameters.longitude;
-      riskCategory = 'I';
-      title = 'QC_Test-' + asce7_handler.name + '-Handler';
-      label = `${label} (${latitude}, ${longitude})`;
+    label = city.request.parameters.label;
+    latitude = city.request.parameters.latitude;
+    longitude = city.request.parameters.longitude;
+    riskCategory = 'I';
+    title = 'QC_Test-' + asce7_handler.name + '-Handler';
+    label = `${label} (${latitude}, ${longitude})`;
 
-      describe(label, () => {
-        let cityResponse,
-            i,
-            len,
-            siteClass;
+    describe(label, () => {
+      let cityResponse,
+          i,
+          len,
+          siteClass;
 
-        len = city.response.data.length;
-        for (i = 0; i < len; i++) {
-          cityResponse = city.response.data[i];
-          siteClass = cityResponse.siteClass;
+      len = city.response.data.length;
+      for (i = 0; i < len; i++) {
+        cityResponse = city.response.data[i];
+        siteClass = cityResponse.siteClass;
 
 
-          it(JSON.stringify(cityResponse), (done) => {
-            let request;
+        it(JSON.stringify(cityResponse), (done) => {
+          let request;
 
-            request = {
-              latitude: latitude,
-              longitude: longitude,
-              siteClass: siteClass,
-              riskCategory: riskCategory,
-              title: title
-            };
+          request = {
+            latitude: latitude,
+            longitude: longitude,
+            siteClass: siteClass,
+            riskCategory: riskCategory,
+            title: title
+          };
 
-            handler.get(request).then((result) => {
-              compareResult(cityResponse, result.data);
-            }).catch((err) => {
-              process.stderr.write(err.stack + '\n');
-              return err;
-            }).then(done);
-          });
-        }
-      });
+          handler.get(request).then((result) => {
+            compareResult(cityResponse, result.data);
+          }).catch((err) => {
+            process.stderr.write(err.stack + '\n');
+            return err;
+          }).then(done);
+        });
+      }
     });
   });
 });
