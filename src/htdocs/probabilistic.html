@@ -28,20 +28,20 @@
   <dl>
     <dt id="latitude">latitude</dt>
     <dd>
-      Latitude for location at which to fetch results.
-      <br/>Example: <code>34.01</code>
+      Latitude for location at which to fetch results
+      <br/>Example: <code>34</code>
     </dd>
 
     <dt id="longitude">longitude</dt>
     <dd>
-      Longitude for location at which to fetch results.
-      <br/>Example: <code>-118.01</code>
+      Longitude for location at which to fetch results
+      <br/>Example: <code>-118</code>
     </dd>
 
     <dt id="referenceDocument">referenceDocument</dt>
     <dd>
       Design code reference document corresponding to hazard dataset for
-      which to fetch results.
+      which to fetch results
       <br/>Example: <code>ASCE41-13</code>
     </dd>
   </dl>
@@ -55,40 +55,40 @@
         <dt id="output-date">date</dt>
         <dd>
           Timestamp
-          <br/>Example: <code>YYYY-MM-DDThh:mm:ssZ</code>
+          <br/>Example: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
         </dd>
 
         <dt id="output-reference-document">referenceDocument</dt>
         <dd>
           Design code reference document corresponding to hazard dataset for
-          returned results.
-          <br/>Example: <code>ASCE41-13</code>
+          returned results
+          <br/>Example: <code>&ldquo;ASCE41-13&rdquo;</code>
         </dd>
 
         <dt id="output-status">status</dt>
         <dd>
           String (&ldquo;success&rdquo; or &ldquo;error&rdquo;)
-          <br/>Example: <code>success</code>
+          <br/>Example: <code>&ldquo;success&rdquo;</code>
         </dd>
 
         <dt id="output-url">url</dt>
         <dd>
-          URL to reproduce this result.
-          <br/>Example: <code><span class="url-stub">&hellip;</span>/probabilistic.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE41-13</code>
+          URL to reproduce this result
+          <br/>Example: <code>&ldquo;<span class="url-stub">&hellip;</span>/probabilistic.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE41-13&rdquo;</code>
         </dd>
         <dt id="request-parameters">parameters</dt>
         <dd>
           <dl>
             <dt id="request-parameters-latitude">latitude</dt>
             <dd>
-              Latitude for location at which to fetch results.
-              <br/>Example: <code>34.01</code>
+              Latitude for location at which to fetch results
+              <br/>Example: <code>34</code>
             </dd>
 
             <dt id="request-parameters-longitude">longitude</dt>
             <dd>
-              Longitude for location at which to fetch results.
-              <br/>Example: <code>-118.01</code>
+              Longitude for location at which to fetch results
+              <br/>Example: <code>-118</code>
             </dd>
           </dl>
         </dd>
@@ -103,18 +103,18 @@
           <dl>
             <dt id="response-data-pga">pga</dt>
             <dd>
-              Mapped probabilistic ground motion value. (Peak Ground
+              Mapped probabilistic ground motion value (Peak Ground
               Acceleration)
             </dd>
 
             <dt id="response-data-s1">s1</dt>
             <dd>
-              Mapped probabilistic ground motion value. (1.0 s SA)
+              Mapped probabilistic ground motion value (1.0 s)
             </dd>
 
             <dt id="response-data-ss">ss</dt>
             <dd>
-              Mapped probabilistic ground motion value. (0.2 s SA)
+              Mapped probabilistic ground motion value (0.2 s)
             </dd>
           </dl>
         </dd>
@@ -124,12 +124,12 @@
           <dl>
             <dt id="response-metadata-model_version">modelVersion</dt>
             <dd>
-              Identifier for the underlying model version in the database.
+              Identifier for the underlying model version in the database
             </dd>
 
             <dt id="response-metadata-region_name">regionName</dt>
             <dd>
-              Identifier for the underlying region name in the database.
+              Identifier for the underlying region name in the database
             </dd>
 
             <dt id="response-metadata-spatial_interpolation_method">
@@ -137,7 +137,7 @@
             </dt>
             <dd>
               Identifier for the interpolation method used to obtain data for
-              location of interest from underlying gridded datasets.
+              location of interest from underlying gridded datasets
             </dd>
           </dl>
         </dd>
@@ -156,10 +156,10 @@
   <div class="code">
     <pre>{
   "request": {
-    "date": "2016-09-14T23:35:50.279Z",
+    "date": "2017-09-20T20:49:02.826Z",
     "referenceDocument": "ASCE41-13",
     "status": "success",
-    "url": "<span class="url-stub">&hellip;</span>/probabilistic.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE41-13",
+    "url": "http://localhost/ws/designmaps/probabilistic.json?latitude=34&longitude=-118&referenceDocument=ASCE41-13",
     "parameters": {
       "latitude": 34,
       "longitude": -118
@@ -167,14 +167,15 @@
   },
   "response": {
     "data": {
-      "pga": 0.5670918,
-      "s1": 0.53527123,
-      "ss": 1.35112175
+      "pga": 0.89359,
+      "s1": 0.67503,
+      "ss": 2.2676
     },
     "metadata": {
+      "spatialInterpolationMethod": "linearlinearlinear",
       "modelVersion": "v3.1.x",
       "regionName": "E2008R2_COUS0P01_Probabilistic",
-      "spatialInterpolationMethod": "linear"
+      "gridSpacing": 0.01
     }
   }
 }</pre>
