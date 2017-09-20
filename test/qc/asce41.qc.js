@@ -37,7 +37,7 @@ const epsilon = config.epsilon || 1E-4;
  * quality control reports for each handler can be generated.
  */
 handlerSwitch = (process.argv[5] === undefined) ? '--asce41-13'
-    : process.argv[5];
+  : process.argv[5];
 
 if (handlerSwitch === '--asce41-13') {
   handlerIndex = 0;

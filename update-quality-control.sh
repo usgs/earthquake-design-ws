@@ -20,8 +20,8 @@ list=(
 
 for i in "${!list[@]}";
 do
-  handler=`echo "${list[$i]}" | cut -d "|" -f 1`
-  switch=`echo "${list[$i]}" | cut -d "|" -f 2`
+  handler=$(echo "${list[$i]}" | cut -d "|" -f 1)
+  switch=$(echo "${list[$i]}" | cut -d "|" -f 2)
 
   # Run the QC Reports individually indicating which report to run
   # from the array specified above.
