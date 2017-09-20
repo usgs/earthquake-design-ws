@@ -28,7 +28,7 @@ do
   node \
   ./node_modules/mocha/bin/mocha \
   test/qc/${handler} \
-  --reporter ../../../gh-reporter.js --${switch} > qc_reports/${switch}.md 2>&1
+  --reporter ../../../gh-reporter.js --${switch} > qc_reports/${switch}.md
 done
 
 returnStatus=$?;

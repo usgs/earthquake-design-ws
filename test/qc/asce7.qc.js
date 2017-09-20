@@ -60,32 +60,40 @@ asce7_handler = ASCE7_HANDlERS[handlerIndex];
 compareResult = function (expected, actual) {
   if (expected.hasOwnProperty('sms')) {
     if (expected.sms === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.sms + '\r\n');
       expect(actual.sms).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.sms + ' actual val: ' + actual.sms + '\r\n');
       expect(actual.sms).to.be.closeTo(expected.sms, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('sm1')) {
     if (expected.sm1 === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.sm1 + '\r\n');
       expect(actual.sm1).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.sm1 + ' actual val: ' + actual.sm1 + '\r\n');
       expect(actual.sm1).to.be.closeTo(expected.sm1, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('pgam')) {
     if (expected.pgam === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.pgam + '\r\n');
       expect(actual.pgam).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.pgam + ' actual val: ' + actual.pgam + '\r\n');
       expect(actual.pgam).to.be.closeTo(expected.pgam, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('t-sub-l')) {
     if (expected['t-sub-l'] === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual['t-sub-l'] + '\r\n');
       expect(actual['t-sub-l']).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected['t-sub-l'] + ' actual val: ' + actual['t-sub-l'] + '\r\n');
       expect(actual['t-sub-l']).to.be.closeTo(expected['t-sub-l'], epsilon);
     }
   }
