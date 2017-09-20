@@ -27,10 +27,28 @@ var connectDatabase,
  *
  * Sets `db` variable used by other methods below.
  */
-connectDatabase = dbUtils.getAdminDb().then((adminDb) => {
-  db = adminDb;
+ /*
+connectDatabase = (() => {
+  const promise = new Promise(function(resolve, reject) {
+    if (db === undefined || db === null) {
+      dbUtils.getAdminDb().then((adminDb) => {
+        db = adminDb;
+      });
+    }
+    resolve();
+  });
 });
+*/
 
+connectDatabase = (() => {
+  if (db === undefined || db === null) {
+    return dbUtils.getAdminDb().then((adminDb) => {
+      db = adminDb;
+    });
+  } else {
+    return new Promise().resolve();
+  }
+});
 
 /**
  * Create database schema.
