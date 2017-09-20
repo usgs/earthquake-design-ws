@@ -140,7 +140,7 @@ const WebService = function (options) {
   };
 
   /**
-   * Creates a metadata object to provide in the response body. This object
+   * Creates a metadata object to provide in the request body. This object
    * contains a timestamp, request URL, and a status indicator.
    *
    * @param request {Express.Request}
@@ -149,9 +149,9 @@ const WebService = function (options) {
    *     Is this response representing a successful request?
    *
    * @return {Object}
-   *     An object with metadata information about the response.
+   *     An object with metadata information about the request.
    */
-  _this.getResponseMetadata = function (request, isSuccess) {
+  _this.getRequestMetadata = function (request, isSuccess) {
     let params,
         protocol,
         referenceDocument;
@@ -162,7 +162,7 @@ const WebService = function (options) {
     referenceDocument = params.referenceDocument;
     delete params.referenceDocument;
 
-    ['latitude', 'longitude'].forEach((key) => {
+    ['latitude', 'longitude', 'customProbability'].forEach((key) => {
       if (params.hasOwnProperty(key)) {
         params[key] = parseFloat(params[key]);
       }
@@ -202,7 +202,7 @@ const WebService = function (options) {
         status;
 
     payload = {
-      request: _this.getResponseMetadata(request, false),
+      request: _this.getRequestMetadata(request, false),
       response: (err && err.message) ? err.message : 'internal server error'
     };
 
@@ -235,7 +235,7 @@ const WebService = function (options) {
     }
 
     payload = {
-      request: _this.getResponseMetadata(request, true),
+      request: _this.getRequestMetadata(request, true),
       response: data
     };
 
