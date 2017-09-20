@@ -8,9 +8,8 @@ const ASCE7_10Handler = require('../../src/lib/asce7_10-handler'),
     ASCE7_10CityInputs = require('../../etc/asce7_10-qc.json'),
     ASCE7_16CityInputs = require('../../etc/asce7_16-qc.json'),
     ASCE7_05CityInputs = require('../../etc/asce7_05-qc.json'),
-    expect = require('chai').expect,
-    fs = require('fs'),
-    https = require('https');
+    Config = require('../../src/lib/util/config'),
+    expect = require('chai').expect;
 
 const ASCE7_HANDlERS = [
   {
@@ -30,35 +29,11 @@ const ASCE7_HANDlERS = [
   }
 ];
 
-let Config = require('../../src/conf/config.json'),
-    ca,
+let config = Config().get(),
     compareResult;
 
-const epsilon = Config.epsilon || 1E-4;
+const epsilon = config.epsilon || 1E-4;
 
-
-// Override generic configuration properties with site-specific properties
-// as applicable.
-if (Config.hasOwnProperty('database')) {
-  Config.DB_HOST = Config.database;
-}
-
-if (Config.hasOwnProperty('pgsql_read_only_user')) {
-  Config.DB_USER = Config.pgsql_read_only_user;
-}
-
-if (Config.hasOwnProperty('pgsql_read_only_password')) {
-  Config.DB_PASSWORD = Config.pgsql_read_only_password;
-}
-
-// Config custom certificate chain
-if (Config.SSL_CERT_FILE) {
-  ca = fs.readFileSync(Config.SSL_CERT_FILE, 'utf-8');
-  ca = ca.split('-----END CERTIFICATE-----').map((c) => {
-    return c + '-----END CERTIFICATE-----';
-  });
-  https.globalAgent.options.ca = ca;
-}
 
 compareResult = function (expected, actual) {
   if (expected.hasOwnProperty('sms')) {
@@ -99,7 +74,7 @@ ASCE7_HANDlERS.forEach(function(asce7_handler) {
     let handler;
 
     before(() => {
-      handler = asce7_handler.handler(Config);
+      handler = asce7_handler.handler(config);
     });
 
     after(() => {
