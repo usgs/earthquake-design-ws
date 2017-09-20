@@ -537,9 +537,9 @@ const NumberUtils = function (options) {
 
       // Interpolate top/bot results with respect to latitude
       return _this.interpolateObject(
-          top.latitude,
+          topLat,
           top,
-          bot.latitude,
+          botLat,
           bot,
           latitude,
           method
