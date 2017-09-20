@@ -169,8 +169,16 @@ const SpectraFactory = function (options) {
       times.push(+t.toFixed(3));
     }
 
-    // Sort in ascending order
-    times.sort();
+    // Sort in ascending order; numerical, not unicode chars
+    times.sort((a, b) => {
+      let af,
+          bf;
+
+      af = parseFloat(a);
+      bf = parseFloat(b);
+
+      return af - bf;
+    });
 
     // Remove duplicate values
     times = times.filter(function(item, pos, arr){
