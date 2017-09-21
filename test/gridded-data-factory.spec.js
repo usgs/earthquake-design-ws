@@ -12,6 +12,27 @@ const _DUMMY_METADATA_FACTORY = {
   getMetadata: () => { return Promise.resolve({}); }
 };
 
+const _DUMMY_DB = {
+  query: () => {return Promise.resolve({'rows':[{
+    'id':9,
+    'grid_spacing':0.01,
+    'max_latitude':45,
+    'max_longitude':-110,
+    'min_latitude':40,
+    'min_longitude':-112,
+    'name':'E2003RA_SLC0P01_Probabilistic'
+  },
+  {
+    'id':15,
+    'grid_spacing':0.05,
+    'max_latitude':50,
+    'max_longitude':-65,
+    'min_latitude':24.6,
+    'min_longitude':-125,
+    'name':'E2003R1A_US0P05_Probabilistic'
+  }]}); }
+};
+
 
 describe('gridded-data-factory', () => {
   let factory;
@@ -204,6 +225,36 @@ describe('gridded-data-factory', () => {
         }
         done(err);
       });
+    });
+
+    it('sorts data correctly', (done) => {
+      let factoryTemp,
+          smallRegion;
+
+      smallRegion = {
+        'id':9,
+        'grid_spacing':0.01,
+        'max_latitude':45,
+        'max_longitude':-110,
+        'min_latitude':40,
+        'min_longitude':-112,
+        'name':'E2003RA_SLC0P01_Probabilistic'
+      };
+
+      factoryTemp = GriddedDataFactory({
+        db: _DUMMY_DB
+      });
+
+      factoryTemp.getRegion({}).then((result) => {
+        expect(result).to.deep.equal(smallRegion);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+
+      factoryTemp.destroy();
+      factoryTemp = null;
     });
   });
 
