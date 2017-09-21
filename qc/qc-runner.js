@@ -231,10 +231,12 @@ const QCRunner = function (options) {
     stamp = (new Date()).toUTCString();
 
     fs.writeSync(fd, `# ${title} Quality Control Tests +/- ${_this.epsilon}\n`);
-    fs.writeSync(fd, `> Generated: ${stamp}\n\n`);
+    fs.writeSync(fd, `> Generated: ${stamp}\n`);
+    fs.writeSync(fd, '> Using web service: ${endpoint}\n\n');
+
     fs.writeSync(fd, '### Legend\n');
     fs.writeSync(fd, ' - :green_heart: Passing\n');
-    fs.writeSync(fd, ' - :broken_heart: Failing\n');
+    fs.writeSync(fd, ' - :broken_heart: Failing\n\n');
   };
 
   _this._writeResult = function (fd, result) {
