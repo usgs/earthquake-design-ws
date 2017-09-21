@@ -8,9 +8,8 @@ const ASCE7_10Handler = require('../../src/lib/asce7_10-handler'),
     ASCE7_10CityInputs = require('../../etc/asce7_10-qc.json'),
     ASCE7_16CityInputs = require('../../etc/asce7_16-qc.json'),
     ASCE7_05CityInputs = require('../../etc/asce7_05-qc.json'),
-    expect = require('chai').expect,
-    fs = require('fs'),
-    https = require('https');
+    Config = require('../../src/lib/util/config'),
+    expect = require('chai').expect;
 
 const ASCE7_HANDlERS = [
   {
@@ -30,129 +29,133 @@ const ASCE7_HANDlERS = [
   }
 ];
 
-let Config = require('../../src/conf/config.json'),
-    ca,
-    compareResult;
+let config,
+    compareResult,
+    handlerSwitch,
+    handlerIndex,
+    asce7_handler;
 
-const epsilon = Config.epsilon || 1E-4;
+config = Config().get();
 
+const epsilon = config.epsilon || 1E-4;
 
-// Override generic configuration properties with site-specific properties
-// as applicable.
-if (Config.hasOwnProperty('database')) {
-  Config.DB_HOST = Config.database;
+/**
+ * The index of the handler is passed in from the CLI from the
+ * update-quality-control.sh script.  This is so distinct
+ * quality control reports for each handler can be generated.
+ */
+handlerSwitch = (process.argv[5] === undefined) ? '--asce7-10' : process.argv[5];
+
+if (handlerSwitch === '--asce7-10') {
+  handlerIndex = 0;
+} else if (handlerSwitch === '--asce7-16') {
+  handlerIndex = 1;
+} else {
+  handlerIndex = 2;
 }
 
-if (Config.hasOwnProperty('pgsql_read_only_user')) {
-  Config.DB_USER = Config.pgsql_read_only_user;
-}
+asce7_handler = ASCE7_HANDlERS[handlerIndex];
 
-if (Config.hasOwnProperty('pgsql_read_only_password')) {
-  Config.DB_PASSWORD = Config.pgsql_read_only_password;
-}
-
-// Config custom certificate chain
-if (Config.SSL_CERT_FILE) {
-  ca = fs.readFileSync(Config.SSL_CERT_FILE, 'utf-8');
-  ca = ca.split('-----END CERTIFICATE-----').map((c) => {
-    return c + '-----END CERTIFICATE-----';
-  });
-  https.globalAgent.options.ca = ca;
-}
 
 compareResult = function (expected, actual) {
   if (expected.hasOwnProperty('sms')) {
     if (expected.sms === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.sms + '\r\n');
       expect(actual.sms).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.sms + ' actual val: ' + actual.sms + '\r\n');
       expect(actual.sms).to.be.closeTo(expected.sms, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('sm1')) {
     if (expected.sm1 === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.sm1 + '\r\n');
       expect(actual.sm1).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.sm1 + ' actual val: ' + actual.sm1 + '\r\n');
       expect(actual.sm1).to.be.closeTo(expected.sm1, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('pgam')) {
     if (expected.pgam === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual.pgam + '\r\n');
       expect(actual.pgam).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected.pgam + ' actual val: ' + actual.pgam + '\r\n');
       expect(actual.pgam).to.be.closeTo(expected.pgam, epsilon);
     }
   }
 
   if (expected.hasOwnProperty('t-sub-l')) {
     if (expected['t-sub-l'] === null) {
+      process.stdout.write('  - expected val: ' + null + ' actual val: ' + actual['t-sub-l'] + '\r\n');
       expect(actual['t-sub-l']).to.equal(null);
     } else {
+      process.stdout.write('  - expected val: ' + expected['t-sub-l'] + ' actual val: ' + actual['t-sub-l'] + '\r\n');
       expect(actual['t-sub-l']).to.be.closeTo(expected['t-sub-l'], epsilon);
     }
   }
 };
 
-ASCE7_HANDlERS.forEach(function(asce7_handler) {
-  describe(asce7_handler.name + ` Quality Control Tests +/- ${epsilon}`, () => {
-    let handler;
+describe(asce7_handler.name + ` Quality Control Tests +/- ${epsilon}`, () => {
+  let handler;
 
-    before(() => {
-      handler = asce7_handler.handler(Config);
-    });
+  before(() => {
+    handler = asce7_handler.handler(config);
+  });
 
-    after(() => {
-      handler.destroy();
-      handler = null;
-    });
+  after(() => {
+    handler.destroy();
+    handler = null;
+  });
 
-    asce7_handler.data.forEach((city) => {
-      let label,
-          latitude,
-          longitude,
-          riskCategory,
-          title;
+  asce7_handler.data.forEach((city) => {
+    let label,
+        latitude,
+        longitude,
+        riskCategory,
+        title;
 
-      label = city.request.parameters.label;
-      latitude = city.request.parameters.latitude;
-      longitude = city.request.parameters.longitude;
-      riskCategory = 'I';
-      title = 'QC_Test-' + asce7_handler.name + '-Handler';
-      label = `${label} (${latitude}, ${longitude})`;
+    label = city.request.parameters.label;
+    latitude = city.request.parameters.latitude;
+    longitude = city.request.parameters.longitude;
+    riskCategory = 'I';
+    title = 'QC_Test-' + asce7_handler.name + '-Handler';
+    label = `${label} (${latitude}, ${longitude})`;
 
-      describe(label, () => {
-        let cityResponse,
-            i,
-            len,
-            siteClass;
+    describe(label, () => {
+      let cityResponse,
+          i,
+          len,
+          siteClass;
 
-        len = city.response.data.length;
-        for (i = 0; i < len; i++) {
-          cityResponse = city.response.data[i];
-          siteClass = cityResponse.siteClass;
+      len = city.response.data.length;
+      for (i = 0; i < len; i++) {
+        cityResponse = city.response.data[i];
+        siteClass = cityResponse.siteClass;
 
 
-          it(JSON.stringify(cityResponse), (done) => {
-            let request;
+        it(JSON.stringify(cityResponse), (done) => {
+          let request;
 
-            request = {
-              latitude: latitude,
-              longitude: longitude,
-              siteClass: siteClass,
-              riskCategory: riskCategory,
-              title: title
-            };
+          request = {
+            latitude: latitude,
+            longitude: longitude,
+            siteClass: siteClass,
+            riskCategory: riskCategory,
+            title: title
+          };
 
-            handler.get(request).then((result) => {
-              compareResult(cityResponse, result.data);
-            }).catch((err) => {
-              process.stderr.write(err.stack + '\n');
-              return err;
-            }).then(done);
-          });
-        }
-      });
+          handler.get(request).then((result) => {
+            compareResult(cityResponse, result.data);
+          }).catch((err) => {
+            process.stderr.write(err.stack + '\n');
+            return err;
+          }).then(done);
+        });
+      }
     });
   });
 });

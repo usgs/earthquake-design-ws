@@ -55,7 +55,7 @@ suite included in this package. Most simply:
 
   runner.on('suite', function (suite) {
     ++indents;
-    write(header(), suite.title);
+    write('\r\n' + header(), suite.title);
   });
 
   runner.on('suite end', function () {
@@ -66,20 +66,20 @@ suite included in this package. Most simply:
   });
 
   runner.on('pending', function (test) {
-    write('- ' + pending() + ' %s', test.title);
+    write('    - ' + pending() + ' %s', test.title);
   });
 
   runner.on('pass', function (test) {
     if (test.speed === 'fast') {
-      write('- ' + pass() + ' %s', test.title);
+      write('    - ' + pass() + ' %s', test.title);
     } else {
-      write('- ' + pass() + ' %s\n  - :snail: (%dms)',
+      write('    - ' + pass() + ' %s\n    - :snail: (%dms)',
           test.title, test.duration);
     }
   });
 
   runner.on('fail', function (test) {
-    write('- ' +  fail() + ' %s', test.title);
+    write('    - ' +  fail() + ' %s', test.title);
   });
 
   runner.on('end', () => {
