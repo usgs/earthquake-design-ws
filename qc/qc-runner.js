@@ -232,7 +232,7 @@ const QCRunner = function (options) {
 
     fs.writeSync(fd, `# ${title} Quality Control Tests +/- ${_this.epsilon}\n`);
     fs.writeSync(fd, `> Generated: ${stamp}\n`);
-    fs.writeSync(fd, '> Using web service: ${endpoint}\n\n');
+    fs.writeSync(fd, `> Using web service: ${endpoint}\n\n`);
 
     fs.writeSync(fd, '### Legend\n');
     fs.writeSync(fd, ' - :green_heart: Passing\n');
