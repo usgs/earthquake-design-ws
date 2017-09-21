@@ -14,11 +14,10 @@
     "dev": "npm-run-all --parallel watch start",
     "lint": "eslint \"**/*.js\"",
     "postinstall": "node configurer/configure.js",
-    "qc": "mocha \"test/qc/**/*.qc.js\" --reporter spec",
     "start": "nodemon --watch src src/server.js",
     "test": "mocha \"test/**/*.spec.js\" --reporter spec",
     "uninstall": "node src/lib/uninstall",
-    "update-qc": "mocha \"test/qc/**/*.qc.js\" --reporter ../../../gh-reporter",
+    "update-qc": "node qc/update-quality-control.js",
     "watch": "watch \"npm run lint && npm run test\" src test"
   },
   "pre-commit": [

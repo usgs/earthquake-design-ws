@@ -12,7 +12,7 @@ qcRunner = QCRunner();
 Promise.all([
   qcRunner.run('http://localhost:8000/ws/designmaps/asce7-05.json',
       require('./expectations/asce7-05.expectation.json'),
-      'results/asce7-05.qc.md'),
+      './results/asce7-05.qc.md'),
 
   qcRunner.run('http://localhost:8000/ws/designmaps/asce7-10.json',
       require('./expectations/asce7-10.expectation.json'),
