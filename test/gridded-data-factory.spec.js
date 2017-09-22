@@ -14,15 +14,6 @@ const _DUMMY_METADATA_FACTORY = {
 
 const _DUMMY_DB = {
   query: () => {return Promise.resolve({'rows':[{
-    'id':9,
-    'grid_spacing':0.01,
-    'max_latitude':45,
-    'max_longitude':-110,
-    'min_latitude':40,
-    'min_longitude':-112,
-    'name':'E2003RA_SLC0P01_Probabilistic'
-  },
-  {
     'id':15,
     'grid_spacing':0.05,
     'max_latitude':50,
@@ -30,6 +21,15 @@ const _DUMMY_DB = {
     'min_latitude':24.6,
     'min_longitude':-125,
     'name':'E2003R1A_US0P05_Probabilistic'
+  },
+  {
+    'id':9,
+    'grid_spacing':0.01,
+    'max_latitude':45,
+    'max_longitude':-110,
+    'min_latitude':40,
+    'min_longitude':-112,
+    'name':'E2003RA_SLC0P01_Probabilistic'
   }]}); }
 };
 
