@@ -27,8 +27,12 @@ var connectDatabase,
  *
  * Sets `db` variable used by other methods below.
  */
-connectDatabase = dbUtils.getAdminDb().then((adminDb) => {
-  db = adminDb;
+// connectDatabase = dbUtils.getAdminDb().then((adminDb) => {
+//   db = adminDb;
+// });
+
+connectDatabase = (() => {
+  return;
 });
 
 
