@@ -291,7 +291,26 @@ const GriddedDataFactory = function (options) {
     ];
 
     return _this.db.query(_this.queryRegion, parameters).then((result) => {
-      return result.rows[0];
+      let sortedRows;
+
+      // Make a copy
+      sortedRows = result.rows.slice(0);
+
+      // sort by region area (similar to metadata factory)
+      sortedRows.sort((rowA, rowB) => {
+        let aArea,
+            bArea;
+
+        aArea = Math.abs(rowA.max_latitude - rowA.min_latitude) *
+            Math.abs(rowA.max_longitude - rowA.min_longitude);
+        bArea = Math.abs(rowB.max_latitude - rowB.min_latitude) *
+            Math.abs(rowB.max_longitude - rowB.min_longitude);
+
+        return aArea - bArea;
+      });
+
+      // return smallest matching region
+      return sortedRows[0];
     });
   };
 
