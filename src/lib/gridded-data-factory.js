@@ -269,18 +269,18 @@ const GriddedDataFactory = function (options) {
   };
 
   /**
-  * Gets metadata associated with a particular region based on the provided
-  * `inputs.latitude` and `inputs.longitude`.
-  *
-  * @param inputs {Object}
-  *     inputs.referenceDocument {String}
-  *     inputs.latitude` {Number}
-  *     inputs.longitude` {Number}
-  *
-  * @return {Promise<Object>}
-  *     A promise that resolves with region metadata or rejects if an
-  *     error occurs.
-  */
+   * Gets metadata associated with a particular region based on the provided
+   * `inputs.latitude` and `inputs.longitude`.
+   *
+   * @param inputs {Object}
+   *     inputs.referenceDocument {String}
+   *     inputs.latitude` {Number}
+   *     inputs.longitude` {Number}
+   *
+   * @return {Promise<Object>}
+   *     A promise that resolves with region metadata or rejects if an
+   *     error occurs.
+   */
   _this.getRegion = function (inputs) {
     let parameters;
 
