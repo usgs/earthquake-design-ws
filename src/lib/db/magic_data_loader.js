@@ -32,9 +32,9 @@ const DataLoader = {
       //DataLoader.fullyLoadRiskCoefficientData(),
       DataLoader.fullyLoadTSubLData()
     ]).then(() => {
-      resolve('Done!');
+
     }).catch((err) => {
-      process.stdout.write(e.message);
+      process.stdout.write(err.message);
     });
   }),
 
@@ -89,14 +89,14 @@ const DataLoader = {
   fullyLoadTSubLData: (() => {
     tsublDataLoader = TSubLDataLoader(db);
     process.stdout.write('\n\n   loading t-sub-l data...\n\n');
-    const promise = new Promise(function(resolve, reject) {
+    const promise = new Promise((resolve) => {
       tsublDataLoader.createIndexes();
       resolve();
-    }).catch((err) => {
-      reject(err);
+    }).catch((/*err*/) => {
+      //reject(Error(err));
     });
     return promise;
-  }),
+  })
 };
 
 

@@ -30,21 +30,21 @@ const TSubLDataLoader = function(_db) {
    *     promise representing schema has been created.
    */
   _this.createSchema = (() => {
-     var schemaName,
-         schemaUser;
+    var schemaName,
+        schemaUser;
 
-     schemaName = config.DB_SCHEMA_TSUBL;
-     schemaUser = config.DB_USER;
-     if (!schemaName || !schemaUser) {
-       throw new Error('tsubl schema name not configured');
-     }
+    schemaName = config.DB_SCHEMA_TSUBL;
+    schemaUser = config.DB_USER;
+    if (!schemaName || !schemaUser) {
+      throw new Error('tsubl schema name not configured');
+    }
 
-     return dbUtils.createSchema({
-       db: db,
-       file: __dirname + '/./schema.sql',
-       name: config.DB_SCHEMA_TSUBL,
-       user: config.DB_USER
-     });
+    return dbUtils.createSchema({
+      db: db,
+      file: __dirname + '/./schema.sql',
+      name: config.DB_SCHEMA_TSUBL,
+      user: config.DB_USER
+    });
   });
 
   /**
@@ -198,11 +198,11 @@ const TSubLDataLoader = function(_db) {
           // remove temporary table
           return db.query('DROP TABLE temp_region_data CASCADE');
         });
-       });
-     });
+      });
+    });
 
-     return promise;
-   });
+    return promise;
+  });
 
   _this.createIndexes = Promise.all([_this.insertData, _this.insertDocuments]).then(() => {
     return dbUtils.readSqlFile(__dirname + '/./index.sql').then((statements) => {
