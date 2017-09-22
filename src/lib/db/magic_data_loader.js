@@ -13,7 +13,7 @@ const main_menu_questions = [
     ],
     message: 'Please select one of the following menu options:'
   }
-]
+];
 
 const promptSwitch = (process.argv[2] === undefined) ? '--menu' : process.argv[2];
 
