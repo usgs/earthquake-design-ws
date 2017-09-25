@@ -131,7 +131,7 @@ const ASCE7Factory = function (options) {
         basicDesign.pgauh = _this.computeUniformHazard(probabilistic.pga, 1.0);
         basicDesign.pgad = _this.computeDeterministic(deterministic.pgad,
             metadata.pgadPercentileFactor, 1.0, metadata.pgadFloor);
-        basicDesign.pga = _this.computeGroundMotion(probabilistic.pga,
+        basicDesign.pga = _this.computeGroundMotion(basicDesign.pgauh,
             basicDesign.pgad);
 
         resolve(basicDesign);

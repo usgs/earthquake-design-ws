@@ -1,0 +1,6596 @@
+[
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.751,
+        "sm1": 0.689,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3018,
+        "longitude": -145.2829,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.761,
+        "sm1": 0.3,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.2,
+        "longitude": -149.9,
+        "riskCategory": "I",
+        "title": "Anchorage",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.488,
+        "sm1": 0.551,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.2166,
+        "longitude": -149.8934,
+        "riskCategory": "I",
+        "title": "Anchorage",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.486,
+        "sm1": 0.55,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.007,
+        "sm1": 0.334,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.007,
+        "sm1": 0.334,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3971,
+        "longitude": -66.1559,
+        "riskCategory": "I",
+        "title": "Bayamon",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.884,
+        "sm1": 0.296,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4,
+        "longitude": -66.16,
+        "riskCategory": "I",
+        "title": "Bayamon",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.885,
+        "sm1": 0.296,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.7949,
+        "longitude": -161.763,
+        "riskCategory": "I",
+        "title": "Bethel",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.294,
+        "sm1": 0.094,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.8,
+        "longitude": -161.8,
+        "riskCategory": "I",
+        "title": "Bethel",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.296,
+        "sm1": 0.094,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.244,
+        "sm1": 0.083,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.305,
+        "sm1": 0.104,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.366,
+        "sm1": 0.176,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.475,
+        "sm1": 0.248,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.709,
+        "sm1": 0.363,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.308,
+        "sm1": 0.105,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2359,
+        "longitude": -66.0357,
+        "riskCategory": "I",
+        "title": "Caguas",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.849,
+        "sm1": 0.274,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.24,
+        "longitude": -66.04,
+        "riskCategory": "I",
+        "title": "Caguas",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.849,
+        "sm1": 0.274,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.884,
+        "sm1": 0.641,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.467,
+        "sm1": 0.579,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.834,
+        "sm1": 0.723,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.834,
+        "sm1": 0.94,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.834,
+        "sm1": 1.085,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.651,
+        "sm1": 1.736,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7763,
+        "longitude": -79.9307,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.427,
+        "sm1": 0.351,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.208,
+        "sm1": 0.296,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.511,
+        "sm1": 0.37,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.511,
+        "sm1": 0.529,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.511,
+        "sm1": 0.614,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.36,
+        "sm1": 0.933,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.34,
+        "longitude": -64.93,
+        "riskCategory": "I",
+        "title": "Charlotte Amalie",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.073,
+        "sm1": 0.325,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3407,
+        "longitude": -64.934,
+        "riskCategory": "I",
+        "title": "Charlotte Amalie",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.073,
+        "sm1": 0.325,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.132,
+        "sm1": 0.048,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.165,
+        "sm1": 0.06,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.198,
+        "sm1": 0.102,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.264,
+        "sm1": 0.144,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.413,
+        "sm1": 0.21,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.8504,
+        "longitude": -87.6503,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.165,
+        "sm1": 0.06,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5,
+        "longitude": -144.4,
+        "riskCategory": "I",
+        "title": "Chitina",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.205,
+        "sm1": 0.44,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.7021,
+        "longitude": -157.1711,
+        "riskCategory": "I",
+        "title": "Chitina",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.571,
+        "sm1": 0.171,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.7461,
+        "longitude": -64.7043,
+        "riskCategory": "I",
+        "title": "Christiansted",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.741,
+        "sm1": 0.234,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.75,
+        "longitude": -64.7,
+        "riskCategory": "I",
+        "title": "Christiansted",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.742,
+        "sm1": 0.234,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.479,
+        "sm1": 0.523,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.848,
+        "sm1": 0.653,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.848,
+        "sm1": 0.849,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.848,
+        "sm1": 0.98,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.663,
+        "sm1": 1.568,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.9779,
+        "longitude": -122.0301,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.932,
+        "sm1": 0.695,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.33,
+        "longitude": -64.79,
+        "riskCategory": "I",
+        "title": "Cruz Bay",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.078,
+        "sm1": 0.326,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3311,
+        "longitude": -64.7944,
+        "riskCategory": "I",
+        "title": "Cruz Bay",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.079,
+        "sm1": 0.326,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3,
+        "longitude": -65.3,
+        "riskCategory": "I",
+        "title": "Culebra Barrio",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.964,
+        "sm1": 0.302,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.303,
+        "longitude": -65.301,
+        "riskCategory": "I",
+        "title": "Culebra Barrio",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.964,
+        "sm1": 0.302,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64,
+        "longitude": -145.7,
+        "riskCategory": "I",
+        "title": "Delta Junction",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.616,
+        "sm1": 0.274,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.038,
+        "longitude": -145.7328,
+        "riskCategory": "I",
+        "title": "Delta Junction",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.618,
+        "sm1": 0.267,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.7452,
+        "longitude": -156.8711,
+        "riskCategory": "I",
+        "title": "Delta Junction",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.35,
+        "sm1": 0.102,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 59,
+        "longitude": -158.5,
+        "riskCategory": "I",
+        "title": "Dillingham",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.265,
+        "sm1": 0.13,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 59.0408,
+        "longitude": -158.464,
+        "riskCategory": "I",
+        "title": "Dillingham",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.263,
+        "sm1": 0.129,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.9792,
+        "longitude": -122.2009,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.168,
+        "sm1": 0.409,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.921,
+        "sm1": 0.322,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.151,
+        "sm1": 0.402,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.151,
+        "sm1": 0.562,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.197,
+        "sm1": 0.642,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.036,
+        "sm1": 0.965,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.8,
+        "longitude": -147.7,
+        "riskCategory": "I",
+        "title": "Fairbanks",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.109,
+        "sm1": 0.307,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.8413,
+        "longitude": -147.7214,
+        "riskCategory": "I",
+        "title": "Fairbanks",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.105,
+        "sm1": 0.305,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.336,
+        "longitude": -65.6535,
+        "riskCategory": "I",
+        "title": "Fajardo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.87,
+        "sm1": 0.288,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.34,
+        "longitude": -65.65,
+        "riskCategory": "I",
+        "title": "Fajardo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.871,
+        "sm1": 0.289,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5166,
+        "longitude": -144.4397,
+        "riskCategory": "I",
+        "title": "Gakona",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.197,
+        "sm1": 0.436,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3,
+        "longitude": -145.3,
+        "riskCategory": "I",
+        "title": "Gakona",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.771,
+        "sm1": 0.301,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.1086,
+        "longitude": -145.529,
+        "riskCategory": "I",
+        "title": "Galena",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.998,
+        "sm1": 0.329,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.7,
+        "longitude": -156.9,
+        "riskCategory": "I",
+        "title": "Galena",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.34,
+        "sm1": 0.099,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.8715,
+        "longitude": -176.6377,
+        "riskCategory": "I",
+        "title": "Glenallen",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.762,
+        "sm1": 0.692,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.1,
+        "longitude": -145.5,
+        "riskCategory": "I",
+        "title": "Glenallen",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.997,
+        "sm1": 0.327,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.7563,
+        "longitude": -155.987,
+        "riskCategory": "I",
+        "title": "Hana",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.013,
+        "sm1": 0.265,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.76,
+        "longitude": -155.98,
+        "riskCategory": "I",
+        "title": "Hana",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.012,
+        "sm1": 0.265,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.0959,
+        "longitude": -155.7769,
+        "riskCategory": "I",
+        "title": "Hawaiian Ocean View",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.113,
+        "sm1": 0.883,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.1,
+        "longitude": -155.78,
+        "riskCategory": "I",
+        "title": "Hawaiian Ocean View",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.099,
+        "sm1": 0.876,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.72,
+        "longitude": -155.08,
+        "riskCategory": "I",
+        "title": "Hilo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7236,
+        "longitude": -155.0878,
+        "riskCategory": "I",
+        "title": "Hilo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.2905,
+        "longitude": -157.8374,
+        "riskCategory": "I",
+        "title": "Honolulu",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.615,
+        "sm1": 0.179,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.3,
+        "longitude": -157.84,
+        "riskCategory": "I",
+        "title": "Honolulu",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.616,
+        "sm1": 0.179,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.199,
+        "sm1": 0.427,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.499,
+        "sm1": 0.533,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.499,
+        "sm1": 0.693,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.499,
+        "sm1": 0.8,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.349,
+        "sm1": 1.28,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.6695,
+        "longitude": -117.8223,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.518,
+        "sm1": 0.537,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.1492,
+        "longitude": -65.4424,
+        "riskCategory": "I",
+        "title": "Isabel II",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.931,
+        "sm1": 0.288,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.15,
+        "longitude": -65.44,
+        "riskCategory": "I",
+        "title": "Isabel II",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.931,
+        "sm1": 0.288,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 58.3624,
+        "longitude": -134.5803,
+        "riskCategory": "I",
+        "title": "Juneau",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.631,
+        "sm1": 0.297,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 58.4,
+        "longitude": -134.6,
+        "riskCategory": "I",
+        "title": "Juneau",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.639,
+        "sm1": 0.3,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.6757,
+        "longitude": -157.9476,
+        "riskCategory": "I",
+        "title": "Kahuku",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.589,
+        "sm1": 0.165,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.68,
+        "longitude": -157.94,
+        "riskCategory": "I",
+        "title": "Kahuku",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.589,
+        "sm1": 0.165,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.88,
+        "longitude": -156.46,
+        "riskCategory": "I",
+        "title": "Kahului",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.982,
+        "sm1": 0.252,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8852,
+        "longitude": -156.4584,
+        "riskCategory": "I",
+        "title": "Kahului",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.983,
+        "sm1": 0.252,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.3923,
+        "longitude": -157.7415,
+        "riskCategory": "I",
+        "title": "Kailua",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.628,
+        "sm1": 0.185,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4,
+        "longitude": -157.74,
+        "riskCategory": "I",
+        "title": "Kailua",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.628,
+        "sm1": 0.185,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.64,
+        "longitude": -156,
+        "riskCategory": "I",
+        "title": "Kailua-Kona",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.92,
+        "sm1": 0.88,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.6418,
+        "longitude": -155.9925,
+        "riskCategory": "I",
+        "title": "Kailua-Kona",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.92,
+        "sm1": 0.88,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4182,
+        "longitude": -157.8046,
+        "riskCategory": "I",
+        "title": "Kaneohe",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.623,
+        "sm1": 0.182,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.42,
+        "longitude": -157.8,
+        "riskCategory": "I",
+        "title": "Kaneohe",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.624,
+        "sm1": 0.182,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.08,
+        "longitude": -157,
+        "riskCategory": "I",
+        "title": "Kaunakakai",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.809,
+        "sm1": 0.211,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.0841,
+        "longitude": -157.0099,
+        "riskCategory": "I",
+        "title": "Kaunakakai",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.805,
+        "sm1": 0.21,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.5589,
+        "longitude": -151.2474,
+        "riskCategory": "I",
+        "title": "Kenai",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.291,
+        "sm1": 0.479,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.6,
+        "longitude": -151.2,
+        "riskCategory": "I",
+        "title": "Kenai",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.293,
+        "sm1": 0.481,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 55.342,
+        "longitude": -131.6453,
+        "riskCategory": "I",
+        "title": "Ketchikan",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.265,
+        "sm1": 0.166,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.7706,
+        "longitude": -156.4573,
+        "riskCategory": "I",
+        "title": "Kihei",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.977,
+        "sm1": 0.251,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.4975,
+        "longitude": -149.6414,
+        "riskCategory": "I",
+        "title": "Knik-Fairview",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.443,
+        "sm1": 0.534,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5,
+        "longitude": -149.6,
+        "riskCategory": "I",
+        "title": "Knik-Fairview",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.435,
+        "sm1": 0.533,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.7886,
+        "longitude": -152.4067,
+        "riskCategory": "I",
+        "title": "Kodiak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.789,
+        "sm1": 0.664,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.8,
+        "longitude": -152.4,
+        "riskCategory": "I",
+        "title": "Kodiak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.788,
+        "sm1": 0.663,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8773,
+        "longitude": -156.6792,
+        "riskCategory": "I",
+        "title": "Lahaina",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.909,
+        "sm1": 0.229,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.88,
+        "longitude": -156.68,
+        "riskCategory": "I",
+        "title": "Lahaina",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.909,
+        "sm1": 0.229,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.6,
+        "longitude": -149.3,
+        "riskCategory": "I",
+        "title": "Lakes",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.426,
+        "sm1": 0.537,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.6152,
+        "longitude": -149.3268,
+        "riskCategory": "I",
+        "title": "Lakes",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.454,
+        "sm1": 0.547,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.82,
+        "longitude": -156.92,
+        "riskCategory": "I",
+        "title": "Lanai City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.79,
+        "sm1": 0.21,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8251,
+        "longitude": -156.9204,
+        "riskCategory": "I",
+        "title": "Lanai City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.791,
+        "sm1": 0.21,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.1751,
+        "longitude": -115.1365,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.57,
+        "sm1": 0.176,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.453,
+        "sm1": 0.141,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.566,
+        "sm1": 0.176,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.665,
+        "sm1": 0.286,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.763,
+        "sm1": 0.369,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.888,
+        "sm1": 0.576,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.96,
+        "longitude": -159.36,
+        "riskCategory": "I",
+        "title": "Lihue",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.247,
+        "sm1": 0.069,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.9695,
+        "longitude": -159.3581,
+        "riskCategory": "I",
+        "title": "Lihue",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.246,
+        "sm1": 0.069,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.7669,
+        "longitude": -118.1883,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.672,
+        "sm1": 0.64,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.443,
+        "sm1": 0.559,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.804,
+        "sm1": 0.699,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.804,
+        "sm1": 0.908,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.804,
+        "sm1": 1.048,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.624,
+        "sm1": 1.677,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.727,
+        "sm1": 0.579,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.159,
+        "sm1": 0.723,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.159,
+        "sm1": 0.94,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.159,
+        "sm1": 1.085,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.943,
+        "sm1": 1.736,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0531,
+        "longitude": -118.2428,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.188,
+        "sm1": 0.736,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2,
+        "longitude": -67.14,
+        "riskCategory": "I",
+        "title": "Mayaguez",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.138,
+        "sm1": 0.368,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2008,
+        "longitude": -67.1425,
+        "riskCategory": "I",
+        "title": "Mayaguez",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.139,
+        "sm1": 0.369,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.393,
+        "sm1": 0.379,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.117,
+        "sm1": 0.304,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.396,
+        "sm1": 0.38,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.396,
+        "sm1": 0.539,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.396,
+        "sm1": 0.623,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.256,
+        "sm1": 0.942,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.168,
+        "sm1": 0.485,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.46,
+        "sm1": 0.607,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.46,
+        "sm1": 0.789,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.46,
+        "sm1": 0.91,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.314,
+        "sm1": 1.456,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6003,
+        "longitude": -121.8937,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.448,
+        "sm1": 0.603,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7143,
+        "longitude": -74.006,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.36,
+        "sm1": 0.07,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.291,
+        "sm1": 0.056,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.363,
+        "sm1": 0.07,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.436,
+        "sm1": 0.119,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.549,
+        "sm1": 0.168,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.777,
+        "sm1": 0.246,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.4988,
+        "longitude": -165.398,
+        "riskCategory": "I",
+        "title": "Nome",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.509,
+        "sm1": 0.14,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.5,
+        "longitude": -165.4,
+        "riskCategory": "I",
+        "title": "Nome",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.51,
+        "sm1": 0.14,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.307,
+        "sm1": 0.485,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.634,
+        "sm1": 0.606,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.634,
+        "sm1": 0.787,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.634,
+        "sm1": 0.908,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.471,
+        "sm1": 1.454,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2283,
+        "longitude": -118.5361,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.821,
+        "sm1": 0.661,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.277,
+        "sm1": 0.48,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.597,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.597,
+        "sm1": 0.78,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.597,
+        "sm1": 0.9,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.437,
+        "sm1": 1.44,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8044,
+        "longitude": -122.2698,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.501,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.8325,
+        "longitude": -155.104,
+        "riskCategory": "I",
+        "title": "Pepeekeo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.401,
+        "sm1": 0.593,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.84,
+        "longitude": -155.1,
+        "riskCategory": "I",
+        "title": "Pepeekeo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.377,
+        "sm1": 0.59,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.996,
+        "longitude": -66.6208,
+        "riskCategory": "I",
+        "title": "Ponce",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.984,
+        "sm1": 0.317,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18,
+        "longitude": -66.62,
+        "riskCategory": "I",
+        "title": "Ponce",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.984,
+        "sm1": 0.317,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.793,
+        "sm1": 0.275,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.991,
+        "sm1": 0.344,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.995,
+        "sm1": 0.501,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.094,
+        "sm1": 0.589,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.902,
+        "sm1": 0.903,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5236,
+        "longitude": -122.675,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.983,
+        "sm1": 0.344,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 22.22,
+        "longitude": -159.48,
+        "riskCategory": "I",
+        "title": "Princeville",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.211,
+        "sm1": 0.061,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 22.2211,
+        "longitude": -159.4817,
+        "riskCategory": "I",
+        "title": "Princeville",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.21,
+        "sm1": 0.061,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.5298,
+        "longitude": -119.8128,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.475,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.594,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.772,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.891,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.425,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.78,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.9,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.44,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.9533,
+        "longitude": -117.3953,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.5817,
+        "longitude": -121.4934,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.59,
+        "sm1": 0.243,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.469,
+        "sm1": 0.194,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.586,
+        "sm1": 0.243,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.683,
+        "sm1": 0.378,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.78,
+        "sm1": 0.465,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.895,
+        "sm1": 0.735,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.377,
+        "sm1": 0.558,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.721,
+        "sm1": 0.698,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.721,
+        "sm1": 0.907,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.721,
+        "sm1": 1.047,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.549,
+        "sm1": 1.675,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.711,
+        "sm1": 0.693,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.358,
+        "sm1": 0.497,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.698,
+        "sm1": 0.622,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.698,
+        "sm1": 0.808,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.698,
+        "sm1": 0.932,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.528,
+        "sm1": 1.492,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1083,
+        "longitude": -117.2889,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.558,
+        "sm1": 0.677,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.286,
+        "sm1": 0.513,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.608,
+        "sm1": 0.641,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.608,
+        "sm1": 0.834,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.608,
+        "sm1": 0.962,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.447,
+        "sm1": 1.539,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7153,
+        "longitude": -117.1564,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.577,
+        "sm1": 0.619,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.545,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.682,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.886,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 1.023,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.636,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.7752,
+        "longitude": -122.4185,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.676,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.3395,
+        "longitude": -121.8939,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.78,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.9,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.44,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.12,
+        "riskCategory": "I",
+        "title": "san Juan",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.895,
+        "sm1": 0.312,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4662,
+        "longitude": -66.1164,
+        "riskCategory": "I",
+        "title": "San Juan",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.894,
+        "sm1": 0.31,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.2828,
+        "longitude": -120.6586,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.331,
+        "sm1": 0.493,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.986,
+        "sm1": 0.373,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.233,
+        "sm1": 0.466,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.233,
+        "sm1": 0.622,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.241,
+        "sm1": 0.715,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.109,
+        "sm1": 1.119,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.402,
+        "sm1": 0.717,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.752,
+        "sm1": 0.896,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.752,
+        "sm1": 1.164,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.752,
+        "sm1": 1.343,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.577,
+        "sm1": 2.15,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.5631,
+        "longitude": -122.3245,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.855,
+        "sm1": 0.962,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.4209,
+        "longitude": -119.6973,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.061,
+        "sm1": 0.785,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.656,
+        "sm1": 0.647,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.07,
+        "sm1": 0.809,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.07,
+        "sm1": 1.052,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.07,
+        "sm1": 1.214,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.863,
+        "sm1": 1.942,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.78,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.9,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.44,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.9741,
+        "longitude": -122.0297,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.4406,
+        "longitude": -122.7133,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.949,
+        "sm1": 0.777,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.642,
+        "sm1": 0.668,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.053,
+        "sm1": 0.834,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.053,
+        "sm1": 1.085,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.053,
+        "sm1": 1.252,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.847,
+        "sm1": 2.003,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.159,
+        "sm1": 0.391,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.449,
+        "sm1": 0.489,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.449,
+        "sm1": 0.641,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.449,
+        "sm1": 0.739,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.304,
+        "sm1": 1.174,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6065,
+        "longitude": -122.3307,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.447,
+        "sm1": 0.489,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.0529,
+        "longitude": -135.3358,
+        "riskCategory": "I",
+        "title": "Sitka",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.977,
+        "sm1": 0.503,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.1,
+        "longitude": -135.3,
+        "riskCategory": "I",
+        "title": "Sitka",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.879,
+        "sm1": 0.468,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.7,
+        "longitude": -157.2,
+        "riskCategory": "I",
+        "title": "Sleetmute",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.57,
+        "sm1": 0.17,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.472,
+        "sm1": 0.136,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.59,
+        "sm1": 0.169,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.687,
+        "sm1": 0.276,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.783,
+        "sm1": 0.36,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.897,
+        "sm1": 0.558,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6274,
+        "longitude": -90.1978,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.58,
+        "sm1": 0.168,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.967,
+        "sm1": 0.334,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.209,
+        "sm1": 0.418,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.209,
+        "sm1": 0.577,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.229,
+        "sm1": 0.661,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.088,
+        "sm1": 1.002,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.253,
+        "longitude": -122.4432,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.21,
+        "sm1": 0.418,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 63.3,
+        "longitude": -143,
+        "riskCategory": "I",
+        "title": "Tok",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.451,
+        "sm1": 0.278,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 63.3345,
+        "longitude": -142.9886,
+        "riskCategory": "I",
+        "title": "Tok",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.436,
+        "sm1": 0.263,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 53.8736,
+        "longitude": -166.5327,
+        "riskCategory": "I",
+        "title": "Unalaska",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.493,
+        "sm1": 0.565,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 53.9,
+        "longitude": -166.5,
+        "riskCategory": "I",
+        "title": "Unalaska",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.484,
+        "sm1": 0.559,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 53.9,
+        "longitude": -166.5,
+        "riskCategory": "I",
+        "title": "Unalaska",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.484,
+        "sm1": 0.559,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2673,
+        "longitude": -66.7018,
+        "riskCategory": "I",
+        "title": "Utuado",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.984,
+        "sm1": 0.319,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.27,
+        "longitude": -66.7,
+        "riskCategory": "I",
+        "title": "Utuado",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.984,
+        "sm1": 0.319,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.78,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.9,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 1.44,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1041,
+        "longitude": -122.2555,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2788,
+        "longitude": -119.2922,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.424,
+        "sm1": 0.837,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.968,
+        "sm1": 0.684,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.46,
+        "sm1": 0.855,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.46,
+        "sm1": 1.112,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.46,
+        "sm1": 1.283,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.214,
+        "sm1": 2.053,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.4317,
+        "longitude": -155.2294,
+        "riskCategory": "I",
+        "title": "Volcano",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.414,
+        "sm1": 1.053,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.44,
+        "longitude": -155.22,
+        "riskCategory": "I",
+        "title": "Volcano",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.333,
+        "sm1": 0.997,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.44,
+        "longitude": -158.18,
+        "riskCategory": "I",
+        "title": "Wai'anae",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.576,
+        "sm1": 0.158,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4432,
+        "longitude": -158.1854,
+        "riskCategory": "I",
+        "title": "Wai'anae",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.575,
+        "sm1": 0.157,
+        "t-sub-l": 4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.94,
+        "longitude": -155.7892,
+        "riskCategory": "I",
+        "title": "Waikoloa Village",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.303,
+        "sm1": 0.542,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.94,
+        "longitude": -155.78,
+        "riskCategory": "I",
+        "title": "Waikoloa Village",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.306,
+        "sm1": 0.546,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.02,
+        "longitude": -155.66,
+        "riskCategory": "I",
+        "title": "Waimea",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.271,
+        "sm1": 0.472,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.0471,
+        "longitude": -65.876,
+        "riskCategory": "I",
+        "title": "Yabucoa",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.89,
+        "sm1": 0.271,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-05",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.05,
+        "longitude": -65.88,
+        "riskCategory": "I",
+        "title": "Yabucoa",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.888,
+        "sm1": 0.271,
+        "t-sub-l": 12
+      }
+    }
+  }
+]
