@@ -17,7 +17,7 @@
     "start": "nodemon --watch src src/server.js",
     "test": "mocha \"test/**/*.spec.js\" --reporter spec",
     "uninstall": "node src/lib/uninstall",
-    "update-qc": "node qc/update-quality-control.js",
+    "update-qc": "(cd qc && node update-quality-control.js)",
     "watch": "watch \"npm run lint && npm run test\" src test"
   },
   "pre-commit": [
