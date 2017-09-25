@@ -13,9 +13,9 @@ const main_menu_questions = [
     type: 'list',
     name: 'MAIN_MENU',
     choices: [
-      'Load All Data Sets',
-      'Load A Data Set',
-      'Load Partial Data Set'
+      'Would you like to load the schema?',
+      'Would you like to load the reference data?',
+      'Would you like to load the data?'
     ],
     message: 'Please select one of the following menu options:'
   }
@@ -120,7 +120,7 @@ if (promptSwitch === '--menu') {
         });
 
       }).catch((e) => {
-        process.stdout.write(e.message);
+        process.stdout.write('ERROR: ' + e.message);
       });
 
     } else if (selection['MAIN_MENU'] === main_menu_questions[0].choices[1]) {

@@ -33,6 +33,8 @@ const TSubLDataLoader = function(_db) {
     var schemaName,
         schemaUser;
 
+    process.stdout.write('Create Schema');
+
     schemaName = config.DB_SCHEMA_TSUBL;
     schemaUser = config.DB_USER;
     if (!schemaName || !schemaUser) {
@@ -56,6 +58,8 @@ const TSubLDataLoader = function(_db) {
   _this.insertRegions = _this.createSchema().then(() => {
     var promise,
         regionIds;
+
+    process.stdout.write('Insert Regions');
 
     // load regions
     promise = Promise.resolve();
@@ -90,6 +94,8 @@ const TSubLDataLoader = function(_db) {
    */
   _this.insertDocuments = _this.insertRegions.then((regionIds) => {
     var promise;
+
+    process.stdout.write('Insert Documents');
 
     promise = Promise.resolve();
     documents.forEach((doc) => {
@@ -128,6 +134,8 @@ const TSubLDataLoader = function(_db) {
    */
   _this.insertData = _this.insertRegions.then((regionIds) => {
     var promise;
+
+    process.stdout.write('Insert Data');
 
     promise = Promise.resolve();
 
