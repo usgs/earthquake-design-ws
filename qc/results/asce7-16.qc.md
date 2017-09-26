@@ -1,5 +1,5 @@
 # ASCE7-16 Quality Control Tests +/- 0.0001
-> Generated: Thu, 21 Sep 2017 19:56:24 GMT
+> Generated: Tue, 26 Sep 2017 14:31:26 GMT
 > Using web service: http://localhost:8000/ws/designmaps/asce7-16.json
 
 ### Legend
