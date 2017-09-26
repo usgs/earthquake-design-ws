@@ -1,5 +1,26 @@
 [
   {
+    "name": "NEHRP-2009",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient",
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P05_Risk_Coefficient",
+      "E2008R2_COUS0P01_Risk_Coefficient"
+    ]
+  },
+  {
+    "name": "NEHRP-2015",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient",
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P05_Risk_Coefficient",
+      "E2012R2_AMSAM0P10_Risk_Coefficient",
+      "E2012R1_GNMI0P10_Risk_Coefficient",
+      "E2014R1_COUS0P01_Risk_Coefficient"
+    ]
+  },
+
+  {
     "name": "ASCE7-10",
     "regions": [
       "E1998R1_HI0P02_Risk_Coefficient",
@@ -38,5 +59,26 @@
       "E2012R1_GNMI0P10_Risk_Coefficient",
       "E2014R1_COUS0P01_Risk_Coefficient"
     ]
-  }
+  },
+
+  {
+    "name": "IBC-2012",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient",
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P05_Risk_Coefficient",
+      "E2008R2_COUS0P01_Risk_Coefficient"
+    ]
+  },
+  {
+    "name": "IBC-2015",
+    "regions": [
+      "E1998R1_HI0P02_Risk_Coefficient",
+      "E2003R1_PRVI0P01_Risk_Coefficient",
+      "E2007R1_AK0P05_Risk_Coefficient",
+      "E2012R2_AMSAM0P10_Risk_Coefficient",
+      "E2012R1_GNMI0P10_Risk_Coefficient",
+      "E2008R2_COUS0P01_Risk_Coefficient"
+    ]
+  },
 ]
