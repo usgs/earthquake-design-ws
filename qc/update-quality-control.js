@@ -28,7 +28,16 @@ Promise.all([
 
   qcRunner.run('http://localhost:8000/ws/designmaps/nehrp2009.json',
       require('./expectations/nehrp-2009.expectation.json'),
-      './results/nehrp-2009.qc.md')
+      './results/nehrp-2009.qc.md'),
+
+  qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2012.json',
+      require('./expectations/ibc-2012.expectation.json'),
+      './results/ibc-2012.qc.md'),
+
+  qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2015.json',
+      require('./expectations/ibc-2015.expectation.json'),
+      './results/ibc-2015.qc.md')
+
 ]).then((results) => {
   let status;
 
