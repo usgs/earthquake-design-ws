@@ -1,0 +1,1880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Design Endpoint Documentation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <link rel="stylesheet" href="https://earthquake.usgs.gov/theme/site/earthquake/index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons%7cMerriweather:400,400italic,700%7cSource+Sans+Pro:400,300,700"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<main>
+  <header>
+    <h1>NEHRP2009 Endpoint Documentation</h1>
+  </header>
+
+  <div class="alert warning">
+    This software is preliminary or provisional and is subject to revision.
+    It is being provided to meet the need for timely best science. The
+    software has not received final approval by the U.S. Geological Survey
+    (USGS). No warranty, expressed or implied, is made by the USGS or the
+    U.S. Government as to the functionality of the software and related
+    material nor shall the fact of release constitute any such warranty.
+    The software is provided on the condition that neither the USGS nor the
+    U.S. Government shall be held liable for any damages resulting from the
+    authorized or unauthorized use of the software.
+  </div>
+
+  <h2 id="parameters">Request Parameters</h2>
+  <p>Required parameters</p>
+  <dl>
+    <dt id="latitude">latitude</dt>
+    <dd>
+      Latitude for location at which to compute composite results
+      <br/>Example: <code>34</code>
+    </dd>
+
+    <dt id="longitude">longitude</dt>
+    <dd>
+      Longitude for location at which to compute composite results
+      <br/>Example: <code>-118</code>
+    </dd>
+
+    <dt id="riskCategory">riskCategory</dt>
+    <dd>
+      Risk category for structure
+      <br/>Example: <code>III</code>
+    </dd>
+
+    <dt id="siteClass">siteClass</dt>
+    <dd>
+      NEHRP site classification
+      <br/>Example: <code>C</code>
+    </dd>
+
+    <dt id="title">title</dt>
+    <dd>
+      Name for site/report
+      <br/>Example: <code>Example</code>
+    </dd>
+  </dl>
+
+  <h2 id="output">Output</h2>
+  <p>Web service response</p>
+  <dl>
+    <dt>request</dt>
+    <dd>
+      <dl>
+        <dt id="output-date">date</dt>
+        <dd>
+          Timestamp
+          <br/>Example: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
+        </dd>
+
+        <dt id="output-reference-document">referenceDocument</dt>
+        <dd>
+          Identifying the reference document for the returned data
+          <br/>Example: <code>&ldquo;NEHRP2009&rdquo;</code>
+        </dd>
+
+        <dt id="output-status">status</dt>
+        <dd>
+          String ("success" or "error")
+          <br/>Example: <code>&ldquo;success&rdquo;</code>
+        </dd>
+
+        <dt id="output-url">url</dt>
+        <dd>
+          URL to reproduce this result
+          <br/>Example: <code>&ldquo;<span class="url-stub">{MOUNT_PATH}</span>/nehrp2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example&rdquo;</code>
+        </dd>
+        <dt>parameters</dt>
+        <dd>
+          <dl>
+            <dt id="metadata-parameters-latitude">latitude</dt>
+            <dd>
+              Latitude for location at which to compute composite results
+              <br/>Example: <code>34</code>
+            </dd>
+
+            <dt id="metadata-parameters-longitude">longitude</dt>
+            <dd>
+              Longitude for location at which to compute composite results
+              <br/>Example: <code>-118</code>
+            </dd>
+
+            <dt id="metadata-parameters-riskCategory">riskCategory</dt>
+            <dd>
+              Risk category for structure
+              <br/>Example: <code>&ldquo;III&rdquo;</code>
+            </dd>
+
+            <dt id="metadata-parameters-siteClass">siteClass</dt>
+            <dd>
+              NEHRP site classification
+              <br/>Example: <code>&ldquo;C&rdquo;</code>
+            </dd>
+
+            <dt id="metadata-parameters-title">title</dt>
+            <dd>
+              Name for site/report
+              <br/>Example: <code>&ldquo;Example&rdquo;</code>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt id="data">response</dt>
+    <dd>
+      <dl>
+        <dt id="data-data">data</dt>
+        <dd>
+          <dl>
+            <dt id="data-data-pgauh">pgauh</dt>
+            <dd>
+              Uniform-hazard (2% probability of exceedance in 50 years) Peak
+              Ground Acceleration
+            </dd>
+
+            <dt id="data-data-pgad">pgad</dt>
+            <dd>
+              Factored deterministic acceleration value (Peak Ground
+              Acceleration)
+            </dd>
+
+            <dt id="data-data-pga">pga</dt>
+            <dd>
+              MCE<sub>G</sub> peak ground acceleration
+            </dd>
+
+            <dt id="data-data-fpga">fpga</dt>
+            <dd>
+              Site amplification factor at PGA
+            </dd>
+
+            <dt id="data-data-pgam">pgam</dt>
+            <dd>
+              Site modified peak ground acceleration
+            </dd>
+
+            <dt>ssrt</dt>
+            <dd>
+              Probabilistic risk-targeted ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-data-ssuh">ssuh</dt>
+            <dd>
+              Factored uniform-hazard (2% probability of exceedance in 50
+              years) spectral acceleration (0.2s)
+            </dd>
+
+            <dt id="data-data-ssd">ssd</dt>
+            <dd>
+              Factored deterministic acceleration value (0.2 s)
+            </dd>
+
+            <dt id="data-data-ss">ss</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-data-fa">fa</dt>
+            <dd>
+              Site amplification factor (0.2 s)
+            </dd>
+
+            <dt id="data-data-sms">sms</dt>
+            <dd>
+              Site-modified spectral acceleration value (0.2 s)
+            </dd>
+
+            <dt id="data-data-sds">sds</dt>
+            <dd>
+              Numeric seismic design value (0.2 s)
+            </dd>
+
+            <dt id="data-data-sdcs">sdcs</dt>
+            <dd>
+              Seismic design category from S<sub>DS</sub>
+            </dd>
+
+            <dt>s1rt</dt>
+            <dd>
+              Probabilistic risk-targeted ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-data-s1uh">s1uh</dt>
+            <dd>
+              Factored uniform-hazard (2% probability of exceedance in 50
+              years) spectral acceleration (1.0 s)
+            </dd>
+
+            <dt id="data-data-s1d">s1d</dt>
+            <dd>
+              Factored deterministic acceleration value (1.0 s)
+            </dd>
+
+            <dt id="data-data-s1">s1</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-data-fv">fv</dt>
+            <dd>
+              Site amplification factor (1.0 s)
+            </dd>
+
+            <dt id="data-data-sm1">sm1</dt>
+            <dd>
+              Site-modified spectral acceleration value (1.0 s)
+            </dd>
+
+            <dt id="data-data-sd1">sd1</dt>
+            <dd>
+              Numeric seismic design value (1.0 s)
+            </dd>
+
+            <dt id="data-data-sdc1">sdc1</dt>
+            <dd>
+              Seismic design category from S<sub>D1</sub>
+            </dd>
+
+            <dt id="data-data-sdc">sdc</dt>
+            <dd>
+              Seismic design category from S<sub>DCS</sub> and S<sub>DC1</sub>
+            </dd>
+
+            <dt id="data-data-tl">t-sub-l</dt>
+            <dd>
+              Long-period transition period in seconds
+            </dd>
+
+            <dt id="data-data-sdSpectrum">sdSpectrum</dt>
+            <dd>
+              Design horizontal response spectrum
+            </dd>
+
+            <dt id="data-data-smSpectrum">smSpectrum</dt>
+            <dd>
+              MCE<sub>R</sub> horizontal response spectrum
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+      <dl>
+        <dt>metadata</dt>
+        <dd>
+          <dl>
+            <dt id="data-metadata-pgadPercentile">pgadPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (Peak Ground Acceleration)
+            </dd>
+
+            <dt id="data-metadata-pgadFloor">pgadFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (Peak Ground Acceleration)
+            </dd>
+
+            <dt id="data-metadata-s1MaxDirection">s1MaxDirFactor</dt>
+            <dd>
+              Factor applyed to the geometric mean ground motion to get max
+              direction ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-metadata-s1dPercentile">s1dPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-metadata-s1dFloor">s1dFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (1.0 s)
+            </dd>
+
+            <dt id="data-metadata-ssMaxDirection">ssMaxDirFactor</dt>
+            <dd>
+              Factor applyed to the geometric mean ground motion to get
+              max direction ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-metadata-ssPercentile">ssdPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-metadata-ssdFloor">ssdFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (0.2 s)
+            </dd>
+
+            <dt id="response-metadata-spatial_interpolation_method">
+              spatialInterpolationMethod
+            </dt>
+            <dd>
+              Identifier for the interpolation method used to obtain data for
+              location of interest from underlying gridded datasets
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3 id="example_response">Example</h3>
+
+  <h4>Request</h4>
+  <p>
+    <a href="nehrp2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example"><span class="url-stub">&amp;hellip;</span>/nehrp2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example</a>
+  </p>
+
+  <h4>Response</h4>
+  <div class="code">
+    <pre>{
+  "request": {
+    "date": "2017-09-20T17:49:45.815Z",
+    "referenceDocument": "NEHRP2009",
+    "status": "success",
+    "url": "http://localhost/ws/designmaps/nehrp2009.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example",
+    "parameters": {
+      "latitude": 34,
+      "longitude": -118,
+      "riskCategory": "III",
+      "siteClass": "C",
+      "title": "Example"
+    }
+  },
+  "response": {
+    "data": {
+      "pgauh": 0.894,
+      "pgad": 1.02,
+      "pga": 0.894,
+      "fpga": 1,
+      "pgam": 0.894,
+      "ssrt": 2.308,
+      "crs": 0.925,
+      "ssuh": 2.494,
+      "ssd": 2.73,
+      "ss": 2.308,
+      "fa": 1,
+      "sms": 2.308,
+      "sds": 1.538,
+      "sdcs": "",
+      "s1rt": 0.825,
+      "cr1": 0.94,
+      "s1uh": 0.878,
+      "s1d": 1.004,
+      "s1": 0.825,
+      "fv": 1.3,
+      "sm1": 1.072,
+      "sd1": 0.715,
+      "sdc1": "",
+      "sdc": "E",
+      "t-sub-l": 8,
+      "sdSpectrum": [
+        [
+          0,
+          0.615
+        ],
+        [
+          0.025,
+          0.864
+        ],
+        [
+          0.05,
+          1.112
+        ],
+        [
+          0.093,
+          1.538
+        ],
+        [
+          0.1,
+          1.538
+        ],
+        [
+          0.15,
+          1.538
+        ],
+        [
+          0.2,
+          1.538
+        ],
+        [
+          0.25,
+          1.538
+        ],
+        [
+          0.3,
+          1.538
+        ],
+        [
+          0.35,
+          1.538
+        ],
+        [
+          0.4,
+          1.538
+        ],
+        [
+          0.45,
+          1.538
+        ],
+        [
+          0.465,
+          1.538
+        ],
+        [
+          0.5,
+          1.43
+        ],
+        [
+          0.55,
+          1.3
+        ],
+        [
+          0.6,
+          1.191
+        ],
+        [
+          0.65,
+          1.1
+        ],
+        [
+          0.7,
+          1.021
+        ],
+        [
+          0.75,
+          0.953
+        ],
+        [
+          0.8,
+          0.894
+        ],
+        [
+          0.85,
+          0.841
+        ],
+        [
+          0.9,
+          0.794
+        ],
+        [
+          0.95,
+          0.752
+        ],
+        [
+          1,
+          0.715
+        ],
+        [
+          1.05,
+          0.681
+        ],
+        [
+          1.1,
+          0.65
+        ],
+        [
+          1.15,
+          0.622
+        ],
+        [
+          1.2,
+          0.596
+        ],
+        [
+          1.25,
+          0.572
+        ],
+        [
+          1.3,
+          0.55
+        ],
+        [
+          1.35,
+          0.53
+        ],
+        [
+          1.4,
+          0.511
+        ],
+        [
+          1.45,
+          0.493
+        ],
+        [
+          1.5,
+          0.477
+        ],
+        [
+          1.55,
+          0.461
+        ],
+        [
+          1.6,
+          0.447
+        ],
+        [
+          1.65,
+          0.433
+        ],
+        [
+          1.7,
+          0.42
+        ],
+        [
+          1.75,
+          0.408
+        ],
+        [
+          1.8,
+          0.397
+        ],
+        [
+          1.85,
+          0.386
+        ],
+        [
+          1.9,
+          0.376
+        ],
+        [
+          1.95,
+          0.367
+        ],
+        [
+          2,
+          0.357
+        ],
+        [
+          2.05,
+          0.349
+        ],
+        [
+          2.1,
+          0.34
+        ],
+        [
+          2.15,
+          0.332
+        ],
+        [
+          2.2,
+          0.325
+        ],
+        [
+          2.25,
+          0.318
+        ],
+        [
+          2.3,
+          0.311
+        ],
+        [
+          2.35,
+          0.304
+        ],
+        [
+          2.4,
+          0.298
+        ],
+        [
+          2.45,
+          0.292
+        ],
+        [
+          2.5,
+          0.286
+        ],
+        [
+          2.55,
+          0.28
+        ],
+        [
+          2.6,
+          0.275
+        ],
+        [
+          2.65,
+          0.27
+        ],
+        [
+          2.7,
+          0.265
+        ],
+        [
+          2.75,
+          0.26
+        ],
+        [
+          2.8,
+          0.255
+        ],
+        [
+          2.85,
+          0.251
+        ],
+        [
+          2.9,
+          0.246
+        ],
+        [
+          2.95,
+          0.242
+        ],
+        [
+          3,
+          0.238
+        ],
+        [
+          3.05,
+          0.234
+        ],
+        [
+          3.1,
+          0.231
+        ],
+        [
+          3.15,
+          0.227
+        ],
+        [
+          3.2,
+          0.223
+        ],
+        [
+          3.25,
+          0.22
+        ],
+        [
+          3.3,
+          0.217
+        ],
+        [
+          3.35,
+          0.213
+        ],
+        [
+          3.4,
+          0.21
+        ],
+        [
+          3.45,
+          0.207
+        ],
+        [
+          3.5,
+          0.204
+        ],
+        [
+          3.55,
+          0.201
+        ],
+        [
+          3.6,
+          0.199
+        ],
+        [
+          3.65,
+          0.196
+        ],
+        [
+          3.7,
+          0.193
+        ],
+        [
+          3.75,
+          0.191
+        ],
+        [
+          3.8,
+          0.188
+        ],
+        [
+          3.85,
+          0.186
+        ],
+        [
+          3.9,
+          0.183
+        ],
+        [
+          3.95,
+          0.181
+        ],
+        [
+          4,
+          0.179
+        ],
+        [
+          4.05,
+          0.177
+        ],
+        [
+          4.1,
+          0.174
+        ],
+        [
+          4.15,
+          0.172
+        ],
+        [
+          4.2,
+          0.17
+        ],
+        [
+          4.25,
+          0.168
+        ],
+        [
+          4.3,
+          0.166
+        ],
+        [
+          4.35,
+          0.164
+        ],
+        [
+          4.4,
+          0.162
+        ],
+        [
+          4.45,
+          0.161
+        ],
+        [
+          4.5,
+          0.159
+        ],
+        [
+          4.55,
+          0.157
+        ],
+        [
+          4.6,
+          0.155
+        ],
+        [
+          4.65,
+          0.154
+        ],
+        [
+          4.7,
+          0.152
+        ],
+        [
+          4.75,
+          0.15
+        ],
+        [
+          4.8,
+          0.149
+        ],
+        [
+          4.85,
+          0.147
+        ],
+        [
+          4.9,
+          0.146
+        ],
+        [
+          4.95,
+          0.144
+        ],
+        [
+          5,
+          0.143
+        ],
+        [
+          5.05,
+          0.142
+        ],
+        [
+          5.1,
+          0.14
+        ],
+        [
+          5.15,
+          0.139
+        ],
+        [
+          5.2,
+          0.137
+        ],
+        [
+          5.25,
+          0.136
+        ],
+        [
+          5.3,
+          0.135
+        ],
+        [
+          5.35,
+          0.134
+        ],
+        [
+          5.4,
+          0.132
+        ],
+        [
+          5.45,
+          0.131
+        ],
+        [
+          5.5,
+          0.13
+        ],
+        [
+          5.55,
+          0.129
+        ],
+        [
+          5.6,
+          0.128
+        ],
+        [
+          5.65,
+          0.127
+        ],
+        [
+          5.7,
+          0.125
+        ],
+        [
+          5.75,
+          0.124
+        ],
+        [
+          5.8,
+          0.123
+        ],
+        [
+          5.85,
+          0.122
+        ],
+        [
+          5.9,
+          0.121
+        ],
+        [
+          5.95,
+          0.12
+        ],
+        [
+          6,
+          0.119
+        ],
+        [
+          6.05,
+          0.118
+        ],
+        [
+          6.1,
+          0.117
+        ],
+        [
+          6.15,
+          0.116
+        ],
+        [
+          6.2,
+          0.115
+        ],
+        [
+          6.25,
+          0.114
+        ],
+        [
+          6.3,
+          0.113
+        ],
+        [
+          6.35,
+          0.113
+        ],
+        [
+          6.4,
+          0.112
+        ],
+        [
+          6.45,
+          0.111
+        ],
+        [
+          6.5,
+          0.11
+        ],
+        [
+          6.55,
+          0.109
+        ],
+        [
+          6.6,
+          0.108
+        ],
+        [
+          6.65,
+          0.107
+        ],
+        [
+          6.7,
+          0.107
+        ],
+        [
+          6.75,
+          0.106
+        ],
+        [
+          6.8,
+          0.105
+        ],
+        [
+          6.85,
+          0.104
+        ],
+        [
+          6.9,
+          0.104
+        ],
+        [
+          6.95,
+          0.103
+        ],
+        [
+          7,
+          0.102
+        ],
+        [
+          7.05,
+          0.101
+        ],
+        [
+          7.1,
+          0.101
+        ],
+        [
+          7.15,
+          0.1
+        ],
+        [
+          7.2,
+          0.099
+        ],
+        [
+          7.25,
+          0.099
+        ],
+        [
+          7.3,
+          0.098
+        ],
+        [
+          7.35,
+          0.097
+        ],
+        [
+          7.4,
+          0.097
+        ],
+        [
+          7.45,
+          0.096
+        ],
+        [
+          7.5,
+          0.095
+        ],
+        [
+          7.55,
+          0.095
+        ],
+        [
+          7.6,
+          0.094
+        ],
+        [
+          7.65,
+          0.093
+        ],
+        [
+          7.7,
+          0.093
+        ],
+        [
+          7.75,
+          0.092
+        ],
+        [
+          7.8,
+          0.092
+        ],
+        [
+          7.85,
+          0.091
+        ],
+        [
+          7.9,
+          0.09
+        ],
+        [
+          7.95,
+          0.09
+        ],
+        [
+          8,
+          0.089
+        ],
+        [
+          8.05,
+          0.088
+        ],
+        [
+          8.1,
+          0.087
+        ],
+        [
+          8.15,
+          0.086
+        ],
+        [
+          8.2,
+          0.085
+        ],
+        [
+          8.25,
+          0.084
+        ],
+        [
+          8.3,
+          0.083
+        ],
+        [
+          8.35,
+          0.082
+        ],
+        [
+          8.4,
+          0.081
+        ],
+        [
+          8.45,
+          0.08
+        ],
+        [
+          8.5,
+          0.079
+        ],
+        [
+          8.55,
+          0.078
+        ],
+        [
+          8.6,
+          0.077
+        ],
+        [
+          8.65,
+          0.076
+        ],
+        [
+          8.7,
+          0.076
+        ],
+        [
+          8.75,
+          0.075
+        ],
+        [
+          8.8,
+          0.074
+        ],
+        [
+          8.85,
+          0.073
+        ],
+        [
+          8.9,
+          0.072
+        ],
+        [
+          8.95,
+          0.071
+        ],
+        [
+          9,
+          0.071
+        ]
+      ],
+      "smSpectrum": [
+        [
+          0,
+          0.923
+        ],
+        [
+          0.025,
+          1.295
+        ],
+        [
+          0.05,
+          1.668
+        ],
+        [
+          0.093,
+          2.308
+        ],
+        [
+          0.1,
+          2.308
+        ],
+        [
+          0.15,
+          2.308
+        ],
+        [
+          0.2,
+          2.308
+        ],
+        [
+          0.25,
+          2.308
+        ],
+        [
+          0.3,
+          2.308
+        ],
+        [
+          0.35,
+          2.308
+        ],
+        [
+          0.4,
+          2.308
+        ],
+        [
+          0.45,
+          2.308
+        ],
+        [
+          0.465,
+          2.308
+        ],
+        [
+          0.5,
+          2.144
+        ],
+        [
+          0.55,
+          1.95
+        ],
+        [
+          0.6,
+          1.787
+        ],
+        [
+          0.65,
+          1.65
+        ],
+        [
+          0.7,
+          1.532
+        ],
+        [
+          0.75,
+          1.43
+        ],
+        [
+          0.8,
+          1.34
+        ],
+        [
+          0.85,
+          1.261
+        ],
+        [
+          0.9,
+          1.191
+        ],
+        [
+          0.95,
+          1.129
+        ],
+        [
+          1,
+          1.072
+        ],
+        [
+          1.05,
+          1.021
+        ],
+        [
+          1.1,
+          0.975
+        ],
+        [
+          1.15,
+          0.932
+        ],
+        [
+          1.2,
+          0.894
+        ],
+        [
+          1.25,
+          0.858
+        ],
+        [
+          1.3,
+          0.825
+        ],
+        [
+          1.35,
+          0.794
+        ],
+        [
+          1.4,
+          0.766
+        ],
+        [
+          1.45,
+          0.739
+        ],
+        [
+          1.5,
+          0.715
+        ],
+        [
+          1.55,
+          0.692
+        ],
+        [
+          1.6,
+          0.67
+        ],
+        [
+          1.65,
+          0.65
+        ],
+        [
+          1.7,
+          0.631
+        ],
+        [
+          1.75,
+          0.613
+        ],
+        [
+          1.8,
+          0.596
+        ],
+        [
+          1.85,
+          0.58
+        ],
+        [
+          1.9,
+          0.564
+        ],
+        [
+          1.95,
+          0.55
+        ],
+        [
+          2,
+          0.536
+        ],
+        [
+          2.05,
+          0.523
+        ],
+        [
+          2.1,
+          0.511
+        ],
+        [
+          2.15,
+          0.499
+        ],
+        [
+          2.2,
+          0.487
+        ],
+        [
+          2.25,
+          0.477
+        ],
+        [
+          2.3,
+          0.466
+        ],
+        [
+          2.35,
+          0.456
+        ],
+        [
+          2.4,
+          0.447
+        ],
+        [
+          2.45,
+          0.438
+        ],
+        [
+          2.5,
+          0.429
+        ],
+        [
+          2.55,
+          0.42
+        ],
+        [
+          2.6,
+          0.412
+        ],
+        [
+          2.65,
+          0.405
+        ],
+        [
+          2.7,
+          0.397
+        ],
+        [
+          2.75,
+          0.39
+        ],
+        [
+          2.8,
+          0.383
+        ],
+        [
+          2.85,
+          0.376
+        ],
+        [
+          2.9,
+          0.37
+        ],
+        [
+          2.95,
+          0.363
+        ],
+        [
+          3,
+          0.357
+        ],
+        [
+          3.05,
+          0.352
+        ],
+        [
+          3.1,
+          0.346
+        ],
+        [
+          3.15,
+          0.34
+        ],
+        [
+          3.2,
+          0.335
+        ],
+        [
+          3.25,
+          0.33
+        ],
+        [
+          3.3,
+          0.325
+        ],
+        [
+          3.35,
+          0.32
+        ],
+        [
+          3.4,
+          0.315
+        ],
+        [
+          3.45,
+          0.311
+        ],
+        [
+          3.5,
+          0.306
+        ],
+        [
+          3.55,
+          0.302
+        ],
+        [
+          3.6,
+          0.298
+        ],
+        [
+          3.65,
+          0.294
+        ],
+        [
+          3.7,
+          0.29
+        ],
+        [
+          3.75,
+          0.286
+        ],
+        [
+          3.8,
+          0.282
+        ],
+        [
+          3.85,
+          0.279
+        ],
+        [
+          3.9,
+          0.275
+        ],
+        [
+          3.95,
+          0.271
+        ],
+        [
+          4,
+          0.268
+        ],
+        [
+          4.05,
+          0.265
+        ],
+        [
+          4.1,
+          0.262
+        ],
+        [
+          4.15,
+          0.258
+        ],
+        [
+          4.2,
+          0.255
+        ],
+        [
+          4.25,
+          0.252
+        ],
+        [
+          4.3,
+          0.249
+        ],
+        [
+          4.35,
+          0.246
+        ],
+        [
+          4.4,
+          0.244
+        ],
+        [
+          4.45,
+          0.241
+        ],
+        [
+          4.5,
+          0.238
+        ],
+        [
+          4.55,
+          0.236
+        ],
+        [
+          4.6,
+          0.233
+        ],
+        [
+          4.65,
+          0.231
+        ],
+        [
+          4.7,
+          0.228
+        ],
+        [
+          4.75,
+          0.226
+        ],
+        [
+          4.8,
+          0.223
+        ],
+        [
+          4.85,
+          0.221
+        ],
+        [
+          4.9,
+          0.219
+        ],
+        [
+          4.95,
+          0.217
+        ],
+        [
+          5,
+          0.214
+        ],
+        [
+          5.05,
+          0.212
+        ],
+        [
+          5.1,
+          0.21
+        ],
+        [
+          5.15,
+          0.208
+        ],
+        [
+          5.2,
+          0.206
+        ],
+        [
+          5.25,
+          0.204
+        ],
+        [
+          5.3,
+          0.202
+        ],
+        [
+          5.35,
+          0.2
+        ],
+        [
+          5.4,
+          0.199
+        ],
+        [
+          5.45,
+          0.197
+        ],
+        [
+          5.5,
+          0.195
+        ],
+        [
+          5.55,
+          0.193
+        ],
+        [
+          5.6,
+          0.191
+        ],
+        [
+          5.65,
+          0.19
+        ],
+        [
+          5.7,
+          0.188
+        ],
+        [
+          5.75,
+          0.186
+        ],
+        [
+          5.8,
+          0.185
+        ],
+        [
+          5.85,
+          0.183
+        ],
+        [
+          5.9,
+          0.182
+        ],
+        [
+          5.95,
+          0.18
+        ],
+        [
+          6,
+          0.179
+        ],
+        [
+          6.05,
+          0.177
+        ],
+        [
+          6.1,
+          0.176
+        ],
+        [
+          6.15,
+          0.174
+        ],
+        [
+          6.2,
+          0.173
+        ],
+        [
+          6.25,
+          0.172
+        ],
+        [
+          6.3,
+          0.17
+        ],
+        [
+          6.35,
+          0.169
+        ],
+        [
+          6.4,
+          0.168
+        ],
+        [
+          6.45,
+          0.166
+        ],
+        [
+          6.5,
+          0.165
+        ],
+        [
+          6.55,
+          0.164
+        ],
+        [
+          6.6,
+          0.162
+        ],
+        [
+          6.65,
+          0.161
+        ],
+        [
+          6.7,
+          0.16
+        ],
+        [
+          6.75,
+          0.159
+        ],
+        [
+          6.8,
+          0.158
+        ],
+        [
+          6.85,
+          0.157
+        ],
+        [
+          6.9,
+          0.155
+        ],
+        [
+          6.95,
+          0.154
+        ],
+        [
+          7,
+          0.153
+        ],
+        [
+          7.05,
+          0.152
+        ],
+        [
+          7.1,
+          0.151
+        ],
+        [
+          7.15,
+          0.15
+        ],
+        [
+          7.2,
+          0.149
+        ],
+        [
+          7.25,
+          0.148
+        ],
+        [
+          7.3,
+          0.147
+        ],
+        [
+          7.35,
+          0.146
+        ],
+        [
+          7.4,
+          0.145
+        ],
+        [
+          7.45,
+          0.144
+        ],
+        [
+          7.5,
+          0.143
+        ],
+        [
+          7.55,
+          0.142
+        ],
+        [
+          7.6,
+          0.141
+        ],
+        [
+          7.65,
+          0.14
+        ],
+        [
+          7.7,
+          0.139
+        ],
+        [
+          7.75,
+          0.138
+        ],
+        [
+          7.8,
+          0.137
+        ],
+        [
+          7.85,
+          0.137
+        ],
+        [
+          7.9,
+          0.136
+        ],
+        [
+          7.95,
+          0.135
+        ],
+        [
+          8,
+          0.134
+        ],
+        [
+          8.05,
+          0.132
+        ],
+        [
+          8.1,
+          0.131
+        ],
+        [
+          8.15,
+          0.129
+        ],
+        [
+          8.2,
+          0.128
+        ],
+        [
+          8.25,
+          0.126
+        ],
+        [
+          8.3,
+          0.125
+        ],
+        [
+          8.35,
+          0.123
+        ],
+        [
+          8.4,
+          0.122
+        ],
+        [
+          8.45,
+          0.12
+        ],
+        [
+          8.5,
+          0.119
+        ],
+        [
+          8.55,
+          0.117
+        ],
+        [
+          8.6,
+          0.116
+        ],
+        [
+          8.65,
+          0.115
+        ],
+        [
+          8.7,
+          0.113
+        ],
+        [
+          8.75,
+          0.112
+        ],
+        [
+          8.8,
+          0.111
+        ],
+        [
+          8.85,
+          0.11
+        ],
+        [
+          8.9,
+          0.108
+        ],
+        [
+          8.95,
+          0.107
+        ],
+        [
+          9,
+          0.106
+        ]
+      ]
+    },
+    "metadata": {
+      "model_veresion": "v3.1.x",
+      "pgadFloor": 0.5,
+      "pgadPercentileFactor": 1.8,
+      "s1MaxDirFactor": 1.3,
+      "s1dFloor": 0.6,
+      "s1dPercentileFactor": 1.8,
+      "spatialInterpolationMethod": "linearlinearlinear",
+      "ssMaxDirFactor": 1.1,
+      "ssdFloor": 1.5,
+      "ssdPercentileFactor": 1.8
+    }
+  }
+}</pre>
+  </div>
+</main>
+<footer class="site-commonnav">
+  <a href="index.html">Seismic Design Web Service Documentation</a>
+</footer>
+<script src="js/config.js"></script>
+</body>
+</html>
