@@ -189,6 +189,122 @@ describe('MetadataFactory', () => {
         done(err);
       });
     });
+
+    it('returns IBC-2012 metadata', (done) => {
+      Promise.all([
+        factory.getData('IBC-2012', 'COUS0P01'),
+        factory.getData('IBC-2012', 'HI0P02')
+      ]).then((results) => {
+        let cous,
+            hi;
+
+        cous = results[0];
+        hi = results[1];
+
+        expect(cous.pgadPercentileFactor).to.equal(1.8);
+        expect(cous.pgadFloor).to.equal(0.6);
+        expect(cous.s1MaxDirFactor).to.equal(1.3);
+        expect(cous.s1dPercentileFactor).to.equal(1.8);
+        expect(cous.s1dFloor).to.equal(0.6);
+        expect(cous.ssMaxDirFactor).to.equal(1.1);
+        expect(cous.ssdPercentileFactor).to.equal(1.8);
+        expect(cous.ssdFloor).to.equal(1.5);
+
+        expect(hi.pgadPercentileFactor).to.equal(1.8);
+        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.s1MaxDirFactor).to.equal(1.0);
+        expect(hi.s1dPercentileFactor).to.equal(1.8);
+        expect(hi.s1dFloor).to.equal(0.6);
+        expect(hi.ssMaxDirFactor).to.equal(1.0);
+        expect(hi.ssdPercentileFactor).to.equal(1.8);
+        expect(hi.ssdFloor).to.equal(1.5);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns IBC-2015 metadata', (done) => {
+      Promise.all([
+        factory.getData('IBC-2015', 'COUS0P01'),
+        factory.getData('IBC-2015', 'HI0P02')
+      ]).then((results) => {
+        let cous,
+            hi;
+
+        cous = results[0];
+        hi = results[1];
+
+        expect(cous.pgadPercentileFactor).to.equal(1.8);
+        expect(cous.pgadFloor).to.equal(0.6);
+        expect(cous.s1MaxDirFactor).to.equal(1.3);
+        expect(cous.s1dPercentileFactor).to.equal(1.8);
+        expect(cous.s1dFloor).to.equal(0.6);
+        expect(cous.ssMaxDirFactor).to.equal(1.1);
+        expect(cous.ssdPercentileFactor).to.equal(1.8);
+        expect(cous.ssdFloor).to.equal(1.5);
+
+        expect(hi.pgadPercentileFactor).to.equal(1.8);
+        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.s1MaxDirFactor).to.equal(1.0);
+        expect(hi.s1dPercentileFactor).to.equal(1.8);
+        expect(hi.s1dFloor).to.equal(0.6);
+        expect(hi.ssMaxDirFactor).to.equal(1.0);
+        expect(hi.ssdPercentileFactor).to.equal(1.8);
+        expect(hi.ssdFloor).to.equal(1.5);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns NEHRP-2009 metadata', (done) => {
+      Promise.all([
+        factory.getData('NEHRP-2009', 'COUS0P01'),
+        factory.getData('NEHRP-2009', 'HI0P02')
+      ]).then((results) => {
+        let cous,
+            hi;
+
+        cous = results[0];
+        hi = results[1];
+
+        expect(cous.pgadPercentileFactor).to.equal(1.8);
+        expect(cous.pgadFloor).to.equal(0.6);
+        expect(cous.s1MaxDirFactor).to.equal(1.3);
+        expect(cous.s1dPercentileFactor).to.equal(1.8);
+        expect(cous.s1dFloor).to.equal(0.6);
+        expect(cous.ssMaxDirFactor).to.equal(1.1);
+        expect(cous.ssdPercentileFactor).to.equal(1.8);
+        expect(cous.ssdFloor).to.equal(1.5);
+
+        expect(hi.pgadPercentileFactor).to.equal(1.8);
+        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.s1MaxDirFactor).to.equal(1.0);
+        expect(hi.s1dPercentileFactor).to.equal(1.8);
+        expect(hi.s1dFloor).to.equal(0.6);
+        expect(hi.ssMaxDirFactor).to.equal(1.0);
+        expect(hi.ssdPercentileFactor).to.equal(1.8);
+        expect(hi.ssdFloor).to.equal(1.5);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('returns NEHRP-2015 metadata', (done) => {
+      factory.getData('NEHRP-2015', 'COUS0P01').then((results) => {
+        expect(results.pgadPercentileFactor).to.equal(1.8);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
   });
 
   describe('getRegion', () => {
