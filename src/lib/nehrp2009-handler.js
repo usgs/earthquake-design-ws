@@ -8,7 +8,7 @@ const NEHRP2009Factory = require('./nehrp2009-factory'),
 
 const _DEFAULTS = {
   factoryConstructor: NEHRP2009Factory,
-  referenceDocument: 'NEHRP2009'
+  referenceDocument: 'NEHRP-2009'
 };
 
 

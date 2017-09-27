@@ -25,12 +25,6 @@
     ]
   },
   {
-    "name": "NEHRP2009",
-    "regions": [
-      "T-Sub-L"
-    ]
-  },
-  {
     "name": "ASCE41-13",
     "regions": [
       "T-Sub-L"

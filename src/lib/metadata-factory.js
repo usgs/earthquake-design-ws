@@ -64,7 +64,7 @@ const _METADATA = {
     }
   ],
 
-  'NEHRP2009': [
+  'NEHRP-2009': [
     {
       'regions': [
         'AK0P05',

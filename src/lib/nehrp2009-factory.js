@@ -7,7 +7,7 @@ const ASCE7Factory = require('./asce7-factory'),
 
 
 const _DEFAULTS = {
-  referenceDocument: 'NEHRP2009'
+  referenceDocument: 'NEHRP-2009'
 };
 
 
