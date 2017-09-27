@@ -1,5 +1,18 @@
 [
   {
+    "name": "NEHRP-2009",
+    "regions": [
+      "T-Sub-L"
+    ]
+  },
+  {
+    "name": "NEHRP-2015",
+    "regions": [
+      "T-Sub-L"
+    ]
+  },
+
+  {
     "name": "ASCE7-05",
     "regions": [
       "T-Sub-L"
@@ -25,6 +38,19 @@
   },
   {
     "name": "ASCE41-17",
+    "regions": [
+      "T-Sub-L"
+    ]
+  },
+
+  {
+    "name": "IBC-2012",
+    "regions": [
+      "T-Sub-L"
+    ]
+  },
+  {
+    "name": "IBC-2015",
     "regions": [
       "T-Sub-L"
     ]
