@@ -38,6 +38,18 @@ Promise.all([
       require('./expectations/ibc-2015.expectation.json'),
       './results/ibc-2015.qc.md')
 
+  /**
+   * Uncomment the code below once the IBC 2012/2015 Endpoint has been
+   * implemented. Don't forget to add a comma above and delete this message.
+   */
+  // qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2012.json',
+  //     require('./expectations/ibc-2012.expectation.json'),
+  //     './results/ibc-2012.qc.md'),
+  //
+  // qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2015.json',
+  //     require('./expectations/ibc-2015.expectation.json'),
+  //     './results/ibc-2015.qc.md')
+
 ]).then((results) => {
   let status;
 
