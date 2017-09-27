@@ -159,32 +159,32 @@ const NEHRP2009Factory = function (options) {
       deterministicInputs = extend(
           {gridSpacing: promiseResults[0].response.metadata.gridSpacing},
           inputs
-        );
+      );
       probabilisticInputs = extend(
           {gridSpacing: promiseResults[1].response.metadata.gridSpacing},
           inputs
-        );
+      );
       riskCoefficientInputs = extend(
           {gridSpacing: promiseResults[2].response.metadata.gridSpacing},
           inputs
-        );
+      );
 
       return Promise.all([
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(deterministicInputs),
             deterministicInputs,
             _this.deterministicService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(probabilisticInputs),
             probabilisticInputs,
             _this.probabilisticService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(riskCoefficientInputs),
             riskCoefficientInputs,
             _this.riskCoefficientService
-          ),
+        ),
         _this.metadataFactory.getMetadata(inputs),
         _this.tSubLService.getData(inputs)
       ]);
