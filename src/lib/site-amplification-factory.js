@@ -43,7 +43,7 @@ const _DEFAULTS = {
         }
       }
     },
-    'ASCE7-10': {
+    'NEHRP2009': {
       'ss': {
         bins: [0.25, 0.50, 0.75, 1.00, 1.25],
         restriction: {

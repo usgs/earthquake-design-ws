@@ -7,7 +7,7 @@ const ASCE7Factory = require('./asce7-factory'),
 
 
 const _DEFAULTS = {
-  referenceDocument: 'NHERP2009'
+  referenceDocument: 'NEHRP2009'
 };
 
 
@@ -17,7 +17,7 @@ const _DEFAULTS = {
  * @param options Object
  *.     Configuration options for this instance.
  */
-const NHERP2009Factory = function (options) {
+const NEHRP2009Factory = function (options) {
   let _this;
 
 
@@ -46,7 +46,6 @@ const NHERP2009Factory = function (options) {
    *     "pga" keys with corresponding data.
    */
   _this.computeBasicDesign = function (data) {
-    // return Promise.resolve({});
     return new Promise((resolve, reject) => {
       let basicDesign,
           deterministic,
@@ -248,4 +247,4 @@ const NHERP2009Factory = function (options) {
 };
 
 
-module.exports = NHERP2009Factory;
+module.exports = NEHRP2009Factory;
