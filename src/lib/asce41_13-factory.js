@@ -136,7 +136,7 @@ const ASCE41_13Factory = function (options) {
           'sx1': (2/3) * bse2n.sx1,
           'horizontalSpectrum': bse2n.horizontalSpectrum.map((value) => {
             return [
-              (2/3) * value[0],
+              value[0],
               (2/3) * value[1]
             ];
           })
