@@ -211,7 +211,7 @@ describe('MetadataFactory', () => {
         expect(cous.ssdFloor).to.equal(1.5);
 
         expect(hi.pgadPercentileFactor).to.equal(1.8);
-        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.pgadFloor).to.equal(0.6);
         expect(hi.s1MaxDirFactor).to.equal(1.0);
         expect(hi.s1dPercentileFactor).to.equal(1.8);
         expect(hi.s1dFloor).to.equal(0.6);
@@ -246,7 +246,7 @@ describe('MetadataFactory', () => {
         expect(cous.ssdFloor).to.equal(1.5);
 
         expect(hi.pgadPercentileFactor).to.equal(1.8);
-        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.pgadFloor).to.equal(0.6);
         expect(hi.s1MaxDirFactor).to.equal(1.0);
         expect(hi.s1dPercentileFactor).to.equal(1.8);
         expect(hi.s1dFloor).to.equal(0.6);
@@ -281,7 +281,7 @@ describe('MetadataFactory', () => {
         expect(cous.ssdFloor).to.equal(1.5);
 
         expect(hi.pgadPercentileFactor).to.equal(1.8);
-        expect(hi.pgadFloor).to.equal(0.5);
+        expect(hi.pgadFloor).to.equal(0.6);
         expect(hi.s1MaxDirFactor).to.equal(1.0);
         expect(hi.s1dPercentileFactor).to.equal(1.8);
         expect(hi.s1dFloor).to.equal(0.6);
