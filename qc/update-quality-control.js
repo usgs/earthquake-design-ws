@@ -26,17 +26,9 @@ Promise.all([
       require('./expectations/asce41-13.expectation.json'),
       './results/asce41-13.qc.md'),
 
-  qcRunner.run('http://localhost:8000/ws/designmaps/nehrp2009.json',
+  qcRunner.run('http://localhost:8000/ws/designmaps/nehrp-2009.json',
       require('./expectations/nehrp-2009.expectation.json'),
-      './results/nehrp-2009.qc.md'),
-
-  qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2012.json',
-      require('./expectations/ibc-2012.expectation.json'),
-      './results/ibc-2012.qc.md'),
-
-  qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2015.json',
-      require('./expectations/ibc-2015.expectation.json'),
-      './results/ibc-2015.qc.md')
+      './results/nehrp-2009.qc.md')
 
   /**
    * Uncomment the code below once the IBC 2012/2015 Endpoint has been
