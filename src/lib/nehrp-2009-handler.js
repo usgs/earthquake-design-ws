@@ -1,7 +1,7 @@
 'use strict';
 
 
-const NEHRP2009Factory = require('./nehrp2009-factory'),
+const NEHRP2009Factory = require('./nehrp-2009-factory'),
     ASCE7Handler = require('./asce7-handler'),
     extend = require('extend');
 
