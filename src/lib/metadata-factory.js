@@ -73,7 +73,7 @@ const _METADATA = {
       ],
       'data': {
         'model_veresion': 'v3.1.x',
-        'pgadFloor': 0.5,
+        'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
         's1dFloor': 0.6,
