@@ -24,7 +24,11 @@ Promise.all([
 
   qcRunner.run('http://localhost:8000/ws/designmaps/asce41-13.json',
       require('./expectations/asce41-13.expectation.json'),
-      './results/asce41-13.qc.md')
+      './results/asce41-13.qc.md'),
+
+  qcRunner.run('http://localhost:8000/ws/designmaps/nehrp2009.json',
+      require('./expectations/nehrp-2009.expectation.json'),
+      './results/nehrp-2009.qc.md')
 ]).then((results) => {
   let status;
 

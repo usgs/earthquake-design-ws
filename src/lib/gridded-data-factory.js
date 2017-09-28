@@ -223,7 +223,6 @@ const GriddedDataFactory = function (options) {
   _this.getDocument = function (inputs, region) {
     let parameters;
 
-
     parameters = [
       parseInt(region.id, 10), // _QUERY_DOCUMENT::$1
       inputs.referenceDocument // _QUERY_DOCUMENT::$2
