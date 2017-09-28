@@ -4,7 +4,7 @@
 const ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE7_10Handler = require('./asce7_10-handler'),
     ASCE7_05Handler = require('./asce7_05-handler'),
-    NEHRP2015Handler = require('./nehrp2015-handler'),
+    NEHRP2015Handler = require('./nehrp-2015-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     ASCE41_17Handler = require('./asce41_17-handler'),
     NEHRP2009Handler = require('./nehrp-2009-handler'),
