@@ -2,7 +2,7 @@
 'use strict';
 
 
-const NEHRP2009Factory = require('../src/lib/nehrp2009-factory'),
+const NEHRP2009Factory = require('../src/lib/nehrp-2009-factory'),
     expect = require('chai').expect;
 
 

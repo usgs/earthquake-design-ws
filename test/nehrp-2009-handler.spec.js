@@ -2,7 +2,7 @@
 'use strict';
 
 
-const DesignHandler = require('../src/lib/nehrp2009-handler'),
+const DesignHandler = require('../src/lib/nehrp-2009-handler'),
     expect = require('chai').expect;
 
 
