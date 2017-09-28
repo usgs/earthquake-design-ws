@@ -1,0 +1,955 @@
+# NEHRP2009 Quality Control Tests +/- 0.0001
+> Generated: Thu, 28 Sep 2017 15:56:30 GMT
+> Using web service: http://localhost:8000/ws/designmaps/nehrp2009.json
+
+### Legend
+ - :green_heart: Passing
+ - :broken_heart: Failing
+
+
+## Adak (51.9, -176.6) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Adak (62.3018, -145.2829) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.328,"sm1":0.403,"sms":0.808,"t-sub-l":16}
+
+## Anchorage (61.2, -149.9) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.676,"sms":1.5,"t-sub-l":16}
+
+## Anchorage (61.2166, -149.8934) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.676,"sms":1.5,"t-sub-l":16}
+
+## Arecibo (18.47, -66.72) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.432,"sm1":0.433,"sms":1.118,"t-sub-l":12}
+
+## Arecibo (18.4725, -66.7181) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.433,"sm1":0.434,"sms":1.119,"t-sub-l":12}
+
+## Bayamon (18.3971, -66.1559) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.399,"sm1":0.383,"sms":0.983,"t-sub-l":12}
+
+## Bayamon (18.4, -66.16) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.399,"sm1":0.384,"sms":0.984,"t-sub-l":12}
+
+## Bethel (60.7949, -161.763) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.127,"sm1":0.125,"sms":0.3,"t-sub-l":16}
+
+## Bethel (60.8, -161.8) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.127,"sm1":0.125,"sms":0.302,"t-sub-l":16}
+
+## Boise (43.6, -116.2) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.097,"sm1":0.084,"sms":0.247,"t-sub-l":6}
+
+## Boise (43.6, -116.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.121,"sm1":0.105,"sms":0.309,"t-sub-l":6}
+
+## Boise (43.6, -116.2) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.145,"sm1":0.178,"sms":0.371,"t-sub-l":6}
+
+## Boise (43.6, -116.2) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.189,"sm1":0.25,"sms":0.48,"t-sub-l":6}
+
+## Boise (43.6, -116.2) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.282,"sm1":0.367,"sms":0.714,"t-sub-l":6}
+
+## Boise (43.6136, -116.2025) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.122,"sm1":0.106,"sms":0.311,"t-sub-l":6}
+
+## Bradshaw AFB (19.7573, -155.5357) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.604,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Bradshaw AFB (19.76, -155.54) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Caguas (18.2359, -66.0357) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.382,"sm1":0.359,"sms":0.945,"t-sub-l":12}
+
+## Caguas (18.24, -66.04) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.382,"sm1":0.359,"sms":0.945,"t-sub-l":12}
+
+## Century City (34.0498, -118.4252) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.836,"sm1":0.815,"sms":2.194,"t-sub-l":8}
+
+## Century City (34.05, -118.4) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.649,"sm1":0.643,"sms":1.732,"t-sub-l":8}
+
+## Century City (34.05, -118.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.811,"sm1":0.804,"sms":2.165,"t-sub-l":8}
+
+## Century City (34.05, -118.4) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.811,"sm1":1.045,"sms":2.165,"t-sub-l":8}
+
+## Century City (34.05, -118.4) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.811,"sm1":1.205,"sms":2.165,"t-sub-l":8}
+
+## Century City (34.05, -118.4) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.73,"sm1":1.929,"sms":1.948,"t-sub-l":8}
+
+## Charleston (32.7763, -79.9307) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.708,"sm1":0.348,"sms":1.097,"t-sub-l":8}
+
+## Charleston (32.8, -79.95) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.602,"sm1":0.293,"sms":0.92,"t-sub-l":8}
+
+## Charleston (32.8, -79.95) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.753,"sm1":0.366,"sms":1.149,"t-sub-l":8}
+
+## Charleston (32.8, -79.95) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.753,"sm1":0.524,"sms":1.149,"t-sub-l":8}
+
+## Charleston (32.8, -79.95) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.753,"sm1":0.61,"sms":1.196,"t-sub-l":8}
+
+## Charleston (32.8, -79.95) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.677,"sm1":0.928,"sms":1.034,"t-sub-l":8}
+
+## Charlotte Amalie (18.34, -64.93) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.488,"sm1":0.43,"sms":1.231,"t-sub-l":12}
+
+## Charlotte Amalie (18.3407, -64.934) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.488,"sm1":0.43,"sms":1.231,"t-sub-l":12}
+
+## Chicago (41.85, -87.65) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.054,"sm1":0.05,"sms":0.108,"t-sub-l":12}
+
+## Chicago (41.85, -87.65) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.068,"sm1":0.062,"sms":0.135,"t-sub-l":12}
+
+## Chicago (41.85, -87.65) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.082,"sm1":0.106,"sms":0.162,"t-sub-l":12}
+
+## Chicago (41.85, -87.65) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.109,"sm1":0.149,"sms":0.216,"t-sub-l":12}
+
+## Chicago (41.85, -87.65) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.17,"sm1":0.218,"sms":0.337,"t-sub-l":12}
+
+## Chicago (41.8504, -87.6503) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.068,"sm1":0.062,"sms":0.135,"t-sub-l":12}
+
+## Chitina (61.5, -144.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.445,"sm1":0.539,"sms":1.136,"t-sub-l":16}
+
+## Chitina (61.7021, -157.1711) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.263,"sm1":0.231,"sms":0.618,"t-sub-l":16}
+
+## Christiansted (17.7461, -64.7043) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.352,"sm1":0.306,"sms":0.82,"t-sub-l":12}
+
+## Christiansted (17.75, -64.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.353,"sm1":0.307,"sms":0.822,"t-sub-l":12}
+
+## Concord (37.95, -122) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.633,"sm1":0.588,"sms":1.66,"t-sub-l":8}
+
+## Concord (37.95, -122) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.791,"sm1":0.735,"sms":2.075,"t-sub-l":8}
+
+## Concord (37.95, -122) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.791,"sm1":0.955,"sms":2.075,"t-sub-l":8}
+
+## Concord (37.95, -122) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.791,"sm1":1.102,"sms":2.075,"t-sub-l":8}
+
+## Concord (37.95, -122) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.712,"sm1":1.763,"sms":1.868,"t-sub-l":8}
+
+## Concord (37.9779, -122.0301) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.844,"sm1":0.772,"sms":2.187,"t-sub-l":8}
+
+## Cruz Bay (18.33, -64.79) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.494,"sm1":0.432,"sms":1.241,"t-sub-l":12}
+
+## Cruz Bay (18.3311, -64.7944) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.494,"sm1":0.432,"sms":1.241,"t-sub-l":12}
+
+## Culebra Barrio (18.3, -65.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.439,"sm1":0.397,"sms":1.092,"t-sub-l":12}
+
+## Culebra Barrio (18.303, -65.301) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.439,"sm1":0.397,"sms":1.092,"t-sub-l":12}
+
+## Delta Junction (64, -145.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.284,"sm1":0.366,"sms":0.726,"t-sub-l":12}
+
+## Delta Junction (64.038, -145.7328) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.286,"sm1":0.361,"sms":0.728,"t-sub-l":12}
+
+## Delta Junction (64.7452, -156.8711) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.184,"sm1":0.167,"sms":0.434,"t-sub-l":16}
+
+## Dillingham (59, -158.5) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.126,"sm1":0.18,"sms":0.314,"t-sub-l":16}
+
+## Dillingham (59.0408, -158.464) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.125,"sm1":0.178,"sms":0.311,"t-sub-l":16}
+
+## Everett (47.9792, -122.2009) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":0.497,"sms":1.308,"t-sub-l":6}
+
+## Everett (48, -122.2) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.415,"sm1":0.386,"sms":1.015,"t-sub-l":6}
+
+## Everett (48, -122.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.519,"sm1":0.482,"sms":1.269,"t-sub-l":6}
+
+## Everett (48, -122.2) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.519,"sm1":0.636,"sms":1.269,"t-sub-l":6}
+
+## Everett (48, -122.2) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.519,"sm1":0.732,"sms":1.269,"t-sub-l":6}
+
+## Everett (48, -122.2) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.467,"sm1":1.158,"sms":1.142,"t-sub-l":6}
+
+## Fairbanks (64.8, -147.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.406,"sm1":0.382,"sms":0.999,"t-sub-l":6}
+
+## Fairbanks (64.8413, -147.7214) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.403,"sm1":0.378,"sms":0.991,"t-sub-l":6}
+
+## Fajardo (18.336, -65.6535) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.401,"sm1":0.377,"sms":0.984,"t-sub-l":12}
+
+## Fajardo (18.34, -65.65) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.401,"sm1":0.377,"sms":0.985,"t-sub-l":12}
+
+## Gakona (61.5166, -144.4397) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.445,"sm1":0.534,"sms":1.133,"t-sub-l":16}
+
+## Gakona (62.3, -145.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.33,"sm1":0.404,"sms":0.812,"t-sub-l":16}
+
+## Galena (62.1086, -145.529) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.397,"sm1":0.451,"sms":0.97,"t-sub-l":16}
+
+## Galena (64.7, -156.9) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.182,"sm1":0.165,"sms":0.428,"t-sub-l":16}
+
+## Glenallen (51.8715, -176.6377) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Glenallen (62.1, -145.5) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.397,"sm1":0.451,"sms":0.971,"t-sub-l":16}
+
+## Hana (20.7563, -155.987) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.374,"sm1":0.279,"sms":1.048,"t-sub-l":6}
+
+## Hana (20.76, -155.98) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.374,"sm1":0.278,"sms":1.047,"t-sub-l":6}
+
+## Hawaiian Ocean View (19.0959, -155.7769) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.139,"sm1":0.883,"sms":2.113,"t-sub-l":12}
+
+## Hawaiian Ocean View (19.1, -155.78) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.129,"sm1":0.876,"sms":2.099,"t-sub-l":12}
+
+## Hilo (19.72, -155.08) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Hilo (19.7236, -155.0878) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Honolulu (21.2905, -157.8374) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.266,"sm1":0.169,"sms":0.579,"t-sub-l":4}
+
+## Honolulu (21.3, -157.84) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.266,"sm1":0.169,"sms":0.579,"t-sub-l":4}
+
+## Irvine (33.65, -117.8) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.481,"sm1":0.457,"sms":1.24,"t-sub-l":8}
+
+## Irvine (33.65, -117.8) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.601,"sm1":0.571,"sms":1.55,"t-sub-l":8}
+
+## Irvine (33.65, -117.8) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.601,"sm1":0.742,"sms":1.55,"t-sub-l":8}
+
+## Irvine (33.65, -117.8) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.601,"sm1":0.856,"sms":1.55,"t-sub-l":8}
+
+## Irvine (33.65, -117.8) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.541,"sm1":1.37,"sms":1.395,"t-sub-l":8}
+
+## Irvine (33.6695, -117.8223) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.594,"sm1":0.569,"sms":1.546,"t-sub-l":8}
+
+## Isabel II (18.1492, -65.4424) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.42,"sm1":0.377,"sms":1.036,"t-sub-l":12}
+
+## Isabel II (18.15, -65.44) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.42,"sm1":0.377,"sms":1.036,"t-sub-l":12}
+
+## Juneau (58.3624, -134.5803) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.247,"sm1":0.383,"sms":0.609,"t-sub-l":12}
+
+## Juneau (58.4, -134.6) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.251,"sm1":0.384,"sms":0.618,"t-sub-l":12}
+
+## Kahuku (21.6757, -157.9476) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.253,"sm1":0.153,"sms":0.549,"t-sub-l":4}
+
+## Kahuku (21.68, -157.94) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.253,"sm1":0.153,"sms":0.55,"t-sub-l":4}
+
+## Kahului (20.88, -156.46) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.363,"sm1":0.253,"sms":0.992,"t-sub-l":6}
+
+## Kahului (20.8852, -156.4584) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.363,"sm1":0.253,"sms":0.993,"t-sub-l":6}
+
+## Kailua (21.3923, -157.7415) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.272,"sm1":0.175,"sms":0.593,"t-sub-l":4}
+
+## Kailua (21.4, -157.74) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.273,"sm1":0.175,"sms":0.593,"t-sub-l":4}
+
+## Kailua-Kona (19.64, -156) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.027,"sm1":0.88,"sms":1.92,"t-sub-l":12}
+
+## Kailua-Kona (19.6418, -155.9925) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.029,"sm1":0.88,"sms":1.92,"t-sub-l":12}
+
+## Kaneohe (21.4182, -157.8046) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.27,"sm1":0.172,"sms":0.587,"t-sub-l":4}
+
+## Kaneohe (21.42, -157.8) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.27,"sm1":0.172,"sms":0.588,"t-sub-l":4}
+
+## Kaunakakai (21.08, -157) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.32,"sm1":0.205,"sms":0.79,"t-sub-l":6}
+
+## Kaunakakai (21.0841, -157.0099) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.319,"sm1":0.204,"sms":0.786,"t-sub-l":6}
+
+## Kenai (60.5589, -151.2474) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Kenai (60.6, -151.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Ketchikan (55.342, -131.6453) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.115,"sm1":0.247,"sms":0.302,"t-sub-l":12}
+
+## Kihei (20.7706, -156.4573) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.363,"sm1":0.256,"sms":0.992,"t-sub-l":6}
+
+## Knik-Fairview (61.4975, -149.6414) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.689,"sms":1.5,"t-sub-l":16}
+
+## Knik-Fairview (61.5, -149.6) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.68,"sms":1.5,"t-sub-l":16}
+
+## Kodiak (57.7886, -152.4067) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.644,"sm1":0.909,"sms":1.551,"t-sub-l":16}
+
+## Kodiak (57.8, -152.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.618,"sm1":0.881,"sms":1.5,"t-sub-l":16}
+
+## Lahaina (20.8773, -156.6792) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.345,"sm1":0.229,"sms":0.91,"t-sub-l":6}
+
+## Lahaina (20.88, -156.68) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.345,"sm1":0.229,"sms":0.91,"t-sub-l":6}
+
+## Lakes (61.6, -149.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.673,"sm1":0.858,"sms":1.644,"t-sub-l":16}
+
+## Lakes (61.6152, -149.3268) Site Class B, Risk Category: I
+ - :broken_heart: {"pgam":0.758,"sm1":{"actual":0.936,"expected":0.937},"sms":1.869,"t-sub-l":16}
+
+## Lanai City (20.82, -156.92) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.315,"sm1":0.21,"sms":0.782,"t-sub-l":6}
+
+## Lanai City (20.8251, -156.9204) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.315,"sm1":0.21,"sms":0.783,"t-sub-l":6}
+
+## Las Vegas (36.1751, -115.1365) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.194,"sm1":0.164,"sms":0.488,"t-sub-l":6}
+
+## Las Vegas (36.2, -115.15) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.157,"sm1":0.133,"sms":0.396,"t-sub-l":6}
+
+## Las Vegas (36.2, -115.15) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.196,"sm1":0.166,"sms":0.495,"t-sub-l":6}
+
+## Las Vegas (36.2, -115.15) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.236,"sm1":0.271,"sms":0.594,"t-sub-l":6}
+
+## Las Vegas (36.2, -115.15) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.276,"sm1":0.355,"sms":0.695,"t-sub-l":6}
+
+## Las Vegas (36.2, -115.15) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.34,"sm1":0.549,"sms":0.849,"t-sub-l":6}
+
+## Lihue (21.96, -159.36) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.104,"sm1":0.064,"sms":0.226,"t-sub-l":4}
+
+## Lihue (21.9695, -159.3581) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.104,"sm1":0.064,"sms":0.226,"t-sub-l":4}
+
+## Long Beach (33.7669, -118.1883) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.626,"sm1":0.604,"sms":1.606,"t-sub-l":8}
+
+## Long Beach (33.8, -118.2) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.509,"sm1":0.494,"sms":1.314,"t-sub-l":8}
+
+## Long Beach (33.8, -118.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.636,"sm1":0.617,"sms":1.643,"t-sub-l":8}
+
+## Long Beach (33.8, -118.2) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.636,"sm1":0.802,"sms":1.643,"t-sub-l":8}
+
+## Long Beach (33.8, -118.2) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.636,"sm1":0.926,"sms":1.643,"t-sub-l":8}
+
+## Long Beach (33.8, -118.2) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.572,"sm1":1.481,"sms":1.478,"t-sub-l":8}
+
+## Los Angeles (34.05, -118.25) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.725,"sm1":0.674,"sms":1.921,"t-sub-l":8}
+
+## Los Angeles (34.05, -118.25) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.907,"sm1":0.843,"sms":2.402,"t-sub-l":8}
+
+## Los Angeles (34.05, -118.25) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.907,"sm1":1.095,"sms":2.402,"t-sub-l":8}
+
+## Los Angeles (34.05, -118.25) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.907,"sm1":1.264,"sms":2.402,"t-sub-l":8}
+
+## Los Angeles (34.05, -118.25) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.816,"sm1":2.022,"sms":2.161,"t-sub-l":8}
+
+## Los Angeles (34.0531, -118.2428) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.924,"sm1":0.856,"sms":2.442,"t-sub-l":8}
+
+## Mayaguez (18.2, -67.14) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.468,"sm1":0.474,"sms":1.233,"t-sub-l":12}
+
+## Mayaguez (18.2008, -67.1425) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.469,"sm1":0.475,"sms":1.235,"t-sub-l":12}
+
+## Memphis (35.1496, -90.0488) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.586,"sm1":0.351,"sms":1.01,"t-sub-l":12}
+
+## Memphis (35.15, -90.05) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.469,"sm1":0.281,"sms":0.809,"t-sub-l":12}
+
+## Memphis (35.15, -90.05) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.586,"sm1":0.351,"sms":1.011,"t-sub-l":12}
+
+## Memphis (35.15, -90.05) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.586,"sm1":0.509,"sms":1.011,"t-sub-l":12}
+
+## Memphis (35.15, -90.05) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.586,"sm1":0.596,"sms":1.108,"t-sub-l":12}
+
+## Memphis (35.15, -90.05) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.528,"sm1":0.911,"sms":0.91,"t-sub-l":12}
+
+## Monterey (36.6, -121.9) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.475,"sm1":0.448,"sms":1.22,"t-sub-l":12}
+
+## Monterey (36.6, -121.9) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.594,"sm1":0.56,"sms":1.526,"t-sub-l":12}
+
+## Monterey (36.6, -121.9) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.594,"sm1":0.728,"sms":1.526,"t-sub-l":12}
+
+## Monterey (36.6, -121.9) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.594,"sm1":0.84,"sms":1.526,"t-sub-l":12}
+
+## Monterey (36.6, -121.9) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.535,"sm1":1.344,"sms":1.373,"t-sub-l":12}
+
+## Monterey (36.6003, -121.8937) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.592,"sm1":0.558,"sms":1.521,"t-sub-l":12}
+
+## New York (40.7143, -74.006) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.167,"sm1":0.072,"sms":0.278,"t-sub-l":6}
+
+## New York (40.75, -74) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.134,"sm1":0.057,"sms":0.224,"t-sub-l":6}
+
+## New York (40.75, -74) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.168,"sm1":0.072,"sms":0.28,"t-sub-l":6}
+
+## New York (40.75, -74) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.201,"sm1":0.122,"sms":0.336,"t-sub-l":6}
+
+## New York (40.75, -74) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.246,"sm1":0.172,"sms":0.441,"t-sub-l":6}
+
+## New York (40.75, -74) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.329,"sm1":0.252,"sms":0.673,"t-sub-l":6}
+
+## Nome (64.4988, -165.398) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.228,"sm1":0.19,"sms":0.537,"t-sub-l":6}
+
+## Nome (64.5, -165.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.229,"sm1":0.19,"sms":0.537,"t-sub-l":6}
+
+## Northridge (34.2, -118.55) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.499,"sm1":0.48,"sms":1.352,"t-sub-l":8}
+
+## Northridge (34.2, -118.55) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.624,"sm1":0.6,"sms":1.69,"t-sub-l":8}
+
+## Northridge (34.2, -118.55) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.624,"sm1":0.78,"sms":1.69,"t-sub-l":8}
+
+## Northridge (34.2, -118.55) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.624,"sm1":0.9,"sms":1.69,"t-sub-l":8}
+
+## Northridge (34.2, -118.55) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.562,"sm1":1.44,"sms":1.521,"t-sub-l":8}
+
+## Northridge (34.2283, -118.5361) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.778,"sm1":0.677,"sms":2.123,"t-sub-l":8}
+
+## Oakland (37.8, -122.25) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.574,"sm1":0.598,"sms":1.489,"t-sub-l":8}
+
+## Oakland (37.8, -122.25) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.717,"sm1":0.747,"sms":1.861,"t-sub-l":8}
+
+## Oakland (37.8, -122.25) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.717,"sm1":0.972,"sms":1.861,"t-sub-l":8}
+
+## Oakland (37.8, -122.25) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.717,"sm1":1.121,"sms":1.861,"t-sub-l":8}
+
+## Oakland (37.8, -122.25) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.646,"sm1":1.794,"sms":1.675,"t-sub-l":8}
+
+## Oakland (37.8044, -122.2698) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.66,"sm1":0.676,"sms":1.709,"t-sub-l":8}
+
+## Pepeekeo (19.8325, -155.104) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Pepeekeo (19.84, -155.1) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Ponce (17.996, -66.6208) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.411,"sm1":0.397,"sms":1.031,"t-sub-l":12}
+
+## Ponce (18, -66.62) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.411,"sm1":0.397,"sms":1.032,"t-sub-l":12}
+
+## Portland (45.5, -122.65) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.34,"sm1":0.336,"sms":0.786,"t-sub-l":16}
+
+## Portland (45.5, -122.65) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.425,"sm1":0.421,"sms":0.982,"t-sub-l":16}
+
+## Portland (45.5, -122.65) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.425,"sm1":0.58,"sms":0.989,"t-sub-l":16}
+
+## Portland (45.5, -122.65) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.457,"sm1":0.664,"sms":1.087,"t-sub-l":16}
+
+## Portland (45.5, -122.65) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.382,"sm1":1.009,"sms":0.905,"t-sub-l":16}
+
+## Portland (45.5236, -122.675) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.425,"sm1":0.422,"sms":0.982,"t-sub-l":16}
+
+## Princeville (22.22, -159.48) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.095,"sm1":0.055,"sms":0.192,"t-sub-l":4}
+
+## Princeville (22.2211, -159.4817) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.094,"sm1":0.055,"sms":0.191,"t-sub-l":4}
+
+## Reno (39.5298, -119.8128) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.601,"sm1":0.578,"sms":1.596,"t-sub-l":6}
+
+## Reno (39.55, -119.8) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.448,"sm1":0.413,"sms":1.2,"t-sub-l":6}
+
+## Reno (39.55, -119.8) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.517,"sms":1.5,"t-sub-l":6}
+
+## Reno (39.55, -119.8) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.672,"sms":1.5,"t-sub-l":6}
+
+## Reno (39.55, -119.8) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.775,"sms":1.5,"t-sub-l":6}
+
+## Reno (39.55, -119.8) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.504,"sm1":1.24,"sms":1.35,"t-sub-l":6}
+
+## Riverside (33.95, -117.4) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.48,"sm1":0.48,"sms":1.2,"t-sub-l":8}
+
+## Riverside (33.95, -117.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":8}
+
+## Riverside (33.95, -117.4) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.78,"sms":1.5,"t-sub-l":8}
+
+## Riverside (33.95, -117.4) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.9,"sms":1.5,"t-sub-l":8}
+
+## Riverside (33.95, -117.4) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":1.44,"sms":1.35,"t-sub-l":8}
+
+## Riverside (33.9533, -117.3953) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":8}
+
+## Sacramento (38.5817, -121.4934) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.23,"sm1":0.293,"sms":0.675,"t-sub-l":12}
+
+## Sacramento (38.6, -121.5) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.183,"sm1":0.234,"sms":0.537,"t-sub-l":12}
+
+## Sacramento (38.6, -121.5) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.229,"sm1":0.293,"sms":0.672,"t-sub-l":12}
+
+## Sacramento (38.6, -121.5) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.268,"sm1":0.441,"sms":0.76,"t-sub-l":12}
+
+## Sacramento (38.6, -121.5) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.307,"sm1":0.531,"sms":0.848,"t-sub-l":12}
+
+## Sacramento (38.6, -121.5) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.356,"sm1":0.828,"sms":0.911,"t-sub-l":12}
+
+## Salt Lake City (40.75, -111.9) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.536,"sm1":0.446,"sms":1.231,"t-sub-l":8}
+
+## Salt Lake City (40.75, -111.9) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.67,"sm1":0.557,"sms":1.539,"t-sub-l":8}
+
+## Salt Lake City (40.75, -111.9) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.67,"sm1":0.724,"sms":1.539,"t-sub-l":8}
+
+## Salt Lake City (40.75, -111.9) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.67,"sm1":0.836,"sms":1.539,"t-sub-l":8}
+
+## Salt Lake City (40.75, -111.9) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.603,"sm1":1.337,"sms":1.385,"t-sub-l":8}
+
+## Salt Lake City (40.7609, -111.8905) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.633,"sm1":0.538,"sms":1.466,"t-sub-l":8}
+
+## San Bernardino (34.1, -117.3) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.728,"sm1":0.867,"sms":1.894,"t-sub-l":8}
+
+## San Bernardino (34.1, -117.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.91,"sm1":1.083,"sms":2.367,"t-sub-l":8}
+
+## San Bernardino (34.1, -117.3) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.91,"sm1":1.408,"sms":2.367,"t-sub-l":8}
+
+## San Bernardino (34.1, -117.3) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.91,"sm1":1.625,"sms":2.367,"t-sub-l":8}
+
+## San Bernardino (34.1, -117.3) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.819,"sm1":2.6,"sms":2.131,"t-sub-l":8}
+
+## San Bernardino (34.1083, -117.2889) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.826,"sm1":0.967,"sms":2.137,"t-sub-l":8}
+
+## San Diego (32.7, -117.15) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.456,"sm1":0.387,"sms":1.003,"t-sub-l":8}
+
+## San Diego (32.7, -117.15) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.57,"sm1":0.484,"sms":1.254,"t-sub-l":8}
+
+## San Diego (32.7, -117.15) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.57,"sm1":0.637,"sms":1.254,"t-sub-l":8}
+
+## San Diego (32.7, -117.15) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.57,"sm1":0.734,"sms":1.254,"t-sub-l":8}
+
+## San Diego (32.7, -117.15) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.513,"sm1":1.162,"sms":1.129,"t-sub-l":8}
+
+## San Diego (32.7153, -117.1564) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.55,"sm1":0.472,"sms":1.224,"t-sub-l":8}
+
+## San Francisco (37.75, -122.4) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.48,"sm1":0.513,"sms":1.2,"t-sub-l":12}
+
+## San Francisco (37.75, -122.4) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.642,"sms":1.5,"t-sub-l":12}
+
+## San Francisco (37.75, -122.4) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.834,"sms":1.5,"t-sub-l":12}
+
+## San Francisco (37.75, -122.4) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.962,"sms":1.5,"t-sub-l":12}
+
+## San Francisco (37.75, -122.4) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":1.54,"sms":1.35,"t-sub-l":12}
+
+## San Francisco (37.7752, -122.4185) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.636,"sms":1.5,"t-sub-l":12}
+
+## San Jose (37.3395, -121.8939) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## San Jose (37.35, -121.9) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.48,"sm1":0.48,"sms":1.2,"t-sub-l":12}
+
+## San Jose (37.35, -121.9) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## San Jose (37.35, -121.9) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.78,"sms":1.5,"t-sub-l":12}
+
+## San Jose (37.35, -121.9) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.9,"sms":1.5,"t-sub-l":12}
+
+## San Jose (37.35, -121.9) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":1.44,"sms":1.35,"t-sub-l":12}
+
+## san Juan (18.47, -66.12) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.406,"sm1":0.399,"sms":0.998,"t-sub-l":12}
+
+## San Juan (18.4662, -66.1164) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.406,"sm1":0.398,"sms":0.997,"t-sub-l":12}
+
+## San Luis Obispo (35.2828, -120.6586) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.462,"sm1":0.439,"sms":1.151,"t-sub-l":8}
+
+## San Luis Obispo (35.3, -120.65) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.352,"sm1":0.341,"sms":0.893,"t-sub-l":8}
+
+## San Luis Obispo (35.3, -120.65) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.44,"sm1":0.426,"sms":1.116,"t-sub-l":8}
+
+## San Luis Obispo (35.3, -120.65) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.44,"sm1":0.585,"sms":1.116,"t-sub-l":8}
+
+## San Luis Obispo (35.3, -120.65) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.466,"sm1":0.67,"sms":1.176,"t-sub-l":8}
+
+## San Luis Obispo (35.3, -120.65) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.396,"sm1":1.022,"sms":1.004,"t-sub-l":8}
+
+## San Mateo (37.55, -122.3) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.584,"sm1":0.688,"sms":1.479,"t-sub-l":12}
+
+## San Mateo (37.55, -122.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.73,"sm1":0.86,"sms":1.849,"t-sub-l":12}
+
+## San Mateo (37.55, -122.3) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.73,"sm1":1.119,"sms":1.849,"t-sub-l":12}
+
+## San Mateo (37.55, -122.3) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.73,"sm1":1.291,"sms":1.849,"t-sub-l":12}
+
+## San Mateo (37.55, -122.3) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.657,"sm1":2.065,"sms":1.664,"t-sub-l":12}
+
+## San Mateo (37.5631, -122.3245) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.773,"sm1":0.926,"sms":1.972,"t-sub-l":12}
+
+## Santa Barbara (34.4209, -119.6973) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.131,"sm1":1.015,"sms":2.897,"t-sub-l":8}
+
+## Santa Barbara (34.45, -119.7) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.874,"sm1":0.795,"sms":2.263,"t-sub-l":8}
+
+## Santa Barbara (34.45, -119.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.093,"sm1":0.993,"sms":2.828,"t-sub-l":8}
+
+## Santa Barbara (34.45, -119.7) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":1.093,"sm1":1.291,"sms":2.828,"t-sub-l":8}
+
+## Santa Barbara (34.45, -119.7) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":1.093,"sm1":1.49,"sms":2.828,"t-sub-l":8}
+
+## Santa Barbara (34.45, -119.7) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.984,"sm1":2.384,"sms":2.546,"t-sub-l":8}
+
+## Santa Cruz (36.95, -122.05) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.48,"sm1":0.48,"sms":1.214,"t-sub-l":12}
+
+## Santa Cruz (36.95, -122.05) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.517,"t-sub-l":12}
+
+## Santa Cruz (36.95, -122.05) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.78,"sms":1.517,"t-sub-l":12}
+
+## Santa Cruz (36.95, -122.05) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.9,"sms":1.517,"t-sub-l":12}
+
+## Santa Cruz (36.95, -122.05) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":1.44,"sms":1.365,"t-sub-l":12}
+
+## Santa Cruz (36.9741, -122.0297) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Santa Rosa (38.4406, -122.7133) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.886,"sm1":0.957,"sms":2.305,"t-sub-l":8}
+
+## Santa Rosa (38.45, -122.7) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.778,"sm1":0.829,"sms":2.008,"t-sub-l":8}
+
+## Santa Rosa (38.45, -122.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.973,"sm1":1.036,"sms":2.509,"t-sub-l":8}
+
+## Santa Rosa (38.45, -122.7) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.973,"sm1":1.346,"sms":2.509,"t-sub-l":8}
+
+## Santa Rosa (38.45, -122.7) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.973,"sm1":1.554,"sms":2.509,"t-sub-l":8}
+
+## Santa Rosa (38.45, -122.7) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.876,"sm1":2.486,"sms":2.259,"t-sub-l":8}
+
+## Seattle (47.6, -122.3) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.448,"sm1":0.422,"sms":1.092,"t-sub-l":6}
+
+## Seattle (47.6, -122.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.528,"sms":1.365,"t-sub-l":6}
+
+## Seattle (47.6, -122.3) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.686,"sms":1.365,"t-sub-l":6}
+
+## Seattle (47.6, -122.3) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.56,"sm1":0.792,"sms":1.365,"t-sub-l":6}
+
+## Seattle (47.6, -122.3) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.504,"sm1":1.266,"sms":1.228,"t-sub-l":6}
+
+## Seattle (47.6065, -122.3307) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.559,"sm1":0.528,"sms":1.364,"t-sub-l":6}
+
+## Sitka (57.0529, -135.3358) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.318,"sm1":0.606,"sms":0.928,"t-sub-l":12}
+
+## Sitka (57.1, -135.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.298,"sm1":0.604,"sms":0.873,"t-sub-l":12}
+
+## Sleetmute (61.7, -157.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.263,"sm1":0.231,"sms":0.62,"t-sub-l":16}
+
+## St. Louis (38.6, -90.2) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.184,"sm1":0.134,"sms":0.35,"t-sub-l":12}
+
+## St. Louis (38.6, -90.2) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.23,"sm1":0.168,"sms":0.438,"t-sub-l":12}
+
+## St. Louis (38.6, -90.2) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.269,"sm1":0.273,"sms":0.526,"t-sub-l":12}
+
+## St. Louis (38.6, -90.2) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.308,"sm1":0.357,"sms":0.635,"t-sub-l":12}
+
+## St. Louis (38.6, -90.2) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.356,"sm1":0.552,"sms":0.831,"t-sub-l":12}
+
+## St. Louis (38.6274, -90.1978) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.226,"sm1":0.166,"sms":0.431,"t-sub-l":12}
+
+## Tacoma (47.25, -122.45) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.424,"sm1":0.405,"sms":1.037,"t-sub-l":6}
+
+## Tacoma (47.25, -122.45) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.53,"sm1":0.506,"sms":1.297,"t-sub-l":6}
+
+## Tacoma (47.25, -122.45) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.53,"sm1":0.657,"sms":1.297,"t-sub-l":6}
+
+## Tacoma (47.25, -122.45) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.53,"sm1":0.759,"sms":1.297,"t-sub-l":6}
+
+## Tacoma (47.25, -122.45) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.477,"sm1":1.214,"sms":1.167,"t-sub-l":6}
+
+## Tacoma (47.253, -122.4432) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.53,"sm1":0.505,"sms":1.296,"t-sub-l":6}
+
+## Tok (63.3, -143) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.195,"sm1":0.336,"sms":0.529,"t-sub-l":12}
+
+## Tok (63.3345, -142.9886) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.188,"sm1":0.325,"sms":0.509,"t-sub-l":12}
+
+## Unalaska (53.8736, -166.5327) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Unalaska (53.9, -166.5) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Unalaska (53.9, -166.5) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":16}
+
+## Utuado (18.2673, -66.7018) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.418,"sm1":0.413,"sms":1.073,"t-sub-l":12}
+
+## Utuado (18.27, -66.7) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.418,"sm1":0.413,"sms":1.073,"t-sub-l":12}
+
+## Vallejo (38.1, -122.25) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.48,"sm1":0.48,"sms":1.2,"t-sub-l":8}
+
+## Vallejo (38.1, -122.25) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":8}
+
+## Vallejo (38.1, -122.25) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.78,"sms":1.5,"t-sub-l":8}
+
+## Vallejo (38.1, -122.25) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.9,"sms":1.5,"t-sub-l":8}
+
+## Vallejo (38.1, -122.25) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.54,"sm1":1.44,"sms":1.35,"t-sub-l":8}
+
+## Vallejo (38.1041, -122.2555) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":8}
+
+## Ventura (34.2788, -119.2922) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.915,"sm1":0.904,"sms":2.387,"t-sub-l":8}
+
+## Ventura (34.3, -119.3) Site Class A, Risk Category: I
+ - :green_heart: {"pgam":0.73,"sm1":0.72,"sms":1.904,"t-sub-l":8}
+
+## Ventura (34.3, -119.3) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.913,"sm1":0.9,"sms":2.381,"t-sub-l":8}
+
+## Ventura (34.3, -119.3) Site Class C, Risk Category: I
+ - :green_heart: {"pgam":0.913,"sm1":1.171,"sms":2.381,"t-sub-l":8}
+
+## Ventura (34.3, -119.3) Site Class D, Risk Category: I
+ - :green_heart: {"pgam":0.913,"sm1":1.351,"sms":2.381,"t-sub-l":8}
+
+## Ventura (34.3, -119.3) Site Class E, Risk Category: I
+ - :green_heart: {"pgam":0.822,"sm1":2.161,"sms":2.143,"t-sub-l":8}
+
+## Volcano (19.4317, -155.2294) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.311,"sm1":1.053,"sms":2.414,"t-sub-l":12}
+
+## Volcano (19.44, -155.22) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":1.276,"sm1":0.997,"sms":2.333,"t-sub-l":12}
+
+## Wai'anae (21.44, -158.18) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.247,"sm1":0.146,"sms":0.534,"t-sub-l":4}
+
+## Wai'anae (21.4432, -158.1854) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.247,"sm1":0.146,"sms":0.534,"t-sub-l":4}
+
+## Waikoloa Village (19.94, -155.7892) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Waikoloa Village (19.94, -155.78) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.6,"sms":1.5,"t-sub-l":12}
+
+## Waimea (20.02, -155.66) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.6,"sm1":0.551,"sms":1.496,"t-sub-l":12}
+
+## Yabucoa (18.0471, -65.876) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.393,"sm1":0.354,"sms":0.976,"t-sub-l":12}
+
+## Yabucoa (18.05, -65.88) Site Class B, Risk Category: I
+ - :green_heart: {"pgam":0.392,"sm1":0.354,"sms":0.974,"t-sub-l":12}
+
+
+### Summary
+ - :green_heart: 313 passing
+ - :broken_heart: 1 failing
