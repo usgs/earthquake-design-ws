@@ -7,17 +7,17 @@ const ASCE7Factory = require('./asce7-factory'),
 
 
 const _DEFAULTS = {
-  referenceDocument: 'IBC-2012'
+  referenceDocument: 'IBC-2015'
 };
 
 
 /**
- * Class: IBC2012Factory
+ * Class: IBC2015Factory
  *
  * @param options Object
  *.     Configuration options for this instance.
  */
-const IBC2012Factory = function (options) {
+const IBC2015Factory = function (options) {
   let _this;
 
 
@@ -248,4 +248,4 @@ const IBC2012Factory = function (options) {
 };
 
 
-module.exports = IBC2012Factory;
+module.exports = IBC2015Factory;
