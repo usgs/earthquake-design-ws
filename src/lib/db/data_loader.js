@@ -21,7 +21,17 @@ const main_menu_questions = [
   }
 ];
 
-const promptSwitch = (process.argv[2] === undefined) ? '--menu' : process.argv[2];
+/**
+ * CLI switches can include the following options:
+ *
+ *  --silent : Do not prompt user, assume answer yes to all questions effectively
+ *             reloading all the data.
+ *  --missing: Do not prompt user. Do not drop/reload schema. Do not drop
+ *             existing regions/documents. DO add missing regions/documents.
+ *             Do load missing data.
+ */
+const promptSwitch = (process.argv[2] === undefined) ? '' : process.argv[2];
+
 
 const DataLoader = {
 
@@ -31,8 +41,8 @@ const DataLoader = {
       //DataLoader.fullyLoadProbabilisticData(),
       //DataLoader.fullyLoadRiskCoefficientData(),
       DataLoader.fullyLoadTSubLData()
-    ]).then(() => {
-
+    ]).then((result) => {
+      return result;
     }).catch((err) => {
       process.stdout.write(err.message);
     });
@@ -104,7 +114,29 @@ const DataLoader = {
  * Determine what data the user wants loaded, either through a menu-driven
  * interface or CLI switches.
  */
-if (promptSwitch === '--menu') {
+if (promptSwitch.includes('--')) {
+
+  let command = promptSwitch.substr(2, promptSwitch.length);
+
+  process.stdout.write('COMMAND -> ' + command);
+
+  if (command === 'silent') {
+    dbUtils.getDefaultAdminDB().then((adminDB) => {
+      db = adminDB;
+      DataLoader.loadAllDataSets().then((result) => {
+        //process.stdout.write('\n\n' + result + '\n\n');
+      }).catch((e) => {
+        process.stdout.write('Unexpected Error: ' + e.message);
+      });
+    }).catch((e) => {
+      process.stdout.write('Unexpected Error: ' + e.message);
+    });
+  } else if (command === 'missing') {
+    // TODO: implement logic for loading only missing data
+  }
+
+
+} else {
   const prompt = inquirer.createPromptModule();
   prompt(main_menu_questions).then((selection) => {
 
@@ -116,7 +148,9 @@ if (promptSwitch === '--menu') {
         db = adminDB;
 
         DataLoader.loadAllDataSets().then((result) => {
-          process.stdout.write('\n\n' + result + '\n\n');
+          //process.stdout.write('\n\n' + result + '\n\n');
+        }).catch((e) => {
+          process.stdout.write('Unexpected Error: ' + e.message);
         });
 
       }).catch((e) => {
@@ -131,14 +165,5 @@ if (promptSwitch === '--menu') {
       process.stdout.write('Which Data Set, then Which Region to load...');
     }
 
-  });
-} else {
-  // TODO: Handle CLI Switches
-  process.stdout.write('Handling CLI Switches...\r\n\r\n');
-
-  dbUtils.getAdminDb().then((adminDB) => {
-    db = adminDB;
-  }).catch((e) => {
-    process.stdout.write(e.message);
   });
 }
