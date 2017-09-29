@@ -160,11 +160,11 @@ const IBC2012Factory = function (options) {
       deterministicInputs = extend(
           {gridSpacing: promiseResults[0].response.metadata.gridSpacing},
           inputs
-        );
+      );
       probabilisticInputs = extend(
           {gridSpacing: promiseResults[1].response.metadata.gridSpacing},
           inputs
-        );
+      );
       riskCoefficientInputs = extend(
           {gridSpacing: promiseResults[2].response.metadata.gridSpacing},
           inputs
