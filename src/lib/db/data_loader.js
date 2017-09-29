@@ -3,9 +3,15 @@
 const inquirer = require('inquirer'),
     dbUtils = require('./db-utils'),
     execSh = require('exec-sh'),
+    DeterministicDataLoader = require('./deterministic/load_deterministic.js'),
+    ProbabilisticDataLoader = require('./probabilistic/load_probabilistic.js'),
+    RiskCoefficientDataLoader = require('./risk-coefficient/load_risk_coefficient.js'),
     TSubLDataLoader = require('./tsubl/load_tsubl.js');
 
 let db,
+    dterministicDataLoader,
+    probabilisticDataLoader,
+    riskCoEffDataLoader,
     tsublDataLoader;
 
 const main_menu_questions = [
@@ -37,75 +43,43 @@ const DataLoader = {
 
   loadAllDataSets: (() => {
     return Promise.all([
-      //DataLoader.fullyLoadDeterministicData(),
-      //DataLoader.fullyLoadProbabilisticData(),
-      //DataLoader.fullyLoadRiskCoefficientData(),
+      DataLoader.fullyLoadDeterministicData(),
+      DataLoader.fullyLoadProbabilisticData(),
+      DataLoader.fullyLoadRiskCoefficientData(),
       DataLoader.fullyLoadTSubLData()
     ]).then((result) => {
       return result;
     }).catch((err) => {
-      process.stdout.write(err.message);
+
     });
   }),
 
   fullyLoadDeterministicData: (() => {
-    process.stdout.write('   loading deterministic data...');
-    const promise = new Promise(function(resolve, reject) {
-      execSh('node ./src/lib/db/deterministic/load_deterministic.js', null,
-          function(err, stdout, stderr) {
-            if (err || stderr) {
-              reject(Error(err + stderr));
-            } else {
-              resolve(stdout);
-            }
-          }
-      );
+    dbUtils.getDefaultAdminDB().then((adminDB) => {
+      dterministicDataLoader = DeterministicDataLoader(adminDB);
+      dterministicDataLoader.createIndexes;
     });
-    return promise;
   }),
 
   fullyLoadProbabilisticData: (() => {
-    process.stdout.write('   loading probabilistic data...');
-    const promise = new Promise(function(resolve, reject) {
-      execSh('node ./src/lib/db/probabilistic/load_probabilistic.js', null,
-          function(err, stdout, stderr) {
-            if (err || stderr) {
-              reject(Error(err + stderr));
-            } else {
-              resolve(stdout);
-            }
-          }
-      );
+    dbUtils.getDefaultAdminDB().then((adminDB) => {
+      probabilisticDataLoader = ProbabilisticDataLoader(adminDB);
+      probabilisticDataLoader.createIndexes;
     });
-    return promise;
   }),
 
   fullyLoadRiskCoefficientData: (() => {
-    process.stdout.write('   loading risk coefficient data...');
-    const promise = new Promise(function(resolve, reject) {
-      execSh('node ./src/lib/db/risk-coefficient/load_risk_coefficient.js', null,
-          function(err, stdout, stderr) {
-            if (err || stderr) {
-              reject(Error(err + stderr));
-            } else {
-              resolve(stdout);
-            }
-          }
-      );
+    dbUtils.getDefaultAdminDB().then((adminDB) => {
+      riskCoEffDataLoader = RiskCoefficientDataLoader(adminDB);
+      riskCoEffDataLoader.createIndexes;
     });
-    return promise;
   }),
 
   fullyLoadTSubLData: (() => {
-    tsublDataLoader = TSubLDataLoader(db);
-    process.stdout.write('\n\n   loading t-sub-l data...\n\n');
-    const promise = new Promise((resolve) => {
-      tsublDataLoader.createIndexes();
-      resolve();
-    }).catch((/*err*/) => {
-      //reject(Error(err));
+    dbUtils.getDefaultAdminDB().then((adminDB) => {
+      tsublDataLoader = TSubLDataLoader(adminDB);
+      tsublDataLoader.createIndexes;
     });
-    return promise;
   })
 };
 
@@ -114,29 +88,27 @@ const DataLoader = {
  * Determine what data the user wants loaded, either through a menu-driven
  * interface or CLI switches.
  */
+
+ // Perform data loading silently based on cli switches used
 if (promptSwitch.includes('--')) {
+
+  // TODO - also include a help switch
 
   let command = promptSwitch.substr(2, promptSwitch.length);
 
   process.stdout.write('COMMAND -> ' + command);
 
   if (command === 'silent') {
-    dbUtils.getDefaultAdminDB().then((adminDB) => {
-      db = adminDB;
-      DataLoader.loadAllDataSets().then((/*result*/) => {
-        //process.stdout.write('\n\n' + result + '\n\n');
-      }).catch((e) => {
-        process.stdout.write('Unexpected Error: ' + e.message);
-      });
+    DataLoader.loadAllDataSets().then(() => {
+      // Done
     }).catch((e) => {
-      process.stdout.write('Unexpected Error: ' + e.message);
+      process.stdout.write('\n\n** Unexpected Error: ' + e.message);
     });
   } else if (command === 'missing') {
     // TODO: implement logic for loading only missing data
   }
-
-
 } else {
+  // Provide CLI Menu Prompts to guide user in data loading
   const prompt = inquirer.createPromptModule();
   prompt(main_menu_questions).then((selection) => {
 

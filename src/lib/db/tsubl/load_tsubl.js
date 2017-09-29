@@ -30,10 +30,8 @@ const TSubLDataLoader = function(_db) {
    *     promise representing schema has been created.
    */
   _this.createSchema = (() => {
-    var schemaName,
+    let schemaName,
         schemaUser;
-
-    process.stdout.write('Create Schema');
 
     schemaName = config.DB_SCHEMA_TSUBL;
     schemaUser = config.DB_USER;
@@ -216,18 +214,8 @@ const TSubLDataLoader = function(_db) {
     return dbUtils.readSqlFile(__dirname + '/./index.sql').then((statements) => {
       return dbUtils.exec(db, statements);
     });
-  }),
-
-
-  // wait for indexes to finish loading
-  _this.createIndexes.then(() => {
-    process.stderr.write('Success!\n');
-    process.exit(0);
-  }).catch((err) => {
-    process.stderr.write('Error loading data\n');
-    process.stderr.write(err.stack);
-    process.exit(1);
   });
+
 
   return _this;
 };
