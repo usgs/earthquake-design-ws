@@ -123,7 +123,7 @@ if (promptSwitch.includes('--')) {
   if (command === 'silent') {
     dbUtils.getDefaultAdminDB().then((adminDB) => {
       db = adminDB;
-      DataLoader.loadAllDataSets().then((result) => {
+      DataLoader.loadAllDataSets().then((/*result*/) => {
         //process.stdout.write('\n\n' + result + '\n\n');
       }).catch((e) => {
         process.stdout.write('Unexpected Error: ' + e.message);
@@ -147,7 +147,7 @@ if (promptSwitch.includes('--')) {
       dbUtils.getAdminDb().then((adminDB) => {
         db = adminDB;
 
-        DataLoader.loadAllDataSets().then((result) => {
+        DataLoader.loadAllDataSets().then((/*result*/) => {
           //process.stdout.write('\n\n' + result + '\n\n');
         }).catch((e) => {
           process.stdout.write('Unexpected Error: ' + e.message);
