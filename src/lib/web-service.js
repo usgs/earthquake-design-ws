@@ -8,6 +8,8 @@ const ASCE7_16Handler = require('./asce7_16-handler'),
     ASCE41_13Handler = require('./asce41_13-handler'),
     ASCE41_17Handler = require('./asce41_17-handler'),
     NEHRP2009Handler = require('./nehrp-2009-handler'),
+    IBC2012Handler = require('./ibc-2012-handler'),
+    IBC2015Handler = require('./ibc-2015-handler'),
     DeterministicHandler = require('./deterministic-handler'),
     express = require('express'),
     extend = require('extend'),
@@ -73,6 +75,9 @@ const WebService = function (options) {
 
         'nehrp-2009.json': NEHRP2009Handler(options),
         'nehrp-2015.json': NEHRP2015Handler(options),
+
+        'ibc-2012.json': IBC2012Handler(options),
+        'ibc-2015.json': IBC2015Handler(options),
 
         'asce41-17.json': ASCE41_17Handler(options),
         'asce41-13.json': ASCE41_13Handler(options),

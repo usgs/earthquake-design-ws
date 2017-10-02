@@ -7,17 +7,17 @@ const ASCE7Factory = require('./asce7-factory'),
 
 
 const _DEFAULTS = {
-  referenceDocument: 'ASCE7-10'
+  referenceDocument: 'IBC-2015'
 };
 
 
 /**
- * Class: ASCE7_10Factory
+ * Class: IBC2015Factory
  *
  * @param options Object
  *.     Configuration options for this instance.
  */
-const ASCE7_10Factory = function (options) {
+const IBC2015Factory = function (options) {
   let _this;
 
 
@@ -114,7 +114,8 @@ const ASCE7_10Factory = function (options) {
         }
 
         // interpolate result
-        basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude, inputs.longitude, inputs.spatial_interpolation_method);
+        basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude,
+            inputs.longitude, inputs.spatial_interpolation_method);
 
         basicDesign.ss = _this.computeGroundMotion(basicDesign.ssrt,
             basicDesign.ssd);
@@ -168,7 +169,7 @@ const ASCE7_10Factory = function (options) {
       riskCoefficientInputs = extend(
           {gridSpacing: promiseResults[2].response.metadata.gridSpacing},
           inputs
-        );
+      );
 
       return Promise.all([
         _this.makeMultipleRequests(
@@ -248,4 +249,4 @@ const ASCE7_10Factory = function (options) {
 };
 
 
-module.exports = ASCE7_10Factory;
+module.exports = IBC2015Factory;
