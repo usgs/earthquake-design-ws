@@ -114,7 +114,8 @@ const IBC2015Factory = function (options) {
         }
 
         // interpolate result
-        basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude, inputs.longitude, inputs.spatial_interpolation_method);
+        basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude,
+            inputs.longitude, inputs.spatial_interpolation_method);
 
         basicDesign.ss = _this.computeGroundMotion(basicDesign.ssrt,
             basicDesign.ssd);
@@ -168,7 +169,7 @@ const IBC2015Factory = function (options) {
       riskCoefficientInputs = extend(
           {gridSpacing: promiseResults[2].response.metadata.gridSpacing},
           inputs
-        );
+      );
 
       return Promise.all([
         _this.makeMultipleRequests(
