@@ -228,13 +228,16 @@ describe('MetadataFactory', () => {
     it('returns IBC-2015 metadata', (done) => {
       Promise.all([
         factory.getData('IBC-2015', 'COUS0P01'),
-        factory.getData('IBC-2015', 'HI0P02')
+        factory.getData('IBC-2015', 'HI0P02'),
+        factory.getData('IBC-2015', 'AMSAM0P10')
       ]).then((results) => {
-        let cous,
+        let amsam,
+            cous,
             hi;
 
         cous = results[0];
         hi = results[1];
+        amsam = results[2];
 
         expect(cous.pgadPercentileFactor).to.equal(1.8);
         expect(cous.pgadFloor).to.equal(0.6);
@@ -253,6 +256,15 @@ describe('MetadataFactory', () => {
         expect(hi.ssMaxDirFactor).to.equal(1.0);
         expect(hi.ssdPercentileFactor).to.equal(1.8);
         expect(hi.ssdFloor).to.equal(1.5);
+
+        expect(amsam.pgadPercentileFactor).to.equal(1.8);
+        expect(amsam.pgadFloor).to.equal(0.6);
+        expect(amsam.s1MaxDirFactor).to.equal(1.3);
+        expect(amsam.s1dPercentileFactor).to.equal(1.8);
+        expect(amsam.s1dFloor).to.equal(0.6);
+        expect(amsam.ssMaxDirFactor).to.equal(1.1);
+        expect(amsam.ssdPercentileFactor).to.equal(1.8);
+        expect(amsam.ssdFloor).to.equal(1.5);
       }).catch((err) => {
         return err;
       }).then((err) => {
