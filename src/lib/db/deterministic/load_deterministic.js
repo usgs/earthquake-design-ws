@@ -19,7 +19,7 @@ const DeterministicDataLoader = function(_db) {
 
   _this = {};
 
-  db = _db;
+  _this.db = _db;
 
   /**
    * Create database schema.
@@ -40,7 +40,7 @@ const DeterministicDataLoader = function(_db) {
     }
 
     return dbUtils.createSchema({
-      db: db,
+      db: _this.db,
       file: __dirname + '/./schema.sql',
       name: config.DB_SCHEMA_DETERMINISTIC,
       user: config.DB_USER
@@ -63,7 +63,7 @@ const DeterministicDataLoader = function(_db) {
     regionIds = {};
     regions.forEach((region) => {
       promise = promise.then(() => {
-        return db.query(`
+        return _this.db.query(`
           INSERT INTO region (
             name,
             grid_spacing,
@@ -115,7 +115,7 @@ const DeterministicDataLoader = function(_db) {
         regionId = regionIds[region];
 
         promise = promise.then(() => {
-          return db.query(`
+          return _this.db.query(`
             INSERT INTO document (
               region_id,
               name
@@ -149,9 +149,9 @@ const DeterministicDataLoader = function(_db) {
 
         process.stderr.write('Loading ' + region.name + ' region data\n');
 
-        return db.query('DROP TABLE IF EXISTS temp_region_data CASCADE').then(() => {
+        return _this.db.query('DROP TABLE IF EXISTS temp_region_data CASCADE').then(() => {
           // create temporary table for loading data
-          return db.query(`
+          return _this.db.query(`
             CREATE TABLE temp_region_data (
               latitude NUMERIC NOT NULL,
               longitude NUMERIC NOT NULL,
@@ -172,7 +172,7 @@ const DeterministicDataLoader = function(_db) {
               url: region.url
             });
 
-            stream = db.query(copyFrom(`
+            stream = _this.db.query(copyFrom(`
                 COPY temp_region_data
                 (latitude, longitude, pgad, s1d, ssd)
                 FROM STDIN
@@ -196,7 +196,7 @@ const DeterministicDataLoader = function(_db) {
           });
         }).then(() => {
           // transfer data into actual table
-          return db.query(`
+          return _this.db.query(`
             INSERT INTO data (
               region_id,
               latitude,
@@ -217,7 +217,7 @@ const DeterministicDataLoader = function(_db) {
           `, [regionIds[region.name]]);
         }).then(() => {
           // remove temporary table
-          return db.query('DROP TABLE temp_region_data CASCADE');
+          return _this.db.query('DROP TABLE temp_region_data CASCADE');
         });
       });
     });
@@ -227,10 +227,21 @@ const DeterministicDataLoader = function(_db) {
 
   _this.createIndexes = Promise.all([_this.insertData, _this.insertDocuments]).then(() => {
     return dbUtils.readSqlFile(__dirname + '/./index.sql').then((statements) => {
-      return dbUtils.exec(db, statements);
+      return dbUtils.exec(_this.db, statements);
     });
   });
 
+  _this.closeDBConnection = (() => {
+    return new Promise((resolve, reject) => {
+      _this.db.end((error) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(null);
+        }
+      });
+    });
+  });
 
   return _this;
 };

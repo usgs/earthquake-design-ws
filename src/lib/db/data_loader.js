@@ -33,50 +33,172 @@ const main_menu_questions = [
  *  --missing: Do not prompt user. Do not drop/reload schema. Do not drop
  *             existing regions/documents. DO add missing regions/documents.
  *             Do load missing data.
+ *  --data=:   Comma separated list of data sets to load.
+ *
+ * e.g., --silent --data=tsubl,deterministic
  */
 const promptSwitch = (process.argv[2] === undefined) ? '' : process.argv[2];
-
+const dataSwitch = (process.argv[3] === undefined) ? '' : process.argv[3];
 
 const DataLoader = {
 
-  loadAllDataSets: (() => {
-    return Promise.all([
-      DataLoader.fullyLoadDeterministicData(),
-      DataLoader.fullyLoadProbabilisticData(),
-      DataLoader.fullyLoadRiskCoefficientData(),
-      DataLoader.fullyLoadTSubLData()
-    ]).then((result) => {
-      return result;
+  loadAllDataSets: ((dataSets) => {
+
+    let DATA = [];
+    if (dataSets.includes('all') || dataSets.includes('deterministic')) {
+      DATA.push(DataLoader.fullyLoadDeterministicData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('probabilistic')) {
+      DATA.push(DataLoader.fullyLoadProbabilisticData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('risk_coefficient')) {
+      DATA.push(DataLoader.fullyLoadRiskCoefficientData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('tsubl')) {
+      DATA.push(DataLoader.fullyLoadTSubLData());
+    }
+
+    return Promise.all(
+        DATA
+    ).then(() => {
+      DataLoader.closeDBConnections();
+      return;
     }).catch((err) => {
       process.stdout.write('\nUnexpected Error: ' + err.message);
     });
   }),
 
+  loadPartialDataSets: ((dataSets) => {
+
+    let DATA = [];
+    if (dataSets.includes('all') || dataSets.includes('deterministic')) {
+      DATA.push(DataLoader.loadMissingDeterministicData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('probabilistic')) {
+      DATA.push(DataLoader.loadMissingProbabilisticData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('risk_coefficient')) {
+      DATA.push(DataLoader.loadMissingRiskCoefficientData());
+    }
+
+    if (dataSets.includes('all') || dataSets.includes('tsubl')) {
+      DATA.push(DataLoader.loadMissingTSubLData());
+    }
+
+    return Promise.all(
+        DATA
+    ).then(() => {
+      process.stdout.write('\nDone loading partial data sets...');
+      DataLoader.closeDBConnections();
+    }).catch((err) => {
+      process.stdout.write('\nUnexpected Exception: ' + err.message);
+    });
+  }),
+
+  closeDBConnections: (() => {
+    setTimeout(function() {
+      try {
+        tsublDataLoader.closeDBConnection();
+      } catch(e) {
+        // todo
+      }
+    }, 1000);
+
+    setTimeout(function() {
+      try {
+        dterministicDataLoader.closeDBConnection();
+      } catch (e) {
+        // todo
+      }
+    }, 1000);
+
+    setTimeout(function() {
+      try {
+        probabilisticDataLoader.closeDBConnection();
+      } catch (e) {
+        // todo
+      }
+    }, 1000);
+
+    setTimeout(function() {
+      try {
+        riskCoEffDataLoader.closeDBConnection();
+      } catch (e) {
+        // todo
+      }
+    }, 1000);
+  }),
+
   fullyLoadDeterministicData: (() => {
-    dbUtils.getDefaultAdminDB().then((adminDB) => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
       dterministicDataLoader = DeterministicDataLoader(adminDB);
-      dterministicDataLoader.createIndexes;
+      return dterministicDataLoader.createIndexes;
     });
   }),
 
   fullyLoadProbabilisticData: (() => {
-    dbUtils.getDefaultAdminDB().then((adminDB) => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
       probabilisticDataLoader = ProbabilisticDataLoader(adminDB);
-      probabilisticDataLoader.createIndexes;
+      return probabilisticDataLoader.createIndexes;
     });
   }),
 
   fullyLoadRiskCoefficientData: (() => {
-    dbUtils.getDefaultAdminDB().then((adminDB) => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
       riskCoEffDataLoader = RiskCoefficientDataLoader(adminDB);
-      riskCoEffDataLoader.createIndexes;
+      return riskCoEffDataLoader.createIndexes;
     });
   }),
 
   fullyLoadTSubLData: (() => {
-    dbUtils.getDefaultAdminDB().then((adminDB) => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
       tsublDataLoader = TSubLDataLoader(adminDB);
-      tsublDataLoader.createIndexes;
+      return tsublDataLoader.createSchema(true).then(() => {
+        return tsublDataLoader.createIndexes();
+      });
+    });
+  }),
+
+  //-- Load Partial Data Sets
+
+  loadMissingTSubLData: (() => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
+      tsublDataLoader = TSubLDataLoader(adminDB);
+      return tsublDataLoader.createSchema(false).then(() => {
+        return tsublDataLoader.loadMissingData();
+      });
+    });
+  }),
+
+  loadMissingDeterministicData: (() => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
+      tsublDataLoader = TSubLDataLoader(adminDB);
+      return tsublDataLoader.createSchema(false).then(() => {
+        return tsublDataLoader.loadMissingData();
+      });
+    });
+  }),
+
+  loadMissingProbabilisticData: (() => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
+      tsublDataLoader = TSubLDataLoader(adminDB);
+      return tsublDataLoader.createSchema(false).then(() => {
+        return tsublDataLoader.loadMissingData();
+      });
+    });
+  }),
+
+  loadMissingRiskCoefficientData: (() => {
+    return dbUtils.getDefaultAdminDB().then((adminDB) => {
+      tsublDataLoader = TSubLDataLoader(adminDB);
+      return tsublDataLoader.createSchema(false).then(() => {
+        return tsublDataLoader.loadMissingData();
+      });
     });
   })
 };
@@ -93,17 +215,30 @@ if (promptSwitch.includes('--')) {
   // TODO - also include a help switch
 
   let command = promptSwitch.substr(2, promptSwitch.length);
+  let dataSets = ['all'];
 
   process.stdout.write('COMMAND -> ' + command);
 
+  if (dataSwitch && dataSwitch.includes('--')) {
+    try {
+      let t = dataSwitch.substr(7, dataSwitch.length);
+      dataSets = t.split(',');
+      process.stdout.write('\nData Sets: ' + dataSets);
+    } catch (e) {}
+  }
+
   if (command === 'silent') {
-    DataLoader.loadAllDataSets().then(() => {
-      // Done
+    DataLoader.loadAllDataSets(dataSets).then(() => {
+      process.stdout.write('\n\nDone!\n\n');
     }).catch((e) => {
       process.stdout.write('\n\n** Unexpected Error: ' + e.message);
     });
   } else if (command === 'missing') {
-    // TODO: implement logic for loading only missing data
+    DataLoader.loadPartialDataSets(dataSets).then(() => {
+      process.stdout.write('\n\nDone!\n\n');
+    }).catch((e) => {
+      process.stdout.write('\n\n** Unexpected Error: ' + e.message);
+    });
   }
 } else {
   // Provide CLI Menu Prompts to guide user in data loading
@@ -114,11 +249,11 @@ if (promptSwitch.includes('--')) {
       // TODO: Invoke loadAllDataSets();
       process.stdout.write('*** Loading All Data Sets ***\r\n');
 
-      DataLoader.loadAllDataSets().then((/*result*/) => {
-        //process.stdout.write('\n\n' + result + '\n\n');
-      }).catch((e) => {
-        process.stdout.write('Unexpected Error: ' + e.message);
+      DataLoader.loadAllDataSets().then(() => {
+        process.stdout.write('\n\nDone!\n\n');
       });
+
+
 
     } else if (selection['MAIN_MENU'] === main_menu_questions[0].choices[1]) {
       // TODO: Ask user which Data Set to be loaded
