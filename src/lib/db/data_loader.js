@@ -2,14 +2,12 @@
 
 const inquirer = require('inquirer'),
     dbUtils = require('./db-utils'),
-    execSh = require('exec-sh'),
     DeterministicDataLoader = require('./deterministic/load_deterministic.js'),
     ProbabilisticDataLoader = require('./probabilistic/load_probabilistic.js'),
     RiskCoefficientDataLoader = require('./risk-coefficient/load_risk_coefficient.js'),
     TSubLDataLoader = require('./tsubl/load_tsubl.js');
 
-let db,
-    dterministicDataLoader,
+let dterministicDataLoader,
     probabilisticDataLoader,
     riskCoEffDataLoader,
     tsublDataLoader;
@@ -50,7 +48,7 @@ const DataLoader = {
     ]).then((result) => {
       return result;
     }).catch((err) => {
-
+      process.stdout.write('\nUnexpected Error: ' + err.message);
     });
   }),
 
@@ -116,17 +114,10 @@ if (promptSwitch.includes('--')) {
       // TODO: Invoke loadAllDataSets();
       process.stdout.write('*** Loading All Data Sets ***\r\n');
 
-      dbUtils.getAdminDb().then((adminDB) => {
-        db = adminDB;
-
-        DataLoader.loadAllDataSets().then((/*result*/) => {
-          //process.stdout.write('\n\n' + result + '\n\n');
-        }).catch((e) => {
-          process.stdout.write('Unexpected Error: ' + e.message);
-        });
-
+      DataLoader.loadAllDataSets().then((/*result*/) => {
+        //process.stdout.write('\n\n' + result + '\n\n');
       }).catch((e) => {
-        process.stdout.write('ERROR: ' + e.message);
+        process.stdout.write('Unexpected Error: ' + e.message);
       });
 
     } else if (selection['MAIN_MENU'] === main_menu_questions[0].choices[1]) {
