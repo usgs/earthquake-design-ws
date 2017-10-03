@@ -93,7 +93,6 @@ const DataLoader = {
     return Promise.all(
         DATA
     ).then(() => {
-      process.stdout.write('\nDone loading partial data sets...');
       DataLoader.closeDBConnections();
     }).catch((err) => {
       process.stdout.write('\nUnexpected Exception: ' + err.message);
@@ -101,6 +100,9 @@ const DataLoader = {
   }),
 
   closeDBConnections: (() => {
+
+    process.stdout.write('\nClosing DB Connections');
+
     setTimeout(function() {
       try {
         tsublDataLoader.closeDBConnection();
@@ -137,7 +139,9 @@ const DataLoader = {
   fullyLoadDeterministicData: (() => {
     return dbUtils.getDefaultAdminDB().then((adminDB) => {
       dterministicDataLoader = DeterministicDataLoader(adminDB);
-      return dterministicDataLoader.createIndexes;
+      return dterministicDataLoader.createSchema(true).then(() => {
+        return dterministicDataLoader.createIndexes();
+      });
     });
   }),
 

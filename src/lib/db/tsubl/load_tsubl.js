@@ -57,7 +57,7 @@ const TSubLDataLoader = function(_db) {
    *     resolves to mapping from region name to region id.
    */
   _this.insertRegions = (() => {
-    var promise,
+    let promise,
         regionIds;
 
     process.stdout.write('\nInsert Regions');
@@ -95,14 +95,9 @@ const TSubLDataLoader = function(_db) {
    *     promise representing document metadata being inserted.
    */
   _this.insertDocuments = (() => {
-    let promise;
-    _this.insertRegions().then((regionIds) => {
+    return _this.insertRegions().then((regionIds) => {
 
-
-      process.stdout.write('\nInsert Documents ' + JSON.stringify(regionIds,
-          null,2));
-
-      promise = Promise.resolve();
+      let promise = Promise.resolve();
 
       documents.forEach((doc) => {
         doc.regions.forEach((region) => {
@@ -132,8 +127,8 @@ const TSubLDataLoader = function(_db) {
           });
         });
       });
+      return promise;
     });
-    return promise;
   });
 
 
@@ -145,7 +140,7 @@ const TSubLDataLoader = function(_db) {
    */
   _this.insertData = (() => {
     _this.insertRegions().then((regionIds) => {
-      var promise;
+      let promise;
 
       process.stdout.write('\nInsert Data');
 
