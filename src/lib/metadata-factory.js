@@ -243,7 +243,9 @@ const _METADATA = {
     {
       'regions': [
         'AK0P05',
+        'AMSAM0P10',
         'COUS0P01',
+        'GNMI0P10',
         'PRVI0P01'
       ],
       'data': {
