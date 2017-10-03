@@ -68,6 +68,7 @@ const DataLoader = {
       return;
     }).catch((err) => {
       process.stdout.write('\nUnexpected Error: ' + err.message);
+      DataLoader.closeDBConnections();
     });
   }),
 
@@ -96,6 +97,7 @@ const DataLoader = {
       DataLoader.closeDBConnections();
     }).catch((err) => {
       process.stdout.write('\nUnexpected Exception: ' + err.message);
+      DataLoader.closeDBConnections();
     });
   }),
 
@@ -258,8 +260,6 @@ if (promptSwitch.includes('--')) {
       DataLoader.loadAllDataSets().then(() => {
         process.stdout.write('\n\nDone!\n\n');
       });
-
-
 
     } else if (selection['MAIN_MENU'] === main_menu_questions[0].choices[1]) {
       // TODO: Ask user which Data Set to be loaded

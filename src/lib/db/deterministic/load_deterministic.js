@@ -17,8 +17,8 @@ const DeterministicDataLoader = function(_db) {
   let _this;
 
   _this = {};
-
   _this.db = _db;
+  _this.regionIds = [];
 
   /**
    * Create database schema.
@@ -80,6 +80,7 @@ const DeterministicDataLoader = function(_db) {
             min_latitude,
             min_longitude
           ) VALUES ($1, $2, $3, $4, $5, $6)
+          ON CONFLICT (name) DO UPDATE SET NAME = ($1)
           RETURNING id
         `, [
           region.name,
@@ -110,7 +111,7 @@ const DeterministicDataLoader = function(_db) {
    */
   _this.insertDocuments = (() => {
     return _this.insertRegions().then((regionIds) => {
-
+      _this.regionIds = regionIds;
       process.stdout.write('\nInsert Documents');
 
       let promise = Promise.resolve();
@@ -134,6 +135,7 @@ const DeterministicDataLoader = function(_db) {
                 region_id,
                 name
               ) VALUES ($1, $2)
+              ON CONFLICT (region_id, name) DO NOTHING
             `, [
               regionId,
               doc.name
@@ -155,7 +157,7 @@ const DeterministicDataLoader = function(_db) {
    *     promise representing that all region data has been inserted.
    */
   _this.insertData = (() => {
-    return _this.insertRegions().then((regionIds) => {
+    return _this.insertDocuments().then(() => {
       let promise;
 
       process.stdout.write('\nInsert Data');
@@ -166,7 +168,7 @@ const DeterministicDataLoader = function(_db) {
         // run each region load in sequence
         promise = promise.then(() => {
 
-          process.stdout.write('\nLoading ' + region.name + ' region data\n');
+          process.stdout.write('\nLoading ' + region.name + ' region data');
 
           return _this.db.query('DROP TABLE IF EXISTS temp_region_data CASCADE').then(() => {
             // create temporary table for loading data
@@ -233,7 +235,9 @@ const DeterministicDataLoader = function(_db) {
                   ssd
                   FROM temp_region_data
               )
-            `, [regionIds[region.name]]);
+              ON CONFLICT (region_id, latitude, longitude, pgad,
+              s1d, ssd) DO NOTHING
+            `, [_this.regionIds[region.name]]);
           }).then(() => {
             // remove temporary table
             return _this.db.query('DROP TABLE temp_region_data CASCADE');
@@ -247,11 +251,22 @@ const DeterministicDataLoader = function(_db) {
   });
 
   _this.loadMissingData = (() => {
-    return Promise.all([_this.insertData(), _this.insertDocuments()]);
+    return _this.db.query('DROP INDEX IF EXISTS region__bounds_idx;' +
+      'DROP INDEX IF EXISTS data__regionid_latitude_longitude_idx;' +
+      'DROP INDEX IF EXISTS document__regionid_name_idx;').then(() => {
+        return Promise.all([_this.insertData()]).then(() => {
+          return dbUtils.readSqlFile(__dirname
+            + '/./index.sql').then((statements) => {
+              return dbUtils.exec(_this.db, statements);
+            });
+        }).catch((e) => {
+          process.stdout.write('\nERROR: ' + e.message);
+        });
+      });
   });
 
   _this.createIndexes = (() => {
-    return Promise.all([_this.insertData(), _this.insertDocuments()]).then(() => {
+    return Promise.all([_this.insertData()]).then(() => {
       return dbUtils.readSqlFile(__dirname
         + '/./index.sql').then((statements) => {
           return dbUtils.exec(_this.db, statements);
