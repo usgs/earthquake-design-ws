@@ -177,9 +177,9 @@ const DataLoader = {
 
   loadMissingDeterministicData: (() => {
     return dbUtils.getDefaultAdminDB().then((adminDB) => {
-      tsublDataLoader = TSubLDataLoader(adminDB);
-      return tsublDataLoader.createSchema(false).then(() => {
-        return tsublDataLoader.loadMissingData();
+      dterministicDataLoader = DeterministicDataLoader(adminDB);
+      return dterministicDataLoader.createSchema(false).then(() => {
+        return dterministicDataLoader.loadMissingData();
       });
     });
   }),
@@ -224,7 +224,9 @@ if (promptSwitch.includes('--')) {
       let t = dataSwitch.substr(7, dataSwitch.length);
       dataSets = t.split(',');
       process.stdout.write('\nData Sets: ' + dataSets);
-    } catch (e) {}
+    } catch (e) {
+      // TODO
+    }
   }
 
   if (command === 'silent') {

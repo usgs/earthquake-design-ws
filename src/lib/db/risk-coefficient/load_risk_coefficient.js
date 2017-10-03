@@ -8,7 +8,6 @@ const Config = require('../../util/config'),
 
 // variables/data
 let config = Config().get(),
-    db,
     documents = require('./documents.json'),
     regions = require('./regions.json');
 

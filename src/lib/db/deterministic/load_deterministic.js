@@ -9,7 +9,6 @@ const Config = require('../../util/config'),
 
 // variables/data
 let config = Config().get(),
-    db,
     documents = require('./documents.json'),
     regions = require('./regions.json');
 
@@ -29,7 +28,7 @@ const DeterministicDataLoader = function(_db) {
    * @return {Promise}
    *     promise representing schema has been created.
    */
-  _this.createSchema = (() => {
+  _this.createSchema = ((dropSchema) => {
     let schemaName,
         schemaUser;
 
@@ -39,12 +38,17 @@ const DeterministicDataLoader = function(_db) {
       throw new Error('deterministic schema name not configured');
     }
 
-    return dbUtils.createSchema({
-      db: _this.db,
-      file: __dirname + '/./schema.sql',
-      name: config.DB_SCHEMA_DETERMINISTIC,
-      user: config.DB_USER
-    });
+    if (dropSchema) {
+      return dbUtils.createSchema({
+        db: _this.db,
+        file: __dirname + '/./schema.sql',
+        name: config.DB_SCHEMA_DETERMINISTIC,
+        user: config.DB_USER
+      });
+    } else {
+      return _this.db.query('SET search_path TO '
+        + config.DB_SCHEMA_DETERMINISTIC);
+    }
   });
 
 
@@ -223,6 +227,10 @@ const DeterministicDataLoader = function(_db) {
     });
 
     return promise;
+  });
+
+  _this.loadMissingData = (() => {
+    return Promise.all([_this.insertData, _this.insertDocuments]);
   });
 
   _this.createIndexes = Promise.all([_this.insertData, _this.insertDocuments]).then(() => {

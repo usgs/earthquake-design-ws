@@ -100,7 +100,7 @@ const TSubLDataLoader = function(_db) {
 
 
       process.stdout.write('\nInsert Documents ' + JSON.stringify(regionIds,
-        null,2));
+          null,2));
 
       promise = Promise.resolve();
 
@@ -237,8 +237,8 @@ const TSubLDataLoader = function(_db) {
     return Promise.all([_this.insertData(), _this.insertDocuments()]).then(() => {
       return dbUtils.readSqlFile(__dirname
         + '/./index.sql').then((statements) => {
-        return dbUtils.exec(_this.db, statements);
-      });
+          return dbUtils.exec(_this.db, statements);
+        });
     }).catch((e) => {
       process.stdout.write('\nERROR: ' + e.message);
     });
