@@ -20,6 +20,7 @@ const AbstractDataLoader = function (options) {
     _this.db = options.db;
     _this.documents = options.documents;
     _this.indexFile = options.indexFile;
+    _this.missingOnly = options.missingOnly;
     _this.regions = options.regions;
     _this.schemaFile = options.schemaFile;
     _this.schemaName = options.schemaName;
@@ -35,17 +36,41 @@ const AbstractDataLoader = function (options) {
    *     promise representing schema has been created.
    */
   _this._createSchema = function () {
+    let createSchema;
+
     if (!_this.schemaName || !_this.schemaUser) {
       throw new Error('schema name not configured');
     }
 
-    // TODO: check if schema already exists
+    createSchema = function () {
+      return dbUtils.createSchema({
+        db: _this.db,
+        file: _this.schemaFile,
+        name: _this.schemaName,
+        user: _this.schemaUser
+      });
+    };
 
-    return dbUtils.createSchema({
-      db: _this.db,
-      file: _this.schemaFile,
-      name: _this.schemaName,
-      user: _this.schemaUser
+    if (!_this.missingOnly) {
+      // Recreate schema
+      return createSchema();
+    }
+
+    process.stderr.write(
+        `Checking whether schema "${_this.schemaName}" exists\n`);
+    return _this.db.query(`
+      SELECT schema_name
+      FROM information_schema.schemata
+      WHERE schema_name = $1
+    `, [_this.schemaName]).then((result) => {
+      if (result.rows.length === 0) {
+        process.stderr.write(`Schema "${_this.schemaName}" not found\n`);
+        return createSchema();
+      } else {
+        process.stderr.write(
+            `Schema "${_this.schemaName}" found, skipping create\n`);
+        return _this.db.query('SET search_path TO ' + _this.schemaName);
+      }
     });
   };
 
@@ -68,19 +93,51 @@ const AbstractDataLoader = function (options) {
 
     // load regions
     promise = Promise.resolve();
+
     regionIds = {};
     regions.forEach((region) => {
       promise = promise.then(() => {
+        let insertRegion;
+
+        insertRegion = function () {
+          return _this.db.query(`
+            INSERT INTO region (
+              name,
+              grid_spacing,
+              max_latitude,
+              max_longitude,
+              min_latitude,
+              min_longitude
+            ) VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING id
+          `, [
+            region.name,
+            region.grid_spacing,
+            region.max_latitude,
+            region.max_longitude,
+            region.min_latitude,
+            region.min_longitude
+          ]).then((result) => {
+            // save region id for later data loading
+            regionIds[region.name] = result.rows[0].id;
+          });
+        };
+
+        if (!_this.missingOnly) {
+          return insertRegion();
+        }
+
+        process.stderr.write(
+            `Checking whether region "${region.name}" exists\n`);
         return _this.db.query(`
-          INSERT INTO region (
-            name,
-            grid_spacing,
-            max_latitude,
-            max_longitude,
-            min_latitude,
-            min_longitude
-          ) VALUES ($1, $2, $3, $4, $5, $6)
-          RETURNING id
+          SELECT id
+          FROM region
+          WHERE name=$1
+          AND grid_spacing=$2
+          AND max_latitude=$3
+          AND max_longitude=$4
+          AND min_latitude=$5
+          AND min_longitude=$6
         `, [
           region.name,
           region.grid_spacing,
@@ -89,8 +146,15 @@ const AbstractDataLoader = function (options) {
           region.min_latitude,
           region.min_longitude
         ]).then((result) => {
-          // save region id for later data loading
-          regionIds[region.name] = result.rows[0].id;
+          process.stderr.write('' + result.rows.length + '\n');
+          if (result.rows.length == 1) {
+            process.stderr.write(`Region "${region.name}" found (id=${result.rows[0].id})\n`);
+            // save region id for later data loading
+            regionIds[region.name] = result.rows[0].id;
+          } else {
+            process.stderr.write(`Region "${region.name}" not found\n`);
+            return insertRegion();
+          }
         });
       });
     });
@@ -110,10 +174,10 @@ const AbstractDataLoader = function (options) {
    *     promise representing document metadata being inserted.
    */
   _this._insertDocuments = function (regionIds) {
-    let promise,
-        documents;
+    let promise;
 
     promise = Promise.resolve();
+
     _this.documents.forEach((doc) => {
       doc.regions.forEach((region) => {
         var regionId;
@@ -124,18 +188,43 @@ const AbstractDataLoader = function (options) {
         }
         regionId = regionIds[region];
 
-        // TODO: check for existing documents
-
         promise = promise.then(() => {
+          let insertDocument;
+
+          insertDocument = function () {
+            return _this.db.query(`
+              INSERT INTO document (
+                region_id,
+                name
+              ) VALUES ($1, $2)
+            `, [
+              regionId,
+              doc.name
+            ]);
+          };
+
+          if (!_this.missingOnly) {
+            return insertDocument();
+          }
+
+          process.stderr.write(
+              `Checking whether document "${doc.name}" (region ${regionId}) exists\n`);
           return _this.db.query(`
-            INSERT INTO document (
-              region_id,
-              name
-            ) VALUES ($1, $2)
+            SELECT id
+            FROM document
+            WHERE region_id=$1
+            AND name=$2
           `, [
             regionId,
             doc.name
-          ]);
+          ]).then((result) => {
+            if (result.rows.length == 1) {
+              process.stderr.write(`Document "${doc.name}" (region ${regionId}) found\n`);
+            } else {
+              process.stderr.write(`Document "${doc.name}" (region ${regionId}) not found\n`);
+              return insertDocument();
+            }
+          });
         });
       });
     });
@@ -152,75 +241,99 @@ const AbstractDataLoader = function (options) {
    *     promise representing that all region data has been inserted.
    */
   _this._insertData = function (regionIds) {
-    let promise,
-        regions;
+    let promise;
 
     promise = Promise.resolve();
 
     _this.regions.forEach((region) => {
       // run each region load in sequence
       promise = promise.then(() => {
-        process.stderr.write('Loading ' + region.name + ' region data\n');
+        let insertData;
 
-        // TODO: check whether data already loaded
+        insertData = function () {
+          process.stderr.write('Loading ' + region.name + ' region data\n');
 
-        return _this.db.query(
-            'DROP TABLE IF EXISTS temp_region_data CASCADE').then(() => {
-          // create temporary table for loading data,
-          // based on actual data schema
-          return _this.db.query(
-              'CREATE TABLE temp_region_data (LIKE data)').then(() => {
-            // CSV file doesn't include "region_id" column.
-            return _this.db.query(
-                'ALTER TABLE temp_region_data DROP COLUMN id, DROP COLUMN region_id');
-          });
-        }).then(() => {
-          // use copy from to read data
-          return new Promise((resolve, reject) => {
-            var data,
-                doReject,
-                doResolve,
-                stream;
+          // TODO: check whether data already loaded
 
-            data = UrlStream({
-              url: region.url
+          return dbUtils.exec(_this.db, [
+            'DROP TABLE IF EXISTS temp_region_data CASCADE',
+            // create temporary table for loading data,
+            // based on actual data schema
+            'CREATE TABLE temp_region_data (LIKE data)',
+            // CSV file doesn't include "id" or "region_id" columns.
+            'ALTER TABLE temp_region_data DROP COLUMN id, DROP COLUMN region_id'
+          ]).then(() => {
+            // use copy from to read data
+            return new Promise((resolve, reject) => {
+              var data,
+                  doReject,
+                  doResolve,
+                  stream;
+
+              data = UrlStream({
+                url: region.url
+              });
+
+              stream = _this.db.query(copyFrom(`
+                  COPY temp_region_data
+                  FROM STDIN
+                  WITH CSV HEADER
+              `));
+
+              doReject = (err) => {
+                data.destroy();
+                reject(err);
+              };
+
+              doResolve = () => {
+                data.destroy();
+                resolve();
+              };
+
+              data.on('error', doReject);
+              stream.on('error', doReject);
+              stream.on('end', doResolve);
+              data.pipe(zlib.createGunzip()).pipe(stream);
             });
-
-            stream = _this.db.query(copyFrom(`
-                COPY temp_region_data
-                FROM STDIN
-                WITH CSV HEADER
-            `));
-
-            doReject = (err) => {
-              data.destroy();
-              reject(err);
-            };
-
-            doResolve = () => {
-              data.destroy();
-              resolve();
-            };
-
-            data.on('error', doReject);
-            stream.on('error', doReject);
-            stream.on('end', doResolve);
-            data.pipe(zlib.createGunzip()).pipe(stream);
+          }).then(() => {
+            // transfer data into actual table
+            //nextval(pg_get_serial_sequence('data', 'id')),
+            return _this.db.query(`
+              INSERT INTO data (region_id, ${_this.dataColumns.join(', ')}) (
+                SELECT
+                  $1,
+                  *
+                  FROM temp_region_data
+              )
+            `, [regionIds[region.name]]);
+          }).then(() => {
+            // remove temporary table
+            return _this.db.query('DROP TABLE temp_region_data CASCADE');
           });
-        }).then(() => {
-          // transfer data into actual table
-          //nextval(pg_get_serial_sequence('data', 'id')),
-          return _this.db.query(`
-            INSERT INTO data (region_id, ${_this.dataColumns.join(', ')}) (
-              SELECT
-                $1,
-                *
-                FROM temp_region_data
-            )
-          `, [regionIds[region.name]]);
-        }).then(() => {
-          // remove temporary table
-          return _this.db.query('DROP TABLE temp_region_data CASCADE');
+        };
+
+
+        if (!_this.missingOnly) {
+          return insertData();
+        }
+
+        process.stderr.write(
+            `Checking whether data for region "${region.name}" exists\n`);
+        return _this.db.query(`
+          SELECT count(*) as points
+          FROM data
+          WHERE region_id=$1
+        `, [regionIds[region.name]]).then((result) => {
+          let numPoints = Number(result.rows[0].points);
+          let expectedPoints =
+              (((region.max_latitude - region.min_latitude) / region.grid_spacing) + 1) *
+              (((region.max_longitude - region.min_longitude) / region.grid_spacing) + 1);
+          if (numPoints == expectedPoints) {
+            process.stderr.write(`Region "${region.name}" data found\n`);
+          } else {
+            process.stderr.write(`Region "${region.name}" data not found\n`);
+            return insertData();
+          }
         });
       });
     });

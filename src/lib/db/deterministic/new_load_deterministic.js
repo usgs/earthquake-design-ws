@@ -26,6 +26,7 @@ dbUtils.getAdminDb().then((adminDb) => {
     db: adminDb,
     documents: documents,
     indexFile: __dirname + '/./index.sql',
+    missingOnly: true,
     regions: regions,
     schemaFile: __dirname + '/./schema.sql',
     schemaName: config.DB_SCHEMA_DETERMINISTIC,
@@ -38,6 +39,7 @@ dbUtils.getAdminDb().then((adminDb) => {
   }).catch((err) => {
     process.stderr.write('Error loading data\n');
     process.stderr.write(err.stack);
+    process.stderr.write('\n');
     exitCode = 1;
   }).then(() => {
     adminDb.end();
