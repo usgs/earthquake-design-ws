@@ -1,4 +1,4 @@
-/* global describe, it */
+/* global after, before, describe, it */
 'use strict';
 
 
@@ -22,6 +22,7 @@ describe('SiteAmplificationFactory', () => {
 
         factory = SiteAmplificationFactory();
         factory.destroy();
+        factory.destroy(); // double-destroy should be okay too
       }).to.not.throw(Error);
     });
   });
@@ -32,9 +33,12 @@ describe('SiteAmplificationFactory', () => {
           result;
 
       factory = SiteAmplificationFactory();
-      result = factory.getSiteAmplificationData();
+      result = factory.getSiteAmplificationData({});
 
       expect(result).to.be.instanceof(Promise);
+
+      // Just to supress uncaught rejection/exception
+      result.catch(() => {});
 
       factory.destroy();
     });
@@ -130,61 +134,173 @@ describe('SiteAmplificationFactory', () => {
         done(err);
       });
     });
+  });
 
-    it('resolves with an error and sets Fa, Fv values to null', (done) => {
-      let factory,
-          lookupTable;
 
-      lookupTable =  {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
+  describe('getSiteAmplificationData :: ' +
+        'fa_note, fv_note are properly set', () => {
+    let factory,
+        lookupTable;
+
+    after(() => {
+      factory.destroy();
+    });
+
+    before(() => {
+      lookupTable = {
+        bins: [0.0, 1.0],
         restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': null,
-          'D-default': null,
-          'E': {
-            'message': 'See Section 11.4.7',
-            'limit': 1.00
+          siteClass: {
+            message: 'message',
+            limit: 1.0
           }
         },
         siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
-          'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.7, 1.3, 1.3, 1.3, 1.3]
+          siteClass: [0.0, 1.0]
         }
       };
 
       factory = SiteAmplificationFactory({
         lookupTables: {
-          'referenceDocument': {
-            'ss': lookupTable,
-            's1': lookupTable,
-            'pga': lookupTable
+          referenceDocument: {
+            ss: lookupTable,
+            s1: lookupTable,
+            pga: lookupTable
           }
         }
       });
+    });
 
+    it('sets both when both hit', (done) => {
       factory.getSiteAmplificationData({
         referenceDocument: 'referenceDocument',
-        siteClass: 'E',
-        ss: 1.25,
-        s1: 1.50
+        siteClass: 'siteClass',
+        ss: 1.5,
+        s1: 1.5
       }).then((result) => {
-        expect(result).to.be.instanceof(Object);
-        expect(result.fa).to.equal(1.3);
-        expect(result.fv).to.equal(1.3);
-        expect(result.fa_note).to.equal('See Section 11.4.7');
-        expect(result.fv_note).to.equal('See Section 11.4.7');
+        expect(result.hasOwnProperty('fa_note')).to.be.true;
+        expect(result.hasOwnProperty('fv_note')).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
-        factory.destroy();
+        done(err);
+      });
+    });
+
+    it('sets neither when neither hit', (done) => {
+      factory.getSiteAmplificationData({
+        referenceDocument: 'referenceDocument',
+        siteClass: 'siteClass',
+        ss: 0.5,
+        s1: 0.5
+      }).then((result) => {
+        expect(result.hasOwnProperty('fa_note')).to.be.false;
+        expect(result.hasOwnProperty('fv_note')).to.be.false;
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('sets fa_note when just that hits', (done) => {
+      factory.getSiteAmplificationData({
+        referenceDocument: 'referenceDocument',
+        siteClass: 'siteClass',
+        ss: 1.5,
+        s1: 0.5
+      }).then((result) => {
+        expect(result.hasOwnProperty('fa_note')).to.be.true;
+        expect(result.hasOwnProperty('fv_note')).to.be.false;
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('sets the fv_note when just that hits', (done) => {
+      factory.getSiteAmplificationData({
+        referenceDocument: 'referenceDocument',
+        siteClass: 'siteClass',
+        ss: 0.5,
+        s1: 1.5
+      }).then((result) => {
+        expect(result.hasOwnProperty('fa_note')).to.be.false;
+        expect(result.hasOwnProperty('fv_note')).to.be.true;
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+  });
+
+  describe('getSiteAmplificationData :: ' +
+        'null-out fa/fv coefficient properly', () => {
+    let factory,
+        lookupTable;
+
+    after(() => {
+      factory.destroy();
+    });
+
+    before(() => {
+      lookupTable = {
+        bins: [0.0, 1.0],
+        restriction: {
+          siteClass: {
+            message: 'message',
+            limit: 1.0
+          }
+        },
+        siteClasses: {
+          siteClass: [0.0, 1.0]
+        }
+      };
+
+      factory = SiteAmplificationFactory({
+        lookupTables: {
+          referenceDocument: {
+            ss: lookupTable,
+            s1: lookupTable
+          },
+          'ASCE7-16': {
+            ss: lookupTable,
+            s1: lookupTable
+          }
+        }
+      });
+    });
+
+    it('nulls-out the values for ASCE7-16', (done) => {
+      factory.getSiteAmplificationData({
+        referenceDocument: 'ASCE7-16',
+        siteClass: 'siteClass',
+        ss: 1.5,
+        s1: 1.5
+      }).then((result) => {
+        expect(result.fa).to.equal(null);
+        expect(result.fv).to.equal(null);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        done(err);
+      });
+    });
+
+    it('maintains proper values for non-ASCE7-16', (done) => {
+      factory.getSiteAmplificationData({
+        referenceDocument: 'referenceDocument',
+        siteClass: 'siteClass',
+        ss: 1.5,
+        s1: 1.5
+      }).then((result) => {
+        expect(result.fa).to.not.equal(null);
+        expect(result.fv).to.not.equal(null);
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
         done(err);
       });
     });
