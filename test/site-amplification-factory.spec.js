@@ -145,7 +145,7 @@ describe('SiteAmplificationFactory', () => {
           'D': null,
           'D-default': null,
           'E': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 1.00
           }
         },
@@ -177,10 +177,10 @@ describe('SiteAmplificationFactory', () => {
         s1: 1.50
       }).then((result) => {
         expect(result).to.be.instanceof(Object);
-        expect(result.fa).to.equal(null);
-        expect(result.fv).to.equal(null);
-        expect(result.fa_error).to.equal('See Section 11.4.8');
-        expect(result.fv_error).to.equal('See Section 11.4.8');
+        expect(result.fa).to.equal(1.3);
+        expect(result.fv).to.equal(1.3);
+        expect(result.fa_error).to.equal('See Section 11.4.7');
+        expect(result.fv_error).to.equal('See Section 11.4.7');
       }).catch((err) => {
         return err;
       }).then((err) => {
