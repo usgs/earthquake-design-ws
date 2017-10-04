@@ -607,7 +607,7 @@ const SiteAmplificationFactory = function (options) {
             if (referenceDocument === 'ASCE7-16') {
               result.fa = null;
             }
-            result.fa_error = restriction.message;
+            result.fa_note = restriction.message;
           }
         }
 
@@ -622,7 +622,7 @@ const SiteAmplificationFactory = function (options) {
             if (referenceDocument === 'ASCE7-16') {
               result.fv = null;
             }
-            result.fv_error = restriction.message;
+            result.fv_note = restriction.message;
           }
         }
 

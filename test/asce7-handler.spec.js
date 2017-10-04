@@ -48,9 +48,9 @@ const _FACTORY_RESULT = {
   },
   'siteAmplification': {
     'fa': null,
-    'fa_error': null,
+    'fa_note': null,
     'fv': null,
-    'fv_error': null
+    'fv_note': null
   },
   'designCategory': {
     'sdcs': null,
@@ -68,10 +68,10 @@ const _HANDLER_RESULT = {
     'cr1': NaN,
     'crs': NaN,
     'fa': null,
-    'fa_error': null,
+    'fa_note': null,
     'fpga': NaN,
     'fv': null,
-    'fv_error': null,
+    'fv_note': null,
     'pga': null,
     'pgad': null,
     'pgam': null,
@@ -205,7 +205,7 @@ describe('asce7-handler', () => {
           'ssd', 's1d', 'pgad',
           'ss', 's1', 'pga',
           'sms', 'sm1', 'pgam',
-          'fa', 'fa_error', 'fv', 'fv_error',
+          'fa', 'fa_note', 'fv', 'fv_note',
           'sds', 'sdcs', 'sd1', 'sdc1', 'sdc',
           'smSpectrum', 'sdSpectrum'
         ].forEach((key) => {
