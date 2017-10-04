@@ -343,7 +343,7 @@ const _DEFAULTS = {
           'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
           'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
           'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.7, 1.3, 1.3, 1.3, 1.3]
+          'E': [2.4, 1.7, 1.3, 1.2, 1.2, 1.2]
         }
       },
       's1': {
@@ -354,15 +354,15 @@ const _DEFAULTS = {
           'B-estimated': null,
           'C': null,
           'D': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           },
           'D-default': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           },
           'E': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           }
         },
@@ -373,7 +373,7 @@ const _DEFAULTS = {
           'C': [1.5, 1.5, 1.5, 1.5, 1.5, 1.4],
           'D': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
           'D-default': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'E': [4.2, 4.2, 4.2, 4.2, 4.2, 4.2]
+          'E': [4.2, 3.3, 2.8, 2.4, 2.2, 2.0]
         }
       },
       'pga': {
@@ -604,8 +604,10 @@ const SiteAmplificationFactory = function (options) {
               data.siteClasses[siteClass], inputs.ss);
 
           if (restriction !== null && inputs.ss >= restriction.limit) {
-            result.fa = null;
-            result.fa_error = restriction.message;
+            if (referenceDocument === 'ASCE7-16') {
+              result.fa = null;
+            }
+            result.fa_note = restriction.message;
           }
         }
 
@@ -617,8 +619,10 @@ const SiteAmplificationFactory = function (options) {
               data.siteClasses[siteClass], inputs.s1);
 
           if (restriction !== null && inputs.s1 >= restriction.limit) {
-            result.fv = null;
-            result.fv_error = restriction.message;
+            if (referenceDocument === 'ASCE7-16') {
+              result.fv = null;
+            }
+            result.fv_note = restriction.message;
           }
         }
 
