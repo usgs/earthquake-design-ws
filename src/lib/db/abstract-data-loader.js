@@ -25,6 +25,7 @@ const AbstractDataLoader = function (options) {
     _this.schemaFile = options.schemaFile;
     _this.schemaName = options.schemaName;
     _this.schemaUser = options.schemaUser;
+    _this.dataLoadOpts = options.dataLoadOpts;
   };
 
   /**
@@ -261,9 +262,9 @@ const AbstractDataLoader = function (options) {
 
               stream = _this.db.query(copyFrom(`
                   COPY temp_region_data
-                  FROM STDIN
-                  WITH CSV HEADER
-              `));
+                  FROM STDIN ` +
+                  _this.dataLoadOpts
+              ));
 
               doReject = (err) => {
                 data.destroy();
@@ -303,15 +304,12 @@ const AbstractDataLoader = function (options) {
         }
 
         return _this.db.query(`
-          SELECT count(*) as points
+          SELECT min(region_id) as region_id
           FROM data
           WHERE region_id=$1
         `, [regionIds[region.name]]).then((result) => {
-          let numPoints = Number(result.rows[0].points);
-          let expectedPoints =
-              (((region.max_latitude - region.min_latitude) / region.grid_spacing) + 1) *
-              (((region.max_longitude - region.min_longitude) / region.grid_spacing) + 1);
-          if (numPoints == expectedPoints) {
+          // Check whether rows exist in data table for this region
+          if (Number(result.rows[0].region_id) === regionIds[region.name]) {
             process.stderr.write(`Region "${region.name}" data already loaded\n`);
           } else {
             return insertData();
