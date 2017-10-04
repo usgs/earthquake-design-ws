@@ -1,5 +1,5 @@
 # NEHRP-2015 Quality Control Tests +/- 0.0001
-> Generated: Wed, 04 Oct 2017 17:21:21 GMT
+> Generated: Wed, 04 Oct 2017 23:21:35 GMT
 > Using web service: http://localhost:8000/ws/designmaps/nehrp-2015.json
 
 ### Legend
@@ -20,7 +20,7 @@
  - :green_heart: {"sms":1.276,"sm1":0.331,"pgam":0.84}
 
 ## Charleston (32.8, -79.95) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.702,"sm1":{"actual":null,"expected":0.781},"pgam":1.12}
+ - :green_heart: {"sms":1.702,"sm1":0.781,"pgam":1.12}
 
 ## Ketchikan (55.342, -131.6453) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.302,"sm1":0.247,"pgam":{"actual":0.115,"expected":0.112}}
@@ -53,7 +53,7 @@
  - :green_heart: {"sms":0.991,"sm1":0.256,"pgam":0.363}
 
 ## Century City (34.05, -118.4) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.111,"sm1":{"actual":null,"expected":1.28},"pgam":1.001}
+ - :green_heart: {"sms":2.111,"sm1":1.28,"pgam":1.001}
 
 ## Charleston (32.8, -79.95) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.134,"sm1":0.331,"pgam":0.747}
@@ -65,13 +65,13 @@
  - :broken_heart: {"sms":0.726,"sm1":0.366,"pgam":{"actual":0.284,"expected":0.28}}
 
 ## Everett (48, -122.2) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.441},"sm1":{"actual":null,"expected":1.002},"pgam":0.61}
+ - :green_heart: {"sms":1.441,"sm1":1.002,"pgam":0.61}
 
 ## Hilo (19.7236, -155.0878) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5}
 
 ## Charleston (32.8, -79.95) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.418,"sm1":{"actual":null,"expected":0.781},"pgam":1.027}
+ - :green_heart: {"sms":1.418,"sm1":0.781,"pgam":1.027}
 
 ## Delta Junction (64.038, -145.7328) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.728,"sm1":0.361,"pgam":{"actual":0.286,"expected":0.287}}
@@ -113,13 +113,13 @@
  - :green_heart: {"sms":1.695,"sm1":0.575,"pgam":0.712}
 
 ## Seattle (47.6, -122.3) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.676,"sm1":{"actual":null,"expected":0.883},"pgam":0.716}
+ - :green_heart: {"sms":1.676,"sm1":0.883,"pgam":0.716}
 
 ## Tacoma (47.25, -122.45) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.22,"sm1":0.375,"pgam":0.45}
 
 ## San Diego (32.7, -117.15) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.891},"sm1":{"actual":null,"expected":1.131},"pgam":0.791}
+ - :green_heart: {"sms":1.891,"sm1":1.131,"pgam":0.791}
 
 ## Hana (20.76, -155.98) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.047,"sm1":0.278,"pgam":0.374}
@@ -146,7 +146,7 @@
  - :green_heart: {"sms":0.579,"sm1":0.169,"pgam":0.266}
 
 ## Ventura (34.3, -119.3) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.424},"sm1":{"actual":null,"expected":1.526},"pgam":0.974}
+ - :green_heart: {"sms":2.424,"sm1":1.526,"pgam":0.974}
 
 ## San Francisco (37.7752, -122.4185) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.571}
@@ -161,7 +161,7 @@
  - :green_heart: {"sms":0.82,"sm1":0.306,"pgam":0.352}
 
 ## Santa Rosa (38.45, -122.7) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.896},"sm1":{"actual":null,"expected":1.877},"pgam":1.117}
+ - :green_heart: {"sms":2.896,"sm1":1.877,"pgam":1.117}
 
 ## Umatac (13.314, 144.6698) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":3.058,"sm1":0.883,"pgam":0.895}
@@ -188,13 +188,13 @@
  - :green_heart: {"sms":0.992,"sm1":0.256,"pgam":0.363}
 
 ## Santa Rosa (38.45, -122.7) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.896,"sm1":{"actual":null,"expected":1.596},"pgam":1.219}
+ - :green_heart: {"sms":2.896,"sm1":1.596,"pgam":1.219}
 
 ## Sleetmute (61.7021, -157.1711) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.618,"sm1":0.231,"pgam":{"actual":0.263,"expected":0.26}}
 
 ## Vallejo (38.1, -122.25) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.502,"sm1":{"actual":null,"expected":1.02},"pgam":0.677}
+ - :green_heart: {"sms":1.502,"sm1":1.02,"pgam":0.677}
 
 ## Kaneohe (21.4182, -157.8046) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.587,"sm1":0.172,"pgam":0.27}
@@ -212,7 +212,7 @@
  - :green_heart: {"sms":1.311,"sm1":0.386,"pgam":0.855}
 
 ## Concord (37.95, -122) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.666,"sm1":{"actual":null,"expected":1.144},"pgam":1.074}
+ - :green_heart: {"sms":2.666,"sm1":1.144,"pgam":1.074}
 
 ## Long Beach (33.7669, -118.1883) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.616,"sm1":0.588,"pgam":0.716}
@@ -224,7 +224,7 @@
  - :green_heart: {"sms":0.786,"sm1":0.204,"pgam":0.319}
 
 ## San Francisco (37.75, -122.4) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.5,"sm1":{"actual":null,"expected":1.02},"pgam":0.639}
+ - :green_heart: {"sms":1.5,"sm1":1.02,"pgam":0.639}
 
 ## Century City (34.05, -118.4) Site Class C, Risk Category: I
  - :green_heart: {"sms":2.533,"sm1":1.054,"pgam":1.091}
@@ -260,7 +260,7 @@
  - :broken_heart: {"sms":1.869,"sm1":0.937,"pgam":{"actual":0.758,"expected":0.757}}
 
 ## Concord (37.95, -122) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.666},"sm1":{"actual":null,"expected":1.346},"pgam":0.985}
+ - :green_heart: {"sms":2.666,"sm1":1.346,"pgam":0.985}
 
 ## Anchorage (61.2, -149.9) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.676,"pgam":0.5}
@@ -314,13 +314,13 @@
  - :green_heart: {"sms":1.5,"sm1":0.676,"pgam":0.5}
 
 ## San Jose (37.35, -121.9) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.5,"sm1":{"actual":null,"expected":1.02},"pgam":0.632}
+ - :green_heart: {"sms":1.5,"sm1":1.02,"pgam":0.632}
 
 ## Century City (34.05, -118.4) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.689,"sm1":0.603,"pgam":0.728}
 
 ## Boise (43.6, -116.2) Site Class E, Risk Category: I
- - :broken_heart: {"sms":0.688,"sm1":{"actual":0.46,"expected":0.451},"pgam":0.301}
+ - :green_heart: {"sms":0.688,"sm1":0.451,"pgam":0.301}
 
 ## Honolulu (21.2905, -157.8374) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.579,"sm1":0.169,"pgam":0.266}
@@ -365,7 +365,7 @@
  - :green_heart: {"sms":2.02,"sm1":0.851,"pgam":0.892}
 
 ## Everett (48, -122.2) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.225,"sm1":{"actual":null,"expected":0.8},"pgam":0.566}
+ - :green_heart: {"sms":1.225,"sm1":0.8,"pgam":0.566}
 
 ## Gakona (62.3018, -145.2829) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.808,"sm1":0.403,"pgam":{"actual":0.328,"expected":0.33}}
@@ -386,7 +386,7 @@
  - :green_heart: {"sms":0.91,"sm1":0.229,"pgam":0.345}
 
 ## Portland (45.5, -122.65) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":1.154,"expected":1.105},"sm1":{"actual":null,"expected":0.955},"pgam":0.561}
+ - :green_heart: {"sms":1.105,"sm1":0.955,"pgam":0.561}
 
 ## Sleetmute (61.7, -157.2) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.62,"sm1":0.231,"pgam":{"actual":0.263,"expected":0.26}}
@@ -404,7 +404,7 @@
  - :broken_heart: {"sms":0.618,"sm1":0.384,"pgam":{"actual":0.251,"expected":0.25}}
 
 ## Concord (37.95, -122) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.221,"sm1":{"actual":null,"expected":1.144},"pgam":0.985}
+ - :green_heart: {"sms":2.221,"sm1":1.144,"pgam":0.985}
 
 ## Sacramento (38.6, -121.5) Site Class C, Risk Category: I
  - :green_heart: {"sms":0.721,"sm1":0.379,"pgam":0.285}
@@ -419,7 +419,7 @@
  - :green_heart: {"sms":0.782,"sm1":0.21,"pgam":0.315}
 
 ## Oakland (37.8, -122.25) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.26,"sm1":{"actual":null,"expected":1.222},"pgam":0.95}
+ - :green_heart: {"sms":2.26,"sm1":1.222,"pgam":0.95}
 
 ## St. Louis (38.6274, -90.1978) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.453,"sm1":0.16,"pgam":0.261}
@@ -428,16 +428,16 @@
  - :green_heart: {"sms":1.241,"sm1":0.432,"pgam":0.494}
 
 ## Century City (34.05, -118.4) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.533},"sm1":{"actual":null,"expected":1.506},"pgam":1.001}
+ - :green_heart: {"sms":2.533,"sm1":1.506,"pgam":1.001}
 
 ## Long Beach (33.8, -118.2) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.346,"sm1":0.486,"pgam":0.595}
 
 ## San Jose (37.35, -121.9) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.8},"sm1":{"actual":null,"expected":1.2},"pgam":0.647}
+ - :green_heart: {"sms":1.8,"sm1":1.2,"pgam":0.647}
 
 ## Oakland (37.8, -122.25) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.883,"sm1":{"actual":null,"expected":1.222},"pgam":0.871}
+ - :green_heart: {"sms":1.883,"sm1":1.222,"pgam":0.871}
 
 ## Everett (48, -122.2) Site Class A, Risk Category: I
  - :green_heart: {"sms":0.961,"sm1":0.342,"pgam":0.411}
@@ -449,22 +449,22 @@
  - :green_heart: {"sms":0.581,"sm1":0.165,"pgam":0.256}
 
 ## Northridge (34.2, -118.55) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.082,"sm1":{"actual":null,"expected":1.02},"pgam":0.856}
+ - :green_heart: {"sms":2.082,"sm1":1.02,"pgam":0.856}
 
 ## Santa Cruz (36.95, -122.05) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.594,"sm1":{"actual":null,"expected":1.024},"pgam":0.739}
+ - :green_heart: {"sms":1.594,"sm1":1.024,"pgam":0.739}
 
 ## Everett (47.9792, -122.2009) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.235,"sm1":0.438,"pgam":0.53}
 
 ## Santa Cruz (36.95, -122.05) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.912},"sm1":{"actual":null,"expected":1.204},"pgam":0.739}
+ - :green_heart: {"sms":1.912,"sm1":1.204,"pgam":0.739}
 
 ## Santa Cruz (36.9741, -122.0297) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.64,"sm1":0.627,"pgam":0.689}
 
 ## Santa Barbara (34.45, -119.7) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.119,"sm1":{"actual":null,"expected":1.317},"pgam":1.022}
+ - :green_heart: {"sms":2.119,"sm1":1.317,"pgam":1.022}
 
 ## Century City (34.05, -118.4) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.9,"sm1":0.603,"pgam":0.819}
@@ -476,22 +476,22 @@
  - :green_heart: {"sms":0.985,"sm1":0.377,"pgam":0.401}
 
 ## Century City (34.05, -118.4) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.533,"sm1":{"actual":null,"expected":1.28},"pgam":1.091}
+ - :green_heart: {"sms":2.533,"sm1":1.28,"pgam":1.091}
 
 ## San Bernardino (34.1, -117.3) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.793},"sm1":{"actual":null,"expected":1.862},"pgam":1.078}
+ - :green_heart: {"sms":2.793,"sm1":1.862,"pgam":1.078}
 
 ## Tok (63.3, -143) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.529,"sm1":0.336,"pgam":{"actual":0.195,"expected":0.2}}
 
 ## San Francisco (37.75, -122.4) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.8,"sm1":{"actual":null,"expected":1.02},"pgam":0.697}
+ - :green_heart: {"sms":1.8,"sm1":1.02,"pgam":0.697}
 
 ## Unalaska (53.8736, -166.5327) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5}
 
 ## Sacramento (38.6, -121.5) Site Class D, Risk Category: I
- - :broken_heart: {"sms":0.763,"sm1":{"actual":null,"expected":0.53},"pgam":0.324}
+ - :green_heart: {"sms":0.763,"sm1":0.53,"pgam":0.324}
 
 ## San Mateo (37.55, -122.3) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.441,"sm1":0.589,"pgam":0.62}
@@ -515,7 +515,7 @@
  - :green_heart: {"sms":0.593,"sm1":0.175,"pgam":0.272}
 
 ## Charleston (32.8, -79.95) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.702},"sm1":{"actual":null,"expected":0.982},"pgam":1.027}
+ - :green_heart: {"sms":1.702,"sm1":0.982,"pgam":1.027}
 
 ## Tok (63.3345, -142.9886) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.509,"sm1":0.325,"pgam":{"actual":0.188,"expected":0.191}}
@@ -527,28 +527,28 @@
  - :broken_heart: {"sms":0.537,"sm1":0.19,"pgam":{"actual":0.228,"expected":0.23}}
 
 ## Memphis (35.15, -90.05) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.117,"sm1":{"actual":null,"expected":0.678},"pgam":0.673}
+ - :green_heart: {"sms":1.117,"sm1":0.678,"pgam":0.673}
 
 ## Sacramento (38.6, -121.5) Site Class E, Risk Category: I
- - :broken_heart: {"sms":0.903,"sm1":{"actual":null,"expected":0.768},"pgam":0.425}
+ - :green_heart: {"sms":0.903,"sm1":0.768,"pgam":0.425}
 
 ## San Jose (37.35, -121.9) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.8,"sm1":{"actual":null,"expected":1.02},"pgam":0.69}
+ - :green_heart: {"sms":1.8,"sm1":1.02,"pgam":0.69}
 
 ## San Luis Obispo (35.3, -120.65) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.306},"sm1":{"actual":null,"expected":0.962},"pgam":0.596}
+ - :green_heart: {"sms":1.306,"sm1":0.962,"pgam":0.596}
 
 ## Riverside (33.95, -117.4) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.8,"sm1":{"actual":null,"expected":0.998},"pgam":0.6}
+ - :green_heart: {"sms":1.8,"sm1":0.998,"pgam":0.6}
 
 ## Ventura (34.3, -119.3) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.616,"sm1":0.61,"pgam":0.708}
 
 ## Irvine (33.65, -117.8) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.499},"sm1":{"actual":null,"expected":1.031},"pgam":0.618}
+ - :green_heart: {"sms":1.499,"sm1":1.031,"pgam":0.618}
 
 ## Oakland (37.8, -122.25) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.26},"sm1":{"actual":null,"expected":1.438},"pgam":0.871}
+ - :green_heart: {"sms":2.26,"sm1":1.438,"pgam":0.871}
 
 ## Memphis (35.15, -90.05) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.922,"sm1":0.278,"pgam":0.551}
@@ -560,7 +560,7 @@
  - :green_heart: {"sms":0.567,"sm1":0.253,"pgam":0.238}
 
 ## Long Beach (33.8, -118.2) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.683,"sm1":{"actual":null,"expected":1.033},"pgam":0.818}
+ - :green_heart: {"sms":1.683,"sm1":1.033,"pgam":0.818}
 
 ## Monterey (36.6, -121.9) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.063,"sm1":0.397,"pgam":0.461}
@@ -572,16 +572,16 @@
  - :green_heart: {"sms":1.068,"sm1":0.394,"pgam":0.473}
 
 ## Las Vegas (36.2, -115.15) Site Class D, Risk Category: I
- - :broken_heart: {"sms":0.828,"sm1":{"actual":null,"expected":0.45},"pgam":0.374}
+ - :green_heart: {"sms":0.828,"sm1":0.45,"pgam":0.374}
 
 ## Northridge (34.2, -118.55) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.562,"sm1":0.48,"pgam":0.642}
 
 ## Northridge (34.2, -118.55) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.082},"sm1":{"actual":null,"expected":1.2},"pgam":0.785}
+ - :green_heart: {"sms":2.082,"sm1":1.2,"pgam":0.785}
 
 ## Tacoma (47.25, -122.45) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.626,"sm1":{"actual":null,"expected":0.858},"pgam":0.6}
+ - :green_heart: {"sms":1.626,"sm1":0.858,"pgam":0.6}
 
 ## Northridge (34.2, -118.55) Site Class C, Risk Category: I
  - :green_heart: {"sms":2.082,"sm1":0.84,"pgam":0.856}
@@ -590,19 +590,19 @@
  - :green_heart: {"sms":1.964,"sm1":0.739,"pgam":0.861}
 
 ## Portland (45.5, -122.65) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.016,"sm1":{"actual":null,"expected":0.75},"pgam":0.481}
+ - :green_heart: {"sms":1.016,"sm1":0.75,"pgam":0.481}
 
 ## Los Angeles (34.05, -118.25) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.364},"sm1":{"actual":null,"expected":1.402},"pgam":0.928}
+ - :green_heart: {"sms":2.364,"sm1":1.402,"pgam":0.928}
 
 ## Riverside (33.95, -117.4) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.8},"sm1":{"actual":null,"expected":1.184},"pgam":0.6}
+ - :green_heart: {"sms":1.8,"sm1":1.184,"pgam":0.6}
 
 ## Las Vegas (36.2, -115.15) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":0.828,"sm1":{"actual":null,"expected":0.45},"pgam":0.374}
+ - :green_heart: {"sms":0.828,"sm1":0.45,"pgam":0.374}
 
 ## Seattle (47.6, -122.3) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.397,"sm1":{"actual":null,"expected":0.883},"pgam":0.656}
+ - :green_heart: {"sms":1.397,"sm1":0.883,"pgam":0.656}
 
 ## Lihue (21.96, -159.36) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.226,"sm1":0.064,"pgam":0.104}
@@ -632,13 +632,13 @@
  - :green_heart: {"sms":1.275,"sm1":0.482,"pgam":0.538}
 
 ## Salt Lake City (40.75, -111.9) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.545,"sm1":{"actual":null,"expected":0.968},"pgam":0.773}
+ - :green_heart: {"sms":1.545,"sm1":0.968,"pgam":0.773}
 
 ## Kodiak (57.8, -152.4) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.881,"pgam":0.618}
 
 ## San Bernardino (34.1, -117.3) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.327,"sm1":{"actual":null,"expected":1.583},"pgam":1.078}
+ - :green_heart: {"sms":2.327,"sm1":1.583,"pgam":1.078}
 
 ## San Francisco (37.75, -122.4) Site Class C, Risk Category: I
  - :green_heart: {"sms":1.8,"sm1":0.84,"pgam":0.697}
@@ -659,7 +659,7 @@
  - :green_heart: {"sms":1.773,"sm1":0.561,"pgam":0.759}
 
 ## San Mateo (37.55, -122.3) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.161,"sm1":{"actual":null,"expected":1.251},"pgam":0.93}
+ - :green_heart: {"sms":2.161,"sm1":1.251,"pgam":0.93}
 
 ## Dillingham (59.0408, -158.464) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.311,"sm1":0.178,"pgam":{"actual":0.125,"expected":0.122}}
@@ -692,7 +692,7 @@
  - :green_heart: {"sms":0.799,"sm1":0.315,"pgam":0.361}
 
 ## San Luis Obispo (35.3, -120.65) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.306,"sm1":{"actual":null,"expected":0.762},"pgam":0.58}
+ - :green_heart: {"sms":1.306,"sm1":0.762,"pgam":0.58}
 
 ## Ponce (18, -66.62) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.032,"sm1":0.397,"pgam":0.411}
@@ -704,7 +704,7 @@
  - :green_heart: {"sms":1.496,"sm1":0.551,"pgam":0.5}
 
 ## Ventura (34.3, -119.3) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.424,"sm1":{"actual":null,"expected":1.297},"pgam":1.062}
+ - :green_heart: {"sms":2.424,"sm1":1.297,"pgam":1.062}
 
 ## Central Guam (13.5, 144.8) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":3.161,"sm1":0.939,"pgam":0.937}
@@ -722,7 +722,7 @@
  - :green_heart: {"sms":1.862,"sm1":0.745,"pgam":0.784}
 
 ## Long Beach (33.8, -118.2) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.02,"sm1":{"actual":null,"expected":1.033},"pgam":0.892}
+ - :green_heart: {"sms":2.02,"sm1":1.033,"pgam":0.892}
 
 ## Northridge (34.2, -118.55) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.388,"sm1":0.48,"pgam":0.571}
@@ -731,7 +731,7 @@
  - :green_heart: {"sms":1.262,"sm1":0.451,"pgam":0.534}
 
 ## Seattle (47.6, -122.3) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.676},"sm1":{"actual":null,"expected":1.084},"pgam":0.658}
+ - :green_heart: {"sms":1.676,"sm1":1.084,"pgam":0.658}
 
 ## Reno (39.55, -119.8) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.172,"sm1":0.412,"pgam":0.494}
@@ -743,7 +743,7 @@
  - :green_heart: {"sms":0.66,"sm1":0.369,"pgam":0.355}
 
 ## Monterey (36.6, -121.9) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.594},"sm1":{"actual":null,"expected":1.096},"pgam":0.648}
+ - :green_heart: {"sms":1.594,"sm1":1.096,"pgam":0.648}
 
 ## Lahaina (20.8773, -156.6792) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.91,"sm1":0.229,"pgam":0.345}
@@ -752,7 +752,7 @@
  - :green_heart: {"sms":0.66,"sm1":0.369,"pgam":0.355}
 
 ## Sacramento (38.6, -121.5) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":0.763,"sm1":{"actual":null,"expected":0.53},"pgam":0.324}
+ - :green_heart: {"sms":0.763,"sm1":0.53,"pgam":0.324}
 
 ## Lakes (61.6, -149.3) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.644,"sm1":0.858,"pgam":0.673}
@@ -773,13 +773,13 @@
  - :green_heart: {"sms":0.783,"sm1":0.21,"pgam":0.315}
 
 ## Ventura (34.3, -119.3) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.02,"sm1":{"actual":null,"expected":1.297},"pgam":0.974}
+ - :green_heart: {"sms":2.02,"sm1":1.297,"pgam":0.974}
 
 ## Riverside (33.95, -117.4) Site Class C, Risk Category: I
  - :green_heart: {"sms":1.8,"sm1":0.824,"pgam":0.6}
 
 ## San Diego (32.7, -117.15) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.891,"sm1":{"actual":null,"expected":0.934},"pgam":0.863}
+ - :green_heart: {"sms":1.891,"sm1":0.934,"pgam":0.863}
 
 ## Vallejo (38.1, -122.25) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.201,"sm1":0.48,"pgam":0.492}
@@ -803,10 +803,10 @@
  - :green_heart: {"sms":2.095,"sm1":0.745,"pgam":0.882}
 
 ## Long Beach (33.8, -118.2) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.02},"sm1":{"actual":null,"expected":1.216},"pgam":0.818}
+ - :green_heart: {"sms":2.02,"sm1":1.216,"pgam":0.818}
 
 ## Los Angeles (34.05, -118.25) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.364,"sm1":{"actual":null,"expected":1.192},"pgam":1.012}
+ - :green_heart: {"sms":2.364,"sm1":1.192,"pgam":1.012}
 
 ## Riverside (33.9533, -117.3953) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.587,"pgam":0.5}
@@ -821,10 +821,10 @@
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5}
 
 ## Vallejo (38.1, -122.25) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.802,"sm1":{"actual":null,"expected":1.02},"pgam":0.738}
+ - :green_heart: {"sms":1.802,"sm1":1.02,"pgam":0.738}
 
 ## Los Angeles (34.05, -118.25) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.97,"sm1":{"actual":null,"expected":1.192},"pgam":0.928}
+ - :green_heart: {"sms":1.97,"sm1":1.192,"pgam":0.928}
 
 ## Memphis (35.15, -90.05) Site Class C, Risk Category: I
  - :green_heart: {"sms":1.229,"sm1":0.52,"pgam":0.734}
@@ -842,19 +842,19 @@
  - :broken_heart: {"sms":0.537,"sm1":0.19,"pgam":{"actual":0.229,"expected":0.23}}
 
 ## Reno (39.55, -119.8) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.465,"sm1":{"actual":null,"expected":0.92},"pgam":0.679}
+ - :green_heart: {"sms":1.465,"sm1":0.92,"pgam":0.679}
 
 ## Salt Lake City (40.75, -111.9) Site Class C, Risk Category: I
  - :green_heart: {"sms":1.854,"sm1":0.802,"pgam":0.843}
 
 ## Vallejo (38.1, -122.25) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.802},"sm1":{"actual":null,"expected":1.2},"pgam":0.677}
+ - :green_heart: {"sms":1.802,"sm1":1.2,"pgam":0.677}
 
 ## Monterey (36.6, -121.9) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.328,"sm1":{"actual":null,"expected":0.895},"pgam":0.634}
+ - :green_heart: {"sms":1.328,"sm1":0.895,"pgam":0.634}
 
 ## Northridge (34.2, -118.55) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.735,"sm1":{"actual":null,"expected":1.02},"pgam":0.785}
+ - :green_heart: {"sms":1.735,"sm1":1.02,"pgam":0.785}
 
 ## Portland (45.5236, -122.675) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.884,"sm1":0.395,"pgam":0.399}
@@ -863,13 +863,13 @@
  - :broken_heart: {"sms":0.999,"sm1":0.382,"pgam":{"actual":0.406,"expected":0.41}}
 
 ## San Diego (32.7, -117.15) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.576,"sm1":{"actual":null,"expected":0.934},"pgam":0.791}
+ - :green_heart: {"sms":1.576,"sm1":0.934,"pgam":0.791}
 
 ## Monterey (36.6, -121.9) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.594,"sm1":{"actual":null,"expected":0.895},"pgam":0.692}
+ - :green_heart: {"sms":1.594,"sm1":0.895,"pgam":0.692}
 
 ## Everett (48, -122.2) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.441,"sm1":{"actual":null,"expected":0.8},"pgam":0.617}
+ - :green_heart: {"sms":1.441,"sm1":0.8,"pgam":0.617}
 
 ## NE Guam (13.6, 144.9) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":3.066,"sm1":0.882,"pgam":0.897}
@@ -887,16 +887,16 @@
  - :green_heart: {"sms":1.891,"sm1":0.776,"pgam":0.863}
 
 ## Santa Barbara (34.45, -119.7) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.543},"sm1":{"actual":null,"expected":1.549},"pgam":1.022}
+ - :green_heart: {"sms":2.543,"sm1":1.549,"pgam":1.022}
 
 ## San Mateo (37.55, -122.3) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":2.161},"sm1":{"actual":null,"expected":1.472},"pgam":0.853}
+ - :green_heart: {"sms":2.161,"sm1":1.472,"pgam":0.853}
 
 ## New York (40.75, -74) Site Class D, Risk Category: I
  - :green_heart: {"sms":0.455,"sm1":0.144,"pgam":0.259}
 
 ## Salt Lake City (40.75, -111.9) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.854},"sm1":{"actual":null,"expected":1.16},"pgam":0.773}
+ - :green_heart: {"sms":1.854,"sm1":1.16,"pgam":0.773}
 
 ## Volcano (19.4317, -155.2294) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":2.414,"sm1":1.053,"pgam":1.311}
@@ -917,13 +917,13 @@
  - :green_heart: {"sms":1.261,"sm1":0.421,"pgam":0.575}
 
 ## Reno (39.55, -119.8) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.758,"sm1":{"actual":null,"expected":0.92},"pgam":0.741}
+ - :green_heart: {"sms":1.758,"sm1":0.92,"pgam":0.741}
 
 ## Tacoma (47.253, -122.4432) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.354,"sm1":0.468,"pgam":0.5}
 
 ## Portland (45.5, -122.65) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.065,"sm1":{"actual":null,"expected":0.75},"pgam":0.481}
+ - :green_heart: {"sms":1.065,"sm1":0.75,"pgam":0.481}
 
 ## Santa Rosa (38.45, -122.7) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.93,"sm1":0.751,"pgam":0.812}
@@ -938,10 +938,10 @@
  - :green_heart: {"sms":0.55,"sm1":0.153,"pgam":0.253}
 
 ## Santa Cruz (36.95, -122.05) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.912,"sm1":{"actual":null,"expected":1.024},"pgam":0.806}
+ - :green_heart: {"sms":1.912,"sm1":1.024,"pgam":0.806}
 
 ## Memphis (35.15, -90.05) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.229},"sm1":{"actual":null,"expected":0.906},"pgam":0.673}
+ - :green_heart: {"sms":1.229,"sm1":0.906,"pgam":0.673}
 
 ## Fajardo (18.336, -65.6535) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.984,"sm1":0.377,"pgam":0.401}
@@ -956,13 +956,13 @@
  - :green_heart: {"sms":0.997,"sm1":0.398,"pgam":0.406}
 
 ## St. Louis (38.6, -90.2) Site Class E, Risk Category: I
- - :broken_heart: {"sms":0.834,"sm1":{"actual":0.681,"expected":0.591},"pgam":0.453}
+ - :green_heart: {"sms":0.834,"sm1":0.591,"pgam":0.453}
 
 ## Glenallen (62.1086, -145.529) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.97,"sm1":0.451,"pgam":{"actual":0.397,"expected":0.398}}
 
 ## Memphis (35.15, -90.05) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.229,"sm1":{"actual":null,"expected":0.678},"pgam":0.734}
+ - :green_heart: {"sms":1.229,"sm1":0.678,"pgam":0.734}
 
 ## Galena (64.7452, -156.8711) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.434,"sm1":0.167,"pgam":{"actual":0.184,"expected":0.18}}
@@ -974,7 +974,7 @@
  - :green_heart: {"sms":1.35,"sm1":0.48,"pgam":0.523}
 
 ## Salt Lake City (40.75, -111.9) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.854,"sm1":{"actual":null,"expected":0.968},"pgam":0.843}
+ - :green_heart: {"sms":1.854,"sm1":0.968,"pgam":0.843}
 
 ## Chicago (41.85, -87.65) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.106,"sm1":0.051,"pgam":0.053}
@@ -986,22 +986,22 @@
  - :green_heart: {"sms":1.118,"sm1":0.39,"pgam":0.477}
 
 ## San Luis Obispo (35.3, -120.65) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.159,"sm1":{"actual":null,"expected":0.762},"pgam":0.54}
+ - :green_heart: {"sms":1.159,"sm1":0.762,"pgam":0.54}
 
 ## Santa Rosa (38.45, -122.7) Site Class D, Risk Category: I
- - :broken_heart: {"sms":2.413,"sm1":{"actual":null,"expected":1.596},"pgam":1.117}
+ - :green_heart: {"sms":2.413,"sm1":1.596,"pgam":1.117}
 
 ## Chicago (41.85, -87.65) Site Class C, Risk Category: I
  - :green_heart: {"sms":0.153,"sm1":0.095,"pgam":0.076}
 
 ## Irvine (33.65, -117.8) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":1.499,"sm1":{"actual":null,"expected":0.828},"pgam":0.633}
+ - :green_heart: {"sms":1.499,"sm1":0.828,"pgam":0.633}
 
 ## Las Vegas (36.2, -115.15) Site Class A, Risk Category: I
  - :green_heart: {"sms":0.516,"sm1":0.165,"pgam":0.228}
 
 ## Reno (39.55, -119.8) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.758},"sm1":{"actual":null,"expected":1.118},"pgam":0.679}
+ - :green_heart: {"sms":1.758,"sm1":1.118,"pgam":0.679}
 
 ## Galena (64.7, -156.9) Site Class B-estimated, Risk Category: I
  - :broken_heart: {"sms":0.428,"sm1":0.165,"pgam":{"actual":0.182,"expected":0.18}}
@@ -1010,16 +1010,16 @@
  - :green_heart: {"sms":1.39,"sm1":0.444,"pgam":0.632}
 
 ## Las Vegas (36.2, -115.15) Site Class E, Risk Category: I
- - :broken_heart: {"sms":0.947,"sm1":{"actual":null,"expected":0.673},"pgam":0.468}
+ - :green_heart: {"sms":0.947,"sm1":0.673,"pgam":0.468}
 
 ## Los Angeles (34.05, -118.25) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.97,"sm1":0.701,"pgam":0.844}
 
 ## San Mateo (37.55, -122.3) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.801,"sm1":{"actual":null,"expected":1.251},"pgam":0.853}
+ - :green_heart: {"sms":1.801,"sm1":1.251,"pgam":0.853}
 
 ## Tacoma (47.25, -122.45) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.355,"sm1":{"actual":null,"expected":0.858},"pgam":0.55}
+ - :green_heart: {"sms":1.355,"sm1":0.858,"pgam":0.55}
 
 ## Portland (45.5, -122.65) Site Class A, Risk Category: I
  - :green_heart: {"sms":0.71,"sm1":0.315,"pgam":0.321}
@@ -1037,10 +1037,10 @@
  - :green_heart: {"sms":1.331,"sm1":0.497,"pgam":0.576}
 
 ## San Francisco (37.75, -122.4) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.8},"sm1":{"actual":null,"expected":1.2},"pgam":0.65}
+ - :green_heart: {"sms":1.8,"sm1":1.2,"pgam":0.65}
 
 ## Riverside (33.95, -117.4) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.5,"sm1":{"actual":null,"expected":0.998},"pgam":0.55}
+ - :green_heart: {"sms":1.5,"sm1":0.998,"pgam":0.55}
 
 ## Oakland (37.8, -122.25) Site Class C, Risk Category: I
  - :green_heart: {"sms":2.26,"sm1":1.006,"pgam":0.95}
@@ -1052,7 +1052,7 @@
  - :green_heart: {"sms":0.945,"sm1":0.359,"pgam":0.382}
 
 ## Irvine (33.65, -117.8) Site Class D, Risk Category: I
- - :broken_heart: {"sms":1.249,"sm1":{"actual":null,"expected":0.828},"pgam":0.58}
+ - :green_heart: {"sms":1.249,"sm1":0.828,"pgam":0.58}
 
 ## San Jose (37.35, -121.9) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.35,"sm1":0.48,"pgam":0.517}
@@ -1064,16 +1064,16 @@
  - :green_heart: {"sms":1.35,"sm1":0.464,"pgam":0.45}
 
 ## San Bernardino (34.1, -117.3) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.793,"sm1":{"actual":null,"expected":1.583},"pgam":1.177}
+ - :green_heart: {"sms":2.793,"sm1":1.583,"pgam":1.177}
 
 ## Monterey (36.6, -121.9) Site Class C, Risk Category: I
  - :green_heart: {"sms":1.594,"sm1":0.745,"pgam":0.692}
 
 ## Tacoma (47.25, -122.45) Site Class E, Risk Category: I
- - :broken_heart: {"sms":{"actual":null,"expected":1.626},"sm1":{"actual":null,"expected":1.06},"pgam":0.6}
+ - :green_heart: {"sms":1.626,"sm1":1.06,"pgam":0.6}
 
 ## Santa Barbara (34.45, -119.7) Site Class D-default, Risk Category: I
- - :broken_heart: {"sms":2.543,"sm1":{"actual":null,"expected":1.317},"pgam":1.115}
+ - :green_heart: {"sms":2.543,"sm1":1.317,"pgam":1.115}
 
 ## Seattle (47.6065, -122.3307) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.399,"sm1":0.488,"pgam":0.597}
@@ -1095,5 +1095,5 @@
 
 
 ### Summary
- - :green_heart: 243 passing
- - :broken_heart: 119 failing
+ - :green_heart: 335 passing
+ - :broken_heart: 27 failing
