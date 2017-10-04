@@ -10,7 +10,7 @@ CREATE TABLE region (
 );
 
 CREATE TABLE data (
-  id SERIAL NOT NULL,
+  id SERIAL NOT NULL PRIMARY KEY,
   region_id INTEGER NOT NULL REFERENCES region(id),
 
   latitude NUMERIC NOT NULL,
@@ -18,14 +18,13 @@ CREATE TABLE data (
   pgad NUMERIC DEFAULT NULL,
   s1d NUMERIC DEFAULT NULL,
   ssd NUMERIC DEFAULT NULL,
-  CONSTRAINT det_data_pkey PRIMARY KEY (region_id, latitude, longitude, pgad,
-    s1d, ssd)
+  UNIQUE (region_id, latitude, longitude)
 );
 
 CREATE TABLE document (
-  id SERIAL NOT NULL,
+  id SERIAL NOT NULL PRIMARY KEY,
   region_id INTEGER NOT NULL REFERENCES region(id),
 
   name VARCHAR(255) NOT NULL,
-  CONSTRAINT det_doc_pkey PRIMARY KEY (region_id, name)
+  UNIQUE (region_id, name)
 );

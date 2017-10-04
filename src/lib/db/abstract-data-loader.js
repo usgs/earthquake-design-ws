@@ -56,19 +56,14 @@ const AbstractDataLoader = function (options) {
       return createSchema();
     }
 
-    process.stderr.write(
-        `Checking whether schema "${_this.schemaName}" exists\n`);
     return _this.db.query(`
       SELECT schema_name
       FROM information_schema.schemata
       WHERE schema_name = $1
     `, [_this.schemaName]).then((result) => {
       if (result.rows.length === 0) {
-        process.stderr.write(`Schema "${_this.schemaName}" not found\n`);
         return createSchema();
       } else {
-        process.stderr.write(
-            `Schema "${_this.schemaName}" found, skipping create\n`);
         return _this.db.query('SET search_path TO ' + _this.schemaName);
       }
     });
@@ -127,8 +122,6 @@ const AbstractDataLoader = function (options) {
           return insertRegion();
         }
 
-        process.stderr.write(
-            `Checking whether region "${region.name}" exists\n`);
         return _this.db.query(`
           SELECT id
           FROM region
@@ -146,13 +139,10 @@ const AbstractDataLoader = function (options) {
           region.min_latitude,
           region.min_longitude
         ]).then((result) => {
-          process.stderr.write('' + result.rows.length + '\n');
           if (result.rows.length == 1) {
-            process.stderr.write(`Region "${region.name}" found (id=${result.rows[0].id})\n`);
             // save region id for later data loading
             regionIds[region.name] = result.rows[0].id;
           } else {
-            process.stderr.write(`Region "${region.name}" not found\n`);
             return insertRegion();
           }
         });
@@ -207,8 +197,6 @@ const AbstractDataLoader = function (options) {
             return insertDocument();
           }
 
-          process.stderr.write(
-              `Checking whether document "${doc.name}" (region ${regionId}) exists\n`);
           return _this.db.query(`
             SELECT id
             FROM document
@@ -218,10 +206,7 @@ const AbstractDataLoader = function (options) {
             regionId,
             doc.name
           ]).then((result) => {
-            if (result.rows.length == 1) {
-              process.stderr.write(`Document "${doc.name}" (region ${regionId}) found\n`);
-            } else {
-              process.stderr.write(`Document "${doc.name}" (region ${regionId}) not found\n`);
+            if (result.rows.length == 0) {
               return insertDocument();
             }
           });
@@ -317,8 +302,6 @@ const AbstractDataLoader = function (options) {
           return insertData();
         }
 
-        process.stderr.write(
-            `Checking whether data for region "${region.name}" exists\n`);
         return _this.db.query(`
           SELECT count(*) as points
           FROM data
@@ -329,9 +312,8 @@ const AbstractDataLoader = function (options) {
               (((region.max_latitude - region.min_latitude) / region.grid_spacing) + 1) *
               (((region.max_longitude - region.min_longitude) / region.grid_spacing) + 1);
           if (numPoints == expectedPoints) {
-            process.stderr.write(`Region "${region.name}" data found\n`);
+            process.stderr.write(`Region "${region.name}" data already loaded\n`);
           } else {
-            process.stderr.write(`Region "${region.name}" data not found\n`);
             return insertData();
           }
         });
