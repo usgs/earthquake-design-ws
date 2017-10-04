@@ -2,6 +2,7 @@
 
 const inquirer = require('inquirer'),
     dbUtils = require('./db-utils'),
+    AbstractDataLoader = require('./abstract-data-loader'),
     DeterministicDataLoader = require('./deterministic/deterministic-data-loader'),
     ProbabilisticDataLoader = require('./probabilistic/probabilistic-data-loader'),
     RiskCoefficientDataLoader =
@@ -89,11 +90,11 @@ Promise.resolve().then(() => {
     }
   });
 
-  mode = 'interactive';
+  mode = AbstractDataLoader.MODE_INTERACTIVE;
   if (missing) {
-    mode = 'missing';
+    mode = AbstractDataLoader.MODE_MISSING;
   } else if (silent) {
-    mode = 'silent';
+    mode = AbstractDataLoader.MODE_SILENT;
   }
 
   return {
@@ -107,12 +108,12 @@ Promise.resolve().then(() => {
 }).then((args) => {
   let prompt;
 
-  if (args.mode !== 'interactive') {
-    // already parsed
+  if (args.mode !== AbstractDataLoader.MODE_INTERACTIVE) {
+    // non-interactive mode, arguments already parsed
     return args;
   }
 
-  // prompt user for arguments
+  // interactively prompt user for arguments
   prompt = inquirer.createPromptModule();
   return prompt([
     {
@@ -131,13 +132,13 @@ Promise.resolve().then(() => {
 
     if (mode === MISSING_PROMPT) {
       return {
-        mode: 'missing',
-        dataSets: args.dataSets
+        dataSets: args.dataSets,
+        mode: AbstractDataLoader.MODE_MISSING
       };
     } else if (mode === SILENT_PROMPT) {
       return {
-        mode: 'silent',
-        dataSets: args.dataSets
+        dataSets: args.dataSets,
+        mode: AbstractDataLoader.MODE_SILENT
       };
     }
 
@@ -152,23 +153,30 @@ Promise.resolve().then(() => {
     ]).then((selection) => {
       return {
         dataSets: selection.dataSets,
-        mode: 'interactive'
+        mode: AbstractDataLoader.MODE_MISSING
       };
     });
   });
 }).then((args) => {
-  let promise;
+  let dataSets,
+      mode,
+      promise;
 
+  dataSets = args.dataSets;
+  mode = args.mode;
   promise = Promise.resolve();
 
-  args.dataSets.forEach((dataSet) => {
+  dataSets.forEach((dataSet) => {
     promise = promise.then(() => {
+      let factory;
+
+      factory = LOADER_FACTORIES[dataSet];
       process.stderr.write(`Loading ${dataSet} data set\n`);
 
       return dbUtils.getDefaultAdminDB().then((adminDb) => {
-        let loader = LOADER_FACTORIES[dataSet]({
+        let loader = factory({
           db: adminDb,
-          missingOnly: (args.mode !== 'silent')
+          mode: mode
         });
 
         return loader.run().catch((e) => {

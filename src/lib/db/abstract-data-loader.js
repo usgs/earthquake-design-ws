@@ -7,6 +7,11 @@ const copyFrom = require('pg-copy-streams').from,
     zlib = require('zlib');
 
 
+const MODE_INTERACTIVE = 'interactive';
+const MODE_MISSING = 'missing';
+const MODE_SILENT = 'silent';
+
+
 const AbstractDataLoader = function (options) {
   let _this,
       _initialize;
@@ -20,7 +25,7 @@ const AbstractDataLoader = function (options) {
     _this.db = options.db;
     _this.documents = options.documents;
     _this.indexFile = options.indexFile;
-    _this.missingOnly = options.missingOnly;
+    _this.mode = options.mode;
     _this.regions = options.regions;
     _this.schemaFile = options.schemaFile;
     _this.schemaName = options.schemaName;
@@ -52,7 +57,7 @@ const AbstractDataLoader = function (options) {
       });
     };
 
-    if (!_this.missingOnly) {
+    if (_this.mode === MODE_SILENT) {
       // Recreate schema
       return createSchema();
     }
@@ -119,7 +124,7 @@ const AbstractDataLoader = function (options) {
           });
         };
 
-        if (!_this.missingOnly) {
+        if (_this.mode === MODE_SILENT) {
           return insertRegion();
         }
 
@@ -194,7 +199,7 @@ const AbstractDataLoader = function (options) {
             ]);
           };
 
-          if (!_this.missingOnly) {
+          if (_this.mode === MODE_SILENT) {
             return insertDocument();
           }
 
@@ -299,7 +304,7 @@ const AbstractDataLoader = function (options) {
         };
 
 
-        if (!_this.missingOnly) {
+        if (_this.mode === MODE_SILENT) {
           return insertData();
         }
 
@@ -362,6 +367,11 @@ const AbstractDataLoader = function (options) {
   options = null;
   return _this;
 };
+
+
+AbstractDataLoader.MODE_INTERACTIVE = MODE_INTERACTIVE;
+AbstractDataLoader.MODE_MISSING = MODE_MISSING;
+AbstractDataLoader.MODE_SILENT = MODE_SILENT;
 
 
 module.exports = AbstractDataLoader;

@@ -18,7 +18,7 @@ const _DEFAULTS = {
   db: null,
   documents: documents,
   indexFile: __dirname + '/./index.sql',
-  missingOnly: false,
+  mode: AbstractDataLoader.MODE_MISSING,
   regions: regions,
   schemaFile: __dirname + '/./schema.sql',
   schemaName: config.DB_SCHEMA_TSUBL,
