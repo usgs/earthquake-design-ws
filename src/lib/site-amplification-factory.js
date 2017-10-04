@@ -604,7 +604,9 @@ const SiteAmplificationFactory = function (options) {
               data.siteClasses[siteClass], inputs.ss);
 
           if (restriction !== null && inputs.ss >= restriction.limit) {
-            result.fa = null;
+            if (referenceDocument === 'ASCE7-16') {
+              result.fa = null;
+            }
             result.fa_error = restriction.message;
           }
         }
@@ -617,7 +619,9 @@ const SiteAmplificationFactory = function (options) {
               data.siteClasses[siteClass], inputs.s1);
 
           if (restriction !== null && inputs.s1 >= restriction.limit) {
-            result.fv = null;
+            if (referenceDocument === 'ASCE7-16') {
+              result.fv = null;
+            }
             result.fv_error = restriction.message;
           }
         }
