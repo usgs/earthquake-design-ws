@@ -1,0 +1,7604 @@
+[
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 15.2,
+        "longitude": 145.7,
+        "riskCategory": "I",
+        "title": "Central Saipan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.94028,
+        "sm1": 0.57575,
+        "pgam": 0.57055
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4,
+        "longitude": -66.16,
+        "riskCategory": "I",
+        "title": "Bayamon",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.98387,
+        "sm1": 0.38393,
+        "pgam": 0.39914
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5166,
+        "longitude": -144.4397,
+        "riskCategory": "I",
+        "title": "Chitina",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.13271,
+        "sm1": 0.53443,
+        "pgam": 0.4453
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.7452,
+        "longitude": -156.8711,
+        "riskCategory": "I",
+        "title": "Galena",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.43416,
+        "sm1": 0.16716,
+        "pgam": 0.18
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.6,
+        "longitude": -151.2,
+        "riskCategory": "I",
+        "title": "Kenai",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.22945,
+        "sm1": 0.52046,
+        "pgam": 0.73449
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.77291,
+        "sm1": 0.56095,
+        "pgam": 0.75922
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2008,
+        "longitude": -67.1425,
+        "riskCategory": "I",
+        "title": "Mayaguez",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2347,
+        "sm1": 0.47501,
+        "pgam": 0.46865
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.8,
+        "longitude": -147.7,
+        "riskCategory": "I",
+        "title": "Fairbanks",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99939,
+        "sm1": 0.3818,
+        "pgam": 0.41
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8773,
+        "longitude": -156.6792,
+        "riskCategory": "I",
+        "title": "Lahaina",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.91014,
+        "sm1": 0.22904,
+        "pgam": 0.34482
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.66566,
+        "sm1": 0.94193,
+        "pgam": 1.07439
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.1086,
+        "longitude": -145.529,
+        "riskCategory": "I",
+        "title": "Glenallen",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.97018,
+        "sm1": 0.45073,
+        "pgam": 0.39756
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.19535,
+        "sm1": 0.39714,
+        "pgam": 0.51865
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.24946,
+        "sm1": 0.8281,
+        "pgam": 0.58004
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99914,
+        "sm1": 0.35749,
+        "pgam": 0.42184
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.88,
+        "longitude": -156.68,
+        "riskCategory": "I",
+        "title": "Lahaina",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.91008,
+        "sm1": 0.22894,
+        "pgam": 0.34483
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.76,
+        "longitude": -155.98,
+        "riskCategory": "I",
+        "title": "Hana",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.04696,
+        "sm1": 0.27839,
+        "pgam": 0.37352
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 55.342,
+        "longitude": -131.6453,
+        "riskCategory": "I",
+        "title": "Ketchikan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.30232,
+        "sm1": 0.24725,
+        "pgam": 0.1116
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.66566,
+        "sm1": 1.34561,
+        "pgam": 0.98485
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.44132,
+        "sm1": 1.00186,
+        "pgam": 0.60982
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0531,
+        "longitude": -118.2428,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.97642,
+        "sm1": 0.7044,
+        "pgam": 0.84751
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.64,
+        "longitude": -156,
+        "riskCategory": "I",
+        "title": "Kailua-Kona",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.92,
+        "sm1": 0.88,
+        "pgam": 1.02695
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5938,
+        "sm1": 0.89534,
+        "pgam": 0.69153
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.68,
+        "longitude": -157.94,
+        "riskCategory": "I",
+        "title": "Kahuku",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.54975,
+        "sm1": 0.15346,
+        "pgam": 0.25318
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.8715,
+        "longitude": -176.6377,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.7563,
+        "longitude": -155.987,
+        "riskCategory": "I",
+        "title": "Hana",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.04819,
+        "sm1": 0.27866,
+        "pgam": 0.37379
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.82844,
+        "sm1": 0.45011,
+        "pgam": 0.37425
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.7461,
+        "longitude": -64.7043,
+        "riskCategory": "I",
+        "title": "Christiansted",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.82043,
+        "sm1": 0.30584,
+        "pgam": 0.3524
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.26141,
+        "sm1": 0.04798,
+        "pgam": 0.16145
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.0841,
+        "longitude": -157.0099,
+        "riskCategory": "I",
+        "title": "Kaunakakai",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.78607,
+        "sm1": 0.20446,
+        "pgam": 0.31872
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.1,
+        "longitude": -145.5,
+        "riskCategory": "I",
+        "title": "Glenallen",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.97058,
+        "sm1": 0.4505,
+        "pgam": 0.4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.34,
+        "longitude": -65.65,
+        "riskCategory": "I",
+        "title": "Fajardo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.9852,
+        "sm1": 0.37694,
+        "pgam": 0.40116
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8852,
+        "longitude": -156.4584,
+        "riskCategory": "I",
+        "title": "Kahului",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99265,
+        "sm1": 0.25307,
+        "pgam": 0.36346
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.41798,
+        "sm1": 0.78101,
+        "pgam": 1.02686
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.27619,
+        "sm1": 0.33131,
+        "pgam": 0.84016
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.66566,
+        "sm1": 1.14377,
+        "pgam": 1.07439
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.53301,
+        "sm1": 1.28034,
+        "pgam": 1.09146
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.27614,
+        "sm1": 0.0876,
+        "pgam": 0.12198
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.06378,
+        "sm1": 0.73774,
+        "pgam": 0.88525
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.9695,
+        "longitude": -159.3581,
+        "riskCategory": "I",
+        "title": "Lihue",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.22604,
+        "sm1": 0.0642,
+        "pgam": 0.10393
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7143,
+        "longitude": -74.006,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.28824,
+        "sm1": 0.05963,
+        "pgam": 0.17772
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.44132,
+        "sm1": 0.64062,
+        "pgam": 0.61719
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.7949,
+        "longitude": -161.763,
+        "riskCategory": "I",
+        "title": "Bethel",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.3005,
+        "sm1": 0.12462,
+        "pgam": 0.12898
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.77711,
+        "sm1": 0.53825,
+        "pgam": 0.71626
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.42,
+        "longitude": -157.8,
+        "riskCategory": "I",
+        "title": "Kaneohe",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.58759,
+        "sm1": 0.17195,
+        "pgam": 0.27029
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.2992,
+        "longitude": -170.8094,
+        "riskCategory": "I",
+        "title": "Fagamalo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.39923,
+        "sm1": 0.20738,
+        "pgam": 0.15141
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.34635,
+        "sm1": 0.48624,
+        "pgam": 0.59455
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.37759,
+        "sm1": 0.08996,
+        "pgam": 0.21896
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.6418,
+        "longitude": -155.9925,
+        "riskCategory": "I",
+        "title": "Kailua-Kona",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.92,
+        "sm1": 0.88,
+        "pgam": 1.02865
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.8,
+        "longitude": -161.8,
+        "riskCategory": "I",
+        "title": "Bethel",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.30206,
+        "sm1": 0.12481,
+        "pgam": 0.13
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5938,
+        "sm1": 0.74463,
+        "pgam": 0.69153
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.68867,
+        "sm1": 0.60251,
+        "pgam": 0.72764
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.24,
+        "longitude": -66.04,
+        "riskCategory": "I",
+        "title": "Caguas",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.94494,
+        "sm1": 0.3595,
+        "pgam": 0.38203
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3971,
+        "longitude": -66.1559,
+        "riskCategory": "I",
+        "title": "Bayamon",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.98276,
+        "sm1": 0.38336,
+        "pgam": 0.39882
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.08099,
+        "sm1": 0.34166,
+        "pgam": 0.4629
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.2,
+        "longitude": -149.9,
+        "riskCategory": "I",
+        "title": "Anchorage",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.67649,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.58081,
+        "sm1": 0.16452,
+        "pgam": 0.25604
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7236,
+        "longitude": -155.0878,
+        "riskCategory": "I",
+        "title": "Hilo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.88,
+        "longitude": -156.46,
+        "riskCategory": "I",
+        "title": "Kahului",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.9922,
+        "sm1": 0.25309,
+        "pgam": 0.36334
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.96088,
+        "sm1": 0.34166,
+        "pgam": 0.41146
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.44132,
+        "sm1": 0.79989,
+        "pgam": 0.61719
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.6,
+        "longitude": -149.3,
+        "riskCategory": "I",
+        "title": "Lakes",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.6438,
+        "sm1": 0.85808,
+        "pgam": 0.67338
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.038,
+        "longitude": -145.7328,
+        "riskCategory": "I",
+        "title": "Delta Junction",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.72767,
+        "sm1": 0.36115,
+        "pgam": 0.28656
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.9779,
+        "longitude": -122.0301,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.88103,
+        "sm1": 0.6,
+        "pgam": 0.7676
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49871,
+        "sm1": 0.8281,
+        "pgam": 0.63277
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2359,
+        "longitude": -66.0357,
+        "riskCategory": "I",
+        "title": "Caguas",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.9449,
+        "sm1": 0.35907,
+        "pgam": 0.38198
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.08219,
+        "sm1": 1.2,
+        "pgam": 0.78493
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.6695,
+        "longitude": -117.8223,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2617,
+        "sm1": 0.45134,
+        "pgam": 0.53369
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.8413,
+        "longitude": -147.7214,
+        "riskCategory": "I",
+        "title": "Fairbanks",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99103,
+        "sm1": 0.37789,
+        "pgam": 0.40174
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.9792,
+        "longitude": -122.2009,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.23483,
+        "sm1": 0.43831,
+        "pgam": 0.53026
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.53301,
+        "sm1": 1.0544,
+        "pgam": 1.09146
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.09394,
+        "sm1": 0.05063,
+        "pgam": 0.04694
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 58.4,
+        "longitude": -134.6,
+        "riskCategory": "I",
+        "title": "Juneau",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.61784,
+        "sm1": 0.38415,
+        "pgam": 0.25
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 59.0408,
+        "longitude": -158.464,
+        "riskCategory": "I",
+        "title": "Dillingham",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.31073,
+        "sm1": 0.17826,
+        "pgam": 0.12184
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5,
+        "longitude": -149.6,
+        "riskCategory": "I",
+        "title": "Knik-Fairview",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.68047,
+        "pgam": 0.51012
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.33,
+        "longitude": -64.79,
+        "riskCategory": "I",
+        "title": "Cruz Bay",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.24061,
+        "sm1": 0.43201,
+        "pgam": 0.49386
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.6757,
+        "longitude": -157.9476,
+        "riskCategory": "I",
+        "title": "Kahuku",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.54939,
+        "sm1": 0.15328,
+        "pgam": 0.25309
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.70158,
+        "sm1": 0.62121,
+        "pgam": 1.12021
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.70158,
+        "sm1": 0.98222,
+        "pgam": 1.02686
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7763,
+        "longitude": -79.9307,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.31124,
+        "sm1": 0.38609,
+        "pgam": 0.85474
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.303,
+        "longitude": -65.301,
+        "riskCategory": "I",
+        "title": "Culebra Barrio",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.0915,
+        "sm1": 0.39728,
+        "pgam": 0.4388
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.71018,
+        "sm1": 0.31482,
+        "pgam": 0.32098
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.3,
+        "longitude": -157.84,
+        "riskCategory": "I",
+        "title": "Honolulu",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.57869,
+        "sm1": 0.16921,
+        "pgam": 0.26634
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.88313,
+        "sm1": 1.22215,
+        "pgam": 0.87074
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.4975,
+        "longitude": -149.6414,
+        "riskCategory": "I",
+        "title": "Knik-Fairview",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.68876,
+        "pgam": 0.52326
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 0.99829,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.5298,
+        "longitude": -119.8128,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5819,
+        "sm1": 0.55904,
+        "pgam": 0.67527
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3018,
+        "longitude": -145.2829,
+        "riskCategory": "I",
+        "title": "Gakona",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.80829,
+        "sm1": 0.40296,
+        "pgam": 0.32964
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.01953,
+        "sm1": 1.2156,
+        "pgam": 0.81751
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.75836,
+        "sm1": 0.91995,
+        "pgam": 0.74056
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.90272,
+        "sm1": 0.7677,
+        "pgam": 0.4246
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.79287,
+        "sm1": 1.58285,
+        "pgam": 1.17654
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18,
+        "longitude": -66.62,
+        "riskCategory": "I",
+        "title": "Ponce",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.03178,
+        "sm1": 0.39735,
+        "pgam": 0.41122
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.08219,
+        "sm1": 1.02,
+        "pgam": 0.85629
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.32817,
+        "sm1": 0.89534,
+        "pgam": 0.6339
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 22.22,
+        "longitude": -159.48,
+        "riskCategory": "I",
+        "title": "Princeville",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.1918,
+        "sm1": 0.05531,
+        "pgam": 0.09456
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.45532,
+        "sm1": 0.14393,
+        "pgam": 0.25853
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.89108,
+        "sm1": 1.13063,
+        "pgam": 0.79121
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 0.84,
+        "pgam": 0.6899
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.36387,
+        "sm1": 1.40236,
+        "pgam": 0.92793
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6003,
+        "longitude": -121.8937,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.33071,
+        "sm1": 0.49664,
+        "pgam": 0.57626
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2283,
+        "longitude": -118.5361,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.74757,
+        "sm1": 0.60293,
+        "pgam": 0.716
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.54483,
+        "sm1": 0.96821,
+        "pgam": 0.77289
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.84,
+        "longitude": -155.1,
+        "riskCategory": "I",
+        "title": "Pepeekeo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.31877,
+        "sm1": 0.41243,
+        "pgam": 0.55542
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 22.2211,
+        "longitude": -159.4817,
+        "riskCategory": "I",
+        "title": "Princeville",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.19146,
+        "sm1": 0.05527,
+        "pgam": 0.09448
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.5,
+        "longitude": -165.4,
+        "riskCategory": "I",
+        "title": "Nome",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.53687,
+        "sm1": 0.19041,
+        "pgam": 0.23
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.26072,
+        "sm1": 0.42137,
+        "pgam": 0.57542
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.69482,
+        "sm1": 0.57513,
+        "pgam": 0.71242
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.2166,
+        "longitude": -149.8934,
+        "riskCategory": "I",
+        "title": "Anchorage",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.67641,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.30889,
+        "sm1": 0.11011,
+        "pgam": 0.13649
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.15,
+        "longitude": -65.44,
+        "riskCategory": "I",
+        "title": "Isabel II",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.03631,
+        "sm1": 0.37681,
+        "pgam": 0.42008
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.3018,
+        "longitude": -170.8094,
+        "riskCategory": "I",
+        "title": "Faganeanea",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.40066,
+        "sm1": 0.20782,
+        "pgam": 0.15197
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 60.5589,
+        "longitude": -151.2474,
+        "riskCategory": "I",
+        "title": "Kenai",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.47697,
+        "sm1": 0.26071,
+        "pgam": 0.20723
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.47697,
+        "sm1": 0.26071,
+        "pgam": 0.20723
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.53301,
+        "sm1": 1.50629,
+        "pgam": 1.00051
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.75,
+        "longitude": -64.7,
+        "riskCategory": "I",
+        "title": "Christiansted",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.82172,
+        "sm1": 0.30655,
+        "pgam": 0.35303
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.39887,
+        "sm1": 0.16425,
+        "pgam": 0.17138
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.34,
+        "longitude": -64.93,
+        "riskCategory": "I",
+        "title": "Charlotte Amalie",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2306,
+        "sm1": 0.42982,
+        "pgam": 0.4883
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.68756,
+        "sm1": 0.45053,
+        "pgam": 0.30121
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.11904,
+        "sm1": 0.43392,
+        "pgam": 0.43291
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3,
+        "longitude": -145.3,
+        "riskCategory": "I",
+        "title": "Gakona",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.81219,
+        "sm1": 0.40403,
+        "pgam": 0.33
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.7,
+        "longitude": -156.9,
+        "riskCategory": "I",
+        "title": "Galena",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.42817,
+        "sm1": 0.16542,
+        "pgam": 0.18
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.28181,
+        "sm1": 0.26581,
+        "pgam": 0.14081
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.13439,
+        "sm1": 0.33131,
+        "pgam": 0.74681
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.18787,
+        "sm1": 0.15189,
+        "pgam": 0.09387
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3407,
+        "longitude": -64.934,
+        "riskCategory": "I",
+        "title": "Charlotte Amalie",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2308,
+        "sm1": 0.42996,
+        "pgam": 0.48841
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.8504,
+        "longitude": -87.6503,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.11742,
+        "sm1": 0.06328,
+        "pgam": 0.05867
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.11802,
+        "sm1": 0.43332,
+        "pgam": 0.43247
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.5,
+        "longitude": 144.8,
+        "riskCategory": "I",
+        "title": "Central Guam",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.16064,
+        "sm1": 0.93932,
+        "pgam": 0.93677
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.3,
+        "longitude": -170.7,
+        "riskCategory": "I",
+        "title": "Central Tutuila",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.35713,
+        "sm1": 0.19269,
+        "pgam": 0.13498
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.18787,
+        "sm1": 0.15189,
+        "pgam": 0.09387
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.89976,
+        "sm1": 0.60251,
+        "pgam": 0.8186
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.99924,
+        "sm1": 0.53825,
+        "pgam": 0.80579
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4182,
+        "longitude": -157.8046,
+        "riskCategory": "I",
+        "title": "Kaneohe",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.58654,
+        "sm1": 0.17173,
+        "pgam": 0.27007
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.15265,
+        "sm1": 0.09493,
+        "pgam": 0.07627
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.1,
+        "longitude": -155.78,
+        "riskCategory": "I",
+        "title": "Hawaiian Ocean View",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.09931,
+        "sm1": 0.87598,
+        "pgam": 1.12916
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 48,
+        "longitude": -122.2,
+        "riskCategory": "I",
+        "title": "Everett",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.22459,
+        "sm1": 0.79989,
+        "pgam": 0.56576
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.2828,
+        "longitude": -120.6586,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.06761,
+        "sm1": 0.39353,
+        "pgam": 0.47328
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.10513,
+        "sm1": 0.95465,
+        "pgam": 0.56073
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.397,
+        "sm1": 0.88315,
+        "pgam": 0.65604
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.1176,
+        "sm1": 0.38973,
+        "pgam": 0.47712
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.67641,
+        "sm1": 0.88315,
+        "pgam": 0.71568
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.08219,
+        "sm1": 0.84,
+        "pgam": 0.85629
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2573,
+        "sm1": 0.38973,
+        "pgam": 0.53676
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.76289,
+        "sm1": 0.52965,
+        "pgam": 0.32366
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5236,
+        "longitude": -122.675,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.88393,
+        "sm1": 0.39489,
+        "pgam": 0.3994
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.66419,
+        "sm1": 0.25188,
+        "pgam": 0.35932
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.09465,
+        "sm1": 0.74487,
+        "pgam": 0.88241
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.79287,
+        "sm1": 1.86218,
+        "pgam": 1.0785
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3311,
+        "longitude": -64.7944,
+        "riskCategory": "I",
+        "title": "Cruz Bay",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.24054,
+        "sm1": 0.43212,
+        "pgam": 0.49376
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 0.82411,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 1.02,
+        "pgam": 0.63888
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 0.84,
+        "pgam": 0.69696
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.5893,
+        "longitude": 144.8985,
+        "riskCategory": "I",
+        "title": "Upi",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.07003,
+        "sm1": 0.88476,
+        "pgam": 0.89819
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.8957,
+        "sm1": 1.87724,
+        "pgam": 1.11696
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.54304,
+        "sm1": 1.54944,
+        "pgam": 1.02209
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.59905,
+        "sm1": 0.24337,
+        "pgam": 0.31951
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.65958,
+        "sm1": 0.36919,
+        "pgam": 0.35512
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.3,
+        "longitude": -170.8,
+        "riskCategory": "I",
+        "title": "SW Tutuila",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.39613,
+        "sm1": 0.20624,
+        "pgam": 0.15024
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.83394,
+        "sm1": 0.59054,
+        "pgam": 0.45296
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.80184,
+        "sm1": 1.2,
+        "pgam": 0.6768
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 53.9,
+        "longitude": -166.5,
+        "riskCategory": "I",
+        "title": "Unalaska",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.42353,
+        "sm1": 1.0679,
+        "pgam": 1.06201
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 63.3345,
+        "longitude": -142.9886,
+        "riskCategory": "I",
+        "title": "Tok",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.50922,
+        "sm1": 0.32467,
+        "pgam": 0.19082
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.3551,
+        "sm1": 0.85756,
+        "pgam": 0.55
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.61569,
+        "sm1": 0.61023,
+        "pgam": 0.70801
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.65958,
+        "sm1": 0.36919,
+        "pgam": 0.35512
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.5817,
+        "longitude": -121.4934,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.56685,
+        "sm1": 0.25285,
+        "pgam": 0.23769
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.01961,
+        "sm1": 1.29673,
+        "pgam": 0.97351
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 1.02,
+        "pgam": 0.63241
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.75836,
+        "sm1": 1.11816,
+        "pgam": 0.67884
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.44063,
+        "sm1": 0.58872,
+        "pgam": 0.62024
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7153,
+        "longitude": -117.1564,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49793,
+        "sm1": 0.50443,
+        "pgam": 0.68185
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1083,
+        "longitude": -117.2889,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.1531,
+        "sm1": 0.85734,
+        "pgam": 0.9083
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.97981,
+        "sm1": 0.32083,
+        "pgam": 0.43518
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.16094,
+        "sm1": 1.25102,
+        "pgam": 0.93035
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8538,
+        "sm1": 1.15973,
+        "pgam": 0.77289
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.4406,
+        "longitude": -122.7133,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.26088,
+        "sm1": 0.87596,
+        "pgam": 0.95108
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.27496,
+        "sm1": 0.48176,
+        "pgam": 0.53765
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4662,
+        "longitude": -66.1164,
+        "riskCategory": "I",
+        "title": "San Juan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99747,
+        "sm1": 0.39841,
+        "pgam": 0.40559
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.5631,
+        "longitude": -122.3245,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.91141,
+        "sm1": 0.78538,
+        "pgam": 0.82122
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.30642,
+        "sm1": 0.96165,
+        "pgam": 0.59617
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.90728,
+        "sm1": 0.61978,
+        "pgam": 0.83625
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.12,
+        "riskCategory": "I",
+        "title": "san Juan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.9978,
+        "sm1": 0.399,
+        "pgam": 0.40558
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 1.2,
+        "pgam": 0.64683
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 1.02,
+        "pgam": 0.69696
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.6207,
+        "sm1": 0.58872,
+        "pgam": 0.69777
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.9741,
+        "longitude": -122.0297,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.64021,
+        "sm1": 0.62668,
+        "pgam": 0.68864
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.59371,
+        "sm1": 1.02374,
+        "pgam": 0.73927
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.43434,
+        "sm1": 0.48176,
+        "pgam": 0.60486
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 0.48,
+        "pgam": 0.52272
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 58.3624,
+        "longitude": -134.5803,
+        "riskCategory": "I",
+        "title": "Juneau",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.60877,
+        "sm1": 0.38341,
+        "pgam": 0.24606
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.56164,
+        "sm1": 0.48,
+        "pgam": 0.64221
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.80184,
+        "sm1": 1.02,
+        "pgam": 0.73832
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.80078,
+        "sm1": 1.25102,
+        "pgam": 0.85282
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.79287,
+        "sm1": 1.30353,
+        "pgam": 1.17654
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.17224,
+        "sm1": 0.41243,
+        "pgam": 0.4937
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8044,
+        "longitude": -122.2698,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.72977,
+        "sm1": 0.65598,
+        "pgam": 0.72758
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 0.46448,
+        "pgam": 0.45
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.30642,
+        "sm1": 0.60155,
+        "pgam": 0.58024
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.50153,
+        "sm1": 1.02,
+        "pgam": 0.6768
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.32739,
+        "sm1": 1.58285,
+        "pgam": 1.0785
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5759,
+        "sm1": 0.93402,
+        "pgam": 0.79121
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.02,
+        "longitude": -155.66,
+        "riskCategory": "I",
+        "title": "Waimea",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49554,
+        "sm1": 0.55117,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.42353,
+        "sm1": 1.52557,
+        "pgam": 0.97351
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.7752,
+        "longitude": -122.4185,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.57131
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.41831,
+        "sm1": 0.42137,
+        "pgam": 0.64735
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.42353,
+        "sm1": 1.29673,
+        "pgam": 1.06201
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.50978,
+        "sm1": 0.20233,
+        "pgam": 0.2138
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.4653,
+        "sm1": 0.91995,
+        "pgam": 0.67884
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.24546,
+        "sm1": 0.0876,
+        "pgam": 0.10843
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 59,
+        "longitude": -158.5,
+        "riskCategory": "I",
+        "title": "Dillingham",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.31377,
+        "sm1": 0.17953,
+        "pgam": 0.13
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.8,
+        "longitude": -79.95,
+        "riskCategory": "I",
+        "title": "Charleston",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.70158,
+        "sm1": 0.78101,
+        "pgam": 1.12021
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.6152,
+        "longitude": -149.3268,
+        "riskCategory": "I",
+        "title": "Lakes",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.86919,
+        "sm1": 0.93723,
+        "pgam": 0.75717
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.7706,
+        "longitude": -156.4573,
+        "riskCategory": "I",
+        "title": "Kihei",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99186,
+        "sm1": 0.25639,
+        "pgam": 0.36292
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.7669,
+        "longitude": -118.1883,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.61621,
+        "sm1": 0.58764,
+        "pgam": 0.71567
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 15.207,
+        "longitude": 145.7208,
+        "riskCategory": "I",
+        "title": "Garapan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.94582,
+        "sm1": 0.57791,
+        "pgam": 0.57271
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.8251,
+        "longitude": -156.9204,
+        "riskCategory": "I",
+        "title": "Lanai City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.78299,
+        "sm1": 0.2098,
+        "pgam": 0.31541
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.36387,
+        "sm1": 0.98166,
+        "pgam": 1.01229
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4,
+        "longitude": -157.74,
+        "riskCategory": "I",
+        "title": "Kailua",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.59308,
+        "sm1": 0.17486,
+        "pgam": 0.27265
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.1492,
+        "longitude": -65.4424,
+        "riskCategory": "I",
+        "title": "Isabel II",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.03628,
+        "sm1": 0.37678,
+        "pgam": 0.42006
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.51628,
+        "sm1": 0.16452,
+        "pgam": 0.22759
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.01953,
+        "sm1": 1.03326,
+        "pgam": 0.89183
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3,
+        "longitude": -65.3,
+        "riskCategory": "I",
+        "title": "Culebra Barrio",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.09167,
+        "sm1": 0.39715,
+        "pgam": 0.43899
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.2905,
+        "longitude": -157.8374,
+        "riskCategory": "I",
+        "title": "Honolulu",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.57852,
+        "sm1": 0.16917,
+        "pgam": 0.26614
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.5,
+        "longitude": -144.4,
+        "riskCategory": "I",
+        "title": "Chitina",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.13588,
+        "sm1": 0.53911,
+        "pgam": 0.44
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 41.85,
+        "longitude": -87.65,
+        "riskCategory": "I",
+        "title": "Chicago",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.10568,
+        "sm1": 0.05063,
+        "pgam": 0.0528
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.68294,
+        "sm1": 1.03326,
+        "pgam": 0.81751
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49871,
+        "sm1": 0.6703,
+        "pgam": 0.63277
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.08,
+        "longitude": -157,
+        "riskCategory": "I",
+        "title": "Kaunakakai",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.79049,
+        "sm1": 0.20485,
+        "pgam": 0.31971
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.95,
+        "longitude": -122,
+        "riskCategory": "I",
+        "title": "Concord",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.22138,
+        "sm1": 1.14377,
+        "pgam": 0.98485
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.0959,
+        "longitude": -155.7769,
+        "riskCategory": "I",
+        "title": "Hawaiian Ocean View",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.11325,
+        "sm1": 0.88311,
+        "pgam": 1.13892
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.3,
+        "longitude": 144.7,
+        "riskCategory": "I",
+        "title": "SW Guam",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.07785,
+        "sm1": 0.89062,
+        "pgam": 0.90286
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.3395,
+        "longitude": -121.8939,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.56034
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.94,
+        "longitude": -155.7892,
+        "riskCategory": "I",
+        "title": "Waikoloa Village",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.51465,
+        "sm1": 0.48624,
+        "pgam": 0.66887
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.336,
+        "longitude": -65.6535,
+        "riskCategory": "I",
+        "title": "Fajardo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.98444,
+        "sm1": 0.37657,
+        "pgam": 0.40109
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.9699,
+        "sm1": 1.19201,
+        "pgam": 0.92793
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.9533,
+        "longitude": -117.3953,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.58724,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1041,
+        "longitude": -122.2555,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.55951,
+        "sm1": 0.6,
+        "pgam": 0.63909
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.67641,
+        "sm1": 1.08426,
+        "pgam": 0.65819
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.45532,
+        "sm1": 0.14393,
+        "pgam": 0.25853
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 1.2,
+        "pgam": 0.65003
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.82,
+        "longitude": -156.92,
+        "riskCategory": "I",
+        "title": "Lanai City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.78185,
+        "sm1": 0.20986,
+        "pgam": 0.31511
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.73516,
+        "sm1": 1.02,
+        "pgam": 0.78493
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.0471,
+        "longitude": -65.876,
+        "riskCategory": "I",
+        "title": "Yabucoa",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.97562,
+        "sm1": 0.35408,
+        "pgam": 0.39316
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.15893,
+        "sm1": 0.76155,
+        "pgam": 0.53985
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6065,
+        "longitude": -122.3307,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.39884,
+        "sm1": 0.48773,
+        "pgam": 0.59657
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.93047,
+        "sm1": 0.75089,
+        "pgam": 0.81234
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.22945,
+        "sm1": 0.67765,
+        "pgam": 0.73449
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.36864,
+        "sm1": 0.1298,
+        "pgam": 0.213
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.62612,
+        "sm1": 0.85756,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.3,
+        "longitude": -119.3,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.81765,
+        "sm1": 0.61023,
+        "pgam": 0.79651
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -90.2,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.41472,
+        "sm1": 0.1298,
+        "pgam": 0.23963
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 39.55,
+        "longitude": -119.8,
+        "riskCategory": "I",
+        "title": "Reno",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.75836,
+        "sm1": 0.76529,
+        "pgam": 0.74056
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.253,
+        "longitude": -122.4432,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35404,
+        "sm1": 0.46756,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.67641,
+        "sm1": 0.73074,
+        "pgam": 0.71568
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 17.996,
+        "longitude": -66.6208,
+        "riskCategory": "I",
+        "title": "Ponce",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.03056,
+        "sm1": 0.397,
+        "pgam": 0.41092
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.41308,
+        "sm1": 1.59565,
+        "pgam": 1.11696
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.08408,
+        "sm1": 0.37451,
+        "pgam": 0.4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.1192,
+        "sm1": 1.31703,
+        "pgam": 1.02209
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.50651,
+        "sm1": 0.57513,
+        "pgam": 0.63327
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.44,
+        "longitude": -155.22,
+        "riskCategory": "I",
+        "title": "Volcano",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.33322,
+        "sm1": 0.99706,
+        "pgam": 1.27617
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.25976,
+        "sm1": 1.43782,
+        "pgam": 0.87074
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.1,
+        "longitude": -135.3,
+        "riskCategory": "I",
+        "title": "Sitka",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.87326,
+        "sm1": 0.6038,
+        "pgam": 0.3
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35138,
+        "sm1": 0.48,
+        "pgam": 0.55374
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2788,
+        "longitude": -119.2922,
+        "riskCategory": "I",
+        "title": "Ventura",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.96387,
+        "sm1": 0.73888,
+        "pgam": 0.86132
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.9699,
+        "sm1": 0.70118,
+        "pgam": 0.84357
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 63.3,
+        "longitude": -143,
+        "riskCategory": "I",
+        "title": "Tok",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.52875,
+        "sm1": 0.33586,
+        "pgam": 0.2
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.4432,
+        "longitude": -158.1854,
+        "riskCategory": "I",
+        "title": "Wai'anae",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.5336,
+        "sm1": 0.14571,
+        "pgam": 0.24697
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.7,
+        "longitude": -157.2,
+        "riskCategory": "I",
+        "title": "Sleetmute",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.6198,
+        "sm1": 0.231,
+        "pgam": 0.26
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.06527,
+        "sm1": 0.59028,
+        "pgam": 0.48148
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.2,
+        "longitude": -118.55,
+        "riskCategory": "I",
+        "title": "Northridge",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.38813,
+        "sm1": 0.48,
+        "pgam": 0.57086
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.76289,
+        "sm1": 0.52965,
+        "pgam": 0.32366
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1,
+        "longitude": -117.3,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.86191,
+        "sm1": 0.74487,
+        "pgam": 0.78436
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.46448,
+        "pgam": 0.4
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.72,
+        "longitude": -155.08,
+        "riskCategory": "I",
+        "title": "Hilo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.91245,
+        "sm1": 1.02374,
+        "pgam": 0.80648
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.87094,
+        "sm1": 0.32083,
+        "pgam": 0.38683
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.36387,
+        "sm1": 1.19201,
+        "pgam": 1.01229
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.8,
+        "longitude": -152.4,
+        "riskCategory": "I",
+        "title": "Kodiak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.88054,
+        "pgam": 0.61758
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.78,
+        "longitude": -156.46,
+        "riskCategory": "I",
+        "title": "Kihei",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.99109,
+        "sm1": 0.25583,
+        "pgam": 0.36276
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5938,
+        "sm1": 1.09568,
+        "pgam": 0.64757
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.80143,
+        "sm1": 0.30848,
+        "pgam": 0.34139
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.6,
+        "longitude": 144.9,
+        "riskCategory": "I",
+        "title": "NE Guam",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.0657,
+        "sm1": 0.88166,
+        "pgam": 0.89673
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.1751,
+        "longitude": -115.1365,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.5941,
+        "sm1": 0.19351,
+        "pgam": 0.26175
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.22945,
+        "sm1": 0.90633,
+        "pgam": 0.67329
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.12403,
+        "sm1": 0.35749,
+        "pgam": 0.47458
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.92209,
+        "sm1": 0.27758,
+        "pgam": 0.55087
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.4988,
+        "longitude": -165.398,
+        "riskCategory": "I",
+        "title": "Nome",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.53669,
+        "sm1": 0.19037,
+        "pgam": 0.22976
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 55.3,
+        "longitude": -131.6,
+        "riskCategory": "I",
+        "title": "Ketchikan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.30706,
+        "sm1": 0.24667,
+        "pgam": 0.12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.16094,
+        "sm1": 1.03025,
+        "pgam": 0.93035
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.54304,
+        "sm1": 1.31703,
+        "pgam": 1.11501
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.4209,
+        "longitude": -119.6973,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.18885,
+        "sm1": 0.79198,
+        "pgam": 0.96051
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.54304,
+        "sm1": 1.08461,
+        "pgam": 1.11501
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.02334,
+        "sm1": 0.34651,
+        "pgam": 0.6114
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.7213,
+        "sm1": 0.37937,
+        "pgam": 0.28507
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.8,
+        "longitude": -118.2,
+        "riskCategory": "I",
+        "title": "Long Beach",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.01953,
+        "sm1": 0.85092,
+        "pgam": 0.89183
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.94701,
+        "sm1": 0.67284,
+        "pgam": 0.46842
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 1.02,
+        "pgam": 0.6899
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.65,
+        "longitude": -117.8,
+        "riskCategory": "I",
+        "title": "Irvine",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49871,
+        "sm1": 1.03059,
+        "pgam": 0.61837
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.3923,
+        "longitude": -157.7415,
+        "riskCategory": "I",
+        "title": "Kailua",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.59289,
+        "sm1": 0.17479,
+        "pgam": 0.27249
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.11694,
+        "sm1": 0.67765,
+        "pgam": 0.67329
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.39035,
+        "sm1": 0.44382,
+        "pgam": 0.63236
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.49425,
+        "sm1": 0.54297,
+        "pgam": 0.67821
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6,
+        "longitude": -121.5,
+        "riskCategory": "I",
+        "title": "Sacramento",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.45314,
+        "sm1": 0.20233,
+        "pgam": 0.19005
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.99829,
+        "pgam": 0.55
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.6,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "Monterey",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.06253,
+        "sm1": 0.39714,
+        "pgam": 0.46102
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.25976,
+        "sm1": 1.00647,
+        "pgam": 0.9499
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.23587,
+        "sm1": 0.44382,
+        "pgam": 0.5621
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2,
+        "longitude": -67.14,
+        "riskCategory": "I",
+        "title": "Mayaguez",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.23265,
+        "sm1": 0.47427,
+        "pgam": 0.46782
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.8,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Oakland",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.25976,
+        "sm1": 1.22215,
+        "pgam": 0.9499
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64,
+        "longitude": -145.7,
+        "riskCategory": "I",
+        "title": "Delta Junction",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.72645,
+        "sm1": 0.36557,
+        "pgam": 0.28
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.27,
+        "longitude": -66.7,
+        "riskCategory": "I",
+        "title": "Utuado",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.07265,
+        "sm1": 0.41284,
+        "pgam": 0.41758
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.44,
+        "longitude": -158.18,
+        "riskCategory": "I",
+        "title": "Wai'anae",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.53449,
+        "sm1": 0.14596,
+        "pgam": 0.24726
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.8325,
+        "longitude": -155.104,
+        "riskCategory": "I",
+        "title": "Pepeekeo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 61.7021,
+        "longitude": -157.1711,
+        "riskCategory": "I",
+        "title": "Sleetmute",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.61847,
+        "sm1": 0.23085,
+        "pgam": 0.26018
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.8957,
+        "sm1": 1.31407,
+        "pgam": 1.2185
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.06527,
+        "sm1": 0.75024,
+        "pgam": 0.48148
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.80184,
+        "sm1": 0.84,
+        "pgam": 0.73832
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1,
+        "longitude": -122.25,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.20122,
+        "sm1": 0.48,
+        "pgam": 0.49222
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.8957,
+        "sm1": 1.59565,
+        "pgam": 1.2185
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.3,
+        "longitude": -120.65,
+        "riskCategory": "I",
+        "title": "San Luis Obispo",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.30642,
+        "sm1": 0.76155,
+        "pgam": 0.58024
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.314,
+        "longitude": 144.6698,
+        "riskCategory": "I",
+        "title": "Umatac",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.05806,
+        "sm1": 0.88345,
+        "pgam": 0.89521
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.62612,
+        "sm1": 1.05973,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "pgam": 0.45993
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.7886,
+        "longitude": -152.4067,
+        "riskCategory": "I",
+        "title": "Kodiak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5019,
+        "sm1": 0.90915,
+        "pgam": 0.6404
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.01636,
+        "sm1": 0.75024,
+        "pgam": 0.48098
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.89108,
+        "sm1": 0.776,
+        "pgam": 0.86314
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.45,
+        "longitude": -122.7,
+        "riskCategory": "I",
+        "title": "Santa Rosa",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.17177,
+        "sm1": 0.75089,
+        "pgam": 0.91388
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.4317,
+        "longitude": -155.2294,
+        "riskCategory": "I",
+        "title": "Volcano",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.41448,
+        "sm1": 1.0529,
+        "pgam": 1.31087
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 53.8736,
+        "longitude": -166.5327,
+        "riskCategory": "I",
+        "title": "Unalaska",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.55,
+        "longitude": -122.3,
+        "riskCategory": "I",
+        "title": "San Mateo",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.16094,
+        "sm1": 1.47179,
+        "pgam": 0.85282
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.0529,
+        "longitude": -135.3358,
+        "riskCategory": "I",
+        "title": "Sitka",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.92825,
+        "sm1": 0.6,
+        "pgam": 0.31658
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.94,
+        "longitude": -155.78,
+        "riskCategory": "I",
+        "title": "Waikoloa Village",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8538,
+        "sm1": 0.80178,
+        "pgam": 0.84315
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 33.95,
+        "longitude": -117.4,
+        "riskCategory": "I",
+        "title": "Riverside",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8,
+        "sm1": 1.18373,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.35,
+        "longitude": -121.9,
+        "riskCategory": "I",
+        "title": "San Jose",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.35,
+        "sm1": 0.48,
+        "pgam": 0.51742
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "E"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.91245,
+        "sm1": 1.2044,
+        "pgam": 0.73927
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.62612,
+        "sm1": 0.7022,
+        "pgam": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.95,
+        "longitude": -122.05,
+        "riskCategory": "I",
+        "title": "Santa Cruz",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.91245,
+        "sm1": 0.84308,
+        "pgam": 0.80648
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.8538,
+        "sm1": 0.96821,
+        "pgam": 0.84315
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 36.2,
+        "longitude": -115.15,
+        "riskCategory": "I",
+        "title": "Las Vegas",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.82844,
+        "sm1": 0.45011,
+        "pgam": 0.37425
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.6274,
+        "longitude": -90.1978,
+        "riskCategory": "I",
+        "title": "St. Louis",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.45266,
+        "sm1": 0.16032,
+        "pgam": 0.26068
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.25,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.57592,
+        "sm1": 0.56095,
+        "pgam": 0.67486
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.11084,
+        "sm1": 1.28034,
+        "pgam": 1.00051
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.25,
+        "longitude": -122.45,
+        "riskCategory": "I",
+        "title": "Tacoma",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.21959,
+        "sm1": 0.37451,
+        "pgam": 0.45
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.45,
+        "longitude": -119.7,
+        "riskCategory": "I",
+        "title": "Santa Barbara",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.69536,
+        "sm1": 0.61978,
+        "pgam": 0.74334
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.81964,
+        "sm1": 0.27758,
+        "pgam": 0.48966
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.96,
+        "longitude": -159.36,
+        "riskCategory": "I",
+        "title": "Lihue",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.22647,
+        "sm1": 0.06438,
+        "pgam": 0.10425
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.5027,
+        "longitude": 144.8016,
+        "riskCategory": "I",
+        "title": "Tamuning",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 3.15576,
+        "sm1": 0.93669,
+        "pgam": 0.93463
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -74,
+        "riskCategory": "I",
+        "title": "New York",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.23236,
+        "sm1": 0.04798,
+        "pgam": 0.14351
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 45.5,
+        "longitude": -122.65,
+        "riskCategory": "I",
+        "title": "Portland",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.79895,
+        "sm1": 0.31482,
+        "pgam": 0.36111
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2673,
+        "longitude": -66.7018,
+        "riskCategory": "I",
+        "title": "Utuado",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.07329,
+        "sm1": 0.41303,
+        "pgam": 0.4178
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 37.75,
+        "longitude": -122.4,
+        "riskCategory": "I",
+        "title": "San Francisco",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.2,
+        "sm1": 0.48,
+        "pgam": 0.46464
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 32.7,
+        "longitude": -117.15,
+        "riskCategory": "I",
+        "title": "San Diego",
+        "siteClass": "D-default"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.89108,
+        "sm1": 0.93402,
+        "pgam": 0.86314
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2015",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.05,
+        "longitude": -65.88,
+        "riskCategory": "I",
+        "title": "Yabucoa",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.97359,
+        "sm1": 0.35391,
+        "pgam": 0.39217
+      }
+    }
+  }
+]
