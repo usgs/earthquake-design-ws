@@ -354,15 +354,15 @@ const _DEFAULTS = {
           'B-estimated': null,
           'C': null,
           'D': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           },
           'D-default': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           },
           'E': {
-            'message': 'See Section 11.4.8',
+            'message': 'See Section 11.4.7',
             'limit': 0.20
           }
         },
