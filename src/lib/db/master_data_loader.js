@@ -31,9 +31,9 @@ const LOADER_FACTORIES = {
 
 const DATASETS = Object.keys(LOADER_FACTORIES);
 
-const INTERACTIVE_PROMPT = 'Interactive';
-const MISSING_PROMPT = 'Missing (Install all missing data, and stop asking questions';
-const SILENT_PROMPT = 'Silent (Reinstall all data, and stop asking questions)';
+const INTERACTIVE_PROMPT = 'Interactive (WARNING, currently same as "Missing")';
+const MISSING_PROMPT = 'Missing (Install only missing data)';
+const SILENT_PROMPT = 'Silent (Remove existing data and install all data)';
 
 const USAGE = `
 Usage: node master_data_loader [(--missing|--silent)] [--data=all]
@@ -168,7 +168,7 @@ Promise.resolve().then(() => {
       return dbUtils.getDefaultAdminDB().then((adminDb) => {
         let loader = LOADER_FACTORIES[dataSet]({
           db: adminDb,
-          missingOnly: (args.mode === 'missing')
+          missingOnly: (args.mode !== 'silent')
         });
 
         return loader.run().catch((e) => {
