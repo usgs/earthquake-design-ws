@@ -12,7 +12,7 @@ than the specified quality control tolerance.
 
 Quality control tolerance is currently specified as +/- 1E-4 (0.0001).
 Results are reported rounded to the nearest 0.001. This combination of
-quality control parameters is leading to a difference sufficient to
+quality control parameters leads to a difference sufficient to
 cause automated quality control tests to fail for this case. When
 comparing un-rounded results for this location, the data are
 as follows:
@@ -35,9 +35,9 @@ as follows:
 This discrepancy is caused by rounding the output values to less precision
 than the specified quality control tolerance.
 
-Quality control tolorance is currently specified as +/- 1E-4 (0.0001).
+Quality control tolerance is currently specified as +/- 1E-4 (0.0001).
 Results are reported rounded to the nearest 0.001. This combination of
-quality control parameters is leading to a difference sufficient to
+quality control parameters leads to a difference sufficient to
 cause automated quality control tests to fail for this case. When
 comparing un-rounded results for this location, the data are
 as follows:
