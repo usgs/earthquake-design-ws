@@ -134,7 +134,7 @@ function getInteractiveArguments (args) {
   const MISSING_PROMPT = 'Missing (only add new data, without prompting for confirmation)';
   const SILENT_PROMPT = 'Silent (replace all existing data, without prompting for confirmation)';
 
-// interactively prompt user for arguments
+  // interactively prompt user for arguments
   let prompt = inquirer.createPromptModule();
   return prompt([
     {
