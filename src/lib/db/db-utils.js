@@ -92,6 +92,7 @@ var DbUtils = {
    *     promise that resolves to database connection.
    */
   'getAdminDb': function () {
+    process.stderr.write('Enter admin database connection information\n');
     return inquirer.prompt([
       {
         type: 'input',
@@ -149,7 +150,7 @@ var DbUtils = {
    * connection to the database for silent data loading
    * operations.
    */
-  'getDefaultAdminDB': function() {
+  'getNonInteractiveAdminDB': function() {
     return new Promise((resolve, reject) => {
       let db;
 

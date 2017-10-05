@@ -191,22 +191,17 @@ function getInteractiveArguments (args) {
  *     installation mode.
  * @param args.dataSets {Array<String>}
  *     array of data sets to be loaded.
+ * @param adminDb {Promise<pg.Client>}
+ *     promise representing admin database connection
  */
-function loadData(args) {
+function loadData(args, dbFactory) {
   let dataSets,
-      dbFactory,
       mode,
       promise;
 
   dataSets = args.dataSets;
   mode = args.mode;
   promise = Promise.resolve();
-
-  if (mode === AbstractDataLoader.MODE_INTERACTIVE) {
-    dbFactory = dbUtils.getAdminDb();
-  } else {
-    dbFactory = dbUtils.getDefaultAdminDB();
-  }
 
   dataSets.forEach((dataSet) => {
     promise = promise.then(() => {
@@ -228,38 +223,53 @@ function loadData(args) {
     });
   });
 
-  // done loading data, close db connection
-  promise = promise.then(() => {
-    dbFactory.then((adminDb) => {
-      adminDb.end();
-    });
-  });
-
   return promise;
 }
 
 
 // Main load data logic
-Promise.resolve().then(() => {
-  return parseArguments();
-}).catch((e) => {
-  process.stderr.write(`Error parsing arguments: ${e.message}\n`);
-  process.stderr.write(USAGE);
-  process.exit(1);
-}).then((args) => {
-  if (args.mode !== AbstractDataLoader.MODE_INTERACTIVE) {
-    // non-interactive
-    return args;
-  }
+function main () {
+  let dbFactory;
 
-  return getInteractiveArguments(args);
-}).then((args) => {
-  return loadData(args);
-}).then(() => {
-  process.stderr.write('Done loading data\n');
-}).catch((e) => {
-  process.stderr.write('Something unexpected went wrong\n');
-  if (e && e.stack) {
-    process.stderr.write(e.stack);
-  }
-});
+  Promise.resolve().then(() => {
+    return parseArguments();
+  }).catch((e) => {
+    process.stderr.write(`Error parsing arguments: ${e.message}\n`);
+    process.stderr.write(USAGE);
+    process.exit(1);
+  }).then((args) => {
+    if (args.mode === AbstractDataLoader.MODE_INTERACTIVE) {
+      dbFactory = dbUtils.getAdminDb();
+    } else {
+      dbFactory = dbUtils.getNonInteractiveAdminDB();
+    }
+
+    return dbFactory.then(() => {
+      return args;
+    });
+  }).then((args) => {
+    if (args.mode === AbstractDataLoader.MODE_INTERACTIVE) {
+      return getInteractiveArguments(args);
+    } else {
+      return args;
+    }
+  }).then((args) => {
+    return loadData(args, dbFactory);
+  }).then(() => {
+    process.stderr.write('Done loading data\n');
+  }).catch((e) => {
+    process.stderr.write('Something unexpected went wrong\n');
+    if (e && e.stack) {
+      process.stderr.write(e.stack);
+    }
+  }).then(() => {
+    // done loading data, close db connection
+    dbFactory.then((adminDb) => {
+      adminDb.end();
+    });
+  });
+}
+
+
+// run the main method
+main();
