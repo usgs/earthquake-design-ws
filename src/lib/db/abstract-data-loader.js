@@ -169,7 +169,6 @@ const AbstractDataLoader = function (options) {
           skipInsertRegion = function () {
             // save region id for later data loading
             regionIds[region.name] = regionId;
-            return Promise.resolve();
           };
 
           if (_this.mode === MODE_MISSING) {
@@ -222,20 +221,22 @@ const AbstractDataLoader = function (options) {
     promise = Promise.resolve();
 
     _this.documents.forEach((doc) => {
-      doc.regions.forEach((region) => {
-        var regionId;
+      promise = promise.then(() => {
+        let insertDocument;
 
-        if (!regionIds.hasOwnProperty(region)) {
-          throw new Error('Region "' + region + '" not found' +
-              ', inserting document ' + doc.name);
-        }
-        regionId = regionIds[region];
+        insertDocument = function () {
+          let queries = Promise.resolve();
 
-        promise = promise.then(() => {
-          let insertDocument;
+          doc.regions.forEach((region) => {
+            let regionId;
 
-          insertDocument = function () {
-            return _this.db.query(`
+            if (!regionIds.hasOwnProperty(region)) {
+              throw new Error('Region "' + region + '" not found' +
+                  ', inserting document ' + doc.name);
+            }
+            regionId = regionIds[region];
+
+            queries = queries.then(_this.db.query(`
               INSERT INTO document (
                 region_id,
                 name
@@ -243,26 +244,63 @@ const AbstractDataLoader = function (options) {
             `, [
               regionId,
               doc.name
-            ]);
-          };
+            ]));
+          });
 
-          if (_this.mode === MODE_SILENT) {
+          return queries;
+        };
+
+        if (_this.mode === MODE_SILENT) {
+          return insertDocument();
+        }
+
+        return _this.db.query(`
+          SELECT id
+          FROM document
+          WHERE name=$1
+        `, [
+          doc.name
+        ]).then((result) => {
+          if (result.rows.length == 0) {
+            // document does not exist
             return insertDocument();
           }
 
-          return _this.db.query(`
-            SELECT id
-            FROM document
-            WHERE region_id=$1
-            AND name=$2
-          `, [
-            regionId,
-            doc.name
-          ]).then((result) => {
-            if (result.rows.length == 0) {
-              return insertDocument();
-            }
-          });
+          // found existing document
+          let documentId,
+              skipInsertDocument;
+
+          documentId = result.rows[0].id;
+          skipInsertDocument = function () {
+            // nothing to do here
+          };
+
+          if (_this.mode === MODE_MISSING) {
+            // document already exists
+            return skipInsertDocument();
+          } else {
+            // ask user whether to remove existing data
+            let prompt = inquirer.createPromptModule();
+            return prompt([
+              {
+                name: 'dropDocument',
+                type: 'confirm',
+                message: `Document ${doc.name} already exists, drop and reload document`,
+                default: false
+              }
+            ]).then((answers) => {
+              if (answers.dropDocument) {
+                return _this.db.query(`
+                  DELETE FROM document
+                  WHERE id=$1
+                `, [documentId]).then(() => {
+                  return insertDocument();
+                });
+              } else {
+                return skipInsertDocument();
+              }
+            });
+          }
         });
       });
     });
