@@ -1,5 +1,5 @@
 # ASCE7-10 Quality Control Tests +/- 0.0001
-> Generated: Wed, 04 Oct 2017 23:22:14 GMT
+> Generated: Thu, 05 Oct 2017 14:53:03 GMT
 > Using web service: http://localhost:8000/ws/designmaps/asce7-10.json
 
 ### Legend
@@ -356,7 +356,7 @@
  - :green_heart: {"sms":1.644,"sm1":0.858,"pgam":0.673,"t-sub-l":16}
 
 ## Lakes (61.6152, -149.3268) Site Class B, Risk Category: I
- - :broken_heart: {"sms":1.869,"sm1":{"actual":0.936,"expected":0.937},"pgam":0.758,"t-sub-l":16}
+ - :green_heart: {"sms":1.869,"sm1":0.937,"pgam":0.758,"t-sub-l":16}
 
 ## Lanai City (20.82, -156.92) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.782,"sm1":0.21,"pgam":0.315,"t-sub-l":6}
@@ -951,5 +951,5 @@
 
 
 ### Summary
- - :green_heart: 313 passing
- - :broken_heart: 1 failing
+ - :green_heart: 314 passing
+ - :broken_heart: 0 failing
