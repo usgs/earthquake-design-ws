@@ -20,7 +20,7 @@ const LOADER_FACTORIES = {
 const DATASETS = Object.keys(LOADER_FACTORIES);
 
 const USAGE = `
-Usage: node load_data.js [-h] [(--interactive|--missing|--silent)] [--data=all]
+Usage: node load_data.js [-h] [(--missing|--silent)] [--data=all]
 
   Default is to run in interactive mode for all data sets.
 
@@ -29,9 +29,7 @@ Usage: node load_data.js [-h] [(--interactive|--missing|--silent)] [--data=all]
       show this usage and exit.
 
   Mode:
-    Default is --interactive
-
-    --interactive: (Default)
+    Default is interactive mode
         add new data, prompt to replace existing data
 
     --missing:
@@ -98,8 +96,8 @@ function parseArguments () {
     }
   });
 
-  if (silent && missing) {
-    throw new Error('Cannot use --silent and --missing');
+  if (missing && silent) {
+    throw new Error('Cannot use --missing and --silent');
   }
 
   dataSets.forEach((dataSet) => {
