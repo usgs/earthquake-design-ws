@@ -37,7 +37,7 @@ const MISSING_PROMPT = 'Missing (only add new data, without prompting for confir
 const SILENT_PROMPT = 'Silent (replace all existing data, without prompting for confirmation)';
 
 const USAGE = `
-Usage: node load_data.js [(--interactive|--missing|--silent)] [--data=all]
+Usage: node load_data.js [--help] [(--interactive|--missing|--silent)] [--data=all]
 
   Default is to run in interactive mode for all data sets.
 
