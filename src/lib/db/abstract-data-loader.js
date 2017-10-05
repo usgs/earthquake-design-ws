@@ -155,24 +155,48 @@ const AbstractDataLoader = function (options) {
           SELECT id
           FROM region
           WHERE name=$1
-          AND grid_spacing=$2
-          AND max_latitude=$3
-          AND max_longitude=$4
-          AND min_latitude=$5
-          AND min_longitude=$6
-        `, [
-          region.name,
-          region.grid_spacing,
-          region.max_latitude,
-          region.max_longitude,
-          region.min_latitude,
-          region.min_longitude
-        ]).then((result) => {
-          if (result.rows.length == 1) {
-            // save region id for later data loading
-            regionIds[region.name] = result.rows[0].id;
-          } else {
+        `, [region.name]).then((result) => {
+          if (result.rows.length == 0) {
+            // region not found
             return insertRegion();
+          }
+
+          // found existing region
+          let regionId,
+              skipInsertRegion;
+
+          regionId = result.rows[0].id;
+          skipInsertRegion = function () {
+            // save region id for later data loading
+            regionIds[region.name] = regionId;
+            return Promise.resolve();
+          };
+
+          if (_this.mode === MODE_MISSING) {
+            // region already exists
+            return skipInsertRegion();
+          } else {
+            // ask user whether to remove existing data
+            let prompt = inquirer.createPromptModule();
+            return prompt([
+              {
+                name: 'dropRegion',
+                type: 'confirm',
+                message: `Region ${region.name} already exists, drop and reload region`,
+                default: false
+              }
+            ]).then((answers) => {
+              if (answers.dropRegion) {
+                return _this.db.query(`
+                  DELETE FROM region
+                  WHERE id=$1
+                `, [regionId]).then(() => {
+                  return insertRegion();
+                });
+              } else {
+                return skipInsertRegion();
+              }
+            });
           }
         });
       });
