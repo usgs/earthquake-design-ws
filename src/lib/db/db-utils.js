@@ -85,6 +85,7 @@ var DbUtils = {
    *     promise that resolves to database connection.
    */
   'getAdminDb': function () {
+    process.stderr.write('Enter admin database connection information\n');
     return inquirer.prompt([
       {
         type: 'input',
@@ -133,6 +134,33 @@ var DbUtils = {
             resolve(db);
           }
         });
+      });
+    });
+  },
+
+  /**
+   * Use the default config values in creation of a database
+   * connection to the database for silent data loading
+   * operations.
+   */
+  'getNonInteractiveAdminDB': function() {
+    return new Promise((resolve, reject) => {
+      let db;
+
+      db = new pg.Client({
+        database: config.DB_DATABASE,
+        host:     process.env.DB_ADMIN_HOST     || config.DB_HOST,
+        password: process.env.DB_ADMIN_PASSWORD || config.DB_PASSWORD,
+        port:     process.env.DB_ADMIN_PORT     || config.DB_PORT,
+        user:     process.env.DB_ADMIN_USER     || config.DB_USER
+      });
+
+      db.connect((err) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(db);
+        }
       });
     });
   },

@@ -1,6 +1,7 @@
 [
   {
     "name": "T-Sub-L",
+    "grid_spacing":    -1.0,
     "max_latitude":    90.0,
     "max_longitude":  180.0,
     "min_latitude":   -90.0,
