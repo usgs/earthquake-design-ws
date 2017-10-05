@@ -9,19 +9,6 @@ const inquirer = require('inquirer'),
         require('./risk-coefficient/risk-coefficient-data-loader.js'),
     TSubLDataLoader = require('./tsubl/tsubl-data-loader.js');
 
-/**
- * CLI switches can include the following options:
- *
- *  --silent : Do not prompt user, assume answer yes to all questions effectively
- *             reloading all the data.
- *  --missing: Do not prompt user. Do not drop/reload schema. Do not drop
- *             existing regions/documents. DO add missing regions/documents.
- *             Do load missing data.
- *  --data=:   Comma separated list of data sets to load.
- *
- * e.g., --silent --data=tsubl,deterministic
- */
-
 
 const LOADER_FACTORIES = {
   'deterministic': DeterministicDataLoader,
@@ -32,17 +19,13 @@ const LOADER_FACTORIES = {
 
 const DATASETS = Object.keys(LOADER_FACTORIES);
 
-const INTERACTIVE_PROMPT = 'Interactive (add new data, prompt to replace existing data)';
-const MISSING_PROMPT = 'Missing (only add new data, without prompting for confirmation)';
-const SILENT_PROMPT = 'Silent (replace all existing data, without prompting for confirmation)';
-
 const USAGE = `
-Usage: node load_data.js [--help] [(--interactive|--missing|--silent)] [--data=all]
+Usage: node load_data.js [-h] [(--interactive|--missing|--silent)] [--data=all]
 
   Default is to run in interactive mode for all data sets.
 
   Help:
-    --help:
+    -h, --help:
       show this usage and exit.
 
   Mode:
@@ -60,18 +43,36 @@ Usage: node load_data.js [--help] [(--interactive|--missing|--silent)] [--data=a
   Data Sets:
     Default is all data sets
 
-    --data=deterministic,probabilistic,risk-coefficient,tsubl
+    --data=${DATASETS.join(',')}
 
         Comma separated list of one or more of the following data sets:
 
-        deterministic
-        probabilistic
-        risk-coefficient
-        tsubl
+        ${DATASETS.join(', ')}
+
+  Database connection information for non-interactive mode:
+    Uses the following config file variables
+      DB_HOST
+      DB_PASSWORD
+      DB_PORT
+      DB_USER
+
+    The following environment variables override corresponding config variables:
+      DB_ADMIN_HOST
+      DB_ADMIN_PASSWORD
+      DB_ADMIN_PORT
+      DB_ADMIN_USER
+
 `;
 
 
-Promise.resolve().then(() => {
+/**
+ * Parse command line arguments.
+ *
+ * @return {Object}
+ *     mode {'interactive'|'missing'|'silent'}
+ *     dataSets {Array<String>}
+ */
+function parseArguments () {
   let argv,
       dataSets = DATASETS,
       missing = false,
@@ -118,20 +119,25 @@ Promise.resolve().then(() => {
     dataSets: dataSets,
     mode: mode
   };
-}).catch((e) => {
-  process.stderr.write(`Error parsing arguments: ${e.message}\n`);
-  process.stderr.write(USAGE);
-  process.exit(1);
-}).then((args) => {
-  let prompt;
+}
 
-  if (args.mode !== AbstractDataLoader.MODE_INTERACTIVE) {
-    // non-interactive mode, arguments already parsed
-    return args;
-  }
+/**
+ * Prompt the user interactively for arguments.
+ *
+ * @param args {Object}
+ *     command line arguments.
+ * @param args.mode {String}
+ *     should be 'interactive' if this method is called.
+ * @param args.dataSets {Array<String>}
+ *     array of data sets specified on command line.
+ */
+function getInteractiveArguments (args) {
+  const INTERACTIVE_PROMPT = 'Interactive (add new data, prompt to replace existing data)';
+  const MISSING_PROMPT = 'Missing (only add new data, without prompting for confirmation)';
+  const SILENT_PROMPT = 'Silent (replace all existing data, without prompting for confirmation)';
 
-  // interactively prompt user for arguments
-  prompt = inquirer.createPromptModule();
+// interactively prompt user for arguments
+  let prompt = inquirer.createPromptModule();
   return prompt([
     {
       name: 'mode',
@@ -174,8 +180,21 @@ Promise.resolve().then(() => {
       };
     });
   });
-}).then((args) => {
+}
+
+/**
+ * Use the specified arguments to run data load.
+ *
+ * @param args {Object}
+ *     command line arguments.
+ * @param args.mode {'interactive'|'missing'|'silent'}
+ *     installation mode.
+ * @param args.dataSets {Array<String>}
+ *     array of data sets to be loaded.
+ */
+function loadData(args) {
   let dataSets,
+      dbFactory,
       mode,
       promise;
 
@@ -183,15 +202,18 @@ Promise.resolve().then(() => {
   mode = args.mode;
   promise = Promise.resolve();
 
+  if (mode === AbstractDataLoader.MODE_INTERACTIVE) {
+    dbFactory = dbUtils.getAdminDb();
+  } else {
+    dbFactory = dbUtils.getDefaultAdminDB();
+  }
+
   dataSets.forEach((dataSet) => {
     promise = promise.then(() => {
-      let factory;
+      return dbFactory.then((adminDb) => {
+        process.stderr.write(`Loading ${dataSet} data set\n`);
 
-      factory = LOADER_FACTORIES[dataSet];
-      process.stderr.write(`Loading ${dataSet} data set\n`);
-
-      return dbUtils.getDefaultAdminDB().then((adminDb) => {
-        let loader = factory({
+        let loader = LOADER_FACTORIES[dataSet]({
           db: adminDb,
           mode: mode
         });
@@ -201,14 +223,38 @@ Promise.resolve().then(() => {
           if (e && e.stack) {
             process.stderr.write(e.stack);
           }
-        }).then(() => {
-          adminDb.end();
         });
       });
     });
   });
 
+  // done loading data, close db connection
+  promise = promise.then(() => {
+    dbFactory.then((adminDb) => {
+      adminDb.end();
+    });
+  });
+
   return promise;
+}
+
+
+// Main load data logic
+Promise.resolve().then(() => {
+  return parseArguments();
+}).catch((e) => {
+  process.stderr.write(`Error parsing arguments: ${e.message}\n`);
+  process.stderr.write(USAGE);
+  process.exit(1);
+}).then((args) => {
+  if (args.mode !== AbstractDataLoader.MODE_INTERACTIVE) {
+    // non-interactive
+    return args;
+  }
+
+  return getInteractiveArguments(args);
+}).then((args) => {
+  return loadData(args);
 }).then(() => {
   process.stderr.write('Done loading data\n');
 }).catch((e) => {
