@@ -13,11 +13,6 @@ ON data (
   longitude
 );
 
-CREATE INDEX IF NOT EXISTS data__regionid_idx
-ON data (
-  region_id
-);
-
 CREATE INDEX IF NOT EXISTS document__regionid_name_idx
 ON document (
   region_id,
