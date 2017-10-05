@@ -398,11 +398,45 @@ const AbstractDataLoader = function (options) {
           FROM data
           WHERE region_id=$1
         `, [regionIds[region.name]]).then((result) => {
-          // Check whether rows exist in data table for this region
-          if (Number(result.rows[0].region_id) === regionIds[region.name]) {
-            process.stderr.write(`Region "${region.name}" data already loaded\n`);
-          } else {
+          let regionId,
+              skipInsertData;
+
+          regionId = Number(result.rows[0].region_id);
+          if (regionId !== regionIds[region.name]) {
+            // data not found
             return insertData();
+          }
+
+          // found existing data
+          skipInsertData = function () {
+            process.stderr.write(`Region "${region.name}" data already loaded\n`);
+          };
+
+          if (_this.mode === MODE_MISSING) {
+            // data already exists
+            return skipInsertData();
+          } else {
+            // ask user whether to remove existing data
+            let prompt = inquirer.createPromptModule();
+            return prompt([
+              {
+                name: 'dropData',
+                type: 'confirm',
+                message: `Data for region ${region.name} already exists, drop and reload data`,
+                default: false
+              }
+            ]).then((answers) => {
+              if (answers.dropData) {
+                return _this.db.query(`
+                  DELETE FROM data
+                  WHERE id=$1
+                `, [regionId]).then(() => {
+                  return insertData();
+                });
+              } else {
+                return skipInsertData();
+              }
+            });
           }
         });
       });
@@ -441,8 +475,11 @@ const AbstractDataLoader = function (options) {
     createSchema = _this._createSchema();
     insertRegions = createSchema.then(_this._insertRegions);
     insertDocuments = insertRegions.then(_this._insertDocuments);
-    insertData = insertRegions.then(_this._insertData);
-    createIndexes = Promise.all([insertData, insertDocuments]).then(_this._createIndexes);
+    insertData = insertDocuments.then(() => {
+      // need region ids from insertRegions
+      return insertRegions.then(_this._insertData);
+    });
+    createIndexes = insertData.then(_this._createIndexes);
 
     return createIndexes;
   };
