@@ -30,7 +30,7 @@
         "latitude": 62.3018,
         "longitude": -145.2829,
         "riskCategory": "I",
-        "title": "Adak",
+        "title": "Gakona",
         "siteClass": "B"
       }
     },
@@ -910,7 +910,7 @@
         "latitude": 61.7021,
         "longitude": -157.1711,
         "riskCategory": "I",
-        "title": "Chitina",
+        "title": "Sleetmute",
         "siteClass": "B"
       }
     },
@@ -1240,7 +1240,7 @@
         "latitude": 64.7452,
         "longitude": -156.8711,
         "riskCategory": "I",
-        "title": "Delta Junction",
+        "title": "Galena",
         "siteClass": "B"
       }
     },
@@ -1526,7 +1526,7 @@
         "latitude": 61.5166,
         "longitude": -144.4397,
         "riskCategory": "I",
-        "title": "Gakona",
+        "title": "Chitina",
         "siteClass": "B"
       }
     },
@@ -1570,7 +1570,7 @@
         "latitude": 62.1086,
         "longitude": -145.529,
         "riskCategory": "I",
-        "title": "Galena",
+        "title": "Glenallen",
         "siteClass": "B"
       }
     },
@@ -1614,7 +1614,7 @@
         "latitude": 51.8715,
         "longitude": -176.6377,
         "riskCategory": "I",
-        "title": "Glenallen",
+        "title": "Adak",
         "siteClass": "B"
       }
     },
@@ -2371,6 +2371,28 @@
         "sms": 0.302,
         "sm1": 0.247,
         "pgam": 0.115,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 55.3,
+        "longitude": -131.6,
+        "riskCategory": "I",
+        "title": "Ketchikan",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.307,
+        "sm1": 0.247,
+        "pgam": 0.117,
         "t-sub-l": 12
       }
     }
@@ -6343,28 +6365,6 @@
       "parameters": {
         "latitude": 53.8736,
         "longitude": -166.5327,
-        "riskCategory": "I",
-        "title": "Unalaska",
-        "siteClass": "B"
-      }
-    },
-    "response": {
-      "data": {
-        "sms": 1.5,
-        "sm1": 0.6,
-        "pgam": 0.5,
-        "t-sub-l": 16
-      }
-    }
-  },
-  {
-    "request": {
-      "referenceDocument": "ASCE7-10",
-      "status": "success",
-      "url": null,
-      "parameters": {
-        "latitude": 53.9,
-        "longitude": -166.5,
         "riskCategory": "I",
         "title": "Unalaska",
         "siteClass": "B"

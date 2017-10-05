@@ -1,5 +1,5 @@
 # ASCE7-10 Quality Control Tests +/- 0.0001
-> Generated: Thu, 05 Oct 2017 14:53:03 GMT
+> Generated: Thu, 05 Oct 2017 16:28:26 GMT
 > Using web service: http://localhost:8000/ws/designmaps/asce7-10.json
 
 ### Legend
@@ -10,7 +10,7 @@
 ## Adak (51.9, -176.6) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5,"t-sub-l":16}
 
-## Adak (62.3018, -145.2829) Site Class B, Risk Category: I
+## Gakona (62.3018, -145.2829) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.808,"sm1":0.403,"pgam":0.328,"t-sub-l":16}
 
 ## Anchorage (61.2, -149.9) Site Class B, Risk Category: I
@@ -130,7 +130,7 @@
 ## Chitina (61.5, -144.4) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.136,"sm1":0.539,"pgam":0.445,"t-sub-l":16}
 
-## Chitina (61.7021, -157.1711) Site Class B, Risk Category: I
+## Sleetmute (61.7021, -157.1711) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.618,"sm1":0.231,"pgam":0.263,"t-sub-l":16}
 
 ## Christiansted (17.7461, -64.7043) Site Class B, Risk Category: I
@@ -175,7 +175,7 @@
 ## Delta Junction (64.038, -145.7328) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.728,"sm1":0.361,"pgam":0.286,"t-sub-l":12}
 
-## Delta Junction (64.7452, -156.8711) Site Class B, Risk Category: I
+## Galena (64.7452, -156.8711) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.434,"sm1":0.167,"pgam":0.184,"t-sub-l":16}
 
 ## Dillingham (59, -158.5) Site Class B, Risk Category: I
@@ -214,19 +214,19 @@
 ## Fajardo (18.34, -65.65) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.985,"sm1":0.377,"pgam":0.401,"t-sub-l":12}
 
-## Gakona (61.5166, -144.4397) Site Class B, Risk Category: I
+## Chitina (61.5166, -144.4397) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.133,"sm1":0.534,"pgam":0.445,"t-sub-l":16}
 
 ## Gakona (62.3, -145.3) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.812,"sm1":0.404,"pgam":0.33,"t-sub-l":16}
 
-## Galena (62.1086, -145.529) Site Class B, Risk Category: I
+## Glenallen (62.1086, -145.529) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.97,"sm1":0.451,"pgam":0.397,"t-sub-l":16}
 
 ## Galena (64.7, -156.9) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.428,"sm1":0.165,"pgam":0.182,"t-sub-l":16}
 
-## Glenallen (51.8715, -176.6377) Site Class B, Risk Category: I
+## Adak (51.8715, -176.6377) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5,"t-sub-l":16}
 
 ## Glenallen (62.1, -145.5) Site Class B, Risk Category: I
@@ -330,6 +330,9 @@
 
 ## Ketchikan (55.342, -131.6453) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.302,"sm1":0.247,"pgam":0.115,"t-sub-l":12}
+
+## Ketchikan (55.3, -131.6) Site Class B, Risk Category: I
+ - :green_heart: {"sms":0.307,"sm1":0.247,"pgam":0.117,"t-sub-l":12}
 
 ## Kihei (20.7706, -156.4573) Site Class B, Risk Category: I
  - :green_heart: {"sms":0.992,"sm1":0.256,"pgam":0.363,"t-sub-l":6}
@@ -872,9 +875,6 @@
  - :green_heart: {"sms":0.509,"sm1":0.325,"pgam":0.188,"t-sub-l":12}
 
 ## Unalaska (53.8736, -166.5327) Site Class B, Risk Category: I
- - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5,"t-sub-l":16}
-
-## Unalaska (53.9, -166.5) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.5,"sm1":0.6,"pgam":0.5,"t-sub-l":16}
 
 ## Unalaska (53.9, -166.5) Site Class B, Risk Category: I
