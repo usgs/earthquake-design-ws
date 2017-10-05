@@ -88,8 +88,7 @@ const IBC2015Factory = function (options) {
           result.ssuh = _this.computeUniformHazard(probabilisticItem.ss,
               metadata.ssMaxDirFactor);
           result.crs = riskCoefficientsItem.crs;
-          result.ssrt = _this.computeUniformRisk(result.ssuh,
-              result.crs);
+          // Note: The sXrt values are computed _after_ spatial interpolation
           result.ssd = _this.computeDeterministic(deterministicItem.ssd,
               metadata.ssdPercentileFactor, metadata.ssMaxDirFactor,
               metadata.ssdFloor);
@@ -98,8 +97,7 @@ const IBC2015Factory = function (options) {
           result.s1uh = _this.computeUniformHazard(probabilisticItem.s1,
               metadata.s1MaxDirFactor);
           result.cr1 = riskCoefficientsItem.cr1;
-          result.s1rt = _this.computeUniformRisk(result.s1uh,
-              result.cr1);
+          // Note: The sXrt values are computed _after_ spatial interpolation
           result.s1d = _this.computeDeterministic(deterministicItem.s1d,
               metadata.s1dPercentileFactor, metadata.s1MaxDirFactor,
               metadata.s1dFloor);
@@ -116,6 +114,12 @@ const IBC2015Factory = function (options) {
         // interpolate result
         basicDesign = NumberUtils.spatialInterpolate(basicDesign, inputs.latitude,
             inputs.longitude, inputs.spatial_interpolation_method);
+
+        // compute prob. risk-targeted gm values
+        basicDesign.ssrt = _this.computeUniformRisk(basicDesign.ssuh,
+            basicDesign.crs);
+        basicDesign.s1rt = _this.computeUniformRisk(basicDesign.s1uh,
+            basicDesign.cr1);
 
         basicDesign.ss = _this.computeGroundMotion(basicDesign.ssrt,
             basicDesign.ssd);

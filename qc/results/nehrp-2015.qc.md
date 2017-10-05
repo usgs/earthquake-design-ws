@@ -1,5 +1,5 @@
 # NEHRP-2015 Quality Control Tests +/- 0.0001
-> Generated: Wed, 04 Oct 2017 23:21:35 GMT
+> Generated: Thu, 05 Oct 2017 16:34:31 GMT
 > Using web service: http://localhost:8000/ws/designmaps/nehrp-2015.json
 
 ### Legend
@@ -8,10 +8,10 @@
 
 
 ## Ketchikan (55.3, -131.6) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.307,"sm1":0.247,"pgam":{"actual":0.117,"expected":0.12}}
+ - :green_heart: {"sms":0.307,"sm1":0.247,"pgam":0.117}
 
 ## Bethel (60.8, -161.8) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.302,"sm1":0.125,"pgam":{"actual":0.127,"expected":0.13}}
+ - :green_heart: {"sms":0.302,"sm1":0.125,"pgam":0.127}
 
 ## Irvine (33.65, -117.8) Site Class A, Risk Category: I
  - :green_heart: {"sms":0.999,"sm1":0.357,"pgam":0.422}
@@ -23,7 +23,7 @@
  - :green_heart: {"sms":1.702,"sm1":0.781,"pgam":1.12}
 
 ## Ketchikan (55.342, -131.6453) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.302,"sm1":0.247,"pgam":{"actual":0.115,"expected":0.112}}
+ - :green_heart: {"sms":0.302,"sm1":0.247,"pgam":0.115}
 
 ## Kailua-Kona (19.64, -156) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.92,"sm1":0.88,"pgam":1.027}
@@ -59,10 +59,10 @@
  - :green_heart: {"sms":1.134,"sm1":0.331,"pgam":0.747}
 
 ## Bethel (60.7949, -161.763) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.3,"sm1":0.125,"pgam":{"actual":0.127,"expected":0.129}}
+ - :green_heart: {"sms":0.3,"sm1":0.125,"pgam":0.127}
 
 ## Delta Junction (64, -145.7) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.726,"sm1":0.366,"pgam":{"actual":0.284,"expected":0.28}}
+ - :green_heart: {"sms":0.726,"sm1":0.366,"pgam":0.284}
 
 ## Everett (48, -122.2) Site Class E, Risk Category: I
  - :green_heart: {"sms":1.441,"sm1":1.002,"pgam":0.61}
@@ -74,7 +74,7 @@
  - :green_heart: {"sms":1.418,"sm1":0.781,"pgam":1.027}
 
 ## Delta Junction (64.038, -145.7328) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.728,"sm1":0.361,"pgam":{"actual":0.286,"expected":0.287}}
+ - :green_heart: {"sms":0.728,"sm1":0.361,"pgam":0.286}
 
 ## Ponce (17.996, -66.6208) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.031,"sm1":0.397,"pgam":0.411}
@@ -140,7 +140,7 @@
  - :green_heart: {"sms":2.172,"sm1":0.751,"pgam":0.914}
 
 ## Sitka (57.0529, -135.3358) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.928,"sm1":0.6,"pgam":{"actual":0.318,"expected":0.317}}
+ - :green_heart: {"sms":0.928,"sm1":0.6,"pgam":0.318}
 
 ## Honolulu (21.3, -157.84) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.579,"sm1":0.169,"pgam":0.266}
@@ -191,7 +191,7 @@
  - :green_heart: {"sms":2.896,"sm1":1.596,"pgam":1.219}
 
 ## Sleetmute (61.7021, -157.1711) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.618,"sm1":0.231,"pgam":{"actual":0.263,"expected":0.26}}
+ - :green_heart: {"sms":0.618,"sm1":0.231,"pgam":0.263}
 
 ## Vallejo (38.1, -122.25) Site Class D, Risk Category: I
  - :green_heart: {"sms":1.502,"sm1":1.02,"pgam":0.677}
@@ -257,7 +257,7 @@
  - :green_heart: {"sms":1.881,"sm1":0.6,"pgam":0.768}
 
 ## Lakes (61.6152, -149.3268) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":1.869,"sm1":0.937,"pgam":{"actual":0.758,"expected":0.757}}
+ - :green_heart: {"sms":1.869,"sm1":0.937,"pgam":0.758}
 
 ## Concord (37.95, -122) Site Class E, Risk Category: I
  - :green_heart: {"sms":2.666,"sm1":1.346,"pgam":0.985}
@@ -284,7 +284,7 @@
  - :green_heart: {"sms":0.399,"sm1":0.207,"pgam":0.151}
 
 ## Dillingham (59, -158.5) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.314,"sm1":0.18,"pgam":{"actual":0.126,"expected":0.13}}
+ - :green_heart: {"sms":0.314,"sm1":0.18,"pgam":0.126}
 
 ## Arecibo (18.4725, -66.7181) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.119,"sm1":0.434,"pgam":0.433}
@@ -302,7 +302,7 @@
  - :green_heart: {"sms":0.945,"sm1":0.359,"pgam":0.382}
 
 ## Chitina (61.5, -144.4) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":1.136,"sm1":0.539,"pgam":{"actual":0.445,"expected":0.44}}
+ - :green_heart: {"sms":1.136,"sm1":0.539,"pgam":0.445}
 
 ## Central Saipan (15.2, 145.7) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":1.94,"sm1":0.576,"pgam":0.571}
@@ -368,7 +368,7 @@
  - :green_heart: {"sms":1.225,"sm1":0.8,"pgam":0.566}
 
 ## Gakona (62.3018, -145.2829) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.808,"sm1":0.403,"pgam":{"actual":0.328,"expected":0.33}}
+ - :green_heart: {"sms":0.808,"sm1":0.403,"pgam":0.328}
 
 ## Hawaiian Ocean View (19.1, -155.78) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":2.099,"sm1":0.876,"pgam":1.129}
@@ -389,7 +389,7 @@
  - :green_heart: {"sms":1.105,"sm1":0.955,"pgam":0.561}
 
 ## Sleetmute (61.7, -157.2) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.62,"sm1":0.231,"pgam":{"actual":0.263,"expected":0.26}}
+ - :green_heart: {"sms":0.62,"sm1":0.231,"pgam":0.263}
 
 ## Chicago (41.85, -87.65) Site Class E, Risk Category: I
  - :green_heart: {"sms":0.282,"sm1":0.266,"pgam":0.141}
@@ -401,7 +401,7 @@
  - :green_heart: {"sms":1.507,"sm1":0.575,"pgam":0.633}
 
 ## Juneau (58.4, -134.6) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.618,"sm1":0.384,"pgam":{"actual":0.251,"expected":0.25}}
+ - :green_heart: {"sms":0.618,"sm1":0.384,"pgam":0.251}
 
 ## Concord (37.95, -122) Site Class D, Risk Category: I
  - :green_heart: {"sms":2.221,"sm1":1.144,"pgam":0.985}
@@ -482,7 +482,7 @@
  - :green_heart: {"sms":2.793,"sm1":1.862,"pgam":1.078}
 
 ## Tok (63.3, -143) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.529,"sm1":0.336,"pgam":{"actual":0.195,"expected":0.2}}
+ - :green_heart: {"sms":0.529,"sm1":0.336,"pgam":0.195}
 
 ## San Francisco (37.75, -122.4) Site Class D-default, Risk Category: I
  - :green_heart: {"sms":1.8,"sm1":1.02,"pgam":0.697}
@@ -509,7 +509,7 @@
  - :green_heart: {"sms":2.189,"sm1":0.792,"pgam":0.961}
 
 ## Juneau (58.3624, -134.5803) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.609,"sm1":0.383,"pgam":{"actual":0.247,"expected":0.246}}
+ - :green_heart: {"sms":0.609,"sm1":0.383,"pgam":0.247}
 
 ## Kailua (21.3923, -157.7415) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.593,"sm1":0.175,"pgam":0.272}
@@ -518,13 +518,13 @@
  - :green_heart: {"sms":1.702,"sm1":0.982,"pgam":1.027}
 
 ## Tok (63.3345, -142.9886) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.509,"sm1":0.325,"pgam":{"actual":0.188,"expected":0.191}}
+ - :green_heart: {"sms":0.509,"sm1":0.325,"pgam":0.188}
 
 ## Wai'anae (21.44, -158.18) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.534,"sm1":0.146,"pgam":0.247}
 
 ## Nome (64.4988, -165.398) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.537,"sm1":0.19,"pgam":{"actual":0.228,"expected":0.23}}
+ - :green_heart: {"sms":0.537,"sm1":0.19,"pgam":0.228}
 
 ## Memphis (35.15, -90.05) Site Class D, Risk Category: I
  - :green_heart: {"sms":1.117,"sm1":0.678,"pgam":0.673}
@@ -662,7 +662,7 @@
  - :green_heart: {"sms":2.161,"sm1":1.251,"pgam":0.93}
 
 ## Dillingham (59.0408, -158.464) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.311,"sm1":0.178,"pgam":{"actual":0.125,"expected":0.122}}
+ - :green_heart: {"sms":0.311,"sm1":0.178,"pgam":0.125}
 
 ## Century City (34.0498, -118.4252) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":2.064,"sm1":0.738,"pgam":0.885}
@@ -737,7 +737,7 @@
  - :green_heart: {"sms":1.172,"sm1":0.412,"pgam":0.494}
 
 ## Sitka (57.1, -135.3) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.873,"sm1":0.604,"pgam":{"actual":0.298,"expected":0.3}}
+ - :green_heart: {"sms":0.873,"sm1":0.604,"pgam":0.298}
 
 ## St. Louis (38.6, -90.2) Site Class D, Risk Category: I
  - :green_heart: {"sms":0.66,"sm1":0.369,"pgam":0.355}
@@ -839,7 +839,7 @@
  - :green_heart: {"sms":1.515,"sm1":0.486,"pgam":0.669}
 
 ## Nome (64.5, -165.4) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.537,"sm1":0.19,"pgam":{"actual":0.229,"expected":0.23}}
+ - :green_heart: {"sms":0.537,"sm1":0.19,"pgam":0.229}
 
 ## Reno (39.55, -119.8) Site Class D, Risk Category: I
  - :green_heart: {"sms":1.465,"sm1":0.92,"pgam":0.679}
@@ -860,7 +860,7 @@
  - :green_heart: {"sms":0.884,"sm1":0.395,"pgam":0.399}
 
 ## Fairbanks (64.8, -147.7) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.999,"sm1":0.382,"pgam":{"actual":0.406,"expected":0.41}}
+ - :green_heart: {"sms":0.999,"sm1":0.382,"pgam":0.406}
 
 ## San Diego (32.7, -117.15) Site Class D, Risk Category: I
  - :green_heart: {"sms":1.576,"sm1":0.934,"pgam":0.791}
@@ -908,7 +908,7 @@
  - :green_heart: {"sms":0.192,"sm1":0.055,"pgam":0.095}
 
 ## Glenallen (62.1, -145.5) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.971,"sm1":0.451,"pgam":{"actual":0.397,"expected":0.4}}
+ - :green_heart: {"sms":0.971,"sm1":0.451,"pgam":0.397}
 
 ## Kahului (20.8852, -156.4584) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.993,"sm1":0.253,"pgam":0.363}
@@ -959,13 +959,13 @@
  - :green_heart: {"sms":0.834,"sm1":0.591,"pgam":0.453}
 
 ## Glenallen (62.1086, -145.529) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.97,"sm1":0.451,"pgam":{"actual":0.397,"expected":0.398}}
+ - :green_heart: {"sms":0.97,"sm1":0.451,"pgam":0.397}
 
 ## Memphis (35.15, -90.05) Site Class D-default, Risk Category: I
  - :green_heart: {"sms":1.229,"sm1":0.678,"pgam":0.734}
 
 ## Galena (64.7452, -156.8711) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.434,"sm1":0.167,"pgam":{"actual":0.184,"expected":0.18}}
+ - :green_heart: {"sms":0.434,"sm1":0.167,"pgam":0.184}
 
 ## Gakona (62.3, -145.3) Site Class B-estimated, Risk Category: I
  - :green_heart: {"sms":0.812,"sm1":0.404,"pgam":0.33}
@@ -980,7 +980,7 @@
  - :green_heart: {"sms":0.106,"sm1":0.051,"pgam":0.053}
 
 ## Fairbanks (64.8413, -147.7214) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.991,"sm1":0.378,"pgam":{"actual":0.403,"expected":0.402}}
+ - :green_heart: {"sms":0.991,"sm1":0.378,"pgam":0.403}
 
 ## Seattle (47.6, -122.3) Site Class A, Risk Category: I
  - :green_heart: {"sms":1.118,"sm1":0.39,"pgam":0.477}
@@ -1004,7 +1004,7 @@
  - :green_heart: {"sms":1.758,"sm1":1.118,"pgam":0.679}
 
 ## Galena (64.7, -156.9) Site Class B-estimated, Risk Category: I
- - :broken_heart: {"sms":0.428,"sm1":0.165,"pgam":{"actual":0.182,"expected":0.18}}
+ - :green_heart: {"sms":0.428,"sm1":0.165,"pgam":0.182}
 
 ## Salt Lake City (40.75, -111.9) Site Class B, Risk Category: I
  - :green_heart: {"sms":1.39,"sm1":0.444,"pgam":0.632}
@@ -1095,5 +1095,5 @@
 
 
 ### Summary
- - :green_heart: 335 passing
- - :broken_heart: 27 failing
+ - :green_heart: 362 passing
+ - :broken_heart: 0 failing
