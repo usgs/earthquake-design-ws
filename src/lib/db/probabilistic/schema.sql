@@ -11,7 +11,7 @@ CREATE TABLE region (
 
 CREATE TABLE data (
   id SERIAL NOT NULL,
-  region_id INTEGER NOT NULL REFERENCES region(id),
+  region_id INTEGER NOT NULL REFERENCES region(id) ON DELETE CASCADE,
 
   latitude NUMERIC NOT NULL,
   longitude NUMERIC NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE data (
 
 CREATE TABLE document (
   id SERIAL NOT NULL PRIMARY KEY,
-  region_id INTEGER NOT NULL REFERENCES region(id),
+  region_id INTEGER NOT NULL REFERENCES region(id) ON DELETE CASCADE,
 
   name VARCHAR(255) NOT NULL,
   UNIQUE (region_id, name)
