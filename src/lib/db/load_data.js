@@ -153,7 +153,7 @@ Promise.resolve().then(() => {
     ]).then((selection) => {
       return {
         dataSets: selection.dataSets,
-        mode: AbstractDataLoader.MODE_MISSING
+        mode: AbstractDataLoader.MODE_INTERACTIVE
       };
     });
   });

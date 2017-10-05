@@ -3,6 +3,7 @@
 
 const copyFrom = require('pg-copy-streams').from,
     dbUtils = require('./db-utils'),
+    inquirer = require('inquirer'),
     UrlStream = require('../util/url-stream'),
     zlib = require('zlib');
 
@@ -70,7 +71,29 @@ const AbstractDataLoader = function (options) {
       if (result.rows.length === 0) {
         return createSchema();
       } else {
-        return _this.db.query('SET search_path TO ' + _this.schemaName);
+        let skipCreateSchema = function () {
+          return _this.db.query('SET search_path TO ' + _this.schemaName);
+        };
+
+        if (_this.mode === MODE_MISSING) {
+          return skipCreateSchema();
+        } else {
+          let prompt = inquirer.createPromptModule();
+          return prompt([
+            {
+              name: 'createSchema',
+              type: 'confirm',
+              message: `Schema ${_this.schemaName} already exists, drop and reload schema`,
+              default: false
+            }
+          ]).then((answers) => {
+            if (answers.createSchema) {
+              return createSchema();
+            } else {
+              return skipCreateSchema();
+            }
+          });
+        }
       }
     });
   };
