@@ -152,19 +152,16 @@ function getInteractiveArguments (args) {
     }
   ]).then((selection) => {
     let mode = selection.mode;
-
     if (mode === MISSING_PROMPT) {
-      return {
-        dataSets: args.dataSets,
-        mode: AbstractDataLoader.MODE_MISSING
-      };
+      mode = AbstractDataLoader.MODE_MISSING;
     } else if (mode === SILENT_PROMPT) {
-      return {
-        dataSets: args.dataSets,
-        mode: AbstractDataLoader.MODE_SILENT
-      };
+      mode = AbstractDataLoader.MODE_SILENT;
+    } else {
+      mode = AbstractDataLoader.MODE_INTERACTIVE;
     }
 
+    // started in interactive mode,
+    // prompt for datasets before potentially switching mode
     return prompt([
       {
         name: 'dataSets',
@@ -176,7 +173,7 @@ function getInteractiveArguments (args) {
     ]).then((selection) => {
       return {
         dataSets: selection.dataSets,
-        mode: AbstractDataLoader.MODE_INTERACTIVE
+        mode: mode
       };
     });
   });
