@@ -32,28 +32,42 @@ const LOADER_FACTORIES = {
 
 const DATASETS = Object.keys(LOADER_FACTORIES);
 
-const INTERACTIVE_PROMPT = 'Interactive (WARNING, currently same as "Missing")';
-const MISSING_PROMPT = 'Missing (Install only missing data)';
-const SILENT_PROMPT = 'Silent (Remove existing data and install all data)';
+const INTERACTIVE_PROMPT = 'Interactive (add new data, prompt to replace existing data)';
+const MISSING_PROMPT = 'Missing (only add new data, without prompting for confirmation)';
+const SILENT_PROMPT = 'Silent (replace all existing data, without prompting for confirmation)';
 
 const USAGE = `
-Usage: node master_data_loader [(--missing|--silent)] [--data=all]
+Usage: node load_data.js [(--interactive|--missing|--silent)] [--data=all]
 
-  Default is to run in interactive mode, unless one of the following is present:
+  Default is to run in interactive mode for all data sets.
 
-  --missing:
-          only add new data, without prompting for confirmation.
-  --silent:
-          replace all existing data, without prompting for confirmation.
+  Help:
+    --help:
+      show this usage and exit.
 
+  Mode:
+    Default is --interactive
 
-  --data=deterministic,probabilistic,risk-coefficient,tsubl
-      Comma separated list of one or more of the following data sets:
+    --interactive: (Default)
+        add new data, prompt to replace existing data
 
-      deterministic
-      probabilistic
-      risk-coefficient
-      tsubl
+    --missing:
+        only add new data, without prompting for confirmation
+
+    --silent:
+        replace all existing data, without prompting for confirmation
+
+  Data Sets:
+    Default is all data sets
+
+    --data=deterministic,probabilistic,risk-coefficient,tsubl
+
+        Comma separated list of one or more of the following data sets:
+
+        deterministic
+        probabilistic
+        risk-coefficient
+        tsubl
 `;
 
 
@@ -75,6 +89,9 @@ Promise.resolve().then(() => {
     } else if (arg.startsWith('--data=')) {
       arg = arg.replace('--data=', '');
       dataSets = arg.split(',');
+    } else if (arg === '--help' || arg === '-h') {
+      process.stderr.write(USAGE);
+      process.exit(1);
     } else {
       throw new Error(`Unknown argument ${arg}`);
     }
