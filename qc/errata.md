@@ -1,18 +1,18 @@
 # Quality Control Errata
 
-This document attempts to explain discrepencies in the quality control
+This document attempts to explain discrepancies in the quality control
 results.
 
 
 ## ASCE 7-05
 
 ### San Mateo (37.55, -122.3) Site Class A, Risk Category I
-This discrepency is caused by rounding the output values to less precision
+This discrepancy is caused by rounding the output values to less precision
 than the specified quality control tolerance.
 
-Quality control tolorance is currently specificed as +/- 1E-4 (0.0001).
+Quality control tolerance is currently specified as +/- 1E-4 (0.0001).
 Results are reported rounded to the nearest 0.001. This combination of
-quality control parameters is leading to a difference sufficent to
+quality control parameters is leading to a difference sufficient to
 cause automated quality control tests to fail for this case. When
 comparing un-rounded results for this location, the data are
 as follows:
@@ -32,12 +32,12 @@ as follows:
 
 
 ### San Mateo (37.55, -122.3) Site Class E, Risk Category I
-This discrepency is caused by rounding the output values to less precision
+This discrepancy is caused by rounding the output values to less precision
 than the specified quality control tolerance.
 
-Quality control tolorance is currently specificed as +/- 1E-4 (0.0001).
+Quality control tolorance is currently specified as +/- 1E-4 (0.0001).
 Results are reported rounded to the nearest 0.001. This combination of
-quality control parameters is leading to a difference sufficent to
+quality control parameters is leading to a difference sufficient to
 cause automated quality control tests to fail for this case. When
 comparing un-rounded results for this location, the data are
 as follows:
