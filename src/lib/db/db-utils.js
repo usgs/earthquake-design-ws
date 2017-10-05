@@ -151,14 +151,14 @@ var DbUtils = {
    */
   'getDefaultAdminDB': function() {
     return new Promise((resolve, reject) => {
-      var db;
+      let db;
 
       db = new pg.Client({
         database: config.DB_DATABASE,
-        host: config.DB_HOST,
-        password: config.DB_PASSWORD,
-        port: config.DB_PORT,
-        user: config.DB_USER
+        host:     process.env.DB_ADMIN_HOST     || config.DB_HOST,
+        password: process.env.DB_ADMIN_PASSWORD || config.DB_PASSWORD,
+        port:     process.env.DB_ADMIN_PORT     || config.DB_PORT,
+        user:     process.env.DB_ADMIN_USER     || config.DB_USER
       });
 
       db.connect((err) => {
