@@ -26,7 +26,6 @@
   ],
   "license": "CC0-1.0",
   "dependencies": {
-    "exec-sh": "^0.2.1",
     "express": "^4.14.0",
     "extend": "^3.0.0",
     "inquirer": "^3.0.6",
