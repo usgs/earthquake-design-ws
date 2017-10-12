@@ -7,6 +7,8 @@ const inquirer = require('inquirer'),
     ProbabilisticDataLoader = require('./probabilistic/probabilistic-data-loader'),
     RiskCoefficientDataLoader =
         require('./risk-coefficient/risk-coefficient-data-loader.js'),
+    SiteAmplificationDataLoader =
+        require('./site-amplification/site-amplification-data-loader'),
     TSubLDataLoader = require('./tsubl/tsubl-data-loader.js');
 
 
@@ -14,6 +16,7 @@ const LOADER_FACTORIES = {
   'deterministic': DeterministicDataLoader,
   'probabilistic': ProbabilisticDataLoader,
   'risk-coefficient': RiskCoefficientDataLoader,
+  'site-amplification': SiteAmplificationDataLoader,
   'tsubl': TSubLDataLoader
 };
 

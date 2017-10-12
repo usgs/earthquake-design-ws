@@ -54,6 +54,12 @@ module.exports = [
   },
   {
     type: 'input',
+    name: 'DB_SCHEMA_SITE_AMPLIFICATION',
+    message: 'Database schema for site amplification data',
+    default: 'site_amplification'
+  },
+  {
+    type: 'input',
     name: 'DB_SCHEMA_DETERMINISTIC',
     message: 'Database schema for deterministic data',
     default: 'deterministic'
