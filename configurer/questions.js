@@ -105,5 +105,11 @@ module.exports = [
     name: 'TSUBL_SERVICE_URL',
     message: 'Web service for fetching T-Sub-L data',
     default: 'https://earthquake.usgs.gov/ws/designmaps/t-sub-l.json'
+  },
+  {
+    type: 'input',
+    name: 'SITE_AMPLIFICATION_SERVICE_URL',
+    message: 'Web service for fetching site amplification factors',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/site_amplification.json'
   }
 ];

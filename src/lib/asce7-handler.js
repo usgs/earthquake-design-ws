@@ -5,7 +5,6 @@ const DesignCategoryFactory = require('./design-category-factory'),
     extend = require('extend'),
     MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
-    SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
 
@@ -58,7 +57,8 @@ const ASCE7_Handler = function (options) {
         metadataFactory: MetadataFactory(),
         tSubLService: WebServiceAccessor(
           {url: options.TSUBL_SERVICE_URL}),
-        siteAmplificationFactory: SiteAmplificationFactory(),
+        siteAmplificationService: WebServiceAccessor(
+          {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
       });

@@ -205,10 +205,10 @@ const ASCE7_10Factory = function (options) {
     }).then((basicDesign) => {
       result.basicDesign = basicDesign;
 
-      return _this.siteAmplificationFactory.getSiteAmplificationData(
+      return _this.siteAmplificationService.getData(
           extend(true, {}, inputs, basicDesign));
     }).then((siteAmplification) => {
-      result.siteAmplification = siteAmplification;
+      result.siteAmplification = siteAmplification.response.data;
 
       return _this.computeFinalDesign(result);
     }).then((finalDesign) => {

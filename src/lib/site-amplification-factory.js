@@ -5,499 +5,7 @@ const extend = require('extend'),
     NumberUtils = require('./util/number-utils').instance;
 
 
-const _DEFAULTS = {
-  lookupTables: {
-    'ASCE7-05': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      }
-    },
-    'ASCE7-10': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      }
-    },
-    'NEHRP-2009': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      }
-    },
-    'ASCE7-16': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': null,
-          'D-default': null,
-          'E': {
-            'message': 'See Section 11.4.8',
-            'limit': 1.00
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
-          'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.7, 1.3, 1.3, 1.3, 1.3]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          },
-          'D-default': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          },
-          'E': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.5, 1.5, 1.5, 1.5, 1.5, 1.4],
-          'D': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'D-default': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'E': [4.2, 4.2, 4.2, 4.2, 4.2, 4.2]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.2, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.3, 1.2, 1.1, 1.1],
-          'D-default': [1.6, 1.4, 1.3, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.9, 1.6, 1.4, 1.2, 1.1]
-        }
-      }
-    },
-    'ASCE41-13': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      }
-    },
-    'ASCE41-17': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': null,
-          'D-default': null,
-          'E': {
-            'message': 'See Section 11.4.8',
-            'limit': 1.00
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
-          'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.7, 1.3, 1.3, 1.3, 1.3]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          },
-          'D-default': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          },
-          'E': {
-            'message': 'See Section 11.4.8',
-            'limit': 0.20
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.5, 1.5, 1.5, 1.5, 1.5, 1.4],
-          'D': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'D-default': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'E': [4.2, 4.2, 4.2, 4.2, 4.2, 4.2]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.2, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.3, 1.2, 1.1, 1.1],
-          'D-default': [1.6, 1.4, 1.3, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.9, 1.6, 1.4, 1.2, 1.1]
-        }
-      }
-    },
-    'NEHRP-2015': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25, 1.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': null,
-          'D-default': null,
-          'E': {
-            'message': 'See Section 11.4.8',
-            'limit': 1.00
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.3, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0, 1.0],
-          'D-default': [1.6, 1.4, 1.2, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.7, 1.3, 1.2, 1.2, 1.2]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        restriction: {
-          'A': null,
-          'B': null,
-          'B-estimated': null,
-          'C': null,
-          'D': {
-            'message': 'See Section 11.4.7',
-            'limit': 0.20
-          },
-          'D-default': {
-            'message': 'See Section 11.4.7',
-            'limit': 0.20
-          },
-          'E': {
-            'message': 'See Section 11.4.7',
-            'limit': 0.20
-          }
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.5, 1.5, 1.5, 1.5, 1.5, 1.4],
-          'D': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'D-default': [2.4, 2.2, 2.0, 1.9, 1.8, 1.7],
-          'E': [4.2, 3.3, 2.8, 2.4, 2.2, 2.0]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50, 0.60],
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [0.9, 0.9, 0.9, 0.9, 0.9, 0.9],
-          'B-estimated': [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.3, 1.2, 1.2, 1.2, 1.2, 1.2],
-          'D': [1.6, 1.4, 1.3, 1.2, 1.1, 1.1],
-          'D-default': [1.6, 1.4, 1.3, 1.2, 1.2, 1.2],
-          'E': [2.4, 1.9, 1.6, 1.4, 1.2, 1.1]
-        }
-      }
-    },
-    'IBC-2012': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      }
-    },
-    'IBC-2015': {
-      'ss': {
-        bins: [0.25, 0.50, 0.75, 1.00, 1.25],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      },
-      's1': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.7, 1.6, 1.5, 1.4, 1.3],
-          'D': [2.4, 2.0, 1.8, 1.6, 1.5],
-          'E': [3.5, 3.2, 2.8, 2.4, 2.4]
-        }
-      },
-      'pga': {
-        bins: [0.10, 0.20, 0.30, 0.40, 0.50],
-        restriction: {
-          'A': null,
-          'B': null,
-          'C': null,
-          'D': null,
-          'E': null
-        },
-        siteClasses: {
-          'A': [0.8, 0.8, 0.8, 0.8, 0.8],
-          'B': [1.0, 1.0, 1.0, 1.0, 1.0],
-          'C': [1.2, 1.2, 1.1, 1.0, 1.0],
-          'D': [1.6, 1.4, 1.2, 1.1, 1.0],
-          'E': [2.5, 1.7, 1.2, 0.9, 0.9]
-        }
-      }
-    }
-  }
-};
-
+const _DEFAULTS = {};
 
 /**
  * Factory for computing site amplification values "Fa", "Fv", and "Fpga"
@@ -523,7 +31,7 @@ const SiteAmplificationFactory = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
-    _this.lookupTables = options.lookupTables;
+    _this.db = options.db;
   };
 
 
@@ -541,7 +49,114 @@ const SiteAmplificationFactory = function (options) {
   };
 
   /**
-   * Computes the site amplification coefficient values.
+   * Make request to site-amplification schema for ground motion level bins
+   *
+   * @param refereceDocument {String}
+   *     The reference document to get ground motion levels
+   *     (i.e. "ASCE7-05", "ASCE7-10", ...)
+   *
+   * @param spectralPeriod {String}
+   *     The spectral period to get ground motion levels
+   *     (i.e. "s1", "ss", or "pga")
+   *
+   * @return {Promise}
+   *         database row with ground motion levels
+   */
+  _this.getGroundMotionLevels = function (referenceDocument, spectralPeriod) {
+    return _this.db.query(`
+        SELECT
+          ground_motion_level.value as bin
+        FROM
+          ground_motion_level, lookup
+        WHERE
+          ground_motion_level.lookup_id = lookup.id
+        AND lookup.reference_document = $1
+        AND lookup.type = $2
+      `, [
+        referenceDocument,
+        spectralPeriod
+      ]
+    );
+  };
+
+  /**
+   * Make request to site-amplification schema for site amplication factor bins
+   *
+   * @param refereceDocument {String}
+   *     The reference document to calculate site amplification factors
+   *     (i.e. "ASCE7-05", "ASCE7-10", ...)
+   *
+   * @param spectralPeriod {String}
+   *     The spectral period to calculate site amplification factors
+   *     (i.e. "s1", "ss", or "pga")
+   *
+   * @param siteClass {String}
+   *     The site class to calculate site amplification factors
+   *     (i.e. "A", "B", "C", ...)
+   *
+   * @return {Promise}
+   *         database row with site amplification factors
+   */
+  _this.getSiteAmplificationFactors = function (referenceDocument, spectralPeriod, siteClass) {
+    return _this.db.query(`
+        SELECT
+          amplification_factor.value as factors
+        FROM
+          amplification_factor, lookup
+        WHERE
+          amplification_factor.lookup_id = lookup.id
+        AND lookup.reference_document = $1
+        AND lookup.type = $2
+        AND amplification_factor.site_class = $3
+      `, [
+        referenceDocument,
+        spectralPeriod,
+        siteClass
+      ]
+    );
+  };
+
+  /**
+   * Make request to site-amplification schema for restrictions
+   *
+   * @param refereceDocument {String}
+   *     The reference document to determine restrictions
+   *     (i.e. "ASCE7-05", "ASCE7-10", ...)
+   *
+   * @param spectralPeriod {String}
+   *     The spectral period to determine restrictions
+   *     (i.e. "s1", "ss", or "pga")
+   *
+   * @param siteClass {String}
+   *     The site class to determine restrictions
+   *     (i.e. "A", "B", "C", ...)
+   *
+   * @return {Promise}
+   *         database row with ground motion levels
+   */
+  _this.getRestrictions = function (referenceDocument, spectralPeriod, siteClass) {
+    return _this.db.query(`
+        SELECT
+          restriction."limit",
+          restriction.message
+        FROM
+          restriction, lookup
+        WHERE
+          restriction.lookup_id = lookup.id
+        AND lookup.reference_document = $1
+        AND lookup.type = $2
+        AND restriction.site_class = $3
+      `, [
+        referenceDocument,
+        spectralPeriod,
+        siteClass
+      ]
+    );
+  };
+
+  /**
+   * Delegates site amplification coefficient calculations for
+   * ss, s1, and pga values.
    *
    * @param inputs {Object}
    *     Input parameters required to compute the site amplification.
@@ -565,18 +180,70 @@ const SiteAmplificationFactory = function (options) {
    *     A promise that will resolve with an object containing
    *     the `fa`, `fv`, and `fpga` site amplification values.
    */
-  _this.getSiteAmplificationData = function (inputs) {
-    let data,
-        lookupTable,
-        referenceDocument,
-        restriction,
-        result,
+  _this.get = function (inputs) {
+    return Promise.all([
+      _this.getSiteAmplificationData('ss', inputs),
+      _this.getSiteAmplificationData('s1', inputs),
+      _this.getSiteAmplificationData('pga', inputs)
+    ]).then((results) => {
+      let pgaResult,
+          s1Result,
+          ssResult;
+
+      ssResult = results[0];
+      s1Result = results[1];
+      pgaResult = results[2];
+
+      return {
+        fa: ssResult.factor,
+        fa_note: ssResult.note,
+        fv: s1Result.factor,
+        fv_note: ssResult.note,
+        fpga: (pgaResult ? pgaResult.factor : undefined),
+        fpga_note: (pgaResult ? pgaResult.note : undefined)
+      };
+    });
+  };
+
+  /**
+   * Computes the site amplification coefficient values for a specific
+   * spectral period
+   *
+   * @param spectralPeriod {Object}
+   *     The spectral period ("ss", "s1", or "pga") required to compute
+   *     the site amplification.
+   * @param inputs {Object}
+   *     Input parameters required to compute the site amplification.
+   * @param inputs.referenceDocument {String}
+   *     Well-known string identifying the reference document for which to
+   *     compute site-amplification values.
+   * @param inputs.siteClass {Integer|String}
+   *     Text identifying the site-class for which to compute
+   *     site-amplification values.
+   * @param inputs.ss {Double} Optional
+   *     The Ss value for which to compute Fa. If no `ss` value is present,
+   *     the result object will contain an `fa` value of `undefined`.
+   * @param inputs.s1 {Double} Optional
+   *     The S1 value for which to compute Fv. If no `s1` value is present,
+   *     the result object will contain an `fv` value of `undefined`.
+   * @param inputs.pga {Double} Optional
+   *     The PGA value for which to compute Fpga. If no `pga` value is present,
+   *     the result object will contain an `fpga` value of `undefined`.
+   *
+   * @return {Promise}
+   *     A promise that will resolve with an object containing
+   *     the `fa`, `fv`, or `fpga` site amplification value and note for that
+   *     site amplification value.
+   */
+  _this.getSiteAmplificationData = function (spectralPeriod, inputs) {
+    let referenceDocument,
         siteClass;
 
-    return new Promise((resolve, reject) => {
-      try {
-        result = {};
+    inputs = inputs || {};
 
+    return Promise.resolve().then(() => {
+
+      if (inputs.hasOwnProperty(spectralPeriod)) {
         referenceDocument = inputs.referenceDocument;
         siteClass = inputs.siteClass;
 
@@ -590,51 +257,39 @@ const SiteAmplificationFactory = function (options) {
               'amplification values.');
         }
 
-        if (!_this.lookupTables.hasOwnProperty(referenceDocument)) {
-          throw new Error(`Unknown reference document "${referenceDocument}"`);
-        }
+        return Promise.all([
+          _this.getGroundMotionLevels(referenceDocument, spectralPeriod),
+          _this.getSiteAmplificationFactors(referenceDocument, spectralPeriod, siteClass),
+          _this.getRestrictions(referenceDocument, spectralPeriod, siteClass)
+        ]).then((promiseResults) => {
+          let bins,
+              data,
+              factor,
+              note,
+              restriction;
 
-        lookupTable = _this.lookupTables[referenceDocument];
+          bins = promiseResults[0].rows[0];
+          data = promiseResults[1].rows[0];
+          restriction = promiseResults[2].rows[0];
 
-        if (inputs.hasOwnProperty('ss')) {
-          data = lookupTable.ss;
-          restriction = data.restriction[siteClass];
+          factor = NumberUtils.interpolateBinnedValue(
+              bins.bin,
+              data.factors,
+              inputs[spectralPeriod]
+            );
 
-          result.fa = NumberUtils.interpolateBinnedValue(data.bins,
-              data.siteClasses[siteClass], inputs.ss);
-
-          if (restriction !== null && inputs.ss >= restriction.limit) {
+          if (typeof restriction !== 'undefined' && inputs[spectralPeriod] >= restriction.limit) {
             if (referenceDocument === 'ASCE7-16') {
-              result.fa = null;
+              factor = null;
             }
-            result.fa_note = restriction.message;
+            note = restriction.message;
           }
-        }
 
-        if (inputs.hasOwnProperty('s1')) {
-          data = lookupTable.s1;
-          restriction = data.restriction[siteClass];
-
-          result.fv = NumberUtils.interpolateBinnedValue(data.bins,
-              data.siteClasses[siteClass], inputs.s1);
-
-          if (restriction !== null && inputs.s1 >= restriction.limit) {
-            if (referenceDocument === 'ASCE7-16') {
-              result.fv = null;
-            }
-            result.fv_note = restriction.message;
-          }
-        }
-
-        if (inputs.hasOwnProperty('pga')) {
-          data = lookupTable.pga;
-          result.fpga = NumberUtils.interpolateBinnedValue(data.bins,
-              data.siteClasses[siteClass], inputs.pga);
-        }
-
-        resolve(result);
-      } catch (err) {
-        reject(err);
+          return {
+            factor: factor,
+            note: note
+          };
+        });
       }
     });
   };
