@@ -28,12 +28,12 @@ const ASCE41_13Factory = function (options) {
     _this.probabilisticService = options.probabilisticService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.deterministicService = options.deterministicService;
+    _this.siteAmplificationService = options.siteAmplificationService;
     _this.tsublService = options.tsublService;
 
     _this.metadataFactory = options.metadataFactory;
 
     _this.uhtHazardCurveFactory = options.uhtHazardCurveFactory;
-    _this.siteAmplificationFactory = options.siteAmplificationFactory;
     _this.spectraFactory = options.spectraFactory;
     _this.targetGroundMotion = options.targetGroundMotion;
   };
@@ -193,7 +193,7 @@ const ASCE41_13Factory = function (options) {
       ss = Math.min(ssd, ssrt);
       s1 = Math.min(s1d, s1rt);
 
-      return _this.siteAmplificationFactory.getSiteAmplificationData({
+      return _this.siteAmplificationService.getData({
         referenceDocument: inputs.referenceDocument,
         siteClass: inputs.siteClass,
         ss: ss,
@@ -202,8 +202,8 @@ const ASCE41_13Factory = function (options) {
     }).then((result) => {
       let tSubL = inputs['t-sub-l'];
 
-      fa = result.fa;
-      fv = result.fv;
+      fa = result.response.data.fa;
+      fv = result.response.data.fv;
 
       sxs = ss * fa;
       sx1 = s1 * fv;
@@ -347,7 +347,7 @@ const ASCE41_13Factory = function (options) {
       ss = groundMotions.ss * metadata.ssMaxDirFactor;
       s1 = groundMotions.s1 * metadata.s1MaxDirFactor;
 
-      return _this.siteAmplificationFactory.getSiteAmplificationData({
+      return _this.siteAmplificationService.getData({
         referenceDocument: inputs.referenceDocument,
         siteClass: inputs.siteClass,
         ss: ss,

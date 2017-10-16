@@ -17,6 +17,7 @@ const ASCE7_16Handler = require('./asce7_16-handler'),
     morgan = require('morgan'),
     ProbabilisticHander = require('./probabilistic-handler'),
     RiskCoefficientHandler = require('./risk-coefficient-handler'),
+    SiteAmplificationHandler = require('./site-amplification-handler'),
     TSubLDataHandler = require('./t-sub-l-data-handler');
 
 
@@ -85,6 +86,7 @@ const WebService = function (options) {
         'deterministic.json': DeterministicHandler(options),
         'probabilistic.json': ProbabilisticHander(options),
         'risk-coefficient.json': RiskCoefficientHandler(options),
+        'site-amplification.json': SiteAmplificationHandler(options),
         't-sub-l.json': TSubLDataHandler(options)
       };
     }

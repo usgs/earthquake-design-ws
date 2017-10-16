@@ -4,7 +4,6 @@
 const extend = require('extend'),
     MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
-    SiteAmplificationFactory = require('./site-amplification-factory'),
     SpectraFactory = require('./spectra-factory'),
     TargetGroundMotion = require('./target-ground-motion'),
     UhtHazardCurveFactory = require('./uht-hazard-curve-factory'),
@@ -46,7 +45,8 @@ const ASCE41Handler = function (options) {
         tsublService: WebServiceAccessor(
           {url: options.TSUBL_SERVICE_URL}),
 
-        siteAmplificationFactory: SiteAmplificationFactory(),
+        siteAmplificationService: WebServiceAccessor(
+          {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
 
         spectraFactory: SpectraFactory(),
 

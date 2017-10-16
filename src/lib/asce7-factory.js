@@ -38,7 +38,7 @@ const ASCE7Factory = function (options) {
    *     A factory for fetching deterministic hazard data
    * @param options.riskCoefficientService {RiskTargetingFactory}
    *     A factory for fetching risk coefficient data
-   * @param options.siteAmplificationFactory {SiteAmplificationFactory}
+   * @param options.siteAmplificationService {siteAmplificationService}
    *     A factory for computing site-amplification factors
    * @param options.designCategoryFactory {DesignCategoryFactory}
    *     A factory for computing design category values
@@ -55,7 +55,7 @@ const ASCE7Factory = function (options) {
     _this.deterministicService = options.deterministicService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.tSubLService = options.tSubLService;
-    _this.siteAmplificationFactory = options.siteAmplificationFactory;
+    _this.siteAmplificationService = options.siteAmplificationService;
     _this.designCategoryFactory = options.designCategoryFactory;
     _this.spectraFactory = options.spectraFactory;
   };
@@ -393,10 +393,10 @@ const ASCE7Factory = function (options) {
     }).then((basicDesign) => {
       result.basicDesign = basicDesign;
 
-      return _this.siteAmplificationFactory.getSiteAmplificationData(
+      return _this.siteAmplificationService.getData(
           extend(true, {}, inputs, basicDesign));
     }).then((siteAmplification) => {
-      result.siteAmplification = siteAmplification;
+      result.siteAmplification = siteAmplification.response.data;
 
       return _this.computeFinalDesign(result);
     }).then((finalDesign) => {
