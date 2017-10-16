@@ -34,26 +34,26 @@ const SiteAmplificationDataLoader = function(options) {
    *
    *
    */
-  _this.insertBins = function (lookupIds) {
+  _this.insertGroundMotionLevel = function (lookupIds) {
     let promise;
 
     promise = Promise.resolve();
 
     for (let lookupId in lookupIds) {
       promise = promise.then(() => {
-        let insertBins,
+        let insertGroundMotionLevel,
             siteAmplification;
 
         siteAmplification = lookupIds[lookupId];
 
-        insertBins = function () {
+        insertGroundMotionLevel = function () {
           let queries = Promise.resolve();
 
           queries = queries.then(() => {
             return _this.db.query(`
-              INSERT INTO bins (
+              INSERT INTO ground_motion_level (
                 lookup_id,
-                bin
+                value
               ) VALUES ($1, $2)
             `, [
               lookupId,
@@ -65,54 +65,54 @@ const SiteAmplificationDataLoader = function(options) {
         };
 
         if (_this.mode === MODE_SILENT) {
-          return insertBins();
+          return insertGroundMotionLevel();
         }
 
         return _this.db.query(`
           SELECT id,
-            bin
-          FROM bins
+            value
+          FROM ground_motion_level
           WHERE lookup_id=$1
         `, [
           lookupId
         ]).then((result) => {
           if (result.rows.length == 0) {
             // bin does not exist
-            return insertBins();
+            return insertGroundMotionLevel();
           }
 
           // found existing bin
-          let skipInsertBin;
+          let skipInsertGroundMotionLevel;
 
           lookupId = result.rows[0].id;
 
-          skipInsertBin = function () {
+          skipInsertGroundMotionLevel = function () {
             // nothing to do here
           };
 
           if (_this.mode === MODE_MISSING) {
             // bin already exists
-            return skipInsertBin();
+            return skipInsertGroundMotionLevel();
           } else {
             // ask user whether to remove existing data
             let prompt = inquirer.createPromptModule();
             return prompt([
               {
-                name: 'dropBins',
+                name: 'dropGroundMotionLevel',
                 type: 'confirm',
                 message: `Binned values for row ${lookupId} already exists, drop and reload bins`,
                 default: false
               }
             ]).then((answers) => {
-              if (answers.dropBins) {
+              if (answers.dropGroundMotionLevel) {
                 return _this.db.query(`
-                  DELETE FROM bins
+                  DELETE FROM ground_motion_level
                   WHERE id=$1
                 `, [lookupId]).then(() => {
-                  return insertBins();
+                  return insertGroundMotionLevel();
                 });
               } else {
-                return skipInsertBin();
+                return skipInsertGroundMotionLevel();
               }
             });
           }
@@ -133,7 +133,7 @@ const SiteAmplificationDataLoader = function(options) {
         lookupIds;
 
     // TODO: get existing siteAmplificationData and filter if only loading missing
-    // but may need to pass all lookupIds for insertSiteClass
+    // but may need to pass all lookupIds for insertLookup
     siteAmplificationData = _this.siteAmplificationData;
 
     // load siteAmplificationData
@@ -229,28 +229,28 @@ const SiteAmplificationDataLoader = function(options) {
    *
    *
    */
-  _this.insertSiteClass = function (lookupIds) {
+  _this.insertAmplicationFactor = function (lookupIds) {
     let promise;
 
     promise = Promise.resolve();
 
     for (let lookupId in lookupIds) {
       promise = promise.then(() => {
-        let insertSiteClass,
+        let insertAmplicationFactor,
             siteAmplification;
 
         siteAmplification = lookupIds[lookupId];
 
-        insertSiteClass = function () {
+        insertAmplicationFactor = function () {
           let queries = Promise.resolve();
 
           for (let siteClass in siteAmplification.siteClasses) {
             queries = queries.then(() => {
               return _this.db.query(`
-                INSERT INTO site_classes (
+                INSERT INTO amplification_factor (
                   lookup_id,
                   site_class,
-                  bin
+                  value
                 ) VALUES ($1, $2, $3)
               `, [
                 lookupId,
@@ -264,55 +264,55 @@ const SiteAmplificationDataLoader = function(options) {
         };
 
         if (_this.mode === MODE_SILENT) {
-          return insertSiteClass();
+          return insertAmplicationFactor();
         }
 
         return _this.db.query(`
           SELECT id,
             site_class
-          FROM site_classes
+          FROM amplification_factor
           WHERE lookup_id=$1
         `, [
           lookupId
         ]).then((result) => {
           if (result.rows.length == 0) {
             // siteClass does not exist
-            return insertSiteClass();
+            return insertAmplicationFactor();
           }
 
           // found existing siteClass
           let siteClass,
-              skipInsertSiteClass;
+              skipinsertAmplicationFactor;
 
           lookupId = result.rows[0].id;
           siteClass = result.rows[0].site_class;
-          skipInsertSiteClass = function () {
+          skipinsertAmplicationFactor = function () {
             // nothing to do here
           };
 
           if (_this.mode === MODE_MISSING) {
             // siteClass already exists
-            return skipInsertSiteClass();
+            return skipinsertAmplicationFactor();
           } else {
             // ask user whether to remove existing data
             let prompt = inquirer.createPromptModule();
             return prompt([
               {
-                name: 'dropSiteClass',
+                name: 'dropAmplificationFactor',
                 type: 'confirm',
                 message: `Site class ${siteClass} already exists, drop and reload site class`,
                 default: false
               }
             ]).then((answers) => {
-              if (answers.dropSiteClass) {
+              if (answers.dropAmplificationFactor) {
                 return _this.db.query(`
-                  DELETE FROM site_classes
+                  DELETE FROM amplification_factor
                   WHERE id=$1
                 `, [lookupId]).then(() => {
-                  return insertSiteClass();
+                  return insertAmplicationFactor();
                 });
               } else {
-                return skipInsertSiteClass();
+                return skipinsertAmplicationFactor();
               }
             });
           }
@@ -353,8 +353,8 @@ const SiteAmplificationDataLoader = function(options) {
                   INSERT INTO restriction (
                     lookup_id,
                     site_class,
-                    site_class_limit,
-                    site_class_limit_message
+                    "limit",
+                    message
                   ) VALUES ($1, $2, $3, $4)
                 `, [
                   lookupId,
@@ -446,9 +446,9 @@ const SiteAmplificationDataLoader = function(options) {
     insertLookup = createSchema.then(_this.insertLookup);
     insertData = insertLookup.then((lookupIds) => {
       return Promise.all([
-        _this.insertSiteClass(lookupIds),
+        _this.insertAmplicationFactor(lookupIds),
         _this.insertRestriction(lookupIds),
-        _this.insertBins(lookupIds)
+        _this.insertGroundMotionLevel(lookupIds)
       ]);
     }).catch((err) => {
       process.stderr.write('handleing error' + err.stack);
