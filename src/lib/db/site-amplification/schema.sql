@@ -3,9 +3,9 @@ CREATE TABLE lookup (
   id SERIAL NOT NULL PRIMARY KEY,
 
   reference_document VARCHAR(255) NOT NULL,
-  type VARCHAR(255) NOT NULL,
+  spectral_period VARCHAR(255) NOT NULL,
 
-  UNIQUE (reference_document, type)
+  UNIQUE (reference_document, spectral_period)
 );
 
 CREATE TABLE amplification_factor (
