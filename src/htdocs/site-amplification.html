@@ -15,7 +15,7 @@
   <header>
     <h1>Site Amplification Documentation</h1>
     <p>
-      This endpoint returns Site Amplification Data given a site class and reference document.
+      This endpoint returns site amplification data.
     </p>
   </header>
 
@@ -45,6 +45,16 @@
     <dd>
       NEHRP site classification
       <br/>Example: <code>D</code>
+    </dd>
+
+    <dt id="s1">s1</dt>
+    <dd>
+      MCE<sub>R</sub> ground motion (1.0 s)
+    </dd>
+
+    <dt id="ss">ss</dt>
+    <dd>
+      MCE<sub>R</sub> ground motion (0.2 s)
     </dd>
   </dl>
 
@@ -76,21 +86,30 @@
         <dt id="output-url">url</dt>
         <dd>
           URL to reproduce this result
-          <br/>Example: <code>&ldquo;<span class="url-stub">&hellip;</span>/t-sub-l.json?latitude=49&amp;longitude=-95&amp;referenceDocument=ASCE7-10&rdquo;</code>
+          <br/>Example: <code>&ldquo;<span class="url-stub">&hellip;</span>/site-amplification.json?s1=0.824&ss=2.307&pga=2.3&referenceDocument=ASCE7-10&siteClass=D</code>
         </dd>
         <dt id="request-parameters">parameters</dt>
         <dd>
           <dl>
-            <dt id="request-parameters-latitude">latitude</dt>
+            <dt id="request-parameters-siteClass">siteClass</dt>
             <dd>
-              Latitude for location at which to fetch results
-              <br/>Example: <code>49</code>
+              NEHRP site classification
+              <br/>Example: <code>D</code>
             </dd>
 
-            <dt id="request-parameters-longitude">longitude</dt>
+            <dt id="request-parameters-s1">s1</dt>
             <dd>
-              Longitude for location at which to fetch results
-              <br/>Example: <code>-95</code>
+              MCE<sub>R</sub> ground motion (1.0 s)
+            </dd>
+
+            <dt id="request-parameters-ss">ss</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion (0.2 s)
+            </dd>
+
+            <dt id="request-parameters-pga">pga</dt>
+            <dd>
+              MCE<sub>G</sub> peak ground acceleration
             </dd>
           </dl>
         </dd>
@@ -109,7 +128,7 @@
               Site amplification factor (0.2 s)
             </dd>
 
-            <dt id="data-data-fa">fa_note</dt>
+            <dt id="data-data-fa-note">fa_note</dt>
             <dd>
               Site amplification factor message (0.2s)
             </dd>
@@ -119,12 +138,17 @@
               Site amplification factor at PGA
             </dd>
 
+            <dt id="data-data-fpga-note">fpga</dt>
+            <dd>
+              Site amplification factor at PGA message
+            </dd>
+
             <dt id="data-data-fv">fv</dt>
             <dd>
               Site amplification factor (1.0 s)
             </dd>
 
-            <dt id="data-data-fv">fv_note</dt>
+            <dt id="data-data-fv-note">fv_note</dt>
             <dd>
               Site amplification factor message (1.0 s)
             </dd>
@@ -144,7 +168,7 @@
 
   <h4>Request</h4>
   <p>
-    <a href="site-amplification.json?s1=0.824&amp;ss=2.307&amp;referenceDocument=ASCE7-10&amp;siteClass=D"><span class="url-stub">&hellip;</span>/site-amplification.json?s1=0.824&amp;ss=2.307&amp;referenceDocument=ASCE7-10&amp;siteClass=D</a>
+    <a href="site-amplification.json?s1=0.824&amp;ss=2.307&amp;pga=2.3&&amp;referenceDocument=ASCE7-10&amp;siteClass=D"><span class="url-stub">&hellip;</span>/site-amplification.json?s1=0.824&amp;ss=2.307&amp;pga=2.3&&amp;referenceDocument=ASCE7-10&amp;siteClass=D</a>
   </p>
 
   <h4>Response</h4>
@@ -154,21 +178,21 @@
     "date": "2017-10-16T23:06:37.678Z",
     "referenceDocument": "ASCE7-10",
     "status": "success",
-    "url": "http://localhost/ws/designmaps/site-amplification.json?s1=0.824&ss=2.307&referenceDocument=ASCE7-10&siteClass=D",
+    "url": "http://localhost/ws/designmaps/site-amplification.json?s1=0.824&ss=2.307&&pga=2.3&referenceDocument=ASCE7-10&siteClass=D",
     "parameters": {
       "s1": "0.824",
       "ss": "2.307",
+      "pga": "2.3",
       "siteClass": "D"
     }
   },
   "response": {
     "data": {
       "fa": 1,
-      "fv": 1.5
+      "fv": 1.5,
+      "fpga": 1
     },
-    "metadata": {
-      
-    }
+    "metadata": {}
   }
 }</pre>
   </div>
