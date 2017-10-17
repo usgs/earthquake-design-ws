@@ -15,7 +15,7 @@ const _QUERY_GROUND_MOTION_LEVELS = `
   WHERE
     ground_motion_level.lookup_id = lookup.id
   AND lookup.reference_document = $1::Varchar
-  AND lookup.type = $2::Varchar
+  AND lookup.spectral_period = $2::Varchar
 `;
 
 const _QUERY_SITE_AMPLIFICATION_FACTORS = `
@@ -26,7 +26,7 @@ const _QUERY_SITE_AMPLIFICATION_FACTORS = `
   WHERE
     amplification_factor.lookup_id = lookup.id
   AND lookup.reference_document = $1::Varchar
-  AND lookup.type = $2::Varchar
+  AND lookup.spectral_period = $2::Varchar
   AND amplification_factor.site_class = $3::Varchar
 `;
 
@@ -39,7 +39,7 @@ const _QUERY_RESTRICTIONS = `
   WHERE
     restriction.lookup_id = lookup.id
   AND lookup.reference_document = $1::Varchar
-  AND lookup.type = $2::Varchar
+  AND lookup.spectral_period = $2::Varchar
   AND restriction.site_class = $3::Varchar
 `;
 

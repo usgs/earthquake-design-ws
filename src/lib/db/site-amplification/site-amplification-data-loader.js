@@ -31,7 +31,11 @@ const SiteAmplificationDataLoader = function(options) {
 
 
   /**
+   * Insert ground motion level bins into the database
    *
+   * @param lookupIds {Object}
+   *     An object with ground motion level data keyed by the primary key
+   *     (lookup.id) from the lookup table.
    *
    */
   _this.insertGroundMotionLevel = function (lookupIds) {
@@ -124,7 +128,8 @@ const SiteAmplificationDataLoader = function(options) {
   };
 
   /**
-   *
+   * Insert lookup data into bridge table, unique combination of
+   * "reference_document" and "spectral_period"
    *
    */
   _this.insertLookup = function () {
@@ -141,7 +146,7 @@ const SiteAmplificationDataLoader = function(options) {
 
     lookupIds = {};
     for (let referenceDocument in siteAmplificationData) {
-      for (let type in siteAmplificationData[referenceDocument]) {
+      for (let spectral_period in siteAmplificationData[referenceDocument]) {
         promise = promise.then(() => {
           let insertLookupRow;
 
@@ -149,16 +154,16 @@ const SiteAmplificationDataLoader = function(options) {
             return _this.db.query(`
               INSERT INTO lookup (
                 reference_document,
-                type
+                spectral_period
               ) VALUES ($1, $2)
               RETURNING id
             `, [
               referenceDocument,
-              type
+              spectral_period
             ]).then((result) => {
               // save referenceDocument id for later data loading
               lookupIds[result.rows[0].id] =
-                  siteAmplificationData[referenceDocument][type];
+                  siteAmplificationData[referenceDocument][spectral_period];
             });
           };
 
@@ -170,8 +175,8 @@ const SiteAmplificationDataLoader = function(options) {
             SELECT id
             FROM lookup
             WHERE reference_document=$1
-            AND type=$2
-          `, [referenceDocument, type]).then((result) => {
+            AND spectral_period=$2
+          `, [referenceDocument, spectral_period]).then((result) => {
             if (result.rows.length == 0) {
               // lookupRow not found
               return insertLookupRow();
@@ -185,7 +190,7 @@ const SiteAmplificationDataLoader = function(options) {
             skipInsertLookup = function () {
               // save lookup id for later data loading
               lookupIds[result.rows[0].id] =
-                  siteAmplificationData[referenceDocument][type];
+                  siteAmplificationData[referenceDocument][spectral_period];
             };
 
             if (_this.mode === MODE_MISSING) {
@@ -198,7 +203,7 @@ const SiteAmplificationDataLoader = function(options) {
                 {
                   name: 'dropLookup',
                   type: 'confirm',
-                  message: `Site amplification data for ${referenceDocument} ${type} already exists, drop and reload site amplification data`,
+                  message: `Site amplification data for ${referenceDocument} ${spectral_period} already exists, drop and reload site amplification data`,
                   default: false
                 }
               ]).then((answers) => {
@@ -226,7 +231,11 @@ const SiteAmplificationDataLoader = function(options) {
   };
 
   /**
+   * Insert site amplification factor bins into the database
    *
+   * @param lookupIds {Object}
+   *     An object with ground motion level data keyed by the primary key
+   *     (lookup.id) from the lookup table.
    *
    */
   _this.insertAmplicationFactor = function (lookupIds) {
@@ -324,7 +333,11 @@ const SiteAmplificationDataLoader = function(options) {
   };
 
   /**
+   * Insert site amplification restriction data into the database
    *
+   * @param lookupIds {Object}
+   *     An object with ground motion level data keyed by the primary key
+   *     (lookup.id) from the lookup table.
    *
    */
   _this.insertRestriction = function (lookupIds) {
