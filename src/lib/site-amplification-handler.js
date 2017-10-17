@@ -128,15 +128,11 @@ const SiteAmplificationHandler = function (options) {
   };
 
   _this.formatResult = function (result) {
-    return new Promise((resolve, reject) => {
-      try {
-        return resolve({
-          data: _this.formatData(result),
-          metadata: _this.formatMetadata(result)
-        });
-      } catch (e) {
-        return reject(e);
-      }
+    return new Promise((resolve) => {
+      return resolve({
+        data: _this.formatData(result),
+        metadata: _this.formatMetadata(result)
+      });
     });
   };
 
