@@ -24,9 +24,9 @@ const _DUMMY_FACTORY = {
   riskCoefficientService: {
     getData: () => { return Promise.resolve({response: { data:[] } }); }
   },
-  siteAmplificationFactory: {
-    getSiteAmplificationData: () => {
-      return { fa: 0, fv: 0 };
+  siteAmplificationService: {
+    getData: () => {
+      return Promise.resolve({response: { data:[{ fa: 0, fv: 0 }] }});
     }
   },
   uhtHazardCurveFactory: {

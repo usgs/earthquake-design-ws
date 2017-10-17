@@ -23,8 +23,8 @@ const _DUMMY_FACTORY = {
   tSubLService: {
     getData: () => { return Promise.resolve({response: {data: {}}}); }
   },
-  siteAmplificationFactory: {
-    getSiteAmplificationData: () => { return Promise.resolve([]); }
+  siteAmplificationService: {
+    getData: () => { return Promise.resolve({response: {data: {}}}); }
   },
   designCategoryFactory: {
     getDesignCategory: () => { return Promise.resolve([]); }
@@ -316,7 +316,7 @@ describe('ASCE7Factory', () => {
       sinon.stub(factory, 'computeBasicDesign').callsFake(
           () => {return Promise.resolve({}); });
 
-      sinon.spy(factory.siteAmplificationFactory, 'getSiteAmplificationData');
+      sinon.spy(factory.siteAmplificationService, 'getData');
       sinon.stub(factory, 'computeFinalDesign').callsFake(
           () => { return Promise.resolve([]); });
       sinon.spy(factory.designCategoryFactory, 'getDesignCategory');
@@ -331,8 +331,8 @@ describe('ASCE7Factory', () => {
 
         expect(factory.computeBasicDesign.callCount).to.equal(1);
 
-        expect(factory.siteAmplificationFactory
-            .getSiteAmplificationData.callCount).to.equal(1);
+        expect(factory.siteAmplificationService
+            .getData.callCount).to.equal(1);
         expect(factory.computeFinalDesign.callCount).to.equal(1);
         expect(factory.designCategoryFactory
             .getDesignCategory.callCount).to.equal(1);

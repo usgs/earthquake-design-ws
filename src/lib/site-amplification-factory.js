@@ -7,6 +7,43 @@ const extend = require('extend'),
 
 const _DEFAULTS = {};
 
+const _QUERY_GROUND_MOTION_LEVELS = `
+  SELECT
+    ground_motion_level.value as bin
+  FROM
+    ground_motion_level, lookup
+  WHERE
+    ground_motion_level.lookup_id = lookup.id
+  AND lookup.reference_document = $1::Varchar
+  AND lookup.type = $2::Varchar
+`;
+
+const _QUERY_SITE_AMPLIFICATION_FACTORS = `
+  SELECT
+    amplification_factor.value as factors
+  FROM
+    amplification_factor, lookup
+  WHERE
+    amplification_factor.lookup_id = lookup.id
+  AND lookup.reference_document = $1::Varchar
+  AND lookup.type = $2::Varchar
+  AND amplification_factor.site_class = $3::Varchar
+`;
+
+const _QUERY_RESTRICTIONS = `
+  SELECT
+    restriction."limit",
+    restriction.message
+  FROM
+    restriction, lookup
+  WHERE
+    restriction.lookup_id = lookup.id
+  AND lookup.reference_document = $1::Varchar
+  AND lookup.type = $2::Varchar
+  AND restriction.site_class = $3::Varchar
+`;
+
+
 /**
  * Factory for computing site amplification values "Fa", "Fv", and "Fpga"
  * corresponding to a given "Ss", "S1", and "PGA" respectively for a given
@@ -32,6 +69,11 @@ const SiteAmplificationFactory = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
     _this.db = options.db;
+    _this.numberUtils = options.numberUtils || NumberUtils;
+
+    _this.queryGroundMotionLevels = _QUERY_GROUND_MOTION_LEVELS;
+    _this.querySiteAmplificationFactors = _QUERY_SITE_AMPLIFICATION_FACTORS;
+    _this.queryRestrictions = _QUERY_RESTRICTIONS;
   };
 
 
@@ -63,20 +105,8 @@ const SiteAmplificationFactory = function (options) {
    *         database row with ground motion levels
    */
   _this.getGroundMotionLevels = function (referenceDocument, spectralPeriod) {
-    return _this.db.query(`
-        SELECT
-          ground_motion_level.value as bin
-        FROM
-          ground_motion_level, lookup
-        WHERE
-          ground_motion_level.lookup_id = lookup.id
-        AND lookup.reference_document = $1
-        AND lookup.type = $2
-      `, [
-        referenceDocument,
-        spectralPeriod
-      ]
-    );
+    return _this.db.query(_this.queryGroundMotionLevels, [referenceDocument,
+      spectralPeriod]);
   };
 
   /**
@@ -97,23 +127,10 @@ const SiteAmplificationFactory = function (options) {
    * @return {Promise}
    *         database row with site amplification factors
    */
-  _this.getSiteAmplificationFactors = function (referenceDocument, spectralPeriod, siteClass) {
-    return _this.db.query(`
-        SELECT
-          amplification_factor.value as factors
-        FROM
-          amplification_factor, lookup
-        WHERE
-          amplification_factor.lookup_id = lookup.id
-        AND lookup.reference_document = $1
-        AND lookup.type = $2
-        AND amplification_factor.site_class = $3
-      `, [
-        referenceDocument,
-        spectralPeriod,
-        siteClass
-      ]
-    );
+  _this.getSiteAmplificationFactors = function (referenceDocument,
+      spectralPeriod, siteClass) {
+    return _this.db.query(_this.querySiteAmplificationFactors,
+        [referenceDocument, spectralPeriod, siteClass]);
   };
 
   /**
@@ -134,24 +151,10 @@ const SiteAmplificationFactory = function (options) {
    * @return {Promise}
    *         database row with ground motion levels
    */
-  _this.getRestrictions = function (referenceDocument, spectralPeriod, siteClass) {
-    return _this.db.query(`
-        SELECT
-          restriction."limit",
-          restriction.message
-        FROM
-          restriction, lookup
-        WHERE
-          restriction.lookup_id = lookup.id
-        AND lookup.reference_document = $1
-        AND lookup.type = $2
-        AND restriction.site_class = $3
-      `, [
-        referenceDocument,
-        spectralPeriod,
-        siteClass
-      ]
-    );
+  _this.getRestrictions = function (referenceDocument, spectralPeriod,
+      siteClass) {
+    return _this.db.query(_this.queryRestrictions, [referenceDocument,
+      spectralPeriod, siteClass]);
   };
 
   /**
@@ -272,13 +275,14 @@ const SiteAmplificationFactory = function (options) {
           data = promiseResults[1].rows[0];
           restriction = promiseResults[2].rows[0];
 
-          factor = NumberUtils.interpolateBinnedValue(
+          factor = _this.numberUtils.interpolateBinnedValue(
               bins.bin,
               data.factors,
               inputs[spectralPeriod]
             );
 
-          if (typeof restriction !== 'undefined' && inputs[spectralPeriod] >= restriction.limit) {
+          if (typeof restriction !== 'undefined' && inputs[spectralPeriod] >=
+              restriction.limit) {
             if (referenceDocument === 'ASCE7-16') {
               factor = null;
             }
