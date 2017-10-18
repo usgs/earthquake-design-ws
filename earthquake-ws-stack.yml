@@ -1,0 +1,67 @@
+version: "3.3"
+services:
+  application:
+    image: usgs/earthquake-design-ws:earthquake
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      replicas: 2
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 30M
+      update_config:
+        parallelism: 1
+        delay: 10s
+    networks:
+      - earthquake-network
+    ports:
+      - 8000:8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/ws/designmaps/"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 20
+    environment:
+      - DB_DATABASE=postgres
+      - DB_HOST=database
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_ADMIN_USER=postgres
+      - DB_ADMIN_PASSWORD=postgres
+      - DB_ADMIN_HOST=database
+      - DB_ADMIN_PORT=5432
+      - MOUNT_PATH=/ws/designmaps
+      - DB_SCHEMA_DETERMINISTIC=deterministic
+      - DB_SCHEMA_RISK_COEFFICIENT=risk_coefficient
+      - DB_SCHEMA_PROBABILISTIC=probabilistic
+      - DB_SCHEMA_TSUBL=tsubl
+      - PROBABILISTIC_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/probabilistic.json
+      - RISK_COEFFICIENT_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/risk-coefficient.json
+      - DETERMINISTIC_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/deterministic.json
+      - TSUBL_SERVICE_URL=https://earthquake.usgs.gov/ws/designmaps/t-sub-l.json
+      - SERVICE_PORTS=8000
+    depends_on:
+      - "database"
+  database:
+    image: mdillon/postgis:latest
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    networks:
+      - earthquake-network
+    volumes:
+      - "/Users/jcaple/CODE/pgdata:/var/lib/postgresql/data/pgdata"
+
+# Requires creation of swarm-level 'earthquake-network'
+networks:
+  earthquake-network:
+    driver: overlay
+    external: true
+
+

@@ -13,10 +13,11 @@ _term () {
 }
 trap _term SIGTERM
 
+# Wait for database to come up
+sleep 30
 
-# start application
-node src/server.js &
-
+# perform load of mssing data and start application
+node src/lib/db/load_data.js --missing; node src/server.js &
 
 child=$!
 wait "$child"
