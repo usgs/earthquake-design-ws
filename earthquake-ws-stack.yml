@@ -25,6 +25,8 @@ services:
       interval: 1m30s
       timeout: 10s
       retries: 20
+    environment:
+      # Retrieve environment from CICD secrets
     depends_on:
       - "database"
   database:
