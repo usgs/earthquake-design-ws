@@ -60,6 +60,12 @@ module.exports = [
   },
   {
     type: 'input',
+    name: 'DB_SCHEMA_METADATA',
+    message: 'Database schema for metadata',
+    default: 'metadata'
+  },
+  {
+    type: 'input',
     name: 'DB_SCHEMA_DETERMINISTIC',
     message: 'Database schema for deterministic data',
     default: 'deterministic'
