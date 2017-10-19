@@ -1,7 +1,7 @@
 'use strict';
 
 
-const NumberUtils = require('./util/number-utils').instance;
+const NumberUtils = require('../../util/number-utils').instance;
 
 const _METADATA = {
   'ASCE7-05': [
