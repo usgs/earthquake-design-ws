@@ -5,6 +5,7 @@ const Config = require('../util/config'),
     dbUtils = require('./db-utils'),
     AbstractDataLoader = require('./abstract-data-loader'),
     DeterministicDataLoader = require('./deterministic/deterministic-data-loader'),
+    MetadataDataLoader = require('./metadata/metadata-data-loader'),
     ProbabilisticDataLoader = require('./probabilistic/probabilistic-data-loader'),
     RiskCoefficientDataLoader =
         require('./risk-coefficient/risk-coefficient-data-loader.js'),
@@ -17,6 +18,7 @@ const config = Config().get();
 
 const LOADER_FACTORIES = {
   'deterministic': DeterministicDataLoader,
+  'metadata': MetadataDataLoader,
   'probabilistic': ProbabilisticDataLoader,
   'risk-coefficient': RiskCoefficientDataLoader,
   'site-amplification': SiteAmplificationDataLoader,
