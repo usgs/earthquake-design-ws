@@ -62,6 +62,5 @@ services:
 networks:
   earthquake-network:
     driver: overlay
-    external: true
 
 
