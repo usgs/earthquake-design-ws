@@ -28,6 +28,7 @@ build:
     # DB_PASSWORD=some_password
 
     # DB_SCHEMA_SITE_AMPLIFICATION=site_amplification
+    # DB_SCHEMA_METADATA=metadata
     # DB_SCHEMA_DETERMINISTIC=deterministic
     # DB_SCHEMA_RISK_COEFFICIENT=risk_coefficient
     # DB_SCHEMA_PROBABILISTIC=probabilistic
