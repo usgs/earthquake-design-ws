@@ -17,7 +17,7 @@ trap _term SIGTERM
 sleep 30
 
 # perform load of mssing data and start application
-node src/lib/db/load_data.js --missing; node src/server.js &
+node src/server.js &
 
 child=$!
 wait "$child"

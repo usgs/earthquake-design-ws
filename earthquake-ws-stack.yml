@@ -8,7 +8,7 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-      replicas: 2
+      replicas: 3
       resources:
         limits:
           cpus: "0.1"
@@ -19,32 +19,31 @@ services:
     networks:
       - earthquake-network
     ports:
-      - ${DEPLOY_PORT}:8000
+      - ${DEPLOY_PORT}:${PORT}
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:${DEPLOY_PORT}/ws/designmaps/"]
+      test: ["CMD", "curl", "-f", "http://localhost:${PORT}/ws/designmaps/"]
       interval: 1m30s
       timeout: 10s
       retries: 20
     environment:
+      - DB_ADMIN_HOST=${DB_ADMIN_HOST}
+      - DB_ADMIN_PASSWORD=${DB_ADMIN_PASSWORD}
+      - DB_ADMIN_PORT=${DB_ADMIN_PORT}
+      - DB_ADMIN_USER=${DB_ADMIN_USER}
       - DB_DATABASE=${DB_DATABASE}
       - DB_HOST=${DB_HOST}
-      - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
-      - DB_ADMIN_USER=${DB_ADMIN_USER}
-      - DB_ADMIN_PASSWORD=${DB_ADMIN_PASSWORD}
-      - DB_ADMIN_HOST=${DB_ADMIN_HOST}
-      - DB_ADMIN_PORT=${DB_ADMIN_PORT}
-      - MOUNT_PATH=${MOUNT_PATH}
+      - DB_USER=${DB_USER}
       - DB_SCHEMA_DETERMINISTIC=${DB_SCHEMA_DETERMINISTIC}
-      - DB_SCHEMA_RISK_COEFFICIENT=${DB_SCHEMA_RISK_COEFFICIENT}
       - DB_SCHEMA_PROBABILISTIC=${DB_SCHEMA_PROBABILISTIC}
+      - DB_SCHEMA_RISK_COEFFICIENT=${DB_SCHEMA_RISK_COEFFICIENT}
       - DB_SCHEMA_TSUBL=${DB_SCHEMA_TSUBL}
+      - DETERMINISTIC_SERVICE_URL=${DETERMINISTIC_SERVICE_URL}
+      - MOUNT_PATH=${MOUNT_PATH}
+      - PORT=${PORT}
       - PROBABILISTIC_SERVICE_URL=${PROBABILISTIC_SERVICE_URL}
       - RISK_COEFFICIENT_SERVICE_URL=${RISK_COEFFICIENT_SERVICE_URL}
-      - DETERMINISTIC_SERVICE_URL=${DETERMINISTIC_SERVICE_URL}
       - TSUBL_SERVICE_URL=${TSUBL_SERVICE_URL}
-      - SERVICE_PORTS=${DEPLOY_PORT}
-      - AUTO_LOAD=${AUTO_LOAD}
     depends_on:
       - "database"
   database:
@@ -52,8 +51,8 @@ services:
     environment:
       - PGDATA=${PGDATA_CONTAINER}
       - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
     networks:
       - earthquake-network
     volumes:
@@ -62,5 +61,3 @@ services:
 networks:
   earthquake-network:
     driver: overlay
-
-
