@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   application:
-    image: usgs/earthquake-design-ws:earthquake
+    image: ${IMAGE_NAME}
     deploy:
       restart_policy:
         condition: on-failure
@@ -19,29 +19,46 @@ services:
     networks:
       - earthquake-network
     ports:
-      - 8000:8000
+      - ${DEPLOY_PORT}:8000
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/ws/designmaps/"]
+      test: ["CMD", "curl", "-f", "http://localhost:${DEPLOY_PORT}/ws/designmaps/"]
       interval: 1m30s
       timeout: 10s
       retries: 20
     environment:
-      # Retrieve environment from CICD secrets
+      - DB_DATABASE=${DB_DATABASE}
+      - DB_HOST=${DB_HOST}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_ADMIN_USER=${DB_ADMIN_USER}
+      - DB_ADMIN_PASSWORD=${DB_ADMIN_PASSWORD}
+      - DB_ADMIN_HOST=${DB_ADMIN_HOST}
+      - DB_ADMIN_PORT=${DB_ADMIN_PORT}
+      - MOUNT_PATH=${MOUNT_PATH}
+      - DB_SCHEMA_DETERMINISTIC=${DB_SCHEMA_DETERMINISTIC}
+      - DB_SCHEMA_RISK_COEFFICIENT=${DB_SCHEMA_RISK_COEFFICIENT}
+      - DB_SCHEMA_PROBABILISTIC=${DB_SCHEMA_PROBABILISTIC}
+      - DB_SCHEMA_TSUBL=${DB_SCHEMA_TSUBL}
+      - PROBABILISTIC_SERVICE_URL=${PROBABILISTIC_SERVICE_URL}
+      - RISK_COEFFICIENT_SERVICE_URL=${RISK_COEFFICIENT_SERVICE_URL}
+      - DETERMINISTIC_SERVICE_URL=${DETERMINISTIC_SERVICE_URL}
+      - TSUBL_SERVICE_URL=${TSUBL_SERVICE_URL}
+      - SERVICE_PORTS=${DEPLOY_PORT}
+      - AUTO_LOAD=${AUTO_LOAD}
     depends_on:
       - "database"
   database:
     image: mdillon/postgis:latest
     environment:
-      - PGDATA=/var/lib/postgresql/data/pgdata
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - PGDATA=${PGDATA_CONTAINER}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     networks:
       - earthquake-network
     volumes:
-      - "/Users/jcaple/CODE/pgdata:/var/lib/postgresql/data/pgdata"
+      - ${PGDATA_HOST}:${PGDATA_CONTAINER}
 
-# Requires creation of swarm-level 'earthquake-network'
 networks:
   earthquake-network:
     driver: overlay
