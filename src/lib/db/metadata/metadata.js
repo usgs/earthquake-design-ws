@@ -31,7 +31,7 @@ const _METADATA = {
         'PRVI0P01'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.5,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
@@ -48,7 +48,7 @@ const _METADATA = {
         'HI0P02'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.5,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.0,
@@ -151,7 +151,7 @@ const _METADATA = {
         's1MaxDirFactor': 1.0,
         's1dFloor': 0.6,
         's1dPercentileFactor': 1.8,
-        'spatialInterpolationMethod': NumberUtils.INTERPOLTE_LINEARX_LINEARY_LINEAR,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
         'ssdPercentileFactor': 1.8
@@ -206,7 +206,7 @@ const _METADATA = {
         'PRVI0P01'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
@@ -223,7 +223,7 @@ const _METADATA = {
         'HI0P02'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.0,
@@ -247,7 +247,7 @@ const _METADATA = {
         'PRVI0P01'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
@@ -264,7 +264,7 @@ const _METADATA = {
         'HI0P02'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.0,
@@ -286,7 +286,7 @@ const _METADATA = {
         'PRVI0P01'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.3,
@@ -303,7 +303,7 @@ const _METADATA = {
         'HI0P02'
       ],
       'data': {
-        'model_veresion': 'v3.1.x',
+        'modelVersion': 'v3.1.x',
         'pgadFloor': 0.6,
         'pgadPercentileFactor': 1.8,
         's1MaxDirFactor': 1.0,
@@ -369,7 +369,7 @@ const _METADATA = {
         's1MaxDirFactor': 1.0,
         's1dFloor': 0.6,
         's1dPercentileFactor': 1.8,
-        'spatialInterpolationMethod': NumberUtils.INTERPOLTE_LINEARX_LINEARY_LINEAR,
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR,
         'ssMaxDirFactor': 1.0,
         'ssdFloor': 1.5,
         'ssdPercentileFactor': 1.8

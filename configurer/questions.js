@@ -90,6 +90,12 @@ module.exports = [
   },
   {
     type: 'input',
+    name: 'METADATA_SERVICE_URL',
+    message: 'Web service for fetching metadata',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/metadata.json'
+  },
+  {
+    type: 'input',
     name: 'PROBABILISTIC_SERVICE_URL',
     message: 'Web service for fetching mapped probabilistic ground motion data',
     default: 'https://earthquake.usgs.gov/ws/designmaps/probabilistic.json'

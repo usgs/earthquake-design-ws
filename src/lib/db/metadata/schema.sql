@@ -1,36 +1,25 @@
-CREATE TABLE reference_document (
-  id SERIAL NOT NULL PRIMARY KEY,
-
-  value VARCHAR(255) NOT NULL,
-
-  UNIQUE (value)
-);
-
 CREATE TABLE region (
   id SERIAL NOT NULL PRIMARY KEY,
-  reference_document_id INTEGER NOT NULL REFERENCES reference_document(id) ON DELETE CASCADE,
 
-  name VARCHAR(255) NOT NULL,
   grid_spacing NUMERIC NOT NULL,
   max_latitude NUMERIC NOT NULL,
   max_longitude NUMERIC NOT NULL,
   min_latitude NUMERIC NOT NULL,
   min_longitude NUMERIC NOT NULL,
-
-
-  UNIQUE (reference_document_id, name)
+  name VARCHAR(255) NOT NULL UNIQUE
 );
 
-CREATE TABLE reference_document_region_bridge (
+CREATE TABLE document (
   id SERIAL NOT NULL PRIMARY KEY,
+  region_id INTEGER NOT NULL REFERENCES region(id) ON DELETE CASCADE,
 
-  reference_document_id INTEGER NOT NULL REFERENCES reference_document(id) ON DELETE CASCADE,
-  region_id INTEGER NOT NULL REFERENCES region(id) ON DELETE CASCADE
+  name VARCHAR(255) NOT NULL,
+  UNIQUE (region_id, name)
 );
 
 CREATE TABLE metadata (
   id SERIAL NOT NULL PRIMARY KEY,
-  reference_document_id INTEGER NOT NULL REFERENCES reference_document(id) ON DELETE CASCADE,
+  document_id INTEGER NOT NULL REFERENCES document(id) ON DELETE CASCADE,
 
   key VARCHAR(255) NOT NULL,
   value VARCHAR(255) NOT NULL
