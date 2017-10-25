@@ -29,7 +29,7 @@ const ASCE7Factory = function (options) {
   /**
    * Constructor. Instantiates a new {ASCE7Factory} instance.
    *
-   * @param options.metadataFactory {MetadataFactory}
+   * @param options.metadataService {metadataService}
    *     A factory for fetching metadata parameters for the building code
    *     reference document
    * @param options.probabilisticService {ProbabilisticHazardFactory}
@@ -50,7 +50,7 @@ const ASCE7Factory = function (options) {
 
     _this.referenceDocument = options.referenceDocument;
 
-    _this.metadataFactory = options.metadataFactory;
+    _this.metadataService = options.metadataService;
     _this.probabilisticService = options.probabilisticService;
     _this.deterministicService = options.deterministicService;
     _this.riskCoefficientService = options.riskCoefficientService;
@@ -376,7 +376,7 @@ const ASCE7Factory = function (options) {
     };
 
     return Promise.all([
-      _this.metadataFactory.getMetadata(inputs),
+      _this.metadataService.getData(inputs),
       _this.probabilisticService.getData(inputs),
       _this.deterministicService.getData(inputs),
       _this.riskCoefficientService.getData(inputs),
