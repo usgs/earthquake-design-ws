@@ -3,7 +3,8 @@
 
 const GriddedDataFactory = require('./gridded-data-factory'),
     extend = require('extend'),
-    Pool = require('./db/pool');
+    Pool = require('./db/pool'),
+    WebServiceAccessor = require('./util/web-service-accessor');
 
 
 const _DEFAULTS = {
@@ -31,7 +32,9 @@ const GriddedDataHandler = function (options) {
     } else {
       _this.destroyFactory = true;
       _this.factory = GriddedDataFactory({
-        db: _this.createDbPool(options)
+        db: _this.createDbPool(options),
+        metadataService: WebServiceAccessor(
+          {url: options.METADATA_SERVICE_URL})
       });
     }
   };

@@ -2,7 +2,6 @@
 
 
 const extend = require('extend'),
-    MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance;
 
 
@@ -109,15 +108,10 @@ const GriddedDataFactory = function (options) {
     options = extend({}, _DEFAULTS, options);
 
     _this.db = options.db;
-    _this.metadataFactory = options.metadataFactory;
     _this.queryData = options.queryData;
     _this.queryDocument = options.queryDocument;
     _this.queryRegion = options.queryRegion;
-
-    if (!_this.metadataFactory) {
-      _this.destroyMetadataFactory = true;
-      _this.metadataFactory = MetadataFactory();
-    }
+    _this.metadataService = options.metadataService;
   };
 
 
@@ -128,11 +122,6 @@ const GriddedDataFactory = function (options) {
   _this.destroy = function () {
     if (_this === null) {
       return;
-    }
-
-    if (_this.destroyMetadataFactory) {
-      delete _this.destroyMetadataFactory;
-      _this.metadataFactory.destroy();
     }
 
     _initialize = null;
@@ -252,7 +241,7 @@ const GriddedDataFactory = function (options) {
 
     return Promise.all([
       _this.getRegion(inputs),
-      _this.metadataFactory.getMetadata(inputs)
+      _this.metadataService.getData(inputs)
     ]).then((promiseResults) => {
       region = promiseResults[0];
       metadata = promiseResults[1];
