@@ -17,14 +17,16 @@ const _QUERY_DATA = `
 
 const _QUERY_REGION = `
   SELECT
-    *
+    region.*
   FROM
-    region
+    region, document
   WHERE
-    region.max_latitude >= $1::Numeric
+    region.id = document.region_id
+  AND region.max_latitude >= $1::Numeric
   AND region.min_latitude <= $1::Numeric
   AND region.max_longitude >= $2::Numeric
   AND region.min_longitude <= $2::Numeric
+  AND document.name = $3::Varchar
 `;
 
 
@@ -95,7 +97,7 @@ const MetadataFactory = function (options) {
    *     error occurs.
    */
   _this.getMetadata = function (inputs) {
-    return _this.getRegion(inputs.latitude, inputs.longitude).then((region) => {
+    return _this.getRegion(inputs.latitude, inputs.longitude, inputs.referenceDocument).then((region) => {
       return _this.getData(inputs.referenceDocument, region);
     }).catch((err) => {
       process.stdout.write(err.stack);
@@ -130,10 +132,10 @@ const MetadataFactory = function (options) {
    * @return {String}
    *     The name of the region that contains the lat/lng reference point
    */
-  _this.getRegion = function (latitude, longitude) {
+  _this.getRegion = function (latitude, longitude, referenceDocument) {
     let regions;
 
-    return _this.db.query(_this.queryRegion, [latitude, longitude]).then((results) => {
+    return _this.db.query(_this.queryRegion, [latitude, longitude, referenceDocument]).then((results) => {
       regions = results.rows;
       // if more than one region is found then use the smallest region
       if (regions.length > 1) {
