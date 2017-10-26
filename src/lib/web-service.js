@@ -85,7 +85,7 @@ const WebService = function (options) {
         'asce41-13.json': ASCE41_13Handler(options),
 
         'deterministic.json': DeterministicHandler(options),
-        'metadata-handler.json': MetadataHandler(options),
+        'metadata.json': MetadataHandler(options),
         'probabilistic.json': ProbabilisticHander(options),
         'risk-coefficient.json': RiskCoefficientHandler(options),
         'site-amplification.json': SiteAmplificationHandler(options),

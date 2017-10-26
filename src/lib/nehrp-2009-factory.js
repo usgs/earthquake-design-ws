@@ -190,7 +190,7 @@ const NEHRP2009Factory = function (options) {
             riskCoefficientInputs,
             _this.riskCoefficientService
         ),
-        _this.metadataFactory.getMetadata(inputs),
+        _this.metadataService.getData(inputs),
         _this.tSubLService.getData(inputs)
       ]);
     }).then((promiseResults) => {
