@@ -59,7 +59,7 @@ const IBC2012Factory = function (options) {
       inputs = data.inputs;
 
       try {
-        metadata = data.metadata;
+        metadata = data.metadata.response.data;
         probabilistic = data.probabilistic.map((item) => {
           return item.response.data;
         });

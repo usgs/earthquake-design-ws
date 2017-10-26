@@ -225,7 +225,7 @@ const ASCE7_Handler = function (options) {
                 NumberUtils.roundSpectrum(result.samvSpectrum, _this.outputDecimals) : undefined
           },
 
-          metadata: extend(true, {}, result.metadata)
+          metadata: extend(true, {}, result.metadata.response.data)
         });
       } catch (err) {
         reject(err);

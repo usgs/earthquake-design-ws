@@ -157,6 +157,8 @@ const ASCE41Handler = function (options) {
           formatted.push(data);
         });
 
+        process.stdout.write(JSON.stringify(result.metadata, null, 2));
+
         resolve({
           data: formatted,
           metadata: result.metadata

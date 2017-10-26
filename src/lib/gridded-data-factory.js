@@ -244,8 +244,7 @@ const GriddedDataFactory = function (options) {
       _this.metadataService.getData(inputs)
     ]).then((promiseResults) => {
       region = promiseResults[0];
-      metadata = promiseResults[1];
-
+      metadata = promiseResults[1].response.data;
       return _this.getDocument(inputs, region);
     }).then((promiseResult) => {
       return {
