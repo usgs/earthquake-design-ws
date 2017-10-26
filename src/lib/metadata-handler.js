@@ -28,8 +28,6 @@ const MetadataHandler = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
-    process.stdout.write(JSON.stringify(options, null, 2));
-
     if (options.factory) {
       _this.factory = options.factory;
     } else {
@@ -112,7 +110,6 @@ const MetadataHandler = function (options) {
     return new Promise((resolve) => {
       return resolve({
         data: result,
-        metadata: {}
       });
     });
   };

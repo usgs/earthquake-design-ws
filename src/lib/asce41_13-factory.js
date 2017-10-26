@@ -30,8 +30,7 @@ const ASCE41_13Factory = function (options) {
     _this.deterministicService = options.deterministicService;
     _this.siteAmplificationService = options.siteAmplificationService;
     _this.tsublService = options.tsublService;
-
-    _this.metadataFactory = options.metadataFactory;
+    _this.metadataService = options.metadataService;
 
     _this.uhtHazardCurveFactory = options.uhtHazardCurveFactory;
     _this.spectraFactory = options.spectraFactory;
@@ -234,7 +233,7 @@ const ASCE41_13Factory = function (options) {
   };
 
   _this.computeMetadata = function (inputs) {
-    return _this.metadataFactory.getMetadata(inputs);
+    return _this.metadataService.getData(inputs);
   };
 
   /**
