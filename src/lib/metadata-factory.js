@@ -54,6 +54,7 @@ const MetadataFactory = function (options) {
 
   /**
    * computes the size of a region.
+   *
    * @param inputs {object}
    *        region.max_latitude {number}
    *        region.min_latitude {number}
@@ -93,11 +94,19 @@ const MetadataFactory = function (options) {
    *     inputs.referenceDocument {String}
    *
    * @return {Promise}
-   *     A promise that resolves with probabilistic metadata or rejects if an
+   *     A promise that resolves with metadata or rejects if an
    *     error occurs.
    */
   _this.getMetadata = function (inputs) {
-    return _this.getRegion(inputs.latitude, inputs.longitude, inputs.referenceDocument).then((region) => {
+    let latitude,
+        longitude,
+        referenceDocument;
+
+    latitude = parseFloat(inputs.latitude);
+    longitude = parseFloat(inputs.longitude);
+    referenceDocument = inputs.referenceDocument;
+
+    return _this.getRegion(latitude, longitude, referenceDocument).then((region) => {
       return _this.getData(inputs.referenceDocument, region);
     }).catch((err) => {
       process.stdout.write(err.stack);
@@ -106,9 +115,12 @@ const MetadataFactory = function (options) {
 
   _this.getData = function (referenceDocument, region) {
     let metadata,
+        params,
         results;
 
-    return _this.db.query(_this.queryData, [referenceDocument, region]).then((data) => {
+    params = [referenceDocument, region];
+
+    return _this.db.query(_this.queryData, params).then((data) => {
       results = data.rows;
       // determine metadata set based on referenceDocument
       metadata = {};
@@ -122,8 +134,8 @@ const MetadataFactory = function (options) {
   };
 
   /**
-   * Gets name of particular region based on the location
-   * specified by `inputs.latitude` and `inputs.longitude`.
+   * Gets region id based on the location specified by `inputs.latitude` and
+   * `inputs.longitude`, and the corresponding referenceDocument
    *
    * @param inputs {Object}
    *     inputs.latitude {Number}
@@ -133,9 +145,12 @@ const MetadataFactory = function (options) {
    *     The name of the region that contains the lat/lng reference point
    */
   _this.getRegion = function (latitude, longitude, referenceDocument) {
-    let regions;
+    let params,
+        regions;
 
-    return _this.db.query(_this.queryRegion, [latitude, longitude, referenceDocument]).then((results) => {
+    params = [latitude, longitude, referenceDocument];
+
+    return _this.db.query(_this.queryRegion, params).then((results) => {
       regions = results.rows;
       // if more than one region is found then use the smallest region
       if (regions.length > 1) {

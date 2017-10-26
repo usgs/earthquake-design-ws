@@ -312,7 +312,7 @@ const ASCE41_13Factory = function (options) {
     inputs = inputs || {};
 
     return _this.computeMetadata(inputs).then((result) => {
-      metadata = result;
+      metadata = result.response.data;
       return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
     }).then((result) => {
       let groundMotions;
@@ -400,7 +400,7 @@ const ASCE41_13Factory = function (options) {
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
-      metadata = result;
+      metadata = result.response.data;
       return _this.computeBse2N(inputs, metadata);
     }).then((result) => {
       bse2n = result;

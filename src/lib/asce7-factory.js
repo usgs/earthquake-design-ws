@@ -97,7 +97,7 @@ const ASCE7Factory = function (options) {
       };
 
       try {
-        metadata = data.metadata;
+        metadata = data.metadata.response.data;
         probabilistic = data.probabilistic.response.data;
         riskCoefficients = data.riskCoefficients.response.data;
         deterministic = data.deterministic.response.data;
