@@ -13,12 +13,14 @@ _term () {
 }
 trap _term SIGTERM
 
-# Wait for database to come up
-until timeout 1 bash -c "echo > /dev/tcp/${DB_HOST}/${DB_PORT}"
-do
-  echo "waiting for postgres"
-  sleep 1
-done
+# Wait for database to come up (NOT CURRENTLY WORKING)
+#until timeout 1 bash -c "echo > /dev/tcp/${DB_HOST}/${DB_PORT}"
+#do
+#  echo "waiting for postgres"
+#  sleep 1
+#done
+
+sleep 30
 
 # perform load of mssing data and start application
 node src/server.js &
