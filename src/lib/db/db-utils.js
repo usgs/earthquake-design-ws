@@ -1,8 +1,7 @@
 'use strict';
 
 
-var config = require('../../conf/config.json'),
-    fs = require('fs'),
+var fs = require('fs'),
     inquirer = require('inquirer'),
     pg = require('pg');
 
@@ -84,7 +83,10 @@ var DbUtils = {
    * @return {Promise<pg.DB>}
    *     promise that resolves to database connection.
    */
-  'getAdminDb': function () {
+  'getAdminDb': function (config) {
+
+    config = config || {};
+
     process.stderr.write('Enter admin database connection information\n');
     return inquirer.prompt([
       {
@@ -143,7 +145,10 @@ var DbUtils = {
    * connection to the database for silent data loading
    * operations.
    */
-  'getNonInteractiveAdminDB': function() {
+  'getNonInteractiveAdminDB': function (config) {
+
+    config = config || {};
+
     return new Promise((resolve, reject) => {
       let db;
 

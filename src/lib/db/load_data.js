@@ -1,6 +1,7 @@
 'use strict';
 
-const inquirer = require('inquirer'),
+const Config = require('../util/config'),
+    inquirer = require('inquirer'),
     dbUtils = require('./db-utils'),
     AbstractDataLoader = require('./abstract-data-loader'),
     DeterministicDataLoader = require('./deterministic/deterministic-data-loader'),
@@ -9,6 +10,8 @@ const inquirer = require('inquirer'),
         require('./risk-coefficient/risk-coefficient-data-loader.js'),
     TSubLDataLoader = require('./tsubl/tsubl-data-loader.js');
 
+
+const config = Config().get();
 
 const LOADER_FACTORIES = {
   'deterministic': DeterministicDataLoader,
@@ -234,9 +237,9 @@ function main () {
     process.exit(1);
   }).then((args) => {
     if (args.mode === AbstractDataLoader.MODE_INTERACTIVE) {
-      dbFactory = dbUtils.getAdminDb();
+      dbFactory = dbUtils.getAdminDb(config);
     } else {
-      dbFactory = dbUtils.getNonInteractiveAdminDB();
+      dbFactory = dbUtils.getNonInteractiveAdminDB(config);
     }
 
     return dbFactory.then(() => {
