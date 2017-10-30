@@ -356,8 +356,8 @@ const ASCE41_13Factory = function (options) {
     }).then((result) => {
       let tSubL = inputs['t-sub-l'];
 
-      fa = result.fa;
-      fv = result.fv;
+      fa = result.response.data.fa;
+      fv = result.response.data.fv;
       sxs = ss * fa;
       sx1 = s1 * fv;
 
