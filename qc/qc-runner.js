@@ -283,7 +283,8 @@ const QCRunner = function (options) {
     });
 
     promise = promise.then(() => {
-      let fileDescriptor,
+      let doCloseFile,
+          fileDescriptor,
           summary;
 
       summary = {
@@ -292,7 +293,13 @@ const QCRunner = function (options) {
         fail: 0
       };
 
-      fileDescriptor = fs.openSync(output, 'w');
+      if (output.hasOwnProperty('fd')) {
+        fileDescriptor = output.fd;
+        doCloseFile = false;
+      } else {
+        fileDescriptor = fs.openSync(output, 'w');
+        doCloseFile = true;
+      }
       _this._writeHeader(fileDescriptor, endpoint);
 
       results.forEach((result) => {
@@ -304,7 +311,9 @@ const QCRunner = function (options) {
 
       _this._writeFooter(fileDescriptor, summary);
 
-      fs.closeSync(fileDescriptor);
+      if (doCloseFile) {
+        fs.closeSync(fileDescriptor);
+      }
       return summary;
     });
 
