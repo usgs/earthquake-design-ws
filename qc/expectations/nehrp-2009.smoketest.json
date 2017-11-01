@@ -1,0 +1,310 @@
+[
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.6,
+        "sm1": 0.6,
+        "sms": 1.5,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3018,
+        "longitude": -145.2829,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.328,
+        "sm1": 0.403,
+        "sms": 0.808,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.432,
+        "sm1": 0.433,
+        "sms": 1.118,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.433,
+        "sm1": 0.434,
+        "sms": 1.119,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.097,
+        "sm1": 0.084,
+        "sms": 0.247,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.122,
+        "sm1": 0.106,
+        "sms": 0.311,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.604,
+        "sm1": 0.6,
+        "sms": 1.5,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.6,
+        "sm1": 0.6,
+        "sms": 1.5,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.836,
+        "sm1": 0.815,
+        "sms": 2.194,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.649,
+        "sm1": 0.643,
+        "sms": 1.732,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.586,
+        "sm1": 0.351,
+        "sms": 1.01,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.469,
+        "sm1": 0.281,
+        "sms": 0.809,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.536,
+        "sm1": 0.446,
+        "sms": 1.231,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "NEHRP-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pgam": 0.633,
+        "sm1": 0.538,
+        "sms": 1.466,
+        "t-sub-l": 8
+      }
+    }
+  }
+]

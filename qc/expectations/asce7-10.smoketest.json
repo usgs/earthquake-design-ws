@@ -1,0 +1,310 @@
+[
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 62.3018,
+        "longitude": -145.2829,
+        "riskCategory": "I",
+        "title": "Gakona",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.808,
+        "sm1": 0.403,
+        "pgam": 0.328,
+        "t-sub-l": 16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.118,
+        "sm1": 0.433,
+        "pgam": 0.432,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.119,
+        "sm1": 0.434,
+        "pgam": 0.433,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.247,
+        "sm1": 0.084,
+        "pgam": 0.097,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.311,
+        "sm1": 0.106,
+        "pgam": 0.122,
+        "t-sub-l": 6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.517,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6,
+        "pgam": 0.5,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.194,
+        "sm1": 0.815,
+        "pgam": 0.836,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.732,
+        "sm1": 0.643,
+        "pgam": 0.649,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.01,
+        "sm1": 0.351,
+        "pgam": 0.5,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.809,
+        "sm1": 0.281,
+        "pgam": 0.4,
+        "t-sub-l": 12
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.231,
+        "sm1": 0.446,
+        "pgam": 0.536,
+        "t-sub-l": 8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-10",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.466,
+        "sm1": 0.538,
+        "pgam": 0.633,
+        "t-sub-l": 8
+      }
+    }
+  }
+]
