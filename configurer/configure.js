@@ -15,8 +15,7 @@ var Configurer = require('./index'),
 var configurer = Configurer(configuration);
 
 
-configurer.configure(questions)
-.then((/*runtimeConfig*/) => {
+configurer.configure(questions).then((/*runtimeConfig*/) => {
   process.stdout.write('\nConfiguration complete. Results saved in ...\n');
   process.stdout.write(`  ${configuration.confFile}\n`);
 }).catch((err) => {

@@ -56,7 +56,7 @@ var Cli = function (options) {
         answers = {};
         questions.forEach((question) => {
           answers[question.name] = ('default' in question) ?
-              question.default : null;
+            question.default : null;
         });
       } catch (err) {
         reject(err);

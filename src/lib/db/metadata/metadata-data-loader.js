@@ -94,11 +94,12 @@ const MetadataDataLoader = function (options) {
                         key,
                         value
                       ) VALUES ($1, $2, $3)
-                    `, [
-                      documentId,
-                      key,
-                      value
-                    ]));
+                    `,  [
+                          documentId,
+                          key,
+                          value
+                        ]
+                    ));
                   });
 
                   return queries;

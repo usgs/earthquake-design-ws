@@ -95,7 +95,7 @@ describe('util/web-service-accessor', () => {
 
       accessor = WebServiceAccessor();
       expect(accessor.getQueryString({param1: 'value1', param2: 'value2'}))
-          .to.equal('?param1=value1&param2=value2');
+        .to.equal('?param1=value1&param2=value2');
 
       accessor.destroy();
     });

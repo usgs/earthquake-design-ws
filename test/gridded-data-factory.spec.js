@@ -263,9 +263,9 @@ describe('gridded-data-factory', () => {
       sinon.spy(NumberUtils, 'spatialInterpolate');
 
       factory.interpolate(
-        [{latitude: 0,longitude: 0}],
-        {latitude: 0, longitude: 0},
-        {metadata: {spatialInterpolationMethod: 'foo'}}
+          [{latitude: 0,longitude: 0}],
+          {latitude: 0, longitude: 0},
+          {metadata: {spatialInterpolationMethod: 'foo'}}
       );
 
       expect(NumberUtils.spatialInterpolate.callCount).to.equal(1);

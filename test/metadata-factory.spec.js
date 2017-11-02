@@ -163,7 +163,7 @@ describe('MetadataFactory', () => {
         // check query
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(factory.queryData,
-              [referenceDocument, region])).to.be.true;
+            [referenceDocument, region])).to.be.true;
 
         // check metadata results
         expect(data).to.deep.equal({
@@ -245,7 +245,7 @@ describe('MetadataFactory', () => {
         // check query
         expect(factory.db.query.callCount).to.equal(1);
         expect(factory.db.query.calledWith(factory.queryRegion,
-              [latitude, longitude, referenceDocument])).to.be.true;
+            [latitude, longitude, referenceDocument])).to.be.true;
 
         // check submethods are called
         expect(factory._computeRegionArea.callCount).to.equal(2);

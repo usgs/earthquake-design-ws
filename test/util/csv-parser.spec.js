@@ -199,8 +199,8 @@ describe('util/csv-parser', () => {
     });
 
     it('preserves commas between quotes', () => {
-      expect(parser._splitLine('"value, with, commas",other value')
-          ).to.deep.equal(['value, with, commas', 'other value']);
+      expect(parser._splitLine('"value, with, commas",other value'))
+        .to.deep.equal(['value, with, commas', 'other value']);
     });
 
     it('throws error when quotes are not balanced', () => {

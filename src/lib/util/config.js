@@ -43,8 +43,7 @@ var Config = function (options) {
         process.env, // Override from environment
         options.overrides // Override anything as desired at runtime
         // ^^ Most Priority
-      )
-    );
+    ));
   };
 
   _this.backportParams = function (object) {
