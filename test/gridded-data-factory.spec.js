@@ -8,8 +8,8 @@ const GriddedDataFactory = require('../src/lib/gridded-data-factory'),
     sinon = require('sinon');
 
 
-const _DUMMY_METADATA_FACTORY = {
-  getMetadata: () => { return Promise.resolve({}); }
+const _DUMMY_METADATA_SERVICE = {
+  getData: () => { return Promise.resolve({response: { data:[] } }); }
 };
 
 const _DUMMY_DB = {
@@ -45,7 +45,7 @@ describe('gridded-data-factory', () => {
 
   beforeEach(() => {
     factory = GriddedDataFactory({
-      metadataFactory: _DUMMY_METADATA_FACTORY
+      metadataService: _DUMMY_METADATA_SERVICE
     });
   });
 
