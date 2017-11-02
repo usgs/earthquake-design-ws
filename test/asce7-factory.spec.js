@@ -8,8 +8,8 @@ const ASCE7Factory = require('../src/lib/asce7-factory.js'),
 
 
 const _DUMMY_FACTORY = {
-  metadataFactory: {
-    getMetadata: () => { return Promise.resolve([]); }
+  metadataService: {
+    getData: () => { return Promise.resolve({response: { data:[] } }); }
   },
   probabilisticService: {
     getData: () => { return Promise.resolve({}); }
@@ -98,14 +98,18 @@ describe('ASCE7Factory', () => {
 
       factory.computeBasicDesign({
         metadata: {
-          ssMaxDirection: 0,
-          ssPercentile: 0,
-          ssdFloor: 0,
-          s1MaxDirection: 0,
-          s1Percentile: 0,
-          s1dFloor: 0,
-          pgaPercentile: 0,
-          pgadFloor: 0
+          response: {
+            data: {
+              ssMaxDirection: 0,
+              ssPercentile: 0,
+              ssdFloor: 0,
+              s1MaxDirection: 0,
+              s1Percentile: 0,
+              s1dFloor: 0,
+              pgaPercentile: 0,
+              pgadFloor: 0
+            }
+          }
         },
         probabilistic: {
           response: {
@@ -308,7 +312,7 @@ describe('ASCE7Factory', () => {
 
       const factory = ASCE7Factory(_DUMMY_FACTORY);
 
-      sinon.spy(factory.metadataFactory, 'getMetadata');
+      sinon.spy(factory.metadataService, 'getData');
       sinon.spy(factory.probabilisticService, 'getData');
       sinon.spy(factory.deterministicService, 'getData');
       sinon.spy(factory.riskCoefficientService, 'getData');
@@ -324,7 +328,7 @@ describe('ASCE7Factory', () => {
           () => { return Promise.resolve([]); });
 
       factory.get({}).then((/*result*/) => {
-        expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
+        expect(factory.metadataService.getData.callCount).to.equal(1);
         expect(factory.probabilisticService.getData.callCount).to.equal(1);
         expect(factory.deterministicService.getData.callCount).to.equal(1);
         expect(factory.riskCoefficientService.getData.callCount).to.equal(1);

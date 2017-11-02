@@ -10,8 +10,8 @@ var ASCE7_05Factory = require('../src/lib/asce7_05-factory.js'),
 var _DUMMY_FACTORY;
 
 _DUMMY_FACTORY = {
-  metadataFactory: {
-    getMetadata: () => { return Promise.resolve([]); }
+  metadataService: {
+    getData: () => { return Promise.resolve({response: { data:[] } }); }
   },
   probabilisticService: {
     getData: () => {
@@ -147,7 +147,7 @@ describe('ASCE7_05Factory', () => {
 
       factory = ASCE7_05Factory(_DUMMY_FACTORY);
 
-      sinon.spy(factory.metadataFactory, 'getMetadata');
+      sinon.spy(factory.metadataService, 'getData');
       sinon.spy(factory.probabilisticService, 'getData');
 
       sinon.stub(factory, 'computeBasicDesign').callsFake(
@@ -163,7 +163,7 @@ describe('ASCE7_05Factory', () => {
           () => { return Promise.resolve([]); });
 
       factory.get({}).then((/*result*/) => {
-        expect(factory.metadataFactory.getMetadata.callCount).to.equal(1);
+        expect(factory.metadataService.getData.callCount).to.equal(1);
         expect(factory.probabilisticService.getData.callCount).to.equal(1);
 
         expect(factory.computeBasicDesign.callCount).to.equal(1);

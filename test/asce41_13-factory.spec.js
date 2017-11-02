@@ -6,11 +6,11 @@ const ASCE41_13Factory = require('../src/lib/asce41_13-factory'),
     sinon = require('sinon');
 
 const _DUMMY_FACTORY = {
-  metadataFactory: {
-    getMetadata: () => { return Promise.resolve([]); }
+  metadataService: {
+    getData: () => { return Promise.resolve({response: { data:[] } }); }
   },
   tsublService: {
-    getData: () => { return Promise.resolve({'response': { 'data': {}}}); }
+    getData: () => { return Promise.resolve({response: { data: {}}}); }
   },
   spectraFactory: {
     getHorizontalSpectrum: () => { return Promise.resolve([]); }
