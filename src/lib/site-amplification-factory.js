@@ -279,7 +279,7 @@ const SiteAmplificationFactory = function (options) {
               bins.bin,
               data.factors,
               inputs[spectralPeriod]
-            );
+          );
 
           if (typeof restriction !== 'undefined' && inputs[spectralPeriod] >=
               restriction.limit) {

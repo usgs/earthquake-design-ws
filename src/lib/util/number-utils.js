@@ -472,7 +472,7 @@ const NumberUtils = function (options) {
             points[1],
             longitude,
             method
-          );
+        );
       } else if (_this.closeTo(points[0].longitude, longitude) &&
           _this.closeTo(points[0].longitude, points[1].longitude)) {
         // Longitudes match, interpolate latitudes
@@ -483,7 +483,7 @@ const NumberUtils = function (options) {
             points[1],
             latitude,
             method
-          );
+        );
       } else {
         throw new Error('Two-point interpolation failed. Neither latitude ' +
             'nor longitude matched.');
@@ -523,7 +523,7 @@ const NumberUtils = function (options) {
           points[1],
           longitude,
           method
-        );
+      );
 
       // Interpolate bottom two with respect to longitude
       bot = _this.interpolateObject(
@@ -533,7 +533,7 @@ const NumberUtils = function (options) {
           points[3],
           longitude,
           method
-        );
+      );
 
       // Interpolate top/bot results with respect to latitude
       return _this.interpolateObject(
@@ -543,7 +543,7 @@ const NumberUtils = function (options) {
           bot,
           latitude,
           method
-        );
+      );
     } else {
       throw new Error('Spatial interpolation failed. Unexpected number of ' +
           'points.');

@@ -335,11 +335,10 @@ describe('ASCE7Factory', () => {
 
         expect(factory.computeBasicDesign.callCount).to.equal(1);
 
-        expect(factory.siteAmplificationService
-            .getData.callCount).to.equal(1);
+        expect(factory.siteAmplificationService.getData.callCount).to.equal(1);
         expect(factory.computeFinalDesign.callCount).to.equal(1);
-        expect(factory.designCategoryFactory
-            .getDesignCategory.callCount).to.equal(1);
+        expect(factory.designCategoryFactory.getDesignCategory.callCount)
+          .to.equal(1);
         expect(factory.computeSpectra.callCount).to.equal(1);
       }).catch((err) => {
         return err;

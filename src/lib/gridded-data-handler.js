@@ -34,7 +34,7 @@ const GriddedDataHandler = function (options) {
       _this.factory = GriddedDataFactory({
         db: _this.createDbPool(options),
         metadataService: WebServiceAccessor(
-          {url: options.METADATA_SERVICE_URL})
+            {url: options.METADATA_SERVICE_URL})
       });
     }
   };

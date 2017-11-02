@@ -31,22 +31,22 @@ const ASCE41Handler = function (options) {
     if (options.factory) {
       _this.factory = options.factory({
         probabilisticService: WebServiceAccessor(
-          {url: options.PROBABILISTIC_SERVICE_URL}),
+            {url: options.PROBABILISTIC_SERVICE_URL}),
 
         riskCoefficientService: WebServiceAccessor(
-          {url: options.RISK_COEFFICIENT_SERVICE_URL}),
+            {url: options.RISK_COEFFICIENT_SERVICE_URL}),
 
         deterministicService: WebServiceAccessor(
-          {url: options.DETERMINISTIC_SERVICE_URL}),
+            {url: options.DETERMINISTIC_SERVICE_URL}),
 
         metadataService: WebServiceAccessor(
-          {url: options.METADATA_SERVICE_URL}),
+            {url: options.METADATA_SERVICE_URL}),
 
         tsublService: WebServiceAccessor(
-          {url: options.TSUBL_SERVICE_URL}),
+            {url: options.TSUBL_SERVICE_URL}),
 
         siteAmplificationService: WebServiceAccessor(
-          {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
+            {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
 
         spectraFactory: SpectraFactory(),
 

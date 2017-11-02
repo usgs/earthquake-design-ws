@@ -198,7 +198,7 @@ var CsvParser = function (options) {
    * @param line {String}
    *        line to split.
    * @return {Array<String>}
-   *.        columns after split.
+   *        columns after split.
    */
   _this._splitLine = function (line) {
     var parts,
