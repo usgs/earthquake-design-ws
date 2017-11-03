@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Design Endpoint Documentation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <link rel="stylesheet" href="https://earthquake.usgs.gov/theme/site/earthquake/index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons%7cMerriweather:400,400italic,700%7cSource+Sans+Pro:400,300,700"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Metadata Endpoint Documentation</h1>
+  </header>
+
+  <div class="alert warning">
+    This software is preliminary or provisional and is subject to revision.
+    It is being provided to meet the need for timely best science. The
+    software has not received final approval by the U.S. Geological Survey
+    (USGS). No warranty, expressed or implied, is made by the USGS or the
+    U.S. Government as to the functionality of the software and related
+    material nor shall the fact of release constitute any such warranty.
+    The software is provided on the condition that neither the USGS nor the
+    U.S. Government shall be held liable for any damages resulting from the
+    authorized or unauthorized use of the software.
+  </div>
+
+  <h2 id="parameters">Request Parameters</h2>
+  <p>Required parameters</p>
+  <dl>
+    <dt id="latitude">latitude</dt>
+    <dd>
+      Latitude for location at which to compute composite results
+      <br/>Example: <code>34</code>
+    </dd>
+
+    <dt id="longitude">longitude</dt>
+    <dd>
+      Longitude for location at which to compute composite results
+      <br/>Example: <code>-118</code>
+    </dd>
+
+    <dt id="referenceDocument">referenceDocument</dt>
+    <dd>
+      Design code reference document corresponding to hazard dataset for
+      which to fetch results
+      <br/>Example: <code>ASCE7-10</code>
+    </dd>
+  </dl>
+
+  <h2 id="output">Output</h2>
+  <p>Web service response</p>
+  <dl>
+    <dt>request</dt>
+    <dd>
+      <dl>
+        <dt id="output-date">date</dt>
+        <dd>
+          Timestamp
+          <br/>Example: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
+        </dd>
+
+        <dt id="output-reference-document">referenceDocument</dt>
+        <dd>
+          Identifying the reference document for the returned data
+          <br/>Example: <code>&ldquo;ASCE7-16&rdquo;</code>
+        </dd>
+
+        <dt id="output-status">status</dt>
+        <dd>
+          String (&ldquo;success&rdquo; or &ldquo;error&rdquo;)
+          <br/>Example: <code>&ldquo;success&rdquo;</code>
+        </dd>
+
+        <dt id="output-url">url</dt>
+        <dd>
+          URL to reproduce this result
+          <br/>Example: <code>&ldquo;<span class="url-stub">&hellip;</span>/metadata.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16</code>
+        </dd>
+        <dt>parameters</dt>
+        <dd>
+          <dl>
+            <dt id="metadata-parameters-latitude">latitude</dt>
+            <dd>
+              Latitude for location at which to compute composite results
+              <br/>Example: <code>34</code>
+            </dd>
+
+            <dt id="metadata-parameters-longitude">longitude</dt>
+            <dd>
+              Longitude for location at which to compute composite results
+              <br/>Example: <code>-118</code>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt id="data">response</dt>
+    <dd>
+      <dl>
+        <dt>data</dt>
+        <dd>
+          <dl>
+            <dt id="data-data-modelVersion">modelVersion</dt>
+            <dd>
+              Identifier for the underlying model version in the database
+            </dd>
+
+            <dt id="data-data-pgadPercentile">pgadPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (Peak Ground Acceleration)
+            </dd>
+
+            <dt id="data-data-pgadFloor">pgadFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (Peak Ground Acceleration)
+            </dd>
+
+            <dt id="data-data-s1MaxDirection">s1MaxDirFactor</dt>
+            <dd>
+              Factor applyed to the geometric mean ground motion to get max
+              direction ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-data-s1dPercentile">s1dPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (1.0 s)
+            </dd>
+
+            <dt id="data-data-s1dFloor">s1dFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (1.0 s)
+            </dd>
+
+            <dt id="data-data-ssMaxDirection">ssMaxDirFactor</dt>
+            <dd>
+              Factor applyed to the geometric mean ground motion to get
+              max direction ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-data-ssPercentile">ssdPercentileFactor</dt>
+            <dd>
+              Factor applyed to 50% ground motion to achieve target percentile
+              ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-data-ssdFloor">ssdFloor</dt>
+            <dd>
+              Minimum constraint placed on the deterministic ground motion
+              (0.2 s)
+            </dd>
+
+            <dt id="data-data-spatial_interpolation_method">
+              spatialInterpolationMethod
+            </dt>
+            <dd>
+              Identifier for the interpolation method used to obtain data for
+              location of interest from underlying gridded datasets
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3 id="example_response">Example</h3>
+
+  <h4>Request</h4>
+  <p>
+    <a href="metadata.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16"><span class="url-stub">&hellip;</span>/metadata.json?latitude=34&amp;longitude=-118&amp;referenceDocument=ASCE7-16</a>
+  </p>
+
+  <h4>Response</h4>
+  <div class="code">
+    <pre>{
+  "request": {
+    "date": "2017-09-20T17:49:41.425Z",
+    "referenceDocument": "ASCE7-16",
+    "status": "success",
+    "url": "http://localhost/ws/designmaps/metadata.json?latitude=34&longitude=-118&referenceDocument=ASCE7-16",
+    "parameters": {
+      "latitude": 34,
+      "longitude": -118
+    }
+  },
+  "response": {
+    "data": {
+      "modelVersion": "v4.0.x",
+      "pgadFloor": 0.5,
+      "pgadPercentileFactor": 1.8,
+      "s1MaxDirFactor": 1.3,
+      "s1dFloor": 0.6,
+      "s1dPercentileFactor": 1.8,
+      "spatialInterpolationMethod": "linearloglinear",
+      "ssMaxDirFactor": 1.1,
+      "ssdFloor": 1.5,
+      "ssdPercentileFactor": 1.8
+    }
+  }
+}</pre>
+  </div>
+</main>
+<footer class="site-commonnav">
+  <a href="index.html">Seismic Design Web Service Documentation</a>
+</footer>
+<script src="js/config.js"></script>
+</body>
+</html>
