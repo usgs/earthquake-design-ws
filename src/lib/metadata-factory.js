@@ -85,8 +85,8 @@ const MetadataFactory = function (options) {
   };
 
   /**
-   * Get metadata associated with inputs of referenceDocument,
-   * latitude, and longitude
+   * Get region and metadata information associated with inputs of
+   * referenceDocument, latitude, and longitude
    *
    * @param inputs {Object}
    *     inputs.latitude {Number}
@@ -113,6 +113,19 @@ const MetadataFactory = function (options) {
     });
   };
 
+
+  /**
+   * Performs metadata query for a referenceDocument and region, and parses
+   * the metadata information into a metadata object.
+   *
+   * @param inputs {Object}
+   *     inputs.referenceDocument {String}
+   *     inputs.region {Integer}
+   *
+   * @return {Promise}
+   *     A promise that resolves with metadata or rejects if an
+   *     error occurs.
+   */
   _this.getData = function (referenceDocument, region) {
     let metadata,
         params,
@@ -134,8 +147,9 @@ const MetadataFactory = function (options) {
   };
 
   /**
-   * Gets region id based on the location specified by `inputs.latitude` and
-   * `inputs.longitude`, and the corresponding referenceDocument
+   * Performs region query and returns id based on the location specified
+   * by `inputs.latitude` and `inputs.longitude`, and the corresponding
+   * referenceDocument
    *
    * @param inputs {Object}
    *     inputs.latitude {Number}
