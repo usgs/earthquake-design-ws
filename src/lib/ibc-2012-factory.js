@@ -59,7 +59,7 @@ const IBC2012Factory = function (options) {
       inputs = data.inputs;
 
       try {
-        metadata = data.metadata;
+        metadata = data.metadata.response.data;
         probabilistic = data.probabilistic.map((item) => {
           return item.response.data;
         });
@@ -180,18 +180,18 @@ const IBC2012Factory = function (options) {
             NumberUtils.getGridPoints(deterministicInputs),
             deterministicInputs,
             _this.deterministicService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(probabilisticInputs),
             probabilisticInputs,
             _this.probabilisticService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(riskCoefficientInputs),
             riskCoefficientInputs,
             _this.riskCoefficientService
-          ),
-        _this.metadataFactory.getMetadata(inputs),
+        ),
+        _this.metadataService.getData(inputs),
         _this.tSubLService.getData(inputs)
       ]);
     }).then((promiseResults) => {

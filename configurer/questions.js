@@ -60,6 +60,12 @@ module.exports = [
   },
   {
     type: 'input',
+    name: 'DB_SCHEMA_METADATA',
+    message: 'Database schema for metadata',
+    default: 'metadata'
+  },
+  {
+    type: 'input',
     name: 'DB_SCHEMA_DETERMINISTIC',
     message: 'Database schema for deterministic data',
     default: 'deterministic'
@@ -81,6 +87,12 @@ module.exports = [
     name: 'DB_SCHEMA_TSUBL',
     message: 'Database schema for T-Sub-L data',
     default: 'tsubl'
+  },
+  {
+    type: 'input',
+    name: 'METADATA_SERVICE_URL',
+    message: 'Web service for fetching metadata',
+    default: 'https://earthquake.usgs.gov/ws/designmaps/metadata.json'
   },
   {
     type: 'input',

@@ -118,7 +118,7 @@ const TargetGroundMotion = function (options) {
         bounds[1][0],
         afe,
         method
-      );
+    );
 
     return result;
   };

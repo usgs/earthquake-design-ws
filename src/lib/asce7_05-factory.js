@@ -126,7 +126,7 @@ const ASCE7_05Factory = function (options) {
 
     return Promise.all([
       _this.probabilisticService.getData(inputs),
-      _this.metadataFactory.getMetadata(inputs),
+      _this.metadataService.getData(inputs),
       _this.tSubLService.getData(inputs)
     ]).then((promiseResults) => {
       result.probabilistic = promiseResults[0];

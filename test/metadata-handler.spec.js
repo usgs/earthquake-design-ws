@@ -1,72 +1,45 @@
 /* global afterEach, beforeEach, describe, it */
 'use strict';
 
-const GriddedDataHandler = require('../src/lib/gridded-data-handler'),
+const MetadataHandler = require('../src/lib/metadata-handler'),
     expect = require('chai').expect,
     sinon = require('sinon');
 
 
 const _INPUT = {
-  latitude: 0,
-  longitude: 0,
-  referenceDocument: 'EXAMPLE_DOCUMENT'
+  latitude: 35,
+  longitude: -118,
+  referenceDocument: 'EXAMPLE_DOCUMENT',
 };
 
 const _FACTORY = {
   destroy: () => {
     // Nothing to do here
   },
-  get: () => {
+  getMetadata: () => {
     return Promise.resolve(_RESULT);
   }
 };
 
 const _RESULT = {
-  'data': {
-    'id': 0,
-    'region_id': 0,
-    'latitude': 0,
-    'longitude': 0,
-    'value1': 1,
-    'value2': 2,
-    'value3': 3
-  },
-  'metadata': {
-    'region': {
-      'id': 0,
-      'grid_spacing': 0.1,
-      'max_latitude': 1,
-      'max_longitude': 1,
-      'min_latitude': -1,
-      'min_longitude': -1,
-      'name': 'EXAMPLE_REGION'
-    },
-    'document': {
-      'id': 0,
-      'region_id': 0,
-      'name': 'EXAMPLE_DOCUMENT',
-    },
-    'metadata': {
-      'modelVersion': 'EXAMLE_MODEL_VERSION',
-      'spatialInterpolationMethod': 'EXAMPLE_INTERPOLATION_METHOD'
-    }
-  }
+  'modelVersion': 'v2.0.x',
+  'spatialInterpolationMethod': 'linearlinearlinear'
 };
 
 
-describe('gridded-data-handler', () => {
+describe('metadata-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
-      expect(typeof GriddedDataHandler).to.equal('function');
+      expect(typeof MetadataHandler).to.equal('function');
     });
 
     it('can be instantiated', () => {
-      expect(GriddedDataHandler).to.not.throw(Error);
+      expect(MetadataHandler).to.not.throw(Error);
     });
 
     it('can be destroyed', () => {
 
-      const handler = GriddedDataHandler();
+      const handler = MetadataHandler();
       expect(handler.destroy).to.not.throw(Error);
     });
   });
@@ -79,7 +52,7 @@ describe('gridded-data-handler', () => {
     });
 
     beforeEach(() => {
-      handler = GriddedDataHandler({factory: _FACTORY});
+      handler = MetadataHandler({factory: _FACTORY});
     });
 
     it('returns error if parameters are missing', (done) => {
@@ -90,13 +63,21 @@ describe('gridded-data-handler', () => {
         expect(err.status).to.equal(400);
       }).then(done);
     });
+
+    it('passes when all required values are provided', (done) => {
+      handler.checkParams(_INPUT).then((params) => {
+        expect(params).to.deep.equal(_INPUT);
+      }).catch((err) => {
+        return err;
+      }).then(done);
+    });
   });
 
   describe('createDbPool', () => {
     it('sets _this.db to a Pool', () => {
       let handler;
 
-      handler = GriddedDataHandler({factory: _FACTORY});
+      handler = MetadataHandler({factory: _FACTORY});
 
       expect(handler.db).to.be.undefined;
       handler.createDbPool();
@@ -119,45 +100,28 @@ describe('gridded-data-handler', () => {
     });
 
     beforeEach(() => {
-      handler = GriddedDataHandler({factory: _FACTORY});
+      handler = MetadataHandler({factory: _FACTORY});
     });
 
 
     it('resolves with object with appropriate structure', (done) => {
+      var formatted;
 
-      const formatted = handler.formatResult(_RESULT);
+      formatted = handler.formatResult(_RESULT);
       expect(formatted).to.be.instanceof(Promise);
 
       formatted.then((result) => {
-        var data,
-            metadata;
+        var data;
 
         expect(result.hasOwnProperty('data')).to.be.true;
-        expect(result.hasOwnProperty('metadata')).to.be.true;
 
         data = result.data;
-        metadata = result.metadata;
 
-        expect(data.hasOwnProperty('value1')).to.be.true;
-        expect(data.hasOwnProperty('value2')).to.be.true;
-        expect(data.hasOwnProperty('value3')).to.be.true;
-
-        expect(metadata.hasOwnProperty('modelVersion')).to.be.true;
-        expect(metadata.hasOwnProperty('regionName')).to.be.true;
-        expect(metadata.hasOwnProperty('spatialInterpolationMethod'))
-            .to.be.true;
+        expect(data.hasOwnProperty('modelVersion')).to.be.true;
+        expect(data.hasOwnProperty('spatialInterpolationMethod')).to.be.true;
       }).catch((err) => {
         return err;
       }).then(done);
-    });
-
-    it('rejects if input object is invalid', (done) => {
-      handler.formatResult({}).then(() => {
-        done(new Error('Result was invalid and should have rejected, ' +
-            'but instead resolved.'));
-      }).catch((/*err*/) => {
-        done();
-      });
     });
   });
 
@@ -167,12 +131,12 @@ describe('gridded-data-handler', () => {
           spy,
           stub;
 
-      handler = GriddedDataHandler({factory: _FACTORY});
+      handler = MetadataHandler({factory: _FACTORY});
 
       stub = sinon.stub(handler, 'checkParams').callsFake(() => {
         return Promise.resolve(_INPUT);
       });
-      spy = sinon.spy(handler.factory, 'get');
+      spy = sinon.spy(handler.factory, 'getMetadata');
 
       handler.get(_INPUT).then(() => {
         expect(stub.callCount).to.equal(1);

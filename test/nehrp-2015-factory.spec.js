@@ -7,8 +7,8 @@ const NEHRP2015Factory = require('../src/lib/nehrp-2015-factory'),
     //sinon = require('sinon');
 
 const _DUMMY_FACTORY = {
-  metadataFactory: {
-    getMetadata: () => { return Promise.resolve([]); }
+  metadataService: {
+    getData: () => { return Promise.resolve({response: {data: {}}}); }
   },
   probabilisticService: {
     getData: () => { return Promise.resolve({}); }

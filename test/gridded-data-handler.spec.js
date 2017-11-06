@@ -146,7 +146,8 @@ describe('gridded-data-handler', () => {
         expect(metadata.hasOwnProperty('modelVersion')).to.be.true;
         expect(metadata.hasOwnProperty('regionName')).to.be.true;
         expect(metadata.hasOwnProperty('spatialInterpolationMethod'))
-            .to.be.true;
+          .to.be.true;
+
       }).catch((err) => {
         return err;
       }).then(done);

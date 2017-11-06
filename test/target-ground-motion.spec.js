@@ -62,13 +62,13 @@ describe('target-ground-motion', () => {
     });
 
     it('throw error when afe value is below the curve range', () => {
-      expect(() => targetGroundMotion.findBounds(curve, lowAfe)).
-          to.throw(Error);
+      expect(() => targetGroundMotion.findBounds(curve, lowAfe))
+        .to.throw(Error);
     });
 
     it('throw error when afe value is above the curve range', () => {
-      expect(() => targetGroundMotion.findBounds(curve, highAfe)).
-          to.throw(Error);
+      expect(() => targetGroundMotion.findBounds(curve, highAfe))
+        .to.throw(Error);
     });
 
   });
@@ -81,13 +81,13 @@ describe('target-ground-motion', () => {
     years = 25;
 
     it('computes correct afe value when years are not given', () => {
-      expect(targetGroundMotion.getFrequencyForProbability(probability)).
-          to.equal(0.004462871026284194);
+      expect(targetGroundMotion.getFrequencyForProbability(probability))
+        .to.equal(0.004462871026284194);
     });
 
     it('computes correct afe value when years are given', () => {
-      expect(targetGroundMotion.getFrequencyForProbability(probability, years)).
-          to.equal(0.008925742052568388);
+      expect(targetGroundMotion.getFrequencyForProbability(probability, years))
+        .to.equal(0.008925742052568388);
     });
   });
 

@@ -78,7 +78,7 @@ describe('db/pool', () => {
       pool.query().then(() => {
         expect(_MOCK_DB_CLIENT.query.callCount).to.equal(2);
         expect(_MOCK_DB_CLIENT.query.calledWith(pool.setSearchPathQuery))
-            .to.be.true;
+          .to.be.true;
         expect(_MOCK_DB_CLIENT.query.calledWith(sql)).to.be.true;
       });
     });

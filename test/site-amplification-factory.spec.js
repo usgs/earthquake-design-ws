@@ -268,8 +268,8 @@ describe('SiteAmplificationFactory', () => {
         }]});
       });
 
-      sinon.stub(factory.numberUtils, 'interpolateBinnedValue').callsFake(() =>
-          {return 'factor';});
+      sinon.stub(factory.numberUtils, 'interpolateBinnedValue')
+        .callsFake(() => {return 'factor';});
 
 
       factory.getSiteAmplificationData('ss', {
@@ -348,8 +348,8 @@ describe('SiteAmplificationFactory', () => {
         }]});
       });
 
-      sinon.stub(factory.numberUtils, 'interpolateBinnedValue').callsFake(() =>
-          {return 'factor';});
+      sinon.stub(factory.numberUtils, 'interpolateBinnedValue')
+        .callsFake(() => {return 'factor';});
 
       factory.getSiteAmplificationData('ss', {
         referenceDocument: 'ASCE7-16',

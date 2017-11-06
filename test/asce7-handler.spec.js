@@ -29,16 +29,20 @@ const _FACTORY_RESULT = {
     'sd1': null
   },
   'metadata': {
-    'pgadPercentileFactor': null,
-    'pgadFloor': null,
+    'response': {
+      'data': {
+        'pgadPercentileFactor': null,
+        'pgadFloor': null,
 
-    's1MaxDirFactor': null,
-    's1dPercentileFactor': null,
-    's1dFloor': null,
+        's1MaxDirFactor': null,
+        's1dPercentileFactor': null,
+        's1dFloor': null,
 
-    'ssMaxDirFactor': null,
-    'ssdPercentileFactor': null,
-    'ssdFloor': null
+        'ssMaxDirFactor': null,
+        'ssdPercentileFactor': null,
+        'ssdFloor': null
+      }
+    }
   },
   'probabilistic': {},
   'riskCoefficients': {

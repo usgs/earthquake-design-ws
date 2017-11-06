@@ -2,7 +2,6 @@
 
 
 const extend = require('extend'),
-    MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
     SpectraFactory = require('./spectra-factory'),
     TargetGroundMotion = require('./target-ground-motion'),
@@ -31,22 +30,23 @@ const ASCE41Handler = function (options) {
 
     if (options.factory) {
       _this.factory = options.factory({
-        metadataFactory: MetadataFactory(),
-
         probabilisticService: WebServiceAccessor(
-          {url: options.PROBABILISTIC_SERVICE_URL}),
+            {url: options.PROBABILISTIC_SERVICE_URL}),
 
         riskCoefficientService: WebServiceAccessor(
-          {url: options.RISK_COEFFICIENT_SERVICE_URL}),
+            {url: options.RISK_COEFFICIENT_SERVICE_URL}),
 
         deterministicService: WebServiceAccessor(
-          {url: options.DETERMINISTIC_SERVICE_URL}),
+            {url: options.DETERMINISTIC_SERVICE_URL}),
+
+        metadataService: WebServiceAccessor(
+            {url: options.METADATA_SERVICE_URL}),
 
         tsublService: WebServiceAccessor(
-          {url: options.TSUBL_SERVICE_URL}),
+            {url: options.TSUBL_SERVICE_URL}),
 
         siteAmplificationService: WebServiceAccessor(
-          {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
+            {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
 
         spectraFactory: SpectraFactory(),
 
@@ -156,6 +156,8 @@ const ASCE41Handler = function (options) {
 
           formatted.push(data);
         });
+
+        process.stdout.write(JSON.stringify(result.metadata, null, 2));
 
         resolve({
           data: formatted,

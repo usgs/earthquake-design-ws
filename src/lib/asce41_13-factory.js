@@ -30,8 +30,7 @@ const ASCE41_13Factory = function (options) {
     _this.deterministicService = options.deterministicService;
     _this.siteAmplificationService = options.siteAmplificationService;
     _this.tsublService = options.tsublService;
-
-    _this.metadataFactory = options.metadataFactory;
+    _this.metadataService = options.metadataService;
 
     _this.uhtHazardCurveFactory = options.uhtHazardCurveFactory;
     _this.spectraFactory = options.spectraFactory;
@@ -234,7 +233,7 @@ const ASCE41_13Factory = function (options) {
   };
 
   _this.computeMetadata = function (inputs) {
-    return _this.metadataFactory.getMetadata(inputs);
+    return _this.metadataService.getData(inputs);
   };
 
   /**
@@ -313,7 +312,7 @@ const ASCE41_13Factory = function (options) {
     inputs = inputs || {};
 
     return _this.computeMetadata(inputs).then((result) => {
-      metadata = result;
+      metadata = result.response.data;
       return _this.uhtHazardCurveFactory.getDesignCurves(inputs);
     }).then((result) => {
       let groundMotions;
@@ -401,7 +400,7 @@ const ASCE41_13Factory = function (options) {
         metadata;
 
     return _this.computeMetadata(inputs).then((result) => {
-      metadata = result;
+      metadata = result.response.data;
       return _this.computeBse2N(inputs, metadata);
     }).then((result) => {
       bse2n = result;

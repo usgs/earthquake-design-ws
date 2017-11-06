@@ -3,7 +3,6 @@
 
 const DesignCategoryFactory = require('./design-category-factory'),
     extend = require('extend'),
-    MetadataFactory = require('./metadata-factory'),
     NumberUtils = require('./util/number-utils').instance,
     SpectraFactory = require('./spectra-factory'),
     WebServiceAccessor = require('./util/web-service-accessor');
@@ -49,16 +48,17 @@ const ASCE7_Handler = function (options) {
 
       _this.factory = options.factoryConstructor({
         probabilisticService: WebServiceAccessor(
-          {url: options.PROBABILISTIC_SERVICE_URL}),
+            {url: options.PROBABILISTIC_SERVICE_URL}),
         riskCoefficientService: WebServiceAccessor(
-          {url: options.RISK_COEFFICIENT_SERVICE_URL}),
+            {url: options.RISK_COEFFICIENT_SERVICE_URL}),
         deterministicService: WebServiceAccessor(
-          {url: options.DETERMINISTIC_SERVICE_URL}),
-        metadataFactory: MetadataFactory(),
+            {url: options.DETERMINISTIC_SERVICE_URL}),
+        metadataService: WebServiceAccessor(
+            {url: options.METADATA_SERVICE_URL}),
         tSubLService: WebServiceAccessor(
-          {url: options.TSUBL_SERVICE_URL}),
+            {url: options.TSUBL_SERVICE_URL}),
         siteAmplificationService: WebServiceAccessor(
-          {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
+            {url: options.SITE_AMPLIFICATION_SERVICE_URL}),
         designCategoryFactory: DesignCategoryFactory(),
         spectraFactory: SpectraFactory()
       });
@@ -212,20 +212,20 @@ const ASCE7_Handler = function (options) {
             cv: (result.hasOwnProperty('cv')) ? NumberUtils.round(result.cv, _this.outputDecimals) : undefined,
 
             sdSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
+              null :
+              NumberUtils.roundSpectrum(spectra.sdSpectrum, _this.outputDecimals),
             smSpectrum: (siteAmplification.fa === null || siteAmplification.fv === null) ?
-                null :
-                NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals),
+              null :
+              NumberUtils.roundSpectrum(spectra.smSpectrum, _this.outputDecimals),
 
             savSpectrum: (result.hasOwnProperty('savSpectrum')) ?
-                NumberUtils.roundSpectrum(result.savSpectrum, _this.outputDecimals) : undefined,
+              NumberUtils.roundSpectrum(result.savSpectrum, _this.outputDecimals) : undefined,
 
             samvSpectrum: (result.hasOwnProperty('samvSpectrum')) ?
-                NumberUtils.roundSpectrum(result.samvSpectrum, _this.outputDecimals) : undefined
+              NumberUtils.roundSpectrum(result.samvSpectrum, _this.outputDecimals) : undefined
           },
 
-          metadata: extend(true, {}, result.metadata)
+          metadata: extend(true, {}, result.metadata.response.data)
         });
       } catch (err) {
         reject(err);

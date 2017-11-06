@@ -7,8 +7,8 @@ const ASCE7_16Factory = require('../src/lib/asce7_16-factory'),
     //sinon = require('sinon');
 
 const _DUMMY_FACTORY = {
-  metadataFactory: {
-    getMetadata: () => { return Promise.resolve([]); }
+  metadataService: {
+    getData: () => { return Promise.resolve({response: { data:[] } }); }
   },
   probabilisticService: {
     getData: () => { return Promise.resolve({}); }

@@ -1,23 +1,24 @@
 'use strict';
 
 
-const GriddedDataFactory = require('./gridded-data-factory'),
+const Config = require('./util/config'),
+    MetadataFactory = require('./metadata-factory'),
     extend = require('extend'),
-    Pool = require('./db/pool'),
-    WebServiceAccessor = require('./util/web-service-accessor');
+    Pool = require('./db/pool');
 
+const _CONFIG = Config().get();
 
 const _DEFAULTS = {
   DB_DATABASE: 'postgres',
   DB_HOST: 'localhost',
   DB_PASSWORD: null,
   DB_PORT: 5432,
-  DB_SCHEMA: 'public',
+  DB_SCHEMA: _CONFIG.DB_SCHEMA_METADATA,
   DB_USER: null
 };
 
 
-const GriddedDataHandler = function (options) {
+const MetadataHandler = function (options) {
   let _this,
       _initialize;
 
@@ -31,10 +32,8 @@ const GriddedDataHandler = function (options) {
       _this.factory = options.factory;
     } else {
       _this.destroyFactory = true;
-      _this.factory = GriddedDataFactory({
-        db: _this.createDbPool(options),
-        metadataService: WebServiceAccessor(
-            {url: options.METADATA_SERVICE_URL})
+      _this.factory = MetadataFactory({
+        db: _this.createDbPool(options)
       });
     }
   };
@@ -53,6 +52,11 @@ const GriddedDataHandler = function (options) {
     longitude = params.longitude;
     referenceDocument = params.referenceDocument;
 
+    if (typeof referenceDocument === 'undefined' ||
+        referenceDocument === null) {
+      buf.push('referenceDocument');
+    }
+
     if (typeof latitude === 'undefined' || latitude === null) {
       buf.push('latitude');
     }
@@ -61,10 +65,7 @@ const GriddedDataHandler = function (options) {
       buf.push('longitude');
     }
 
-    if (typeof referenceDocument === 'undefined' ||
-        referenceDocument === null) {
-      buf.push('referenceDocument');
-    }
+    // PGA values exist for some reference documents
 
     if (buf.length > 0) {
       err = new Error('Missing required parameter' +
@@ -105,49 +106,17 @@ const GriddedDataHandler = function (options) {
     _this = null;
   };
 
-  _this.formatData = function (result) {
-    let data;
-
-    // make a copy so we don't muck up the original
-    data = JSON.parse(JSON.stringify(result.data));
-
-    // delete stuff that is not relevant to the data
-    delete data.id;
-    delete data.latitude;
-    delete data.longitude;
-    delete data.region_id;
-
-    // return everything that is left
-    return data;
-  };
-
-  _this.formatMetadata = function (result) {
-    // pull some particular metadata off the original structure
-    return {
-      spatialInterpolationMethod:
-          result.metadata.metadata.spatialInterpolationMethod,
-      modelVersion: result.metadata.metadata.modelVersion,
-      regionName: result.metadata.region.name,
-      gridSpacing: result.metadata.region.grid_spacing
-    };
-  };
-
   _this.formatResult = function (result) {
-    return new Promise((resolve, reject) => {
-      try {
-        return resolve({
-          data: _this.formatData(result),
-          metadata: _this.formatMetadata(result)
-        });
-      } catch (e) {
-        return reject(e);
-      }
+    return new Promise((resolve) => {
+      return resolve({
+        data: result,
+      });
     });
   };
 
   _this.get = function (params) {
     return _this.checkParams(params).then((params) => {
-      return _this.factory.get(params);
+      return _this.factory.getMetadata(params);
     }).then((result) => {
       return _this.formatResult(result);
     });
@@ -160,4 +129,4 @@ const GriddedDataHandler = function (options) {
 };
 
 
-module.exports = GriddedDataHandler;
+module.exports = MetadataHandler;

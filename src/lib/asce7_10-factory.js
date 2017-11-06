@@ -59,7 +59,7 @@ const ASCE7_10Factory = function (options) {
       inputs = data.inputs;
 
       try {
-        metadata = data.metadata;
+        metadata = data.metadata.response.data;
         probabilistic = data.probabilistic.map((item) => {
           return item.response.data;
         });
@@ -172,25 +172,25 @@ const ASCE7_10Factory = function (options) {
       riskCoefficientInputs = extend(
           {gridSpacing: promiseResults[2].response.metadata.gridSpacing},
           inputs
-        );
+      );
 
       return Promise.all([
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(deterministicInputs),
             deterministicInputs,
             _this.deterministicService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(probabilisticInputs),
             probabilisticInputs,
             _this.probabilisticService
-          ),
+        ),
         _this.makeMultipleRequests(
             NumberUtils.getGridPoints(riskCoefficientInputs),
             riskCoefficientInputs,
             _this.riskCoefficientService
-          ),
-        _this.metadataFactory.getMetadata(inputs),
+        ),
+        _this.metadataService.getData(inputs),
         _this.tSubLService.getData(inputs)
       ]);
     }).then((promiseResults) => {
