@@ -22,11 +22,5 @@ describe('ibc-2015-factory', () => {
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
-
-    it('Sets the correct referenceDocument value', () => {
-
-      const factory = IBC2015Factory();
-      expect(factory.referenceDocument).to.equal('IBC-2015');
-    });
   });
 });
