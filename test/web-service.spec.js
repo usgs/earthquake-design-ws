@@ -177,8 +177,8 @@ describe('WebService test suite', () => {
         originalUrl: '/url',
         protocol: 'protocol',
         query: {
-          latitude: '40',
-          longitude: '-105',
+          latitude: 40,
+          longitude: -105,
         }
       };
 
@@ -187,7 +187,7 @@ describe('WebService test suite', () => {
 
       expect(metadata.status).to.equal('success');
       expect(metadata.url).to.equal('protocol://hostname/url');
-      expect(metadata.parameters).to.equal(request.query);
+      expect(metadata.parameters).to.deep.equal(request.query);
     });
   });
 
