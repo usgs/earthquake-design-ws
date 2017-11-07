@@ -22,11 +22,5 @@ describe('ibc-2012-factory', () => {
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
-
-    it('Sets the correct referenceDocument value', () => {
-
-      const factory = IBC2012Factory();
-      expect(factory.referenceDocument).to.equal('IBC-2012');
-    });
   });
 });

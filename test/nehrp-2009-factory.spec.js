@@ -22,11 +22,5 @@ describe('nehrp2009-factory', () => {
       expect(factory.destroy).to.not.throw(Error);
       factory.destroy();
     });
-
-    it('Sets the correct referenceDocument value', () => {
-
-      const factory = NEHRP2009Factory();
-      expect(factory.referenceDocument).to.equal('NEHRP-2009');
-    });
   });
 });
