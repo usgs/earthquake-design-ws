@@ -11,6 +11,7 @@ const ASCE7_16Handler = require('./asce7_16-handler'),
     IBC2012Handler = require('./ibc-2012-handler'),
     IBC2015Handler = require('./ibc-2015-handler'),
     DeterministicHandler = require('./deterministic-handler'),
+    escape = require('escape-html'),
     express = require('express'),
     extend = require('extend'),
     fs = require('fs'),
@@ -166,17 +167,21 @@ const WebService = function (options) {
   _this.getRequestMetadata = function (request, isSuccess) {
     let params,
         protocol,
-        referenceDocument;
+        referenceDocument,
+        safeParams;
 
     request = request || {};
     params = request.query || {};
+    safeParams = {};
 
     referenceDocument = params.referenceDocument;
     delete params.referenceDocument;
 
-    ['latitude', 'longitude', 'customProbability'].forEach((key) => {
-      if (params.hasOwnProperty(key)) {
-        params[key] = parseFloat(params[key]);
+    Object.keys(params).forEach((key) => {
+      if (['latitude', 'longitude', 'customProbability'].indexOf(key) !== -1) {
+        safeParams[key] = parseFloat(params[key]);
+      } else {
+        safeParams[key] = escape(params[key]);
       }
     });
 
@@ -190,10 +195,11 @@ const WebService = function (options) {
 
     return {
       date: new Date().toISOString(),
-      referenceDocument: referenceDocument,
+      referenceDocument: escape(referenceDocument),
       status: isSuccess ? 'success' : 'error',
-      url: protocol + '://' + request.hostname + request.originalUrl,
-      parameters: params
+      url: protocol + '://' + escape(request.hostname) +
+          escape(request.originalUrl),
+      parameters: safeParams
     };
   };
 
