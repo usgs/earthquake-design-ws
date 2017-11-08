@@ -1,26 +1,26 @@
 'use strict';
 
 
-const ASCE7_16Handler = require('./asce7_16-handler'),
-    ASCE7_10Handler = require('./asce7_10-handler'),
-    ASCE7_05Handler = require('./asce7_05-handler'),
-    NEHRP2015Handler = require('./nehrp-2015-handler'),
-    ASCE41_13Handler = require('./asce41_13-handler'),
-    ASCE41_17Handler = require('./asce41_17-handler'),
-    NEHRP2009Handler = require('./nehrp-2009-handler'),
-    IBC2012Handler = require('./ibc-2012-handler'),
-    IBC2015Handler = require('./ibc-2015-handler'),
-    DeterministicHandler = require('./deterministic-handler'),
+const ASCE7_16Handler = require('./asce/asce7_16-handler'),
+    ASCE7_10Handler = require('./asce/asce7_10-handler'),
+    ASCE7_05Handler = require('./asce/asce7_05-handler'),
+    NEHRP2015Handler = require('./nehrp/nehrp-2015-handler'),
+    ASCE41_13Handler = require('./asce/asce41_13-handler'),
+    ASCE41_17Handler = require('./asce/asce41_17-handler'),
+    NEHRP2009Handler = require('./nehrp/nehrp-2009-handler'),
+    IBC2012Handler = require('./ibc/ibc-2012-handler'),
+    IBC2015Handler = require('./ibc/ibc-2015-handler'),
+    DeterministicHandler = require('./component/deterministic-handler'),
     escape = require('escape-html'),
     express = require('express'),
     extend = require('extend'),
     fs = require('fs'),
-    MetadataHandler = require('./metadata-handler'),
+    MetadataHandler = require('./component/metadata-handler'),
     morgan = require('morgan'),
-    ProbabilisticHander = require('./probabilistic-handler'),
-    RiskCoefficientHandler = require('./risk-coefficient-handler'),
-    SiteAmplificationHandler = require('./site-amplification-handler'),
-    TSubLDataHandler = require('./t-sub-l-data-handler');
+    ProbabilisticHander = require('./component/probabilistic-handler'),
+    RiskCoefficientHandler = require('./component/risk-coefficient-handler'),
+    SiteAmplificationHandler = require('./component/site-amplification-handler'),
+    TSubLDataHandler = require('./component/t-sub-l-data-handler');
 
 
 const _DEFAULTS = {
