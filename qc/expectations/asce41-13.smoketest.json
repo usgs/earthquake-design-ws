@@ -1,0 +1,534 @@
+[
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.8715,
+        "longitude": -176.6377,
+        "siteClass": "B",
+        "title": "Adak"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.4,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.885,
+          "sx1": 0.4
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "siteClass": "B",
+        "title": "Adak"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.392,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.879,
+          "sx1": 0.4
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "siteClass": "B",
+        "title": "Arecibo"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.118,
+          "sx1": 0.433
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.745,
+          "sx1": 0.289
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.788,
+          "sx1": 0.312
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.427,
+          "sx1": 0.167
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "siteClass": "B",
+        "title": "Arecibo"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.119,
+          "sx1": 0.434
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.746,
+          "sx1": 0.289
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.789,
+          "sx1": 0.313
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.427,
+          "sx1": 0.167
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "siteClass": "A",
+        "title": "Boise"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.247,
+          "sx1": 0.084
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.165,
+          "sx1": 0.056
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.17,
+          "sx1": 0.059
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.079,
+          "sx1": 0.029
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "siteClass": "B",
+        "title": "Boise"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.311,
+          "sx1": 0.106
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.208,
+          "sx1": 0.071
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.213,
+          "sx1": 0.074
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.099,
+          "sx1": 0.036
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "siteClass": "B",
+        "title": "Bradshaw AFB"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1,
+          "sx1": 0.4
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "siteClass": "B",
+        "title": "Bradshaw AFB"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1,
+          "sx1": 0.4
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.5,
+          "sx1": 0.6
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 1,
+          "sx1": 0.4
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "siteClass": "B",
+        "title": "Century City"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 2.194,
+          "sx1": 0.815
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.463,
+          "sx1": 0.543
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.599,
+          "sx1": 0.572
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.778,
+          "sx1": 0.281
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "siteClass": "A",
+        "title": "Century City"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.732,
+          "sx1": 0.643
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 1.155,
+          "sx1": 0.429
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.277,
+          "sx1": 0.457
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.63,
+          "sx1": 0.227
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "siteClass": "B",
+        "title": "Memphis"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.01,
+          "sx1": 0.351
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.673,
+          "sx1": 0.234
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.712,
+          "sx1": 0.235
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.131,
+          "sx1": 0.036
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "siteClass": "A",
+        "title": "Memphis"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 0.809,
+          "sx1": 0.281
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.539,
+          "sx1": 0.187
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.57,
+          "sx1": 0.189
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.104,
+          "sx1": 0.029
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "siteClass": "A",
+        "title": "Salt Lake City"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.231,
+          "sx1": 0.446
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.821,
+          "sx1": 0.297
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 0.853,
+          "sx1": 0.287
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.234,
+          "sx1": 0.077
+        }
+      ]
+    }
+  },
+  {
+    "request": {
+      "date": "Legacy Tool Result",
+      "referenceDocument": "ASCE41-13",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "siteClass": "B",
+        "title": "Salt Lake City"
+      }
+    },
+    "response": {
+      "data": [
+        {
+          "hazardLevel": "BSE-2N",
+          "sxs": 1.466,
+          "sx1": 0.538
+        },
+        {
+          "hazardLevel": "BSE-1N",
+          "sxs": 0.978,
+          "sx1": 0.359
+        },
+        {
+          "hazardLevel": "BSE-2E",
+          "sxs": 1.028,
+          "sx1": 0.351
+        },
+        {
+          "hazardLevel": "BSE-1E",
+          "sxs": 0.291,
+          "sx1": 0.097
+        }
+      ]
+    }
+  }
+]

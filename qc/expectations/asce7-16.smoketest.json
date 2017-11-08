@@ -1,0 +1,358 @@
+[
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.8715,
+        "longitude": -176.6377,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 51.9,
+        "longitude": -176.6,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.47,
+        "longitude": -66.72,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.118,
+        "sm1": 0.433
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.4725,
+        "longitude": -66.7181,
+        "riskCategory": "I",
+        "title": "Arecibo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.119,
+        "sm1": 0.434
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6,
+        "longitude": -116.2,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.245,
+        "sm1": 0.088,
+        "pgam": 0.108
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 43.6136,
+        "longitude": -116.2025,
+        "riskCategory": "I",
+        "title": "Boise",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.309,
+        "sm1": 0.11,
+        "pgam": 0.136
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.7573,
+        "longitude": -155.5357,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 19.76,
+        "longitude": -155.54,
+        "riskCategory": "I",
+        "title": "Bradshaw AFB",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.5,
+        "sm1": 0.6
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 13.5,
+        "longitude": 144.8,
+        "riskCategory": "I",
+        "title": "Central Guam",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {}
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.3,
+        "longitude": -170.7,
+        "riskCategory": "I",
+        "title": "Central Tutuila",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {}
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0498,
+        "longitude": -118.4252,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 2.064,
+        "sm1": 0.738,
+        "pgam": 0.885
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.05,
+        "longitude": -118.4,
+        "riskCategory": "I",
+        "title": "Century City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.689,
+        "sm1": 0.603,
+        "pgam": 0.728
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": -14.2992,
+        "longitude": -170.8094,
+        "riskCategory": "I",
+        "title": "Fagamalo",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {}
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 15.207,
+        "longitude": 145.7208,
+        "riskCategory": "I",
+        "title": "Garapan",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {}
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.1496,
+        "longitude": -90.0488,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.023,
+        "sm1": 0.347,
+        "pgam": 0.611
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 35.15,
+        "longitude": -90.05,
+        "riskCategory": "I",
+        "title": "Memphis",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 0.82,
+        "sm1": 0.278,
+        "pgam": 0.49
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.75,
+        "longitude": -111.9,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.236,
+        "sm1": 0.444,
+        "pgam": 0.562
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "ASCE7-16",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 40.7609,
+        "longitude": -111.8905,
+        "riskCategory": "I",
+        "title": "Salt Lake City",
+        "siteClass": "B-estimated"
+      }
+    },
+    "response": {
+      "data": {
+        "sms": 1.494,
+        "sm1": 0.543,
+        "pgam": 0.678
+      }
+    }
+  }
+]
