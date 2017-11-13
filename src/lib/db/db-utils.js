@@ -60,21 +60,21 @@ var DbUtils = {
    *     promise representing execution of statements.
    */
   'exec': function (db, statements) {
-    return Promise.resolve().then(() => {
-      var promise;
+    var promise;
 
-      promise = Promise.resolve();
-      statements.forEach((s) => {
-        if (!s) {
-          // ignore empty statements
-          return;
-        }
-        promise = promise.then(() => {
-          return db.query(s);
-        });
+    promise = Promise.resolve();
+
+    statements.forEach((s) => {
+      if (!s) {
+        // ignore empty statements
+        return;
+      }
+      promise = promise.then(() => {
+        return db.query(s);
       });
-      return promise;
     });
+
+    return promise;
   },
 
   /**
