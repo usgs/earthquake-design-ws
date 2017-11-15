@@ -1,5 +1,5 @@
 # NEHRP-2015 Quality Control Tests +/- 0.0001
-> Generated: Mon, 30 Oct 2017 19:05:33 GMT
+> Generated: Wed, 15 Nov 2017 00:38:14 GMT
 > Using web service: http://localhost:8000/ws/designmaps/nehrp-2015.json
 
 ### Legend
