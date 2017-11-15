@@ -22,8 +22,8 @@ const _DUMMY_FACTORY = {
   tSubLService: {
     getData: () => { return Promise.resolve({response: {data: {}}}); }
   },
-  siteAmplificationFactory: {
-    getSiteAmplificationData: () => { return Promise.resolve([]); }
+  siteAmplificationService: {
+    getData: () => { return Promise.resolve([]); }
   },
   designCategoryFactory: {
     getDesignCategory: () => { return Promise.resolve([]); }

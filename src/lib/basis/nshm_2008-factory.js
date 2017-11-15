@@ -58,8 +58,10 @@ const NSHM2008Factory = function (options) {
       basicDesign = [];
       inputs = data.inputs;
 
+
+
       try {
-        metadata = data.metadata;
+        metadata = data.metadata.response.data;
         probabilistic = data.probabilistic.map((item) => {
           return item.response.data;
         });
