@@ -1,14 +1,17 @@
 #!/usr/bin/env groovy
 
 node {
+  def SCM_VARS
+
   try {
     stage('Setup') {
       cleanWs()
 
       SCM_VARS = checkout scm
 
+      echo 'SCM_VARS...'
       SCM_VARS.each { key, value ->
-        echo "SCM_VARS[${key}] = ${SCM_VARS[${value}]}"
+        println "  ${key} = ${value}"
       }
     }
 
