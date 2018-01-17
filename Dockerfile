@@ -25,20 +25,6 @@ RUN /bin/bash --login -c " \
         "
 
 
-## Docker file to build app as container
-
-#FROM usgs/hazdev-base-images:latest-node
-#MAINTAINER "Eric Martinez" <emartinez@usgs.gov>
-#LABEL dockerfile_version="v0.1.1"
-
-# Copy application (ignores set in .dockerignore) and set permissions
-#COPY --from=node-libcurl-build /hazdev-project /hazdev-project
-#RUN chown -R hazdev-user:hazdev-user /hazdev-project
-
-# Switch to hazdev-user
-#USER hazdev-user
-
-
 WORKDIR /hazdev-project
 EXPOSE 8000
 CMD [ "/hazdev-project/src/lib/docker-entrypoint.sh" ]

@@ -56,25 +56,66 @@ node {
     }
 
     stage('Unit Tests') {
-      docker.image(LOCAL_IMAGE).inside(
-        """
-          -v ${WORKSPACE}/coverage:/hazdev-project/coverage
-          -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules
-        """
-      ) {
-
-        withEnv([
-          'npm_config_cache=/tmp/npm-cache',
-          'HOME=/tmp'
-        ]) {
-          ansiColor('xterm') {
-            sh """
-              source /etc/profile.d/nvm.sh > /dev/null 2>&1;
-              cd /hazdev-project
+      ansiColor('xterm') {
+        sh """
+          docker run --rm \
+            -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules_artifacts \
+            -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
+            ${LOCAL_IMAGE} \
+            /bin/bash --login -c '\
+              cp -v node_modules/* node_modules_artifacts/. &&
               npm run coverage
-            """
-          }
+            '
+        """
+      }
+    }
+
+    stage('Dependency Checks') {
+      docker.image(LOCAL_IMAGE).inside() {
+        ansiColor('xterm') {
+          dependencyCheckAnalyser(
+            datadir: '',
+            hintsFile: '',
+            includeCsvReports: false,
+            includeHtmlReports: true,
+            includeJsonReports: false,
+            includeVulnReports: true,
+            isAutoupdateDisabled: false,
+            outdir: 'dependency-check-data',
+            scanpath: 'node_modules',
+            skipOnScmChange: false,
+            skipOnUpstreamChange: false,
+            suppressionFile: '',
+            zipExtensions: ''
+          )
         }
+
+        // Publish results
+        dependencyCheckPublisher(
+          canComputeNew: false,
+          defaultEncoding: '',
+          healthy: '',
+          pattern: '**/dependency-check-report.xml',
+          unHealthy: ''
+        )
+
+        publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'dependency-check-data',
+          reportFiles: 'dependency-check-report.html',
+          reportName: 'Dependency Analysis'
+        ])
+
+        publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'dependency-check-data',
+          reportFiles: 'dependency-check-vulnerability.html',
+          reportName: 'Dependency Vulnerabilities'
+        ])
       }
     }
 
