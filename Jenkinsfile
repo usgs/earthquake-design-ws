@@ -273,32 +273,32 @@ node {
     }
 
     stage('Publish Image') {
-      // docker.withRegistry(
-      //   "https://${GITLAB_INNERSOURCE_REGISTRY}",
-      //   'gitlab-innersource-admin'
-      // ) {
-      //   ansiColor('xterm') {
-      //     sh """
-      //       docker tag \
-      //         ${LOCAL_IMAGE} \
-      //         ${DEPLOY_IMAGE}:${IMAGE_VERSION}
-      //     """
+      docker.withRegistry(
+        "https://${GITLAB_INNERSOURCE_REGISTRY}",
+        'gitlab-innersource-admin'
+      ) {
+        ansiColor('xterm') {
+          sh """
+            docker tag \
+              ${LOCAL_IMAGE} \
+              ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+          """
 
-      //     sh """
-      //       docker push ${DEPLOY_IMAGE}:${IMAGE_VERSION}
-      //     """
-      //   }
-      // }
+          sh """
+            docker push ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+          """
+        }
+      }
     }
 
     stage('Trigger Deploy') {
-      // build(
-      //   job: 'deploy-ws',
-      //   parameters: [
-      //     string(name: 'IMAGE_VERSION', value: IMAGE_VERSION)
-      //   ],
-      //   propagate: false
-      // )
+      build(
+        job: 'deploy-ws',
+        parameters: [
+          string(name: 'IMAGE_VERSION', value: IMAGE_VERSION)
+        ],
+        propagate: false
+      )
     }
   } catch (e) {
     mail to: 'emartinez@usgs.gov',
