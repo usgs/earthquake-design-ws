@@ -213,6 +213,10 @@ node {
         sh """
           # Setup
           docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} open-url \
+            ${SCAN_URL_BASE}/
+
+          docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} spider \
             ${SCAN_URL_BASE}/
 
