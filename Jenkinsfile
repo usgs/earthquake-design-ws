@@ -2,10 +2,11 @@
 
 node {
   def SCM_VARS
+  def FAILURE = null
 
   def BASE_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/devops/containers/node:8"
   def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/earthquake-design-ws"
-  def DEPLOY_VERSION = 'latest'
+  def IMAGE_VERSION = 'latest'
   def LOCAL_IMAGE = 'local/earthquake-design-ws:latest'
 
 
@@ -30,7 +31,7 @@ node {
 
       // Determine deploy version tag to use
       if (SCM_VARS.GIT_BRANCH != 'origin/master') {
-        DEPLOY_VERSION = SCM_VARS.GIT_BRANCH.split('/').last().replace(' ', '_')
+        IMAGE_VERSION = SCM_VARS.GIT_BRANCH.split('/').last().replace(' ', '_')
       }
 
       urlBase = SCM_VARS.GIT_URL.replace('.git', '/commit/')
@@ -45,32 +46,7 @@ node {
       }
     }
 
-    // stage('Build Local Image') {
-    //   ansiColor('xterm') {
-    //     sh """
-    //       docker build \
-    //         --build-arg BASE_IMAGE=${BASE_IMAGE} \
-    //         -t ${LOCAL_IMAGE} .
-    //     """
-    //   }
-    // }
-
-    // stage('Unit Tests') {
-    //   ansiColor('xterm') {
-    //     sh """
-    //       docker run --rm \
-    //         -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules_artifacts \
-    //         -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-    //         ${LOCAL_IMAGE} \
-    //         /bin/bash --login -c '\
-    //           cp -v node_modules/* node_modules_artifacts/. &&
-    //           npm run coverage
-    //         '
-    //     """
-    //   }
-    // }
-
-    stage('Dependency Checks') {
+    stage('Scan Dependencies') {
       docker.image(BASE_IMAGE).inside() {
         // Create dependencies
         withEnv([
@@ -136,12 +112,101 @@ node {
       }
     }
 
+    stage('Build Image') {
+      ansiColor('xterm') {
+        sh """
+          docker build \
+            --build-arg BASE_IMAGE=${BASE_IMAGE} \
+            -t ${LOCAL_IMAGE} .
+        """
+      }
+    }
+
+    stage('Unit Tests') {
+      ansiColor('xterm') {
+        sh """
+          docker run --rm \
+            -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
+            ${LOCAL_IMAGE} \
+            /bin/bash -c 'npm run coverage'
+        """
+      }
+
+      cobertura(
+        autoUpdateHealth: false,
+        autoUpdateStability: false,
+        coberturaReportFile: '**/cobertura-coverage.xml',
+        conditionalCoverageTargets: '70, 0, 0',
+        failUnhealthy: false,
+        failUnstable: false,
+        lineCoverageTargets: '80, 0, 0',
+        maxNumberOfBuilds: 0,
+        methodCoverageTargets: '80, 0, 0',
+        onlyStable: false,
+        sourceEncoding: 'ASCII',
+        zoomCoverageChart: false
+      )
+    }
+
+    stage('Penetration Tests') {
+      echo 'TODO :: Penetration Tests'
+    }
+
+    stage('Publish Image') {
+      docker.withRegistry(
+        "https://${GITLAB_INNERSOURCE_REGISTRY}",
+        'gitlab-innersource-admin'
+      ) {
+        ansiColor('xterm') {
+          sh """
+            docker tag \
+              ${LOCAL_IMAGE} \
+              ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+          """
+
+          sh """
+            docker push ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+          """
+        }
+      }
+    }
+
+    stage('Trigger Deploy') {
+      build(
+        job: 'deploy-ws',
+        parameters: [
+          string(name: 'IMAGE_VERSION', value: IMAGE_VERSION)
+        ]
+      )
+    }
   } catch (e) {
-    currentBuild.result = "FAILED"
     mail to: 'emartinez@usgs.gov',
       from: 'noreply@jenkins',
       subject: "Jenkins Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: "Project build (${BUILD_TAG}) failed '${e}'"
-    throw e
+
+    FAILURE = e
+  } finally {
+    stage('Cleanup') {
+      echo 'TODO'
+      sh """
+        set +e;
+
+        docker container rm --force \
+          ${OWASP_CONTAINER} \
+        ;
+
+        docker image rm --force \
+          ${DEPLOY_IMAGE} \
+          ${LOCAL_IMAGE} \
+        ;
+
+        exit 0;
+      """
+      if (FAILURE) {
+        currentBuild.result = 'FAILURE'
+        throw FAILURE
+      }
+    }
   }
 }
