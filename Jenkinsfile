@@ -46,9 +46,15 @@ node {
 
       ansiColor('xterm') {
         sh """
-          mkdir -p ${WORKSPACE}/coverage;
-          mkdir -p ${WORKSPACE}/node_modules;
-          mkdir -p ${WORKSPACE}/owasp-data;
+          mkdir -p \
+            ${WORKSPACE}/coverage \
+            ${WORKSPACE}/owasp-data \
+          ;
+
+          chmod -R 777 \
+            ${WORKSPACE}/coverage \
+            ${WORKSPACE}/owasp-data \
+          ;
         """
       }
     }
