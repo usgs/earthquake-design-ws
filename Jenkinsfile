@@ -57,7 +57,10 @@ node {
 
     stage('Unit Tests') {
       docker.image(LOCAL_IMAGE).inside(
-        "-v ${WORKSPACE}/coverage:/hazdev-project/coverage -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules"
+        """
+          -v ${WORKSPACE}/coverage:/hazdev-project/coverage
+          -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules
+        """
       ) {
 
         withEnv([
