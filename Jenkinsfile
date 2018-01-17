@@ -70,6 +70,7 @@ node {
           ansiColor('xterm') {
             sh """
               source /etc/profile.d/nvm.sh > /dev/null 2>&1;
+              cd /hazdev-project
               npm run coverage
             """
           }
