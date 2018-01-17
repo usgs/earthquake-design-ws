@@ -45,33 +45,49 @@ node {
       }
     }
 
-    stage('Build Local Image') {
-      ansiColor('xterm') {
-        sh """
-          docker build \
-            --build-arg BASE_IMAGE=${BASE_IMAGE} \
-            -t ${LOCAL_IMAGE} .
-        """
-      }
-    }
+    // stage('Build Local Image') {
+    //   ansiColor('xterm') {
+    //     sh """
+    //       docker build \
+    //         --build-arg BASE_IMAGE=${BASE_IMAGE} \
+    //         -t ${LOCAL_IMAGE} .
+    //     """
+    //   }
+    // }
 
-    stage('Unit Tests') {
-      ansiColor('xterm') {
-        sh """
-          docker run --rm \
-            -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules_artifacts \
-            -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-            ${LOCAL_IMAGE} \
-            /bin/bash --login -c '\
-              cp -v node_modules/* node_modules_artifacts/. &&
-              npm run coverage
-            '
-        """
-      }
-    }
+    // stage('Unit Tests') {
+    //   ansiColor('xterm') {
+    //     sh """
+    //       docker run --rm \
+    //         -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules_artifacts \
+    //         -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
+    //         ${LOCAL_IMAGE} \
+    //         /bin/bash --login -c '\
+    //           cp -v node_modules/* node_modules_artifacts/. &&
+    //           npm run coverage
+    //         '
+    //     """
+    //   }
+    // }
 
     stage('Dependency Checks') {
-      docker.image(LOCAL_IMAGE).inside() {
+      docker.image(BASE_IMAGE).inside() {
+        // Create dependencies
+        withEnv([
+          'npm_config_cache=/tmp/npm-cache',
+          'HOME=/tmp'
+        ]) {
+          ansiColor('xterm') {
+            sh """
+              source /etc/profile.d/nvm.sh > /dev/null 2>&1
+              npm config set package-lock false
+
+              # Using --production installs dependencies but not devDependencies
+              npm install --production
+            """
+          }
+        }
+
         ansiColor('xterm') {
           dependencyCheckAnalyser(
             datadir: '',
