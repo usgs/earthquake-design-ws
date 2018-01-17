@@ -80,7 +80,6 @@ node {
         ]) {
           ansiColor('xterm') {
             sh """
-              env;
               source /etc/profile.d/nvm.sh > /dev/null 2>&1;
               npm config set package-lock false;
 
@@ -91,7 +90,7 @@ node {
         }
 
         ansiColor('xterm') {
-          dependencyCheckAnalyser(
+          dependencyCheckAnalyzer(
             datadir: '',
             hintsFile: '',
             includeCsvReports: false,
