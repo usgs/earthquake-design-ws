@@ -10,6 +10,7 @@ node {
   def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
   def IMAGE_VERSION = 'latest'
   def LOCAL_IMAGE = "local/${APP_NAME}:latest"
+  def LOCAL_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
 
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
@@ -267,21 +268,22 @@ node {
     FAILURE = e
   } finally {
     stage('Cleanup') {
-      echo 'TODO'
       sh """
         set +e;
 
-        docker container rm --force \
+        docker container stop \
           ${OWASP_CONTAINER} \
+          ${LOCAL_CONTAINER} \
         ;
 
-        docker image rm --force \
-          ${DEPLOY_IMAGE} \
-          ${LOCAL_IMAGE} \
+        docker container rm --force \
+          ${OWASP_CONTAINER} \
+          ${LOCAL_CONTAINER} \
         ;
 
         exit 0;
       """
+
       if (FAILURE) {
         currentBuild.result = 'FAILURE'
         throw FAILURE
