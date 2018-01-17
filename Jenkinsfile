@@ -1,13 +1,18 @@
 #!/usr/bin/env groovy
 
 node {
-  def SCM_VARS
+  def APP_NAME = 'earthquake-design-ws'
+  def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/containers"
   def FAILURE = null
+  def SCM_VARS = null
 
-  def BASE_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/devops/containers/node:8"
-  def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/earthquake-design-ws"
+  def BASE_IMAGE = "${DEVOPS_REGISTRY}/node:8"
+  def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
   def IMAGE_VERSION = 'latest'
-  def LOCAL_IMAGE = 'local/earthquake-design-ws:latest'
+  def LOCAL_IMAGE = "local/${APP_NAME}:latest"
+
+  def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
+  def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
 
 
   try {
@@ -42,6 +47,7 @@ node {
         sh """
           mkdir -p ${WORKSPACE}/coverage;
           mkdir -p ${WORKSPACE}/node_modules;
+          mkdir -p ${WORKSPACE}/owasp-data;
         """
       }
     }
@@ -149,7 +155,79 @@ node {
     }
 
     stage('Penetration Tests') {
-      echo 'TODO :: Penetration Tests'
+      def ZAP_API_PORT = '8090'
+
+      // Start a container to run penetration tests against
+      sh """
+        docker run --rm --name ${LOCAL_CONTAINER} \
+          -d ${LOCAL_IMAGE}
+      """
+
+      // Start a container to execute OWASP PENTEST
+      sh """
+        docker run --rm -d -u zap \
+          --name=${OWASP_CONTAINER} \
+          --link=${LOCAL_CONTAINER}:application \
+          -v ${WORKSPACE}/owasp-data:/zap/reports:rw \
+          -i ${OWASP_IMAGE} \
+          zap.sh \
+          -daemon \
+          -port ${ZAP_API_PORT} \
+          -config api.disablekey=true
+      """
+
+      // Wait for OWASP container to be ready, but not for too long
+      timeout(
+        time: 20,
+        unit: 'SECONDS'
+      ) {
+        echo 'Waiting for OWASP container to finish starting up'
+        sh """
+          set +x
+          status='FAILED'
+          while [ \$status != 'SUCCESS' ]; do
+            sleep 1;
+            status=`\
+              (\
+                docker exec -i ${OWASP_CONTAINER} \
+                  curl -I localhost:${ZAP_API_PORT} \
+                  > /dev/null 2>&1 && echo 'SUCCESS'\
+              ) \
+              || \
+              echo 'FAILED'\
+            `
+          done
+        """
+      }
+
+      // Run the penetration tests
+      ansiColor('xterm') {
+        sh """
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} spider \
+            http://application/
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} active-scan \
+            http://application/
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} report \
+            -o /zap/reports/owasp-zap-report.html -f html
+
+          docker stop ${OWASP_CONTAINER} ${LOCAL_CONTAINER}
+        """
+      }
+
+      // Publish results
+      publishHTML (target: [
+        allowMissing: true,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: "${WORKSPACE}/owasp-data",
+        reportFiles: 'owasp-zap-report.html',
+        reportName: 'OWASP ZAP Report'
+      ])
     }
 
     stage('Publish Image') {
@@ -176,7 +254,8 @@ node {
         job: 'deploy-ws',
         parameters: [
           string(name: 'IMAGE_VERSION', value: IMAGE_VERSION)
-        ]
+        ],
+        propagate: false
       )
     }
   } catch (e) {
