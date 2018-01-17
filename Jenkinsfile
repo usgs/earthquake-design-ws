@@ -134,7 +134,7 @@ node {
           docker run --rm \
             -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
             ${LOCAL_IMAGE} \
-            /bin/bash -c 'npm run coverage'
+            /bin/bash --login -c 'npm run coverage'
         """
       }
 
