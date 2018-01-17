@@ -34,7 +34,7 @@ node {
   stage('Setup') {
     sh """
       mkdir -p ${WORKSPACE}/qc-results;
-      chmod -R ${WORKSPACE}/qc-results;
+      chmod -R 777 ${WORKSPACE}/qc-results;
     """
   }
 
