@@ -75,12 +75,14 @@ node {
         // Create dependencies
         withEnv([
           'npm_config_cache=/tmp/npm-cache',
-          'HOME=/tmp'
+          'HOME=/tmp',
+          'NON_INTERACTIVE=true'
         ]) {
           ansiColor('xterm') {
             sh """
-              source /etc/profile.d/nvm.sh > /dev/null 2>&1
-              npm config set package-lock false
+              env;
+              source /etc/profile.d/nvm.sh > /dev/null 2>&1;
+              npm config set package-lock false;
 
               # Using --production installs dependencies but not devDependencies
               npm install --production
