@@ -14,11 +14,10 @@ node {
 
   } catch (e) {
     currentBuild.result = "FAILED"
-    email
-      body: "${env.BUILD_URL}",
-      replyTo: 'emartinez@usgs.gov',
-      subject: "Jenkins Build Failed: Job: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-      to: 'emartinez@usgs.gov'
+    mail to: 'emartinez@usgs.gov',
+      from: 'noreply@jenkins',
+      subject: "Jenkins Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: "Project build (${BUILD_TAG}) failed '${e}'"
     throw e
   }
 }
