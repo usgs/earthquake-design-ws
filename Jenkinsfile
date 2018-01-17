@@ -60,105 +60,105 @@ node {
     }
 
     stage('Scan Dependencies') {
-      // docker.image(BASE_IMAGE).inside() {
-      //   // Create dependencies
-      //   withEnv([
-      //     'npm_config_cache=/tmp/npm-cache',
-      //     'HOME=/tmp',
-      //     'NON_INTERACTIVE=true'
-      //   ]) {
-      //     ansiColor('xterm') {
-      //       sh """
-      //         source /etc/profile.d/nvm.sh > /dev/null 2>&1;
-      //         npm config set package-lock false;
+      docker.image(BASE_IMAGE).inside() {
+        // Create dependencies
+        withEnv([
+          'npm_config_cache=/tmp/npm-cache',
+          'HOME=/tmp',
+          'NON_INTERACTIVE=true'
+        ]) {
+          ansiColor('xterm') {
+            sh """
+              source /etc/profile.d/nvm.sh > /dev/null 2>&1;
+              npm config set package-lock false;
 
-      //         # Using --production installs dependencies but not devDependencies
-      //         npm install --production
-      //       """
-      //     }
-      //   }
+              # Using --production installs dependencies but not devDependencies
+              npm install --production
+            """
+          }
+        }
 
-      //   ansiColor('xterm') {
-      //     dependencyCheckAnalyzer(
-      //       datadir: '',
-      //       hintsFile: '',
-      //       includeCsvReports: false,
-      //       includeHtmlReports: true,
-      //       includeJsonReports: false,
-      //       includeVulnReports: true,
-      //       isAutoupdateDisabled: false,
-      //       outdir: 'dependency-check-data',
-      //       scanpath: 'node_modules',
-      //       skipOnScmChange: false,
-      //       skipOnUpstreamChange: false,
-      //       suppressionFile: '',
-      //       zipExtensions: ''
-      //     )
-      //   }
+        ansiColor('xterm') {
+          dependencyCheckAnalyzer(
+            datadir: '',
+            hintsFile: '',
+            includeCsvReports: false,
+            includeHtmlReports: true,
+            includeJsonReports: false,
+            includeVulnReports: true,
+            isAutoupdateDisabled: false,
+            outdir: 'dependency-check-data',
+            scanpath: 'node_modules',
+            skipOnScmChange: false,
+            skipOnUpstreamChange: false,
+            suppressionFile: '',
+            zipExtensions: ''
+          )
+        }
 
-      //   // Publish results
-      //   dependencyCheckPublisher(
-      //     canComputeNew: false,
-      //     defaultEncoding: '',
-      //     healthy: '',
-      //     pattern: '**/dependency-check-report.xml',
-      //     unHealthy: ''
-      //   )
+        // Publish results
+        dependencyCheckPublisher(
+          canComputeNew: false,
+          defaultEncoding: '',
+          healthy: '',
+          pattern: '**/dependency-check-report.xml',
+          unHealthy: ''
+        )
 
-      //   publishHTML (target: [
-      //     allowMissing: true,
-      //     alwaysLinkToLastBuild: true,
-      //     keepAll: true,
-      //     reportDir: 'dependency-check-data',
-      //     reportFiles: 'dependency-check-report.html',
-      //     reportName: 'Dependency Analysis'
-      //   ])
+        publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'dependency-check-data',
+          reportFiles: 'dependency-check-report.html',
+          reportName: 'Dependency Analysis'
+        ])
 
-      //   publishHTML (target: [
-      //     allowMissing: true,
-      //     alwaysLinkToLastBuild: true,
-      //     keepAll: true,
-      //     reportDir: 'dependency-check-data',
-      //     reportFiles: 'dependency-check-vulnerability.html',
-      //     reportName: 'Dependency Vulnerabilities'
-      //   ])
-      // }
+        publishHTML (target: [
+          allowMissing: true,
+          alwaysLinkToLastBuild: true,
+          keepAll: true,
+          reportDir: 'dependency-check-data',
+          reportFiles: 'dependency-check-vulnerability.html',
+          reportName: 'Dependency Vulnerabilities'
+        ])
+      }
     }
 
     stage('Build Image') {
-      // ansiColor('xterm') {
-      //   sh """
-      //     docker build \
-      //       --build-arg BASE_IMAGE=${BASE_IMAGE} \
-      //       -t ${LOCAL_IMAGE} .
-      //   """
-      // }
+      ansiColor('xterm') {
+        sh """
+          docker build \
+            --build-arg BASE_IMAGE=${BASE_IMAGE} \
+            -t ${LOCAL_IMAGE} .
+        """
+      }
     }
 
     stage('Unit Tests / Coverage') {
-      // ansiColor('xterm') {
-      //   sh """
-      //     docker run --rm \
-      //       -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-      //       ${LOCAL_IMAGE} \
-      //       /bin/bash --login -c 'npm run coverage'
-      //   """
-      // }
+      ansiColor('xterm') {
+        sh """
+          docker run --rm \
+            -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
+            ${LOCAL_IMAGE} \
+            /bin/bash --login -c 'npm run coverage'
+        """
+      }
 
-      // cobertura(
-      //   autoUpdateHealth: false,
-      //   autoUpdateStability: false,
-      //   coberturaReportFile: '**/cobertura-coverage.xml',
-      //   conditionalCoverageTargets: '70, 0, 0',
-      //   failUnhealthy: false,
-      //   failUnstable: false,
-      //   lineCoverageTargets: '80, 0, 0',
-      //   maxNumberOfBuilds: 0,
-      //   methodCoverageTargets: '80, 0, 0',
-      //   onlyStable: false,
-      //   sourceEncoding: 'ASCII',
-      //   zoomCoverageChart: false
-      // )
+      cobertura(
+        autoUpdateHealth: false,
+        autoUpdateStability: false,
+        coberturaReportFile: '**/cobertura-coverage.xml',
+        conditionalCoverageTargets: '70, 0, 0',
+        failUnhealthy: false,
+        failUnstable: false,
+        lineCoverageTargets: '80, 0, 0',
+        maxNumberOfBuilds: 0,
+        methodCoverageTargets: '80, 0, 0',
+        onlyStable: false,
+        sourceEncoding: 'ASCII',
+        zoomCoverageChart: false
+      )
     }
 
     stage('Penetration Tests') {
@@ -220,6 +220,8 @@ node {
             zap-cli -v -p ${ZAP_API_PORT} spider \
             ${SCAN_URL_BASE}/
 
+
+          # Active Scan
           docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} active-scan \
             ${SCAN_URL_BASE}/
@@ -313,12 +315,12 @@ node {
         docker container stop \
           ${OWASP_CONTAINER} \
           ${LOCAL_CONTAINER} \
-        ;
+        2> /dev/null;
 
         docker container rm --force \
           ${OWASP_CONTAINER} \
           ${LOCAL_CONTAINER} \
-        ;
+        2> /dev/null;
 
         exit 0;
       """
