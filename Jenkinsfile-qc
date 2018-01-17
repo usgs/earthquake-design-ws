@@ -32,6 +32,8 @@ node {
   }
 
   stage('Setup') {
+    cleanWs()
+
     sh """
       mkdir -p ${WORKSPACE}/qc-results;
       chmod -R 777 ${WORKSPACE}/qc-results;
