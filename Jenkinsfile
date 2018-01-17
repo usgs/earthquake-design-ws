@@ -48,7 +48,6 @@ node {
     stage('Build Local Image') {
       ansiColor('xterm') {
         sh """
-          docker rm ${LOCAL_IMAGE} || echo 'This is okay'
           docker build \
             --build-arg BASE_IMAGE=${BASE_IMAGE} \
             -t ${LOCAL_IMAGE} .
@@ -58,8 +57,7 @@ node {
 
     stage('Unit Tests') {
       docker.image(LOCAL_IMAGE).inside(
-        "-v ${WORKSPACE}/coverage:/hazdev-project/coverage",
-        "-v ${WORKSPACE}/node_modules:/hazdev-project/node_modules"
+        "-v ${WORKSPACE}/coverage:/hazdev-project/coverage -v ${WORKSPACE}/node_modules:/hazdev-project/node_modules"
       ) {
 
         withEnv([
@@ -69,9 +67,6 @@ node {
           ansiColor('xterm') {
             sh """
               source /etc/profile.d/nvm.sh > /dev/null 2>&1;
-              npm config set package-lock false
-
-              npm install
               npm run coverage
             """
           }
