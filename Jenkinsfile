@@ -59,71 +59,71 @@ node {
       }
     }
 
-    stage('Scan Dependencies') {
-      docker.image(BASE_IMAGE).inside() {
-        // Create dependencies
-        withEnv([
-          'npm_config_cache=/tmp/npm-cache',
-          'HOME=/tmp',
-          'NON_INTERACTIVE=true'
-        ]) {
-          ansiColor('xterm') {
-            sh """
-              source /etc/profile.d/nvm.sh > /dev/null 2>&1;
-              npm config set package-lock false;
+    // stage('Scan Dependencies') {
+    //   docker.image(BASE_IMAGE).inside() {
+    //     // Create dependencies
+    //     withEnv([
+    //       'npm_config_cache=/tmp/npm-cache',
+    //       'HOME=/tmp',
+    //       'NON_INTERACTIVE=true'
+    //     ]) {
+    //       ansiColor('xterm') {
+    //         sh """
+    //           source /etc/profile.d/nvm.sh > /dev/null 2>&1;
+    //           npm config set package-lock false;
 
-              # Using --production installs dependencies but not devDependencies
-              npm install --production
-            """
-          }
-        }
+    //           # Using --production installs dependencies but not devDependencies
+    //           npm install --production
+    //         """
+    //       }
+    //     }
 
-        ansiColor('xterm') {
-          dependencyCheckAnalyzer(
-            datadir: '',
-            hintsFile: '',
-            includeCsvReports: false,
-            includeHtmlReports: true,
-            includeJsonReports: false,
-            includeVulnReports: true,
-            isAutoupdateDisabled: false,
-            outdir: 'dependency-check-data',
-            scanpath: 'node_modules',
-            skipOnScmChange: false,
-            skipOnUpstreamChange: false,
-            suppressionFile: '',
-            zipExtensions: ''
-          )
-        }
+    //     ansiColor('xterm') {
+    //       dependencyCheckAnalyzer(
+    //         datadir: '',
+    //         hintsFile: '',
+    //         includeCsvReports: false,
+    //         includeHtmlReports: true,
+    //         includeJsonReports: false,
+    //         includeVulnReports: true,
+    //         isAutoupdateDisabled: false,
+    //         outdir: 'dependency-check-data',
+    //         scanpath: 'node_modules',
+    //         skipOnScmChange: false,
+    //         skipOnUpstreamChange: false,
+    //         suppressionFile: '',
+    //         zipExtensions: ''
+    //       )
+    //     }
 
-        // Publish results
-        dependencyCheckPublisher(
-          canComputeNew: false,
-          defaultEncoding: '',
-          healthy: '',
-          pattern: '**/dependency-check-report.xml',
-          unHealthy: ''
-        )
+    //     // Publish results
+    //     dependencyCheckPublisher(
+    //       canComputeNew: false,
+    //       defaultEncoding: '',
+    //       healthy: '',
+    //       pattern: '**/dependency-check-report.xml',
+    //       unHealthy: ''
+    //     )
 
-        publishHTML (target: [
-          allowMissing: true,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'dependency-check-data',
-          reportFiles: 'dependency-check-report.html',
-          reportName: 'Dependency Analysis'
-        ])
+    //     publishHTML (target: [
+    //       allowMissing: true,
+    //       alwaysLinkToLastBuild: true,
+    //       keepAll: true,
+    //       reportDir: 'dependency-check-data',
+    //       reportFiles: 'dependency-check-report.html',
+    //       reportName: 'Dependency Analysis'
+    //     ])
 
-        publishHTML (target: [
-          allowMissing: true,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: 'dependency-check-data',
-          reportFiles: 'dependency-check-vulnerability.html',
-          reportName: 'Dependency Vulnerabilities'
-        ])
-      }
-    }
+    //     publishHTML (target: [
+    //       allowMissing: true,
+    //       alwaysLinkToLastBuild: true,
+    //       keepAll: true,
+    //       reportDir: 'dependency-check-data',
+    //       reportFiles: 'dependency-check-vulnerability.html',
+    //       reportName: 'Dependency Vulnerabilities'
+    //     ])
+    //   }
+    // }
 
     stage('Build Image') {
       ansiColor('xterm') {
@@ -135,7 +135,7 @@ node {
       }
     }
 
-    stage('Unit Tests') {
+    stage('Unit Tests / Coverage') {
       ansiColor('xterm') {
         sh """
           docker run --rm \
@@ -163,6 +163,7 @@ node {
 
     stage('Penetration Tests') {
       def ZAP_API_PORT = '8090'
+      def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
 
       // Start a container to run penetration tests against
       sh """
@@ -210,13 +211,41 @@ node {
       // Run the penetration tests
       ansiColor('xterm') {
         sh """
+          # Setup
           docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} spider \
-            http://application/
+            ${SCAN_URL_BASE}/
 
           docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} active-scan \
-            http://application/
+            ${SCAN_URL_BASE}/
+
+
+          # Quick Scans
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/deterministic.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/probabilistic.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/risk-coefficient.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/site-amplification.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/t-sub-l.json > /dev/null
+
+
+          # Alerts / Reports
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} alerts
 
           docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} report \
