@@ -11,7 +11,7 @@ node {
 
   TARGET_WEB_NODES = readJSON text: TARGET_WEB_NODES
 
-  TARGET_WEB_NODES.each { host -> {
+  TARGET_WEB_NODES.each { host ->
     TASKS[host] = {
       sh """
         docker run --rm \
