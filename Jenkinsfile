@@ -50,7 +50,7 @@ node {
         sh """
           docker rm ${LOCAL_IMAGE} || echo 'This is okay'
           docker build \
-            --build-arg BASE_IMAGE=${BASE_IMAGE}
+            --build-arg BASE_IMAGE=${BASE_IMAGE} \
             -t ${LOCAL_IMAGE} .
         """
       }
