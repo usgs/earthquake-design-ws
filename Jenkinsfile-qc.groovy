@@ -30,7 +30,7 @@ node {
           docker run --rm \
             -v ${WORKSPACE}/qc-results:/hazdev-project/qc-results:rw \
             ${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/earthquake-design-ws:${IMAGE_VERSION} \
-            /bin/bash --login -c 'node qc/smoketest.js http://${host} >> qc-results/${host}.txt'
+            /bin/bash --login -c 'node qc/smoketest.js https://${host} >> qc-results/${host}.txt'
         """
 
         publishHTML (target: [
