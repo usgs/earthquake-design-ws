@@ -5,5 +5,7 @@
 .gitattributes
 .gitignore
 Dockerfile
+Jenkinsfile
+coverage
 node_modules
 src/conf/config.json
