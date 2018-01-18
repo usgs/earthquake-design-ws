@@ -292,7 +292,7 @@ node {
     stage('Publish Image') {
       docker.withRegistry(
         "https://${GITLAB_INNERSOURCE_REGISTRY}",
-        'gitlab-innersource-admin'
+        'innersource-hazdev-cicd'
       ) {
         ansiColor('xterm') {
           sh """
