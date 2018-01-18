@@ -15,8 +15,8 @@ node {
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
 
-  def UNIT_AND_PEN_TEST_TASKS
-  def SCAN_AND_BUILD_TASKS
+  def UNIT_AND_PEN_TEST_TASKS = [:]
+  def SCAN_AND_BUILD_TASKS = [:]
 
 
   try {
