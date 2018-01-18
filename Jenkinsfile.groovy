@@ -319,7 +319,7 @@ node {
       )
     }
   } catch (e) {
-    mail to: 'emartinez@usgs.gov',
+    mail to: 'gs-haz_dev_team_group@usgs.gov',
       from: 'noreply@jenkins',
       subject: "Jenkins Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: "Project build (${BUILD_TAG}) failed '${e}'"
