@@ -95,8 +95,7 @@ node {
               skipOnScmChange: false,
               skipOnUpstreamChange: false,
               suppressionFile: '',
-              zipExtensions: '',
-              jarAnalyzerEnabled: false
+              zipExtensions: ''
             )
           }
 
