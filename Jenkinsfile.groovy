@@ -145,7 +145,7 @@ node {
     parallel SCAN_AND_BUILD_TASKS
 
 
-    UNIT_AND_PEN_TEST_TASKS["Unit Tests / Coverage"] = {
+    // UNIT_AND_PEN_TEST_TASKS["Unit Tests / Coverage"] = {
       stage('Unit Tests / Coverage') {
         ansiColor('xterm') {
           sh """
@@ -171,9 +171,9 @@ node {
           zoomCoverageChart: false
         )
       }
-    }
+    // }
 
-    UNIT_AND_PEN_TEST_TASKS['Penetration Tests'] = {
+    // UNIT_AND_PEN_TEST_TASKS['Penetration Tests'] = {
       stage('Penetration Tests') {
         def ZAP_API_PORT = '8090'
         def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
@@ -284,9 +284,9 @@ node {
           reportName: 'OWASP ZAP Report'
         ])
       }
-    }
+    // }
 
-    parallel UNIT_AND_PEN_TEST_TASKS
+    // parallel UNIT_AND_PEN_TEST_TASKS
 
 
     stage('Publish Image') {
