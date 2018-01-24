@@ -15,7 +15,6 @@ node {
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
 
-  def UNIT_AND_PEN_TEST_TASKS = [:]
   def SCAN_AND_BUILD_TASKS = [:]
 
 
@@ -92,7 +91,7 @@ node {
               includeVulnReports: true,
               isAutoupdateDisabled: false,
               outdir: 'dependency-check-data',
-              scanpath: 'node_modules',
+              scanpath: "${WORKSPACE}",
               skipOnScmChange: false,
               skipOnUpstreamChange: false,
               suppressionFile: '',
@@ -145,148 +144,142 @@ node {
     parallel SCAN_AND_BUILD_TASKS
 
 
-    // UNIT_AND_PEN_TEST_TASKS["Unit Tests / Coverage"] = {
-      stage('Unit Tests / Coverage') {
-        ansiColor('xterm') {
-          sh """
-            docker run --rm \
-              -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-              ${LOCAL_IMAGE} \
-              /bin/bash --login -c 'npm run coverage'
-          """
-        }
-
-        cobertura(
-          autoUpdateHealth: false,
-          autoUpdateStability: false,
-          coberturaReportFile: '**/cobertura-coverage.xml',
-          conditionalCoverageTargets: '70, 0, 0',
-          failUnhealthy: false,
-          failUnstable: false,
-          lineCoverageTargets: '80, 0, 0',
-          maxNumberOfBuilds: 0,
-          methodCoverageTargets: '80, 0, 0',
-          onlyStable: false,
-          sourceEncoding: 'ASCII',
-          zoomCoverageChart: false
-        )
-      }
-    // }
-
-    // UNIT_AND_PEN_TEST_TASKS['Penetration Tests'] = {
-      stage('Penetration Tests') {
-        def ZAP_API_PORT = '8090'
-        def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
-
-        // Start a container to run penetration tests against
+    stage('Unit Tests / Coverage') {
+      ansiColor('xterm') {
         sh """
-          docker run --rm --name ${LOCAL_CONTAINER} \
-            -d ${LOCAL_IMAGE}
+          docker run --rm \
+            -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
+            ${LOCAL_IMAGE} \
+            /bin/bash --login -c 'npm run coverage'
         """
-
-        // Start a container to execute OWASP PENTEST
-        sh """
-          docker run --rm -d -u zap \
-            --name=${OWASP_CONTAINER} \
-            --link=${LOCAL_CONTAINER}:application \
-            -v ${WORKSPACE}/owasp-data:/zap/reports:rw \
-            -i ${OWASP_IMAGE} \
-            zap.sh \
-            -daemon \
-            -port ${ZAP_API_PORT} \
-            -config api.disablekey=true
-        """
-
-        // Wait for OWASP container to be ready, but not for too long
-        timeout(
-          time: 20,
-          unit: 'SECONDS'
-        ) {
-          echo 'Waiting for OWASP container to finish starting up'
-          sh """
-            set +x
-            status='FAILED'
-            while [ \$status != 'SUCCESS' ]; do
-              sleep 1;
-              status=`\
-                (\
-                  docker exec -i ${OWASP_CONTAINER} \
-                    curl -I localhost:${ZAP_API_PORT} \
-                    > /dev/null 2>&1 && echo 'SUCCESS'\
-                ) \
-                || \
-                echo 'FAILED'\
-              `
-            done
-          """
-        }
-
-        // Run the penetration tests
-        ansiColor('xterm') {
-          sh """
-            # Setup
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} open-url \
-              ${SCAN_URL_BASE}/
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} spider \
-              ${SCAN_URL_BASE}/
-
-
-            # Active Scan
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} active-scan \
-              ${SCAN_URL_BASE}/
-
-
-            # Quick Scans
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} quick-scan \
-              ${SCAN_URL_BASE}/deterministic.json > /dev/null
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} quick-scan \
-              ${SCAN_URL_BASE}/probabilistic.json > /dev/null
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} quick-scan \
-              ${SCAN_URL_BASE}/risk-coefficient.json > /dev/null
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} quick-scan \
-              ${SCAN_URL_BASE}/site-amplification.json > /dev/null
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} quick-scan \
-              ${SCAN_URL_BASE}/t-sub-l.json > /dev/null
-
-
-            # Alerts / Reports
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} alerts
-
-            docker exec ${OWASP_CONTAINER} \
-              zap-cli -v -p ${ZAP_API_PORT} report \
-              -o /zap/reports/owasp-zap-report.html -f html
-
-            docker stop ${OWASP_CONTAINER} ${LOCAL_CONTAINER}
-          """
-        }
-
-        // Publish results
-        publishHTML (target: [
-          allowMissing: true,
-          alwaysLinkToLastBuild: true,
-          keepAll: true,
-          reportDir: "${WORKSPACE}/owasp-data",
-          reportFiles: 'owasp-zap-report.html',
-          reportName: 'OWASP ZAP Report'
-        ])
       }
-    // }
 
-    // parallel UNIT_AND_PEN_TEST_TASKS
+      cobertura(
+        autoUpdateHealth: false,
+        autoUpdateStability: false,
+        coberturaReportFile: '**/cobertura-coverage.xml',
+        conditionalCoverageTargets: '70, 0, 0',
+        failUnhealthy: false,
+        failUnstable: false,
+        lineCoverageTargets: '80, 0, 0',
+        maxNumberOfBuilds: 0,
+        methodCoverageTargets: '80, 0, 0',
+        onlyStable: false,
+        sourceEncoding: 'ASCII',
+        zoomCoverageChart: false
+      )
+    }
+
+    stage('Penetration Tests') {
+      def ZAP_API_PORT = '8090'
+      def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
+
+      // Start a container to run penetration tests against
+      sh """
+        docker run --rm --name ${LOCAL_CONTAINER} \
+          -d ${LOCAL_IMAGE}
+      """
+
+      // Start a container to execute OWASP PENTEST
+      sh """
+        docker run --rm -d -u zap \
+          --name=${OWASP_CONTAINER} \
+          --link=${LOCAL_CONTAINER}:application \
+          -v ${WORKSPACE}/owasp-data:/zap/reports:rw \
+          -i ${OWASP_IMAGE} \
+          zap.sh \
+          -daemon \
+          -port ${ZAP_API_PORT} \
+          -config api.disablekey=true
+      """
+
+      // Wait for OWASP container to be ready, but not for too long
+      timeout(
+        time: 20,
+        unit: 'SECONDS'
+      ) {
+        echo 'Waiting for OWASP container to finish starting up'
+        sh """
+          set +x
+          status='FAILED'
+          while [ \$status != 'SUCCESS' ]; do
+            sleep 1;
+            status=`\
+              (\
+                docker exec -i ${OWASP_CONTAINER} \
+                  curl -I localhost:${ZAP_API_PORT} \
+                  > /dev/null 2>&1 && echo 'SUCCESS'\
+              ) \
+              || \
+              echo 'FAILED'\
+            `
+          done
+        """
+      }
+
+      // Run the penetration tests
+      ansiColor('xterm') {
+        sh """
+          # Setup
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} open-url \
+            ${SCAN_URL_BASE}/
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} spider \
+            ${SCAN_URL_BASE}/
+
+
+          # Active Scan
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} active-scan \
+            ${SCAN_URL_BASE}/
+
+
+          # Quick Scans
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/deterministic.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/probabilistic.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/risk-coefficient.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/site-amplification.json > /dev/null
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} quick-scan \
+            ${SCAN_URL_BASE}/t-sub-l.json > /dev/null
+
+
+          # Alerts / Reports
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} alerts
+
+          docker exec ${OWASP_CONTAINER} \
+            zap-cli -v -p ${ZAP_API_PORT} report \
+            -o /zap/reports/owasp-zap-report.html -f html
+
+          docker stop ${OWASP_CONTAINER} ${LOCAL_CONTAINER}
+        """
+      }
+
+      // Publish results
+      publishHTML (target: [
+        allowMissing: true,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: "${WORKSPACE}/owasp-data",
+        reportFiles: 'owasp-zap-report.html',
+        reportName: 'OWASP ZAP Report'
+      ])
+    }
 
 
     stage('Publish Image') {
