@@ -22,18 +22,6 @@ const StringStream = function (str) {
 
 
 describe('util/csv-parser', () => {
-  let parser;
-
-  beforeEach(() => {
-    parser = CsvParser({url: ''});
-  });
-
-  afterEach(() => {
-    parser.destroy();
-    parser = null;
-  });
-
-
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof CsvParser).to.equal('function');
@@ -52,11 +40,13 @@ describe('util/csv-parser', () => {
 
   describe('onData', () => {
     it('buffers parsed objects', () => {
-      let test1,
+      let parser,
+          test1,
           test2;
 
       test1 = {};
       test2 = {};
+      parser = CsvParser({url: ''});
 
       parser.onData(test1);
       expect(parser.data[0]).to.equal(test1);
@@ -141,9 +131,11 @@ describe('util/csv-parser', () => {
   describe('parseHeaders', () => {
     it('stores results of splitLine in headers', () => {
       let line,
+          parser,
           test;
 
       line = {};
+      parser = CsvParser({url: ''});
       test = {};
 
       parser._splitLine = sinon.stub();
@@ -152,16 +144,20 @@ describe('util/csv-parser', () => {
       parser.parseHeaders(line);
       expect(parser._splitLine.calledWith(line)).to.equal(true);
       expect(parser.headers).to.equal(test);
+
+      parser.destroy();
     });
   });
 
   describe('parseLine', () => {
     it('treats first line as headers', () => {
       let line1,
-          line2;
+          line2,
+          parser;
 
       line1 = 'header1,header2';
       line2 = 'value1,value2';
+      parser = CsvParser({url: ''});
 
       parser.parseLine(line1);
       expect(parser.headers).to.deep.equal(['header1', 'header2']);
@@ -171,23 +167,39 @@ describe('util/csv-parser', () => {
         'header1': 'value1',
         'header2': 'value2'
       });
+
+      parser.destroy();
     });
 
     it('throws error if header and line column counts differ', () => {
       expect(() => {
         let line1,
-            line2;
+            line2,
+            parser;
 
         line1 = 'header1,header2';
         line2 = 'value1,value2,value3';
+        parser = CsvParser({url: ''});
 
         parser.parseLine(line1);
         parser.parseLine(line2);
+
+        parser.destroy();
       }).to.throw(Error);
     });
   });
 
   describe('_splitLine', () => {
+    let parser;
+
+    beforeEach(() => {
+      parser = CsvParser({url: ''});
+    });
+
+    afterEach(() => {
+      parser.destroy();
+    });
+
     it('splits a line without quotes', () => {
       expect(parser._splitLine('header1,header2')).to.deep.equal(
           ['header1', 'header2']);
