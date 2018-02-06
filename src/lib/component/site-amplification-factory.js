@@ -201,7 +201,7 @@ const SiteAmplificationFactory = function (options) {
         fa: ssResult.factor,
         fa_note: ssResult.note,
         fv: s1Result.factor,
-        fv_note: ssResult.note,
+        fv_note: s1Result.note,
         fpga: (pgaResult ? pgaResult.factor : undefined),
         fpga_note: (pgaResult ? pgaResult.note : undefined)
       };
