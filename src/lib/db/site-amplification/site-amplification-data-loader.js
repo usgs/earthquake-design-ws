@@ -60,9 +60,9 @@ const SiteAmplificationDataLoader = function(options) {
                 value
               ) VALUES ($1, $2)
             `,  [
-                  lookupId,
-                  siteAmplification.bins
-                ]
+              lookupId,
+              siteAmplification.bins
+            ]
             );
           });
 
@@ -79,8 +79,8 @@ const SiteAmplificationDataLoader = function(options) {
           FROM ground_motion_level
           WHERE lookup_id=$1
         `,  [
-              lookupId
-            ]
+          lookupId
+        ]
         ).then((result) => {
           if (result.rows.length == 0) {
             // bin does not exist
@@ -160,9 +160,9 @@ const SiteAmplificationDataLoader = function(options) {
               ) VALUES ($1, $2)
               RETURNING id
             `,  [
-                  referenceDocument,
-                  spectral_period
-                ]
+              referenceDocument,
+              spectral_period
+            ]
             ).then((result) => {
               // save referenceDocument id for later data loading
               lookupIds[result.rows[0].id] =
@@ -265,10 +265,10 @@ const SiteAmplificationDataLoader = function(options) {
                   value
                 ) VALUES ($1, $2, $3)
               `,  [
-                    lookupId,
-                    siteClass,
-                    siteAmplification.siteClasses[siteClass]
-                  ]
+                lookupId,
+                siteClass,
+                siteAmplification.siteClasses[siteClass]
+              ]
               );
             });
           }
@@ -286,8 +286,8 @@ const SiteAmplificationDataLoader = function(options) {
           FROM amplification_factor
           WHERE lookup_id=$1
         `,  [
-              lookupId
-            ]
+          lookupId
+        ]
         ).then((result) => {
           if (result.rows.length == 0) {
             // siteClass does not exist
@@ -375,11 +375,11 @@ const SiteAmplificationDataLoader = function(options) {
                     message
                   ) VALUES ($1, $2, $3, $4)
                 `,  [
-                      lookupId,
-                      siteClass,
-                      restriction.limit,
-                      restriction.message
-                    ]
+                  lookupId,
+                  siteClass,
+                  restriction.limit,
+                  restriction.message
+                ]
                 );
               });
             }
@@ -398,8 +398,8 @@ const SiteAmplificationDataLoader = function(options) {
           FROM restriction
           WHERE lookup_id=$1
         `,  [
-              lookupId
-            ]
+          lookupId
+        ]
         ).then((result) => {
           if (result.rows.length == 0) {
             // restriction does not exist

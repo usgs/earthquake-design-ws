@@ -105,7 +105,7 @@ describe('DesignCategoryFactory', () => {
     });
 
     it('returns sdc = null and sdc1 = null when sds and sd1 are null', function
-        (done) {
+    (done) {
       factory.getDesignCategory('I', 0, 1, null, null).then((result) => {
         expect(result.sdc).to.equal(null);
         expect(result.sdc1).to.equal(null);
@@ -118,7 +118,7 @@ describe('DesignCategoryFactory', () => {
     });
 
     it('returns sdc = null and sdcs = null when s1 and sd1 are null', function
-        (done) {
+    (done) {
       factory.getDesignCategory('I', 0, null, 1, null).then((result) => {
         expect(result.sdc).to.equal(null);
         expect(result.sdc1).to.equal('D');
