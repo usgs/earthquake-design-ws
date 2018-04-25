@@ -122,6 +122,6 @@ module.exports = [
     type: 'input',
     name: 'SITE_AMPLIFICATION_SERVICE_URL',
     message: 'Web service for fetching site amplification factors',
-    default: 'https://earthquake.usgs.gov/ws/designmaps/site_amplification.json'
+    default: 'https://earthquake.usgs.gov/ws/designmaps/site-amplification.json'
   }
 ];
