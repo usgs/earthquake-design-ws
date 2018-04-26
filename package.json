@@ -38,7 +38,7 @@
     "byline": "^5.0.0",
     "chai": "^3.5.0",
     "escape-html": "^1.0.3",
-    "eslint": "^4.7.1",
+    "eslint": "4.15.0",
     "istanbul": "^0.4.4",
     "mocha": "^3.0.2",
     "node-libcurl": "^1.1.0",
