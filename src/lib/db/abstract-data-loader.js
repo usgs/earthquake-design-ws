@@ -241,7 +241,7 @@ const AbstractDataLoader = function (options) {
                 region_id,
                 name
               ) VALUES ($1, $2)
-            `,  [
+            `, [
                   regionId,
                   doc.name
                 ]
@@ -259,7 +259,7 @@ const AbstractDataLoader = function (options) {
           SELECT id
           FROM document
           WHERE name=$1
-        `,  [
+        `, [
               doc.name
             ]
         ).then((result) => {

@@ -59,7 +59,7 @@ const SiteAmplificationDataLoader = function(options) {
                 lookup_id,
                 value
               ) VALUES ($1, $2)
-            `,  [
+            `, [
                   lookupId,
                   siteAmplification.bins
                 ]
@@ -78,7 +78,7 @@ const SiteAmplificationDataLoader = function(options) {
             value
           FROM ground_motion_level
           WHERE lookup_id=$1
-        `,  [
+        `, [
               lookupId
             ]
         ).then((result) => {
@@ -159,7 +159,7 @@ const SiteAmplificationDataLoader = function(options) {
                 spectral_period
               ) VALUES ($1, $2)
               RETURNING id
-            `,  [
+            `, [
                   referenceDocument,
                   spectral_period
                 ]
@@ -264,7 +264,7 @@ const SiteAmplificationDataLoader = function(options) {
                   site_class,
                   value
                 ) VALUES ($1, $2, $3)
-              `,  [
+              `, [
                     lookupId,
                     siteClass,
                     siteAmplification.siteClasses[siteClass]
@@ -285,7 +285,7 @@ const SiteAmplificationDataLoader = function(options) {
             site_class
           FROM amplification_factor
           WHERE lookup_id=$1
-        `,  [
+        `, [
               lookupId
             ]
         ).then((result) => {
@@ -374,7 +374,7 @@ const SiteAmplificationDataLoader = function(options) {
                     "limit",
                     message
                   ) VALUES ($1, $2, $3, $4)
-                `,  [
+                `, [
                       lookupId,
                       siteClass,
                       restriction.limit,
@@ -397,7 +397,7 @@ const SiteAmplificationDataLoader = function(options) {
             site_class
           FROM restriction
           WHERE lookup_id=$1
-        `,  [
+        `, [
               lookupId
             ]
         ).then((result) => {
