@@ -10,17 +10,17 @@
 ./gradlew build
 ```
 
-1.  This example runs the Data Converter class to convert a probabilistic binary data file to CSV format.
+2.  This example runs the Data Converter class to convert a probabilistic binary data file to CSV format.
 
 ```
-./gradlew run -Pargfile="/Users/jcaple/CODE/USGSII/AASHTO_2009/data/1998-HI-AASHTO-05-050-R1.rnd"
+./gradlew run -Pargfile="/Users/usgs-golden/CODE/USGSII/AASHTO_2009/data/1998-HI-AASHTO-05-050-R1.rnd"
 ```
 
 ### Data Conversion Notes
 
 The data files previously included data like "recordNumber,latitude,longitude,numValues,PGA,ss,s1,JUNK". However the database schema loads CSV files and expects "latitude,longitude,pga,s1,ss". Note the mismatch in order regarding ss/s1 between these two. The Converter.java currently reads the data as-is and creates a CSV output. These data were then post-processed to swap the Ss/S1 columns (Excel, etc...) to be ready for data loading. 
 
-Use a simple application called "Hex Fiend" to quickly look at the binary data manually. Using "Hex Fiend" you can tell whether the data file is in little endian format; so for Java these will need to be swapped.
+Use a simple application called ["Hex Fiend"](https://ridiculousfish.com/hexfiend/) to quickly look at the binary data manually. Using "Hex Fiend" you can tell whether the data file is in little endian format; so for Java these will need to be swapped.
 
 In binary format we call each chunk of data a "record". In CSV format, this translates to a "line". In the data files, the header information is as follows (again, this is for the US file, the other files may be more or less similar but you will need to verify).
 
