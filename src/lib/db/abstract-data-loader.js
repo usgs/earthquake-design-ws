@@ -135,13 +135,13 @@ const AbstractDataLoader = function (options) {
             ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
             `, [
-            region.name,
-            region.grid_spacing,
-            region.max_latitude,
-            region.max_longitude,
-            region.min_latitude,
-            region.min_longitude
-          ]).then((result) => {
+                region.name,
+                region.grid_spacing,
+                region.max_latitude,
+                region.max_longitude,
+                region.min_latitude,
+                region.min_longitude
+              ]).then((result) => {
             // save region id for later data loading
             regionIds[region.name] = result.rows[0].id;
           });
@@ -241,10 +241,10 @@ const AbstractDataLoader = function (options) {
                 region_id,
                 name
               ) VALUES ($1, $2)
-            `,  [
-              regionId,
-              doc.name
-            ]
+            `, [
+                  regionId,
+                  doc.name
+                ]
             ));
           });
 
@@ -259,9 +259,9 @@ const AbstractDataLoader = function (options) {
           SELECT id
           FROM document
           WHERE name=$1
-        `,  [
-          doc.name
-        ]
+        `, [
+              doc.name
+            ]
         ).then((result) => {
           if (result.rows.length == 0) {
             // document does not exist
