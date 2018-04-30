@@ -22,7 +22,7 @@ public class Converter {
         printRecord(input);
       }
     } catch (EOFException eof) {
-
+      /* ignore we are done */
     }
 
   }
