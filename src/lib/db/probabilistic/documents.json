@@ -98,9 +98,9 @@
     "name": "AASHTO-2009",
     "regions": [
       "E1998R1_HI0P02_Probabilistic_05-050",
-      "E2002R1_US0P02_Probabilistic_05-050",
-      "E2003R1_PRVI0P02_Probabilistic_05-050",
-      "E2006R1_AK0P02_Probabilistic_05-050"
+      "E2002R1_US0P05_Probabilistic_05-050",
+      "E2003R1_PRVI0P05_Probabilistic_05-050",
+      "E2006R1_AK0P10_Probabilistic_05-050"
     ]
   }
 ]
