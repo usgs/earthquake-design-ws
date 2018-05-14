@@ -374,6 +374,20 @@ const _METADATA = {
         'ssdFloor': 1.5,
         'ssdPercentileFactor': 1.8
       }
+    },
+  ],
+  'AASHTO-09': [
+    {
+      'regions': [
+        'AK0P10',
+        'US0P05',
+        'HI0P02',
+        'PRVI0P05'
+      ],
+      'data': {
+        'modelVersion': 'v3.1.x',
+        'spatialInterpolationMethod': NumberUtils.INTERPOLATE_LINEARX_LINEARY_LINEAR
+      }
     }
   ]
 };
