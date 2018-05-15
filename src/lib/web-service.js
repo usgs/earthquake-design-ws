@@ -4,6 +4,7 @@
 const ASCE7_16Handler = require('./asce/asce7_16-handler'),
     ASCE7_10Handler = require('./asce/asce7_10-handler'),
     ASCE7_05Handler = require('./asce/asce7_05-handler'),
+    AASHTO2009Handler = require('./asce/aashto_2009-handler'),
     NEHRP2015Handler = require('./nehrp/nehrp-2015-handler'),
     ASCE41_13Handler = require('./asce/asce41_13-handler'),
     ASCE41_17Handler = require('./asce/asce41_17-handler'),
@@ -75,6 +76,8 @@ const WebService = function (options) {
         'asce7-16.json': ASCE7_16Handler(options),
         'asce7-10.json': ASCE7_10Handler(options),
         'asce7-05.json': ASCE7_05Handler(options),
+
+        'aashto-2009.json': AASHTO2009Handler(options),
 
         'nehrp-2009.json': NEHRP2009Handler(options),
         'nehrp-2015.json': NEHRP2015Handler(options),
@@ -150,6 +153,7 @@ const WebService = function (options) {
           handler = null;
         });
     } catch (err) {
+      process.stderr.write('ERROR >>>>>> ' + JSON.stringify(err));
       _this.onError(err, request, response, next);
     }
   };
