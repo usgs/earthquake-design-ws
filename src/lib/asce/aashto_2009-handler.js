@@ -31,6 +31,10 @@ const AASHTO2009Handler = function (options) {
    *    values for the AASHTO-09 endpoint
    */
   _this.formatResult = function (result) {
+
+    // DEBUG
+    process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result ==> ' + JSON.stringify(result));
+
     return new Promise((resolve, reject) => {
       let basicDesign,
           designCategory,
@@ -49,6 +53,9 @@ const AASHTO2009Handler = function (options) {
         spectra = result.spectra;
         metadata = result.metadata;
 
+        // DEBUG
+        process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result Metadata => ' + JSON.stringify(metadata));
+
         if (siteAmplification.fa === null || siteAmplification.fv === null) {
           sdSpectrum = null;
           smSpectrum = null;
@@ -61,6 +68,9 @@ const AASHTO2009Handler = function (options) {
 
         resolve({
           data: {
+            pga: NumberUtils.round(basicDesign.pga, _this.outputDecimals),
+            fpga: NumberUtils.round(siteAmplification.fpga, _this.outputDecimals),
+            as: 'TODO',
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
@@ -81,7 +91,7 @@ const AASHTO2009Handler = function (options) {
           },
 
           metadata: {
-            spatialInterpolationMethod: metadata.spatialInterpolationMethod
+            spatialInterpolationMethod: metadata.response.data.spatialInterpolationMethod
           }
         });
       } catch (err) {
