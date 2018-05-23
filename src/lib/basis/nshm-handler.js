@@ -38,6 +38,9 @@ const NSHM_Handler = function (options) {
   _initialize = function (options) {
     options = extend({}, _DEFAULTS, options);
 
+    // DEBUG
+    process.stderr.write('r\n\r\nNSHM-HANDLER Options -> ' + JSON.stringify(options, 3) + '\r\n');
+    
     _this.outputDecimals = options.outputDecimals;
     _this.referenceDocument = options.referenceDocument;
 

@@ -105,7 +105,7 @@ const MetadataFactory = function (options) {
     latitude = parseFloat(inputs.latitude);
     longitude = parseFloat(inputs.longitude);
     referenceDocument = inputs.referenceDocument;
-
+    
     return _this.getRegion(latitude, longitude, referenceDocument).then((region) => {
       return _this.getData(inputs.referenceDocument, region);
     }).catch((err) => {
@@ -133,6 +133,9 @@ const MetadataFactory = function (options) {
 
     params = [referenceDocument, region];
 
+    // DEBUG
+    process.stderr.write('\r\n\r\nMeta-data-Factory GetData Params --> ' + JSON.stringify(params) + '\r\n');
+
     return _this.db.query(_this.queryData, params).then((data) => {
       results = data.rows;
       // determine metadata set based on referenceDocument
@@ -141,6 +144,9 @@ const MetadataFactory = function (options) {
       for (let i = 0; i < results.length; i++) {
         metadata[results[i].key] = results[i].value;
       }
+
+      // DEBUG
+      process.stderr.write('\r\n\r\nMeta-data-Factory METDATA --> ' + JSON.stringify(metadata) + '\r\n');
 
       return metadata;
     });
@@ -179,6 +185,9 @@ const MetadataFactory = function (options) {
           return aArea - bArea;
         });
       }
+
+      // DEBUG
+      process.stderr.write('\r\n Meta-data-Factory REGIONS --> ' + JSON.stringify(regions) + '\r\n');
 
       if (regions.length !== 0) {
         return regions[0].id;
