@@ -24,11 +24,11 @@ const AASHTO2009Handler = function (options) {
    * Format the factory response
    *
    * @param result {Object}
-   *    An object containing all of the data from the ASCE7-05Factory
+   *    An object containing all of the data from the AASHTO-09 Factory
    *
    * @param {Promise<array>}
    *    A promise resolving with an an object response values and metadata
-   *    values for the ASCE7-05 endpoint
+   *    values for the AASHTO-09 endpoint
    */
   _this.formatResult = function (result) {
     return new Promise((resolve, reject) => {

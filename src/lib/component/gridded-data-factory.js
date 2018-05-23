@@ -68,7 +68,6 @@ const _QUERY_DOCUMENT = `
     name = $2
 `;
 
-
 const _DEFAULTS = {
   db: {query: () => Promise.resolve({rows: []})},
   queryData: _QUERY_DATA,
@@ -246,6 +245,7 @@ const GriddedDataFactory = function (options) {
     ]).then((promiseResults) => {
       region = promiseResults[0];
       metadata = promiseResults[1].response.data;
+
       return _this.getDocument(inputs, region);
     }).then((promiseResult) => {
       return {
