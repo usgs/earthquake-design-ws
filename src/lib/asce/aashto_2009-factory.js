@@ -51,6 +51,7 @@ const AASHTO2009Factory = function (options) {
         probabilistic = data.probabilistic;
 
         result = {
+          pga: probabilistic.response.data.pga,
           ss: probabilistic.response.data.ss,
           s1: probabilistic.response.data.s1
         };
@@ -122,17 +123,17 @@ const AASHTO2009Factory = function (options) {
       metadata: null,
       probabilistic: null,
       siteAmplification: null,
-      tSubL: null
+      //tSubL: null
     };
 
     return Promise.all([
       _this.probabilisticService.getData(inputs),
       _this.metadataService.getData(inputs),
-      _this.tSubLService.getData(inputs)
+      //_this.tSubLService.getData(inputs)
     ]).then((promiseResults) => {
       result.probabilistic = promiseResults[0];
       result.metadata = promiseResults[1];
-      result.tSubL = promiseResults[2].response.data['t-sub-l'];
+      //result.tSubL = promiseResults[2].response.data['t-sub-l'];
       result.inputs = inputs;
 
       return _this.computeBasicDesign(result);
