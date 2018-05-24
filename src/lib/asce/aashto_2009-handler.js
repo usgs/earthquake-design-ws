@@ -42,7 +42,7 @@ const AASHTO2009Handler = function (options) {
           metadata,
           sdSpectrum,
           siteAmplification,
-          smSpectrum,
+          //smSpectrum,
           spectra;
 
       try {
@@ -58,39 +58,41 @@ const AASHTO2009Handler = function (options) {
 
         if (siteAmplification.fa === null || siteAmplification.fv === null) {
           sdSpectrum = null;
-          smSpectrum = null;
+          //smSpectrum = null;
         } else {
           sdSpectrum = NumberUtils.roundSpectrum(spectra.sdSpectrum,
               _this.outputDecimals);
-          smSpectrum = NumberUtils.roundSpectrum(spectra.smSpectrum,
-              _this.outputDecimals);
+          //smSpectrum = NumberUtils.roundSpectrum(spectra.smSpectrum,
+          //    _this.outputDecimals);
         }
 
         resolve({
           data: {
             pga: NumberUtils.round(basicDesign.pga, _this.outputDecimals),
             fpga: NumberUtils.round(siteAmplification.fpga, _this.outputDecimals),
-            as: 'TODO',
+            as: 'TODO - AS = FPGA x PGA the design PGA',
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
-            sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
+            //sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
-            sdcs: designCategory.sdcs,
+            //sdcs: designCategory.sdcs,
 
             s1: NumberUtils.round(basicDesign.s1,_this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
-            sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
+            //sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
-            sdc1: designCategory.sdc1,
-
             sdc: designCategory.sdc,
-            't-sub-l': result.tSubL,
+            //sdc1: designCategory.sdc1,
 
-            sdSpectrum: sdSpectrum,
-            smSpectrum: smSpectrum
+            ts: 'TODO - TS = sd1 / sds in seconds, for construction of the design response spectrum',
+            t0: 'TODO - T0 = 0.2TS in seconds, for construction of the design response spectrum',
+
+            sdSpectrum: sdSpectrum
+            //smSpectrum: smSpectrum
           },
 
           metadata: {
+            griddedValuesID: '1998-HI-AASHTO-05-050-R1.rnd',
             spatialInterpolationMethod: metadata.response.data.spatialInterpolationMethod
           }
         });
