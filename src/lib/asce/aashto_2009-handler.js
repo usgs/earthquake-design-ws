@@ -11,6 +11,12 @@ const _DEFAULTS = {
   referenceDocument: 'AASHTO-2009'
 };
 
+const GRIDDED_VALUE_FILES = {
+  'E2002R1_US0P05_Probabilistic_05-050': '2002-US-AASHTO-05-050-R1.rnd',
+  'E1998R1_HI0P02_Probabilistic_05-050': '1998-HI-AASHTO-05-050-R1.rnd',
+  'E2003R1_PRVI0P05_Probabilistic_05-050': '2003-PRVI-AASHTO-05-050-R1.rnd',
+  'E2006R1_AK0P10_Probabilistic_05-050': '2006-AK-AASHTO-05-050-R1.rnd'
+};
 
 const AASHTO2009Handler = function (options) {
   let _this;
@@ -86,15 +92,15 @@ const AASHTO2009Handler = function (options) {
             sdc: designCategory.sdc,
             //sdc1: designCategory.sdc1,
 
-            ts: 'TODO - TS = sd1 / sds in seconds, for construction of the design response spectrum',
-            t0: 'TODO - T0 = 0.2TS in seconds, for construction of the design response spectrum',
+            ts: NumberUtils.round(finalDesign.ts, _this.outputDecimals),
+            t0: NumberUtils.round(finalDesign.t0, _this.outputDecimals),
 
             sdSpectrum: sdSpectrum
             //smSpectrum: smSpectrum
           },
 
           metadata: {
-            griddedValuesID: '1998-HI-AASHTO-05-050-R1.rnd',
+            griddedValuesID: GRIDDED_VALUE_FILES[result.probabilistic.response.metadata.regionName],
             spatialInterpolationMethod: metadata.response.data.spatialInterpolationMethod
           }
         });

@@ -89,7 +89,9 @@ const AASHTO2009Factory = function (options) {
         sms: null,
         sm1: null,
         sds: null,
-        sd1: null
+        sd1: null,
+        ts: null,
+        t0: null
       };
 
       try {
@@ -103,6 +105,9 @@ const AASHTO2009Factory = function (options) {
 
         finalDesign.sds = _this.computeDesignValue(finalDesign.sms);
         finalDesign.sd1 = _this.computeDesignValue(finalDesign.sm1);
+
+        finalDesign.ts = finalDesign.sd1 / finalDesign.sds;
+        finalDesign.t0 = 0.2 * finalDesign.ts;
 
         resolve(finalDesign);
       } catch (err) {
@@ -125,14 +130,14 @@ const AASHTO2009Factory = function (options) {
     // return Promise.resolve({});
     return new Promise((resolve, reject) => {
       let designPGA;
-      process.stderr.write('\r\n\r\n****computeDesignPGA Data => ' + JSON.stringify(data));
+
       designPGA = {
         as: null
       };
 
       try {
         designPGA.as = data.FPGA * data.PGA;
-        process.stderr.write('\r\n\r\n****DEIGNPGA => ' + JSON.stringify(designPGA));
+
         resolve(designPGA);
       } catch (err) {
         reject(err);
