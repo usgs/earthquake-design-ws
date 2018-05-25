@@ -111,6 +111,35 @@ const AASHTO2009Factory = function (options) {
     });
   };
 
+  /**
+   * Computes the design PGA: AS = FPGA x PGA (Equation 3.4.1-1)
+   *
+   * @param data {Object}
+   *     An object containing `FPGA` and `PGA` information.
+   *
+   * @return {Object}
+   *    An object containing the final design ground motion data, namely:
+   *    `as`
+   */
+  _this.computeDesignPGA = function (data) {
+    // return Promise.resolve({});
+    return new Promise((resolve, reject) => {
+      let designPGA;
+      process.stderr.write('\r\n\r\n****computeDesignPGA Data => ' + JSON.stringify(data));
+      designPGA = {
+        as: null
+      };
+
+      try {
+        designPGA.as = data.FPGA * data.PGA;
+        process.stderr.write('\r\n\r\n****DEIGNPGA => ' + JSON.stringify(designPGA));
+        resolve(designPGA);
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
+
   _this.get = function (inputs) {
     let result;
 
@@ -124,6 +153,7 @@ const AASHTO2009Factory = function (options) {
       probabilistic: null,
       siteAmplification: null,
       //tSubL: null
+      designPGA: null
     };
 
     return Promise.all([
@@ -144,6 +174,15 @@ const AASHTO2009Factory = function (options) {
           extend(true, {}, inputs, basicDesign));
     }).then((siteAmplification) => {
       result.siteAmplification = siteAmplification.response.data;
+
+      const dpgaData = {
+        PGA: result.basicDesign.pga,
+        FPGA: result.siteAmplification.fpga
+      };
+
+      return _this.computeDesignPGA(dpgaData);
+    }).then((designPGA) => {
+      result.designPGA = designPGA;
 
       return _this.computeFinalDesign(result);
     }).then((finalDesign) => {

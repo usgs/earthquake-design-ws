@@ -33,7 +33,7 @@ const AASHTO2009Handler = function (options) {
   _this.formatResult = function (result) {
 
     // DEBUG
-    process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result ==> ' + JSON.stringify(result));
+    process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result ==> ' + JSON.stringify(result,null,2));
 
     return new Promise((resolve, reject) => {
       let basicDesign,
@@ -43,7 +43,8 @@ const AASHTO2009Handler = function (options) {
           sdSpectrum,
           siteAmplification,
           //smSpectrum,
-          spectra;
+          spectra,
+          designPGA;
 
       try {
         basicDesign = result.basicDesign;
@@ -52,6 +53,7 @@ const AASHTO2009Handler = function (options) {
         siteAmplification = result.siteAmplification;
         spectra = result.spectra;
         metadata = result.metadata;
+        designPGA = result.designPGA;
 
         // DEBUG
         process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result Metadata => ' + JSON.stringify(metadata));
@@ -70,7 +72,7 @@ const AASHTO2009Handler = function (options) {
           data: {
             pga: NumberUtils.round(basicDesign.pga, _this.outputDecimals),
             fpga: NumberUtils.round(siteAmplification.fpga, _this.outputDecimals),
-            as: 'TODO - AS = FPGA x PGA the design PGA',
+            as: NumberUtils.round(designPGA.as, _this.outputDecimals),
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             //sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
