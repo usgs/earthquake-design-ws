@@ -146,7 +146,7 @@
   {
     "name": "E2002R1_US0P05_Probabilistic_05-050",
     "grid_spacing":    0.05,
-    "max_latitude":    40.0,
+    "max_latitude":    50.0,
     "max_longitude":  -65.0,
     "min_latitude":    24.60,
     "min_longitude": -125.0,
