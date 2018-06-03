@@ -38,9 +38,6 @@ const AASHTO2009Handler = function (options) {
    */
   _this.formatResult = function (result) {
 
-    // DEBUG
-    process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result ==> ' + JSON.stringify(result,null,2));
-
     return new Promise((resolve, reject) => {
       let basicDesign,
           designCategory,
@@ -60,9 +57,6 @@ const AASHTO2009Handler = function (options) {
         spectra = result.spectra;
         metadata = result.metadata;
         designPGA = result.designPGA;
-
-        // DEBUG
-        process.stdout.write('\r\n\r\nAASHTO-2009 Handler Result Metadata => ' + JSON.stringify(metadata));
 
         if (siteAmplification.fa === null || siteAmplification.fv === null) {
           sdSpectrum = null;

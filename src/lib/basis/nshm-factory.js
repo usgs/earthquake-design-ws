@@ -48,16 +48,10 @@ const NSHM_Factory = function (options) {
   _initialize = function (options) {
     options = extend(true, {}, _DEFAULTS, options);
 
-    // DEBUG
-    process.stderr.write('\r\n\r\nInitialize nshm-factory ==== ' + JSON.stringify(options));
-
     _this.referenceDocument = options.referenceDocument;
 
     _this.metadataService = options.metadataService;
     _this.probabilisticService = options.probabilisticService;
-
-    // DEBUG
-    process.stderr.write('\r\n\r\nProbabilistic Service = ' + JSON.stringify(_this.probabilisticService) + '\r\n\r\n');
 
     _this.deterministicService = options.deterministicService;
     _this.riskCoefficientService = options.riskCoefficientService;

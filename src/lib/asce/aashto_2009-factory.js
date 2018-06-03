@@ -63,6 +63,29 @@ const AASHTO2009Factory = function (options) {
     });
   };
 
+  _this.computeSpectralAcceleration = function (data) {
+    // return Promise.resolve({});
+    return new Promise((resolve, reject) => {
+      let result = null;
+
+      try {
+
+        result = {
+          sds: null,
+          sd1: null
+        };
+
+        result.sds = data.fa * data.ss;
+        result.sd1 = data.fv * data.s1;
+
+        resolve(result);
+
+      } catch (err) {
+        reject(err);
+      }
+    });
+  };
+
   /**
    * Computes the final ground motion values applying site amplification
    * factors and design (2/3) weighting.
@@ -103,13 +126,26 @@ const AASHTO2009Factory = function (options) {
         finalDesign.sm1 = _this.computeSiteModifiedValue(basicDesign.s1,
             siteAmplification.fv);
 
-        finalDesign.sds = _this.computeDesignValue(finalDesign.sms);
-        finalDesign.sd1 = _this.computeDesignValue(finalDesign.sm1);
+        const spectralArgs = {
+          fa: siteAmplification.fa,
+          fv: siteAmplification.fv,
+          ss: basicDesign.ss,
+          s1: basicDesign.s1
+        };
 
-        finalDesign.ts = finalDesign.sd1 / finalDesign.sds;
-        finalDesign.t0 = 0.2 * finalDesign.ts;
+        _this.computeSpectralAcceleration(spectralArgs).then((spectralAcceleration) => {
 
-        resolve(finalDesign);
+          //finalDesign.sds = _this.computeDesignValue(finalDesign.sms);
+          //finalDesign.sd1 = _this.computeDesignValue(finalDesign.sm1);
+  
+          finalDesign.sds = spectralAcceleration.sds;
+          finalDesign.sd1 = spectralAcceleration.sd1;
+  
+          finalDesign.ts = finalDesign.sd1 / finalDesign.sds;
+          finalDesign.t0 = 0.2 * finalDesign.ts;
+  
+          resolve(finalDesign);
+        });
       } catch (err) {
         reject(err);
       }
