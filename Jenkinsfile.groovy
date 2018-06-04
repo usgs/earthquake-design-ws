@@ -32,7 +32,7 @@ node {
 
         SCM_VARS.GIT_BRANCH = GIT_BRANCH
         SCM_VARS.GIT_COMMIT = sh(
-          returnStdOut: true,
+          returnStdout: true,
           script: 'git rev-parse HEAD'
         )
       }
