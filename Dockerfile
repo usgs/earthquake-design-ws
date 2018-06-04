@@ -8,10 +8,10 @@ RUN yum groupinstall -y 'Development Tools' && \
 
 # Copy application (ignores set in .dockerignore) and set permissions
 COPY . /hazdev-project
-RUN chown -R hazdev-user:hazdev-user /hazdev-project
+RUN chown -R usgs-user:usgs-user /hazdev-project
 
-# Switch to hazdev-user
-USER hazdev-user
+# Switch to usgs-user
+USER usgs-user
 
 # Configure application
 RUN /bin/bash --login -c " \
