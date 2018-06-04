@@ -18,6 +18,7 @@ RUN /bin/bash --login -c " \
         cd /hazdev-project && \
         export NON_INTERACTIVE=true && \
         npm config set package-lock false && \
+        npm install node-libcurl --build-from-source && \
         npm install && \
         rm -rf \
             $HOME/.npm \
