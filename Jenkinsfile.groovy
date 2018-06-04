@@ -2,18 +2,18 @@
 
 node {
   def APP_NAME = 'earthquake-design-ws'
-  def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/containers"
+  def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/images"
   def FAILURE = null
   def SCM_VARS = null
 
-  def BASE_IMAGE = "${DEVOPS_REGISTRY}/node:8"
+  def BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
   def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
   def IMAGE_VERSION = 'latest'
   def LOCAL_IMAGE = "local/${APP_NAME}:latest"
   def LOCAL_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
 
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
-  def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
+  def OWASP_IMAGE = "${DEVOPS_REGISTRY}/owasp/zap2docker-stable"
 
   def SCAN_AND_BUILD_TASKS = [:]
 
@@ -32,7 +32,7 @@ node {
 
         SCM_VARS.GIT_BRANCH = GIT_BRANCH
         SCM_VARS.GIT_COMMIT = sh(
-          returnStdOut: true,
+          returnStdout: true,
           script: 'git rev-parse HEAD'
         )
       }
@@ -42,7 +42,7 @@ node {
         IMAGE_VERSION = SCM_VARS.GIT_BRANCH.split('/').last().replace(' ', '_')
       }
 
-      urlBase = SCM_VARS.GIT_URL.replace('.git', '/commit/')
+      urlBase = SCM_VARS.GIT_URL.replace('.git', '/commit')
       url = "<a href=\"${urlBase}/${SCM_VARS.GIT_COMMIT}\" target=\"_blank\">${SCM_VARS.GIT_COMMIT}</a>"
       writeFile encoding: 'UTF-8', file: '.REVISION', text: "${url}"
 
@@ -134,6 +134,7 @@ node {
         ansiColor('xterm') {
           sh """
             docker build \
+              --no-cache \
               --build-arg BASE_IMAGE=${BASE_IMAGE} \
               -t ${LOCAL_IMAGE} .
           """
