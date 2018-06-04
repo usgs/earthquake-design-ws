@@ -2,18 +2,18 @@
 
 node {
   def APP_NAME = 'earthquake-design-ws'
-  def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/containers"
+  def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/images"
   def FAILURE = null
   def SCM_VARS = null
 
-  def BASE_IMAGE = "${DEVOPS_REGISTRY}/node:8"
+  def BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
   def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
   def IMAGE_VERSION = 'latest'
   def LOCAL_IMAGE = "local/${APP_NAME}:latest"
   def LOCAL_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
 
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
-  def OWASP_IMAGE = "${DEVOPS_REGISTRY}/library/owasp/zap2docker-stable"
+  def OWASP_IMAGE = "${DEVOPS_REGISTRY}/owasp/zap2docker-stable"
 
   def SCAN_AND_BUILD_TASKS = [:]
 
