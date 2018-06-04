@@ -42,7 +42,7 @@ node {
         IMAGE_VERSION = SCM_VARS.GIT_BRANCH.split('/').last().replace(' ', '_')
       }
 
-      urlBase = SCM_VARS.GIT_URL.replace('.git', '/commit/')
+      urlBase = SCM_VARS.GIT_URL.replace('.git', '/commit')
       url = "<a href=\"${urlBase}/${SCM_VARS.GIT_COMMIT}\" target=\"_blank\">${SCM_VARS.GIT_COMMIT}</a>"
       writeFile encoding: 'UTF-8', file: '.REVISION', text: "${url}"
 
