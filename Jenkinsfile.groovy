@@ -134,6 +134,7 @@ node {
         ansiColor('xterm') {
           sh """
             docker build \
+              --no-cache \
               --build-arg BASE_IMAGE=${BASE_IMAGE} \
               -t ${LOCAL_IMAGE} .
           """
