@@ -153,7 +153,6 @@ const WebService = function (options) {
           handler = null;
         });
     } catch (err) {
-      process.stderr.write('ERROR >>>>>> ' + JSON.stringify(err));
       _this.onError(err, request, response, next);
     }
   };
