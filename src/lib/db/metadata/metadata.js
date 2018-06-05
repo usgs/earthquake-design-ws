@@ -376,7 +376,7 @@ const _METADATA = {
       }
     },
   ],
-  'AASHTO-09': [
+  'AASHTO-2009': [
     {
       'regions': [
         'AK0P10',
