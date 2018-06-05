@@ -150,7 +150,7 @@ const ASCE7_05Factory = function (options) {
       return Promise.all([
         _this.designCategoryFactory.getDesignCategory(inputs.riskCategory,
             result.basicDesign.s1, finalDesign.sds, finalDesign.sd1),
-        _this.computeSpectra(finalDesign)
+        _this.computeSpectra(extend({tSubL: result.tSubL}, finalDesign))
       ]);
     }).then((promiseResults) => {
       result.designCategory = promiseResults[0];
