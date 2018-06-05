@@ -45,7 +45,6 @@ const AASHTO2009Handler = function (options) {
           metadata,
           sdSpectrum,
           siteAmplification,
-          //smSpectrum,
           spectra,
           designPGA;
 
@@ -60,12 +59,9 @@ const AASHTO2009Handler = function (options) {
 
         if (siteAmplification.fa === null || siteAmplification.fv === null) {
           sdSpectrum = null;
-          //smSpectrum = null;
         } else {
           sdSpectrum = NumberUtils.roundSpectrum(spectra.sdSpectrum,
               _this.outputDecimals);
-          //smSpectrum = NumberUtils.roundSpectrum(spectra.smSpectrum,
-          //    _this.outputDecimals);
         }
 
         resolve({
@@ -75,22 +71,17 @@ const AASHTO2009Handler = function (options) {
             as: NumberUtils.round(designPGA.as, _this.outputDecimals),
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
-            //sms: NumberUtils.round(finalDesign.sms, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),
-            //sdcs: designCategory.sdcs,
 
             s1: NumberUtils.round(basicDesign.s1,_this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
-            //sm1: NumberUtils.round(finalDesign.sm1, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
             sdc: designCategory.sdc,
-            //sdc1: designCategory.sdc1,
 
             ts: NumberUtils.round(finalDesign.ts, _this.outputDecimals),
             t0: NumberUtils.round(finalDesign.t0, _this.outputDecimals),
 
             sdSpectrum: sdSpectrum
-            //smSpectrum: smSpectrum
           },
 
           metadata: {
