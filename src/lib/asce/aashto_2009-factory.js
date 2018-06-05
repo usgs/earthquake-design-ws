@@ -134,9 +134,6 @@ const AASHTO2009Factory = function (options) {
         };
 
         _this.computeSpectralAcceleration(spectralArgs).then((spectralAcceleration) => {
-
-          //finalDesign.sds = _this.computeDesignValue(finalDesign.sms);
-          //finalDesign.sd1 = _this.computeDesignValue(finalDesign.sm1);
   
           finalDesign.sds = spectralAcceleration.sds;
           finalDesign.sd1 = spectralAcceleration.sd1;
@@ -193,18 +190,15 @@ const AASHTO2009Factory = function (options) {
       metadata: null,
       probabilistic: null,
       siteAmplification: null,
-      //tSubL: null
       designPGA: null
     };
 
     return Promise.all([
       _this.probabilisticService.getData(inputs),
       _this.metadataService.getData(inputs),
-      //_this.tSubLService.getData(inputs)
     ]).then((promiseResults) => {
       result.probabilistic = promiseResults[0];
       result.metadata = promiseResults[1];
-      //result.tSubL = promiseResults[2].response.data['t-sub-l'];
       result.inputs = inputs;
 
       return _this.computeBasicDesign(result);
