@@ -13,7 +13,7 @@
 <body>
 <main>
   <header>
-    <h1>AASHTO-2009 Endpoint Documentation</h1>
+    <h1>AASHTO-2009 Web Service Documentation</h1>
   </header>
 
   <div class="alert warning">
@@ -28,36 +28,29 @@
     authorized or unauthorized use of the software.
   </div>
 
-  <h2 id="parameters">Request Parameters</h2>
-  <p>Required parameters</p>
+  <h2 id="parameters">Request Parameters (Input)</h2>
   <dl>
     <dt id="latitude">latitude</dt>
     <dd>
-      Latitude for location at which to compute composite results
-      <br/>Example: <code>34</code>
+      Latitude of location of interest, in decimal degrees
+      <br/>Example: <code>34.05</code>
     </dd>
 
     <dt id="longitude">longitude</dt>
     <dd>
-      Longitude for location at which to compute composite results
-      <br/>Example: <code>-118</code>
-    </dd>
-
-    <dt id="riskCategory">riskCategory</dt>
-    <dd>
-      Risk category for structure
-      <br/>Example: <code>III</code>
+      Longitude for location of interest, in decimal degrees
+      <br/>Example: <code>-118.25</code>
     </dd>
 
     <dt id="siteClass">siteClass</dt>
     <dd>
-      NEHRP site classification
-      <br/>Example: <code>C</code>
+      Site Class, as defined in Table 3.4.2.1-1 of seismic design reference document
+      <br/>Options: <code>A</code> for "Hard rock", <code>B</code> for "Rock", <code>C</code> for "Very dense soil and soft rock", <code>D</code> for "Stiff soil", <code>A</code> (See Table 3.4.2.1-1)
     </dd>
 
     <dt id="title">title</dt>
     <dd>
-      Name for site/report
+      Title for location/request
       <br/>Example: <code>Example</code>
     </dd>
   </dl>
