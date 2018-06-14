@@ -29,6 +29,7 @@
   </div>
 
   <h2 id="parameters">Request Parameters (Input)</h2>
+  <p>All parameters are required</p>
   <dl>
     <dt id="latitude">latitude</dt>
     <dd>
@@ -55,8 +56,8 @@
     </dd>
   </dl>
 
-  <h2 id="output">Output</h2>
-  <p>Web service response</p>
+  <h2 id="output">Response Parameters (Output)</h2>
+  <p>Includes information about request, followed by response</p>
   <dl>
     <dt>request</dt>
     <dd>
@@ -64,24 +65,22 @@
         <dt id="output-date">date</dt>
         <dd>
           Timestamp
-          <br/>Example: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
+          <br/>Format: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
         </dd>
 
         <dt id="output-reference-document">referenceDocument</dt>
         <dd>
-          Identifying the reference document for the returned data
-          <br/>Example: <code>&ldquo;AASHTO-2009&rdquo;</code>
+          Seismic design reference document, &ldquo;AASHTO-2009&rdquo
         </dd>
 
         <dt id="output-status">status</dt>
         <dd>
-          String ("success" or "error")
-          <br/>Example: <code>&ldquo;success&rdquo;</code>
+          Either "success" or "error"
         </dd>
 
         <dt id="output-url">url</dt>
         <dd>
-          URL to reproduce this result
+          URL of request/response
           <br/>Example: <code>&ldquo;<span class="url-stub">{MOUNT_PATH}</span>/aashto-2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example&rdquo;</code>
         </dd>
         <dt>parameters</dt>
