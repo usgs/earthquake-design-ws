@@ -10,6 +10,10 @@ qcRunner = QCRunner();
 
 
 Promise.all([
+  qcRunner.run('http://localhost:8000/ws/designmaps/aashto-2009.json',
+      require('./expectations/aashto-2009.expectation.json'),
+      './results/aashto-2009.qc.md'),
+
   qcRunner.run('http://localhost:8000/ws/designmaps/asce7-05.json',
       require('./expectations/asce7-05.expectation.json'),
       './results/asce7-05.qc.md'),
@@ -41,7 +45,6 @@ Promise.all([
   qcRunner.run('http://localhost:8000/ws/designmaps/ibc-2015.json',
       require('./expectations/ibc-2015.expectation.json'),
       './results/ibc-2015.qc.md')
-
 ]).then((results) => {
   let status;
 
