@@ -1,0 +1,79 @@
+function cityFileCheck(cityFile,refDoc)
+%Check for existence of cityFile
+fileFound = exist(cityFile, 'File');
+if fileFound == 2 %Meaning, the file was succesfully found.
+    T = readtable(cityFile,'ReadVariableNames',true);
+    
+    %Create array of all column headers
+    X = fieldnames(T);
+    
+    %Create boolean array that checks for 'title' in all column headers
+    titleTF  = contains(X, 'title');
+    assignin('caller','titleTF',titleTF);
+    if any(titleTF) == 0 %If column header 'title' doesn't exist
+        prompt0 = ('"cityFile" does not contain title column.');
+        disp(prompt0);
+        assignin('caller','titleMissing',prompt0);
+    end
+    
+    %Create boolean array that checks for 'latitude' in all column headers
+    latTF = contains(X, 'latitude');
+    assignin('caller','latTF',latTF);
+    if any(latTF) == 0 %If column header 'latitude' doesn't exist
+        prompt1 = ('"cityFile" does not contain latitude column.');
+        disp(prompt1);
+        assignin('caller','latMissing',prompt1);
+    end
+    
+    %Create boolean array that checks for 'longitude' in all column headers
+    longTF = contains(X, 'longitude');
+    assignin('caller','longTF',longTF);
+    if any(longTF) == 0 %If column header 'longitude' doesn't exist
+        prompt2 = ('"cityFile" does not contain longitude column.');
+        disp(prompt2);
+        assignin('caller','longMissing',prompt2);
+    end
+    
+    %Create boolean array that checks for 'riskCategory' in all column headers
+    riskTF = contains(X, 'riskCategory');
+    assignin('caller','riskTF',riskTF);
+    if any(riskTF) == 0 %If column header 'riskCategory' doesn't exist
+        prompt3 = ('"cityFile" does not contain riskCategory column.');
+        disp(prompt3);
+        assignin('caller','riskCatMissing',prompt3);
+    end
+    
+    %Create boolean array that checks for 'siteClass' in all column headers
+    siteTF = contains(X,'siteClass');
+    assignin('caller','siteTF',siteTF);
+    if any(siteTF) == 0 %If column header 'siteClass' doesn't exist
+        prompt4 = ('"cityFile" does not contain siteClass column.');
+        disp(prompt4);
+        assignin('caller','siteClassMissing',prompt4);
+    end
+    
+    %Check if refDoc is asce41-13/17
+    if isequal(refDoc, 'asce41-13')||isequal(refDoc, 'asce41-17')
+        %Create boolean array that checks for 'title' in all column headers
+        probTF = contains(X,'customProbability');
+        assignin('caller','probTF',probTF);
+        if any(probTF) == 0 %If column header 'customProbability' doesn't exist
+        prompt5 = ('"cityFile" does not contain customProbability column.');
+        disp(prompt5);
+        assignin('caller','customProbMissing',prompt5);
+        end
+    end
+   
+    assignin('caller', 'T', T);
+
+else %Output error message if cityFile is not found.
+    errorMessage = ['The "cityFile" you selected is either not ' ...
+        'located in the correct folder or the "cityFile" name ' ...
+        'was inputted incorrectly. Please move your "cityFile" ' ...
+        'to the same folder as this application or reenter the ' ...
+        'correct file name.'];    
+    disp(errorMessage);
+    assignin('caller','wrongCityFile',errorMessage);
+end
+assignin('caller','fileFound',fileFound);
+end
