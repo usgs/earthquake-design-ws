@@ -1,0 +1,310 @@
+[
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 57.0529,
+        "longitude": -135.3358,
+        "riskCategory": "I",
+        "title": "Sitka",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.253,
+        "fpga": 1,
+        "as": 0.253,
+        "sds": 0.599
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 64.038,
+        "longitude": -145.7328,
+        "riskCategory": "I",
+        "title": "Adak",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.198,
+        "fpga": 1,
+        "as": 0.198,
+        "sds": 0.458
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.0531,
+        "longitude": -118.2428,
+        "riskCategory": "I",
+        "title": "Los Angeles",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.675,
+        "fpga": 0.8,
+        "as": 0.54,
+        "sds": 1.273
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 47.6065,
+        "longitude": -122.3307,
+        "riskCategory": "I",
+        "title": "Seattle",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.449,
+        "fpga": 0.8,
+        "as": 0.359,
+        "sds": 0.8
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.0233,
+        "longitude": -155.6640,
+        "riskCategory": "I",
+        "title": "Waimea",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.437,
+        "fpga": 1,
+        "as": 0.437,
+        "sds": 0.885
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.9695,
+        "longitude": -159.3581,
+        "riskCategory": "I",
+        "title": "Lihue",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.066,
+        "fpga": 1,
+        "as": 0.066,
+        "sds": 0.145
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2359,
+        "longitude": -66.0357,
+        "riskCategory": "I",
+        "title": "Caguas",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.276,
+        "fpga": 1.247,
+        "as": 0.345,
+        "sds": 0.796
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.2673,
+        "longitude": -66.7018,
+        "riskCategory": "I",
+        "title": "Utuado",
+        "siteClass": "D"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.298,
+        "fpga": 1.205,
+        "as": 0.359,
+        "sds": 0.856
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 59.0408,
+        "longitude": -158.4640,
+        "riskCategory": "I",
+        "title": "Dillingham",
+        "siteClass": "A"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.089,
+        "fpga": 0.8,
+        "as": 0.071,
+        "sds": 0.16
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 38.1041,
+        "longitude": -122.2555,
+        "riskCategory": "I",
+        "title": "Vallejo",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.528,
+        "fpga": 1,
+        "as": 0.528,
+        "sds": 1.295
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 34.1083,
+        "longitude": -117.2889,
+        "riskCategory": "I",
+        "title": "San Bernardino",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.999,
+        "fpga": 1,
+        "as": 0.999,
+        "sds": 2.42
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 21.6757,
+        "longitude": -157.9476,
+        "riskCategory": "I",
+        "title": "Kahuku",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.163,
+        "fpga": 1,
+        "as": 0.163,
+        "sds": 0.372
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 20.7706,
+        "longitude": -156.4573,
+        "riskCategory": "I",
+        "title": "Kihei",
+        "siteClass": "B"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.249,
+        "fpga": 1,
+        "as": 0.249,
+        "sds": 0.567
+      }
+    }
+  },
+  {
+    "request": {
+      "referenceDocument": "AASHTO-2009",
+      "status": "success",
+      "url": null,
+      "parameters": {
+        "latitude": 18.3311,
+        "longitude": -64.7944,
+        "riskCategory": "I",
+        "title": "Cruz Bay",
+        "siteClass": "C"
+      }
+    },
+    "response": {
+      "data": {
+        "pga": 0.369,
+        "fpga": 1.031,
+        "as": 0.38,
+        "sds": 0.851
+      }
+    }
+  }
+]

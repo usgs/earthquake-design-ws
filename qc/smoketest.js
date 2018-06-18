@@ -16,6 +16,10 @@ if (typeof baseurl === 'undefined') {
 
 
 Promise.all([
+  qcRunner.run(`${baseurl}/ws/designmaps/aashto-2009.json`,
+      require('./expectations/aashto-2009.smoketest.json'),
+      process.stdout),
+
   qcRunner.run(`${baseurl}/ws/designmaps/asce7-05.json`,
       require('./expectations/asce7-05.smoketest.json'),
       process.stdout),
