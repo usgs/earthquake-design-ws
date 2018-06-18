@@ -105,7 +105,7 @@ const MetadataFactory = function (options) {
     latitude = parseFloat(inputs.latitude);
     longitude = parseFloat(inputs.longitude);
     referenceDocument = inputs.referenceDocument;
-
+    
     return _this.getRegion(latitude, longitude, referenceDocument).then((region) => {
       return _this.getData(inputs.referenceDocument, region);
     }).catch((err) => {

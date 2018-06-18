@@ -1,11 +1,11 @@
 /* global describe, it */
 'use strict';
 
-const DesignHandler = require('../../src/lib/asce/asce7_05-handler'),
+const DesignHandler = require('../../src/lib/asce/aashto_2009-handler'),
     expect = require('chai').expect;
 
 
-describe('asce7_05-handler', () => {
+describe('aashto_2009-handler', () => {
   describe('constructor', () => {
     it('is defined', () => {
       expect(typeof DesignHandler).to.equal('function');
@@ -35,30 +35,23 @@ describe('asce7_05-handler', () => {
         'basicDesign': {
           'ss': null,
           's1': null,
-          'ssuh': null,
-          'ssrt': null,
-          'ssd': null,
-          's1d': null
+          'pga':null
         },
-        'deterministic': {},
+        'siteAmplification': {
+          'fpga': null,
+          'fa': null,
+          'fv': null
+        },
+        'designPGA': {
+          'as': null
+        },
         'finalDesign': {
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null
-        },
-        'metadata': {
-          'spatialInterpolationMethod': null
-        },
-        'probabilistic': {},
-        'riskCoefficients': {
-          'response': {
-            'data': {}
-          }
-        },
-        'siteAmplification': {
-          'fa': null,
-          'fv': null
+          'sd1': null,
+          'ts': null,
+          't0': null
         },
         'designCategory': {
           'sdcs': null,
@@ -66,21 +59,34 @@ describe('asce7_05-handler', () => {
           'sdc': null
         },
         'spectra': {
-          'smSpectrum': [],
           'sdSpectrum': []
+        },
+        'metadata': {
+          'response': {
+            'data': {
+              'spatialInterpolationMethod': null
+            }
+          }
+        },
+        'probabilistic': {
+          'response': {
+            'metadata': {
+              'regionName': null
+            }
+          }
         }
       }).then((formatted) => {
         [
-          'ss', 's1',
-          'sms', 'sm1',
-          'sds', 'sd1',
-          'sdcs', 'sdc1', 'sdc',
-          'fa', 'fv',
-          'smSpectrum', 'sdSpectrum'
+          'pga', 'fpga', 'as',
+          'ss', 'fa', 'sds', 's1',
+          'fv','sd1','sdc',
+          'ts', 't0',
+          'sdSpectrum' 
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
         });
         [
+          'griddedValuesID',
           'spatialInterpolationMethod'
         ].forEach((key) => {
           expect(formatted.metadata.hasOwnProperty(key)).to.equal(true);
@@ -101,30 +107,23 @@ describe('asce7_05-handler', () => {
         'basicDesign': {
           'ss': null,
           's1': null,
-          'ssuh': null,
-          'ssrt': null,
-          'ssd': null,
-          's1d': null
+          'pga':null
         },
-        'deterministic': {},
+        'siteAmplification': {
+          'fpga': null,
+          'fa': null,
+          'fv': null
+        },
+        'designPGA': {
+          'as': null
+        },
         'finalDesign': {
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null
-        },
-        'metadata': {
-          'spatialInterpolationMethod': null
-        },
-        'probabilistic': {},
-        'riskCoefficients': {
-          'response': {
-            'data': {}
-          }
-        },
-        'siteAmplification': {
-          'fa': null,
-          'fv': null
+          'sd1': null,
+          'ts': null,
+          't0': null
         },
         'designCategory': {
           'sdcs': null,
@@ -132,8 +131,21 @@ describe('asce7_05-handler', () => {
           'sdc': null
         },
         'spectra': {
-          'smSpectrum': [],
           'sdSpectrum': []
+        },
+        'metadata': {
+          'response': {
+            'data': {
+              'spatialInterpolationMethod': null
+            }
+          }
+        },
+        'probabilistic': {
+          'response': {
+            'metadata': {
+              'regionName': null
+            }
+          }
         }
       }).then((formatted) => {
         expect(formatted['sdSpectrum']).to.be.undefined;
@@ -145,7 +157,7 @@ describe('asce7_05-handler', () => {
       });
     });
 
-    it('resolves with expected undefined sdSpectrum data structure', (done) => {
+    it('resolves with expected defined sdSpectrum data structure', (done) => {
       let handler;
 
       handler = DesignHandler();
@@ -153,30 +165,23 @@ describe('asce7_05-handler', () => {
         'basicDesign': {
           'ss': null,
           's1': null,
-          'ssuh': null,
-          'ssrt': null,
-          'ssd': null,
-          's1d': null
+          'pga':null
         },
-        'deterministic': {},
+        'siteAmplification': {
+          'fpga': null,
+          'fa': 1,
+          'fv': 1.3
+        },
+        'designPGA': {
+          'as': null
+        },
         'finalDesign': {
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null
-        },
-        'metadata': {
-          'spatialInterpolationMethod': null
-        },
-        'probabilistic': {},
-        'riskCoefficients': {
-          'response': {
-            'data': {}
-          }
-        },
-        'siteAmplification': {
-          'fa': 1,
-          'fv': 1.3
+          'sd1': null,
+          'ts': null,
+          't0': null
         },
         'designCategory': {
           'sdcs': null,
@@ -184,8 +189,21 @@ describe('asce7_05-handler', () => {
           'sdc': null
         },
         'spectra': {
-          'smSpectrum': [],
           'sdSpectrum': []
+        },
+        'metadata': {
+          'response': {
+            'data': {
+              'spatialInterpolationMethod': null
+            }
+          }
+        },
+        'probabilistic': {
+          'response': {
+            'metadata': {
+              'regionName': null
+            }
+          }
         }
       }).then((formatted) => {
         expect(formatted['sdSpectrum']).to.be.defined;

@@ -37,7 +37,7 @@ const NSHM_Handler = function (options) {
    */
   _initialize = function (options) {
     options = extend({}, _DEFAULTS, options);
-
+    
     _this.outputDecimals = options.outputDecimals;
     _this.referenceDocument = options.referenceDocument;
 

@@ -52,6 +52,7 @@ const NSHM_Factory = function (options) {
 
     _this.metadataService = options.metadataService;
     _this.probabilisticService = options.probabilisticService;
+
     _this.deterministicService = options.deterministicService;
     _this.riskCoefficientService = options.riskCoefficientService;
     _this.tSubLService = options.tSubLService;

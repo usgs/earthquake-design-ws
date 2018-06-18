@@ -1,6 +1,6 @@
 {
   "name": "earthquake-design-ws",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "Web service provided by the U.S. Geological Survey for computing seismic design parameters compatible with various building code reference documents.",
   "repository": {
     "type": "git",
