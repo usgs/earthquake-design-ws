@@ -199,7 +199,7 @@ function ASCE7_16_Func
          end   
     messagef = ['Process complete! Output ' ...
                 'file located in app folder.'];
-    waitbar(1,f,messagef);%Final waitbar
+    waitbar(1,f,messagef);%Final waitbar 
     
     sdcs = Tsdcs';
     sdc1 = Tsdc1';
