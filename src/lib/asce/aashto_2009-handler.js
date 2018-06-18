@@ -69,6 +69,7 @@ const AASHTO2009Handler = function (options) {
             pga: NumberUtils.round(basicDesign.pga, _this.outputDecimals),
             fpga: NumberUtils.round(siteAmplification.fpga, _this.outputDecimals),
             as: NumberUtils.round(designPGA.as, _this.outputDecimals),
+
             ss: NumberUtils.round(basicDesign.ss, _this.outputDecimals),
             fa: NumberUtils.round(siteAmplification.fa, _this.outputDecimals),
             sds: NumberUtils.round(finalDesign.sds, _this.outputDecimals),

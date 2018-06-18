@@ -40,7 +40,6 @@ const ASCE7_05Factory = function (options) {
    *     keys with corresponding data.
    */
   _this.computeBasicDesign = function (data) {
-    // return Promise.resolve({});
     return new Promise((resolve, reject) => {
       let probabilistic,
           result;

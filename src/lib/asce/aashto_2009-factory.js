@@ -40,8 +40,6 @@ const AASHTO2009Factory = function (options) {
    *     keys with corresponding data.
    */
   _this.computeBasicDesign = function (data) {
-
-    // return Promise.resolve({});
     return new Promise((resolve, reject) => {
       let probabilistic,
           result;
@@ -64,7 +62,6 @@ const AASHTO2009Factory = function (options) {
   };
 
   _this.computeSpectralAcceleration = function (data) {
-    // return Promise.resolve({});
     return new Promise((resolve, reject) => {
       let result = null;
 
@@ -134,13 +131,13 @@ const AASHTO2009Factory = function (options) {
         };
 
         _this.computeSpectralAcceleration(spectralArgs).then((spectralAcceleration) => {
-  
+
           finalDesign.sds = spectralAcceleration.sds;
           finalDesign.sd1 = spectralAcceleration.sd1;
-  
+
           finalDesign.ts = finalDesign.sd1 / finalDesign.sds;
           finalDesign.t0 = 0.2 * finalDesign.ts;
-  
+
           resolve(finalDesign);
         });
       } catch (err) {
