@@ -1,0 +1,27 @@
+function refDocCheck(refDoc)
+
+if isequal(refDoc, 'asce7-05') == 1
+
+elseif isequal(refDoc, 'asce7-10') == 1
+
+elseif isequal(refDoc, 'asce7-16') == 1
+
+elseif isequal(refDoc, 'asce41-13') == 1
+
+elseif isequal(refDoc, 'asce41-17') == 1
+
+elseif isequal(refDoc, 'nehrp-2009') == 1
+
+elseif isequal(refDoc, 'nehrp-2015') == 1
+
+elseif isequal(refDoc, 'ibc-2012') == 1
+
+elseif isequal(refDoc, 'ibc-2015') == 1
+
+else
+    errorMessage = ['Invalid Entry! Please enter ' ...
+    'a valid "referenceDocument"!'];
+    disp(errorMessage); 
+end
+assignin('caller', 'refDoc', refDoc); 
+end
