@@ -1,0 +1,258 @@
+function ASCE41_13_Func
+%Read cityFile
+        probTF = evalin('caller', 'probTF');
+        refDoc = 'asce41-13';
+        T = evalin('caller', 'T');
+
+        %Create distinct variable arrays
+        latitude = T{:,'latitude'};
+        longitude = T{:,'longitude'};
+        riskCategory = T{:,'riskCategory'};
+        siteClass = T{:,'siteClass'};
+        title = T{:,'title'};
+        if any(probTF) == 1
+            customProbability = T{:,'customProbability'};
+        end
+
+        %Iteration preparation
+        n = length( title );
+        
+        %BSE-2N
+        TBSE2N = string([n,1]);
+        TBSE2N(1:n) = 'BSE-2N>>';
+        hazardLevel_BSE2N = TBSE2N';
+        BSE_2N_ssuh = NaN(n,1);
+        BSE_2N_crs = NaN(n,1);
+        BSE_2N_ssrt = NaN(n,1);
+        BSE_2N_ssd = NaN(n,1);
+        BSE_2N_ss = NaN(n,1);
+        BSE_2N_fa = NaN(n,1);
+        BSE_2N_sxs = NaN(n,1);
+        BSE_2N_s1uh = NaN(n,1);
+        BSE_2N_cr1 = NaN(n,1);
+        BSE_2N_s1rt = NaN(n,1);
+        BSE_2N_s1d = NaN(n,1);
+        BSE_2N_s1 = NaN(n,1);
+        BSE_2N_fv = NaN(n,1);
+        BSE_2N_sx1 = NaN(n,1);
+        
+        %BSE-1N
+        TBSE1N = string([n,1]);
+        TBSE1N(1:n) = 'BSE-1N>>';
+        hazardLevel_BSE1N = TBSE1N';
+        BSE_1N_sxs = NaN(n,1);
+        BSE_1N_sx1 = NaN(n,1);
+        
+        %BSE-2E
+        TBSE2E = string([n,1]);
+        TBSE2E(1:n) = 'BSE-2E>>';
+        hazardLevel_BSE2E = TBSE2E';
+        BSE_2E_ss = NaN(n,1);
+        BSE_2E_fa = NaN(n,1);
+        BSE_2E_sxs = NaN(n,1);
+        BSE_2E_s1 = NaN(n,1);
+        BSE_2E_fv = NaN(n,1);
+        BSE_2E_sx1 = NaN(n,1);
+        
+        %BSE-1E
+        TBSE1E = string([n,1]);
+        TBSE1E(1:n) = 'BSE-1E>>';
+        hazardLevel_BSE1E = TBSE1E';
+        BSE_1E_ss = NaN(n,1);
+        BSE_1E_fa = NaN(n,1);
+        BSE_1E_s1 = NaN(n,1);
+        BSE_1E_fv = NaN(n,1);
+        BSE_1E_sxs = NaN(n,1);
+        BSE_1E_sx1 = NaN(n,1);
+        
+        %T-Sub-L Data
+        t_sub_l = NaN(n,1);
+        
+        %Custom
+        TCustom = string([n,1]);
+        TCustom(1:n) = 'Custom>>';
+        Custom_hazardLevel = TCustom';
+        Custom_ss = NaN(n,1);
+        Custom_fa = NaN(n,1);
+        Custom_sxs = NaN(n,1);
+        Custom_s1 = NaN(n,1);
+        Custom_fv = NaN(n,1);
+        Custom_sx1 = NaN(n,1);
+        Custom_t_sub_l = NaN(n,1);
+        rowErrors = string;
+        for i = 1:n
+            try %Attempt to input data from cityFile to webservice.
+                %If this returns error, go to 'catch'.
+            %display in command window
+            disp( [ int2str(i) ') ' title{i} ] )
+            %read data from webservice
+            options = weboptions('Timeout', 30);
+            if any(probTF) == 1    %Check if customProbability column exists
+                if isnan(customProbability(i)) == 1 %Chekc if there is a number value in each row of customProbability column.
+                    DATA = webread( [ 'https://earthquake.usgs.gov/ws/designmaps/'...
+                                  refDoc '.json?'], ...
+                                  'latitude', latitude(i), ...
+                                  'longitude', longitude(i), ...
+                                  'riskCategory', riskCategory(i), ...
+                                  'siteClass', siteClass{i}, ...
+                                  'title', title{i}, ...
+                                  options);          
+                else    
+                    DATA = webread( [ 'https://earthquake.usgs.gov/ws/designmaps/'...
+                                  refDoc '.json?'], ...
+                                  'latitude', latitude(i), ...
+                                  'longitude', longitude(i), ...
+                                  'riskCategory', riskCategory(i), ...
+                                  'siteClass', siteClass{i}, ...
+                                  'title', title{i}, ...
+                                  'customProbability', customProbability(i), ...
+                                  options);
+                end
+            else
+                DATA = webread( [ 'https://earthquake.usgs.gov/ws/designmaps/'...
+                                  refDoc '.json?'], ...
+                                  'latitude', latitude(i), ...
+                                  'longitude', longitude(i), ...
+                                  'riskCategory', riskCategory(i), ...
+                                  'siteClass', siteClass{i}, ...
+                                  'title', title{i}, ...
+                                  options);    
+            end
+                          
+            %DATA.response.data{i}
+            cellData = DATA.response.data;
+            [p,~]=size(cellData);
+            if p == 5 
+               %hazardLevel: BSE-2N
+                BSE_2N_ssuh(i) = DATA.response.data{1}.ssuh;
+                BSE_2N_crs(i) = DATA.response.data{1}.crs;
+                BSE_2N_ssrt(i) = DATA.response.data{1}.ssrt;
+                BSE_2N_ssd(i) = DATA.response.data{1}.ssd;
+                BSE_2N_ss(i) = DATA.response.data{1}.ss;
+                BSE_2N_fa(i) = DATA.response.data{1}.fa;
+                BSE_2N_sxs(i) = DATA.response.data{1}.sxs;
+                BSE_2N_s1uh(i) = DATA.response.data{1}.s1uh;
+                BSE_2N_cr1(i) = DATA.response.data{1}.cr1;
+                BSE_2N_s1rt(i) = DATA.response.data{1}.s1rt;
+                BSE_2N_s1d(i) = DATA.response.data{1}.s1d;
+                BSE_2N_s1(i) = DATA.response.data{1}.s1;
+                BSE_2N_fv(i) = DATA.response.data{1}.fv;
+                BSE_2N_sx1(i) = DATA.response.data{1}.sx1;
+
+               %hazardLevel:BSE-1N
+                BSE_1N_sxs(i) = DATA.response.data{2}.sxs; 
+                BSE_1N_sx1(i) = DATA.response.data{2}.sx1;
+               %hazardLevel:BSE-2E 
+                BSE_2E_ss(i) = DATA.response.data{3}.ss;
+                BSE_2E_fa(i) = DATA.response.data{3}.fa;
+                BSE_2E_sxs(i) = DATA.response.data{3}.sxs;
+                BSE_2E_s1(i) = DATA.response.data{3}.s1;
+                BSE_2E_fv(i) = DATA.response.data{3}.fv;
+                BSE_2E_sx1(i) = DATA.response.data{3}.sx1;
+
+               %hazardLevel: BSE-1E
+               
+                BSE_1E_ss(i) = DATA.response.data{4}.ss;
+                BSE_1E_fa(i) = DATA.response.data{4}.fa;
+                BSE_1E_sxs(i) = DATA.response.data{4}.sxs;
+                BSE_1E_s1(i) = DATA.response.data{4}.s1;
+                BSE_1E_fv(i) = DATA.response.data{4}.fv;
+                BSE_1E_sx1(i) = DATA.response.data{4}.sx1;
+               %T-Sub-L Data
+                t_sub_l(i) = DATA.response.data{5}.t_sub_l;
+           else
+               %hazardLevel:Custom
+                Custom_ss(i) = DATA.response.data{1}.ss;
+                Custom_fa(i) = DATA.response.data{1}.fa;
+                Custom_sxs(i) = DATA.response.data{1}.sxs;
+                Custom_s1(i) = DATA.response.data{1}.s1;
+                Custom_fv(i) = DATA.response.data{1}.fv;
+                Custom_sx1(i) = DATA.response.data{1}.sx1;
+
+               %T-Sub-L Data
+                Custom_t_sub_l(i) = DATA.response.data{2}.t_sub_l;
+            end
+            catch %If inputs to webservice return error 500
+                  %Send error to user and fill row values with 0.
+                warningMsg = [title{i}];
+                warning(warningMsg)
+                rowErrors = [rowErrors,warningMsg];
+                %hazardLevel: BSE-2N
+                BSE_2N_ssuh(i) = 0;
+                BSE_2N_crs(i) = 0;
+                BSE_2N_ssrt(i) = 0;
+                BSE_2N_ssd(i) = 0;
+                BSE_2N_ss(i) = 0;
+                BSE_2N_fa(i) = 0;
+                BSE_2N_sxs(i) = 0;
+                BSE_2N_s1uh(i) = 0;
+                BSE_2N_cr1(i) = 0;
+                BSE_2N_s1rt(i) = 0;
+                BSE_2N_s1d(i) = 0;
+                BSE_2N_s1(i) = 0;
+                BSE_2N_fv(i) = 0;
+                BSE_2N_sx1(i) = 0;
+                %hazardLevel:BSE-1N
+                BSE_1N_sxs(i) = 0; 
+                BSE_1N_sx1(i) = 0;
+               %hazardLevel:BSE-2E 
+                BSE_2E_ss(i) = 0;
+                BSE_2E_fa(i) = 0;
+                BSE_2E_sxs(i) = 0;
+                BSE_2E_s1(i) = 0;
+                BSE_2E_fv(i) = 0;
+                BSE_2E_sx1(i) = 0;
+
+               %hazardLevel: BSE-1E
+               
+                BSE_1E_ss(i) = 0;
+                BSE_1E_fa(i) = 0;
+                BSE_1E_sxs(i) = 0;
+                BSE_1E_s1(i) = 0;
+                BSE_1E_fv(i) = 0;
+                BSE_1E_sx1(i) = 0;
+               %T-Sub-L Data
+                t_sub_l(i) = 0;
+                %hazardLevel:Custom
+                Custom_ss(i) = 0;
+                Custom_fa(i) = 0;
+                Custom_sxs(i) = 0;
+                Custom_s1(i) = 0;
+                Custom_fv(i) = 0;
+                Custom_sx1(i) = 0;
+
+               %T-Sub-L Data
+                Custom_t_sub_l(i) = 0;
+            end 
+            if i > 1
+                close(f); %Close old waitbar after first iteration.
+            end
+            messagei = ['Processing...', title{i}];
+            f = waitbar(i/n, messagei);%Update waitbar
+         end   
+    messagef = ['Process complete! Output ' ...
+                'file located in app folder.'];
+    waitbar(1,f,messagef);%Final waitbar
+    rowErrors(1) = [];%Delete unnecessary first empty cell
+    assignin('caller', 'rowErrors', rowErrors);
+    
+    %subtables:
+    %Table for BSE-2N
+    T22N = table(hazardLevel_BSE2N,BSE_2N_ssuh,BSE_2N_crs,BSE_2N_ssrt,BSE_2N_ssd,BSE_2N_ss,BSE_2N_fa,BSE_2N_sxs,BSE_2N_s1uh,BSE_2N_cr1,BSE_2N_s1rt,BSE_2N_s1d,BSE_2N_s1,BSE_2N_fv,BSE_2N_sx1);
+    %Table for BSE-1N
+    T21N = table(hazardLevel_BSE1N,BSE_1N_sxs,BSE_1N_sx1);
+    %Table for BSE-2E
+    T22E = table(hazardLevel_BSE2E,BSE_2E_ss,BSE_2E_fa,BSE_2E_sxs,BSE_2E_s1,BSE_2E_fv,BSE_2E_sx1);
+    %Table for BSE-1E
+    T21E = table(hazardLevel_BSE1E,BSE_1E_ss,BSE_1E_fa,BSE_1E_sxs,BSE_1E_s1,BSE_1E_fv,BSE_1E_sx1);
+    %Table for customProbability
+    T2Custom = table(Custom_hazardLevel,Custom_ss,Custom_fa,Custom_sxs,Custom_s1,Custom_fv,Custom_sx1,Custom_t_sub_l);
+    
+    %Build new table of all subtables
+    T2 = [T T22N T21N T22E T21E T2Custom];
+    assignin('caller', 'T2', T2);
+    
+    %Output T2 to .xlsx
+    writetable(T2,'ASCE41-13_Output.xlsx')
+    end
+    
