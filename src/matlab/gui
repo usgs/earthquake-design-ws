@@ -1,0 +1,413 @@
+classdef tablereaderappgui1_5 < matlab.apps.AppBase
+
+    % Properties that correspond to app components
+    properties (Access = public)
+        UIFigure                        matlab.ui.Figure
+        InputpanelPanel                 matlab.ui.container.Panel
+        EntercityFileLabel              matlab.ui.control.Label
+        EntercityFileEditField          matlab.ui.control.EditField
+        ChoosereferencedocumentLabel    matlab.ui.control.Label
+        ChoosereferencedocumentListBox  matlab.ui.control.ListBox
+        RunButton                       matlab.ui.control.Button
+        titleLampLabel                  matlab.ui.control.Label
+        titleLamp                       matlab.ui.control.Lamp
+        ColumnsFoundLabel               matlab.ui.control.Label
+        latitudeLampLabel               matlab.ui.control.Label
+        latitudeLamp                    matlab.ui.control.Lamp
+        longitudeLampLabel              matlab.ui.control.Label
+        longitudeLamp                   matlab.ui.control.Lamp
+        riskCategoryLabel               matlab.ui.control.Label
+        riskCategoryLamp                matlab.ui.control.Lamp
+        siteClassLampLabel              matlab.ui.control.Label
+        siteClassLamp                   matlab.ui.control.Lamp
+        customProbabilityLabel          matlab.ui.control.Label
+        customProbabilityLamp           matlab.ui.control.Lamp
+        ASCE411317ONLYLabel             matlab.ui.control.Label
+        OutputsuccessfulLampLabel       matlab.ui.control.Label
+        OutputsuccessfulLamp            matlab.ui.control.Lamp
+        PressthisbuttonforcityFiletemplateButton  matlab.ui.control.Button
+        YoucanfindthisfileinthisapplicationsfolderLabel  matlab.ui.control.Label
+        AppmaytakeacoupleLabel          matlab.ui.control.Label
+        secondstobeginLabel             matlab.ui.control.Label
+        ErrorsLabel                     matlab.ui.control.Label
+        ErrorsTextArea                  matlab.ui.control.TextArea
+        InstructionsTextAreaLabel       matlab.ui.control.Label
+        InstructionsTextArea            matlab.ui.control.TextArea
+        Label                           matlab.ui.control.Label
+        OUTPUTLabel                     matlab.ui.control.Label
+        USGSseismichazardapplicationLabel  matlab.ui.control.Label
+        NotnecessaryforASCE411317Label  matlab.ui.control.Label
+        NecessaryforASCE411317ONLYLabel  matlab.ui.control.Label
+        locatedinthesamefolderasthisapplicationLabel  matlab.ui.control.Label
+        NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel  matlab.ui.control.Label
+    end
+
+
+    methods (Access = private)
+    
+        
+    end
+
+    methods (Access = public)
+    
+        
+    end
+
+
+    methods (Access = private)
+
+        % Value changed function: EntercityFileEditField
+        function EntercityFileEditFieldValueChanged(app, event)
+            
+            
+        end
+
+        % Value changed function: ChoosereferencedocumentListBox
+        function ChoosereferencedocumentListBoxValueChanged(app, event)
+            
+            
+        end
+
+        % Button pushed function: RunButton
+        function RunButtonPushed(app, event)
+            %Setting initial conditions
+            app.ErrorsTextArea.Value = "";
+            app.titleLamp.Color = 'white';
+            app.latitudeLamp.Color = 'white';
+            app.longitudeLamp.Color = 'white';
+            app.riskCategoryLamp.Color = 'white';
+            app.siteClassLamp.Color = 'white';
+            app.customProbabilityLamp.Color = 'white';
+            app.OutputsuccessfulLamp.Color = 'white';
+            
+            %Take refDoc input
+            refDoc = app.ChoosereferencedocumentListBox.Value;
+            %Take cityFile input
+            cityFile = app.EntercityFileEditField.Value;
+            %Check for cityFile existence and proper formatting
+            cityFileCheck(cityFile,refDoc)
+            %Identification lights on GUI
+            if exist(cityFile,'file')
+                A = exist('titleTF','var');
+                B = exist('latTF','var');
+                C = exist('longTF','var');
+                D = exist('riskTF','var');
+                E = exist('siteTF','var');
+                F = exist('ProbTF','var');
+                if any(titleTF) == 1
+                    app.titleLamp.Color = 'green';
+                else
+                    app.titleLamp.Color = 'red';
+                end
+                if any(latTF) == 1
+                    app.latitudeLamp.Color = 'green';
+                else
+                    app.latitudeLamp.Color = 'red';
+                end
+                if any(longTF) == 1
+                    app.longitudeLamp.Color = 'green';
+                else
+                    app.longitudeLamp.Color = 'red';
+                end
+                if any(riskTF) == 1
+                    app.riskCategoryLamp.Color = 'green';
+                else
+                    app.riskCategoryLamp.Color = 'red';
+                end
+                if any(siteTF) == 1
+                    app.siteClassLamp.Color = 'green';
+                else
+                    app.siteClassLamp.Color = 'red';
+                end
+                if isequal(refDoc, 'asce41-13')||isequal(refDoc, 'asce41-17')
+                    if any(probTF) == 1
+                        app.customProbabilityLamp.Color = 'green';
+                    else
+                        app.customProbabilityLamp.Color = 'red';
+                    end
+                end
+                
+                
+                %Check that cityFile is correct and output file exists
+                if any(titleTF) == 1 && any(latTF) == 1 && any(longTF) == 1 && any(riskTF) == 1 && any(siteTF) == 1
+                    %Run main program
+                    tablereaderNested(cityFile,refDoc)
+                
+                    %Output individual error/ location to error window
+                    app.ErrorsTextArea.Value = rowErrors;
+                    OutputFile = [refDoc,'_Output.xlsx'];
+                    G = exist(OutputFile, 'file');
+                    %Identification lights on GUI
+                    if G == 2
+                        app.OutputsuccessfulLamp.Color = 'green';
+                    else 
+                        app.OutputsuccessfulLamp.Color = 'red';
+                    end
+                    %Attempt to open output file. May not work depending on permissions
+                    open(OutputFile);
+                end
+                
+            else
+                %If the cityFile doesn't exist, tell user.
+                app.ErrorsTextArea.Value = wrongCityFile;   
+            end
+        end
+
+        % Value changed function: ErrorsTextArea
+        function ErrorsTextAreaValueChanged(app, event)
+            
+            
+        end
+
+        % Button pushed function: 
+        % PressthisbuttonforcityFiletemplateButton
+        function PressthisbuttonforcityFiletemplateButtonPushed(app, event)
+           cityFileTemplateFunc
+        end
+    end
+
+    % App initialization and construction
+    methods (Access = private)
+
+        % Create UIFigure and components
+        function createComponents(app)
+
+            % Create UIFigure
+            app.UIFigure = uifigure;
+            app.UIFigure.Position = [100 100 664 655];
+            app.UIFigure.Name = 'UI Figure';
+
+            % Create InputpanelPanel
+            app.InputpanelPanel = uipanel(app.UIFigure);
+            app.InputpanelPanel.Title = '                                      Input panel';
+            app.InputpanelPanel.Position = [39 205 311 388];
+
+            % Create EntercityFileLabel
+            app.EntercityFileLabel = uilabel(app.InputpanelPanel);
+            app.EntercityFileLabel.HorizontalAlignment = 'right';
+            app.EntercityFileLabel.Position = [60 323 78 22];
+            app.EntercityFileLabel.Text = 'Enter cityFile:';
+
+            % Create EntercityFileEditField
+            app.EntercityFileEditField = uieditfield(app.InputpanelPanel, 'text');
+            app.EntercityFileEditField.ValueChangedFcn = createCallbackFcn(app, @EntercityFileEditFieldValueChanged, true);
+            app.EntercityFileEditField.Position = [142 323 100 22];
+
+            % Create ChoosereferencedocumentLabel
+            app.ChoosereferencedocumentLabel = uilabel(app.InputpanelPanel);
+            app.ChoosereferencedocumentLabel.HorizontalAlignment = 'right';
+            app.ChoosereferencedocumentLabel.Position = [14 235 160 23];
+            app.ChoosereferencedocumentLabel.Text = 'Choose reference document:';
+
+            % Create ChoosereferencedocumentListBox
+            app.ChoosereferencedocumentListBox = uilistbox(app.InputpanelPanel);
+            app.ChoosereferencedocumentListBox.Items = {'asce7-05', 'asce7-10', 'asce7-16', 'asce41-13', 'asce41-17', 'nehrp-2009', 'nehrp-2015', 'ibc-2012', 'ibc-2015'};
+            app.ChoosereferencedocumentListBox.ValueChangedFcn = createCallbackFcn(app, @ChoosereferencedocumentListBoxValueChanged, true);
+            app.ChoosereferencedocumentListBox.Position = [184 188 115 70];
+            app.ChoosereferencedocumentListBox.Value = 'asce7-05';
+
+            % Create RunButton
+            app.RunButton = uibutton(app.InputpanelPanel, 'push');
+            app.RunButton.ButtonPushedFcn = createCallbackFcn(app, @RunButtonPushed, true);
+            app.RunButton.Position = [49 212 100 22];
+            app.RunButton.Text = 'Run';
+
+            % Create titleLampLabel
+            app.titleLampLabel = uilabel(app.InputpanelPanel);
+            app.titleLampLabel.HorizontalAlignment = 'right';
+            app.titleLampLabel.Position = [133 133 25 22];
+            app.titleLampLabel.Text = 'title';
+
+            % Create titleLamp
+            app.titleLamp = uilamp(app.InputpanelPanel);
+            app.titleLamp.Position = [164 133 20 20];
+            app.titleLamp.Color = [1 1 1];
+
+            % Create ColumnsFoundLabel
+            app.ColumnsFoundLabel = uilabel(app.InputpanelPanel);
+            app.ColumnsFoundLabel.FontSize = 14;
+            app.ColumnsFoundLabel.FontWeight = 'bold';
+            app.ColumnsFoundLabel.Position = [99 155 112 22];
+            app.ColumnsFoundLabel.Text = 'Columns Found';
+
+            % Create latitudeLampLabel
+            app.latitudeLampLabel = uilabel(app.InputpanelPanel);
+            app.latitudeLampLabel.HorizontalAlignment = 'right';
+            app.latitudeLampLabel.Position = [114 112 44 22];
+            app.latitudeLampLabel.Text = 'latitude';
+
+            % Create latitudeLamp
+            app.latitudeLamp = uilamp(app.InputpanelPanel);
+            app.latitudeLamp.Position = [164 112 20 20];
+            app.latitudeLamp.Color = [1 1 1];
+
+            % Create longitudeLampLabel
+            app.longitudeLampLabel = uilabel(app.InputpanelPanel);
+            app.longitudeLampLabel.HorizontalAlignment = 'right';
+            app.longitudeLampLabel.Position = [104 91 54 22];
+            app.longitudeLampLabel.Text = 'longitude';
+
+            % Create longitudeLamp
+            app.longitudeLamp = uilamp(app.InputpanelPanel);
+            app.longitudeLamp.Position = [164 91 20 20];
+            app.longitudeLamp.Color = [1 1 1];
+
+            % Create riskCategoryLabel
+            app.riskCategoryLabel = uilabel(app.InputpanelPanel);
+            app.riskCategoryLabel.HorizontalAlignment = 'right';
+            app.riskCategoryLabel.Position = [80 70 78 22];
+            app.riskCategoryLabel.Text = 'riskCategory*';
+
+            % Create riskCategoryLamp
+            app.riskCategoryLamp = uilamp(app.InputpanelPanel);
+            app.riskCategoryLamp.Position = [164 71 20 20];
+            app.riskCategoryLamp.Color = [1 1 1];
+
+            % Create siteClassLampLabel
+            app.siteClassLampLabel = uilabel(app.InputpanelPanel);
+            app.siteClassLampLabel.HorizontalAlignment = 'right';
+            app.siteClassLampLabel.Position = [104 49 54 22];
+            app.siteClassLampLabel.Text = 'siteClass';
+
+            % Create siteClassLamp
+            app.siteClassLamp = uilamp(app.InputpanelPanel);
+            app.siteClassLamp.Position = [164 49 20 20];
+            app.siteClassLamp.Color = [1 1 1];
+
+            % Create customProbabilityLabel
+            app.customProbabilityLabel = uilabel(app.InputpanelPanel);
+            app.customProbabilityLabel.HorizontalAlignment = 'right';
+            app.customProbabilityLabel.Position = [48 28 110 22];
+            app.customProbabilityLabel.Text = 'customProbability**';
+
+            % Create customProbabilityLamp
+            app.customProbabilityLamp = uilamp(app.InputpanelPanel);
+            app.customProbabilityLamp.Position = [164 29 20 20];
+            app.customProbabilityLamp.Color = [1 1 1];
+
+            % Create ASCE411317ONLYLabel
+            app.ASCE411317ONLYLabel = uilabel(app.InputpanelPanel);
+            app.ASCE411317ONLYLabel.FontWeight = 'bold';
+            app.ASCE411317ONLYLabel.Position = [187 28 122 22];
+            app.ASCE411317ONLYLabel.Text = 'ASCE41-13/17 ONLY';
+
+            % Create OutputsuccessfulLampLabel
+            app.OutputsuccessfulLampLabel = uilabel(app.InputpanelPanel);
+            app.OutputsuccessfulLampLabel.HorizontalAlignment = 'right';
+            app.OutputsuccessfulLampLabel.FontWeight = 'bold';
+            app.OutputsuccessfulLampLabel.Position = [48 7 110 22];
+            app.OutputsuccessfulLampLabel.Text = 'Output successful';
+
+            % Create OutputsuccessfulLamp
+            app.OutputsuccessfulLamp = uilamp(app.InputpanelPanel);
+            app.OutputsuccessfulLamp.Position = [164 7 20 20];
+            app.OutputsuccessfulLamp.Color = [1 1 1];
+
+            % Create PressthisbuttonforcityFiletemplateButton
+            app.PressthisbuttonforcityFiletemplateButton = uibutton(app.InputpanelPanel, 'push');
+            app.PressthisbuttonforcityFiletemplateButton.ButtonPushedFcn = createCallbackFcn(app, @PressthisbuttonforcityFiletemplateButtonPushed, true);
+            app.PressthisbuttonforcityFiletemplateButton.Position = [49 293 213 22];
+            app.PressthisbuttonforcityFiletemplateButton.Text = 'Press this button for cityFile template';
+
+            % Create YoucanfindthisfileinthisapplicationsfolderLabel
+            app.YoucanfindthisfileinthisapplicationsfolderLabel = uilabel(app.InputpanelPanel);
+            app.YoucanfindthisfileinthisapplicationsfolderLabel.FontWeight = 'bold';
+            app.YoucanfindthisfileinthisapplicationsfolderLabel.Position = [23 272 279 22];
+            app.YoucanfindthisfileinthisapplicationsfolderLabel.Text = 'You can find this file in this application''s folder.';
+
+            % Create AppmaytakeacoupleLabel
+            app.AppmaytakeacoupleLabel = uilabel(app.InputpanelPanel);
+            app.AppmaytakeacoupleLabel.FontSize = 10;
+            app.AppmaytakeacoupleLabel.Position = [49 191 107 22];
+            app.AppmaytakeacoupleLabel.Text = 'App may take a couple';
+
+            % Create secondstobeginLabel
+            app.secondstobeginLabel = uilabel(app.InputpanelPanel);
+            app.secondstobeginLabel.FontSize = 10;
+            app.secondstobeginLabel.Position = [61 176 84 22];
+            app.secondstobeginLabel.Text = 'seconds to begin.';
+
+            % Create ErrorsLabel
+            app.ErrorsLabel = uilabel(app.UIFigure);
+            app.ErrorsLabel.HorizontalAlignment = 'right';
+            app.ErrorsLabel.Position = [365 241 41 22];
+            app.ErrorsLabel.Text = 'Errors:';
+
+            % Create ErrorsTextArea
+            app.ErrorsTextArea = uitextarea(app.UIFigure);
+            app.ErrorsTextArea.ValueChangedFcn = createCallbackFcn(app, @ErrorsTextAreaValueChanged, true);
+            app.ErrorsTextArea.Position = [413 19 215 244];
+
+            % Create InstructionsTextAreaLabel
+            app.InstructionsTextAreaLabel = uilabel(app.UIFigure);
+            app.InstructionsTextAreaLabel.HorizontalAlignment = 'right';
+            app.InstructionsTextAreaLabel.Position = [462 620 70 22];
+            app.InstructionsTextAreaLabel.Text = 'Instructions:';
+
+            % Create InstructionsTextArea
+            app.InstructionsTextArea = uitextarea(app.UIFigure);
+            app.InstructionsTextArea.Position = [384 273 244 348];
+            app.InstructionsTextArea.Value = {'Please enter the "cityFile" in the box labeled "Enter cityFile" and please select a reference document from the list provided.'; ''; 'cityFile: This is the file containing the necessary information corresponding to the locations in question. This file must be located in the same folder as this application.'; 'This file must include the following columns:'; '-title'; '-latitude'; '-longitude'; '-riskCategory'; '-siteClass'; ''; 'NOTE: If running ASCE41-13 or 17, user must include customProbability column if user requires custom outputs.'; ''; 'Errors box: If the cityFile does not meet the above specifications, the necessary corrections/ locations in question, will be outputted to this box.'};
+
+            % Create Label
+            app.Label = uilabel(app.UIFigure);
+            app.Label.Position = [36 27 332 32];
+            app.Label.Text = 'If the output file does not open automatically, the output file is ';
+
+            % Create OUTPUTLabel
+            app.OUTPUTLabel = uilabel(app.UIFigure);
+            app.OUTPUTLabel.Position = [36 44 57 22];
+            app.OUTPUTLabel.Text = 'OUTPUT:';
+
+            % Create USGSseismichazardapplicationLabel
+            app.USGSseismichazardapplicationLabel = uilabel(app.UIFigure);
+            app.USGSseismichazardapplicationLabel.Position = [103 609 184 22];
+            app.USGSseismichazardapplicationLabel.Text = 'USGS seismic hazard application';
+
+            % Create NotnecessaryforASCE411317Label
+            app.NotnecessaryforASCE411317Label = uilabel(app.UIFigure);
+            app.NotnecessaryforASCE411317Label.Position = [39 184 192 22];
+            app.NotnecessaryforASCE411317Label.Text = '* Not necessary for ASCE41-13/17';
+
+            % Create NecessaryforASCE411317ONLYLabel
+            app.NecessaryforASCE411317ONLYLabel = uilabel(app.UIFigure);
+            app.NecessaryforASCE411317ONLYLabel.Position = [39 163 212 22];
+            app.NecessaryforASCE411317ONLYLabel.Text = '** Necessary for ASCE41-13/17 ONLY';
+
+            % Create locatedinthesamefolderasthisapplicationLabel
+            app.locatedinthesamefolderasthisapplicationLabel = uilabel(app.UIFigure);
+            app.locatedinthesamefolderasthisapplicationLabel.Position = [36 17 247 22];
+            app.locatedinthesamefolderasthisapplicationLabel.Text = 'located in the same folder as this application.';
+
+            % Create NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel
+            app.NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel = uilabel(app.UIFigure);
+            app.NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel.FontWeight = 'bold';
+            app.NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel.Position = [36 105 351 22];
+            app.NOTEIfappdoesnotrunpleasecheckcityFileformattingLabel.Text = 'NOTE: If app does not run, please check cityFile formatting.';
+        end
+    end
+
+    methods (Access = public)
+
+        % Construct app
+        function app = tablereaderappgui1_5
+
+            % Create and configure components
+            createComponents(app)
+
+            % Register the app with App Designer
+            registerApp(app, app.UIFigure)
+
+            if nargout == 0
+                clear app
+            end
+        end
+
+        % Code that executes before app deletion
+        function delete(app)
+
+            % Delete UIFigure when app is deleted
+            delete(app.UIFigure)
+        end
+    end
+end
