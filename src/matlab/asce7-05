@@ -1,0 +1,135 @@
+function ASCE7_05_Func()
+%Read cityFile
+        refDoc = 'asce7-05';
+        T = evalin('caller', 'T');
+
+        %Create distinct variable arrays
+        latitude = T{:,'latitude'};
+        longitude = T{:,'longitude'};
+        riskCategory = T{:,'riskCategory'};
+        siteClass = T{:,'siteClass'};
+        title = T{:,'title'};
+
+
+        %Iteration preparation
+        n = length( title );
+        ss = NaN(n,1);
+        fa = NaN(n,1);
+        sms = NaN(n,1);
+        sds = NaN(n,1);
+        Tsdcs = string(); 
+        s1 = NaN(n,1);
+        fv = NaN(n,1);
+        sm1 = NaN(n,1);
+        sd1 = NaN(n,1);
+        Tsdc1 = string();
+        rowErrors = string;
+        Tsdc = string(); 
+        t_sub_l = NaN(n,1);
+        
+        for i = 1:n
+            try %Attempt to input data from cityFile to webservice.
+                %If this returns error, go to 'catch'.
+            %display in command window
+            disp( [ int2str(i) ') ' title{i} ] )
+
+            %read data from webservice
+            options = weboptions('Timeout', 30);
+            DATA = webread( [ 'https://earthquake.usgs.gov/ws/designmaps/'...
+                              refDoc '.json?'], ...
+                              'latitude', latitude(i), ...
+                              'longitude', longitude(i), ...
+                              'riskCategory', riskCategory(i), ...
+                              'siteClass', siteClass{i}, ...
+                              'title', title{i}, ...
+                              options);
+            %ss
+            if isempty(DATA.response.data.ss) == 0
+                ss(i) = DATA.response.data.ss;
+            end
+            %fa
+            if isempty(DATA.response.data.fa) == 0
+                fa(i) = DATA.response.data.fa;
+            end
+            %sms
+            if isempty(DATA.response.data.sms) == 0 
+                sms(i) = DATA.response.data.sms;
+            end
+            %sds
+            if isempty(DATA.response.data.sds) == 0 
+                sds(i) = DATA.response.data.sds;
+            end
+            %sdcs
+            if isempty(DATA.response.data.sdcs) == 0
+                Tsdcs(i) = DATA.response.data.sdcs;
+            end
+            %s1
+            if isempty(DATA.response.data.s1) == 0
+                s1(i) = DATA.response.data.s1;
+            end
+            %fv
+            if isempty(DATA.response.data.fv) == 0
+                fv(i) = DATA.response.data.fv;
+            end
+            %sm1
+            if isempty(DATA.response.data.sm1) == 0 
+                sm1(i) = DATA.response.data.sm1;
+            end
+            %sdl
+            if isempty(DATA.response.data.sd1) == 0
+                sd1(i) = DATA.response.data.sd1;
+            end
+            %sdc1
+            if ischar(DATA.response.data.sdc1) == 1
+                Tsdc1{i} = DATA.response.data.sdc1;
+            end
+            %sdc
+            if isempty(DATA.response.data.sdc) == 0 
+                Tsdc(i) = DATA.response.data.sdc;
+            end
+            %t_sub_1
+            if isempty(DATA.response.data.t_sub_l) == 0  
+                t_sub_l(i) = DATA.response.data.t_sub_l;
+            end
+            catch %If inputs to webservice return error 500
+                  %Send error to user and fill row values with 0.
+                warningMsg = [title{i}];
+                warning(warningMsg)
+                rowErrors = [rowErrors,warningMsg];
+                ss(i) = 0;
+                fa(i) = 0;
+                sms(i) = 0;
+                sds(i) = 0;
+                Tsdcs(i) = 0;
+                s1(i) = 0;
+                fv(i) = 0;
+                sm1(i) = 0;
+                sd1(i) = 0;
+                Tsdc1{i} = char(0);
+                Tsdc(i) = 0;
+                t_sub_l(i) = 0;
+            end 
+            if i > 1
+                close(f); %Close old waitbar window after first iteration.
+            end
+            messagei = ['Processing...', title{i}];
+            f = waitbar(i/n, messagei); %Update waitbar
+             
+        end
+    messagef = ['Process complete! Output ' ...
+                'file located in app folder.'];
+    waitbar(1,f,messagef); %Final waitbar
+    
+    sdcs = Tsdcs';
+    sdc1 = Tsdc1';
+    sdc = Tsdc';
+    rowErrors(1) = []; %Delete unnecessary first empty cell
+    assignin('caller', 'rowErrors', rowErrors);
+    %Build new table of all variables
+    T2 = table(title,latitude,longitude,riskCategory,siteClass,ss,fa,sms,sds,sdcs,s1,fv,sm1,sd1,sdc1,sdc,t_sub_l);
+    assignin('caller', 'T2', T2);
+    
+    %Output T2 to .xlsx
+    writetable(T2,'ASCE7-05_Output.xlsx');
+   
+end
