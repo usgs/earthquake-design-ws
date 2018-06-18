@@ -1,0 +1,82 @@
+function tablereaderNested(cityFile,refDoc)
+
+%cityFile file names
+%Re-formatted_34_NEHRP_City_Locations.xlsx
+%34_NEHRP_City_Locations.xlsx
+
+%Input cityFile file name
+cityFileCheck(cityFile, refDoc)
+if fileFound == 2 && any(titleTF) == 1 && any(latTF) == 1 && any(longTF) == 1 && any(riskTF) == 1 && any(siteTF) == 1 
+        
+    %Enter referenceDocument and check validity of entry
+    refDocCheck(refDoc)
+
+    %Use subfunctions for each referenceDocument
+    switch(refDoc) 
+        case 'asce7-05'
+            ASCE7_05_Func
+
+        case 'asce7-10'
+            ASCE7_10_Func
+
+        case 'asce7-16'
+            ASCE7_16_Func
+
+        case 'asce41-13'
+            ASCE41_13_Func
+
+        case 'asce41-17'
+            ASCE41_17_Func
+
+        case 'nehrp-2009'
+            NEHRP_2009_Func
+
+        case 'nehrp-2015'
+            NEHRP_2015_Func
+
+        case 'ibc-2012'
+            IBC_2012_Func
+
+        case 'ibc-2015'
+            IBC_2015_Func
+
+    end
+    %Assign local variables to GUI workspace
+    if exist('customProbMissing','var') == 1
+        assignin('caller','customProbMissing',customProbMissing);
+    end
+
+    assignin('caller', 'T2', T2);
+    assignin('caller','refDoc',refDoc);
+    
+else %Assign local variables to GUI workspace
+    if exist('wrongCityFile','var')
+        assignin('caller', 'wrongCityFile',wrongCityFile);
+    end
+    if exist('titleMissing','var') == 1
+        assignin('caller','titleMissing',titleMissing);
+    end
+    if exist('latMissing','var') == 1
+        assignin('caller','latMissing',latMissing);
+    end
+    if exist('longMissing','var') == 1
+        assignin('caller','longMissing',longMissing);
+    end
+    if exist('riskCatMissing','var') == 1
+        assignin('caller','riskCatMissing',riskCatMissing);
+    end
+    if exist('siteClassMissing','var') == 1
+        assignin('caller','siteClassMissing',siteClassMissing);
+    end
+    if exist('customProbMissing','var') == 1
+        assignin('caller','customProbMissing',customProbMissing);
+    end
+    
+end
+%Assign local variables to GUI workspace
+assignin('caller','fileFound',fileFound); 
+assignin('caller','rowErrors',rowErrors);
+end
+   
+
+
