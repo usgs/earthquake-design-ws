@@ -1,0 +1,21 @@
+function cityFileTemplateFunc
+%Create empty arrays
+title = cell(10,1);
+latitude = cell(10,1);
+longitude = cell(10,1);
+riskCategory = cell(10,1);
+siteClass = cell(10,1);
+customProbability = cell(10,1);
+%Fill first row of each column array with example information
+title{1} = 'SanDiego, CA';
+latitude{1} = 32.7;
+longitude{1} = -117.15;
+riskCategory{1} = 'IV';
+siteClass{1} = 'E';
+customProbability{1} = 0.1;
+%Build table from each column array
+T = table(title,latitude,longitude,riskCategory, ...
+    siteClass, customProbability);
+%Write table to .xlsx
+writetable(T,'cityFileTemplate.xlsx');
+end
