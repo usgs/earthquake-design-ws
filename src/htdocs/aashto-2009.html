@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>AASHTO-2009 Web Service Documentation</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <link rel="stylesheet" href="https://earthquake.usgs.gov/theme/site/earthquake/index.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons%7cMerriweather:400,400italic,700%7cSource+Sans+Pro:400,300,700"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<main>
+  <header>
+    <h1>AASHTO-2009 Web Service Documentation</h1>
+  </header>
+
+  <div class="alert warning">
+    This software is preliminary or provisional and is subject to revision.
+    It is being provided to meet the need for timely best science. The
+    software has not received final approval by the U.S. Geological Survey
+    (USGS). No warranty, expressed or implied, is made by the USGS or the
+    U.S. Government as to the functionality of the software and related
+    material nor shall the fact of release constitute any such warranty.
+    The software is provided on the condition that neither the USGS nor the
+    U.S. Government shall be held liable for any damages resulting from the
+    authorized or unauthorized use of the software.
+  </div>
+
+  <h2 id="parameters">Request Parameters (Input)</h2>
+  <p>All parameters are required</p>
+  <dl>
+    <dt id="latitude">latitude</dt>
+    <dd>
+      Latitude of location of interest, in decimal degrees
+      <br/>Example: <code>34.05</code>
+    </dd>
+
+    <dt id="longitude">longitude</dt>
+    <dd>
+      Longitude for location of interest, in decimal degrees
+      <br/>Example: <code>-118.25</code>
+    </dd>
+
+    <dt id="siteClass">siteClass</dt>
+    <dd>
+      Site Class, as defined in Table 3.4.2.1-1 of seismic design reference document
+      <br/>Options: <code>A</code> for "Hard rock", <code>B</code> for "Rock", <code>C</code> for "Very dense soil and soft rock", <code>D</code> for "Stiff soil", <code>A</code> (See Table 3.4.2.1-1)
+    </dd>
+
+    <dt id="title">title</dt>
+    <dd>
+      Title for location/request
+      <br/>Example: <code>Example</code>
+    </dd>
+  </dl>
+
+  <h2 id="output">Response Parameters (Output)</h2>
+  <p>Includes information about request, followed by response</p>
+  <dl>
+    <dt>request</dt>
+    <dd>
+      <dl>
+        <dt id="output-date">date</dt>
+        <dd>
+          Timestamp
+          <br/>Format: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
+        </dd>
+
+        <dt id="output-reference-document">referenceDocument</dt>
+        <dd>
+          Seismic design reference document, &ldquo;AASHTO-2009&rdquo;
+        </dd>
+
+        <dt id="output-status">status</dt>
+        <dd>
+          Either "success" or "error"
+        </dd>
+
+        <dt id="output-url">url</dt>
+        <dd>
+          URL of request/response
+          <br/>Example: <code>&ldquo;<span class="url-stub">{MOUNT_PATH}</span>/aashto-2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example&rdquo;</code>
+        </dd>
+        <dt>parameters</dt>
+        <dd>
+          <dl>
+            <dt id="metadata-parameters-latitude">latitude</dt>
+            <dd>
+              Latitude for location at which to compute composite results
+              <br/>Example: <code>34</code>
+            </dd>
+
+            <dt id="metadata-parameters-longitude">longitude</dt>
+            <dd>
+              Longitude for location at which to compute composite results
+              <br/>Example: <code>-118</code>
+            </dd>
+
+            <dt id="metadata-parameters-riskCategory">riskCategory</dt>
+            <dd>
+              Risk category for structure
+              <br/>Example: <code>&ldquo;III&rdquo;</code>
+            </dd>
+
+            <dt id="metadata-parameters-siteClass">siteClass</dt>
+            <dd>
+              NEHRP site classification
+              <br/>Example: <code>&ldquo;C&rdquo;</code>
+            </dd>
+
+            <dt id="metadata-parameters-title">title</dt>
+            <dd>
+              Name for site/report
+              <br/>Example: <code>&ldquo;Example&rdquo;</code>
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+    <dt id="data">response</dt>
+    <dd>
+      <dl>
+        <dt id="data-data">data</dt>
+        <dd>
+          <dl>
+            <dt id="data-data-pga">pga</dt>
+            <dd>
+                PGA, the mapped horizontal Peak Ground Acceleration, in units of g
+            </dd>
+
+            <dt id="data-data-fpga">fpga</dt>
+            <dd>
+                F<sub>PGA</sub>, the site coefficient for PGA, from Table 3.4.2.3-1
+            </dd>
+
+            <dt id="data-data-as">as</dt>
+            <dd>
+                A<sub>s</sub> = F<sub>PGA</sub> x PGA (Equation 3.4.1-1), the design PGA
+            </dd>
+
+            <dt id="data-data-ss">ss</dt>
+            <dd>
+              MCE<sub>R</sub> ground motion (0.2 s)
+            </dd>
+
+            <dt id="data-data-fa">fa</dt>
+            <dd>
+              Site amplification factor (0.2 s)
+            </dd>
+
+            <dt id="data-data-sds">sds</dt>
+            <dd>
+              Numeric seismic design value (0.2 s)
+            </dd>
+
+            <dt id="data-data-sds">s1</dt>
+            <dd>
+              The mapped 1-second spectral acceleration, in units of g
+            </dd>
+
+            <dt id="data-data-fv">fv</dt>
+            <dd>
+              Site amplification factor (1.0 s)
+            </dd>
+
+            <dt id="data-data-sd1">sd1</dt>
+            <dd>
+              Numeric seismic design value (1.0 s)
+            </dd>
+
+            <dt id="data-data-sdc">sdc</dt>
+            <dd>
+              Seismic design category from S<sub>DCS</sub> and S<sub>DC1</sub>
+            </dd>
+
+            <dt id="data-data-ts">ts</dt>
+            <dd>
+              T<sub>S</sub> = S<sub>D1</sub> / S<sub>DS</sub> (Equation 3.4.1-6), in seconds, for construction of the design response spectrum
+            </dd>
+
+            <dt id="data-data-t0">t0</dt>
+            <dd>
+              T<sub>0</sub> = 0.2T<sub>S</sub> (Equation 3.4.1-5), in seconds, for construction of the design response spectrum
+            </dd>
+
+            <dt id="data-data-sdSpectrum">sdSpectrum</dt>
+            <dd>
+              Design horizontal response spectrum
+            </dd>
+
+          </dl>
+        </dd>
+      </dl>
+      <dl>
+        <dt>metadata</dt>
+        <dd>
+          <dl>
+              <dt id="data-metadata-griddedvaluesid">
+                griddedValuesID
+              </dt>
+              <dd>
+                Identifier for the underlying gridded values
+              </dd>
+
+            <dt id="data-metadata-spatialInterpolationMethod">
+              spatialInterpolationMethod
+            </dt>
+            <dd>
+              Identifier for the interpolation method used to obtain data for
+              location of interest from underlying gridded datasets
+            </dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3 id="example_response">Example</h3>
+
+  <h4>Request</h4>
+  <p>
+    <a href="aashto-2009.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example"><span class="url-stub">&amp;hellip;</span>/aashto-2009.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example</a>
+  </p>
+
+  <h4>Response</h4>
+  <div class="code">
+    <pre>{
+      "request": {
+        "date": "2018-06-03T00:50:52.810Z",
+        "referenceDocument": "AASHTO-2009",
+        "status": "success",
+        "url": "http://localhost/ws/designmaps/aashto-2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example",
+        "parameters": {
+          "latitude": 34,
+          "longitude": -118,
+          "riskCategory": "III",
+          "siteClass": "C",
+          "title": "Example"
+        }
+      },
+      "response": {
+        "data": {
+          "pga": 0.637,
+          "fpga": 1,
+          "as": 0.637,
+          "ss": 1.512,
+          "fa": 1,
+          "sds": 1.512,
+          "s1": 0.551,
+          "fv": 1.3,
+          "sd1": 0.716,
+          "sdc": "D",
+          "ts": 0.474,
+          "t0": 0.095,
+          "sdSpectrum": [
+            [
+              0,
+              0.605
+            ],
+            [
+              0.025,
+              0.844
+            ],
+            [
+              0.05,
+              1.084
+            ],
+            [
+              0.095,
+              1.512
+            ],
+            [
+              0.1,
+              1.512
+            ],
+            [
+              0.15,
+              1.512
+            ],
+            [
+              0.2,
+              1.512
+            ],
+            [
+              0.25,
+              1.512
+            ],
+            [
+              0.3,
+              1.512
+            ],
+            [
+              0.35,
+              1.512
+            ],
+            [
+              0.4,
+              1.512
+            ],
+            [
+              0.45,
+              1.512
+            ],
+            [
+              0.474,
+              1.512
+            ],
+            [
+              0.5,
+              null
+            ],
+            [
+              0.55,
+              null
+            ],
+            [
+              0.6,
+              null
+            ],
+            [
+              0.65,
+              null
+            ],
+            [
+              0.7,
+              null
+            ],
+            [
+              0.75,
+              null
+            ],
+            [
+              0.8,
+              null
+            ],
+            [
+              0.85,
+              null
+            ],
+            [
+              0.9,
+              null
+            ],
+            [
+              0.95,
+              null
+            ],
+            [
+              1,
+              null
+            ],
+            [
+              1.05,
+              null
+            ],
+            [
+              1.1,
+              null
+            ],
+            [
+              1.15,
+              null
+            ],
+            [
+              1.2,
+              null
+            ],
+            [
+              1.25,
+              null
+            ],
+            [
+              1.3,
+              null
+            ],
+            [
+              1.35,
+              null
+            ],
+            [
+              1.4,
+              null
+            ],
+            [
+              1.45,
+              null
+            ],
+            [
+              1.5,
+              null
+            ],
+            [
+              1.55,
+              null
+            ],
+            [
+              1.6,
+              null
+            ],
+            [
+              1.65,
+              null
+            ],
+            [
+              1.7,
+              null
+            ],
+            [
+              1.75,
+              null
+            ],
+            [
+              1.8,
+              null
+            ],
+            [
+              1.85,
+              null
+            ],
+            [
+              1.9,
+              null
+            ],
+            [
+              1.95,
+              null
+            ],
+            [
+              2,
+              null
+            ]
+          ]
+        },
+        "metadata": {
+          "griddedValuesID": "2002-US-AASHTO-05-050-R1.rnd",
+          "spatialInterpolationMethod": "linearlinearlinear"
+        }
+      }
+    }</pre>
+  </div>
+</main>
+<footer class="site-commonnav">
+  <a href="index.html">Seismic Design Web Service Documentation</a>
+</footer>
+<script src="js/config.js"></script>
+</body>
+</html>
