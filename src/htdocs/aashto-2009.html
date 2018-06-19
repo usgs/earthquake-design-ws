@@ -64,8 +64,7 @@
       <dl>
         <dt id="output-date">date</dt>
         <dd>
-          Timestamp
-          <br/>Format: <code>&ldquo;YYYY-MM-DDThh:mm:ssZ&rdquo;</code>
+          Timestamp, in format YYYY-MM-DDThh:mm:ssZ
         </dd>
 
         <dt id="output-reference-document">referenceDocument</dt>
@@ -80,8 +79,7 @@
 
         <dt id="output-url">url</dt>
         <dd>
-          URL of request/response
-          <br/>Example: <code>&ldquo;<span class="url-stub">{MOUNT_PATH}</span>/aashto-2009.json?latitude=34&amp;longitude=-118&amp;riskCategory=III&amp;siteClass=C&amp;title=Example&rdquo;</code>
+          URL of request/response; see example below
         </dd>
         <dt>parameters</dt>
         <dd>
@@ -122,62 +120,62 @@
 
             <dt id="data-data-fpga">fpga</dt>
             <dd>
-                F<sub>PGA</sub>, the site coefficient for PGA, from Table 3.4.2.3-1
+                F<sub>PGA</sub>, the site coefficient for PGA, from Table 3.4.2.3-1 of the seismic design reference document
             </dd>
 
             <dt id="data-data-as">as</dt>
             <dd>
-                A<sub>s</sub> = F<sub>PGA</sub> x PGA (Equation 3.4.1-1), the design PGA
+                A<sub>s</sub> = F<sub>PGA</sub> x PGA (Equation 3.4.1-1), the design peak ground acceleration, in units of g
             </dd>
 
             <dt id="data-data-ss">ss</dt>
             <dd>
-              MCE<sub>R</sub> ground motion (0.2 s)
+              S<sub>S</sub>, the mapped short-period (0.2-second) spectral acceleration, in units of g
             </dd>
 
             <dt id="data-data-fa">fa</dt>
             <dd>
-              Site amplification factor (0.2 s)
+              F<sub>a</sub>, the site coefficient for S<sub>S</sub>, from Table 3.4.2.3-1
             </dd>
 
             <dt id="data-data-sds">sds</dt>
             <dd>
-              Numeric seismic design value (0.2 s)
+              S<sub>DS</sub> = F<sub>a</sub> x S<sub>S</sub> (Equation 3.4.1-2), the design short-period (0.2-second) spectral acceleration, in units of g
             </dd>
 
             <dt id="data-data-sds">s1</dt>
             <dd>
-              The mapped 1-second spectral acceleration, in units of g
+              S<sub>1</sub>, the mapped 1-second spectral acceleration, in units of g
             </dd>
 
             <dt id="data-data-fv">fv</dt>
             <dd>
-              Site amplification factor (1.0 s)
+              F<sub>v</sub>, the site coefficient for S<sub>1</sub>, from Table 3.4.2.3-2
             </dd>
 
             <dt id="data-data-sd1">sd1</dt>
             <dd>
-              Numeric seismic design value (1.0 s)
+              S<sub>D1</sub> = F<sub>v</sub> x S<sub>1</sub> (Equation 3.4.1-3), the design 1-second spectral acceleration, in units of g
             </dd>
 
             <dt id="data-data-sdc">sdc</dt>
             <dd>
-              Seismic design category from S<sub>DCS</sub> and S<sub>DC1</sub>
+              SDC, the Seismic Design Category from Table 3.5-1
             </dd>
 
             <dt id="data-data-ts">ts</dt>
             <dd>
-              T<sub>S</sub> = S<sub>D1</sub> / S<sub>DS</sub> (Equation 3.4.1-6), in seconds, for construction of the design response spectrum
+              T<sub>S</sub> = S<sub>D1</sub> / S<sub>DS</sub> (Equation 3.4.1-6), in seconds, for construction of design response spectrum
             </dd>
 
             <dt id="data-data-t0">t0</dt>
             <dd>
-              T<sub>0</sub> = 0.2T<sub>S</sub> (Equation 3.4.1-5), in seconds, for construction of the design response spectrum
+              T<sub>0</sub> = 0.2T<sub>S</sub> (Equation 3.4.1-5), in seconds, for construction of design response spectrum
             </dd>
 
             <dt id="data-data-sdSpectrum">sdSpectrum</dt>
             <dd>
-              Design horizontal response spectrum
+              S<sub>a</sub>, the design response spectrum from Figure 3.4.1-1 and Equation 3.4.1-4
             </dd>
 
           </dl>
@@ -191,17 +189,14 @@
                 griddedValuesID
               </dt>
               <dd>
-                Identifier for underlying gridded values
-                <br/>Possible outputs: <code>"1998-HI-AASHTO-05-050-R1.rnd"</code> for Hawaii, <code>"2002-US-AASHTO-05-050-R1.rnd"</code> for the conterminous United States, <code>"2003-PRVI-AASHTO-05-050-R1.rnd"</code> for Puerto Rico & the U.S. Virgin Islands, <code>"2006-AK-AASHTO-05-050-R1.rnd"</code> for Alaska
+                Identifier for underlying gridded values: "1998-HI-AASHTO-05-050-R1.rnd" for Hawaii, "2002-US-AASHTO-05-050-R1.rnd" for the conterminous United States, "2003-PRVI-AASHTO-05-050-R1.rnd" for Puerto Rico & the U.S. Virgin Islands, "2006-AK-AASHTO-05-050-R1.rnd" for Alaska
               </dd>
 
             <dt id="data-metadata-spatialInterpolationMethod">
               spatialInterpolationMethod
             </dt>
             <dd>
-              Identifier for spatial interpolation method used to obtain values
-              for location of interest from underlying gridded values
-              <br/>Possible outputs: <code>"linearlinearlinear"</code> for bilinear
+              Identifier for spatial interpolation method used to obtain values for location of interest from underlying gridded values: "linearlinearlinear" for bilinear
             </dd>
           </dl>
         </dd>
@@ -209,14 +204,14 @@
     </dd>
   </dl>
 
-  <h3 id="example_response">Example</h3>
+  <h2 id="example_response">Example</h2>
 
-  <h4>Request</h4>
+  <h3>Request</h3>
   <p>
     <a href="aashto-2009.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example"><span class="url-stub">&amp;hellip;</span>/aashto-2009.json?latitude=34&longitude=-118&riskCategory=III&siteClass=C&title=Example</a>
   </p>
 
-  <h4>Response</h4>
+  <h3>Response</h3>
   <div class="code">
     <pre>{
       "request": {
