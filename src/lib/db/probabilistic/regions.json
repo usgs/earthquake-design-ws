@@ -136,7 +136,7 @@
   },
   {
     "name": "E1998R1_HI0P02_Probabilistic_05-050",
-    "grid_spacing":    0.01,
+    "grid_spacing":    0.02,
     "max_latitude":    23.0,
     "max_longitude":  -154.0,
     "min_latitude":    18.6,
