@@ -240,7 +240,6 @@ const AASHTO2009Factory = function (options) {
         _this.computeSpectra(finalDesign)
       ]);
     }).then((promiseResults) => {
-      process.stdout.write('Calculate Design Category => ' + promiseResults[0]);
       result.designCategory = promiseResults[0];
       result.spectra = promiseResults[1];
 
