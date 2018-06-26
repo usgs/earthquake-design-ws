@@ -1,5 +1,7 @@
 'use strict';
 
+var bs = require('binarysearch');
+
 
 const NSHM_2002Factory = require('../basis/nshm_2002-factory'),
     extend = require('extend');
@@ -8,6 +10,10 @@ const NSHM_2002Factory = require('../basis/nshm_2002-factory'),
 const _DEFAULTS = {
   referenceDocument: 'AASHTO-2009'
 };
+
+// Used for DesignCategory Calculation
+const _sd1Thresholds = [ 0, 0.15, 0.30, 0.50];
+const sd1Map = ['A', 'B', 'C', 'D'];
 
 
 /**
@@ -81,6 +87,15 @@ const AASHTO2009Factory = function (options) {
         reject(err);
       }
     });
+  };
+
+  /** 
+   * Returns the Site Class based on the index of the sd1 value in the _sd1Thresholds array.
+   * @param {double} sd1 
+   */
+  _this.calculateDesignCategory = function(sd1) {
+    let pos = bs.closest(_sd1Thresholds, sd1);
+    return sd1Map[pos];
   };
 
   /**
@@ -221,11 +236,11 @@ const AASHTO2009Factory = function (options) {
       result.finalDesign = finalDesign;
 
       return Promise.all([
-        _this.designCategoryFactory.getDesignCategory(inputs.riskCategory,
-            result.basicDesign.s1, finalDesign.sds, finalDesign.sd1),
+        _this.calculateDesignCategory(finalDesign.sd1),
         _this.computeSpectra(finalDesign)
       ]);
     }).then((promiseResults) => {
+      process.stdout.write('Calculate Design Category => ' + promiseResults[0]);
       result.designCategory = promiseResults[0];
       result.spectra = promiseResults[1];
 

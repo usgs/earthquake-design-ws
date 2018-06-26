@@ -27,9 +27,6 @@ _DUMMY_FACTORY = {
   siteAmplificationService: {
     getData: () => { return Promise.resolve({response: {data: {}}}); }
   },
-  designCategoryFactory: {
-    getDesignCategory: () => { return Promise.resolve([]); }
-  },
   spectraFactory: {
     getHorizontalSpectrum: () => { return Promise.resolve([]); }
   }
@@ -151,10 +148,11 @@ describe('AASHTO_2009Factory', () => {
       sinon.stub(factory, 'computeBasicDesign').callsFake(
           () => {return Promise.resolve({}); });
 
-      sinon.spy(factory.siteAmplificationService, 'getData');
+      sinon.spy(factory.siteAmplificationService, 'getData'); 
       sinon.stub(factory, 'computeFinalDesign').callsFake(
           () => { return Promise.resolve([]); });
-      sinon.spy(factory.designCategoryFactory, 'getDesignCategory');
+      sinon.stub(factory, 'calculateDesignCategory').callsFake(
+          () => {return Promise.resolve({}); });
       sinon.stub(factory, 'computeSpectra').callsFake(
           () => { return Promise.resolve([]); });
       sinon.stub(factory, 'makeMultipleRequests').callsFake(
@@ -169,8 +167,7 @@ describe('AASHTO_2009Factory', () => {
         expect(factory.siteAmplificationService
           .getData.callCount).to.equal(1);
         expect(factory.computeFinalDesign.callCount).to.equal(1);
-        expect(factory.designCategoryFactory
-          .getDesignCategory.callCount).to.equal(1);
+        expect(factory.calculateDesignCategory.callCount).to.equal(1);
         expect(factory.computeSpectra.callCount).to.equal(1);
       }).catch((err) => {
         return err;
