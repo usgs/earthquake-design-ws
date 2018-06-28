@@ -126,6 +126,50 @@ describe('AASHTO_2009Factory', () => {
     });
   });
 
+  describe('calculateDesignCategory', () => {
+    it('returns correct category', () => {
+      var factory;
+
+      factory = AASHTO_2009Factory();
+      const siteClass = factory.calculateDesignCategory(0.09);
+      expect(siteClass).to.not.be.null;
+      expect(siteClass).to.equal('A');
+
+      const siteClass2 = factory.calculateDesignCategory(0.0);
+      expect(siteClass2).to.not.be.null;
+      expect(siteClass2).to.equal('A');
+
+      const siteClass3 = factory.calculateDesignCategory(-0.5);
+      expect(siteClass3).to.not.be.null;
+      expect(siteClass3).to.equal('A');
+
+      const siteClass4 = factory.calculateDesignCategory(0.2);
+      expect(siteClass4).to.not.be.null;
+      expect(siteClass4).to.equal('B');
+
+      const siteClass5 = factory.calculateDesignCategory(0.15);
+      expect(siteClass5).to.not.be.null;
+      expect(siteClass5).to.equal('B');
+
+      const siteClass6 = factory.calculateDesignCategory(0.35);
+      expect(siteClass6).to.not.be.null;
+      expect(siteClass6).to.equal('C');
+
+      const siteClass7 = factory.calculateDesignCategory(0.30);
+      expect(siteClass7).to.not.be.null;
+      expect(siteClass7).to.equal('C');
+
+      const siteClass8 = factory.calculateDesignCategory(0.55);
+      expect(siteClass8).to.not.be.null;
+      expect(siteClass8).to.equal('D');
+
+      const siteClass9 = factory.calculateDesignCategory(0.50);
+      expect(siteClass9).to.not.be.null;
+      expect(siteClass9).to.equal('D');
+
+    });
+  });
+
   describe('get', () => {
     it('returns a promise', () => {
       var factory;

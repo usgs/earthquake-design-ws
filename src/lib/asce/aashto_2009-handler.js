@@ -77,7 +77,7 @@ const AASHTO2009Handler = function (options) {
             s1: NumberUtils.round(basicDesign.s1,_this.outputDecimals),
             fv: NumberUtils.round(siteAmplification.fv, _this.outputDecimals),
             sd1: NumberUtils.round(finalDesign.sd1, _this.outputDecimals),
-            sdc: designCategory.sdc,
+            sdc: designCategory,
 
             ts: NumberUtils.round(finalDesign.ts, _this.outputDecimals),
             t0: NumberUtils.round(finalDesign.t0, _this.outputDecimals),
