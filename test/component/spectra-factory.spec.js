@@ -144,6 +144,15 @@ describe('SpectraFactory', () => {
         done(err);
       });
     });
+
+    it('resolves with null value when null values are given', (done) => {
+      const factory = SpectraFactory();
+
+      factory.getAashtoSpectrum(null, null, null).then((result) => {
+        expect(result.data[0][0]).to.equal(null);
+        done();
+      }).catch(done);
+    });
   });
 
   describe('getHorizontalSpectrum', () => {
@@ -296,6 +305,7 @@ describe('SpectraFactory', () => {
       const factory = SpectraFactory();
 
       factory.getHorizontalSpectrum(null).then((result) => {
+        process.stdout.write(JSON.stringify(result, null, 2) + '\n');
         expect(result[0][0]).to.equal(null);
         done();
       }).catch(done);

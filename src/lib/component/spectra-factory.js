@@ -60,7 +60,11 @@ const SpectraFactory = function (options) {
 
       if (sds === null || sd1 === null || pgad === null) {
         spectrum = [[null]];
-        return resolve(spectrum);
+        return resolve({
+          data: spectrum,
+          ts: null,
+          t0: null
+        });
       }
 
       // TODO :: Does this adjustment apply to aashto?
