@@ -173,8 +173,10 @@ describe('WebService test suite', () => {
           service;
 
       request = {
-        hostname: 'hostname',
-        originalUrl: '/url',
+        headers: {
+          host: 'hostname'
+        },
+        originalUrl: '/url?latitude=40&longitude=-105',
         protocol: 'protocol',
         query: {
           latitude: 40,
@@ -186,7 +188,7 @@ describe('WebService test suite', () => {
       metadata = service.getRequestMetadata(request, true);
 
       expect(metadata.status).to.equal('success');
-      expect(metadata.url).to.equal('protocol://hostname/url');
+      expect(metadata.url).to.equal('protocol://hostname/url?latitude=40&longitude=-105');
       expect(metadata.parameters).to.deep.equal(request.query);
     });
   });

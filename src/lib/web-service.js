@@ -173,21 +173,27 @@ const WebService = function (options) {
     let params,
         protocol,
         referenceDocument,
-        safeParams;
+        safeParams,
+        safeUrl;
 
-    request = request || {};
+    request = request || {headers: {}, originalUrl: ''};
     params = request.query || {};
     safeParams = {};
+    safeUrl = [];
 
     referenceDocument = params.referenceDocument;
     delete params.referenceDocument;
 
     Object.keys(params).forEach((key) => {
+      let safeValue;
       if (['latitude', 'longitude', 'customProbability'].indexOf(key) !== -1) {
-        safeParams[key] = parseFloat(params[key]);
+        safeValue = parseFloat(params[key]);
       } else {
-        safeParams[key] = escape(params[key]);
+        safeValue = escape(params[key]);
       }
+
+      safeParams[key] = safeValue;
+      safeUrl.push(`${key}=${safeValue}`);
     });
 
     if (typeof request.get === 'function') {
@@ -202,8 +208,8 @@ const WebService = function (options) {
       date: new Date().toISOString(),
       referenceDocument: escape(referenceDocument),
       status: isSuccess ? 'success' : 'error',
-      url: protocol + '://' + escape(request.hostname) +
-          escape(request.originalUrl),
+      url: protocol + '://' + escape(request.headers.host) +
+          request.originalUrl.split('?')[0] + '?' + safeUrl.join('&'),
       parameters: safeParams
     };
   };
