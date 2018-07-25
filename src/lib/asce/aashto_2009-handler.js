@@ -27,6 +27,60 @@ const AASHTO2009Handler = function (options) {
 
 
   /**
+   * Checks params for null or undefined values.
+   *
+   * @param params {Object}
+   *    Object containing required parameters.
+   *
+   * @param {Promise<array, Error>}
+   *    A promise resolving with an array of missing parameter(s) and error or
+   *    resolves with params if all values pass checks.
+   */
+  _this.checkParams = function (params) {
+    let buf,
+        err,
+        latitude,
+        longitude,
+        siteClass,
+        title;
+
+    buf = [];
+
+    params = params || {};
+    params.referenceDocument = _this.referenceDocument;
+
+    latitude = params.latitude;
+    longitude = params.longitude;
+    siteClass = params.siteClass;
+    title = params.title;
+
+    if (typeof latitude === 'undefined' || latitude === null) {
+      buf.push('latitude');
+    }
+
+    if (typeof longitude === 'undefined' || longitude === null) {
+      buf.push('longitude');
+    }
+
+    if (typeof siteClass === 'undefined' || siteClass === null) {
+      buf.push('siteClass');
+    }
+
+    if (typeof title === 'undefined' || title === null) {
+      buf.push('title');
+    }
+
+    if (buf.length > 0) {
+      err = new Error('Missing required parameter' +
+          (buf.length > 1 ? 's' : '') + ': ' + buf.join(', '));
+      err.status = 400;
+      return Promise.reject(err);
+    }
+
+    return Promise.resolve(params);
+  };
+
+  /**
    * Format the factory response
    *
    * @param result {Object}
