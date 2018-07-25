@@ -89,13 +89,24 @@ const AASHTO2009Factory = function (options) {
     });
   };
 
-  /** 
-   * Returns the Site Class based on the index of the sd1 value in the _sd1Thresholds array.
-   * @param {double} sd1 
+  /**
+   * Returns the Site Class based on the index of the sd1 value in the
+   * _sd1Thresholds array.
+   *
+   * @param {Number} sd1
+   *
+   * @return {Promsie<String>}
+   *     A promising resolving with the seismic design category identifier.
    */
   _this.calculateDesignCategory = function(sd1) {
-    let pos = bs.closest(_sd1Thresholds, sd1);
-    return sd1Map[pos];
+    return new Promise((resolve, reject) => {
+      try {
+        let pos = bs.closest(_sd1Thresholds, sd1);
+        return resolve(sd1Map[pos]);
+      } catch (e) {
+        return reject (e);
+      }
+    });
   };
 
   /**
