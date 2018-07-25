@@ -69,22 +69,14 @@ const AASHTO2009Factory = function (options) {
 
   _this.computeSpectralAcceleration = function (data) {
     return new Promise((resolve, reject) => {
-      let result = null;
-
       try {
-
-        result = {
-          sds: null,
-          sd1: null
-        };
-
-        result.sds = data.fa * data.ss;
-        result.sd1 = data.fv * data.s1;
-
-        resolve(result);
-
+        return resolve({
+          as: data.fpga * data.pga,
+          sds: data.fa * data.ss,
+          sd1: data.fv * data.s1
+        });
       } catch (err) {
-        reject(err);
+        return reject(err);
       }
     });
   };
@@ -132,73 +124,63 @@ const AASHTO2009Factory = function (options) {
           siteAmplification;
 
       finalDesign = {
-        sms: null,
-        sm1: null,
+        as: null,
         sds: null,
-        sd1: null,
-        ts: null,
-        t0: null
+        sd1: null
       };
 
       try {
         basicDesign = data.basicDesign;
         siteAmplification = data.siteAmplification;
 
-        finalDesign.sms = _this.computeSiteModifiedValue(basicDesign.ss,
-            siteAmplification.fa);
-        finalDesign.sm1 = _this.computeSiteModifiedValue(basicDesign.s1,
-            siteAmplification.fv);
-
-        const spectralArgs = {
+        _this.computeSpectralAcceleration({
           fa: siteAmplification.fa,
+          fpga: siteAmplification.fpga,
           fv: siteAmplification.fv,
+          pga: basicDesign.pga,
           ss: basicDesign.ss,
           s1: basicDesign.s1
-        };
-
-        _this.computeSpectralAcceleration(spectralArgs).then((spectralAcceleration) => {
-
+        }).then((spectralAcceleration) => {
+          finalDesign.as = spectralAcceleration.as;
           finalDesign.sds = spectralAcceleration.sds;
           finalDesign.sd1 = spectralAcceleration.sd1;
 
-          finalDesign.ts = finalDesign.sd1 / finalDesign.sds;
-          finalDesign.t0 = 0.2 * finalDesign.ts;
-
-          resolve(finalDesign);
+          return resolve(finalDesign);
         });
       } catch (err) {
-        reject(err);
+        return reject(err);
       }
     });
   };
 
   /**
-   * Computes the design PGA: AS = FPGA x PGA (Equation 3.4.1-1)
+   * Computes spectra for site-modified and design values using the
+   * `_this.spectraFactory`.
    *
-   * @param data {Object}
-   *     An object containing `FPGA` and `PGA` information.
+   * @param params {Object}
+   *     An object containing design ground motion values.
+   * @param params.as {Double}
+   *     The PGA design ground motion
+   * @param params.sd1 {Double}
+   *     The 1.0 second spectral period design ground motion
+   * @param params.sds {Double}
+   *     The 0.2 second spectral period design ground motion
    *
-   * @return {Object}
-   *    An object containing the final design ground motion data, namely:
-   *    `as`
+   * @return {Promise}
+   *     A promise that resolves with an object containing sdSpectrum data
+   *     and parameterizing metadata.
    */
-  _this.computeDesignPGA = function (data) {
-    // return Promise.resolve({});
-    return new Promise((resolve, reject) => {
-      let designPGA;
+  _this.computeSpectra = function (params) {
+    let pgad,
+        sd1,
+        sds;
 
-      designPGA = {
-        as: null
-      };
+    params = params || {};
+    sds = params.sds;
+    sd1 = params.sd1;
+    pgad = params.as;
 
-      try {
-        designPGA.as = data.FPGA * data.PGA;
-
-        resolve(designPGA);
-      } catch (err) {
-        reject(err);
-      }
-    });
+    return _this.spectraFactory.getAashtoSpectrum(sds, sd1, pgad);
   };
 
   _this.get = function (inputs) {
@@ -213,7 +195,7 @@ const AASHTO2009Factory = function (options) {
       metadata: null,
       probabilistic: null,
       siteAmplification: null,
-      designPGA: null
+      spectrum: null
     };
 
     return Promise.all([
@@ -233,15 +215,6 @@ const AASHTO2009Factory = function (options) {
     }).then((siteAmplification) => {
       result.siteAmplification = siteAmplification.response.data;
 
-      const dpgaData = {
-        PGA: result.basicDesign.pga,
-        FPGA: result.siteAmplification.fpga
-      };
-
-      return _this.computeDesignPGA(dpgaData);
-    }).then((designPGA) => {
-      result.designPGA = designPGA;
-
       return _this.computeFinalDesign(result);
     }).then((finalDesign) => {
       result.finalDesign = finalDesign;
@@ -252,7 +225,7 @@ const AASHTO2009Factory = function (options) {
       ]);
     }).then((promiseResults) => {
       result.designCategory = promiseResults[0];
-      result.spectra = promiseResults[1];
+      result.spectrum = promiseResults[1];
 
       return result;
     });

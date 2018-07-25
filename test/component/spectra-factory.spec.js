@@ -27,9 +27,137 @@ describe('SpectraFactory', () => {
     });
   });
 
+  describe('getAashtoSpectrum', () => {
+    it('property computes a spectrum', (done) => {
+      let factory = SpectraFactory();
+
+      factory.getAashtoSpectrum(
+          1.512140036,
+          0.716350674,
+          0.637109995
+      ).then((result) => {
+        const calculated = result.data;
+        const expectation = [
+          [0,0.637],
+          [0.025,0.844],
+          [0.05,1.084],
+          [0.095,1.512],
+          [0.1,1.512],
+          [0.15,1.512],
+          [0.2,1.512],
+          [0.25,1.512],
+          [0.3,1.512],
+          [0.35,1.512],
+          [0.4,1.512],
+          [0.45,1.512],
+          [0.474,1.512],
+          [0.5,1.433],
+          [0.55,1.302],
+          [0.6,1.194],
+          [0.65,1.102],
+          [0.7,1.023],
+          [0.75,0.955],
+          [0.8,0.895],
+          [0.85,0.843],
+          [0.9,0.796],
+          [0.95,0.754],
+          [1,0.716],
+          [1.05,0.682],
+          [1.1,0.651],
+          [1.15,0.623],
+          [1.2,0.597],
+          [1.25,0.573],
+          [1.3,0.551],
+          [1.35,0.531],
+          [1.4,0.512],
+          [1.45,0.494],
+          [1.5,0.478],
+          [1.55,0.462],
+          [1.6,0.448],
+          [1.65,0.434],
+          [1.7,0.421],
+          [1.75,0.409],
+          [1.8,0.398],
+          [1.85,0.387],
+          [1.9,0.377],
+          [1.95,0.367],
+          [2,0.358],
+          [2.05,0.349],
+          [2.1,0.341],
+          [2.15,0.333],
+          [2.2,0.326],
+          [2.25,0.318],
+          [2.3,0.311],
+          [2.35,0.305],
+          [2.4,0.298],
+          [2.45,0.292],
+          [2.5,0.287],
+          [2.55,0.281],
+          [2.6,0.276],
+          [2.65,0.27],
+          [2.7,0.265],
+          [2.75,0.26],
+          [2.8,0.256],
+          [2.85,0.251],
+          [2.9,0.247],
+          [2.95,0.243],
+          [3,0.239],
+          [3.05,0.235],
+          [3.1,0.231],
+          [3.15,0.227],
+          [3.2,0.224],
+          [3.25,0.22],
+          [3.3,0.217],
+          [3.35,0.214],
+          [3.4,0.211],
+          [3.45,0.208],
+          [3.5,0.205],
+          [3.55,0.202],
+          [3.6,0.199],
+          [3.65,0.196],
+          [3.7,0.194],
+          [3.75,0.191],
+          [3.8,0.189],
+          [3.85,0.186],
+          [3.9,0.184],
+          [3.95,0.181],
+          [4,0.179]
+        ];
+
+        expectation.forEach((expected, index) => {
+          const actual = calculated[index];
+          const actual_x = actual[0];
+          const actual_y = actual[1];
+          const expected_x = expected[0];
+          const expected_y = expected[1];
+
+          expect(Math.round(actual_x * 1000) / 1000).to.be.closeTo(
+              expected_x, Number.EPSILON);
+          expect(Math.round(actual_y * 1000) / 1000).to.be.closeTo(
+              expected_y, Number.EPSILON);
+        });
+      }).catch((err) => {
+        return err;
+      }).then((err) => {
+        factory.destroy();
+        factory = null;
+        done(err);
+      });
+    });
+
+    it('resolves with null value when null values are given', (done) => {
+      const factory = SpectraFactory();
+
+      factory.getAashtoSpectrum(null, null, null).then((result) => {
+        expect(result.data[0][0]).to.equal(null);
+        done();
+      }).catch(done);
+    });
+  });
+
   describe('getHorizontalSpectrum', () => {
 
-    it('properly compute a spectra', (done) => {
+    it('properly compute a spectrum', (done) => {
       let factory = SpectraFactory();
 
       factory.getHorizontalSpectrum(1.5384, 0.8248, 4).then((result) => {

@@ -109,7 +109,7 @@ const MetadataFactory = function (options) {
     return _this.getRegion(latitude, longitude, referenceDocument).then((region) => {
       return _this.getData(inputs.referenceDocument, region);
     }).catch((err) => {
-      process.stdout.write(err.stack);
+      process.stderr.write(err.stack);
     });
   };
 
