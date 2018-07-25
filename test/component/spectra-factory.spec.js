@@ -305,7 +305,6 @@ describe('SpectraFactory', () => {
       const factory = SpectraFactory();
 
       factory.getHorizontalSpectrum(null).then((result) => {
-        process.stdout.write(JSON.stringify(result, null, 2) + '\n');
         expect(result[0][0]).to.equal(null);
         done();
       }).catch(done);

@@ -102,7 +102,6 @@ const AASHTO2009Handler = function (options) {
           spectrum;
 
       try {
-        process.stdout.write(JSON.stringify(result, null, 2) + '\n');
         basicDesign = result.basicDesign;
         designCategory = result.designCategory;
         finalDesign = result.finalDesign;
