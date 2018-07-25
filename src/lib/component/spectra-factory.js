@@ -53,6 +53,52 @@ const SpectraFactory = function (options) {
     _this = null;
   };
 
+  _this.getAashtoSpectrum = function (sds, sd1, pgad) {
+    return new Promise((resolve/*, reject*/) => {
+      let spectrum,
+          times;
+
+      if (sds === null || sd1 === null || pgad === null) {
+        spectrum = [[null]];
+        return resolve(spectrum);
+      }
+
+      // TODO :: Does this adjustment apply to aashto?
+      if (sd1 > sds) {
+        sds = sd1;
+      }
+
+      spectrum = [];
+      const T_S = sd1 / sds;
+      const T_0 = 0.2 * T_S;
+
+      // Extend to T = 4.0 s. Using 3.0 here because internally the
+      // `getTimeValues` method takes the end to be T_L + 1.0
+      times = _this.getTimeValues(sds, sd1, 3.0);
+      times.forEach((time) => {
+        let s_a;
+
+        if (time === 0) {
+          s_a = pgad;
+        } else if (time <= T_0) {
+          s_a = sds *  (0.4 + ((0.6 * time) / T_0));
+        } else if (time <= T_S) {
+          s_a = sds;
+        } else {
+          s_a = sd1 / time;
+        }
+
+        spectrum.push([time, s_a]);
+      });
+
+      return resolve({
+        data: spectrum,
+        t0: T_0,
+        ts: T_S
+      });
+    });
+  };
+
   /**
    * Computes a horizontal design response spectrum.
    *
@@ -135,15 +181,14 @@ const SpectraFactory = function (options) {
         times,
         ts;
 
-    // If 1.0-second ground motion exceeds 0.2-second ground motion,
-    // take the 0.2-second ground motion to equal the 1.0-second ground
-    // motion. This prevents awkward spectra results
     if (gms === null || gm1 === null) {
-      times = [];
-      times.push(null);
+      times = [null];
       return times;
     }
 
+    // If 1.0-second ground motion exceeds 0.2-second ground motion,
+    // take the 0.2-second ground motion to equal the 1.0-second ground
+    // motion. This prevents awkward spectra results
     if (gm1 > gms) {
       gms = gm1;
     }
