@@ -42,24 +42,22 @@ describe('aashto_2009-handler', () => {
           'fa': null,
           'fv': null
         },
-        'designPGA': {
-          'as': null
-        },
         'finalDesign': {
+          'as': null,
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null,
-          'ts': null,
-          't0': null
+          'sd1': null
         },
         'designCategory': {
           'sdcs': null,
           'sdc1': null,
           'sdc': null
         },
-        'spectra': {
-          'sdSpectrum': []
+        'spectrum': {
+          'data': [],
+          'ts': null,
+          't0': null
         },
         'metadata': {
           'response': {
@@ -81,7 +79,7 @@ describe('aashto_2009-handler', () => {
           'ss', 'fa', 'sds', 's1',
           'fv','sd1','sdc',
           'ts', 't0',
-          'sdSpectrum' 
+          'sdSpectrum'
         ].forEach((key) => {
           expect(formatted.data.hasOwnProperty(key)).to.equal(true);
         });
@@ -115,23 +113,23 @@ describe('aashto_2009-handler', () => {
           'fv': null
         },
         'designPGA': {
-          'as': null
         },
         'finalDesign': {
+          'as': null,
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null,
-          'ts': null,
-          't0': null
+          'sd1': null
         },
         'designCategory': {
           'sdcs': null,
           'sdc1': null,
           'sdc': null
         },
-        'spectra': {
-          'sdSpectrum': []
+        'spectrum': {
+          'data': [],
+          'ts': null,
+          't0': null
         },
         'metadata': {
           'response': {
@@ -173,23 +171,23 @@ describe('aashto_2009-handler', () => {
           'fv': 1.3
         },
         'designPGA': {
-          'as': null
         },
         'finalDesign': {
+          'as': null,
           'sms': null,
           'sm1': null,
           'sds': null,
-          'sd1': null,
-          'ts': null,
-          't0': null
+          'sd1': null
         },
         'designCategory': {
           'sdcs': null,
           'sdc1': null,
           'sdc': null
         },
-        'spectra': {
-          'sdSpectrum': []
+        'spectrum': {
+          'data': [],
+          'ts': null,
+          't0': null
         },
         'metadata': {
           'response': {

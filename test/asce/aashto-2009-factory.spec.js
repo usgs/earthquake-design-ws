@@ -103,21 +103,20 @@ describe('AASHTO_2009Factory', () => {
 
       factory = AASHTO_2009Factory();
 
-      sinon.spy(factory, 'computeSiteModifiedValue');
-      sinon.spy(factory, 'computeDesignValue');
       sinon.spy(factory, 'computeSpectralAcceleration');
 
       factory.computeFinalDesign({
         basicDesign: {ss: 0, s1: 0},
         siteAmplification: {fa: 0, fv: 0}
-      }).then(() => {
-        expect(factory.computeSiteModifiedValue.callCount).to.equal(2);
+      }).then((finalDesign) => {
         expect(factory.computeSpectralAcceleration.callCount).to.equal(1);
+        expect(finalDesign.hasOwnProperty('as')).to.be.true;
+        expect(finalDesign.hasOwnProperty('sds')).to.be.true;
+        expect(finalDesign.hasOwnProperty('sd1')).to.be.true;
       }).catch((err) => {
         return err;
       }).then((err) => {
-        factory.computeSiteModifiedValue.restore();
-        factory.computeDesignValue.restore();
+        factory.computeSpectralAcceleration.restore();
 
         factory.destroy();
 
