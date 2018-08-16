@@ -190,8 +190,8 @@ node {
       def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
 
       // Start a container to run penetration tests against
-        docker run --rm --name ${WS_CONTAINER} \
       sh """
+        docker run --rm --name ${WS_CONTAINER} \
           -d ${WS_LOCAL_IMAGE}
       """
 
