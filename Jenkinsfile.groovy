@@ -5,15 +5,18 @@ node {
   def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/images"
   def FAILURE = null
   def SCM_VARS = null
-
-  def BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
+  
   def DEPLOY_BASE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
-  def DEPLOY_DB_IMAGE = "${DEPLOY_BASE}/db"
-  def DEPLOY_WS_IMAGE = "${DEPLOY_BASE}/ws"
   def IMAGE_VERSION = 'latest'
-  def LOCAL_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
-  def LOCAL_DB_IMAGE = "local/${APP_NAME}/db"
-  def LOCAL_WS_IMAGE = "local/${APP_NAME}/ws"
+
+  def DB_BASE_IMAGE = "${DEVOPS_REGISTRY}/mdillon/postgis:9.6"
+  def DB_DEPLOY_IMAGE = "${DEPLOY_BASE}/db"
+  def DB_LOCAL_IMAGE = "local/${APP_NAME}/db"
+  
+  def WS_BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
+  def WS_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
+  def WS_DEPLOY_IMAGE = "${DEPLOY_BASE}/ws"
+  def WS_LOCAL_IMAGE = "local/${APP_NAME}/ws"
 
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/owasp/zap2docker-stable"
@@ -66,7 +69,7 @@ node {
 
     SCAN_AND_BUILD_TASKS["Scan Dependencies"] = {
       stage('Scan Dependencies') {
-        docker.image(BASE_IMAGE).inside() {
+        docker.image(WS_BASE_IMAGE).inside() {
           // Create dependencies
           withEnv([
             'npm_config_cache=/tmp/npm-cache',
@@ -139,15 +142,15 @@ node {
             docker build \
               --no-cache \
               --file ws.Dockerfile \
-              --build-arg BASE_IMAGE=${BASE_IMAGE} \
-              -t ${LOCAL_WS_IMAGE} .
+              --build-arg BASE_IMAGE=${WS_BASE_IMAGE} \
+              -t ${WS_LOCAL_IMAGE} .
           """
           sh """
             docker build \
               --no-cache \
               --file db.Dockerfile \
-              --build-arg BASE_IMAGE=${BASE_DB_IMAGE} \
-              -t ${LOCAL_DB_IMAGE} .
+              --build-arg BASE_IMAGE=${DB_BASE_IMAGE} \
+              -t ${DB_LOCAL_IMAGE} .
           """
         }
       }
@@ -161,7 +164,7 @@ node {
         sh """
           docker run --rm \
             -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-            ${LOCAL_WS_IMAGE} \
+            ${WS_LOCAL_IMAGE} \
             /bin/bash --login -c 'npm run coverage'
         """
       }
@@ -187,16 +190,16 @@ node {
       def SCAN_URL_BASE = 'http://application:8000/ws/designmaps'
 
       // Start a container to run penetration tests against
+        docker run --rm --name ${WS_CONTAINER} \
       sh """
-        docker run --rm --name ${LOCAL_CONTAINER} \
-          -d ${LOCAL_WS_IMAGE}
+          -d ${WS_LOCAL_IMAGE}
       """
 
       // Start a container to execute OWASP PENTEST
       sh """
         docker run --rm -d -u zap \
+          --link=${WS_CONTAINER}:application \
           --name=${OWASP_CONTAINER} \
-          --link=${LOCAL_CONTAINER}:application \
           -v ${WORKSPACE}/owasp-data:/zap/reports:rw \
           -i ${OWASP_IMAGE} \
           zap.sh \
@@ -277,8 +280,8 @@ node {
           docker exec ${OWASP_CONTAINER} \
             zap-cli -v -p ${ZAP_API_PORT} report \
             -o /zap/reports/owasp-zap-report.html -f html
+          docker stop ${OWASP_CONTAINER} ${WS_CONTAINER}
 
-          docker stop ${OWASP_CONTAINER} ${LOCAL_CONTAINER}
         """
       }
 
@@ -302,17 +305,17 @@ node {
         ansiColor('xterm') {
           sh """
             docker tag \
-              ${LOCAL_WS_IMAGE} \
-              ${DEPLOY_WS_IMAGE}:${IMAGE_VERSION}
+              ${WS_LOCAL_IMAGE} \
+              ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
 
             docker tag \
-              ${LOCAL_DB_IMAGE} \
-              ${DEPLOY_DB_IMAGE}:${IMAGE_VERSION}
+              ${DB_LOCAL_IMAGE} \
+              ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
           """
 
           sh """
-            docker push ${DEPLOY_WS_IMAGE}:${IMAGE_VERSION}
-            docker push ${DEPLOY_DB_IMAGE}:${IMAGE_VERSION}
+            docker push ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
+            docker push ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
           """
         }
       }
@@ -342,13 +345,13 @@ node {
         set +e;
 
         docker container stop \
+          ${WS_CONTAINER} \
           ${OWASP_CONTAINER} \
-          ${LOCAL_CONTAINER} \
         2> /dev/null;
 
         docker container rm --force \
+          ${WS_CONTAINER} \
           ${OWASP_CONTAINER} \
-          ${LOCAL_CONTAINER} \
         2> /dev/null;
 
         exit 0;
