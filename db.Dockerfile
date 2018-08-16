@@ -8,5 +8,5 @@ HEALTHCHECK \
     --interval=15s \
     --timeout=1s \
     --start-period=1m \
-    --retriest=2
+    --retries=2 \
   CMD /healthcheck.sh
