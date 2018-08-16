@@ -1,13 +1,14 @@
-#!/bin/bash -ex
+#!/bin/bash -e
 
 host=$(hostname -i || echo '127.0.0.1');
 port="${PORT:-8000}";
-mount_path="${MOUNT_PATH:-/}";
+mount_path="${MOUNT_PATH:-/ws/designmaps}";
 
 args=(
   -s
   -o /dev/null
-  -w '{http_code}'
+  -w '%{http_code}'
+  -A 'Internal Healthcheck'
   "http://${host}:${port}${mount_path}/"
 );
 
