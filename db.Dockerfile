@@ -3,7 +3,7 @@ FROM ${FROM_IMAGE}
 
 COPY ./healthcheck-db.sh /healthcheck.sh
 
-# Data is not loaded at startup, so okay to have shorted start period
+# Data is not loaded at startup, so okay to have shorter start period
 HEALTHCHECK \
     --interval=15s \
     --timeout=1s \
