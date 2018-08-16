@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/bash -ex
 
 host=$(hostname -i || echo '127.0.0.1');
 port="${PORT:-8000}";
@@ -8,7 +8,7 @@ args=(
   -s
   -o /dev/null
   -w '{http_code}'
-  "http://${host}:${port}${mount_path}"
+  "http://${host}:${port}${mount_path}/"
 );
 
 http_code=$(curl "${args[@]}");
