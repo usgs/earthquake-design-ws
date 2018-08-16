@@ -7,10 +7,13 @@ node {
   def SCM_VARS = null
 
   def BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
-  def DEPLOY_IMAGE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
+  def DEPLOY_BASE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
+  def DEPLOY_DB_IMAGE = "${DEPLOY_BASE}/db"
+  def DEPLOY_WS_IMAGE = "${DEPLOY_BASE}/ws"
   def IMAGE_VERSION = 'latest'
-  def LOCAL_IMAGE = "local/${APP_NAME}:latest"
   def LOCAL_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
+  def LOCAL_DB_IMAGE = "local/${APP_NAME}/db"
+  def LOCAL_WS_IMAGE = "local/${APP_NAME}/ws"
 
   def OWASP_CONTAINER = "${APP_NAME}-${BUILD_ID}-OWASP"
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/owasp/zap2docker-stable"
@@ -135,8 +138,16 @@ node {
           sh """
             docker build \
               --no-cache \
+              --file ws.Dockerfile \
               --build-arg BASE_IMAGE=${BASE_IMAGE} \
-              -t ${LOCAL_IMAGE} .
+              -t ${LOCAL_WS_IMAGE} .
+          """
+          sh """
+            docker build \
+              --no-cache \
+              --file db.Dockerfile \
+              --build-arg BASE_IMAGE=${BASE_DB_IMAGE} \
+              -t ${LOCAL_DB_IMAGE} .
           """
         }
       }
@@ -150,7 +161,7 @@ node {
         sh """
           docker run --rm \
             -v ${WORKSPACE}/coverage:/hazdev-project/coverage \
-            ${LOCAL_IMAGE} \
+            ${LOCAL_WS_IMAGE} \
             /bin/bash --login -c 'npm run coverage'
         """
       }
@@ -178,7 +189,7 @@ node {
       // Start a container to run penetration tests against
       sh """
         docker run --rm --name ${LOCAL_CONTAINER} \
-          -d ${LOCAL_IMAGE}
+          -d ${LOCAL_WS_IMAGE}
       """
 
       // Start a container to execute OWASP PENTEST
@@ -291,12 +302,17 @@ node {
         ansiColor('xterm') {
           sh """
             docker tag \
-              ${LOCAL_IMAGE} \
-              ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+              ${LOCAL_WS_IMAGE} \
+              ${DEPLOY_WS_IMAGE}:${IMAGE_VERSION}
+
+            docker tag \
+              ${LOCAL_DB_IMAGE} \
+              ${DEPLOY_DB_IMAGE}:${IMAGE_VERSION}
           """
 
           sh """
-            docker push ${DEPLOY_IMAGE}:${IMAGE_VERSION}
+            docker push ${DEPLOY_WS_IMAGE}:${IMAGE_VERSION}
+            docker push ${DEPLOY_DB_IMAGE}:${IMAGE_VERSION}
           """
         }
       }
@@ -306,7 +322,8 @@ node {
       build(
         job: 'deploy-ws',
         parameters: [
-          string(name: 'IMAGE_VERSION', value: IMAGE_VERSION)
+          string(name: 'WS_IMAGE_VERSION', value: IMAGE_VERSION),
+          string(name: 'DB_IMAGE_VERSION', value: IMAGE_VERSION)
         ],
         propagate: false,
         wait: false
