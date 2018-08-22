@@ -22,6 +22,7 @@ node {
   def OWASP_IMAGE = "${DEVOPS_REGISTRY}/owasp/zap2docker-stable"
 
   def SCAN_AND_BUILD_TASKS = [:]
+  def PUBLISH_IMAGE_TASKS = [:]
 
 
   try {
@@ -135,8 +136,8 @@ node {
     //   }
     // }
 
-    SCAN_AND_BUILD_TASKS["Build Image"] = {
-      stage('Build Image') {
+    SCAN_AND_BUILD_TASKS["Build WS Image"] = {
+      stage('Build WS Image') {
         ansiColor('xterm') {
           sh """
             docker build \
@@ -144,6 +145,13 @@ node {
               --build-arg BASE_IMAGE=${WS_BASE_IMAGE} \
               -t ${WS_LOCAL_IMAGE} .
           """
+        }
+      }
+    }
+
+    SCAN_AND_BUILD_TASKS["Build DB Image"] = {
+      stage('Build DB Image') {
+        ansiColor('xterm') {
           sh """
             docker build \
               --file db.Dockerfile \
@@ -294,30 +302,49 @@ node {
     //   ])
     // }
 
+    PUBLISH_IMAGE_TASKS['Publish WS IMAGE'] = {
+      stage('Publish WS Image') {
+        docker.withRegistry(
+          "https://${GITLAB_INNERSOURCE_REGISTRY}",
+          'innersource-hazdev-cicd'
+        ) {
+          ansiColor('xterm') {
+            sh """
+              docker tag \
+                ${WS_LOCAL_IMAGE} \
+                ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
+            """
 
-    stage('Publish Image') {
-      docker.withRegistry(
-        "https://${GITLAB_INNERSOURCE_REGISTRY}",
-        'innersource-hazdev-cicd'
-      ) {
-        ansiColor('xterm') {
-          sh """
-            docker tag \
-              ${WS_LOCAL_IMAGE} \
-              ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
-
-            docker tag \
-              ${DB_LOCAL_IMAGE} \
-              ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
-          """
-
-          sh """
-            docker push ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
-            docker push ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
-          """
+            sh """
+              docker push ${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}
+            """
+          }
         }
       }
     }
+
+    PUBLISH_IMAGE_TASKS['Publish DB IMAGE'] = {
+      stage('Publish DB Image') {
+        docker.withRegistry(
+          "https://${GITLAB_INNERSOURCE_REGISTRY}",
+          'innersource-hazdev-cicd'
+        ) {
+          ansiColor('xterm') {
+            sh """
+              docker tag \
+                ${DB_LOCAL_IMAGE} \
+                ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
+            """
+
+            sh """
+              docker push ${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}
+            """
+          }
+        }
+      }
+    }
+
+    parellel PUBLISH_IMAGE_TASKS
 
     stage('Trigger Deploy') {
       def DB_IMAGE = "${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}"
