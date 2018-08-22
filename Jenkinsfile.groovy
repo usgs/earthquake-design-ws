@@ -5,14 +5,14 @@ node {
   def DEVOPS_REGISTRY = "${GITLAB_INNERSOURCE_REGISTRY}/devops/images"
   def FAILURE = null
   def SCM_VARS = null
-  
+
   def DEPLOY_BASE = "${GITLAB_INNERSOURCE_REGISTRY}/ghsc/hazdev/${APP_NAME}"
   def IMAGE_VERSION = 'latest'
 
   def DB_BASE_IMAGE = "${DEVOPS_REGISTRY}/mdillon/postgis:9.6"
   def DB_DEPLOY_IMAGE = "${DEPLOY_BASE}/db"
   def DB_LOCAL_IMAGE = "local/${APP_NAME}/db"
-  
+
   def WS_BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
   def WS_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
   def WS_DEPLOY_IMAGE = "${DEPLOY_BASE}/ws"
@@ -333,10 +333,10 @@ node {
       )
     }
   } catch (e) {
-    mail to: 'gs-haz_dev_team_group@usgs.gov',
-      from: 'noreply@jenkins',
-      subject: "Jenkins Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-      body: "Project build (${BUILD_TAG}) failed '${e}'"
+    // mail to: 'gs-haz_dev_team_group@usgs.gov',
+    //   from: 'noreply@jenkins',
+    //   subject: "Jenkins Failed: ${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+    //   body: "Project build (${BUILD_TAG}) failed '${e}'"
 
     FAILURE = e
   } finally {
