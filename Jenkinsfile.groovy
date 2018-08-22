@@ -140,14 +140,12 @@ node {
         ansiColor('xterm') {
           sh """
             docker build \
-              --no-cache \
               --file ws.Dockerfile \
               --build-arg BASE_IMAGE=${WS_BASE_IMAGE} \
               -t ${WS_LOCAL_IMAGE} .
           """
           sh """
             docker build \
-              --no-cache \
               --file db.Dockerfile \
               --build-arg BASE_IMAGE=${DB_BASE_IMAGE} \
               -t ${DB_LOCAL_IMAGE} .
