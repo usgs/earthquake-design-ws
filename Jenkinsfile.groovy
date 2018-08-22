@@ -344,7 +344,7 @@ node {
       }
     }
 
-    parellel PUBLISH_IMAGE_TASKS
+    parallel PUBLISH_IMAGE_TASKS
 
     stage('Trigger Deploy') {
       def DB_IMAGE = "${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}"
