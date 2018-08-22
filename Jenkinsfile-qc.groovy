@@ -29,7 +29,7 @@ node {
           sh """
             docker run --rm \
               -v ${WORKSPACE}/qc-results:/hazdev-project/qc-results:rw \
-              ${GITLAB_INNERSOURCE_REGISTRY}/${params.IMAGE} \
+              ${GITLAB_INNERSOURCE_REGISTRY}/${params.WS_IMAGE} \
               /bin/bash --login -c 'node qc/smoketest.js https://${host} >> qc-results/${host}.txt'
           """
 
