@@ -327,7 +327,7 @@ node {
       WS_IMAGE = WS_IMAGE.replace("${GITLAB_INNERSOURCE_REGISTRY}/", '')
 
       build(
-        job: 'deploy-ws-split',
+        job: 'deploy-ws',
         parameters: [
           string(name: 'DB_IMAGE', value: DB_IMAGE),
           string(name: 'WS_IMAGE', value: WS_IMAGE)
