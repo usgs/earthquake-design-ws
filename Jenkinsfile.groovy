@@ -322,11 +322,17 @@ node {
     }
 
     stage('Trigger Deploy') {
+      def DB_IMAGE = "${DB_DEPLOY_IMAGE}:${IMAGE_VERSION}"
+      def WS_IMAGE = "${WS_DEPLOY_IMAGE}:${IMAGE_VERSION}"
+
+      DB_IMAGE = DB_IMAGE.replace("${GITLAB_INNERSOURCE_REGISTRY}/", '')
+      WS_IMAGE = WS_IMAGE.replace("${GITLAB_INNERSOURCE_REGISTRY}/", '')
+
       build(
         job: 'deploy-ws',
         parameters: [
-          string(name: 'WS_IMAGE_VERSION', value: IMAGE_VERSION),
-          string(name: 'DB_IMAGE_VERSION', value: IMAGE_VERSION)
+          string(name: 'DB_IMAGE', value: IMAGE_VERSION),
+          string(name: 'WS_IMAGE', value: IMAGE_VERSION)
         ],
         propagate: false,
         wait: false
