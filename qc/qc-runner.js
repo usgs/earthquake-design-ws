@@ -204,6 +204,8 @@ const QCRunner = function (options) {
           try {
             resolve(JSON.parse(buffer.join('')));
           } catch (e) {
+            process.stderr.write(JSON.stringify(options, null, 2) + '\n');
+            process.stderr.write(buffer.join('') + '\n');
             reject(e);
           }
         });

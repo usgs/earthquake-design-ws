@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=usgs/hazdev-base-images:latest-node
+ARG BASE_IMAGE=usgs/node:8
 FROM ${BASE_IMAGE}
 
 # node-libcurl build dependencies
@@ -15,16 +15,22 @@ USER usgs-user
 
 # Configure application
 RUN /bin/bash --login -c " \
-        cd /hazdev-project && \
-        export NON_INTERACTIVE=true && \
-        npm config set package-lock false && \
-        npm install node-libcurl --build-from-source && \
-        npm install && \
-        rm -rf \
-            $HOME/.npm \
-            /tmp/npm* \
-        "
+    cd /hazdev-project && \
+    export NON_INTERACTIVE=true && \
+    npm config set package-lock false && \
+    npm install node-libcurl --build-from-source && \
+    npm install && \
+    rm -rf \
+        $HOME/.npm \
+        /tmp/npm* \
+    "
 
+HEALTHCHECK \
+    --interval=20s \
+    --timeout=1s \
+    --start-period=30s \
+    --retries=2 \
+  CMD /hazdev-project/src/lib/healthcheck.sh
 
 WORKDIR /hazdev-project
 EXPOSE 8000

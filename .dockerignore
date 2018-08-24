@@ -4,6 +4,7 @@
 .git
 .gitattributes
 .gitignore
+.vscode
 Dockerfile
 Jenkinsfile
 coverage
