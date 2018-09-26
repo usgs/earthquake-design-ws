@@ -39,8 +39,8 @@ describe('SpectraFactory', () => {
         const calculated = result.data;
         const expectation = [
           [0,0.637],
-          [0.025,0.844],
-          [0.05,1.084],
+          [0.025,0.868],
+          [0.05,1.099],
           [0.095,1.512],
           [0.1,1.512],
           [0.15,1.512],
