@@ -85,7 +85,7 @@ const SpectraFactory = function (options) {
         if (time === 0) {
           s_a = pgad;
         } else if (time <= T_0) {
-          s_a = sds *  (0.4 + ((0.6 * time) / T_0));
+          s_a = pgad + ((sds - pgad)*(time / T_0));
         } else if (time <= T_S) {
           s_a = sds;
         } else {
