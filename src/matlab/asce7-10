@@ -1,0 +1,209 @@
+function ASCE7_10_Func
+%Read cityFile
+        refDoc = 'asce7-10';
+        T = evalin('caller', 'T');
+        
+        %Create distinct variable arrays
+        latitude = T{:,'latitude'};
+        longitude = T{:,'longitude'};
+        riskCategory = T{:,'riskCategory'};
+        siteClass = T{:,'siteClass'};
+        title = T{:,'title'};
+        
+        %Iteration preparation
+        n = length( title );
+        pgauh = NaN(n,1);
+        pgad = NaN(n,1);
+        pga = NaN(n,1);
+        fpga = NaN(n,1);
+        pgam = NaN(n,1);
+        ssrt = NaN(n,1);
+        crs = NaN(n,1);
+        ssuh = NaN(n,1);
+        ssd = NaN(n,1);
+        ss = NaN(n,1);
+        fa = NaN(n,1);
+        sms = NaN(n,1);
+        sds = NaN(n,1);
+        Tsdcs = string();
+        s1rt = NaN(n,1);
+        cr1 = NaN(n,1);
+        s1uh = NaN(n,1);
+        s1d = NaN(n,1);
+        s1 = NaN(n,1);
+        fv = NaN(n,1);
+        sm1 = NaN(n,1);
+        sd1 = NaN(n,1);
+        Tsdc1 = string();
+        rowErrors = string;
+        Tsdc = string();
+        t_sub_l = NaN(n,1);
+        for i = 1:n
+            try %Attempt to input data from cityFile to webservice.
+                %If this returns error, go to 'catch'.
+            %display in command window
+            disp( [ int2str(i) ') ' title{i} ] )
+            %read data from webservice
+            options = weboptions('Timeout', 30);
+            DATA = webread( [ 'https://earthquake.usgs.gov/ws/designmaps/'...
+                              refDoc '.json?'], ...
+                              'latitude', latitude(i), ...
+                              'longitude', longitude(i), ...
+                              'riskCategory', riskCategory(i), ...
+                              'siteClass', siteClass{i}, ...
+                              'title', title{i}, ...
+                              options);
+                          
+            %pgauh
+            if isempty(DATA.response.data.pgauh) == 0 
+                pgauh(i) = DATA.response.data.pgauh;
+            end
+            %pgad
+            if isempty(DATA.response.data.pgad) == 0
+                pgad(i) = DATA.response.data.pgad;
+            end
+            %pga
+            if isempty(DATA.response.data.pga) == 0
+                pga(i) = DATA.response.data.pga; 
+            end
+            %fpga
+            if isempty(DATA.response.data.fpga) == 0
+                fpga(i) = DATA.response.data.fpga;
+            end
+            %pgam
+            if isempty(DATA.response.data.pgam) == 0
+                pgam(i) = DATA.response.data.pgam;
+            end
+            %ssrt
+            if isempty(DATA.response.data.ssrt) == 0 
+                ssrt(i) = DATA.response.data.ssrt;
+            end
+            %crs
+            if isempty(DATA.response.data.crs) == 0 
+                crs(i) = DATA.response.data.crs;
+            end
+            %ssuh
+            if isempty(DATA.response.data.ssuh) == 0
+                ssuh(i) = DATA.response.data.ssuh;
+            end
+            %ssd
+            if isempty(DATA.response.data.ssd) == 0 
+                ssd(i) = DATA.response.data.ssd;
+            end
+            %ss
+            if isempty(DATA.response.data.ss) == 0
+                ss(i) = DATA.response.data.ss;
+            end
+            %fa
+            if isempty(DATA.response.data.fa) == 0
+                fa(i) = DATA.response.data.fa;
+            end
+            %sms
+            if isempty(DATA.response.data.sms) == 0 
+                sms(i) = DATA.response.data.sms;
+            end
+            %sds
+            if isempty(DATA.response.data.sds) == 0 
+                sds(i) = DATA.response.data.sds;
+            end
+            %sdcs
+            if isempty(DATA.response.data.sdcs) == 0
+                Tsdcs(i) = DATA.response.data.sdcs;
+            end
+            %s1rt
+            if isempty(DATA.response.data.s1rt) == 0
+                s1rt(i) = DATA.response.data.s1rt;
+            end
+            %cr1
+            if isempty(DATA.response.data.cr1) == 0
+                cr1(i) = DATA.response.data.cr1;
+            end
+            %s1uh
+            if isempty(DATA.response.data.s1uh) == 0
+                s1uh(i) = DATA.response.data.s1uh;
+            end
+            %s1d_BSE_2N
+            if isempty(DATA.response.data.s1d) == 0
+                s1d(i) = DATA.response.data.s1d;
+            end
+            %s1
+            if isempty(DATA.response.data.s1) == 0
+                s1(i) = DATA.response.data.s1;
+            end
+            %fv
+            if isempty(DATA.response.data.fv) == 0
+                fv(i) = DATA.response.data.fv;
+            end
+            %sm1
+            if isempty(DATA.response.data.sm1) == 0 
+                sm1(i) = DATA.response.data.sm1;
+            end
+            %sdl
+            if isempty(DATA.response.data.sd1) == 0
+                sd1(i) = DATA.response.data.sd1;
+            end
+            %sdc1
+            if isempty(DATA.response.data.sdc1) == 0
+                Tsdc1(i) = DATA.response.data.sdc1;
+            end
+            %sdc
+            if isempty(DATA.response.data.sdc) == 0 
+                Tsdc(i) = DATA.response.data.sdc;
+            end
+            %t_sub_1
+            if isempty(DATA.response.data.t_sub_l) == 0  
+                t_sub_l(i) = DATA.response.data.t_sub_l;
+            end
+            catch %If inputs to webservice return error 500
+                  %Send error to user and fill row values with 0.
+                warningMsg = [title{i}];
+                warning(warningMsg)
+                rowErrors = [rowErrors,warningMsg];
+                pgauh(i) = 0;
+                pgad(i) = 0;
+                pga(i) = 0;
+                fpga(i) = 0;
+                pgam(i) = 0;
+                ssrt(i) = 0;
+                crs(i) = 0;
+                ssuh(i) = 0;
+                ssd(i) = 0;
+                ss(i) = 0;
+                fa(i) = 0;
+                sms(i) = 0;
+                sds(i) = 0;
+                Tsdcs(i) = 0;
+                s1rt(i) = 0;
+                cr1(i) = 0;
+                s1uh(i) = 0;
+                s1d(i) = 0;
+                s1(i) = 0;
+                fv(i) = 0;
+                sm1(i) = 0;
+                sd1(i) = 0;
+                Tsdc1{i} = char(0);
+                Tsdc(i) = 0;
+                t_sub_l(i) = 0;
+            end 
+            if i > 1
+                close(f); %Close old waitbar after first iteration.
+            end
+            messagei = ['Processing...', title{i}];
+            f = waitbar(i/n, messagei); %Update waitbar
+             
+        end
+    messagef = ['Process complete! Output ' ...
+                'file located in app folder.'];
+    waitbar(1,f,messagef); %Final waitbar
+    sdcs = Tsdcs';
+    sdc1 = Tsdc1';
+    sdc = Tsdc';
+    rowErrors(1) = []; %Delete unnecessary first empty cell
+    assignin('caller', 'rowErrors', rowErrors);
+    %Build new table of all variables
+    T2 = table(title,latitude,longitude,riskCategory,siteClass,pgauh,pgad,pga,fpga,pgam,ssrt,crs,ssuh,ssd,ss,fa,sms,sds,sdcs,s1rt,cr1,s1uh,s1d,s1,fv,sm1,sd1,sdc1,sdc,t_sub_l);
+    assignin('caller', 'T2', T2);
+    
+    %Output T2 to .xlsx
+    writetable(T2,'ASCE7-10_Output.xlsx')
+end
