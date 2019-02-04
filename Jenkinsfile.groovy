@@ -70,69 +70,20 @@ node {
 
     SCAN_AND_BUILD_TASKS["Scan Dependencies"] = {
       stage('Scan Dependencies') {
-        docker.image(WS_BASE_IMAGE).inside() {
-          // Create dependencies
-          withEnv([
-            'npm_config_cache=/tmp/npm-cache',
-            'HOME=/tmp',
-            'NON_INTERACTIVE=true'
-          ]) {
-            ansiColor('xterm') {
-              sh """
-                source /etc/profile.d/nvm.sh > /dev/null 2>&1;
-                npm config set package-lock false;
-
-                # Using --production installs dependencies but not devDependencies
-                npm install --production
-              """
-            }
-          }
-
-          ansiColor('xterm') {
-            dependencyCheckAnalyzer(
-              datadir: '',
-              hintsFile: '',
-              includeCsvReports: false,
-              includeHtmlReports: true,
-              includeJsonReports: false,
-              includeVulnReports: true,
-              isAutoupdateDisabled: false,
-              outdir: 'dependency-check-data',
-              scanpath: "${WORKSPACE}",
-              skipOnScmChange: false,
-              skipOnUpstreamChange: false,
-              suppressionFile: '',
-              zipExtensions: ''
-            )
-          }
-
-          // Publish results
-          dependencyCheckPublisher(
-            canComputeNew: false,
-            defaultEncoding: '',
-            healthy: '',
-            pattern: '**/dependency-check-report.xml',
-            unHealthy: ''
+        // Analyze dependencies
+        ansiColor('xterm') {
+          dependencyCheckAnalyzer(
+            datadir: '/var/lib/jenkins/nvd',
+            isAutoupdateDisabled: true,
+            outdir: 'dependency-check-results',
+            scanpath: "${WORKSPACE}"
           )
-
-          publishHTML (target: [
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'dependency-check-data',
-            reportFiles: 'dependency-check-report.html',
-            reportName: 'Dependency Analysis'
-          ])
-
-          publishHTML (target: [
-            allowMissing: true,
-            alwaysLinkToLastBuild: true,
-            keepAll: true,
-            reportDir: 'dependency-check-data',
-            reportFiles: 'dependency-check-vulnerability.html',
-            reportName: 'Dependency Vulnerabilities'
-          ])
         }
+
+        // Publish results
+        dependencyCheckPublisher(
+          pattern: '**/dependency-check-report.xml'
+        )
       }
     }
 
