@@ -1,14 +1,14 @@
-ARG BASE_IMAGE=usgs/node:8
+ARG BASE_IMAGE=usgs/node:10
 FROM ${BASE_IMAGE}
 
 # node-libcurl build dependencies
+USER root
 RUN yum groupinstall -y 'Development Tools' && \
     yum install -y libcurl-devel && \
     yum clean all
 
 # Copy application (ignores set in .dockerignore) and set permissions
-COPY . /hazdev-project
-RUN chown -R usgs-user:usgs-user /hazdev-project
+COPY --chown=usgs-user:usgs-user . /hazdev-project
 
 # Switch to usgs-user
 USER usgs-user

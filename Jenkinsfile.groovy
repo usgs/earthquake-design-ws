@@ -13,7 +13,7 @@ node {
   def DB_DEPLOY_IMAGE = "${DEPLOY_BASE}/db"
   def DB_LOCAL_IMAGE = "local/${APP_NAME}/db"
 
-  def WS_BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:8"
+  def WS_BASE_IMAGE = "${DEVOPS_REGISTRY}/usgs/node:10"
   def WS_CONTAINER = "${APP_NAME}-${BUILD_ID}-PENTEST"
   def WS_DEPLOY_IMAGE = "${DEPLOY_BASE}/ws"
   def WS_LOCAL_IMAGE = "local/${APP_NAME}/ws"
