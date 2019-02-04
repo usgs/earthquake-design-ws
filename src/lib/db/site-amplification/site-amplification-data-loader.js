@@ -1,11 +1,9 @@
 'use strict';
 
-
 const AbstractDataLoader = require('../abstract-data-loader'),
     Config = require('../../util/config'),
     extend = require('extend'),
     inquirer = require('inquirer');
-
 
 let config = Config().get(),
     siteAmplificationData = require('./site-amplification.json');
@@ -29,7 +27,6 @@ const SiteAmplificationDataLoader = function(options) {
   _this = AbstractDataLoader(options);
   _this.siteAmplificationData = options.siteAmplificationData;
 
-
   /**
    * Insert ground motion level bins into the database
    *
@@ -38,31 +35,29 @@ const SiteAmplificationDataLoader = function(options) {
    *     (lookup.id) from the lookup table.
    *
    */
-  _this.insertGroundMotionLevel = function (lookupIds) {
+  _this.insertGroundMotionLevel = function(lookupIds) {
     let promise;
 
     promise = Promise.resolve();
 
     for (let lookupId in lookupIds) {
       promise = promise.then(() => {
-        let insertGroundMotionLevel,
-            siteAmplification;
+        let insertGroundMotionLevel, siteAmplification;
 
         siteAmplification = lookupIds[lookupId];
 
-        insertGroundMotionLevel = function () {
+        insertGroundMotionLevel = function() {
           let queries = Promise.resolve();
 
           queries = queries.then(() => {
-            return _this.db.query(`
+            return _this.db.query(
+                `
               INSERT INTO ground_motion_level (
                 lookup_id,
                 value
               ) VALUES ($1, $2)
-            `, [
-                  lookupId,
-                  siteAmplification.bins
-                ]
+            `,
+                [lookupId, siteAmplification.bins]
             );
           });
 
@@ -73,56 +68,63 @@ const SiteAmplificationDataLoader = function(options) {
           return insertGroundMotionLevel();
         }
 
-        return _this.db.query(`
+        return _this.db
+          .query(
+              `
           SELECT id,
             value
           FROM ground_motion_level
           WHERE lookup_id=$1
-        `, [
-              lookupId
-            ]
-        ).then((result) => {
-          if (result.rows.length == 0) {
-            // bin does not exist
-            return insertGroundMotionLevel();
-          }
+        `,
+              [lookupId]
+          )
+          .then(result => {
+            if (result.rows.length == 0) {
+              // bin does not exist
+              return insertGroundMotionLevel();
+            }
 
-          // found existing bin
-          let skipInsertGroundMotionLevel;
+            // found existing bin
+            let skipInsertGroundMotionLevel;
 
-          lookupId = result.rows[0].id;
+            lookupId = result.rows[0].id;
 
-          skipInsertGroundMotionLevel = function () {
-            // nothing to do here
-          };
+            skipInsertGroundMotionLevel = function() {
+              // nothing to do here
+            };
 
-          if (_this.mode === MODE_MISSING) {
-            // bin already exists
-            return skipInsertGroundMotionLevel();
-          } else {
-            // ask user whether to remove existing data
-            let prompt = inquirer.createPromptModule();
-            return prompt([
-              {
-                name: 'dropGroundMotionLevel',
-                type: 'confirm',
-                message: `Binned values for row ${lookupId} already exists, drop and reload bins`,
-                default: false
-              }
-            ]).then((answers) => {
-              if (answers.dropGroundMotionLevel) {
-                return _this.db.query(`
+            if (_this.mode === MODE_MISSING) {
+              // bin already exists
+              return skipInsertGroundMotionLevel();
+            } else {
+              // ask user whether to remove existing data
+              let prompt = inquirer.createPromptModule();
+              return prompt([
+                {
+                  name: 'dropGroundMotionLevel',
+                  type: 'confirm',
+                  message: `Binned values for row ${lookupId} already exists, drop and reload bins`,
+                  default: false
+                }
+              ]).then(answers => {
+                if (answers.dropGroundMotionLevel) {
+                  return _this.db
+                    .query(
+                        `
                   DELETE FROM ground_motion_level
                   WHERE id=$1
-                `, [lookupId]).then(() => {
-                  return insertGroundMotionLevel();
-                });
-              } else {
-                return skipInsertGroundMotionLevel();
-              }
-            });
-          }
-        });
+                `,
+                        [lookupId]
+                    )
+                    .then(() => {
+                      return insertGroundMotionLevel();
+                    });
+                } else {
+                  return skipInsertGroundMotionLevel();
+                }
+              });
+            }
+          });
       });
     }
 
@@ -134,10 +136,8 @@ const SiteAmplificationDataLoader = function(options) {
    * "reference_document" and "spectral_period"
    *
    */
-  _this.insertLookup = function () {
-    let promise,
-        siteAmplificationData,
-        lookupIds;
+  _this.insertLookup = function() {
+    let promise, siteAmplificationData, lookupIds;
 
     // TODO: get existing siteAmplificationData and filter if only loading missing
     // but may need to pass all lookupIds for insertLookup
@@ -152,77 +152,87 @@ const SiteAmplificationDataLoader = function(options) {
         promise = promise.then(() => {
           let insertLookupRow;
 
-          insertLookupRow = function () {
-            return _this.db.query(`
+          insertLookupRow = function() {
+            return _this.db
+              .query(
+                  `
               INSERT INTO lookup (
                 reference_document,
                 spectral_period
               ) VALUES ($1, $2)
               RETURNING id
-            `, [
-                  referenceDocument,
-                  spectral_period
-                ]
-            ).then((result) => {
-              // save referenceDocument id for later data loading
-              lookupIds[result.rows[0].id] =
+            `,
+                  [referenceDocument, spectral_period]
+              )
+              .then(result => {
+                // save referenceDocument id for later data loading
+                lookupIds[result.rows[0].id] =
                   siteAmplificationData[referenceDocument][spectral_period];
-            });
+              });
           };
 
           if (_this.mode === MODE_SILENT) {
             return insertLookupRow();
           }
 
-          return _this.db.query(`
+          return _this.db
+            .query(
+                `
             SELECT id
             FROM lookup
             WHERE reference_document=$1
             AND spectral_period=$2
-          `, [referenceDocument, spectral_period]).then((result) => {
-            if (result.rows.length == 0) {
-              // lookupRow not found
-              return insertLookupRow();
-            }
+          `,
+                [referenceDocument, spectral_period]
+            )
+            .then(result => {
+              if (result.rows.length == 0) {
+                // lookupRow not found
+                return insertLookupRow();
+              }
 
-            // found existing lookupRow
-            let lookupId,
-                skipInsertLookup;
+              // found existing lookupRow
+              let lookupId, skipInsertLookup;
 
-            lookupId = result.rows[0].id;
-            skipInsertLookup = function () {
-              // save lookup id for later data loading
-              lookupIds[result.rows[0].id] =
+              lookupId = result.rows[0].id;
+              skipInsertLookup = function() {
+                // save lookup id for later data loading
+                lookupIds[result.rows[0].id] =
                   siteAmplificationData[referenceDocument][spectral_period];
-            };
+              };
 
-            if (_this.mode === MODE_MISSING) {
-              // lookup id already exists
-              return skipInsertLookup();
-            } else {
-              // ask user whether to remove existing data
-              let prompt = inquirer.createPromptModule();
-              return prompt([
-                {
-                  name: 'dropLookup',
-                  type: 'confirm',
-                  message: `Site amplification data for ${referenceDocument} ${spectral_period} already exists, drop and reload site amplification data`,
-                  default: false
-                }
-              ]).then((answers) => {
-                if (answers.dropLookup) {
-                  return _this.db.query(`
+              if (_this.mode === MODE_MISSING) {
+                // lookup id already exists
+                return skipInsertLookup();
+              } else {
+                // ask user whether to remove existing data
+                let prompt = inquirer.createPromptModule();
+                return prompt([
+                  {
+                    name: 'dropLookup',
+                    type: 'confirm',
+                    message: `Site amplification data for ${referenceDocument} ${spectral_period} already exists, drop and reload site amplification data`,
+                    default: false
+                  }
+                ]).then(answers => {
+                  if (answers.dropLookup) {
+                    return _this.db
+                      .query(
+                          `
                     DELETE FROM lookup
                     WHERE id=$1
-                  `, [lookupId]).then(() => {
-                    return insertLookupRow();
-                  });
-                } else {
-                  return skipInsertLookup();
-                }
-              });
-            }
-          });
+                  `,
+                          [lookupId]
+                      )
+                      .then(() => {
+                        return insertLookupRow();
+                      });
+                  } else {
+                    return skipInsertLookup();
+                  }
+                });
+              }
+            });
         });
       }
     }
@@ -241,34 +251,31 @@ const SiteAmplificationDataLoader = function(options) {
    *     (lookup.id) from the lookup table.
    *
    */
-  _this.insertAmplicationFactor = function (lookupIds) {
+  _this.insertAmplicationFactor = function(lookupIds) {
     let promise;
 
     promise = Promise.resolve();
 
     for (let lookupId in lookupIds) {
       promise = promise.then(() => {
-        let insertAmplicationFactor,
-            siteAmplification;
+        let insertAmplicationFactor, siteAmplification;
 
         siteAmplification = lookupIds[lookupId];
 
-        insertAmplicationFactor = function () {
+        insertAmplicationFactor = function() {
           let queries = Promise.resolve();
 
           for (let siteClass in siteAmplification.siteClasses) {
             queries = queries.then(() => {
-              return _this.db.query(`
+              return _this.db.query(
+                  `
                 INSERT INTO amplification_factor (
                   lookup_id,
                   site_class,
                   value
                 ) VALUES ($1, $2, $3)
-              `, [
-                    lookupId,
-                    siteClass,
-                    siteAmplification.siteClasses[siteClass]
-                  ]
+              `,
+                  [lookupId, siteClass, siteAmplification.siteClasses[siteClass]]
               );
             });
           }
@@ -280,57 +287,63 @@ const SiteAmplificationDataLoader = function(options) {
           return insertAmplicationFactor();
         }
 
-        return _this.db.query(`
+        return _this.db
+          .query(
+              `
           SELECT id,
             site_class
           FROM amplification_factor
           WHERE lookup_id=$1
-        `, [
-              lookupId
-            ]
-        ).then((result) => {
-          if (result.rows.length == 0) {
-            // siteClass does not exist
-            return insertAmplicationFactor();
-          }
+        `,
+              [lookupId]
+          )
+          .then(result => {
+            if (result.rows.length == 0) {
+              // siteClass does not exist
+              return insertAmplicationFactor();
+            }
 
-          // found existing siteClass
-          let siteClass,
-              skipinsertAmplicationFactor;
+            // found existing siteClass
+            let siteClass, skipinsertAmplicationFactor;
 
-          lookupId = result.rows[0].id;
-          siteClass = result.rows[0].site_class;
-          skipinsertAmplicationFactor = function () {
-            // nothing to do here
-          };
+            lookupId = result.rows[0].id;
+            siteClass = result.rows[0].site_class;
+            skipinsertAmplicationFactor = function() {
+              // nothing to do here
+            };
 
-          if (_this.mode === MODE_MISSING) {
-            // siteClass already exists
-            return skipinsertAmplicationFactor();
-          } else {
-            // ask user whether to remove existing data
-            let prompt = inquirer.createPromptModule();
-            return prompt([
-              {
-                name: 'dropAmplificationFactor',
-                type: 'confirm',
-                message: `Site class ${siteClass} already exists, drop and reload site class`,
-                default: false
-              }
-            ]).then((answers) => {
-              if (answers.dropAmplificationFactor) {
-                return _this.db.query(`
+            if (_this.mode === MODE_MISSING) {
+              // siteClass already exists
+              return skipinsertAmplicationFactor();
+            } else {
+              // ask user whether to remove existing data
+              let prompt = inquirer.createPromptModule();
+              return prompt([
+                {
+                  name: 'dropAmplificationFactor',
+                  type: 'confirm',
+                  message: `Site class ${siteClass} already exists, drop and reload site class`,
+                  default: false
+                }
+              ]).then(answers => {
+                if (answers.dropAmplificationFactor) {
+                  return _this.db
+                    .query(
+                        `
                   DELETE FROM amplification_factor
                   WHERE id=$1
-                `, [lookupId]).then(() => {
-                  return insertAmplicationFactor();
-                });
-              } else {
-                return skipinsertAmplicationFactor();
-              }
-            });
-          }
-        });
+                `,
+                        [lookupId]
+                    )
+                    .then(() => {
+                      return insertAmplicationFactor();
+                    });
+                } else {
+                  return skipinsertAmplicationFactor();
+                }
+              });
+            }
+          });
       });
     }
 
@@ -345,19 +358,18 @@ const SiteAmplificationDataLoader = function(options) {
    *     (lookup.id) from the lookup table.
    *
    */
-  _this.insertRestriction = function (lookupIds) {
+  _this.insertRestriction = function(lookupIds) {
     let promise;
 
     promise = Promise.resolve();
 
     for (let lookupId in lookupIds) {
       promise = promise.then(() => {
-        let insertRestriction,
-            siteAmplification;
+        let insertRestriction, siteAmplification;
 
         siteAmplification = lookupIds[lookupId];
 
-        insertRestriction = function () {
+        insertRestriction = function() {
           let queries = Promise.resolve();
 
           for (let siteClass in siteAmplification.restriction) {
@@ -367,19 +379,16 @@ const SiteAmplificationDataLoader = function(options) {
 
             if (restriction !== null) {
               queries = queries.then(() => {
-                return _this.db.query(`
+                return _this.db.query(
+                    `
                   INSERT INTO restriction (
                     lookup_id,
                     site_class,
                     "limit",
                     message
                   ) VALUES ($1, $2, $3, $4)
-                `, [
-                      lookupId,
-                      siteClass,
-                      restriction.limit,
-                      restriction.message
-                    ]
+                `,
+                    [lookupId, siteClass, restriction.limit, restriction.message]
                 );
               });
             }
@@ -392,63 +401,68 @@ const SiteAmplificationDataLoader = function(options) {
           return insertRestriction();
         }
 
-        return _this.db.query(`
+        return _this.db
+          .query(
+              `
           SELECT id,
             site_class
           FROM restriction
           WHERE lookup_id=$1
-        `, [
-              lookupId
-            ]
-        ).then((result) => {
-          if (result.rows.length == 0) {
-            // restriction does not exist
-            return insertRestriction();
-          }
+        `,
+              [lookupId]
+          )
+          .then(result => {
+            if (result.rows.length == 0) {
+              // restriction does not exist
+              return insertRestriction();
+            }
 
-          // found existing restriction
-          let siteClass,
-              skipInsertRestriction;
+            // found existing restriction
+            let siteClass, skipInsertRestriction;
 
-          lookupId = result.rows[0].id;
-          siteClass = result.rows[0].site_class;
-          skipInsertRestriction = function () {
-            // nothing to do here
-          };
+            lookupId = result.rows[0].id;
+            siteClass = result.rows[0].site_class;
+            skipInsertRestriction = function() {
+              // nothing to do here
+            };
 
-          if (_this.mode === MODE_MISSING) {
-            // restriction already exists
-            return skipInsertRestriction();
-          } else {
-            // ask user whether to remove existing data
-            let prompt = inquirer.createPromptModule();
-            return prompt([
-              {
-                name: 'dropRestriction',
-                type: 'confirm',
-                message: `Restriction for site class ${siteClass} already exists, drop and reload restriction`,
-                default: false
-              }
-            ]).then((answers) => {
-              if (answers.dropRestriction) {
-                return _this.db.query(`
+            if (_this.mode === MODE_MISSING) {
+              // restriction already exists
+              return skipInsertRestriction();
+            } else {
+              // ask user whether to remove existing data
+              let prompt = inquirer.createPromptModule();
+              return prompt([
+                {
+                  name: 'dropRestriction',
+                  type: 'confirm',
+                  message: `Restriction for site class ${siteClass} already exists, drop and reload restriction`,
+                  default: false
+                }
+              ]).then(answers => {
+                if (answers.dropRestriction) {
+                  return _this.db
+                    .query(
+                        `
                   DELETE FROM restriction
                   WHERE id=$1
-                `, [lookupId]).then(() => {
-                  return insertRestriction();
-                });
-              } else {
-                return skipInsertRestriction();
-              }
-            });
-          }
-        });
+                `,
+                        [lookupId]
+                    )
+                    .then(() => {
+                      return insertRestriction();
+                    });
+                } else {
+                  return skipInsertRestriction();
+                }
+              });
+            }
+          });
       });
     }
 
     return promise;
   };
-
 
   /**
    * Run data loader using configured options.
@@ -456,31 +470,29 @@ const SiteAmplificationDataLoader = function(options) {
    * @return {Promise}
    *     promise representing that all data has been loaded.
    */
-  _this.run = function () {
-    let createSchema,
-        insertLookup,
-        insertData;
+  _this.run = function() {
+    let createSchema, insertLookup, insertData;
 
     // set order of load operations
     createSchema = _this._createSchema();
     insertLookup = createSchema.then(_this.insertLookup);
-    insertData = insertLookup.then((lookupIds) => {
-      return Promise.all([
-        _this.insertAmplicationFactor(lookupIds),
-        _this.insertRestriction(lookupIds),
-        _this.insertGroundMotionLevel(lookupIds)
-      ]);
-    }).catch((err) => {
-      process.stderr.write('handleing error' + err.stack);
-    });
+    insertData = insertLookup
+      .then(lookupIds => {
+        return Promise.all([
+          _this.insertAmplicationFactor(lookupIds),
+          _this.insertRestriction(lookupIds),
+          _this.insertGroundMotionLevel(lookupIds)
+        ]);
+      })
+      .catch(err => {
+        process.stderr.write('handleing error' + err.stack);
+      });
 
     return insertData;
   };
 
-
   options = null;
   return _this;
 };
-
 
 module.exports = SiteAmplificationDataLoader;
